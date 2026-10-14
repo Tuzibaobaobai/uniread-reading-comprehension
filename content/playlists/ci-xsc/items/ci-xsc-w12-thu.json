@@ -1,0 +1,201 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc-w12-thu",
+  "playlistId": "ci-xsc",
+  "order": 59,
+  "week": 12,
+  "day": "thu",
+  "title": "Is Mars Similar to Earth?",
+  "titleZh": "火星和地球相似吗？",
+  "displayName": "Week 12 Thursday Is Mars Similar to Earth?",
+  "taskType": { "code": "table_fill", "labelZh": "表格填空" },
+  "meta": {
+    "genre": "对话",
+    "wordCount": 233,
+    "difficulty": 3,
+    "suggestedMinutes": 9,
+    "themeContext": "人与自然",
+    "contentRequirement": "宇宙探索",
+    "intro": "火星和地球有哪些相似的地方？",
+    "hasVideo": false
+  },
+  "thumbnail": "assets/ci-xsc/ci-xsc-w12-thu-1.jpg",
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-xsc/ci-xsc-w12-thu-1.jpg",
+        "alt": "Earth and the smaller planet Mars side by side against the black background of space.",
+        "w": 484,
+        "h": 369
+      }
+    ],
+    "blocks": [
+      { "id": "i1", "type": "imageRef", "image": "img1" },
+      {
+        "id": "d1",
+        "type": "dialogue",
+        "legend": "M: Mike  A: Alice",
+        "turns": [
+          {
+            "speaker": "M",
+            "content": [
+              { "t": "text", "v": "So here’s the question for our discussion: In what ways are " },
+              { "t": "gloss", "v": "Mars", "zh": "火星" },
+              { "t": "text", "v": " and Earth " },
+              { "t": "vocab", "v": "similar", "ref": "v-similar" },
+              { "t": "text", "v": "? Can you think of any, Alice?" }
+            ]
+          },
+          {
+            "speaker": "A",
+            "content": [
+              { "t": "text", "v": "I’m not sure. Do both planets have the right " },
+              { "t": "vocab", "v": "temperature", "ref": "v-temperature" },
+              { "t": "text", "v": " for life?" }
+            ]
+          },
+          {
+            "speaker": "M",
+            "content": [
+              { "t": "text", "v": "I don’t think so. Mars is much colder. It’s about minus 55 " },
+              { "t": "gloss", "v": "degrees Celsius", "zh": "摄氏度" },
+              { "t": "text", "v": " most of the time." }
+            ]
+          },
+          {
+            "speaker": "A",
+            "content": [
+              { "t": "text", "v": "Well, then, are the two planets about the same " },
+              { "t": "vocab", "v": "distance", "ref": "v-distance" },
+              { "t": "text", "v": " from the Sun?" }
+            ]
+          },
+          {
+            "speaker": "M",
+            "content": [
+              { "t": "text", "v": "No way! Earth is about 150 million kilometers away from the Sun. The distance from Mars to the Sun is about 228 million kilometers." }
+            ]
+          },
+          {
+            "speaker": "A",
+            "content": [
+              { "t": "text", "v": "Yes, but in space that’s not that far. " },
+              { "t": "gloss", "v": "Jupiter", "zh": "木星" },
+              { "t": "text", "v": ", for example, is nearly 780 million kilometers from the Sun. That’s why we use " },
+              { "t": "gloss", "v": "astronomical units", "zh": "天文单位" },
+              { "t": "text", "v": " when we talk about distances in space. Earth is 1 astronomical unit from the Sun, and Mars is 1.5. The difference doesn’t sound so big when you look at it that way." }
+            ]
+          },
+          {
+            "speaker": "M",
+            "content": [
+              { "t": "text", "v": "I see what you mean. Jupiter is 5.2 astronomical units from the Sun, so I guess you’re right." }
+            ]
+          },
+          {
+            "speaker": "A",
+            "content": [
+              { "t": "text", "v": "I also found another point. The days on both planets are almost the same " },
+              { "t": "gloss", "v": "length", "zh": "时长" },
+              { "t": "text", "v": ". Earth’s day is 24 hours long, and Mars’ is only about half an hour longer." }
+            ]
+          },
+          {
+            "speaker": "M",
+            "content": [
+              { "t": "text", "v": "Yes. Besides that, they both have water. Mars may have had huge oceans in the past, but most of the water there is probably frozen now." }
+            ]
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      { "id": "v-similar", "headword": "similar", "ipa": "ˈsɪmələ(r)", "pos": "adj.", "meaningZh": "相似的" },
+      { "id": "v-temperature", "headword": "temperature", "ipa": "ˈtemprətʃə(r)", "pos": "n.", "meaningZh": "温度" },
+      { "id": "v-distance", "headword": "distance", "ipa": "ˈdɪstəns", "pos": "n.", "meaningZh": "距离" }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Complete the table below according to the passage.",
+      "stimulus": [
+        {
+          "id": "t1",
+          "type": "table",
+          "rows": [
+            [
+              { "content": [], "header": true },
+              { "content": [{ "t": "text", "v": "Earth" }], "header": true },
+              { "content": [{ "t": "text", "v": "Mars" }], "header": true }
+            ],
+            [
+              { "content": [{ "t": "text", "v": "Difference" }], "header": true },
+              {
+                "content": [
+                  { "t": "text", "v": "Earth is much " },
+                  { "t": "blank", "id": "b1", "number": 1, "hint": { "firstLetter": "w" } },
+                  { "t": "text", "v": " than Mars." }
+                ]
+              },
+              {
+                "content": [
+                  { "t": "text", "v": "It’s about minus " },
+                  { "t": "blank", "id": "b2", "number": 2, "hint": { "firstLetter": "f" } },
+                  { "t": "text", "v": " degrees Celsius most of the time on Mars." }
+                ]
+              }
+            ],
+            [
+              { "content": [{ "t": "text", "v": "Similarities" }], "header": true, "rowSpan": 3 },
+              {
+                "colSpan": 2,
+                "content": [
+                  { "t": "text", "v": "They are at similar " },
+                  { "t": "blank", "id": "b3", "number": 3, "hint": { "firstLetter": "d" } },
+                  { "t": "text", "v": " from the Sun. Mars is only 0.5 astronomical units " },
+                  { "t": "blank", "id": "b4", "number": 4, "hint": { "firstLetter": "f" } },
+                  { "t": "text", "v": " from the Sun than Earth." }
+                ]
+              }
+            ],
+            [
+              {
+                "colSpan": 2,
+                "content": [
+                  { "t": "text", "v": "They have similar day lengths. A day on Mars is only about " },
+                  { "t": "blank", "id": "b5", "number": 5, "hint": { "firstLetter": "h" } },
+                  { "t": "text", "v": " an hour longer than a day on Earth." }
+                ]
+              }
+            ],
+            [
+              {
+                "colSpan": 2,
+                "content": [
+                  { "t": "text", "v": "They both have water. Mars may have had huge " },
+                  { "t": "blank", "id": "b6", "number": 6, "hint": { "firstLetter": "o" } },
+                  { "t": "text", "v": " in the past, but most of the water there is probably " },
+                  { "t": "blank", "id": "b7", "number": 7, "hint": { "firstLetter": "f" } },
+                  { "t": "text", "v": " now." }
+                ]
+              }
+            ]
+          ]
+        }
+      ],
+      "questions": [
+        { "id": "q1", "number": 1, "points": 1, "skills": ["inference"], "interaction": { "kind": "textEntry", "blankIds": ["b1"] } },
+        { "id": "q2", "number": 2, "points": 1, "skills": ["detail"], "interaction": { "kind": "textEntry", "blankIds": ["b2"] } },
+        { "id": "q3", "number": 3, "points": 1, "skills": ["detail"], "interaction": { "kind": "textEntry", "blankIds": ["b3"] } },
+        { "id": "q4", "number": 4, "points": 1, "skills": ["calculation"], "interaction": { "kind": "textEntry", "blankIds": ["b4"] } },
+        { "id": "q5", "number": 5, "points": 1, "skills": ["detail"], "interaction": { "kind": "textEntry", "blankIds": ["b5"] } },
+        { "id": "q6", "number": 6, "points": 1, "skills": ["detail"], "interaction": { "kind": "textEntry", "blankIds": ["b6"] } },
+        { "id": "q7", "number": 7, "points": 1, "skills": ["detail"], "interaction": { "kind": "textEntry", "blankIds": ["b7"] } }
+      ]
+    }
+  ],
+  "source": { "pdf": "ssp时文 小升初.pdf", "pdfPages": [82], "bookPages": [74] },
+  "status": { "content": "reviewed", "version": "1.0.0" }
+}

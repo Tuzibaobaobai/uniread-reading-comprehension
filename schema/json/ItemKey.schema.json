@@ -1,0 +1,186 @@
+{
+  "$ref": "#/definitions/ItemKey",
+  "definitions": {
+    "ItemKey": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "string",
+          "const": "1.0"
+        },
+        "itemId": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+-w\\d{2}-(mon|tue|wed|thu|fri)$"
+        },
+        "answerSource": {
+          "type": "string",
+          "enum": [
+            "official",
+            "generated"
+          ]
+        },
+        "reviewStatus": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "approved"
+          ]
+        },
+        "answers": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "explanationZh": {
+                    "type": "string"
+                  },
+                  "evidence": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "block": {
+                          "type": "string"
+                        },
+                        "quote": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "block",
+                        "quote"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "correct": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "correct"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "explanationZh": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/explanationZh"
+                  },
+                  "evidence": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/evidence"
+                  },
+                  "slots": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "object",
+                      "properties": {
+                        "accept": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "minItems": 1
+                        },
+                        "caseSensitive": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "accept"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "slots"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "explanationZh": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/explanationZh"
+                  },
+                  "evidence": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/evidence"
+                  },
+                  "pairs": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "pairs"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "explanationZh": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/explanationZh"
+                  },
+                  "evidence": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/evidence"
+                  },
+                  "sequence": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "sequence"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "explanationZh": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/explanationZh"
+                  },
+                  "evidence": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/evidence"
+                  },
+                  "sampleAnswer": {
+                    "type": "string"
+                  },
+                  "rubricZh": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "sampleAnswer"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "itemId",
+        "answerSource",
+        "reviewStatus",
+        "answers"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.DS_Store
+# source PDFs are large (100MB+); keep out of git
+articles/*.pdf
+# rendered page images (regenerable via scripts/render.swift)
+.work/
+test-results/
+playwright-report/
+.vercel
+.env*

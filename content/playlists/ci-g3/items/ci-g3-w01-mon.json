@@ -1,0 +1,154 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g3-w01-mon",
+  "playlistId": "ci-g3",
+  "order": 1,
+  "week": 1,
+  "day": "mon",
+  "title": "Tiny “Embryos” Begin Space Test",
+  "titleZh": "微型“胚胎”开启太空试验",
+  "displayName": "Week 1 Monday Tiny “Embryos” Begin Space Test",
+  "taskType": { "code": "reading_choice", "labelZh": "阅读选择" },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 126,
+    "difficulty": 4,
+    "suggestedMinutes": 6,
+    "themeContext": "人与社会",
+    "contentRequirement": "科学技术与工程",
+    "intro": "中国空间站首次开展人类“人工胚胎”实验。",
+    "hasVideo": false
+  },
+  "article": {
+    "images": [],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "China has started the world’s first space experiment using human “" },
+          { "t": "gloss", "v": "artificial embryos", "zh": "人工胚胎" },
+          { "t": "text", "v": "” on the " },
+          { "t": "gloss", "v": "Chinese space station", "zh": "中国空间站" },
+          { "t": "text", "v": ". The " },
+          { "t": "gloss", "v": "samples", "zh": "样本" },
+          { "t": "text", "v": " " },
+          { "t": "vocab", "v": "arrived", "ref": "v-arrive" },
+          { "t": "text", "v": " with the " },
+          { "t": "gloss", "v": "Tianzhou-10 cargo spaceship", "zh": "天舟十号货运飞船" },
+          { "t": "text", "v": " on May 11." }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "Scientists say these are not real " },
+          { "t": "vocab", "v": "human", "ref": "v-human" },
+          { "t": "text", "v": " embryos. They are made from " },
+          { "t": "gloss", "v": "stem cells", "zh": "干细胞" },
+          { "t": "text", "v": " and cannot grow into a person. However, they can help scientists study how early human cells " },
+          { "t": "vocab", "v": "grow", "ref": "v-grow" },
+          { "t": "text", "v": " in " },
+          { "t": "vocab", "v": "space", "ref": "v-space" },
+          { "t": "text", "v": "." }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "“The experiment is going very well,” said scientist Yu Leqian. An " },
+          { "t": "gloss", "v": "automatic system", "zh": "自动化系统" },
+          { "t": "text", "v": " gives the samples fresh " },
+          { "t": "gloss", "v": "liquid", "zh": "培养液" },
+          { "t": "text", "v": " every day." }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "The team hopes to learn how space " },
+          { "t": "gloss", "v": "affects", "zh": "影响" },
+          { "t": "text", "v": " the human body in the future. They also have the same experiment on Earth, so they can " },
+          { "t": "gloss", "v": "compare", "zh": "对比" },
+          { "t": "text", "v": " the " },
+          { "t": "vocab", "v": "results", "ref": "v-result" },
+          { "t": "text", "v": " later. After five days in space, the samples will be " },
+          { "t": "vocab", "v": "frozen", "ref": "v-freeze" },
+          { "t": "text", "v": " and brought back for more study." }
+        ]
+      }
+    ],
+    "vocabulary": [
+      { "id": "v-space", "headword": "space", "ipa": "speɪs", "pos": "n.", "meaningZh": "太空" },
+      { "id": "v-arrive", "headword": "arrive", "ipa": "əˈraɪv", "pos": "v.", "meaningZh": "到达" },
+      { "id": "v-human", "headword": "human", "ipa": "ˈhjuːmən", "pos": "adj.", "meaningZh": "人的" },
+      { "id": "v-grow", "headword": "grow", "ipa": "ɡrəʊ", "pos": "v.", "meaningZh": "生长；发育" },
+      { "id": "v-result", "headword": "result", "ipa": "rɪˈzʌlt", "pos": "n.", "meaningZh": "结果" },
+      { "id": "v-freeze", "headword": "freeze", "ipa": "friːz", "pos": "v.", "meaningZh": "冻结" }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": ["detail"],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [{ "t": "text", "v": "What are the “artificial embryos” made from?" }],
+            "options": [
+              { "id": "A", "content": [{ "t": "text", "v": "Stem cells." }] },
+              { "id": "B", "content": [{ "t": "text", "v": "Real babies." }] },
+              { "id": "C", "content": [{ "t": "text", "v": "Animal eggs." }] }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": ["detail"],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [{ "t": "text", "v": "Why are scientists doing the experiment in space?" }],
+            "options": [
+              { "id": "A", "content": [{ "t": "text", "v": "To grow real humans in space." }] },
+              { "id": "B", "content": [{ "t": "text", "v": "To study how early human cells grow in space." }] },
+              { "id": "C", "content": [{ "t": "text", "v": "To send more liquid to the space station." }] }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": ["detail"],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [{ "t": "text", "v": "What will happen to the samples after five days?" }],
+            "options": [
+              { "id": "A", "content": [{ "t": "text", "v": "They will return to Earth for more study." }] },
+              { "id": "B", "content": [{ "t": "text", "v": "They will stay on the space station forever." }] },
+              { "id": "C", "content": [{ "t": "text", "v": "They will be used in another experiment on the Moon." }] }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "source": { "pdf": "小学英语时文阅读提分训练3+X3年级.pdf", "pdfPages": [10], "bookPages": [1] },
+  "status": { "content": "reviewed", "version": "1.0.0" }
+}

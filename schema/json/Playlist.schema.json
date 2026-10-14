@@ -1,0 +1,73 @@
+{
+  "$ref": "#/definitions/Playlist",
+  "definitions": {
+    "Playlist": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "string",
+          "const": "1.0"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string"
+        },
+        "shortTitle": {
+          "type": "string"
+        },
+        "series": {
+          "type": "string"
+        },
+        "publisher": {
+          "type": "string"
+        },
+        "gradeBand": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "locale": {
+          "type": "string"
+        },
+        "cover": {
+          "type": "string"
+        },
+        "accent": {
+          "type": "string",
+          "pattern": "^#[0-9a-fA-F]{6}$"
+        },
+        "itemIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+-w\\d{2}-(mon|tue|wed|thu|fri)$"
+          }
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "id",
+        "title",
+        "shortTitle",
+        "series",
+        "publisher",
+        "gradeBand",
+        "description",
+        "locale",
+        "cover",
+        "accent",
+        "itemIds",
+        "version"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

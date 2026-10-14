@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc-w05-thu",
+  "playlistId": "ci-xsc",
+  "order": 24,
+  "week": 5,
+  "day": "thu",
+  "title": "Beijing Gives First License to Robot Chefs",
+  "titleZh": "北京发出首张机器人厨师许可证",
+  "displayName": "Week 5 Thursday Beijing Gives First License to Robot Chefs",
+  "taskType": { "code": "passage_fill", "labelZh": "短文填空" },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 180,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与社会",
+    "contentRequirement": "人类发明与创新",
+    "intro": "北京发出首张“具身智能机器人食品经营许可证”，引领餐饮新潮流。",
+    "hasVideo": false
+  },
+  "thumbnail": "assets/ci-xsc/ci-xsc-w05-thu-1.jpg",
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-xsc/ci-xsc-w05-thu-1.jpg",
+        "alt": "A robot chef sprinkling ingredients into a large metal bowl in a kitchen.",
+        "w": 1200,
+        "h": 473
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "A type of robot chef has been given a " },
+          { "t": "vocab", "v": "license", "ref": "v-license" },
+          { "t": "text", "v": " in Beijing. This is the city’s first license for robot chefs." }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "The robot, named Lava, " },
+          { "t": "blank", "id": "b1", "number": 1, "hint": { "baseWord": "develop" } },
+          { "t": "text", "v": " by EncoSmart. It is a Beijing-" },
+          { "t": "vocab", "v": "based", "ref": "v-based" },
+          { "t": "text", "v": " company. Lava is powered by AI. " },
+          { "t": "blank", "id": "b2", "number": 2 },
+          { "t": "text", "v": " other robot chefs, it can cook different types of food. It can also learn " },
+          { "t": "blank", "id": "b3", "number": 3 },
+          { "t": "text", "v": " its own. This allows the “chef” to improve its cooking skills over time. This way, it can keep " },
+          { "t": "blank", "id": "b4", "number": 4, "hint": { "baseWord": "create" } },
+          { "t": "text", "v": " new menus." }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "The " },
+          { "t": "gloss", "v": "first-generation", "zh": "第一代的" },
+          { "t": "text", "v": " Lava robots are working in some office buildings in Beijing’s Haidian district. For now, they are only offering fried foods. Soon, another group of robot chefs " },
+          { "t": "blank", "id": "b5", "number": 5, "hint": { "baseWord": "begin" } },
+          { "t": "text", "v": " to work at some chain restaurants. These chefs will be able " },
+          { "t": "blank", "id": "b6", "number": 6, "hint": { "baseWord": "make" } },
+          { "t": "text", "v": " ice cream, drinks and salads." }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "Tian Yan works " },
+          { "t": "blank", "id": "b7", "number": 7 },
+          { "t": "text", "v": " EncoSmart. She believes that AI is " },
+          { "t": "blank", "id": "b8", "number": 8 },
+          { "t": "text", "v": " unavoidable " },
+          { "t": "vocab", "v": "trend", "ref": "v-trend" },
+          { "t": "text", "v": " in the catering business. AI-powered robot chefs help to " },
+          { "t": "vocab", "v": "reduce costs", "ref": "v-reduce-costs" },
+          { "t": "text", "v": ". Besides, they can make food processing quicker and " },
+          { "t": "blank", "id": "b9", "number": 9, "hint": { "baseWord": "easy" } },
+          { "t": "text", "v": ". More importantly, they follow the same " },
+          { "t": "gloss", "v": "standards", "zh": "标准" },
+          { "t": "text", "v": " " },
+          { "t": "blank", "id": "b10", "number": 10 },
+          { "t": "text", "v": " they cook. This makes sure that customers’ " },
+          { "t": "gloss", "v": "favored", "zh": "喜欢的" },
+          { "t": "text", "v": " dishes will taste good whenever they order them." }
+        ]
+      },
+      { "id": "i1", "type": "imageRef", "image": "img1" }
+    ],
+    "vocabulary": [
+      { "id": "v-license", "headword": "license", "ipa": "ˈlaɪsns", "pos": "n.", "meaningZh": "许可证" },
+      { "id": "v-based", "headword": "based", "ipa": "beɪst", "pos": "adj.", "meaningZh": "总部在……的" },
+      { "id": "v-trend", "headword": "trend", "ipa": "trend", "pos": "n.", "meaningZh": "趋势" },
+      { "id": "v-reduce-costs", "headword": "reduce costs", "meaningZh": "减少成本" }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Fill in each blank with a proper word or the proper form of the word in brackets.",
+      "questions": [
+        { "id": "q1", "number": 1, "points": 1, "skills": ["grammar"], "interaction": { "kind": "textEntry", "blankIds": ["b1"] } },
+        { "id": "q2", "number": 2, "points": 1, "skills": ["grammar"], "interaction": { "kind": "textEntry", "blankIds": ["b2"] } },
+        { "id": "q3", "number": 3, "points": 1, "skills": ["grammar"], "interaction": { "kind": "textEntry", "blankIds": ["b3"] } },
+        { "id": "q4", "number": 4, "points": 1, "skills": ["grammar"], "interaction": { "kind": "textEntry", "blankIds": ["b4"] } },
+        { "id": "q5", "number": 5, "points": 1, "skills": ["grammar"], "interaction": { "kind": "textEntry", "blankIds": ["b5"] } },
+        { "id": "q6", "number": 6, "points": 1, "skills": ["grammar"], "interaction": { "kind": "textEntry", "blankIds": ["b6"] } },
+        { "id": "q7", "number": 7, "points": 1, "skills": ["grammar"], "interaction": { "kind": "textEntry", "blankIds": ["b7"] } },
+        { "id": "q8", "number": 8, "points": 1, "skills": ["grammar"], "interaction": { "kind": "textEntry", "blankIds": ["b8"] } },
+        { "id": "q9", "number": 9, "points": 1, "skills": ["grammar"], "interaction": { "kind": "textEntry", "blankIds": ["b9"] } },
+        { "id": "q10", "number": 10, "points": 1, "skills": ["grammar"], "interaction": { "kind": "textEntry", "blankIds": ["b10"] } }
+      ]
+    }
+  ],
+  "source": { "pdf": "ssp时文 小升初.pdf", "pdfPages": [41], "bookPages": [33] },
+  "status": { "content": "reviewed", "version": "1.0.0" }
+}

@@ -1,0 +1,149 @@
+/** Derived lookups for the reader: blank ownership, blank display text, context sentences. */
+import type { BlockT, InlineT, ItemKeyT, ItemT, QuestionT, SectionT } from '@schema';
+import { questionBlankIds, type ResponseValue, type Result } from '@/lib/grading';
+import { plainText } from '@/components/Rich';
+
+export type Responses = Record<string, ResponseValue>;
+
+export interface FlatQuestion {
+  q: QuestionT;
+  section: SectionT;
+  index: number;
+  /** first question of its section — show the section instruction prominently */
+  firstInSection: boolean;
+}
+
+export function flatten(item: ItemT): FlatQuestion[] {
+  const out: FlatQuestion[] = [];
+  item.sections.forEach((section) =>
+    section.questions.forEach((q, i) => out.push({ q, section, index: out.length, firstInSection: i === 0 })),
+  );
+  return out;
+}
+
+/** blankId → index of the question that answers it */
+export function blankOwners(flat: FlatQuestion[]): Map<string, number> {
+  const m = new Map<string, number>();
+  flat.forEach(({ q, index }) => questionBlankIds(q).forEach((b) => m.set(b, index)));
+  return m;
+}
+
+/** text to show inside a blank chip for the current responses */
+export function blankText(fq: FlatQuestion | undefined, blankId: string, responses: Responses): string | undefined {
+  if (!fq) return undefined;
+  const { q, section } = fq;
+  const r = responses[q.id];
+  const it = q.interaction;
+  if (it.kind === 'inlineChoice') {
+    const id = Array.isArray(r) ? r[0] : undefined;
+    const opt = it.options.find((o) => o.id === id);
+    return opt ? plainText(opt.content) : undefined;
+  }
+  if (it.kind === 'gapMatch') {
+    const id = r && typeof r === 'object' && !Array.isArray(r) ? r[blankId] : undefined;
+    const entry = section.bank?.find((b) => b.id === id);
+    if (!entry) return undefined;
+    const text = plainText(entry.content);
+    return text.split(' ').length > 4 ? id : text; // sentences show their letter
+  }
+  if (it.kind === 'textEntry') {
+    const v = r && typeof r === 'object' && !Array.isArray(r) ? r[blankId] : undefined;
+    return v?.trim() ? v : undefined;
+  }
+  return undefined;
+}
+
+/** text of the correct answer for a blank (review mode) */
+export function correctBlankText(fq: FlatQuestion, blankId: string, key: ItemKeyT): string | undefined {
+  const k = key.answers[fq.q.id];
+  const it = fq.q.interaction;
+  if (!k) return undefined;
+  if ('correct' in k) {
+    if (it.kind === 'inlineChoice') {
+      const opt = it.options.find((o) => o.id === k.correct[0]);
+      return opt ? `${opt.id}. ${plainText(opt.content)}` : k.correct[0];
+    }
+    if (it.kind === 'gapMatch') {
+      const i = questionBlankIds(fq.q).indexOf(blankId);
+      const id = k.correct[i];
+      const entry = fq.section.bank?.find((b) => b.id === id);
+      return entry ? `${id}. ${plainText(entry.content)}` : id;
+    }
+  }
+  if ('slots' in k) return k.slots[blankId]?.accept[0];
+  return undefined;
+}
+
+/** is this blank correct in the graded result (null = unknown) */
+export function blankCorrect(result: Result | null, fq: FlatQuestion | undefined, blankId: string): boolean | null {
+  if (!result || !fq) return null;
+  const r = result.byQuestion.find((b) => b.q === fq.q.id);
+  if (!r) return null;
+  if (r.parts && blankId in r.parts) return r.parts[blankId];
+  return r.correct;
+}
+
+function inlinesOf(b: BlockT): InlineT[][] {
+  switch (b.type) {
+    case 'paragraph':
+    case 'heading':
+      return [b.content];
+    case 'list':
+      return b.items;
+    case 'dialogue':
+      return b.turns.map((t) => [{ t: 'text', v: `${t.speaker}: ` } as InlineT, ...t.content]);
+    case 'note':
+      return [...(b.title ? [b.title] : []), ...b.content, ...(b.signature ?? [])];
+    case 'table':
+      return b.rows.flatMap((r) => r.map((c) => c.content));
+    default:
+      return [];
+  }
+}
+
+/**
+ * sentence around a blank, as Inline[] trimmed to sentence boundaries, so the question card can show
+ * the blank in context (useful on narrow screens where the article is on another tab)
+ */
+export function blankContext(item: ItemT, blankId: string): InlineT[] | null {
+  const blocks = [...item.article.blocks, ...item.sections.flatMap((s) => s.stimulus ?? [])];
+  for (const b of blocks) {
+    for (const run of inlinesOf(b)) {
+      const idx = run.findIndex((n) => n.t === 'blank' && n.id === blankId);
+      if (idx < 0) continue;
+      // walk outward to the nearest sentence ends
+      const isEnd = (s: string) => /[.!?]["”’)]*\s*$/.test(s);
+      let start = idx;
+      while (start > 0) {
+        const prev = run[start - 1];
+        if (prev.t === 'text' && isEnd(prev.v)) break;
+        start--;
+        // a sentence boundary inside this text node: keep the node, its head is trimmed below
+        if (prev.t === 'text' && /[.!?]["”’)]*\s+\S/.test(prev.v)) break;
+      }
+      let end = idx;
+      while (end < run.length - 1) {
+        const next = run[end + 1];
+        end++;
+        if (next.t === 'text' && /[.!?]/.test(next.v)) break;
+      }
+      const slice = run.slice(start, end + 1).map((n, i, arr) => {
+        if (n.t !== 'text') return n;
+        let v = n.v;
+        if (i === 0 && start > 0) v = v.replace(/^.*[.!?]["”’)]*\s+/s, '');
+        if (i === arr.length - 1 && end > idx) v = v.replace(/([.!?]["”’)]*).*$/s, '$1');
+        return { ...n, v };
+      });
+      return slice;
+    }
+  }
+  return null;
+}
+
+/** blocks that contain evidence for a question (review highlighting) */
+export function evidenceBlocks(key: ItemKeyT | null, qid: string | undefined): Set<string> {
+  const set = new Set<string>();
+  if (!key || !qid) return set;
+  key.answers[qid]?.evidence?.forEach((e) => set.add(e.block));
+  return set;
+}

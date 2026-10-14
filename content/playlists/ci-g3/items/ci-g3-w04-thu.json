@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g3-w04-thu",
+  "playlistId": "ci-g3",
+  "order": 19,
+  "week": 4,
+  "day": "thu",
+  "title": "Playing With Buildings",
+  "titleZh": "与建筑趣味互动",
+  "displayName": "Week 4 Thursday Playing With Buildings",
+  "taskType": { "code": "true_false", "labelZh": "判断正误" },
+  "meta": {
+    "genre": "记叙文",
+    "wordCount": 129,
+    "difficulty": 3,
+    "suggestedMinutes": 8,
+    "themeContext": "人与自我",
+    "contentRequirement": "敢于创新",
+    "intro": "与世界各地的建筑物进行脑洞大开的互动吧！",
+    "hasVideo": false
+  },
+  "article": {
+    "images": [],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          { "t": "gloss", "v": "Spanish", "zh": "西班牙的" },
+          { "t": "text", "v": " " },
+          { "t": "vocab", "v": "pair", "ref": "v-pair" },
+          { "t": "text", "v": " Anna Devis and Daniel Rueda love travelling." }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "They have been to many places in Spain, " },
+          { "t": "gloss", "v": "France", "zh": "法国" },
+          { "t": "text", "v": ", " },
+          { "t": "gloss", "v": "Italy", "zh": "意大利" },
+          { "t": "text", "v": ", " },
+          { "t": "gloss", "v": "Denmark", "zh": "丹麦" },
+          { "t": "text", "v": ", and other countries. During their travel, they " },
+          { "t": "gloss", "v": "interact with", "zh": "与……互动" },
+          { "t": "text", "v": " the shapes and colours of buildings. Their " },
+          { "t": "vocab", "v": "playful", "ref": "v-playful" },
+          { "t": "text", "v": " photos will make you look twice and smile." }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "They look for funny windows, colourful doors, and tall walls to make " },
+          { "t": "vocab", "v": "creative", "ref": "v-creative" },
+          { "t": "text", "v": " photos. One photo shows Daniel “climbing” the wall like Spider-Man, and another shows Anna " },
+          { "t": "gloss", "v": "pretending", "zh": "假装" },
+          { "t": "text", "v": " to “" },
+          { "t": "vocab", "v": "hold up", "ref": "v-hold-up" },
+          { "t": "text", "v": "” the red building as if it were a red umbrella." }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "The pair has a large " },
+          { "t": "gloss", "v": "following", "zh": "追随者" },
+          { "t": "text", "v": " " },
+          { "t": "vocab", "v": "on the internet", "ref": "v-on-the-internet" },
+          { "t": "text", "v": ". People love their fun ideas. “" },
+          { "t": "vocab", "v": "Keep up", "ref": "v-keep-up-sth" },
+          { "t": "text", "v": " the great work!” fans say. “Can I play with you?” one girl asked. “Sure!” Anna and Daniel answered happily. They love sharing their joy with the world." }
+        ]
+      }
+    ],
+    "vocabulary": [
+      { "id": "v-pair", "headword": "pair", "ipa": "peə(r)", "pos": "n.", "meaningZh": "一对" },
+      { "id": "v-playful", "headword": "playful", "ipa": "ˈpleɪfl", "pos": "adj.", "meaningZh": "有趣的" },
+      { "id": "v-creative", "headword": "creative", "ipa": "kriˈeɪtɪv", "pos": "adj.", "meaningZh": "创造性的" },
+      { "id": "v-hold-up", "headword": "hold up", "meaningZh": "举起" },
+      { "id": "v-on-the-internet", "headword": "on the internet", "meaningZh": "在网上" },
+      { "id": "v-keep-up-sth", "headword": "keep up sth.", "meaningZh": "坚持某事" }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Decide if the following statements are True (T) or False (F) according to the text.",
+      "questions": [
+        { "id": "q1", "number": 1, "points": 1, "skills": ["detail"], "interaction": { "kind": "choice", "variant": "trueFalse", "maxChoices": 1, "prompt": [{ "t": "text", "v": "The pair have never been to Denmark." }], "options": [{ "id": "T", "content": [{ "t": "text", "v": "True" }] }, { "id": "F", "content": [{ "t": "text", "v": "False" }] }] } },
+        { "id": "q2", "number": 2, "points": 1, "skills": ["detail"], "interaction": { "kind": "choice", "variant": "trueFalse", "maxChoices": 1, "prompt": [{ "t": "text", "v": "Daniel dressed like Spider-Man in the photo." }], "options": [{ "id": "T", "content": [{ "t": "text", "v": "True" }] }, { "id": "F", "content": [{ "t": "text", "v": "False" }] }] } },
+        { "id": "q3", "number": 3, "points": 1, "skills": ["detail"], "interaction": { "kind": "choice", "variant": "trueFalse", "maxChoices": 1, "prompt": [{ "t": "text", "v": "In the photo, Anna held up a red umbrella in front of a building." }], "options": [{ "id": "T", "content": [{ "t": "text", "v": "True" }] }, { "id": "F", "content": [{ "t": "text", "v": "False" }] }] } },
+        { "id": "q4", "number": 4, "points": 1, "skills": ["detail"], "interaction": { "kind": "choice", "variant": "trueFalse", "maxChoices": 1, "prompt": [{ "t": "text", "v": "The pair have fans on the internet." }], "options": [{ "id": "T", "content": [{ "t": "text", "v": "True" }] }, { "id": "F", "content": [{ "t": "text", "v": "False" }] }] } },
+        { "id": "q5", "number": 5, "points": 1, "skills": ["main_idea"], "interaction": { "kind": "choice", "variant": "trueFalse", "maxChoices": 1, "prompt": [{ "t": "text", "v": "The pair shows people an interesting game with buildings." }], "options": [{ "id": "T", "content": [{ "t": "text", "v": "True" }] }, { "id": "F", "content": [{ "t": "text", "v": "False" }] }] } }
+      ]
+    }
+  ],
+  "source": { "pdf": "小学英语时文阅读提分训练3+X3年级.pdf", "pdfPages": [36], "bookPages": [27] },
+  "status": { "content": "reviewed", "version": "1.0.0" }
+}

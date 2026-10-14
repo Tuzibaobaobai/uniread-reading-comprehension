@@ -1,0 +1,187 @@
+{
+  "$ref": "#/definitions/Catalog",
+  "definitions": {
+    "Catalog": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "string",
+          "const": "1.0"
+        },
+        "generatedAt": {
+          "type": "string"
+        },
+        "playlists": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+              },
+              "title": {
+                "type": "string"
+              },
+              "shortTitle": {
+                "type": "string"
+              },
+              "cover": {
+                "type": "string"
+              },
+              "accent": {
+                "type": "string"
+              },
+              "gradeBand": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "itemCount": {
+                "type": "integer"
+              },
+              "totalWords": {
+                "type": "integer"
+              },
+              "difficultyRange": {
+                "type": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
+              },
+              "taskTypes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "reading_choice",
+                    "cloze",
+                    "word_bank",
+                    "six_choose_four",
+                    "seven_choose_five",
+                    "matching",
+                    "true_false",
+                    "answer_questions",
+                    "passage_fill",
+                    "table_fill",
+                    "dialogue_completion",
+                    "weekly_intensive"
+                  ]
+                }
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[a-z0-9-]+-w\\d{2}-(mon|tue|wed|thu|fri)$"
+                    },
+                    "order": {
+                      "type": "integer"
+                    },
+                    "week": {
+                      "type": "integer"
+                    },
+                    "day": {
+                      "type": "string",
+                      "enum": [
+                        "mon",
+                        "tue",
+                        "wed",
+                        "thu",
+                        "fri"
+                      ]
+                    },
+                    "title": {
+                      "type": "string"
+                    },
+                    "displayName": {
+                      "type": "string"
+                    },
+                    "taskType": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "$ref": "#/definitions/Catalog/properties/playlists/items/properties/taskTypes/items"
+                        },
+                        "labelZh": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "code",
+                        "labelZh"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "wordCount": {
+                      "type": "integer"
+                    },
+                    "difficulty": {
+                      "type": "integer"
+                    },
+                    "suggestedMinutes": {
+                      "type": "integer"
+                    },
+                    "questionCount": {
+                      "type": "integer"
+                    },
+                    "thumbnail": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "order",
+                    "week",
+                    "day",
+                    "title",
+                    "displayName",
+                    "taskType",
+                    "wordCount",
+                    "difficulty",
+                    "suggestedMinutes",
+                    "questionCount"
+                  ],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "shortTitle",
+              "cover",
+              "accent",
+              "gradeBand",
+              "description",
+              "itemCount",
+              "totalWords",
+              "difficultyRange",
+              "taskTypes",
+              "items"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "generatedAt",
+        "playlists"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc-w10-thu",
+  "playlistId": "ci-xsc",
+  "order": 49,
+  "week": 10,
+  "day": "thu",
+  "title": "A Trip to England",
+  "titleZh": "英国之旅",
+  "displayName": "Week 10 Thursday A Trip to England",
+  "taskType": { "code": "dialogue_completion", "labelZh": "补全对话" },
+  "meta": {
+    "genre": "对话",
+    "wordCount": 155,
+    "difficulty": 1,
+    "suggestedMinutes": 6,
+    "themeContext": "人与社会",
+    "contentRequirement": "同伴交往",
+    "intro": "通过对话了解肯在英国的旅行经历。",
+    "hasVideo": false
+  },
+  "thumbnail": "assets/ci-xsc/ci-xsc-w10-thu-1.jpg",
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-xsc/ci-xsc-w10-thu-1.jpg",
+        "alt": "A black-and-white photo of Tower Bridge in London with its two bridge sections raised.",
+        "w": 667,
+        "h": 429
+      }
+    ],
+    "blocks": [
+      { "id": "i1", "type": "imageRef", "image": "img1" },
+      {
+        "id": "d1",
+        "type": "dialogue",
+        "turns": [
+          {
+            "speaker": "W",
+            "content": [
+              { "t": "text", "v": "Hi, Ken. You look tired. " },
+              { "t": "blank", "id": "b1", "number": 1 }
+            ]
+          },
+          {
+            "speaker": "M",
+            "content": [
+              { "t": "text", "v": "Yes, we went to England last week. I took some photos there. " },
+              { "t": "blank", "id": "b2", "number": 2 }
+            ]
+          },
+          {
+            "speaker": "W",
+            "content": [
+              { "t": "text", "v": "Of course. Wow, you look " },
+              { "t": "vocab", "v": "handsome", "ref": "v-handsome" },
+              { "t": "text", "v": ". What are you doing in the picture?" }
+            ]
+          },
+          {
+            "speaker": "M",
+            "content": [{ "t": "blank", "id": "b3", "number": 3 }]
+          },
+          {
+            "speaker": "W",
+            "content": [{ "t": "text", "v": "I know you have a cousin in England. Have you visited him?" }]
+          },
+          {
+            "speaker": "M",
+            "content": [
+              { "t": "blank", "id": "b4", "number": 4 },
+              { "t": "text", "v": " Look at this photo. He likes dogs very much. He is playing with the dog in the photo." }
+            ]
+          },
+          {
+            "speaker": "W",
+            "content": [{ "t": "text", "v": "When will your cousin come here to have a visit?" }]
+          },
+          {
+            "speaker": "M",
+            "content": [
+              { "t": "blank", "id": "b5", "number": 5 },
+              { "t": "text", "v": " I can " },
+              { "t": "gloss", "v": "introduce", "zh": "介绍" },
+              { "t": "text", "v": " my cousin to you then." }
+            ]
+          },
+          {
+            "speaker": "W",
+            "content": [
+              { "t": "text", "v": "Thank you, I think I can " },
+              { "t": "vocab", "v": "show him around", "ref": "v-show-sb-around" },
+              { "t": "text", "v": " in Shanghai." }
+            ]
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      { "id": "v-handsome", "headword": "handsome", "ipa": "ˈhænsəm", "pos": "adj.", "meaningZh": "英俊的" },
+      { "id": "v-show-sb-around", "headword": "show sb. around", "meaningZh": "带领某人参观" }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the proper sentences to complete the following dialogue.",
+      "bank": [
+        { "id": "A", "content": [{ "t": "text", "v": "We are having a walk on Tower Bridge." }] },
+        { "id": "B", "content": [{ "t": "text", "v": "Did you spend a day out with your family?" }] },
+        { "id": "C", "content": [{ "t": "text", "v": "Did you have a good time in England?" }] },
+        { "id": "D", "content": [{ "t": "text", "v": "What do you often do with your cousin?" }] },
+        { "id": "E", "content": [{ "t": "text", "v": "Next summer holiday." }] },
+        { "id": "F", "content": [{ "t": "text", "v": "Yes, I have." }] },
+        { "id": "G", "content": [{ "t": "text", "v": "Would you like to see them?" }] }
+      ],
+      "questions": [
+        { "id": "q1", "number": 1, "points": 1, "skills": ["inference"], "interaction": { "kind": "gapMatch", "blankIds": ["b1"] } },
+        { "id": "q2", "number": 2, "points": 1, "skills": ["inference"], "interaction": { "kind": "gapMatch", "blankIds": ["b2"] } },
+        { "id": "q3", "number": 3, "points": 1, "skills": ["detail"], "interaction": { "kind": "gapMatch", "blankIds": ["b3"] } },
+        { "id": "q4", "number": 4, "points": 1, "skills": ["detail"], "interaction": { "kind": "gapMatch", "blankIds": ["b4"] } },
+        { "id": "q5", "number": 5, "points": 1, "skills": ["detail"], "interaction": { "kind": "gapMatch", "blankIds": ["b5"] } }
+      ]
+    }
+  ],
+  "source": { "pdf": "ssp时文 小升初.pdf", "pdfPages": [69], "bookPages": [61] },
+  "status": { "content": "reviewed", "version": "1.0.0" }
+}

@@ -1,0 +1,472 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g3-w01-wed",
+  "playlistId": "ci-g3",
+  "order": 3,
+  "week": 1,
+  "day": "wed",
+  "title": "Pets Are Part of the Family!",
+  "titleZh": "宠物亦是家人！",
+  "displayName": "Week 1 Wednesday Pets Are Part of the Family!",
+  "taskType": {
+    "code": "cloze",
+    "labelZh": "完形填空"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 114,
+    "difficulty": 2,
+    "suggestedMinutes": 7,
+    "themeContext": "人与自我",
+    "contentRequirement": "丰富、充实、积极向上的生活",
+    "intro": "“养娃式”养宠潮流在中国兴起。",
+    "hasVideo": false
+  },
+  "article": {
+    "images": [],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Do you have a pet? More and more people in China "
+          },
+          {
+            "t": "gloss",
+            "v": "treat",
+            "zh": "对待"
+          },
+          {
+            "t": "text",
+            "v": " their pets just like "
+          },
+          {
+            "t": "blank",
+            "id": "b1",
+            "number": 1
+          },
+          {
+            "t": "text",
+            "v": "! The Sixth TOPS Pet Expo in Shanghai was "
+          },
+          {
+            "t": "blank",
+            "id": "b2",
+            "number": 2
+          },
+          {
+            "t": "text",
+            "v": "—over 8,000 brands "
+          },
+          {
+            "t": "vocab",
+            "v": "showed up",
+            "ref": "v-show-up"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Today, pets are more than just animals. People buy them birthday cakes, holiday gift boxes, and even take them to "
+          },
+          {
+            "t": "gloss",
+            "v": "beauty salons",
+            "zh": "美容院"
+          },
+          {
+            "t": "text",
+            "v": "! Pets can help people feel happy and less "
+          },
+          {
+            "t": "blank",
+            "id": "b3",
+            "number": 3
+          },
+          {
+            "t": "text",
+            "v": ". "
+          },
+          {
+            "t": "vocab",
+            "v": "Scientists",
+            "ref": "v-scientist"
+          },
+          {
+            "t": "text",
+            "v": " say playing with pets helps our bodies "
+          },
+          {
+            "t": "gloss",
+            "v": "release",
+            "zh": "释放"
+          },
+          {
+            "t": "text",
+            "v": " “"
+          },
+          {
+            "t": "blank",
+            "id": "b4",
+            "number": 4
+          },
+          {
+            "t": "text",
+            "v": " "
+          },
+          {
+            "t": "gloss",
+            "v": "hormones",
+            "zh": "荷尔蒙"
+          },
+          {
+            "t": "text",
+            "v": "”."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "“We treat our pets as family members,” says Lin Qi, a pet "
+          },
+          {
+            "t": "blank",
+            "id": "b5",
+            "number": 5
+          },
+          {
+            "t": "text",
+            "v": ". “I want my "
+          },
+          {
+            "t": "vocab",
+            "v": "furry",
+            "ref": "v-furry"
+          },
+          {
+            "t": "text",
+            "v": " baby to look good every day.” What a lovely way to show "
+          },
+          {
+            "t": "blank",
+            "id": "b6",
+            "number": 6
+          },
+          {
+            "t": "text",
+            "v": "! Do you hug your pet today?"
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-pet",
+        "headword": "pet",
+        "ipa": "pet",
+        "pos": "n.",
+        "meaningZh": "宠物"
+      },
+      {
+        "id": "v-show-up",
+        "headword": "show up",
+        "meaningZh": "出现；露面"
+      },
+      {
+        "id": "v-scientist",
+        "headword": "scientist",
+        "ipa": "ˈsaɪəntɪst",
+        "pos": "n.",
+        "meaningZh": "科学家"
+      },
+      {
+        "id": "v-furry",
+        "headword": "furry",
+        "ipa": "ˈfɜːri",
+        "pos": "adj.",
+        "meaningZh": "毛茸茸的"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer to complete the passage.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b1",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "family"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "festival"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "friend"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b2",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "bright"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "famous"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "huge"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b3",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "lonely"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "nervous"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "sleepy"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b4",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "clean"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "happy"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "natural"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b5",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "artist"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "customer"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "owner"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b6",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "care"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "hope"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "love"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X3年级.pdf",
+    "pdfPages": [
+      13
+    ],
+    "bookPages": [
+      4
+    ]
+  },
+  "status": {
+    "content": "reviewed",
+    "version": "1.0.0"
+  }
+}

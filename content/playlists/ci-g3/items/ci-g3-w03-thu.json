@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g3-w03-thu",
+  "playlistId": "ci-g3",
+  "order": 14,
+  "week": 3,
+  "day": "thu",
+  "title": "Please Come Out, Groundhog!",
+  "titleZh": "快出来吧，土拨鼠！",
+  "displayName": "Week 3 Thursday Please Come Out, Groundhog!",
+  "taskType": { "code": "matching", "labelZh": "连线题" },
+  "meta": {
+    "genre": "记叙文",
+    "wordCount": 175,
+    "difficulty": 4,
+    "suggestedMinutes": 8,
+    "themeContext": "人与社会",
+    "contentRequirement": "世界主要国家的节假日",
+    "intro": "土拨鼠，别睡啦，快出来！",
+    "hasVideo": false
+  },
+  "article": {
+    "images": [],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "The " },
+          { "t": "vocab", "v": "mayor", "ref": "v-mayor" },
+          { "t": "text", "v": " stood before " },
+          { "t": "gloss", "v": "Groundhog", "zh": "土拨鼠" },
+          { "t": "text", "v": "’s door. He heard a little " },
+          { "t": "gloss", "v": "snore", "zh": "打鼾声" },
+          { "t": "text", "v": ". “Groundhog, you’re sleeping late,” he said. “It’s Groundhog Day. Please come out!”" }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "“I won’t come out!” Groundhog said. “I’m in my bed, and my eyes are still closed.” “I know what we can do!” a little girl said. “Let’s give him breakfast in bed!” They " },
+          { "t": "gloss", "v": "served", "zh": "提供" },
+          { "t": "text", "v": " him coffee and bread. Groundhog " },
+          { "t": "vocab", "v": "poured", "ref": "v-pour" },
+          { "t": "text", "v": " some coffee from the " },
+          { "t": "gloss", "v": "pot", "zh": "壶" },
+          { "t": "text", "v": ". “This coffee is good. It’s nice and hot.”" }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "The people in town shouted, “It’s Groundhog Day. Please come out!” “I won’t come out!” Groundhog said. “It’s nice and warm in my bed.” A boy said, “Get him " },
+          { "t": "vocab", "v": "slippers", "ref": "v-slipper" },
+          { "t": "text", "v": " to wear! His bedroom floor is cold in there.”" }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "Groundhog had never worn slippers before! He did a " },
+          { "t": "gloss", "v": "jig", "zh": "吉格舞；快步舞" },
+          { "t": "text", "v": " all the way to the door and went outside. “Look at me!” he said. “" },
+          { "t": "gloss", "v": "Hooray", "zh": "好极了" },
+          { "t": "text", "v": "!” said the mayor. “No " },
+          { "t": "vocab", "v": "shadow", "ref": "v-shadow" },
+          { "t": "text", "v": " today! The cold weather is going away!”" }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "Groundhog had so much fun with the kids! They made a snowman, round and fat. It looked very nice in the mayor’s hat." }
+        ]
+      }
+    ],
+    "vocabulary": [
+      { "id": "v-mayor", "headword": "mayor", "ipa": "meə(r)", "pos": "n.", "meaningZh": "镇长；市长" },
+      { "id": "v-pour", "headword": "pour", "ipa": "pɔː(r)", "pos": "v.", "meaningZh": "倒出" },
+      { "id": "v-slipper", "headword": "slipper", "ipa": "ˈslɪpə(r)", "pos": "n.", "meaningZh": "拖鞋" },
+      { "id": "v-shadow", "headword": "shadow", "ipa": "ˈʃædəʊ", "pos": "n.", "meaningZh": "影子" }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Please match the characters on the left with their respective words on the right based on the passage.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 4,
+          "skills": ["detail"],
+          "interaction": {
+            "kind": "match",
+            "left": [
+              { "id": "1", "content": [{ "t": "text", "v": "the mayor" }] },
+              { "id": "2", "content": [{ "t": "text", "v": "Groundhog" }] },
+              { "id": "3", "content": [{ "t": "text", "v": "the little girl" }] },
+              { "id": "4", "content": [{ "t": "text", "v": "the boy" }] }
+            ],
+            "right": [
+              { "id": "A", "content": [{ "t": "text", "v": "I won’t come out!" }] },
+              { "id": "B", "content": [{ "t": "text", "v": "Let’s give him breakfast in bed!" }] },
+              { "id": "C", "content": [{ "t": "text", "v": "Get him slippers to wear!" }] },
+              { "id": "D", "content": [{ "t": "text", "v": "No shadow today!" }] }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "source": { "pdf": "小学英语时文阅读提分训练3+X3年级.pdf", "pdfPages": [28], "bookPages": [19] },
+  "status": { "content": "reviewed", "version": "1.0.0" }
+}

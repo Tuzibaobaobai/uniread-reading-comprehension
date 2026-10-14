@@ -1,0 +1,148 @@
+{
+  "$ref": "#/definitions/Attempt",
+  "definitions": {
+    "Attempt": {
+      "type": "object",
+      "properties": {
+        "attemptId": {
+          "type": "string"
+        },
+        "itemId": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+-w\\d{2}-(mon|tue|wed|thu|fri)$"
+        },
+        "itemVersion": {
+          "type": "string"
+        },
+        "learnerId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "startedAt": {
+          "type": "string"
+        },
+        "submittedAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "durationSec": {
+          "type": "number",
+          "minimum": 0
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "in_progress",
+            "submitted"
+          ]
+        },
+        "responses": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "result": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "score": {
+                  "type": "number"
+                },
+                "maxScore": {
+                  "type": "number"
+                },
+                "byQuestion": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "q": {
+                        "type": "string"
+                      },
+                      "correct": {
+                        "type": [
+                          "boolean",
+                          "null"
+                        ]
+                      },
+                      "points": {
+                        "type": "number"
+                      },
+                      "maxPoints": {
+                        "type": "number"
+                      },
+                      "parts": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "type": "boolean"
+                        }
+                      }
+                    },
+                    "required": [
+                      "q",
+                      "correct",
+                      "points",
+                      "maxPoints"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "selfAssessed": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "required": [
+                "score",
+                "maxScore",
+                "byQuestion"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "attemptId",
+        "itemId",
+        "itemVersion",
+        "learnerId",
+        "startedAt",
+        "submittedAt",
+        "durationSec",
+        "status",
+        "responses",
+        "result"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
