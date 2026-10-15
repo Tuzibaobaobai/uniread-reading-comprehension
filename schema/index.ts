@@ -210,6 +210,8 @@ export const TextEntry = z
     blankIds: z.array(z.string()).optional(),
     prompt: Rich.optional(),
     maxWords: z.number().int().positive().optional(),
+    /** perBlank (default): partial credit per blank; all: the question scores only when every blank is right (句型转换) */
+    scoring: z.enum(['perBlank', 'all']).optional(),
   })
   .strict();
 
@@ -234,12 +236,15 @@ export const ExtendedText = z
   })
   .strict();
 
-/** reserved — not used by current books */
+/** 连词成句 — tap the word chunks in order to build a sentence (tap again to undo; no drag) */
 export const Order = z
   .object({
     kind: z.literal('order'),
     prompt: Rich.optional(),
+    /** chunks in the order printed in the book */
     items: z.array(z.object({ id: z.string(), content: Rich }).strict()),
+    /** fixed ending printed after the answer line, e.g. "." or "?" */
+    ending: z.string().optional(),
   })
   .strict();
 
@@ -348,6 +353,8 @@ export const Evidence = z.object({ block: z.string(), quote: z.string() }).stric
 
 const answerCommon = {
   explanationZh: z.string().optional(),
+  /** short language tip (语言点) shown with the explanation */
+  tipsZh: z.string().optional(),
   evidence: z.array(Evidence).optional(),
 };
 
@@ -366,8 +373,10 @@ export const AnswerKey = z.union([
   z.object({ ...answerCommon, slots: z.record(SlotKey) }).strict(),
   /** match: left id → right id */
   z.object({ ...answerCommon, pairs: z.record(z.string()) }).strict(),
-  /** order */
+  /** order: one accepted sequence … */
   z.object({ ...answerCommon, sequence: z.array(z.string()) }).strict(),
+  /** … or several accepted sequences (e.g. an adverbial that can move) */
+  z.object({ ...answerCommon, sequences: z.array(z.array(z.string())).min(1) }).strict(),
   /** extendedText */
   z.object({ ...answerCommon, sampleAnswer: z.string(), rubricZh: z.string().optional() }).strict(),
 ]);
@@ -379,6 +388,8 @@ export const ItemKey = z
     itemId: ItemId,
     answerSource: z.enum(['official', 'generated']),
     reviewStatus: z.enum(['pending', 'approved']),
+    /** where the official answers come from (answer-book PDF pages) */
+    officialRef: z.object({ pdf: z.string(), pages: z.array(z.number().int().positive()) }).strict().optional(),
     answers: z.record(AnswerKey),
   })
   .strict();

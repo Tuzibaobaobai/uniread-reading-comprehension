@@ -69,3 +69,31 @@ test('#6 question number sits on the prompt baseline', async ({ page }, info) =>
   await expect(prompt).toHaveCSS('align-items', 'baseline');
   await shot(page, info.project.name, '6-prompt');
 });
+
+test('#7 no result header; every question shows its section instruction', async ({ page }) => {
+  await page.goto('/#/p/ci-g3/ci-g3-w01-mon');
+  await showQuestions(page);
+  await expect(page.locator('.section-instruction')).toHaveText('Choose the best answer.');
+  await expect(page.locator('.q-prompt')).toContainText('What are the');
+  await page.getByRole('button', { name: '下一题' }).click();
+  await expect(page.locator('.section-instruction')).toHaveText('Choose the best answer.');
+  await page.locator('.question-dot').last().click();
+  await page.getByRole('button', { name: '提交' }).click();
+  await page.getByRole('button', { name: '仍然提交' }).click();
+  await expect(page.locator('.result')).toHaveCount(0);
+  await expect(page.getByText(/正确率/)).toHaveCount(0);
+});
+
+test('#8 scrollbars stay inside the rounded corners', async ({ page }) => {
+  await page.goto('/#/p/ci-g3/ci-g3-w01-mon');
+  if (narrow(page)) return; // article and questions are tabs; same CSS applies
+  await expect(page.locator('.article-scroll')).toBeVisible();
+  const gap = await page.evaluate(() => {
+    const pane = document.querySelector('.article-pane')!.getBoundingClientRect();
+    const scroller = document.querySelector('.article-scroll')!.getBoundingClientRect();
+    const radius = parseFloat(getComputedStyle(document.querySelector('.article-pane')!).borderTopRightRadius);
+    return { top: scroller.top - pane.top, bottom: pane.bottom - scroller.bottom, radius };
+  });
+  expect(gap.top).toBeGreaterThanOrEqual(gap.radius);
+  expect(gap.bottom).toBeGreaterThanOrEqual(gap.radius);
+});

@@ -1,0 +1,137 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g7-w01-mon",
+  "playlistId": "ci-g7",
+  "order": 1,
+  "week": 1,
+  "day": "mon",
+  "title": "Bye Bye, Balltze",
+  "titleZh": "再见了，“波子”",
+  "displayName": "Week 1 Monday Bye Bye, Balltze",
+  "taskType": { "code": "reading_choice", "labelZh": "阅读单选" },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 213,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与自我",
+    "contentRequirement": "积极向上的生活",
+    "intro": "网络知名表情包“小废柴”去世，但它留下的印记不会褪去。",
+    "hasVideo": false
+  },
+  "article": {
+    "images": [],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "“Balltze fell asleep on August 18… during his last " },
+          { "t": "vocab", "v": "surgery", "ref": "v-surgery" },
+          { "t": "text", "v": ",” Kathy wrote in a post on Instagram. The post quickly spread on the internet. Many people felt very sad about the news. Who was Balltze? Why was he so popular online?" }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "Balltze was a 12-year-old " },
+          { "t": "gloss", "v": "Shiba Inu", "zh": "柴犬" },
+          { "t": "text", "v": ". He loved eating " },
+          { "t": "gloss", "v": "cheeseburgers", "zh": "芝士汉堡" },
+          { "t": "text", "v": ". This earned him the nickname “Cheems”. He lived in Hong Kong. A girl named Kathy " },
+          { "t": "vocab", "v": "adopted", "ref": "v-adopt" },
+          { "t": "text", "v": " him when he was one year old. She opened an Instagram " },
+          { "t": "vocab", "v": "account", "ref": "v-account" },
+          { "t": "text", "v": " in 2015. Since then, she started sharing pictures of Balltze with other dog lovers." }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "Two years later, Balltze became famous overnight after Kathy posted a new picture. In the picture, the dog is sitting quietly, with a " },
+          { "t": "vocab", "v": "puzzled", "ref": "v-puzzled" },
+          { "t": "text", "v": " look on his face. Balltze won the hearts of the world because all of us may feel helpless at some time in our lives. So far, the Instagram account has had more than 768,000 followers." }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          { "t": "text", "v": "In the post, Kathy told the followers not to be sad. “Remember the joy Balltze brought to the world,” she wrote. Many people will never forget this lovely dog. He brought happiness to so many people’s lives. You’ll always live in our hearts, Balltze. We will miss you very much. Thank you for sharing your life with us all these years." }
+        ]
+      }
+    ],
+    "vocabulary": [
+      { "id": "v-surgery", "headword": "surgery", "ipa": "ˈsɜːdʒəri", "pos": "n.", "meaningZh": "手术" },
+      { "id": "v-adopt", "headword": "adopt", "ipa": "əˈdɒpt", "pos": "v.", "meaningZh": "收养" },
+      { "id": "v-account", "headword": "account", "ipa": "əˈkaʊnt", "pos": "n.", "meaningZh": "账户，账号" },
+      { "id": "v-puzzled", "headword": "puzzled", "ipa": "ˈpʌzld", "pos": "adj.", "meaningZh": "困惑的，疑惑的" }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": ["detail"],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [{ "t": "text", "v": "How old was Balltze when he passed away?" }],
+            "options": [
+              { "id": "A", "content": [{ "t": "text", "v": "One year old." }] },
+              { "id": "B", "content": [{ "t": "text", "v": "Eight years old." }] },
+              { "id": "C", "content": [{ "t": "text", "v": "Twelve years old." }] },
+              { "id": "D", "content": [{ "t": "text", "v": "Fifteen years old." }] }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": ["detail"],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [{ "t": "text", "v": "Why was Balltze called “Cheems”?" }],
+            "options": [
+              { "id": "A", "content": [{ "t": "text", "v": "He looked like a cheeseburger." }] },
+              { "id": "B", "content": [{ "t": "text", "v": "He loved eating cheeseburgers." }] },
+              { "id": "C", "content": [{ "t": "text", "v": "It was his owner’s favorite food." }] },
+              { "id": "D", "content": [{ "t": "text", "v": "His owner worked in a burger shop." }] }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": ["detail", "inference"],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [{ "t": "text", "v": "Why did Balltze’s photo become so popular?" }],
+            "options": [
+              { "id": "A", "content": [{ "t": "text", "v": "He was a very rare kind of dog." }] },
+              { "id": "B", "content": [{ "t": "text", "v": "The photo showed him eating cheeseburgers." }] },
+              { "id": "C", "content": [{ "t": "text", "v": "The photo was taken by a famous photographer." }] },
+              { "id": "D", "content": [{ "t": "text", "v": "Many people could understand his helpless feeling." }] }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "source": { "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf", "pdfPages": [10], "bookPages": [1] },
+  "status": { "content": "reviewed", "version": "1.0.0" }
+}

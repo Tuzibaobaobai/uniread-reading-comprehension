@@ -3,7 +3,7 @@
 本文只描述**页面结构、组件组成和交互行为**，不写具体视觉值。
 - 视觉的唯一来源：Figma 设计系统，组件与链接见 [design/figma-registry.md](design/figma-registry.md)（[ADR-0007](decisions/ADR-0007-figma-design-system.md)）
 - 代码中的视觉值只来自 [`src/styles/tokens.css`](../src/styles/tokens.css)；token 命名按登记表中的映射规则，组件中不得出现颜色等字面量
-- 产品决定：主色用 UniRead 主色（`--accent`）；界面文字用中文
+- 主色 `--accent` = Figma `color/6`；产品决定：界面文字用中文
 - 尚无 Figma 组件的部分（标“待提供”）暂沿用现有实现，组件提供后替换
 
 ## 页面
@@ -28,7 +28,7 @@
   4. 正文：保留原书格式。高亮词、下划线词、中文括注、空格芯片分别使用对应 token 样式
   5. Words & Expressions：标签标题 + 列表（词、音标、词性、中文）
 - **右栏**（组件：`Quiz`）：题卡，一次一题
-  - 顶部：节标题（`I. Decide whether…`）
+  - 顶部：节标题（`I. Decide whether…`），每道题上方都显示，照录原书大题提示
   - 题干 + 作答区：各题型见 [02 §3](02-question-types.md#3-各题型交互)；选项行用 `Option-text-item`
   - 底栏（组件：`Quiz-pagination`）：上一题（首题禁用）/ 题号分页（当前题、已答标记）/ 下一题；最后一题为「提交」，未答完时为弱化态
 - **结果**：提交后右栏顶部显示结果卡（待提供）：得分、正确率、用时；题号分页变为对错图标；题卡进入复盘态，选择题解析展开在正确选项下方

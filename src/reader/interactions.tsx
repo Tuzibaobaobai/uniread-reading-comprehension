@@ -516,6 +516,65 @@ export function MatchView(props: InteractionProps) {
   );
 }
 
+/* ----------------------------------------------------------------- order */
+
+/** sentence built from chunks: first letter capitalised, ending appended */
+export function orderSentence(items: { id: string; content: InlineT[] }[], ids: string[], ending = ''): string {
+  const text = ids
+    .map((id) => items.find((i) => i.id === id))
+    .filter(Boolean)
+    .map((i) => plainText(i!.content))
+    .join(' ');
+  return text ? text[0].toUpperCase() + text.slice(1) + ending : '';
+}
+
+/** 连词成句: tap chunks to append them to the answer line; tap a placed chunk to send it back (no drag) */
+export function OrderView(props: InteractionProps) {
+  const { fq, responses, review } = props;
+  const it = fq.q.interaction;
+  if (it.kind !== 'order') return null;
+  const placed = asList(responses[fq.q.id]);
+  const pool = it.items.filter((i) => !placed.includes(i.id));
+  const set = (ids: string[]) => setOne(props, ids.length ? ids : undefined);
+  const r = review?.result.byQuestion.find((b) => b.q === fq.q.id);
+  const label = (id: string) => it.items.find((i) => i.id === id);
+  return (
+    <>
+      <QuestionPrompt number={fq.q.number}>{it.prompt ? <Rich nodes={it.prompt} /> : <>连词成句</>}</QuestionPrompt>
+      {!review && <p className="hint-line">按顺序点词块组成句子；点已放入的词块可撤回。</p>}
+      <div className={`order-line ${r?.correct === true ? 'is-correct' : r?.correct === false ? 'is-wrong' : ''}`} aria-label="你的句子">
+        {placed.length === 0 && <span className="order-placeholder">点下方词块开始组句</span>}
+        {placed.map((id, i) => {
+          const item = label(id);
+          if (!item) return null;
+          return (
+            <button key={id} className="order-chip is-placed" disabled={!!review} onClick={() => set(placed.filter((x) => x !== id))}>
+              {i === 0 ? capitalise(plainText(item.content)) : <Rich nodes={item.content} />}
+            </button>
+          );
+        })}
+        {it.ending && <span className="order-ending">{it.ending}</span>}
+      </div>
+      {!review && (
+        <div className="order-pool">
+          {pool.map((item) => (
+            <button key={item.id} className="order-chip" onClick={() => set([...placed, item.id])}>
+              <Rich nodes={item.content} />
+            </button>
+          ))}
+          {placed.length > 0 && (
+            <button className="chip" onClick={() => set([])}>
+              清空
+            </button>
+          )}
+        </div>
+      )}
+    </>
+  );
+}
+
+const capitalise = (t: string) => (t ? t[0].toUpperCase() + t.slice(1) : t);
+
 /* ---------------------------------------------------------- extendedText */
 
 export function ExtendedTextView(props: InteractionProps & { selfAssessed?: boolean; onSelfAssess: (v: boolean) => void }) {

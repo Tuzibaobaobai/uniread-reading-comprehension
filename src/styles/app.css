@@ -150,11 +150,14 @@ body:has(.playlist-page) { background: var(--bg-card); }
 /* ------------------------------------------------------- article (Figma Article Text type styles) */
 
 .article-pane {
-  flex: 1; overflow-y: auto;
+  flex: 1; min-height: 0; display: flex; flex-direction: column;
   background: var(--bg-card);
   border-radius: var(--radius-xl);
-  padding: var(--quiz-pad);
+  overflow: hidden;
+  /* keep the scrollbar clear of the rounded corners (#8) */
+  padding: var(--scroll-inset) 0;
 }
+.article-scroll { flex: 1; min-height: 0; overflow-y: auto; padding: max(0px, calc(var(--quiz-pad) - var(--scroll-inset))) var(--quiz-pad); }
 .article { max-width: 760px; margin: 0 auto; font-size: var(--fs-article); line-height: var(--lh-article); color: var(--text-body); }
 .article-title { font-size: var(--fs-5xl); line-height: var(--lh-5xl); margin: 0; font-weight: var(--fw-bold); color: var(--text-primary); }
 
@@ -249,7 +252,7 @@ body:has(.playlist-page) { background: var(--bg-card); }
   border-radius: var(--radius-xl);
   overflow: hidden;
 }
-.question-scroll { flex: 1; overflow-y: auto; padding: var(--quiz-pad) var(--quiz-pad) 24px; }
+.question-scroll { flex: 1; overflow-y: auto; margin-top: var(--scroll-inset); padding: max(0px, calc(var(--quiz-pad) - var(--scroll-inset))) var(--quiz-pad) 24px; }
 .section-instruction { margin: 0 0 24px; color: var(--text-secondary); font-size: var(--fs-m); line-height: var(--lh-m); }
 .q-prompt { display: flex; align-items: baseline; gap: 8px; font-size: var(--fs-question); line-height: var(--lh-3xl); font-weight: var(--fw-bold); color: var(--text-primary); margin: 0 0 var(--quiz-gap); }
 .q-num { flex: none; }
@@ -387,7 +390,7 @@ button.option:hover { background: var(--bg-hover); }
 /* Figma Quiz-pagination */
 .question-nav {
   flex: none;
-  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px;
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 16px;
   padding: var(--quiz-bar-pad-y) var(--quiz-pad);
   background: var(--bg-card);
   box-shadow: var(--shadow-bar);
@@ -397,6 +400,9 @@ button.option:hover { background: var(--bg-hover); }
   display: flex; gap: var(--pager-num-gap); min-width: 0;
   overflow-x: auto; scrollbar-width: none;
   justify-content: safe center;
+  /* soft edges when the numbers scroll (many questions) */
+  padding: 0 12px;
+  mask-image: linear-gradient(to right, transparent, black 12px, black calc(100% - 12px), transparent);
 }
 .question-dots::-webkit-scrollbar { display: none; }
 .question-dot {
@@ -424,7 +430,7 @@ button.option:hover { background: var(--bg-hover); }
   .question-dot-icon { width: 32px; height: 32px; }
 }
 @container (max-width: 560px) {
-  .question-scroll { padding: 24px 22px; }
+  .question-scroll { padding: 0 22px 24px; }
   .question-nav { padding: 12px 14px; }
   .question-nav .pill-button { height: var(--tap); padding: 0 14px; font-size: var(--fs-m); }
   .question-dot { width: var(--tap); height: var(--tap); }
@@ -433,19 +439,28 @@ button.option:hover { background: var(--bg-hover); }
   .question-dot-icon { width: 24px; height: 24px; }
 }
 
-/* result card (Figma: pending) */
-.result {
-  flex: none;
-  display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; gap: 6px 24px; align-items: center;
-  padding: 20px var(--quiz-pad);
-  background: linear-gradient(120deg, var(--accent-soft), var(--bg-card) 70%);
-  border-bottom: 1px solid var(--divider);
+/* order / 连词成句 (Figma: pending) */
+.order-line {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  min-height: 64px; padding: 10px 0; margin-bottom: 20px;
+  border-bottom: var(--blank-line) solid var(--blank-line-color);
 }
-.result-score { grid-row: span 2; display: flex; align-items: baseline; gap: 4px; }
-.result-big { font-size: var(--fs-display); font-weight: var(--fw-bold); color: var(--accent-strong); line-height: 1; }
-.result-max { font-size: var(--fs-2xl); color: var(--text-secondary); }
-.result-meta { display: flex; flex-wrap: wrap; gap: 4px 16px; color: var(--text-secondary); font-size: var(--fs-m); }
-.result-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.order-line.is-correct { border-bottom-color: var(--success); }
+.order-line.is-wrong { border-bottom-color: var(--danger); }
+.order-placeholder { color: var(--text-tertiary); font-size: var(--fs-l); }
+.order-ending { font-size: var(--fs-2xl); font-weight: var(--fw-bold); }
+.order-pool { display: flex; flex-wrap: wrap; gap: 10px; }
+.order-chip {
+  min-height: var(--tap); padding: 0 16px;
+  border: 1px solid var(--border); border-radius: var(--radius-s); background: var(--bg-card);
+  font-size: var(--fs-l); line-height: var(--lh-l); color: var(--text-primary);
+}
+.order-chip:hover:not(:disabled) { border-color: var(--accent); }
+.order-chip.is-placed { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-strong); font-weight: var(--fw-bold); }
+.order-line.is-correct .order-chip.is-placed { background: var(--success-soft); border-color: var(--success); color: var(--success-text); }
+.order-line.is-wrong .order-chip.is-placed { background: var(--danger-soft); border-color: var(--danger); color: var(--danger); }
+.order-chip:disabled { cursor: default; }
+.explain-tip { font-size: var(--fs-l); line-height: var(--lh-l); }
 
 /* dialog (Figma: pending) */
 .dialog-backdrop { position: fixed; inset: 0; background: var(--backdrop); display: grid; place-items: center; padding: 16px; z-index: 50; }
@@ -467,7 +482,7 @@ button.option:hover { background: var(--bg-hover); }
 
 /* iPad portrait, split view, narrow windows: article / questions as tabs */
 @media (max-width: 1023px) {
-  :root { --gutter: 16px; --fs-article: var(--fs-2xl); --lh-article: var(--lh-2xl); --fs-question: var(--fs-2xl); --fs-option: var(--fs-2xl); --quiz-pad: 28px; }
+  :root { --scroll-inset: var(--radius-l); --gutter: 16px; --fs-article: var(--fs-2xl); --lh-article: var(--lh-2xl); --fs-question: var(--fs-2xl); --fs-option: var(--fs-2xl); --quiz-pad: 28px; }
   .playlist-page { grid-template-columns: 1fr; gap: 16px; padding-top: 72px; }
   .playlist-intro { position: relative; height: auto; padding: 0; }
   .playlist-back { position: fixed; left: var(--gutter); top: 16px; }

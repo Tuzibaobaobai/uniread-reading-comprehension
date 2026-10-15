@@ -1,0 +1,783 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g7-w01-fri",
+  "playlistId": "ci-g7",
+  "order": 5,
+  "week": 1,
+  "day": "fri",
+  "title": "Why Are Fried Foods Bad for You?",
+  "titleZh": "油炸食品为何对健康有害？",
+  "displayName": "Week 1 Friday Why Are Fried Foods Bad for You?",
+  "taskType": {
+    "code": "weekly_intensive",
+    "labelZh": "每周精读"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 155,
+    "difficulty": 2,
+    "suggestedMinutes": 11,
+    "themeContext": "人与自我",
+    "contentRequirement": "身心健康",
+    "intro": "油炸食物有何坏处？",
+    "hasVideo": true
+  },
+  "thumbnail": "assets/ci-g7/ci-g7-w01-fri-1.jpg",
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g7/ci-g7-w01-fri-1.jpg",
+        "alt": "A black-and-white photo of deep-fried chicken pieces on newspaper with a small cup of dipping sauce.",
+        "w": 638,
+        "h": 689
+      }
+    ],
+    "blocks": [
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      },
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Deep frying is a common cooking method around the world. Many people like the taste of fried foods. Yet these foods are high in "
+          },
+          {
+            "t": "vocab",
+            "v": "calories",
+            "ref": "v-calorie"
+          },
+          {
+            "t": "text",
+            "v": " and "
+          },
+          {
+            "t": "gloss",
+            "v": "trans fats",
+            "zh": "反式脂肪"
+          },
+          {
+            "t": "text",
+            "v": ". So eating a lot of them can have bad effects on your health."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Unlike most other cooking methods, deep frying adds a lot of calories. Because when foods are fried in hot oil, they lose water and "
+          },
+          {
+            "t": "vocab",
+            "v": "absorb",
+            "ref": "v-absorb"
+          },
+          {
+            "t": "text",
+            "v": " fat."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Deep frying also changes the chemical "
+          },
+          {
+            "t": "gloss",
+            "v": "structure",
+            "zh": "结构"
+          },
+          {
+            "t": "text",
+            "v": " of fats. It turns them into trans fats. Trans fats are formed when oils are heated to very high temperatures during cooking. As a result, fried foods are very likely to contain trans fats."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Trans fats are difficult for your body to "
+          },
+          {
+            "t": "vocab",
+            "v": "break down",
+            "ref": "v-break-down"
+          },
+          {
+            "t": "text",
+            "v": " and can lead to bad effects on your health. In fact, trans fats can cause many diseases, including heart disease, "
+          },
+          {
+            "t": "vocab",
+            "v": "cancer",
+            "ref": "v-cancer"
+          },
+          {
+            "t": "text",
+            "v": " and "
+          },
+          {
+            "t": "gloss",
+            "v": "diabetes",
+            "zh": "糖尿病"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Therefore, we’d better eat fewer fried foods."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-calorie",
+        "headword": "calorie",
+        "ipa": "ˈkæləri",
+        "pos": "n.",
+        "meaningZh": "卡路里（热量单位）"
+      },
+      {
+        "id": "v-absorb",
+        "headword": "absorb",
+        "ipa": "əbˈzɔːb",
+        "pos": "v.",
+        "meaningZh": "吸收"
+      },
+      {
+        "id": "v-cancer",
+        "headword": "cancer",
+        "ipa": "ˈkænsə(r)",
+        "pos": "n.",
+        "meaningZh": "癌症"
+      },
+      {
+        "id": "v-break-down",
+        "headword": "break down",
+        "meaningZh": "分解"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, why is it bad to eat a lot of fried foods?"
+              }
+            ],
+            "scoring": "self"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, what’s the difference between deep frying and other cooking methods?"
+              }
+            ],
+            "scoring": "self"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What happens when foods are deep-fried?"
+              }
+            ],
+            "scoring": "self"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why are fried foods always high in trans fats?"
+              }
+            ],
+            "scoring": "self"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How do trans fats affect our bodies?"
+              }
+            ],
+            "scoring": "self"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Will you choose to eat fewer fried foods after reading this article? Give your reason(s)."
+              }
+            ],
+            "scoring": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "II",
+      "instruction": "Complete the sentences with the given words in their proper forms.",
+      "questions": [
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The accident was "
+              },
+              {
+                "t": "blank",
+                "id": "b1",
+                "hint": {
+                  "baseWord": "cause"
+                }
+              },
+              {
+                "t": "text",
+                "v": " by pilot error."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Every job has its "
+              },
+              {
+                "t": "blank",
+                "id": "b2",
+                "hint": {
+                  "baseWord": "difficult"
+                }
+              },
+              {
+                "t": "text",
+                "v": " and frustrations."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The "
+              },
+              {
+                "t": "blank",
+                "id": "b3",
+                "hint": {
+                  "baseWord": "change"
+                }
+              },
+              {
+                "t": "text",
+                "v": " seasons mark the passing of time."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "He will be a useful "
+              },
+              {
+                "t": "blank",
+                "id": "b4",
+                "hint": {
+                  "baseWord": "add"
+                }
+              },
+              {
+                "t": "text",
+                "v": " to the staff of the school."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Could you tell me the trick of making such "
+              },
+              {
+                "t": "blank",
+                "id": "b5",
+                "hint": {
+                  "baseWord": "taste"
+                }
+              },
+              {
+                "t": "text",
+                "v": " food?"
+              }
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "He suffered "
+              },
+              {
+                "t": "blank",
+                "id": "b6",
+                "hint": {
+                  "baseWord": "lose"
+                }
+              },
+              {
+                "t": "text",
+                "v": " of memory for weeks after the accident."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "III",
+      "instruction": "Complete the following sentences as required.",
+      "questions": [
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "It turns them into trans fats. （改为被动语态）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "They "
+              },
+              {
+                "t": "blank",
+                "id": "b7"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b8"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b9"
+              },
+              {
+                "t": "text",
+                "v": " trans fats by it."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Fried foods are very likely to contain "
+              },
+              {
+                "t": "underline",
+                "v": "trans fats"
+              },
+              {
+                "t": "text",
+                "v": ". （对画线部分提问）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b10"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b11"
+              },
+              {
+                "t": "text",
+                "v": " fried foods very likely to contain?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Trans fats are difficult for your body to break down. （保持句意基本不变）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b12"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b13"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b14"
+              },
+              {
+                "t": "text",
+                "v": " for your body to break down trans fats."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Therefore, we’d better eat fewer fried foods. （改为反意疑问句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Therefore, we’d better eat fewer fried foods, "
+              },
+              {
+                "t": "blank",
+                "id": "b15"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b16"
+              },
+              {
+                "t": "text",
+                "v": "?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "order",
+            "items": [
+              {
+                "id": "w1",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "is"
+                  }
+                ]
+              },
+              {
+                "id": "w2",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "our"
+                  }
+                ]
+              },
+              {
+                "id": "w3",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "deep-fried foods"
+                  }
+                ]
+              },
+              {
+                "id": "w4",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "likely"
+                  }
+                ]
+              },
+              {
+                "id": "w5",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "health"
+                  }
+                ]
+              },
+              {
+                "id": "w6",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to"
+                  }
+                ]
+              },
+              {
+                "id": "w7",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "very"
+                  }
+                ]
+              },
+              {
+                "id": "w8",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "too many"
+                  }
+                ]
+              },
+              {
+                "id": "w9",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "affect"
+                  }
+                ]
+              },
+              {
+                "id": "w10",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "eating"
+                  }
+                ]
+              }
+            ],
+            "ending": "."
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+    "pdfPages": [
+      15,
+      16
+    ],
+    "bookPages": [
+      6,
+      7
+    ]
+  },
+  "status": {
+    "content": "reviewed",
+    "version": "1.0.0"
+  }
+}

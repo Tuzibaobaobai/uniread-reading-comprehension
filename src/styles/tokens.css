@@ -1,6 +1,6 @@
 /* UniRead design tokens — the only place visual values live.
    Source: Figma UniRead design system (docs/design/figma-registry.md, mapping rules there).
-   Product decision: --accent is the UniRead brand colour, not Figma's placeholder `color/6`. */
+   --accent = Figma `color/6` (Neutral/Component/6-base). */
 :root {
   /* ---- Figma: Customization/Grey/N */
   --grey-2: #f5f6f9;
@@ -33,10 +33,10 @@
   --overlay-panel: rgba(255, 255, 255, 0.8);   /* playlist info panel over blurred cover */
   --backdrop: rgba(20, 22, 26, 0.4);
 
-  /* ---- brand (color/6 → accent) */
-  --accent: #f07b3f;
-  --accent-soft: #fdeee5;
-  --accent-strong: #e0662a;
+  /* ---- brand: Figma color/6 → accent */
+  --accent: #9747ff;
+  --accent-soft: #f3ecff;      /* selected / active backgrounds */
+  --accent-strong: #7a2fe0;    /* accent text on white (vocab highlights, filled blanks) */
 
   /* ---- Figma: Customization/State */
   --success: #07cd4d;          /* finished-light */
@@ -49,7 +49,7 @@
   --highlight-strong: #ffe58a; /* locate flash */
 
   /* match: pair markers (not in Figma yet) */
-  --pair-1: #f07b3f;
+  --pair-1: #f07b3f;   /* match pair markers stay multi-colour */
   --pair-2: #3e8ef7;
   --pair-3: #2fa36b;
   --pair-4: #a65ce8;
@@ -135,6 +135,7 @@
   --row-num: 48px;
   --progress-h: 2px;
   --blur-panel: 100px;
+  --scroll-inset: var(--radius-xl);   /* scrollbars start/end below/above the card's corner radius */
 
   --blank-min-w: 3em;
   --blank-line: 1.5px;

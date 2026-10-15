@@ -6,5 +6,6 @@
   - 视觉的唯一来源是 Figma 文件 UniRead，组件登记在 [docs/design/figma-registry.md](../design/figma-registry.md)
   - 文档只描述结构与行为，不写具体视觉值，视觉一律引用登记表中的组件
   - 代码只使用 `src/styles/tokens.css` 中的 token，token 按登记表中的映射规则从 Figma 变量命名
-  - 例外（产品决定）：主色使用 UniRead 主色，Figma 的 `color/6` 占位紫映射到 `--accent`；界面文字使用中文
+  - 主色与 Figma 一致：`color/6`（#9747FF 紫）映射到 `--accent`（2026-10-15 由橙色改为紫色）
+  - 例外（产品决定）：界面文字使用中文
 - 影响：docs/02 §3、docs/05 改写为行为描述；`tokens.css` 按 Figma 变量重建；组件中不得出现颜色字面量。

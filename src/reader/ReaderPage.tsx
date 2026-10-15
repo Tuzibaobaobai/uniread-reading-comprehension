@@ -4,7 +4,6 @@ import type { AttemptT, ItemKeyT, ItemT } from '@schema';
 import { staticContent } from '@/lib/content';
 import { localAttempts, newAttempt } from '@/lib/storage';
 import { isAnswered, isScored, type Result } from '@/lib/grading';
-import { formatDuration } from '@/lib/labels';
 import { Check, Cross, Locate } from '@/components/Icons';
 import arrowLeft from '@/assets/icons/arrow-left.svg';
 import correctIcon from '@/assets/icons/correct.svg';
@@ -18,6 +17,8 @@ import {
   GapMatchView,
   InlineChoiceView,
   MatchView,
+  OrderView,
+  orderSentence,
   TextEntryView,
   type InteractionProps,
 } from './interactions';
@@ -58,7 +59,6 @@ function Reader({ item }: { item: ItemT }) {
   const [index, setIndex] = useState(() => Math.min(localAttempts.getPosition(item.id), flat.length - 1));
   const [key, setKey] = useState<ItemKeyT | null>(null);
   const [confirmOpen, setConfirmOpen] = useState(false);
-  const [onlyWrong, setOnlyWrong] = useState(false);
   // narrow screens: open on the questions tab when coming back to review a submitted attempt
   const [tab, setTab] = useState<Tab>(() => (attempt.status === 'submitted' ? 'questions' : 'article'));
   const articleRef = useRef<HTMLDivElement>(null);
@@ -123,7 +123,6 @@ function Reader({ item }: { item: ItemT }) {
     setAttempt(newAttempt(item.id, item.status.version));
     setKey(null);
     setIndex(0);
-    setOnlyWrong(false);
   };
 
   // save elapsed time when leaving mid-attempt
@@ -140,10 +139,7 @@ function Reader({ item }: { item: ItemT }) {
   const unanswered = flat.filter((f) => !isAnswered(f.q, responses[f.q.id]));
   const current = flat[index];
 
-  const visible = useMemo(() => {
-    if (!review || !onlyWrong) return flat.map((f) => f.index);
-    return flat.filter((f) => review.result.byQuestion.find((b) => b.q === f.q.id)?.correct === false).map((f) => f.index);
-  }, [flat, review, onlyWrong]);
+  const visible = useMemo(() => flat.map((f) => f.index), [flat]);
 
   const go = (i: number) => {
     setIndex(i);
@@ -247,27 +243,10 @@ function Reader({ item }: { item: ItemT }) {
 
       <section className="reader-right">
         <div className="question-card">
-          {review && (
-            <ResultSummary
-              result={review.result}
-              durationSec={attempt.durationSec}
-              suggestedMin={item.meta.suggestedMinutes}
-              onlyWrong={onlyWrong}
-              setOnlyWrong={(v) => {
-                setOnlyWrong(v);
-                if (v) {
-                  const firstWrong = flat.find((f) => review.result.byQuestion.find((b) => b.q === f.q.id)?.correct === false);
-                  if (firstWrong) setIndex(firstWrong.index);
-                }
-              }}
-              onRetry={retry}
-            />
-          )}
-
           <div className="question-scroll thin-scroll">
             {current && iprops && (
               <>
-                {(current.firstInSection || item.sections.length > 1) && (
+                {current.section.instruction && (
                   <p className="section-instruction">
                     {current.section.label && <b>{current.section.label}. </b>}
                     {current.section.instruction}
@@ -326,9 +305,15 @@ function Reader({ item }: { item: ItemT }) {
               })}
             </div>
             {submitted ? (
-              <button className="pill-button" disabled={isLast} onClick={() => go(visible[pos + 1])}>
-                下一题
-              </button>
+              isLast ? (
+                <button className="pill-button" onClick={retry}>
+                  重新作答
+                </button>
+              ) : (
+                <button className="pill-button" onClick={() => go(visible[pos + 1])}>
+                  下一题
+                </button>
+              )
             ) : isLast ? (
               <button
                 className={`pill-button primary ${unanswered.length ? 'is-dim' : ''}`}
@@ -407,56 +392,8 @@ function QuestionBody({
     case 'extendedText':
       return <ExtendedTextView {...props} selfAssessed={selfAssessed} onSelfAssess={onSelfAssess} />;
     case 'order':
-      return <p className="hint-line">（排序题暂未支持）</p>;
+      return <OrderView {...props} />;
   }
-}
-
-function ResultSummary({
-  result,
-  durationSec,
-  suggestedMin,
-  onlyWrong,
-  setOnlyWrong,
-  onRetry,
-}: {
-  result: Result;
-  durationSec: number;
-  suggestedMin: number;
-  onlyWrong: boolean;
-  setOnlyWrong: (v: boolean) => void;
-  onRetry: () => void;
-}) {
-  const scored = result.byQuestion.filter((b) => b.correct !== null);
-  const right = scored.filter((b) => b.correct).length;
-  const wrong = scored.length - right;
-  const pct = result.maxScore ? Math.round((result.score / result.maxScore) * 100) : 0;
-  return (
-    <div className="result">
-      <div className="result-score">
-        <span className="result-big">{result.score}</span>
-        <span className="result-max">/ {result.maxScore}</span>
-      </div>
-      <div className="result-meta">
-        <span>正确率 {pct}%</span>
-        <span>
-          用时 {formatDuration(durationSec)}（建议 {suggestedMin} 分钟）
-        </span>
-        <span>
-          {right} 题全对 · {wrong} 题有错
-        </span>
-      </div>
-      <div className="result-actions">
-        {wrong > 0 && (
-          <button className={`chip ${onlyWrong ? 'is-on' : ''}`} onClick={() => setOnlyWrong(!onlyWrong)}>
-            只看错题
-          </button>
-        )}
-        <button className="chip" onClick={onRetry}>
-          重新作答
-        </button>
-      </div>
-    </div>
-  );
 }
 
 function Explanation({
@@ -502,6 +439,9 @@ function Explanation({
       .join('，');
   } else if ('sampleAnswer' in k) {
     answerText = k.sampleAnswer;
+  } else if (('sequence' in k || 'sequences' in k) && it.kind === 'order') {
+    const seqs = 'sequence' in k ? [k.sequence] : k.sequences;
+    answerText = seqs.map((seq) => orderSentence(it.items, seq, it.ending)).join(' / ');
   }
   const isSample = 'sampleAnswer' in k;
   return (
@@ -525,6 +465,7 @@ function Explanation({
       </p>
       {'rubricZh' in k && k.rubricZh && <p className="explain-text">要点：{k.rubricZh}</p>}
       {k.explanationZh && <p className="explain-text">{k.explanationZh}</p>}
+      {k.tipsZh && <p className="explain-text explain-tip">语言点：{k.tipsZh}</p>}
       {k.evidence?.[0] && (
         <button className="chip" onClick={() => onLocate(k.evidence![0].block, k.evidence![0].quote)}>
           <Locate /> 定位原文

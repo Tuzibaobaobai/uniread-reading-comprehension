@@ -68,12 +68,18 @@ PDF 是扫描件（无文字层、无答案页），内容靠 **页面图片 →
 | 连线 | 一个 `match` 题，`left` id 用 `1..n`，`right` id 用 `A..`；整题一个题号，`points` = 左项数 |
 | 回答问题 / 观点题 | `extendedText`；事实题 `"scoring":"self"`，纯观点题 `"scoring":"none"`；有句子框架时放 `scaffold` |
 | 猜词义（有选项） | `choice`；（无选项，填中文） | `textEntry`，prompt 中放 blank |
+| 用所给词的适当形式填空 | `textEntry`，blank 放 `prompt`，`hint.baseWord` = 括号里的词（不再把括号文字写进 prompt） |
+| **句型转换**（改为被动语态 / 对画线部分提问 / 同义句 / 反意疑问句…） | `textEntry`，`"scoring":"all"`；`prompt` = 原句（画线部分用 `underline`）+ 文本 `（改为被动语态）` + `br` + 框架句，每个横线一个 blank（每空一词） |
+| **连词成句** | `order`：`items` 按书中顺序，每个逗号分隔的词块一个 item（id `w1…`），`ending` = 书中给出的句末标点；`prompt` 可省略 |
 
 - 题干和选项中的中文括注也用 `gloss` 节点；题干中的下划线词用 `underline`
 - `skills` 至少标一个：`main_idea | detail | inference | vocab_in_context | reference | attitude | structure | grammar | calculation | opinion`
 - 每题 `points: 1`（连线题 = 对数）
 
 ## 3. 答案键规范（keys/）
+
+**有官方答案的书（ci-g3、ci-g7）**：答案以答案册为准（`.work/pages/<pl>-key/p###.jpg`），`answerSource: "official"`，`officialRef: {"pdf": "<答案 PDF 文件名>", "pages": [..]}`。`explanationZh` 由你参考答案册的“详解”**重新写成面向学生的口语化解析**（定位原文 → 推理 → 必要时说明错项），不要照抄；书中“语言点”可提炼为 `tipsZh`（可选，1 句）。如果你独立作答与官方答案不同，以官方为准，并在 `explanationZh` 末尾加“【与独立作答不一致，待复核】”。开放题 `sampleAnswer` 用官方参考答案。
+
 ```json
 { "schemaVersion": "1.0", "itemId": "...", "answerSource": "generated", "reviewStatus": "pending",
   "answers": { "q1": { "correct": ["A"], "explanationZh": "…", "evidence": [{ "block": "p2", "quote": "…" }] } } }
@@ -81,6 +87,8 @@ PDF 是扫描件（无文字层、无答案页），内容靠 **页面图片 →
 - `choice / inlineChoice` → `correct: ["A"]`；`gapMatch` → `correct` 按该题空格顺序排列（单空即 `["C"]`）
 - `textEntry` → `slots: { "b3": { "accept": ["was developed"] } }`，列出所有可接受写法（如 `["colour","color"]`、缩写与全称）；首字母提示题写**完整单词**
 - `match` → `pairs: { "1": "C", "2": "A" }`
+- `order` → `sequence: ["w3","w1",…]`；有多种正确语序时用 `sequences: [[…],[…]]`
+- 句型转换的 `slots`：每空单独列出，缩写/全称都列（如 `["hadn't"]` 与另一空 `["we"]`；`["What's"]` 不能拆时按框架空格数处理）
 - `extendedText` → `sampleAnswer`（完整英文句子，小学生水平）+ `rubricZh`（要点）
 - 每题必须有 `explanationZh`（1–2 句中文，说明依据），尽量给 `evidence`（block id + 原文片段，片段必须在该 block 中逐字存在）
 - 作答要认真：先通读全文再答题；完形/选词需考虑语法、搭配、上下文和“每项只用一次”；不确定时在 `explanationZh` 末尾加“【待复核】”
@@ -103,6 +111,7 @@ PDF 是扫描件（无文字层、无答案页），内容靠 **页面图片 →
 - 词表词条只出现在标题中（标题为纯文本）时允许 validate 警告“never highlighted”
 - 表格左上角空表头写 `{"header":true,"content":[]}`
 - 书中无中文标题时从目录页补 `titleZh`
+- 7年级：文章页没有导读和 Words & Expressions 时，从答案册该篇的“导读”和词表照录（不要自拟）
 
 ## 6. 已知原书问题处理
 - 原书错别字（如 “Time Tem Glasses”）：正文照录修正后的文字，在 `errata` 记录 `{original, corrected, note}`

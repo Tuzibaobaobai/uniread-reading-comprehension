@@ -45,7 +45,9 @@ export const ArticlePane = forwardRef<HTMLDivElement, Props>(function ArticlePan
     ['内容要求', m.contentRequirement],
   ];
   return (
-    <div className="article-pane thin-scroll" ref={setRef}>
+    <div className="article-pane">
+      {/* scroller sits inside the card's rounded corners (#8) */}
+      <div className="article-scroll thin-scroll" ref={setRef}>
       <article className="article">
         <h1 className="article-title">{item.title}</h1>
 
@@ -97,6 +99,7 @@ export const ArticlePane = forwardRef<HTMLDivElement, Props>(function ArticlePan
           </section>
         )}
       </article>
+      </div>
     </div>
   );
 });

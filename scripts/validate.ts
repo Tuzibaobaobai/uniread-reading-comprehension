@@ -149,9 +149,18 @@ function checkItem(item: ItemT, key: ItemKeyT, playlistDir: string) {
         case 'extendedText':
           if (!('sampleAnswer' in k)) err(`${q.id} key must have "sampleAnswer"`);
           break;
-        case 'order':
-          if (!('sequence' in k)) err(`${q.id} key must have "sequence"`);
+        case 'order': {
+          const seqs = 'sequence' in k ? [k.sequence] : 'sequences' in k ? k.sequences : null;
+          if (!seqs) {
+            err(`${q.id} key must have "sequence" or "sequences"`);
+            break;
+          }
+          const ids = it.items.map((i) => i.id).sort().join(',');
+          seqs.forEach((seq, n) => {
+            if ([...seq].sort().join(',') !== ids) err(`${q.id} sequence ${n + 1} must use every item exactly once`);
+          });
           break;
+        }
       }
       if (!('sampleAnswer' in k) && !k.explanationZh) warn(`${q.id} has no explanationZh`);
     }

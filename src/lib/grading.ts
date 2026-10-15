@@ -122,7 +122,9 @@ export function gradeQuestion(
     }
     const n = Object.keys(parts).length;
     const right = Object.values(parts).filter(Boolean).length;
-    return { ...base, correct: right === n, points: n ? (maxPoints * right) / n : 0, parts };
+    const all = q.interaction.kind === 'textEntry' && q.interaction.scoring === 'all';
+    const points = all ? (right === n ? maxPoints : 0) : n ? (maxPoints * right) / n : 0;
+    return { ...base, correct: right === n, points, parts };
   }
 
   if ('pairs' in key) {
@@ -134,9 +136,10 @@ export function gradeQuestion(
     return { ...base, correct: right === n, points: n ? (maxPoints * right) / n : 0, parts };
   }
 
-  if ('sequence' in key) {
+  if ('sequence' in key || 'sequences' in key) {
     const given = Array.isArray(response) ? response : [];
-    const ok = given.length === key.sequence.length && key.sequence.every((id, i) => given[i] === id);
+    const accepted = 'sequence' in key ? [key.sequence] : key.sequences;
+    const ok = accepted.some((seq) => given.length === seq.length && seq.every((id, i) => given[i] === id));
     return { ...base, correct: ok, points: ok ? maxPoints : 0 };
   }
 

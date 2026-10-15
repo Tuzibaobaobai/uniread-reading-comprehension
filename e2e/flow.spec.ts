@@ -7,7 +7,7 @@ const showQuestions = async (page: Page) => {
 
 test('playlists → playlist → item list', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('.playlist-card')).toHaveCount(2);
+  await expect(page.locator('.playlist-card')).toHaveCount(3);
   await page.locator('.playlist-card').first().click();
   await expect(page.getByText(/合集（\d+）/)).toBeVisible();
   await expect(page.getByText('Week 1 Monday Tiny “Embryos” Begin Space Test')).toBeVisible();
@@ -26,14 +26,17 @@ test('multiple choice: answer, unanswered warning, submit, review, restore', asy
   await page.getByRole('button', { name: '继续作答' }).click();
   await page.getByRole('radio', { name: /They will return to Earth/ }).click();
   await page.getByRole('button', { name: '提交' }).click();
-  await expect(page.locator('.result-big')).toHaveText('3');
+  // #7: no score header — results show in the pager
+  await expect(page.locator('.result')).toHaveCount(0);
+  await expect(page.locator('.question-dot.is-correct')).toHaveCount(3);
   // choice explanation is embedded in the correct option (Figma Option-text-item, correct-expanded)
   await expect(page.locator('.option.is-correct .option-explain-text')).not.toBeEmpty();
 
   await page.reload();
-  await expect(page.locator('.result-big')).toHaveText('3');
+  await expect(page.locator('.question-dot.is-correct')).toHaveCount(3);
+  await page.locator('.question-dot').last().click();
   await page.getByRole('button', { name: '重新作答' }).click();
-  await expect(page.locator('.result')).toHaveCount(0);
+  await expect(page.locator('.question-dot.is-correct')).toHaveCount(0);
 });
 
 test('cloze: left blank chips sync with right-side answers', async ({ page }) => {

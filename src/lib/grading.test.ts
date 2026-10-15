@@ -100,3 +100,20 @@ describe('gradeItem / isAnswered', () => {
     expect(isAnswered(item.sections[0].questions[0], { b1: 'water' })).toBe(true);
   });
 });
+
+describe('7年级 new types', () => {
+  const hints = new Map<string, string>();
+  it('textEntry scoring "all": no partial credit (句型转换)', () => {
+    const tq = q('q1', { kind: 'textEntry', prompt: [], scoring: 'all' });
+    const k = { slots: { b1: { accept: ['are'] }, b2: { accept: ['turned'] } } };
+    expect(gradeQuestion(tq, k, { b1: 'are', b2: 'turn' }, hints)).toMatchObject({ correct: false, points: 0 });
+    expect(gradeQuestion(tq, k, { b1: 'are', b2: 'turned' }, hints)).toMatchObject({ correct: true, points: 1 });
+  });
+  it('order accepts any listed sequence (连词成句)', () => {
+    const oq = q('q2', { kind: 'order', items: [{ id: 'w1', content: [] }, { id: 'w2', content: [] }, { id: 'w3', content: [] }] });
+    const k = { sequences: [['w2', 'w1', 'w3'], ['w3', 'w2', 'w1']] };
+    expect(gradeQuestion(oq, k, ['w3', 'w2', 'w1'], hints).correct).toBe(true);
+    expect(gradeQuestion(oq, k, ['w1', 'w2', 'w3'], hints).correct).toBe(false);
+    expect(isAnswered(oq, ['w1', 'w2'])).toBe(false);
+  });
+});

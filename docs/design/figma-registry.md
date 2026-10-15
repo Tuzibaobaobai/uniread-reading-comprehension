@@ -27,7 +27,7 @@ Figma 变量 → CSS 变量（`tokens.css`）：
 | `Customization/Grey/13(text)`（含透明度） | `--text-primary` |
 | `Customization/State/finished-light`、`success-bg` | `--success`、`--success-soft` |
 | `Customization/State/wrong-light`、`error-bg` | `--danger`、`--danger-soft` |
-| `color/6`（Neutral/Component/6-base） | `--accent`（产品决定：使用 UniRead 主色，而非 Figma 占位紫） |
+| `color/6`（Neutral/Component/6-base） | `--accent`（与 Figma 一致；`--accent-soft` / `--accent-strong` 为其浅色、深色派生） |
 | `radius/xs·s·m·xl·full` | `--radius-xs·s·m·xl·full` |
 | `Font system/<size>/<weight>` | `--fs-<size>` + `--lh-<size>`，字重用 400/500/700 |
 | `font/primary-font-family` | `--font-sans` |
