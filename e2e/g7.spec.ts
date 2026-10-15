@@ -45,3 +45,44 @@ test('section instruction above every question (I. Answer the questions.)', asyn
   await openQuestion(page, 2);
   await expect(page.locator('.section-instruction')).toHaveText('I. Answer the questions.');
 });
+
+test('回答问题: LLM judge verdict is shown and counted (mocked judge)', async ({ page }, info) => {
+  let calls = 0;
+  await page.route('**/api/rc/judge', async (route) => {
+    calls++;
+    const body = route.request().postDataJSON() as { questionId: string; response: string };
+    expect(body).not.toHaveProperty('sampleAnswer'); // the client never sends or receives the rubric
+    await route.fulfill({
+      json: {
+        score: 1.5, maxPoints: 2,
+        keyPoints: [{ id: 'k1', met: 'yes' }, { id: 'k2', met: 'partial' }],
+        languageIssues: [{ text: 'they has', fix: 'they have', noteZh: '主谓一致' }],
+        feedbackZh: '答出了热量高这一点，再补充“对健康有害”就完整了。',
+        confidence: 0.62, flags: [], needsReview: true,
+        model: 'mock', promptVersion: 'rc-judge-v3', judgedAt: new Date().toISOString(),
+      },
+    });
+  });
+  await openQuestion(page, 1);
+  await page.locator('.long-answer').fill('Because they has a lot of calories.');
+  await page.getByRole('button', { name: /^第 17 题/ }).click();
+  await page.getByRole('button', { name: '提交' }).click();
+  await page.getByRole('button', { name: '仍然提交' }).click();
+  await expect(page.locator('.judge-score')).toContainText('1.5');
+  await expect(page.locator('.judge')).toContainText('待老师确认');
+  await expect(page.locator('.judge-point')).toHaveCount(2);
+  await expect(page.locator('.self-assess')).toHaveCount(0);
+  expect(calls).toBe(6); // every 回答问题 is judged once
+  await page.screenshot({ path: `.work/screens/${info.project.name}/5-g7-judge.png` });
+});
+
+test('回答问题: no judge service → falls back to self-assessment', async ({ page }) => {
+  await page.route('**/api/rc/judge', (route) => route.fulfill({ status: 404, body: 'not found' }));
+  await openQuestion(page, 1);
+  await page.locator('.long-answer').fill('They are high in calories.');
+  await page.getByRole('button', { name: /^第 17 题/ }).click();
+  await page.getByRole('button', { name: '提交' }).click();
+  await page.getByRole('button', { name: '仍然提交' }).click();
+  await expect(page.locator('.self-assess')).toBeVisible();
+  await expect(page.locator('.judge')).toHaveCount(0);
+});

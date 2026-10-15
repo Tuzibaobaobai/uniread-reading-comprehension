@@ -143,26 +143,34 @@ export function gradeQuestion(
     return { ...base, correct: ok, points: ok ? maxPoints : 0 };
   }
 
-  // extendedText: not auto-scored
-  return { ...base, correct: null, points: 0 };
+  // extendedText: scored later by the LLM judge (docs/09), by the learner, or not at all
+  const scoring = q.interaction.kind === 'extendedText' ? q.interaction.scoring : 'none';
+  return { ...base, correct: null, points: 0, scoredBy: scoring === 'judge' ? 'pending' : scoring === 'self' ? 'self' : 'none' };
 }
 
 export function allQuestions(item: ItemT): QuestionT[] {
   return item.sections.flatMap((s) => s.questions);
 }
 
-/** questions that count toward the score (extendedText is excluded) */
+/** questions graded deterministically (constructed responses are excluded) */
 export function isScored(q: QuestionT): boolean {
   return q.interaction.kind !== 'extendedText';
+}
+
+/** a question counts toward score/maxScore once its points are decided by rules or by the judge */
+const counts = (r: QuestionResult) => r.scoredBy === undefined || r.scoredBy === 'auto' || r.scoredBy === 'judge';
+
+/** recompute score / maxScore from byQuestion (used after judgements arrive) */
+export function totals(byQuestion: QuestionResult[]): Pick<Result, 'score' | 'maxScore'> {
+  const scored = byQuestion.filter(counts);
+  const score = scored.reduce((s, r) => s + r.points, 0);
+  return { score: Math.round(score * 100) / 100, maxScore: scored.reduce((s, r) => s + r.maxPoints, 0) };
 }
 
 export function gradeItem(item: ItemT, key: ItemKeyT, responses: Record<string, ResponseValue>): Result {
   const hints = collectBlankHints(item);
   const byQuestion = allQuestions(item).map((q) => gradeQuestion(q, key.answers[q.id], responses[q.id], hints));
-  const scored = allQuestions(item).filter(isScored).map((q) => q.id);
-  const score = byQuestion.filter((r) => scored.includes(r.q)).reduce((s, r) => s + r.points, 0);
-  const maxScore = byQuestion.filter((r) => scored.includes(r.q)).reduce((s, r) => s + r.maxPoints, 0);
-  return { score: Math.round(score * 100) / 100, maxScore, byQuestion };
+  return { ...totals(byQuestion), byQuestion };
 }
 
 /** is a question answered enough to count as "done" in the navigator */

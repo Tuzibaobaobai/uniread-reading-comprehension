@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import type { InlineT, ItemKeyT, ItemT } from '@schema';
 import { Rich, plainText, type BlankNode } from '@/components/Rich';
-import { Check, Locate } from '@/components/Icons';
+import { Check, Cross, Locate } from '@/components/Icons';
 import tipIcon from '@/assets/icons/tip.svg';
 import { questionBlankIds, type Result } from '@/lib/grading';
 import { Block } from './ArticlePane';
@@ -610,7 +610,8 @@ export function ExtendedTextView(props: InteractionProps & { selfAssessed?: bool
         autoCapitalize="sentences"
         onChange={(e) => setOne(props, e.target.value || undefined)}
       />
-      {review && it.scoring === 'self' && (
+      {review && <JudgeVerdict {...props} />}
+      {review && rowOf(props)?.scoredBy === 'self' && (
         <div className="self-assess">
           <span>对照参考答案，你答对了吗？</span>
           <button className={`chip ${props.selfAssessed === true ? 'is-correct' : ''}`} onClick={() => props.onSelfAssess(true)}>
@@ -622,6 +623,66 @@ export function ExtendedTextView(props: InteractionProps & { selfAssessed?: bool
         </div>
       )}
     </>
+  );
+}
+
+const rowOf = (props: InteractionProps) => props.review?.result.byQuestion.find((b) => b.q === props.fq.q.id);
+
+const MET_LABEL = { yes: '已答到', partial: '部分答到', no: '未答到' } as const;
+
+/** LLM judge verdict (docs/09): score, key points, feedback, language fixes; provisional when sent to review */
+function JudgeVerdict(props: InteractionProps) {
+  const row = rowOf(props);
+  if (!row) return null;
+  if (row.scoredBy === 'pending') {
+    return (
+      <div className="judge is-pending" role="status">
+        正在批改…
+      </div>
+    );
+  }
+  const j = row.judgement;
+  if (row.scoredBy !== 'judge' || !j) return null;
+  const k = props.review?.key.answers[props.fq.q.id];
+  const points = k && 'keyPoints' in k ? (k.keyPoints ?? []) : [];
+  const full = j.score >= j.maxPoints;
+  return (
+    <section className={`judge ${full ? 'is-full' : j.score > 0 ? 'is-partial' : 'is-zero'}`} aria-label="AI 批改">
+      <div className="judge-head">
+        <span className="judge-score">
+          {j.score}
+          <span className="judge-max"> / {j.maxPoints}</span>
+        </span>
+        <span className="judge-tag">AI 批改</span>
+        {j.needsReview && <span className="judge-tag is-review">待老师确认</span>}
+      </div>
+      {points.length > 0 && (
+        <ul className="judge-points">
+          {points.map((p) => {
+            const met = j.keyPoints.find((x) => x.id === p.id)?.met ?? 'no';
+            return (
+              <li key={p.id} className={`judge-point is-${met}`}>
+                <span className="judge-point-mark" aria-label={MET_LABEL[met]}>
+                  {met === 'yes' ? <Check /> : met === 'partial' ? '½' : <Cross />}
+                </span>
+                {p.descZh}
+              </li>
+            );
+          })}
+        </ul>
+      )}
+      {j.feedbackZh && <p className="judge-feedback">{j.feedbackZh}</p>}
+      {j.languageIssues.length > 0 && (
+        <ul className="judge-language">
+          {j.languageIssues.map((l, i) => (
+            <li key={i}>
+              <s>{l.text}</s> → <b>{l.fix}</b>
+              {l.noteZh && <span className="judge-language-note">（{l.noteZh}）</span>}
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
   );
 }
 

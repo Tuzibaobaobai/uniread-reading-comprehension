@@ -26,6 +26,26 @@
             "approved"
           ]
         },
+        "officialRef": {
+          "type": "object",
+          "properties": {
+            "pdf": {
+              "type": "string"
+            },
+            "pages": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "exclusiveMinimum": 0
+              }
+            }
+          },
+          "required": [
+            "pdf",
+            "pages"
+          ],
+          "additionalProperties": false
+        },
         "answers": {
           "type": "object",
           "additionalProperties": {
@@ -34,6 +54,9 @@
                 "type": "object",
                 "properties": {
                   "explanationZh": {
+                    "type": "string"
+                  },
+                  "tipsZh": {
                     "type": "string"
                   },
                   "evidence": {
@@ -74,6 +97,9 @@
                   "explanationZh": {
                     "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/explanationZh"
                   },
+                  "tipsZh": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/tipsZh"
+                  },
                   "evidence": {
                     "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/evidence"
                   },
@@ -111,6 +137,9 @@
                   "explanationZh": {
                     "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/explanationZh"
                   },
+                  "tipsZh": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/tipsZh"
+                  },
                   "evidence": {
                     "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/evidence"
                   },
@@ -131,6 +160,9 @@
                 "properties": {
                   "explanationZh": {
                     "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/explanationZh"
+                  },
+                  "tipsZh": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/tipsZh"
                   },
                   "evidence": {
                     "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/evidence"
@@ -153,6 +185,37 @@
                   "explanationZh": {
                     "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/explanationZh"
                   },
+                  "tipsZh": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/tipsZh"
+                  },
+                  "evidence": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/evidence"
+                  },
+                  "sequences": {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "sequences"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "explanationZh": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/explanationZh"
+                  },
+                  "tipsZh": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/tipsZh"
+                  },
                   "evidence": {
                     "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/evidence"
                   },
@@ -161,6 +224,73 @@
                   },
                   "rubricZh": {
                     "type": "string"
+                  },
+                  "rubricType": {
+                    "type": "string",
+                    "enum": [
+                      "content",
+                      "opinion"
+                    ]
+                  },
+                  "keyPoints": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "descZh": {
+                          "type": "string"
+                        },
+                        "examples": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "weight": {
+                          "type": "number",
+                          "exclusiveMinimum": 0
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "descZh",
+                        "weight"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "match": {
+                    "type": "string",
+                    "enum": [
+                      "all",
+                      "any"
+                    ]
+                  },
+                  "anchors": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "response": {
+                          "type": "string"
+                        },
+                        "score": {
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "noteZh": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "response",
+                        "score"
+                      ],
+                      "additionalProperties": false
+                    }
                   }
                 },
                 "required": [

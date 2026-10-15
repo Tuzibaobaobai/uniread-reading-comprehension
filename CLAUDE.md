@@ -14,7 +14,7 @@ UniRead reading-comprehension app. Start with docs/00-overview.md.
 - Page images for transcription: `.work/pages/<playlist>/p###.jpg` (regenerate with scripts/render.swift if missing). Book page N = p(N+9) for ci-g3, p(N+8) for ci-xsc.
 
 ## Code
-- React 18 + TS + Vite. Grading is pure (`src/lib/grading.ts`) so it can run server-side.
+- React 18 + TS + Vite. Grading is pure (`src/lib/grading.ts`) so it can run server-side. Constructed responses are scored by an LLM judge (`src/lib/judge.ts`, docs/09); keys/rubrics stay server-side: grading and keys are served by `/api/rc/grade` and `/api/rc/judge` (server/*.ts — Vercel functions; Vite middleware in dev/preview), and keys are stripped from the static build.
 - Components depend on `ContentProvider` / `AttemptStore` interfaces (docs/06), not on fetch/localStorage directly.
 - Interactions must work by tap/click alone (no drag-only), targets ≥ 44px, inputs ≥ 16px font, no native <select>.
 
@@ -22,4 +22,4 @@ UniRead reading-comprehension app. Start with docs/00-overview.md.
 - Verify every change locally (dev server, build, test, e2e). Never `git push` or deploy to Vercel without the user's explicit confirmation.
 
 ## Commands
-npm run dev · npm run validate · npm run build:index · npm test · npm run build · npm run e2e
+npm run dev · npm run validate · npm run build:index · npm test · npm run build · npm run e2e · npm run deploy (Vercel prebuilt + judge function; only after the user confirms)

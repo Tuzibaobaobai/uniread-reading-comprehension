@@ -66,7 +66,7 @@ PDF 是扫描件（无文字层、无答案页），内容靠 **页面图片 →
 | 短文填空 / 表格填空 / 句子补全（打字） | `textEntry`；文中/表中空格用 `blankIds`；题目句中空格放 `prompt`，一题可多空 |
 | 表格填空的表格 | 放在 section 的 `stimulus`（`table` block），表格里的空用 blank 节点；每空一个 textEntry 题（`blankIds:["b1"]`） |
 | 连线 | 一个 `match` 题，`left` id 用 `1..n`，`right` id 用 `A..`；整题一个题号，`points` = 左项数 |
-| 回答问题 / 观点题 | `extendedText`；事实题 `"scoring":"self"`，纯观点题 `"scoring":"none"`；有句子框架时放 `scaffold` |
+| 回答问题 / 观点题 | `extendedText`，`"scoring":"judge"`（LLM 评分，见 docs/09）；有句子框架时放 `scaffold`；`points` = 要点数（通常 1–2） |
 | 猜词义（有选项） | `choice`；（无选项，填中文） | `textEntry`，prompt 中放 blank |
 | 用所给词的适当形式填空 | `textEntry`，blank 放 `prompt`，`hint.baseWord` = 括号里的词（不再把括号文字写进 prompt） |
 | **句型转换**（改为被动语态 / 对画线部分提问 / 同义句 / 反意疑问句…） | `textEntry`，`"scoring":"all"`；`prompt` = 原句（画线部分用 `underline`）+ 文本 `（改为被动语态）` + `br` + 框架句，每个横线一个 blank（每空一词） |
@@ -89,7 +89,7 @@ PDF 是扫描件（无文字层、无答案页），内容靠 **页面图片 →
 - `match` → `pairs: { "1": "C", "2": "A" }`
 - `order` → `sequence: ["w3","w1",…]`；有多种正确语序时用 `sequences: [[…],[…]]`
 - 句型转换的 `slots`：每空单独列出，缩写/全称都列（如 `["hadn't"]` 与另一空 `["we"]`；`["What's"]` 不能拆时按框架空格数处理）
-- `extendedText` → `sampleAnswer`（完整英文句子，小学生水平）+ `rubricZh`（要点）
+- `extendedText` → `sampleAnswer`（官方参考答案；无官方答案时写完整英文句子）+ `rubricType`（`content` / 观点题 `opinion`）+ `keyPoints`（每个得分要点一条：`descZh` 写意思而不是原词，`examples` 列 1–2 种英文说法，`weight` 之和 = 题目 `points`）+ `match`（`all`；“答出其一即可”用 `any`）+ `rubricZh`（给人看的批注）；易错题可补 2–3 个 `anchors`（满分 / 部分分 / 0 分样例）
 - 每题必须有 `explanationZh`（1–2 句中文，说明依据），尽量给 `evidence`（block id + 原文片段，片段必须在该 block 中逐字存在）
 - 作答要认真：先通读全文再答题；完形/选词需考虑语法、搭配、上下文和“每项只用一次”；不确定时在 `explanationZh` 末尾加“【待复核】”
 

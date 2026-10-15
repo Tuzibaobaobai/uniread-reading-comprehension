@@ -225,14 +225,19 @@ export const Match = z
   })
   .strict();
 
-/** 回答问题 — not auto-scored */
+/**
+ * 回答问题 / 观点题 — constructed response.
+ * scoring: judge = scored by an LLM judge against the key's reference answer + key points (docs/09);
+ *          self  = learner compares with the reference answer (also the fallback when no judge is available);
+ *          none  = feedback only, never scored.
+ */
 export const ExtendedText = z
   .object({
     kind: z.literal('extendedText'),
     prompt: Rich,
     /** sentence frame with blanks, e.g. "They felt ___ but ___." */
     scaffold: Rich.optional(),
-    scoring: z.enum(['self', 'none']),
+    scoring: z.enum(['judge', 'self', 'none']),
   })
   .strict();
 
@@ -366,6 +371,21 @@ export const SlotKey = z
   })
   .strict();
 
+export const JudgeKeyPoint = z
+  .object({
+    id: z.string(),
+    /** the point in Chinese, as a marker would write it */
+    descZh: z.string(),
+    /** acceptable English wordings / keywords (hints for the judge, not exact-match rules) */
+    examples: z.array(z.string()).optional(),
+    weight: z.number().positive(),
+  })
+  .strict();
+
+export const JudgeAnchor = z
+  .object({ response: z.string(), score: z.number().nonnegative(), noteZh: z.string().optional() })
+  .strict();
+
 export const AnswerKey = z.union([
   /** choice / inlineChoice → [optionId]; gapMatch → bank ids aligned with the question's blanks */
   z.object({ ...answerCommon, correct: z.array(z.string()).min(1) }).strict(),
@@ -378,7 +398,23 @@ export const AnswerKey = z.union([
   /** … or several accepted sequences (e.g. an adverbial that can move) */
   z.object({ ...answerCommon, sequences: z.array(z.array(z.string())).min(1) }).strict(),
   /** extendedText */
-  z.object({ ...answerCommon, sampleAnswer: z.string(), rubricZh: z.string().optional() }).strict(),
+  z
+    .object({
+      ...answerCommon,
+      /** official reference answer (alternatives separated by " / ") */
+      sampleAnswer: z.string(),
+      /** free-text marking note for humans */
+      rubricZh: z.string().optional(),
+      /** content: answer must convey the key points; opinion: stance + supported reason(s), no single right answer */
+      rubricType: z.enum(['content', 'opinion']).optional(),
+      /** 得分要点 — what a full-mark answer must convey; weights sum to the question's points */
+      keyPoints: z.array(JudgeKeyPoint).optional(),
+      /** all = every key point needed for full marks; any = any one key point (“答出其一即可”) */
+      match: z.enum(['all', 'any']).optional(),
+      /** teacher-scored sample answers used as few-shot anchors and for calibration */
+      anchors: z.array(JudgeAnchor).optional(),
+    })
+    .strict(),
 ]);
 export type AnswerKeyT = z.infer<typeof AnswerKey>;
 
@@ -469,6 +505,25 @@ export const ResponseValue = z.union([
   z.string(), // extendedText
 ]);
 
+/** LLM-as-a-judge verdict for one constructed response (docs/09 §4) */
+export const Judgement = z
+  .object({
+    score: z.number().nonnegative(),
+    maxPoints: z.number().positive(),
+    keyPoints: z.array(z.object({ id: z.string(), met: z.enum(['yes', 'partial', 'no']), quote: z.string().optional() }).strict()),
+    languageIssues: z.array(z.object({ text: z.string(), fix: z.string(), noteZh: z.string().optional() }).strict()),
+    feedbackZh: z.string(),
+    confidence: z.number().min(0).max(1),
+    flags: z.array(z.enum(['empty', 'off_topic', 'not_english', 'copied_text', 'instruction_injection', 'too_long'])),
+    /** low confidence or flags → shown as provisional and queued for teacher review */
+    needsReview: z.boolean(),
+    model: z.string(),
+    promptVersion: z.string(),
+    judgedAt: z.string(),
+  })
+  .strict();
+export type JudgementT = z.infer<typeof Judgement>;
+
 export const Attempt = z
   .object({
     attemptId: z.string(),
@@ -493,6 +548,10 @@ export const Attempt = z
               maxPoints: z.number(),
               /** per-blank / per-pair correctness for multi-slot questions */
               parts: z.record(z.boolean()).optional(),
+              /** how the points were decided; absent = auto (deterministic grading) */
+              scoredBy: z.enum(['auto', 'judge', 'pending', 'self', 'none']).optional(),
+              /** LLM judge result for constructed responses (docs/09) */
+              judgement: Judgement.optional(),
             })
             .strict(),
         ),

@@ -79,3 +79,16 @@ test('table fill: typed answers', async ({ page }) => {
   await input.fill('armer');
   await expect(input).toHaveValue('armer');
 });
+
+test('answer keys are not published as static files; grading goes through the API', async ({ page, request }) => {
+  expect((await request.get('/playlists/ci-g3/keys/ci-g3-w01-mon.json')).status()).toBe(404);
+  expect((await request.get('/playlists/ci-g3/items/ci-g3-w01-mon.json')).status()).toBe(200);
+  const graded = page.waitForRequest((r) => r.url().endsWith('/api/rc/grade') && r.method() === 'POST');
+  await page.goto('/#/p/ci-g3/ci-g3-w01-mon');
+  await showQuestions(page);
+  await page.locator('.question-dot').last().click();
+  await page.getByRole('button', { name: '提交' }).click();
+  await page.getByRole('button', { name: '仍然提交' }).click();
+  await graded;
+  await expect(page.locator('.question-dot.is-wrong')).toHaveCount(3);
+});

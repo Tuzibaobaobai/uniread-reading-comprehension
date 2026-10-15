@@ -24,6 +24,26 @@
           "block": "p1",
           "quote": "So eating a lot of them can have bad effects on your health."
         }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "油炸食品热量高、含反式脂肪多",
+          "examples": [
+            "high in calories and trans fats"
+          ],
+          "weight": 1
+        },
+        {
+          "id": "k2",
+          "descZh": "吃多了对健康有害",
+          "examples": [
+            "bad effects on your health"
+          ],
+          "weight": 1
+        }
       ]
     },
     "q2": {
@@ -35,6 +55,18 @@
           "block": "p2",
           "quote": "Unlike most other cooking methods, deep frying adds a lot of calories."
         }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "油炸会增加大量热量（其他烹饪方式不会）",
+          "examples": [
+            "adds a lot of calories"
+          ],
+          "weight": 1
+        }
       ]
     },
     "q3": {
@@ -45,6 +77,26 @@
         {
           "block": "p2",
           "quote": "they lose water and absorb fat"
+        }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "食物失去水分",
+          "examples": [
+            "lose water"
+          ],
+          "weight": 1
+        },
+        {
+          "id": "k2",
+          "descZh": "食物吸收脂肪/油",
+          "examples": [
+            "absorb fat"
+          ],
+          "weight": 1
         }
       ]
     },
@@ -61,6 +113,27 @@
           "block": "p3",
           "quote": "Trans fats are formed when oils are heated to very high temperatures during cooking."
         }
+      ],
+      "rubricType": "content",
+      "match": "any",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "油炸改变脂肪的化学结构，把它变成反式脂肪",
+          "examples": [
+            "changes the chemical structure of fats",
+            "turns them into trans fats"
+          ],
+          "weight": 1
+        },
+        {
+          "id": "k2",
+          "descZh": "油被加热到很高温度时会形成反式脂肪",
+          "examples": [
+            "oils are heated to very high temperatures"
+          ],
+          "weight": 1
+        }
       ]
     },
     "q5": {
@@ -76,6 +149,26 @@
           "block": "p4",
           "quote": "trans fats can cause many diseases, including heart disease, cancer and diabetes"
         }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "身体难以分解反式脂肪",
+          "examples": [
+            "difficult for your body to break down"
+          ],
+          "weight": 1
+        },
+        {
+          "id": "k2",
+          "descZh": "会导致疾病（心脏病、癌症、糖尿病等）/对健康有害",
+          "examples": [
+            "heart disease, cancer and diabetes"
+          ],
+          "weight": 1
+        }
       ]
     },
     "q6": {
@@ -86,6 +179,27 @@
         {
           "block": "p5",
           "quote": "Therefore, we’d better eat fewer fried foods."
+        }
+      ],
+      "rubricType": "opinion",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "明确表明态度（会 / 不会少吃油炸食品）",
+          "examples": [
+            "Yes, I will",
+            "No, I won't"
+          ],
+          "weight": 1
+        },
+        {
+          "id": "k2",
+          "descZh": "给出至少一条合理理由（可结合文中热量高、反式脂肪、致病等信息）",
+          "examples": [
+            "because they are high in calories"
+          ],
+          "weight": 1
         }
       ]
     },

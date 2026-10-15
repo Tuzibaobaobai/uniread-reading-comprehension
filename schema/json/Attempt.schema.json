@@ -98,6 +98,126 @@
                         "additionalProperties": {
                           "type": "boolean"
                         }
+                      },
+                      "scoredBy": {
+                        "type": "string",
+                        "enum": [
+                          "auto",
+                          "judge",
+                          "pending",
+                          "self",
+                          "none"
+                        ]
+                      },
+                      "judgement": {
+                        "type": "object",
+                        "properties": {
+                          "score": {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "maxPoints": {
+                            "type": "number",
+                            "exclusiveMinimum": 0
+                          },
+                          "keyPoints": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "met": {
+                                  "type": "string",
+                                  "enum": [
+                                    "yes",
+                                    "partial",
+                                    "no"
+                                  ]
+                                },
+                                "quote": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "met"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "languageIssues": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "text": {
+                                  "type": "string"
+                                },
+                                "fix": {
+                                  "type": "string"
+                                },
+                                "noteZh": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "text",
+                                "fix"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "feedbackZh": {
+                            "type": "string"
+                          },
+                          "confidence": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          "flags": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "empty",
+                                "off_topic",
+                                "not_english",
+                                "copied_text",
+                                "instruction_injection",
+                                "too_long"
+                              ]
+                            }
+                          },
+                          "needsReview": {
+                            "type": "boolean"
+                          },
+                          "model": {
+                            "type": "string"
+                          },
+                          "promptVersion": {
+                            "type": "string"
+                          },
+                          "judgedAt": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "score",
+                          "maxPoints",
+                          "keyPoints",
+                          "languageIssues",
+                          "feedbackZh",
+                          "confidence",
+                          "flags",
+                          "needsReview",
+                          "model",
+                          "promptVersion",
+                          "judgedAt"
+                        ],
+                        "additionalProperties": false
                       }
                     },
                     "required": [

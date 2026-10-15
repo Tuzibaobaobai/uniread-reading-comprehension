@@ -387,6 +387,8 @@ button.option:hover { background: var(--bg-hover); }
 .explain-label { display: inline-block; margin-right: 10px; font-size: var(--fs-s); color: var(--text-secondary); font-weight: var(--fw-bold); }
 .explain-text { margin: 0; font-size: var(--fs-2xl); line-height: var(--lh-2xl); }
 
+.submit-error { margin: 0; padding: 10px var(--quiz-pad); background: var(--danger-soft); color: var(--danger); font-size: var(--fs-m); }
+
 /* Figma Quiz-pagination */
 .question-nav {
   flex: none;
@@ -438,6 +440,30 @@ button.option:hover { background: var(--bg-hover); }
   .question-dot-mark { width: 12px; height: 4px; }
   .question-dot-icon { width: 24px; height: 24px; }
 }
+
+/* LLM judge verdict (Figma: pending) */
+.judge { margin-top: 16px; padding: var(--option-pad-y) var(--option-pad-x); border-radius: var(--radius-s); background: var(--bg-subtle); display: grid; gap: 10px; }
+.judge.is-pending { color: var(--text-secondary); font-size: var(--fs-l); animation: judge-pulse 1.4s ease-in-out infinite; }
+@keyframes judge-pulse { 50% { opacity: .5; } }
+.judge.is-full { background: var(--success-soft); }
+.judge.is-zero { background: var(--danger-soft); }
+.judge-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.judge-score { font-size: var(--fs-4xl); line-height: var(--lh-4xl); font-weight: var(--fw-bold); color: var(--text-primary); }
+.judge-max { font-size: var(--fs-l); color: var(--text-secondary); font-weight: var(--fw-regular); }
+.judge-tag { padding: 0 10px; border-radius: var(--radius-full); background: var(--accent-soft); color: var(--accent-strong); font-size: var(--fs-s); line-height: var(--lh-s); font-weight: var(--fw-bold); }
+.judge-tag.is-review { background: var(--bg-card); color: var(--text-secondary); border: 1px solid var(--border); }
+.judge-points, .judge-language { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: var(--fs-l); line-height: var(--lh-l); }
+.judge-point { display: flex; gap: 8px; align-items: baseline; }
+.judge-point-mark { flex: none; width: 20px; display: inline-grid; place-items: center; font-weight: var(--fw-bold); }
+.judge-point-mark svg { width: 16px; height: 16px; }
+.judge-point.is-yes .judge-point-mark { color: var(--success); }
+.judge-point.is-partial .judge-point-mark { color: var(--accent-strong); }
+.judge-point.is-no { color: var(--text-secondary); }
+.judge-point.is-no .judge-point-mark { color: var(--danger); }
+.judge-feedback { margin: 0; font-size: var(--fs-2xl); line-height: var(--lh-2xl); color: var(--text-primary); }
+.judge-language { font-size: var(--fs-m); color: var(--text-secondary); }
+.judge-language s { color: var(--danger); }
+.judge-language b { color: var(--success-text); }
 
 /* order / 连词成句 (Figma: pending) */
 .order-line {

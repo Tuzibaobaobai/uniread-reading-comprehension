@@ -33,7 +33,9 @@
 - ADR-0003 localStorage 作答记录
 - ADR-0004 从扫描页裁剪图片
 - ADR-0005 数据模型对齐 QTI 3.0、答案与题目分离
-- ADR-0006 UI 依据 UniRead 截图，Figma 恢复后精修
+- ADR-0006 UI 依据 UniRead 截图（已被 0007 取代）
+- ADR-0007 视觉以 Figma 设计系统为准
+- ADR-0008 主观题用 LLM as a Judge 评分
 
 ## 文档导航
 | 文档 | 内容 |
@@ -42,6 +44,8 @@
 | [02-question-types](02-question-types.md) | 题型清单与 PC/iPad 交互规范 |
 | [03-data-model](03-data-model.md) | 数据结构 |
 | [04-content-pipeline](04-content-pipeline.md) | 转录 → 答案 → 裁图 → 校验 → 复核 |
-| [05-ui-spec](05-ui-spec.md) | UniRead 视觉规范与页面布局 |
+| [05-ui-spec](05-ui-spec.md) | 页面结构与交互行为（视觉见 Figma 登记表） |
 | [06-uniread-integration](06-uniread-integration.md) | 接入 UniRead 的契约 |
 | [07-dev-plan](07-dev-plan.md) | 开发执行计划与验收 |
+| [09-subjective-scoring](09-subjective-scoring.md) | 主观题 LLM as a Judge：调研、评分规则、提示、接入契约、校准 |
+| [design/figma-registry](design/figma-registry.md) | Figma 组件登记与 token 映射 |

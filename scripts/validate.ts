@@ -146,9 +146,25 @@ function checkItem(item: ItemT, key: ItemKeyT, playlistDir: string) {
           });
           break;
         }
-        case 'extendedText':
-          if (!('sampleAnswer' in k)) err(`${q.id} key must have "sampleAnswer"`);
+        case 'extendedText': {
+          if (!('sampleAnswer' in k)) {
+            err(`${q.id} key must have "sampleAnswer"`);
+            break;
+          }
+          // LLM judge (docs/09): key points define full marks
+          const pts = q.points ?? 1;
+          if (it.scoring === 'judge') {
+            if (!k.keyPoints?.length) err(`${q.id} scoring "judge" needs keyPoints`);
+            else if ((k.match ?? 'all') === 'all') {
+              const sum = k.keyPoints.reduce((s, p) => s + p.weight, 0);
+              if (sum !== pts) err(`${q.id} keyPoints weights sum to ${sum}, question points = ${pts}`);
+            } else if (k.keyPoints.some((p) => p.weight > pts)) err(`${q.id} keyPoint weight exceeds points`);
+            k.anchors?.forEach((a, i) => a.score > pts && err(`${q.id} anchor ${i + 1} score > points`));
+          } else if (it.scoring === 'self' || it.scoring === 'none') {
+            warn(`${q.id} is "${it.scoring}" — consider scoring "judge" with keyPoints`);
+          }
           break;
+        }
         case 'order': {
           const seqs = 'sequence' in k ? [k.sequence] : 'sequences' in k ? k.sequences : null;
           if (!seqs) {

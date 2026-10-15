@@ -792,6 +792,13 @@
                             "maxWords": {
                               "type": "integer",
                               "exclusiveMinimum": 0
+                            },
+                            "scoring": {
+                              "type": "string",
+                              "enum": [
+                                "perBlank",
+                                "all"
+                              ]
                             }
                           },
                           "required": [
@@ -874,6 +881,7 @@
                             "scoring": {
                               "type": "string",
                               "enum": [
+                                "judge",
                                 "self",
                                 "none"
                               ]
@@ -914,6 +922,9 @@
                                 ],
                                 "additionalProperties": false
                               }
+                            },
+                            "ending": {
+                              "type": "string"
                             }
                           },
                           "required": [

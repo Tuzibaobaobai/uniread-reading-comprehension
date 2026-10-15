@@ -1,9 +1,10 @@
 /**
- * ContentProvider — the only way UI code loads content. v1 reads static JSON from content/
- * and grades in the browser; a UniRead implementation would call the API (docs/06).
+ * ContentProvider — the only way UI code loads content. Items/catalog are static JSON;
+ * grading and keys come from the API (/api/rc/grade, /api/rc/judge) so answers are never published (docs/06).
  */
+import { httpJudge, type JudgeProvider } from './judge';
 import type { CatalogT, ItemKeyT, ItemT, PlaylistT } from '@schema';
-import { gradeItem, type ResponseValue, type Result } from './grading';
+import type { ResponseValue, Result } from './grading';
 
 export interface ContentProvider {
   getCatalog(): Promise<CatalogT>;
@@ -11,8 +12,10 @@ export interface ContentProvider {
   getItem(id: string): Promise<ItemT>;
   /** grade a submission; the key is only revealed after submitting */
   grade(item: ItemT, responses: Record<string, ResponseValue>): Promise<{ result: Result; key: ItemKeyT }>;
-  /** key for reviewing an already-submitted attempt */
-  getKey(item: ItemT): Promise<ItemKeyT>;
+  /** key for reviewing an already-submitted attempt (re-grades the saved responses) */
+  getKey(item: ItemT, responses: Record<string, ResponseValue>): Promise<ItemKeyT>;
+  /** LLM judge for constructed responses (docs/09); absent → learners self-assess */
+  judge?: JudgeProvider;
   assetUrl(path: string): string;
 }
 
@@ -34,10 +37,19 @@ export const staticContent: ContentProvider = {
   getCatalog: () => cached<CatalogT>('catalog.json'),
   getPlaylist: (id) => cached<PlaylistT>(`playlists/${id}/playlist.json`),
   getItem: (id) => cached<ItemT>(`playlists/${id.replace(/-w\d{2}-\w{3}$/, '')}/items/${id}.json`),
-  getKey: (item) => cached<ItemKeyT>(`playlists/${item.playlistId}/keys/${item.id}.json`),
   async grade(item, responses) {
-    const key = await this.getKey(item);
-    return { result: gradeItem(item, key, responses), key };
+    const res = await fetch(`${base}api/rc/grade`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ itemId: item.id, responses }),
+    });
+    if (!res.ok) throw new Error(`grade ${res.status}`);
+    return res.json() as Promise<{ result: Result; key: ItemKeyT }>;
+  },
+  async getKey(item, responses) {
+    return (await this.grade(item, responses)).key;
   },
   assetUrl: (path) => `${base}${path}`,
+  // served by the Vercel function / UniRead, and by the Vite dev+preview middleware; unavailable → self-assessment
+  judge: httpJudge(import.meta.env.VITE_JUDGE_URL ?? `${base}api/rc/judge`),
 };

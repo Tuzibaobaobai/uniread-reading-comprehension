@@ -11,7 +11,8 @@
     "schema:export": "tsx scripts/export-json-schema.ts",
     "test": "vitest run",
     "e2e": "playwright test",
-    "build:index": "tsx scripts/build-index.ts"
+    "build:index": "tsx scripts/build-index.ts",
+    "deploy": "vercel build --prod && node scripts/vercel-functions.mjs && vercel deploy --prebuilt --prod"
   },
   "dependencies": {
     "@fontsource/noto-sans-sc": "^5.3.1",

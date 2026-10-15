@@ -81,7 +81,7 @@ Attempt（运行时）── responses{ qid → value } + result
 | `gapMatch` | `blankIds?`（文中空）或 `prompt` 中的 blank；选项来自 `section.bank` | `{ "b3": "E" }` | `{ "correct": ["E"] }`（按空格顺序） |
 | `textEntry` | `blankIds?` 或 `prompt` 中的 blank；`maxWords?` | `{ "b1": "was developed" }` | `{ "slots": { "b1": { "accept": ["was developed"] } } }` |
 | `match` | `left[]`、`right[]` | `{ "1": "C", "2": "A" }` | `{ "pairs": { "1": "C", "2": "A" } }` |
-| `extendedText` | `prompt`、`scaffold?`、`scoring` | `"Because …"` | `{ "sampleAnswer": "…", "rubricZh": "…" }` |
+| `extendedText` | `prompt`、`scaffold?`、`scoring`（`judge`/`self`/`none`） | `"Because …"` | `{ "sampleAnswer": "…", "rubricType": "content", "keyPoints": [{"id":"k1","descZh":"…","weight":1}], "match": "all", "anchors?": [...] }` |
 | `order` | `items[]` | `["c","a","b"]` | `{ "sequence": ["c","a","b"] }` |
 
 所有答案键可带 `explanationZh`（中文解析）与 `evidence: [{ block, quote }]`（quote 必须逐字存在于该 block）。
@@ -90,7 +90,8 @@ Attempt（运行时）── responses{ qid → value } + result
 - 文本归一化：NFKC、统一弯引号/破折号、合并空白、去首尾空格与末尾标点、默认不区分大小写
 - 首字母提示空：接受完整单词，也接受只填剩余字母
 - 多空题 / 连线题按空（对）比例得分，`correct` 仅在全部正确时为 true
-- `extendedText` 不计入总分（`correct: null`），学生自评记录在 `result.selfAssessed`
+- `extendedText`：`byQuestion[].scoredBy` = `pending`（等待 LLM judge）→ `judge`（计入总分，`judgement` 记录要点、反馈、置信度、模型和提示版本）；judge 不可用时为 `self`（学生自评记录在 `result.selfAssessed`，不计分）；`none` 不计分。详见 [09](09-subjective-scoring.md)
+- 其它题型 `scoredBy` 省略或为 `auto`
 
 ## Attempt（作答记录）
 ```json

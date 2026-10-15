@@ -4,6 +4,7 @@ import type { AttemptT, ItemKeyT, ItemT } from '@schema';
 import { staticContent } from '@/lib/content';
 import { localAttempts, newAttempt } from '@/lib/storage';
 import { isAnswered, isScored, type Result } from '@/lib/grading';
+import { applyJudgement, fallbackToSelf } from '@/lib/judge';
 import { Check, Cross, Locate } from '@/components/Icons';
 import arrowLeft from '@/assets/icons/arrow-left.svg';
 import correctIcon from '@/assets/icons/correct.svg';
@@ -64,6 +65,7 @@ function Reader({ item }: { item: ItemT }) {
   const articleRef = useRef<HTMLDivElement>(null);
   const sessionStart = useRef(Date.now());
   const flashTimer = useRef<number>();
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const submitted = attempt.status === 'submitted' && !!attempt.result;
   const result = attempt.result as Result | null;
@@ -72,7 +74,7 @@ function Reader({ item }: { item: ItemT }) {
 
   // load the key when reviewing an attempt submitted earlier
   useEffect(() => {
-    if (submitted && !key) staticContent.getKey(item).then(setKey);
+    if (submitted && !key) staticContent.getKey(item, responses).then(setKey);
   }, [submitted, key, item]);
 
   const persist = useCallback(
@@ -104,18 +106,56 @@ function Reader({ item }: { item: ItemT }) {
 
   const submit = async () => {
     setConfirmOpen(false);
-    const graded = await staticContent.grade(item, responses);
+    setSubmitError(null);
+    let graded: Awaited<ReturnType<typeof staticContent.grade>>;
+    try {
+      graded = await staticContent.grade(item, responses);
+    } catch {
+      setSubmitError('提交失败，请检查网络后再试一次。');
+      return;
+    }
     setKey(graded.key);
-    persist({
+    const submitted: AttemptT = {
       ...attempt,
       status: 'submitted',
       submittedAt: new Date().toISOString(),
       durationSec: Math.round(elapsed()),
       result: graded.result,
-    });
+    };
+    persist(submitted);
     setIndex(0);
     setTab('questions');
+    void runJudge(submitted);
   };
+
+  /** score constructed responses with the LLM judge; questions it can't judge fall back to self-assessment */
+  const runJudge = async (a: AttemptT) => {
+    const pending = (a.result?.byQuestion ?? []).filter((b) => b.scoredBy === 'pending').map((b) => b.q);
+    if (!pending.length) return;
+    const verdicts = await Promise.all(
+      pending.map((qid) =>
+        staticContent.judge
+          ? staticContent.judge
+              .judge({ itemId: item.id, itemVersion: item.status.version, questionId: qid, response: String(a.responses[qid] ?? '') })
+              .then((j) => ({ qid, j }), () => ({ qid, j: null }))
+          : Promise.resolve({ qid, j: null }),
+      ),
+    );
+    setAttempt((prev) => {
+      if (prev.attemptId !== a.attemptId || !prev.result) return prev;
+      let r = prev.result as Result;
+      verdicts.forEach(({ qid, j }) => (r = j ? applyJudgement(r, qid, j) : r));
+      r = fallbackToSelf(r, verdicts.filter((v) => !v.j).map((v) => v.qid));
+      const next = { ...prev, result: r };
+      localAttempts.save(next);
+      return next;
+    });
+  };
+
+  // an attempt reloaded while the judge was still running: judge again
+  useEffect(() => {
+    if (submitted && attempt.result?.byQuestion.some((b) => b.scoredBy === 'pending')) void runJudge(attempt);
+  }, [attempt.attemptId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const retry = () => {
     localAttempts.clear(item.id);
@@ -267,6 +307,11 @@ function Reader({ item }: { item: ItemT }) {
             )}
           </div>
 
+          {submitError && (
+            <p className="submit-error" role="alert">
+              {submitError}
+            </p>
+          )}
           <nav className="question-nav" aria-label="题目导航">
             <button className="pill-button" disabled={pos <= 0} onClick={() => go(visible[pos - 1])}>
               上一题
