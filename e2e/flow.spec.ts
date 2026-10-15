@@ -27,7 +27,8 @@ test('multiple choice: answer, unanswered warning, submit, review, restore', asy
   await page.getByRole('radio', { name: /They will return to Earth/ }).click();
   await page.getByRole('button', { name: '提交' }).click();
   await expect(page.locator('.result-big')).toHaveText('3');
-  await expect(page.locator('.explain')).toContainText('正确答案');
+  // choice explanation is embedded in the correct option (Figma Option-text-item, correct-expanded)
+  await expect(page.locator('.option.is-correct .option-explain-text')).not.toBeEmpty();
 
   await page.reload();
   await expect(page.locator('.result-big')).toHaveText('3');

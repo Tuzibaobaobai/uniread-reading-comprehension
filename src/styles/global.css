@@ -12,6 +12,7 @@ body {
   color: var(--text-primary);
   font-family: var(--font-sans);
   font-size: var(--fs-body);
+  line-height: var(--lh-m);
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
 }
@@ -22,7 +23,7 @@ a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 
 :focus { outline: none; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: var(--radius-xs); }
 
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -31,24 +32,27 @@ img { display: block; max-width: 100%; }
 
 .thin-scroll { scrollbar-width: thin; scrollbar-color: var(--border-strong) transparent; }
 .thin-scroll::-webkit-scrollbar { width: 6px; }
-.thin-scroll::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+.thin-scroll::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: var(--radius-full); }
 
+/* Figma Header → btn-back */
 .back-button {
-  width: 56px; height: 56px; flex: none;
+  width: var(--back-btn); height: var(--back-btn); flex: none;
   display: grid; place-items: center;
-  border: none; border-radius: var(--radius-pill);
-  background: var(--bg-card); box-shadow: var(--shadow-button);
-  color: #5b6070;
+  border: none; border-radius: var(--radius-full);
+  background: var(--bg-card); box-shadow: var(--shadow-btn);
 }
-.back-button svg { width: 24px; height: 24px; }
+.back-button img { width: var(--icon-m); height: var(--icon-m); }
 
+/* Figma Quiz-pagination → button */
 .pill-button {
-  min-height: 56px; padding: 0 32px;
-  border-radius: var(--radius-pill);
-  border: 1.5px solid var(--border-strong);
+  min-height: var(--tap); padding: 0 24px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
   background: var(--bg-card);
-  font-weight: 600; font-size: 17px;
+  font-weight: var(--fw-bold); font-size: var(--fs-2xl); line-height: var(--lh-2xl);
+  color: var(--text-strong);
 }
-.pill-button:disabled { color: var(--text-tertiary); border-color: var(--border); }
-.pill-button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-.pill-button.primary:hover:not(:disabled) { background: var(--accent-strong); }
+.pill-button:disabled { opacity: var(--disabled-opacity); }
+.pill-button.primary { background: var(--accent); border-color: var(--accent); color: var(--text-on-accent); }
+.pill-button.primary.is-dim { opacity: var(--disabled-opacity); }
+.pill-button.primary:hover:not(:disabled) { background: var(--accent-strong); border-color: var(--accent-strong); }

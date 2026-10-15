@@ -43,8 +43,9 @@
 - 每本随机 10 篇人工抽查
 **验收闸口 3**：全部 `npm run validate` 0 error；抽查通过。
 
-## Phase 4 · UI 精修
-- Figma 恢复后用精确 token 与组件规格替换 `tokens.css`；不动数据与逻辑
+## Phase 4 · UI 精修（按 Figma 设计系统）
+- 组件按 [design/figma-registry.md](design/figma-registry.md) 逐个对齐；token 按登记表映射规则重建 `tokens.css`；不动数据与逻辑
+- 每个组件完成后在本地与 Figma 截图对比，确认后才 push / 部署
 
 ## Phase 5 · 集成准备
 - 输出 JSON Schema、接口契约（docs/06），keys 与前端分离部署

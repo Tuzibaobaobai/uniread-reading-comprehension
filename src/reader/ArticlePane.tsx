@@ -1,17 +1,41 @@
-import { forwardRef, type ReactNode } from 'react';
+import { forwardRef, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import type { BlockT, ItemT } from '@schema';
 import { Rich, type BlankNode } from '@/components/Rich';
 import { staticContent } from '@/lib/content';
+import { highlightSupported, paint, sentenceRange } from './evidence';
 
 interface Props {
   item: ItemT;
   renderBlank: (n: BlankNode) => ReactNode;
-  evidence: Set<string>;
+  /** evidence for the current question (review mode) */
+  evidence: { block: string; quote: string }[];
 }
 
 /** left pane: title → info box → images → body → Words & Expressions (static content) */
 export const ArticlePane = forwardRef<HTMLDivElement, Props>(function ArticlePane({ item, renderBlank, evidence }, ref) {
   const m = item.meta;
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  // blocks whose quote could not be matched fall back to whole-block highlighting
+  const [fallback, setFallback] = useState<Set<string>>(new Set());
+  const evKey = evidence.map((e) => `${e.block}|${e.quote}`).join('\n');
+  useLayoutEffect(() => {
+    const ranges: Range[] = [];
+    const miss = new Set<string>();
+    evidence.forEach((e) => {
+      const el = rootRef.current?.querySelector<HTMLElement>(`[data-block="${e.block}"]`);
+      const r = el && highlightSupported() ? sentenceRange(el, e.quote) : null;
+      if (r) ranges.push(r);
+      else miss.add(e.block);
+    });
+    paint('evidence', ranges);
+    setFallback(miss);
+    return () => paint('evidence', []);
+  }, [evKey]); // eslint-disable-line react-hooks/exhaustive-deps
+  const setRef = (el: HTMLDivElement | null) => {
+    rootRef.current = el;
+    if (typeof ref === 'function') ref(el);
+    else if (ref) ref.current = el;
+  };
   const info: [string, string | number | undefined][] = [
     ['语篇类型', m.genre],
     ['词数', m.wordCount],
@@ -21,10 +45,9 @@ export const ArticlePane = forwardRef<HTMLDivElement, Props>(function ArticlePan
     ['内容要求', m.contentRequirement],
   ];
   return (
-    <div className="article-pane thin-scroll" ref={ref}>
+    <div className="article-pane thin-scroll" ref={setRef}>
       <article className="article">
         <h1 className="article-title">{item.title}</h1>
-        {item.titleZh && <p className="article-title-zh">{item.titleZh}</p>}
 
         <dl className="info-box">
           {info
@@ -53,7 +76,7 @@ export const ArticlePane = forwardRef<HTMLDivElement, Props>(function ArticlePan
             b.type === 'imageRef' ? (
               <Figure key={b.id} img={item.article.images.find((i) => i.id === b.image)} />
             ) : (
-              <Block key={b.id} block={b} renderBlank={renderBlank} evidence={evidence.has(b.id)} />
+              <Block key={b.id} block={b} renderBlank={renderBlank} evidence={fallback.has(b.id)} />
             ),
           )}
         </div>

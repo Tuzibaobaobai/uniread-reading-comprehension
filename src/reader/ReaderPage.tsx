@@ -5,9 +5,13 @@ import { staticContent } from '@/lib/content';
 import { localAttempts, newAttempt } from '@/lib/storage';
 import { isAnswered, isScored, type Result } from '@/lib/grading';
 import { formatDuration } from '@/lib/labels';
-import { ArrowLeft, Check, Cross, Locate } from '@/components/Icons';
+import { Check, Cross, Locate } from '@/components/Icons';
+import arrowLeft from '@/assets/icons/arrow-left.svg';
+import correctIcon from '@/assets/icons/correct.svg';
+import wrongIcon from '@/assets/icons/wrong.svg';
 import { plainText, type BlankNode } from '@/components/Rich';
 import { ArticlePane } from './ArticlePane';
+import { paint, sentenceRange } from './evidence';
 import {
   ChoiceView,
   ExtendedTextView,
@@ -17,7 +21,7 @@ import {
   TextEntryView,
   type InteractionProps,
 } from './interactions';
-import { blankCorrect, blankOwners, blankText, correctBlankText, evidenceBlocks, flatten, type Responses } from './model';
+import { blankCorrect, blankOwners, blankText, correctBlankText, evidenceOf, flatten, showFirstLetter, type Responses } from './model';
 
 export function ReaderPage() {
   const { playlistId = '', itemId = '' } = useParams();
@@ -34,7 +38,7 @@ export function ReaderPage() {
     <div className="reader">
       <header className="reader-head">
         <button className="back-button" onClick={() => navigate(`/p/${playlistId}`)} aria-label="返回合集">
-          <ArrowLeft />
+          <img src={arrowLeft} alt="" />
         </button>
         <span className="reader-head-title">{item?.displayName ?? ''}</span>
       </header>
@@ -59,6 +63,7 @@ function Reader({ item }: { item: ItemT }) {
   const [tab, setTab] = useState<Tab>(() => (attempt.status === 'submitted' ? 'questions' : 'article'));
   const articleRef = useRef<HTMLDivElement>(null);
   const sessionStart = useRef(Date.now());
+  const flashTimer = useRef<number>();
 
   const submitted = attempt.status === 'submitted' && !!attempt.result;
   const result = attempt.result as Result | null;
@@ -154,14 +159,24 @@ function Reader({ item }: { item: ItemT }) {
     });
   };
 
-  const locate = (blockId: string) => {
+  /** scroll to the evidence sentence and flash it (falls back to the whole block) */
+  const locate = (blockId: string, quote?: string) => {
     setTab('article');
     requestAnimationFrame(() => {
       const el = articleRef.current?.querySelector<HTMLElement>(`[data-block="${blockId}"]`);
-      el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      el?.classList.remove('flash');
-      void el?.offsetWidth;
-      el?.classList.add('flash');
+      if (!el) return;
+      const range = quote ? sentenceRange(el, quote) : null;
+      const anchor = range?.startContainer.parentElement ?? el;
+      anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (range && 'highlights' in CSS) {
+        paint('flash', [range]);
+        window.clearTimeout(flashTimer.current);
+        flashTimer.current = window.setTimeout(() => paint('flash', []), 1400);
+        return;
+      }
+      el.classList.remove('flash');
+      void el.offsetWidth;
+      el.classList.add('flash');
     });
   };
 
@@ -196,9 +211,9 @@ function Reader({ item }: { item: ItemT }) {
         }}
         aria-label={`第 ${n.number ?? ''} 空${text ? `：${text}` : '，未作答'}`}
       >
-        {n.hint?.firstLetter && <span className="blank-chip-hint">{n.hint.firstLetter}</span>}
-        <span className="blank-chip-num">{n.number}</span>
-        {text && <span className="blank-chip-text">{text}</span>}
+        {text && <span className="blank-chip-num">{n.number}</span>}
+        {showFirstLetter(n.hint?.firstLetter, text) && <span className="blank-chip-hint">{n.hint!.firstLetter}</span>}
+        {text ? <span className="blank-chip-text">{text}</span> : <span className="blank-chip-empty">{n.number ?? '\u00a0'}</span>}
         {ok === false && fq && review && (
           <span className="blank-chip-correct">{correctBlankText(fq, n.id, review.key)?.replace(/^[A-Z]\. /, '')}</span>
         )}
@@ -208,12 +223,12 @@ function Reader({ item }: { item: ItemT }) {
   };
 
   const iprops: InteractionProps | null = current
-    ? { item, fq: current, flat, owners, responses, setResponses, review }
+    ? { item, fq: current, flat, owners, responses, setResponses, review, onLocate: locate }
     : null;
 
   const pos = visible.indexOf(index);
   const isLast = pos === visible.length - 1;
-  const evidence = review ? evidenceBlocks(review.key, current?.q.id) : new Set<string>();
+  const evidence = useMemo(() => (review ? evidenceOf(review.key, current?.q.id) : []), [review?.key, current?.q.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={`reader-body tab-${tab}`}>
@@ -266,7 +281,9 @@ function Reader({ item }: { item: ItemT }) {
                     persist({ ...attempt, result: { ...result, selfAssessed: { ...result.selfAssessed, [current.q.id]: v } } })
                   }
                 />
-                {review && <Explanation item={item} fq={current} keyData={review.key} onLocate={locate} result={review.result} />}
+                {review && !EMBEDDED_EXPLAIN.has(current.q.interaction.kind) && (
+                  <Explanation item={item} fq={current} keyData={review.key} onLocate={locate} result={review.result} />
+                )}
               </>
             )}
           </div>
@@ -293,10 +310,17 @@ function Reader({ item }: { item: ItemT }) {
                     key={i}
                     className={`question-dot ${i === index ? 'is-current' : ''} ${state}`}
                     onClick={() => go(i)}
-                    aria-label={`第 ${f.q.number} 题`}
+                    aria-label={`第 ${f.q.number} 题${state === 'is-correct' ? '，正确' : state === 'is-wrong' ? '，错误' : state === 'is-answered' ? '，已作答' : ''}`}
                     aria-current={i === index}
                   >
-                    {f.q.number}
+                    {state === 'is-correct' || state === 'is-wrong' ? (
+                      <img className="question-dot-icon" src={state === 'is-correct' ? correctIcon : wrongIcon} alt="" />
+                    ) : (
+                      <>
+                        <span className="question-dot-num">{f.q.number}</span>
+                        {!review && <span className="question-dot-mark" aria-hidden />}
+                      </>
+                    )}
                   </button>
                 );
               })}
@@ -306,7 +330,10 @@ function Reader({ item }: { item: ItemT }) {
                 下一题
               </button>
             ) : isLast ? (
-              <button className="pill-button primary" onClick={() => (unanswered.length ? setConfirmOpen(true) : submit())}>
+              <button
+                className={`pill-button primary ${unanswered.length ? 'is-dim' : ''}`}
+                onClick={() => (unanswered.length ? setConfirmOpen(true) : submit())}
+              >
                 提交
               </button>
             ) : (
@@ -328,13 +355,14 @@ function Reader({ item }: { item: ItemT }) {
                 <button
                   key={f.q.id}
                   className="question-dot"
+                  aria-label={`第 ${f.q.number} 题`}
                   onClick={() => {
                     setConfirmOpen(false);
                     go(f.index);
                     setTab('questions');
                   }}
                 >
-                  {f.q.number}
+                  <span className="question-dot-num">{f.q.number}</span>
                 </button>
               ))}
             </div>
@@ -352,6 +380,9 @@ function Reader({ item }: { item: ItemT }) {
     </div>
   );
 }
+
+/** kinds whose explanation is shown inside the correct option (Figma Option-text-item, correct-expanded) */
+const EMBEDDED_EXPLAIN = new Set(['choice', 'inlineChoice']);
 
 function QuestionBody({
   props,
@@ -437,7 +468,7 @@ function Explanation({
   item: ItemT;
   fq: ReturnType<typeof flatten>[number];
   keyData: ItemKeyT;
-  onLocate: (block: string) => void;
+  onLocate: (block: string, quote?: string) => void;
   result: Result;
 }) {
   const k = keyData.answers[fq.q.id];
@@ -495,7 +526,7 @@ function Explanation({
       {'rubricZh' in k && k.rubricZh && <p className="explain-text">要点：{k.rubricZh}</p>}
       {k.explanationZh && <p className="explain-text">{k.explanationZh}</p>}
       {k.evidence?.[0] && (
-        <button className="chip" onClick={() => onLocate(k.evidence![0].block)}>
+        <button className="chip" onClick={() => onLocate(k.evidence![0].block, k.evidence![0].quote)}>
           <Locate /> 定位原文
         </button>
       )}

@@ -3,8 +3,11 @@ import { createRoot } from 'react-dom/client';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 // self-hosted: Google Fonts is unreliable for users in mainland China
 import '@fontsource/source-sans-3/400.css';
-import '@fontsource/source-sans-3/600.css';
+import '@fontsource/source-sans-3/500.css';
 import '@fontsource/source-sans-3/700.css';
+import '@fontsource/noto-sans-sc/400.css';
+import '@fontsource/noto-sans-sc/500.css';
+import '@fontsource/noto-sans-sc/700.css';
 import './styles/global.css';
 import './styles/app.css';
 import { PlaylistsPage } from './pages/PlaylistsPage';

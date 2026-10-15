@@ -26,5 +26,5 @@ swift scripts/render.swift "articles/<book>.pdf" .work/pages/<playlistId> 1800
 | `content/` | playlists、items、keys（答案）、assets（图片） |
 | `scripts/` | 渲染、裁图、校验、建索引 |
 | `src/` | Web App |
-| `screenshots/` | UniRead 页面参考截图 |
+| `screenshots/` | UniRead 页面早期参考截图（已由 Figma 设计系统取代，见 docs/design/figma-registry.md） |
 | `articles/` | 原始 PDF（不入库） |

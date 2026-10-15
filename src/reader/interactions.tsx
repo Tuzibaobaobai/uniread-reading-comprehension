@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import type { InlineT, ItemKeyT, ItemT } from '@schema';
 import { Rich, plainText, type BlankNode } from '@/components/Rich';
-import { Check, Cross } from '@/components/Icons';
+import { Check, Locate } from '@/components/Icons';
+import tipIcon from '@/assets/icons/tip.svg';
 import { questionBlankIds, type Result } from '@/lib/grading';
 import { Block } from './ArticlePane';
-import { blankContext, blankCorrect, correctBlankText, type FlatQuestion, type Responses } from './model';
+import { blankContext, blankCorrect, correctBlankText, showFirstLetter, type FlatQuestion, type Responses } from './model';
 
 export interface InteractionProps {
   item: ItemT;
@@ -14,6 +15,7 @@ export interface InteractionProps {
   responses: Responses;
   setResponses: (update: (prev: Responses) => Responses) => void;
   review: { key: ItemKeyT; result: Result } | null;
+  onLocate?: (blockId: string, quote?: string) => void;
 }
 
 const asRecord = (v: unknown): Record<string, string> =>
@@ -31,47 +33,92 @@ function setOne(props: InteractionProps, value: Responses[string] | undefined) {
 
 /* ---------------------------------------------------------------- choice */
 
+/** Figma `Option-text-item`: default / hover / selected / wrong / correct-expanded (with explanation). */
 function OptionList({
   options,
   selected,
   onSelect,
   correct,
   locked,
+  showLetter = true,
+  explain,
+  ariaLabels,
 }: {
   options: { id: string; content: InlineT[] }[];
   selected?: string;
   onSelect: (id: string) => void;
   correct?: string[];
   locked: boolean;
+  showLetter?: boolean;
+  ariaLabels?: Record<string, string>;
+  explain?: { text?: string; block?: string; quote?: string; onLocate?: (blockId: string, quote?: string) => void };
 }) {
   return (
-    <div className="options" role="radiogroup">
+    <div className="options" role="radiogroup" aria-readonly={locked || undefined}>
       {options.map((o) => {
         const isSel = selected === o.id;
         const isRight = correct?.includes(o.id);
         const state = correct ? (isRight ? 'is-correct' : isSel ? 'is-wrong' : '') : isSel ? 'is-selected' : '';
-        return (
-          <button
-            key={o.id}
-            role="radio"
-            aria-checked={isSel}
-            className={`option ${state}`}
-            disabled={locked}
-            onClick={() => onSelect(o.id)}
-          >
-            <span className="option-radio" aria-hidden>
-              {correct && isRight ? <Check /> : correct && isSel ? <Cross /> : null}
+        const marked = correct ? isRight || isSel : isSel;
+        const row = (
+          <span className="option-row">
+            <span className="option-radio-box" aria-hidden>
+              <span className={`option-radio ${marked ? 'is-on' : ''}`} />
             </span>
-            <span className="option-letter">{o.id}.</span>
             <span className="option-text">
+              {showLetter && <span className="option-letter">{o.id}. </span>}
               <Rich nodes={o.content} />
             </span>
-          </button>
+          </span>
+        );
+        if (!locked) {
+          return (
+            <button
+              key={o.id}
+              role="radio"
+              aria-checked={isSel}
+              aria-label={ariaLabels?.[o.id]}
+              className={`option ${state}`}
+              onClick={() => onSelect(o.id)}
+            >
+              {row}
+            </button>
+          );
+        }
+        const expanded = isRight && explain && (explain.text || explain.block);
+        return (
+          <div key={o.id} role="radio" aria-checked={isSel} aria-label={ariaLabels?.[o.id]} className={`option ${state}`}>
+            {row}
+            {expanded && (
+              <div className="option-explain">
+                <img className="option-explain-icon" src={tipIcon} alt="" />
+                <div className="option-explain-body">
+                  {explain.text && <p className="option-explain-text">{explain.text}</p>}
+                  {explain.block && explain.onLocate && (
+                    <button className="chip" onClick={() => explain.onLocate!(explain.block!, explain.quote)}>
+                      <Locate /> 定位原文
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
         );
       })}
     </div>
   );
 }
+
+function choiceExplain(props: InteractionProps) {
+  const k = props.review?.key.answers[props.fq.q.id];
+  if (!k) return undefined;
+  return { text: k.explanationZh, block: k.evidence?.[0]?.block, quote: k.evidence?.[0]?.quote, onLocate: props.onLocate };
+}
+
+const TF_OPTIONS: { id: string; content: InlineT[] }[] = [
+  { id: 'T', content: [{ t: 'text', v: 'T' }] },
+  { id: 'F', content: [{ t: 'text', v: 'F' }] },
+];
 
 export function ChoiceView(props: InteractionProps) {
   const { fq, responses, review } = props;
@@ -87,25 +134,16 @@ export function ChoiceView(props: InteractionProps) {
         <QuestionPrompt number={fq.q.number}>
           <Rich nodes={it.prompt} />
         </QuestionPrompt>
-        <div className="tf-buttons" role="radiogroup">
-          {it.options.map((o) => {
-            const isSel = selected === o.id;
-            const state = correct ? (correct.includes(o.id) ? 'is-correct' : isSel ? 'is-wrong' : '') : isSel ? 'is-selected' : '';
-            return (
-              <button
-                key={o.id}
-                role="radio"
-                aria-checked={isSel}
-                className={`tf-button ${state}`}
-                disabled={!!review}
-                onClick={() => setOne(props, [o.id])}
-              >
-                <span className="tf-letter">{o.id}</span>
-                <span>{o.id === 'T' ? 'True 正确' : 'False 错误'}</span>
-              </button>
-            );
-          })}
-        </div>
+        <OptionList
+          options={TF_OPTIONS.filter((t) => it.options.some((o) => o.id === t.id))}
+          selected={selected}
+          correct={correct}
+          locked={!!review}
+          showLetter={false}
+          ariaLabels={{ T: 'T 正确 True', F: 'F 错误 False' }}
+          explain={choiceExplain(props)}
+          onSelect={(id) => setOne(props, [id])}
+        />
       </>
     );
   }
@@ -114,7 +152,14 @@ export function ChoiceView(props: InteractionProps) {
       <QuestionPrompt number={fq.q.number}>
         <Rich nodes={it.prompt} />
       </QuestionPrompt>
-      <OptionList options={it.options} selected={selected} correct={correct} locked={!!review} onSelect={(id) => setOne(props, [id])} />
+      <OptionList
+        options={it.options}
+        selected={selected}
+        correct={correct}
+        locked={!!review}
+        explain={choiceExplain(props)}
+        onSelect={(id) => setOne(props, [id])}
+      />
     </>
   );
 }
@@ -143,13 +188,27 @@ export function InlineChoiceView(props: InteractionProps) {
           <Rich nodes={context} blank={(n) => <ContextBlank n={n} active={n.id === it.blankId} />} />
         </p>
       )}
-      <OptionList options={it.options} selected={selected} correct={correct} locked={!!review} onSelect={(id) => setOne(props, [id])} />
+      <OptionList
+        options={it.options}
+        selected={selected}
+        correct={correct}
+        locked={!!review}
+        explain={choiceExplain(props)}
+        onSelect={(id) => setOne(props, [id])}
+      />
     </>
   );
 }
 
+/** read-only blank inside a prompt / context line: [first letter][answer or number] on a single underline */
 function ContextBlank({ n, active, text }: { n: BlankNode; active: boolean; text?: string }) {
-  return <span className={`context-blank ${active ? 'is-active' : ''}`}>{text ?? (n.number ? `__${n.number}__` : '____')}</span>;
+  return (
+    <span className={`context-blank ${active ? 'is-active' : ''} ${text ? 'is-filled' : ''}`}>
+      {showFirstLetter(n.hint?.firstLetter, text) && <span className="blank-prefix">{n.hint!.firstLetter}</span>}
+      <span className={text ? 'blank-fill' : 'blank-num'}>{text ?? n.number ?? '\u00a0'}</span>
+      {n.hint?.baseWord && <span className="blank-base">({n.hint.baseWord})</span>}
+    </span>
+  );
 }
 
 /* -------------------------------------------------------------- gapMatch */
@@ -290,7 +349,6 @@ function BlankInput({
 }) {
   return (
     <span className={`blank-input ${ok === true ? 'is-correct' : ok === false ? 'is-wrong' : ''}`}>
-      {n.number !== undefined && <span className="blank-input-num">{n.number}</span>}
       {n.hint?.firstLetter && <span className="blank-input-prefix">{n.hint.firstLetter}</span>}
       <input
         value={value}
@@ -302,7 +360,8 @@ function BlankInput({
         autoComplete="off"
         spellCheck={false}
         enterKeyHint="next"
-        aria-label={`空格 ${n.number ?? ''}`}
+        aria-label={`空格 ${n.number ?? ''}${n.hint?.firstLetter ? `，首字母 ${n.hint.firstLetter}` : ''}`}
+        placeholder={n.number !== undefined ? String(n.number) : undefined}
         size={Math.max(6, value.length + 1)}
       />
       {n.hint?.baseWord && <span className="blank-input-base">({n.hint.baseWord})</span>}
@@ -328,7 +387,7 @@ export function TextEntryView(props: InteractionProps) {
       // someone else's blank (e.g. other cells in the same table)
       const other = flat[owners.get(n.id) ?? -1];
       const v = other ? asRecord(responses[other.q.id])[n.id] : '';
-      return <span className="context-blank">{v || (n.number ? `__${n.number}__` : '____')}</span>;
+      return <ContextBlank n={n} active={false} text={v?.trim() ? v : undefined} />;
     }
     return (
       <BlankInput
@@ -376,7 +435,8 @@ export function TextEntryView(props: InteractionProps) {
 
 /* ----------------------------------------------------------------- match */
 
-const PAIR_COLORS = ['#F07B3F', '#3E8EF7', '#2FA36B', '#A65CE8', '#E5A400', '#E5484D', '#17A2B8'];
+/** match pair markers: tokens --pair-1..7 */
+const PAIR_COLORS = [1, 2, 3, 4, 5, 6, 7].map((n) => `var(--pair-${n})`);
 
 export function MatchView(props: InteractionProps) {
   const { fq, responses, review } = props;
@@ -478,7 +538,7 @@ export function ExtendedTextView(props: InteractionProps & { selfAssessed?: bool
       </QuestionPrompt>
       {it.scaffold && (
         <p className="context-line">
-          <Rich nodes={it.scaffold} blank={() => <span className="context-blank">________</span>} />
+          <Rich nodes={it.scaffold} blank={() => <span className="context-blank"><span className="blank-num">{'\u00a0'}</span></span>} />
         </p>
       )}
       <textarea

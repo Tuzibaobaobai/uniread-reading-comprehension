@@ -140,10 +140,14 @@ export function blankContext(item: ItemT, blankId: string): InlineT[] | null {
   return null;
 }
 
-/** blocks that contain evidence for a question (review highlighting) */
-export function evidenceBlocks(key: ItemKeyT | null, qid: string | undefined): Set<string> {
-  const set = new Set<string>();
-  if (!key || !qid) return set;
-  key.answers[qid]?.evidence?.forEach((e) => set.add(e.block));
-  return set;
+/** evidence (block + quote) for a question (review highlighting) */
+export function evidenceOf(key: ItemKeyT | null, qid: string | undefined): { block: string; quote: string }[] {
+  if (!key || !qid) return [];
+  return key.answers[qid]?.evidence ?? [];
+}
+
+/** show the printed first letter unless the student already typed the whole word */
+export function showFirstLetter(firstLetter: string | undefined, text: string | undefined): boolean {
+  if (!firstLetter) return false;
+  return !text || !text.toLowerCase().startsWith(firstLetter.toLowerCase());
 }

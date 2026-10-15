@@ -1,46 +1,145 @@
-/* UniRead design tokens — values sampled from screenshots/; replace with Figma tokens when available. */
+/* UniRead design tokens — the only place visual values live.
+   Source: Figma UniRead design system (docs/design/figma-registry.md, mapping rules there).
+   Product decision: --accent is the UniRead brand colour, not Figma's placeholder `color/6`. */
 :root {
-  --bg-page: #f4f5f8;
-  --bg-card: #ffffff;
-  --bg-subtle: #f6f7f9;
-  --bg-hover: #f0f1f4;
+  /* ---- Figma: Customization/Grey/N */
+  --grey-2: #f5f6f9;
+  --grey-3: #f0f2f7;
+  --grey-5: #e4e7ec;           /* Grey/5(divider) */
+  --grey-7: #cfd5e3;
+  --grey-8: #bdc4d4;
+  --grey-9: #979eaf;
+  --grey-10: #6c7280;
+  --grey-11: #474a50;
+  --grey-12: #393b40;
+  --white: #ffffff;
 
-  --text-primary: #1f2329;
-  --text-body: #26292e;
-  --text-secondary: #8a8f99;
-  --text-tertiary: #c2c6ce;
+  /* ---- semantic surfaces & text */
+  --bg-page: var(--grey-2);
+  --bg-card: var(--white);
+  --bg-subtle: var(--grey-2);
+  --bg-hover: var(--grey-2);
+  --bg-selected: var(--grey-2);
+  --text-primary: rgba(0, 0, 0, 0.88);   /* Grey/13(text) at 88% */
+  --text-body: rgba(0, 0, 0, 0.88);
+  --text-strong: var(--grey-12);
+  --text-secondary: var(--grey-10);
+  --text-tertiary: var(--grey-9);
+  --text-on-accent: var(--white);
+  --border: var(--grey-7);
+  --border-strong: var(--grey-7);
+  --border-radio: var(--grey-9);
+  --divider: var(--grey-5);
+  --overlay-panel: rgba(255, 255, 255, 0.8);   /* playlist info panel over blurred cover */
+  --backdrop: rgba(20, 22, 26, 0.4);
 
+  /* ---- brand (color/6 → accent) */
   --accent: #f07b3f;
   --accent-soft: #fdeee5;
   --accent-strong: #e0662a;
 
-  --success: #2fa36b;
-  --success-soft: #e6f6ee;
-  --danger: #e5484d;
-  --danger-soft: #fdecec;
-  --highlight: #fff3c4;
+  /* ---- Figma: Customization/State */
+  --success: #07cd4d;          /* finished-light */
+  --success-soft: #ecfde0;     /* success-bg */
+  --success-text: #497249;     /* explanation text on success-bg */
+  --success-divider: rgba(73, 114, 73, 0.2);
+  --danger: #ff1e1e;           /* wrong-light */
+  --danger-soft: #ffeded;      /* error-bg */
+  --highlight: #fff3c4;        /* evidence sentence in the article */
+  --highlight-strong: #ffe58a; /* locate flash */
 
-  --border: #e6e8ec;
-  --border-strong: #d5d8de;
+  /* match: pair markers (not in Figma yet) */
+  --pair-1: #f07b3f;
+  --pair-2: #3e8ef7;
+  --pair-3: #2fa36b;
+  --pair-4: #a65ce8;
+  --pair-5: #e5a400;
+  --pair-6: #e5484d;
+  --pair-7: #17a2b8;
 
-  --radius-card: 24px;
-  --radius-panel: 16px;
-  --radius-thumb: 12px;
-  --radius-chip: 10px;
-  --radius-pill: 999px;
+  /* ---- Figma: radius/* */
+  --radius-xs: 10px;
+  --radius-s: 15px;
+  --radius-m: 20px;
+  --radius-l: 24px;
+  --radius-xl: 40px;
+  --radius-full: 9999px;
+  --radius-btn-square: 12px;
+  --radius-row: 8px;
+  /* legacy aliases */
+  --radius-card: var(--radius-xl);
+  --radius-panel: var(--radius-m);
+  --radius-thumb: var(--radius-xs);
+  --radius-chip: var(--radius-xs);
+  --radius-pill: var(--radius-full);
 
+  /* ---- Figma effects */
+  --shadow-btn: 0 2px 5px -1px rgba(123, 131, 147, 0.1);   /* drop-shadow/btn-xs */
+  --shadow-bar: 0 0 5px rgba(0, 0, 0, 0.08);               /* bar */
+  --shadow-card-lg: 0 2px 2px rgba(183, 183, 184, 0.1), 0 7px 3.5px rgba(183, 183, 184, 0.09), 0 16px 5px rgba(183, 183, 184, 0.05), 0 29px 6px rgba(183, 183, 184, 0.01);  /* drop-shadow/card lg */
   --shadow-card: 0 4px 24px rgba(31, 35, 41, 0.06);
-  --shadow-button: 0 2px 12px rgba(31, 35, 41, 0.1);
+  --shadow-card-hover: 0 8px 28px rgba(31, 35, 41, 0.1);
+  --shadow-dialog: 0 16px 48px rgba(0, 0, 0, 0.18);
+  --shadow-button: var(--shadow-btn);
 
-  --font-sans: 'Source Sans 3', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', -apple-system, sans-serif;
-
-  --fs-article: 22px;
-  --fs-question: 22px;
-  --fs-option: 20px;
-  --fs-body: 16px;
+  /* ---- Figma: font/primary-font-family + Font system */
+  /* Source Sans 3 = the Latin design inside Noto Sans SC; listed first so Latin quotes/apostrophes stay proportional */
+  --font-sans: 'Source Sans 3', 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, sans-serif;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fs-xs: 12px;   --lh-xs: 18px;
+  --fs-s: 14px;    --lh-s: 22px;
+  --fs-m: 16px;    --lh-m: 26px;
+  --fs-l: 18px;    --lh-l: 28px;
+  --fs-2xl: 20px;  --lh-2xl: 30px;
+  --fs-3xl: 22px;  --lh-3xl: 32px;
+  --fs-4xl: 24px;  --lh-4xl: 36px;
+  --fs-5xl: 32px;  --lh-5xl: 44px;
+  --fs-display: 48px;
+  /* semantic sizes */
+  --fs-article: var(--fs-3xl);
+  --lh-article: var(--lh-3xl);
+  --fs-question: var(--fs-3xl);
+  --fs-option: var(--fs-3xl);
+  --fs-body: var(--fs-m);
   --fs-meta: 15px;
   --fs-small: 13px;
 
+  /* ---- component metrics (Figma Quiz / Option-text-item / Quiz-pagination / Header) */
+  --header-h: 80px;
+  --back-btn: 48px;
+  --icon-m: 24px;
+  --radio: 24px;
+  --radio-dot: 15px;
+  --radio-border: 0.75px;
+  --option-pad-y: 19px;
+  --option-pad-x: 20px;
+  --option-gap: 16px;
+  --options-gap: 12px;
+  --quiz-pad: 48px;
+  --quiz-gap: 40px;
+  --quiz-bar-pad-y: 32px;
+  --pager-btn-w: 200px;
+  --pager-btn-h: 72px;
+  --pager-num: 72px;
+  --pager-num-gap: 12px;
+  --pager-mark-w: 20px;
+  --pager-mark-h: 8px;
+  --pager-result-icon: 40px;
+  --disabled-opacity: 0.2;
+  --panel-pad: 32px;
+  --panel-gap: 16px;
+  --panel-btn-h: 56px;
+  --row-thumb-w: 256px;
+  --row-num: 48px;
+  --progress-h: 2px;
+  --blur-panel: 100px;
+
+  --blank-min-w: 3em;
+  --blank-line: 1.5px;
+  --blank-line-color: var(--grey-12);
+
   --tap: 44px;
-  --gutter: 24px;
+  --gutter: 40px;
 }

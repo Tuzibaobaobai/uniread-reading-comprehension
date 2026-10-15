@@ -28,19 +28,19 @@ export const Book = () => (
 export const Question = () => (
   <svg viewBox="0 0 24 24" aria-hidden>
     <circle cx="12" cy="12" r="10" fill="currentColor" />
-    <path d="M9.5 9.5a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1.9-1.1 1.8M12 17h.01" stroke="#fff" strokeWidth="2" fill="none" strokeLinecap="round" />
+    <path d="M9.5 9.5a2.5 2.5 0 1 1 3.6 2.2c-.7.4-1.1.9-1.1 1.8M12 17h.01" style={{ stroke: 'var(--white)' }} strokeWidth="2" fill="none" strokeLinecap="round" />
   </svg>
 );
 export const Pencil = () => (
   <svg viewBox="0 0 24 24" aria-hidden>
     <rect x="2" y="2" width="20" height="20" rx="5" fill="currentColor" />
-    <path d="M7 17l1-3 6.5-6.5 2 2L10 16z" fill="#fff" />
+    <path d="M7 17l1-3 6.5-6.5 2 2L10 16z" style={{ fill: 'var(--white)' }} />
   </svg>
 );
 export const Link = () => (
   <svg viewBox="0 0 24 24" aria-hidden>
     <rect x="2" y="2" width="20" height="20" rx="5" fill="currentColor" />
-    <path d="M8 8h3M8 12h3M8 16h3M13 8l3 4M13 16l3-4" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" />
+    <path d="M8 8h3M8 12h3M8 16h3M13 8l3 4M13 16l3-4" style={{ stroke: 'var(--white)' }} strokeWidth="1.8" strokeLinecap="round" />
   </svg>
 );
 export const Locate = () => (
