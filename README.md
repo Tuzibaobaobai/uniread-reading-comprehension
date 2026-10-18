@@ -1,5 +1,7 @@
 # UniRead · 时文阅读 Reading Comprehension
 
+> **接入 UniRead 主平台请先读 [HANDOFF.md](HANDOFF.md)。**
+
 把《Current Insights 时文阅读｜提分训练3+X》练习册（扫描 PDF）变成可交互的阅读理解 Web App（PC + iPad），数据格式可直接接入 UniRead。
 
 - **Playlist** = 一本书；**Item** = 一篇文章 + 题目
