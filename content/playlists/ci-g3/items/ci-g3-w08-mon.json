@@ -1,0 +1,380 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g3-w08-mon",
+  "playlistId": "ci-g3",
+  "order": 36,
+  "week": 8,
+  "day": "mon",
+  "title": "Dog Waits Outside Hospital",
+  "titleZh": "狗狗在医院外等候",
+  "displayName": "Week 8 Monday Dog Waits Outside Hospital",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "记叙文",
+    "wordCount": 109,
+    "difficulty": 2,
+    "suggestedMinutes": 7,
+    "themeContext": "人与自然",
+    "contentRequirement": "与自然和谐共存",
+    "intro": "等候在医院外的狗狗。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X3年级.pdf",
+    "pdfPages": [
+      63
+    ],
+    "bookPages": [
+      54
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-wait",
+        "headword": "wait",
+        "ipa": "weɪt",
+        "pos": "v.",
+        "meaningZh": "等待"
+      },
+      {
+        "id": "v-hospital",
+        "headword": "hospital",
+        "ipa": "ˈhɒspɪtl",
+        "pos": "n.",
+        "meaningZh": "医院"
+      },
+      {
+        "id": "v-ambulance",
+        "headword": "ambulance",
+        "ipa": "ˈæmbjələns",
+        "pos": "n.",
+        "meaningZh": "救护车"
+      },
+      {
+        "id": "v-return",
+        "headword": "return",
+        "ipa": "rɪˈtɜːn",
+        "pos": "v.",
+        "meaningZh": "返回；回去"
+      },
+      {
+        "id": "v-joy",
+        "headword": "joy",
+        "ipa": "dʒɔɪ",
+        "pos": "n.",
+        "meaningZh": "愉快；喜悦"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Cemal Senturk comes from "
+          },
+          {
+            "t": "gloss",
+            "v": "Türkiye",
+            "zh": "土耳其"
+          },
+          {
+            "t": "text",
+            "v": ". He has a dog. His dog’s name is Boncuk. Senturk and Boncuk are best friends."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Senturk must go to the "
+          },
+          {
+            "t": "vocab",
+            "v": "hospital",
+            "ref": "v-hospital"
+          },
+          {
+            "t": "text",
+            "v": ". An "
+          },
+          {
+            "t": "vocab",
+            "v": "ambulance",
+            "ref": "v-ambulance"
+          },
+          {
+            "t": "text",
+            "v": " takes him there. His dog runs after the ambulance. It waits in front of the hospital. It sits there for three days."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Senturk’s daughter takes the dog home. The dog "
+          },
+          {
+            "t": "vocab",
+            "v": "returns",
+            "ref": "v-return"
+          },
+          {
+            "t": "text",
+            "v": " to the hospital. Senturk’s daughter takes the dog home again. The dog returns to the hospital again."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Senturk leaves the hospital after six days. He meets his dog. They are both very happy. Senturk says that a dog can be a best friend. Dogs bring "
+          },
+          {
+            "t": "vocab",
+            "v": "joy",
+            "ref": "v-joy"
+          },
+          {
+            "t": "text",
+            "v": ". They make people happy."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Where does Boncuk wait for Senturk?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "At home."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "In front of the hospital."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "In the park."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How long does the dog wait outside the hospital at first?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Three days."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Five days."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Six days."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Senturk went to the hospital ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to meet friends"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to get "
+                  },
+                  {
+                    "t": "gloss",
+                    "v": "treatment",
+                    "zh": "治疗"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to visit his dog"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The dog Boncuk is ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "lazy and unfriendly"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "clever and "
+                  },
+                  {
+                    "t": "gloss",
+                    "v": "loyal",
+                    "zh": "忠诚"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "shy and "
+                  },
+                  {
+                    "t": "gloss",
+                    "v": "scared",
+                    "zh": "害怕的"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

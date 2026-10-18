@@ -1,0 +1,271 @@
+{
+  "schemaVersion": "1.0",
+  "itemId": "ci-g7-w05-fri",
+  "answerSource": "official",
+  "reviewStatus": "pending",
+  "officialRef": {
+    "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级答案.pdf",
+    "pages": [
+      11,
+      12
+    ]
+  },
+  "answers": {
+    "q1": {
+      "sampleAnswer": "Scabs.",
+      "rubricZh": "要点：痂。",
+      "explanationZh": "第一段说伤口愈合往往需要形成痂，所以答 scab（用复数 Scabs 也可以）。",
+      "evidence": [
+        {
+          "block": "p1",
+          "quote": "In many cases, the process requires the forming of a scab"
+        }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "伤口上形成痂",
+          "examples": [
+            "Scabs",
+            "A scab"
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "q2": {
+      "sampleAnswer": "Yes, they are.",
+      "rubricZh": "要点：Yes, they are.",
+      "explanationZh": "反意疑问句问“痂是愈合的重要部分，对吧？”，第一段最后说 they’re an important part of the healing process，所以回答 Yes, they are。",
+      "evidence": [
+        {
+          "block": "p1",
+          "quote": "Still, they’re an important part of the healing process."
+        }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "回答肯定：Yes, they are",
+          "examples": [
+            "Yes, they are."
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "q3": {
+      "sampleAnswer": "By helping to stop the bleeding from a wound.",
+      "rubricZh": "要点：帮助止血。",
+      "explanationZh": "第二段说血凝块能帮助止住伤口流血，伤口就开始愈合。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "The clot helps to stop the bleeding from your wound."
+        }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "帮助止血",
+          "examples": [
+            "stop the bleeding from a wound"
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "q4": {
+      "sampleAnswer": "Because picking at a scab can lead to infection and other problems.",
+      "rubricZh": "要点：抠痂会导致感染等问题。",
+      "explanationZh": "第三段说抠痂可能引起感染和其他问题，所以不能抠。",
+      "evidence": [
+        {
+          "block": "p3",
+          "quote": "Picking at a scab can lead to infection and other problems."
+        }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "抠痂会导致感染和其他问题",
+          "examples": [
+            "it can lead to infection and other problems"
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "q5": {
+      "sampleAnswer": "I can keep the area clean by washing it with soap and water. I can also use bandages to protect the scab.",
+      "rubricZh": "要点：用肥皂和水清洗保持干净；用绷带保护痂。",
+      "explanationZh": "最后一段给了两个办法：用肥皂和水清洗伤口周围，以及用绷带保护痂。回答时两点都写。",
+      "evidence": [
+        {
+          "block": "p4",
+          "quote": "it helps to keep the area clean by washing it with soap and water"
+        },
+        {
+          "block": "p4",
+          "quote": "It can also help to use bandages to protect the scab."
+        }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "用肥皂和水清洗保持干净",
+          "examples": [
+            "wash it with soap and water"
+          ],
+          "weight": 1
+        },
+        {
+          "id": "k2",
+          "descZh": "用绷带保护痂",
+          "examples": [
+            "use bandages to protect the scab"
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "q6": {
+      "slots": {
+        "b1": {
+          "accept": [
+            "growth"
+          ]
+        }
+      },
+      "explanationZh": "介词 for 后面要名词，healthy 后面接 growth（成长）：对健康成长很重要。"
+    },
+    "q7": {
+      "slots": {
+        "b2": {
+          "accept": [
+            "requirements",
+            "requirement"
+          ]
+        }
+      },
+      "explanationZh": "空前有 the，空后有 of the course，要名词；meet the requirements 满足要求，通常用复数。",
+      "tipsZh": "meet the requirements 达到要求"
+    },
+    "q8": {
+      "slots": {
+        "b3": {
+          "accept": [
+            "useful"
+          ]
+        }
+      },
+      "explanationZh": "It can be ... to do 需要形容词，use 变成 useful（有用的）。"
+    },
+    "q9": {
+      "slots": {
+        "b4": {
+          "accept": [
+            "realization",
+            "realisation"
+          ]
+        }
+      },
+      "explanationZh": "the ... of his life’s dream 要名词，realize 的名词是 realization（实现）。"
+    },
+    "q10": {
+      "slots": {
+        "b5": {
+          "accept": [
+            "comfort"
+          ]
+        }
+      },
+      "explanationZh": "in 后面接名词，uncomfortable 的反面名词是 comfort：过着舒适的生活。",
+      "tipsZh": "live in comfort 过舒适的生活"
+    },
+    "q11": {
+      "slots": {
+        "b6": {
+          "accept": [
+            "are"
+          ]
+        },
+        "b7": {
+          "accept": [
+            "they"
+          ]
+        }
+      },
+      "explanationZh": "前面是否定句 aren’t，反意疑问部分用肯定：are they？主语 Scabs 用 they 代替。"
+    },
+    "q12": {
+      "slots": {
+        "b8": {
+          "accept": [
+            "How"
+          ]
+        },
+        "b9": {
+          "accept": [
+            "does"
+          ]
+        }
+      },
+      "explanationZh": "画线部分是方式“通过保持病菌远离伤口”，用 How 提问；it 是第三人称单数，助动词用 does。"
+    },
+    "q13": {
+      "slots": {
+        "b10": {
+          "accept": [
+            "Although",
+            "Though"
+          ]
+        }
+      },
+      "explanationZh": "原句用 but 连接转折；改写时去掉 but，在前半句前加 Although/Though（虽然），两者不能同时用。",
+      "tipsZh": "although 和 but 不能连用"
+    },
+    "q14": {
+      "slots": {
+        "b11": {
+          "accept": [
+            "result",
+            "bring"
+          ]
+        },
+        "b12": {
+          "accept": [
+            "in",
+            "about"
+          ]
+        }
+      },
+      "explanationZh": "lead to 意思是“导致”，可换成 result in 或 bring about。",
+      "tipsZh": "result in / bring about = lead to"
+    },
+    "q15": {
+      "sequence": [
+        "w2",
+        "w6",
+        "w4",
+        "w8",
+        "w1",
+        "w5",
+        "w7",
+        "w3"
+      ],
+      "explanationZh": "主语 he，谓语 has，后面 some unfinished business（一些未完成的事务），再用 to deal with 作定语：He has some unfinished business to deal with.",
+      "tipsZh": "deal with 处理，to do 作后置定语"
+    }
+  }
+}

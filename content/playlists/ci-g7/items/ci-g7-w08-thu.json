@@ -1,0 +1,266 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g7-w08-thu",
+  "playlistId": "ci-g7",
+  "order": 39,
+  "week": 8,
+  "day": "thu",
+  "title": "The Art of the Brick",
+  "titleZh": "乐高的艺术",
+  "displayName": "Week 8 Thursday The Art of the Brick",
+  "taskType": {
+    "code": "answer_questions",
+    "labelZh": "回答问题"
+  },
+  "meta": {
+    "genre": "记叙文",
+    "wordCount": 169,
+    "difficulty": 3,
+    "suggestedMinutes": 8,
+    "themeContext": "人与社会",
+    "contentRequirement": "优秀的艺术家及其艺术成就",
+    "intro": "乐高界的艺术家，雕塑界的乐高大师。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+    "pdfPages": [
+      72
+    ],
+    "bookPages": [
+      63
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "LEGO bricks "
+          },
+          {
+            "t": "gloss",
+            "v": "LEGO bricks",
+            "zh": "乐高积木"
+          },
+          {
+            "t": "text",
+            "v": " are among the world’s most popular toys. They can be a great hobby for both children and adults. For some adults, like Nathan Sawaya, Lego can even be a career."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Sawaya was a lawyer in the late 1990s. He would often do a "
+          },
+          {
+            "t": "vocab",
+            "v": "creative",
+            "ref": "v-creative"
+          },
+          {
+            "t": "text",
+            "v": " activity after work. At first, he drew and painted. Then, one day, he thought of his childhood hobby. He began building works of Lego art. When he "
+          },
+          {
+            "t": "vocab",
+            "v": "posted",
+            "ref": "v-post"
+          },
+          {
+            "t": "text",
+            "v": " his works online, people loved them."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "In 2004, Sawaya decided to leave his job and become a full-time Lego artist. Many people didn’t understand this, but he didn’t care. Three years later, Sawaya held his first "
+          },
+          {
+            "t": "vocab",
+            "v": "exhibition",
+            "ref": "v-exhibition"
+          },
+          {
+            "t": "text",
+            "v": " "
+          },
+          {
+            "t": "em",
+            "v": "The Art of the Lego Brick|"
+          },
+          {
+            "t": "text",
+            "v": ". It has been on display all over the world. At the exhibition, you’ll find almost everything. Landscapes, animals and many everyday items have been turned into Lego art."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The artist hopes more people will be inspired by his work. “Maybe you can also build something for yourself using Lego bricks,” he said."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-creative",
+        "headword": "creative",
+        "ipa": "kriˈeɪtɪv",
+        "pos": "adj.",
+        "meaningZh": "有创意的"
+      },
+      {
+        "id": "v-post",
+        "headword": "post",
+        "ipa": "pəʊst",
+        "pos": "v.",
+        "meaningZh": "发布"
+      },
+      {
+        "id": "v-exhibition",
+        "headword": "exhibition",
+        "ipa": "ˌeksɪˈbɪʃn",
+        "pos": "n.",
+        "meaningZh": "展览"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What was Nathan Sawaya’s job before becoming a Lego artist?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "When did Sawaya decide to become a full-time Lego artist?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why do you think Sawaya posted his Lego works online?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What kinds of things can people see at Sawaya’s exhibition?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does Sawaya hope his work will do for people?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why do you think creative hobbies like building with Lego are important?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ]
+}

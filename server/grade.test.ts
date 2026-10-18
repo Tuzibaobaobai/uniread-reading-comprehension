@@ -13,6 +13,6 @@ describe('POST /api/rc/grade', () => {
   it('rejects bad input', async () => {
     await expect(gradeCall({ itemId: '../../etc/passwd', responses: {} }, root)).rejects.toMatchObject({ status: 400 });
     await expect(gradeCall({ itemId: 'ci-g7-w01-mon' }, root)).rejects.toMatchObject({ status: 400 });
-    await expect(gradeCall({ itemId: 'ci-g7-w09-mon', responses: {} }, root)).rejects.toMatchObject({ status: 404 });
+    await expect(gradeCall({ itemId: 'ci-g7-w19-mon', responses: {} }, root)).rejects.toMatchObject({ status: 404 });
   });
 });

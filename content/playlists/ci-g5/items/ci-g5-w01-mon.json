@@ -1,0 +1,360 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g5-w01-mon",
+  "playlistId": "ci-g5",
+  "order": 1,
+  "week": 1,
+  "day": "mon",
+  "title": "France’s Tax for Rich People",
+  "titleZh": "法国的富人税",
+  "displayName": "Week 1 Monday France’s Tax for Rich People",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 122,
+    "difficulty": 2,
+    "suggestedMinutes": 6,
+    "themeContext": "人与社会",
+    "contentRequirement": "世界主要国家的文化习俗",
+    "intro": "你知道法国的富人税吗?",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X5年级.pdf",
+    "pdfPages": [
+      10
+    ],
+    "bookPages": [
+      1
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-supporter",
+        "headword": "supporter",
+        "ipa": "səˈpɔːtə(r)",
+        "pos": "n.",
+        "meaningZh": "支持者"
+      },
+      {
+        "id": "v-fair",
+        "headword": "fair",
+        "ipa": "feə(r)",
+        "pos": "adj.",
+        "meaningZh": "公平的"
+      },
+      {
+        "id": "v-army",
+        "headword": "army",
+        "ipa": "ˈɑːmi",
+        "pos": "n.",
+        "meaningZh": "军队"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "France talks about a new "
+          },
+          {
+            "t": "gloss",
+            "v": "tax",
+            "zh": "税"
+          },
+          {
+            "t": "text",
+            "v": " for very rich people. It is a 2% tax on people with more than 100 million "
+          },
+          {
+            "t": "gloss",
+            "v": "euros",
+            "zh": "欧元"
+          },
+          {
+            "t": "text",
+            "v": ". About 1,800 people in France would pay this tax."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "vocab",
+            "v": "Supporters",
+            "ref": "v-supporter"
+          },
+          {
+            "t": "text",
+            "v": " say that it is "
+          },
+          {
+            "t": "vocab",
+            "v": "fair",
+            "ref": "v-fair"
+          },
+          {
+            "t": "text",
+            "v": ". It gives more money for schools, hospitals and the "
+          },
+          {
+            "t": "vocab",
+            "v": "army",
+            "ref": "v-army"
+          },
+          {
+            "t": "text",
+            "v": ". They say that the tax can bring 20 billion euros in France and even more in Europe. "
+          },
+          {
+            "t": "gloss",
+            "v": "Critics",
+            "zh": "批评者"
+          },
+          {
+            "t": "text",
+            "v": " do not like the idea. They think that rich people may stop "
+          },
+          {
+            "t": "gloss",
+            "v": "investing",
+            "zh": "投资"
+          },
+          {
+            "t": "text",
+            "v": " or try not to pay."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Some countries already have a tax like this, for example, Spain, Norway and Switzerland. In France, the old tax ended in 2018, but people still pay a tax on houses and land."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The new tax in France is for ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "people with very high "
+                  },
+                  {
+                    "t": "gloss",
+                    "v": "incomes",
+                    "zh": "收入"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "everyone in the country"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "workers and farmers"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "attitude"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Supporters believe the tax is ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "unfair"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "fair"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "unnecessary"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "attitude"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Critics worry rich people may ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "invest more"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "stop investing"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "give money to schools"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Which is TRUE about the old tax in France?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It ended in 2018."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It still exists today."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It was only for workers."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

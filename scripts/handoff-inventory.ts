@@ -72,11 +72,11 @@ for (const pl of ids) {
   out.push('| --- | --- | --- | --- | --- | --- | --- | --- |');
   for (const it of items) {
     const m = it.meta;
-    const estimated = (it.errata ?? []).some((e) => /建议用时/.test(e.original + e.corrected));
+    const estimated = (it.errata ?? []).find((e) => /无“建议用时”/.test(e.original));
     const imgs = it.article.images.map((i) => `\`${i.src}\``).join('<br>') || '无';
     const thumb = it.thumbnail ? `独立文件 \`${it.thumbnail}\`（裁自原书图片）` : '平台占位（RC 以标题生成文字卡）';
     out.push(
-      `| \`${it.id}\` | ${it.source.pdfPages.join(',')}／${it.source.bookPages.join(',')} | ${m.difficulty}（原书） | ${m.wordCount}（原书信息框） | ${m.suggestedMinutes} 分钟（${estimated ? '估算：原书缺，按词数÷约20词/分' : '原书'}） | ${m.hasVideo ? '原书标记有讲解视频；本次未交付视频' : '否'} | ${imgs} | ${thumb} |`,
+      `| \`${it.id}\` | ${it.source.pdfPages.join(',')}／${it.source.bookPages.join(',')} | ${m.difficulty}（原书） | ${m.wordCount}（原书信息框） | ${m.suggestedMinutes} 分钟（${estimated ? `估算：${estimated.note}` : '原书'}） | ${m.hasVideo ? '原书标记有讲解视频；本次未交付视频' : '否'} | ${imgs} | ${thumb} |`,
     );
   }
   out.push('');

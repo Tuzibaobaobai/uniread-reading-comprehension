@@ -1,0 +1,411 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g7-w18-tue",
+  "playlistId": "ci-g7",
+  "order": 87,
+  "week": 18,
+  "day": "tue",
+  "title": "Green Teen",
+  "titleZh": "环保少年",
+  "displayName": "Week 18 Tuesday Green Teen",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "记叙文",
+    "wordCount": 200,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与自然",
+    "contentRequirement": "环境保护",
+    "intro": "美国十五岁少年通过变“废”为“宝”，帮助了一个又一个同龄人团体。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+    "pdfPages": [
+      148
+    ],
+    "bookPages": [
+      139
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-sort",
+        "headword": "sort",
+        "ipa": "sɔːt",
+        "pos": "v.",
+        "meaningZh": "分类"
+      },
+      {
+        "id": "v-community",
+        "headword": "community",
+        "ipa": "kəˈmjuːnəti",
+        "pos": "n.",
+        "meaningZh": "社区"
+      },
+      {
+        "id": "v-come-up-with",
+        "headword": "come up with",
+        "meaningZh": "想出（建议、想法等）"
+      },
+      {
+        "id": "v-drive",
+        "headword": "drive",
+        "ipa": "draɪv",
+        "pos": "n.",
+        "meaningZh": "（熟词生义）有组织的努力，活动"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "On weekends, 15-year-old Mateo Lange "
+          },
+          {
+            "t": "vocab",
+            "v": "sorts",
+            "ref": "v-sort"
+          },
+          {
+            "t": "text",
+            "v": " bottles and cans in his hometown of Indian River, Michigan. He runs a recycling program to help his "
+          },
+          {
+            "t": "vocab",
+            "v": "community",
+            "ref": "v-community"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Mateo started the program in 2020. He was a baseball player with the Northern Michigan Cyclones. His team needed money for competitions, so Mateo "
+          },
+          {
+            "t": "vocab",
+            "v": "came up with",
+            "ref": "v-come-up-with"
+          },
+          {
+            "t": "text",
+            "v": " a plan."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "He noticed many empty cans and bottles on the streets. In Michigan, people can return these for money. Mateo and his father organized a bottle and can "
+          },
+          {
+            "t": "vocab",
+            "v": "drive",
+            "ref": "v-drive"
+          },
+          {
+            "t": "text",
+            "v": ". They raised $7,500—much more than expected. We made so much money, Mateo thought. Why don’t we keep this going?"
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Since then, his program has collected over two million bottles and cans. It has helped keep his hometown clean and raised $350,000. The money has supported at least fifty youth groups."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Sometimes people had trouble returning bottles. So Mateo and his dad started a "
+          },
+          {
+            "t": "underline",
+            "v": "pickup service"
+          },
+          {
+            "t": "text",
+            "v": ". Mateo used his grandpa’s truck to collect bottles from homes. He would knock on doors and say, “I’m here to pick up.” People gladly gave him their bottles. Then he and his dad sorted them and took them to recycling plants."
+          }
+        ]
+      },
+      {
+        "id": "p6",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Mateo’s idea not only helped the environment but also brought people together."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why did Mateo start the recycling program at first?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To help his father."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To buy a new truck."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To clean his hometown."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To raise money for his baseball team."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "attitude"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How did Mateo feel about the first $7,500?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Disappointed."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Surprised."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Worried."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Confused."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the “pickup service”?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A service to repair trucks."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A service to deliver goods."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A service to collect bottles."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A service to teach recycling."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the main idea of the article?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Baseball teams need money."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Young people should help their families."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Recycling is the best way to protect nature."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A teen’s recycling project helps his community."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

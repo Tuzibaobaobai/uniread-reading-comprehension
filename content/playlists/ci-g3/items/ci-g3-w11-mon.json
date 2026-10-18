@@ -1,0 +1,419 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g3-w11-mon",
+  "playlistId": "ci-g3",
+  "order": 51,
+  "week": 11,
+  "day": "mon",
+  "title": "Dr Dan the Pancake Man",
+  "titleZh": "煎饼达人丹博士",
+  "displayName": "Week 11 Monday Dr Dan the Pancake Man",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读选择"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 118,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与社会",
+    "contentRequirement": "社会热点与国际事务",
+    "intro": "这不是你吃过的煎饼——美国小哥靠“艺术”煎饼走红。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X3年级.pdf",
+    "pdfPages": [
+      85
+    ],
+    "bookPages": [
+      76
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-musician",
+        "headword": "musician",
+        "ipa": "mjuˈzɪʃn",
+        "pos": "n.",
+        "meaningZh": "音乐家"
+      },
+      {
+        "id": "v-dream",
+        "headword": "dream",
+        "ipa": "driːm",
+        "pos": "n.",
+        "meaningZh": "梦想"
+      },
+      {
+        "id": "v-tip",
+        "headword": "tip",
+        "ipa": "tɪp",
+        "pos": "n.",
+        "meaningZh": "小费"
+      },
+      {
+        "id": "v-practise",
+        "headword": "practise",
+        "ipa": "ˈpræktɪs",
+        "pos": "v.",
+        "meaningZh": "练习"
+      },
+      {
+        "id": "v-company",
+        "headword": "company",
+        "ipa": "ˈkʌmpəni",
+        "pos": "n.",
+        "meaningZh": "公司"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Years ago, Dan Drake was just a cook at a small restaurant in the USA. Now, he is a famous pancake artist."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Dan has always been good at drawing. In high school, he loved to draw "
+          },
+          {
+            "t": "gloss",
+            "v": "comics",
+            "zh": "漫画"
+          },
+          {
+            "t": "text",
+            "v": ". He wanted to be a "
+          },
+          {
+            "t": "vocab",
+            "v": "musician",
+            "ref": "v-musician"
+          },
+          {
+            "t": "text",
+            "v": " when he grew up. He needed money for his "
+          },
+          {
+            "t": "vocab",
+            "v": "dream",
+            "ref": "v-dream"
+          },
+          {
+            "t": "text",
+            "v": ". So, he found a job as a cook."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "One day, someone came to buy a pancake. He "
+          },
+          {
+            "t": "gloss",
+            "v": "seemed",
+            "zh": "似乎"
+          },
+          {
+            "t": "text",
+            "v": " to be having a bad day. Dan made the best "
+          },
+          {
+            "t": "gloss",
+            "v": "smiley",
+            "zh": "微笑的"
+          },
+          {
+            "t": "text",
+            "v": " face pancake he could. He got a $15 "
+          },
+          {
+            "t": "vocab",
+            "v": "tip",
+            "ref": "v-tip"
+          },
+          {
+            "t": "text",
+            "v": "!"
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "After that, Dan began to "
+          },
+          {
+            "t": "vocab",
+            "v": "practise",
+            "ref": "v-practise"
+          },
+          {
+            "t": "text",
+            "v": " pancake art. Now he is really good at it. He has also started his pancake art "
+          },
+          {
+            "t": "vocab",
+            "v": "company",
+            "ref": "v-company"
+          },
+          {
+            "t": "text",
+            "v": "! It is called “Dancakes”."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What was Dan Drake’s dream when he was young?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To be a cook."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To be a musician."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To draw comics."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How much tip did Dan get the first time someone bought a pancake from him?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "$5."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "$10."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "$15."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why did Dan "
+              },
+              {
+                "t": "gloss",
+                "v": "choose",
+                "zh": "选择"
+              },
+              {
+                "t": "text",
+                "v": " to work as a cook at first?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because he liked pancakes."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To "
+                  },
+                  {
+                    "t": "gloss",
+                    "v": "earn",
+                    "zh": "赚"
+                  },
+                  {
+                    "t": "text",
+                    "v": " money for his music dream."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because a friend "
+                  },
+                  {
+                    "t": "gloss",
+                    "v": "recommended",
+                    "zh": "推荐"
+                  },
+                  {
+                    "t": "text",
+                    "v": " it."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the name of the pancake art company that Dan started?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Pancake Art."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Dancakes."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Smile Pancakes."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

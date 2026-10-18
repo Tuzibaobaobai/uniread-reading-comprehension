@@ -1,0 +1,747 @@
+{
+ "schemaVersion": "1.0",
+ "id": "ci-g7-w11-fri",
+ "playlistId": "ci-g7",
+ "order": 55,
+ "week": 11,
+ "day": "fri",
+ "title": "A Field Trip to the Aquarium",
+ "titleZh": "去水族馆研学",
+ "displayName": "Week 11 Friday A Field Trip to the Aquarium",
+ "taskType": {
+  "code": "weekly_intensive",
+  "labelZh": "每周精读"
+ },
+ "meta": {
+  "genre": "记叙文",
+  "wordCount": 224,
+  "difficulty": 1,
+  "suggestedMinutes": 12,
+  "themeContext": "人与自我",
+  "contentRequirement": "丰富、充实、积极向上的生活",
+  "intro": "有趣的水族馆之旅，让我获益匪浅。",
+  "hasVideo": true
+ },
+ "source": {
+  "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+  "pdfPages": [
+   97,
+   98
+  ],
+  "bookPages": [
+   88,
+   89
+  ]
+ },
+ "status": {
+  "content": "transcribed",
+  "version": "1.0.0"
+ },
+ "article": {
+  "images": [],
+  "vocabulary": [
+   {
+    "id": "v-graceful",
+    "headword": "graceful",
+    "ipa": "ˈɡreɪsfl",
+    "pos": "adj.",
+    "meaningZh": "优雅的"
+   },
+   {
+    "id": "v-by-ones-side",
+    "headword": "by one’s side",
+    "pos": "phr.",
+    "meaningZh": "在某人身边"
+   },
+   {
+    "id": "v-tank",
+    "headword": "tank",
+    "ipa": "tæŋk",
+    "pos": "n.",
+    "meaningZh": "（贮存气体或液体的）缸，箱"
+   },
+   {
+    "id": "v-on-ones-own",
+    "headword": "on one’s own",
+    "pos": "phr.",
+    "meaningZh": "独自地"
+   }
+  ],
+  "blocks": [
+   {
+    "id": "p1",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "Last Friday, our class took a field trip to the aquarium. We were all very excited about the trip."
+     }
+    ]
+   },
+   {
+    "id": "p2",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "There was so much to see at the aquarium. Our first stop was the penguins’ house. The penguins were cute. They looked funny when they were walking. However, they looked "
+     },
+     {
+      "t": "vocab",
+      "v": "graceful",
+      "ref": "v-graceful"
+     },
+     {
+      "t": "text",
+      "v": " when they were swimming. I noticed that some of them walked together. Others had baby penguins "
+     },
+     {
+      "t": "vocab",
+      "v": "by their side",
+      "ref": "v-by-ones-side"
+     },
+     {
+      "t": "text",
+      "v": "."
+     }
+    ]
+   },
+   {
+    "id": "p3",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "“Why do some of those penguins stay together?” I asked our teacher Mr. Lin."
+     }
+    ]
+   },
+   {
+    "id": "p4",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "“Some kinds of penguins like to stay together,” answered Mr. Lin. “They keep each other warm and protect their babies.”"
+     }
+    ]
+   },
+   {
+    "id": "p5",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "Then we moved to the next room. There was a big "
+     },
+     {
+      "t": "vocab",
+      "v": "tank",
+      "ref": "v-tank"
+     },
+     {
+      "t": "text",
+      "v": " full of fish. The fish were in different shapes, colours and sizes. Most of the fish swam around "
+     },
+     {
+      "t": "vocab",
+      "v": "on their own",
+      "ref": "v-on-ones-own"
+     },
+     {
+      "t": "text",
+      "v": ", but there were also groups of little fish swimming together."
+     }
+    ]
+   },
+   {
+    "id": "p6",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "“Why are those little fish swimming together?” asked Erica."
+     }
+    ]
+   },
+   {
+    "id": "p7",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "“Sometimes small fish swim in a group for protection,” replied Mr. Lin. “If they are alone, big fish might eat them. But when they swim together, they look like a big fish. This way, a real big fish won’t realize that the ‘big fish’ in front of it is in fact a group of small fish.”"
+     }
+    ]
+   },
+   {
+    "id": "p8",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "We all learned a lot and had a good time at the aquarium."
+     }
+    ]
+   }
+  ]
+ },
+ "sections": [
+  {
+   "id": "s1",
+   "label": "I",
+   "instruction": "Answer the questions.",
+   "questions": [
+    {
+     "id": "q1",
+     "number": 1,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "What did the author’s class do last Friday?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q2",
+     "number": 2,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "According to the author, how did the penguins look when they walked?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q3",
+     "number": 3,
+     "points": 2,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Why do some of the penguins like to stay together?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q4",
+     "number": 4,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Most of the fish swam in groups in the tank, didn’t they?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q5",
+     "number": 5,
+     "points": 2,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "How do small fish protect themselves by swimming together?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q6",
+     "number": 6,
+     "points": 2,
+     "skills": [
+      "opinion"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Suppose you are going to the aquarium. What sea animal do you want to see the most? Why?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "label": "II",
+   "instruction": "Complete the sentences with the given words in their proper forms.",
+   "questions": [
+    {
+     "id": "q7",
+     "number": 7,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "He jumped in and "
+       },
+       {
+        "t": "blank",
+        "id": "b1",
+        "hint": {
+         "baseWord": "swim"
+        }
+       },
+       {
+        "t": "text",
+        "v": " to the opposite bank."
+       }
+      ]
+     }
+    },
+    {
+     "id": "q8",
+     "number": 8,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "She felt secure and "
+       },
+       {
+        "t": "blank",
+        "id": "b2",
+        "hint": {
+         "baseWord": "protect"
+        }
+       },
+       {
+        "t": "text",
+        "v": " when she was with him."
+       }
+      ]
+     }
+    },
+    {
+     "id": "q9",
+     "number": 9,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "The children were jumping up and down with "
+       },
+       {
+        "t": "blank",
+        "id": "b3",
+        "hint": {
+         "baseWord": "excited"
+        }
+       },
+       {
+        "t": "text",
+        "v": "."
+       }
+      ]
+     }
+    },
+    {
+     "id": "q10",
+     "number": 10,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Go straight ahead until you come to a bus "
+       },
+       {
+        "t": "blank",
+        "id": "b4",
+        "hint": {
+         "baseWord": "stop"
+        }
+       },
+       {
+        "t": "text",
+        "v": "."
+       }
+      ]
+     }
+    },
+    {
+     "id": "q11",
+     "number": 11,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "She was reading in the room, without "
+       },
+       {
+        "t": "blank",
+        "id": "b5",
+        "hint": {
+         "baseWord": "notice"
+        }
+       },
+       {
+        "t": "text",
+        "v": " the boy coming."
+       }
+      ]
+     }
+    },
+    {
+     "id": "q12",
+     "number": 12,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "She refused to face the "
+       },
+       {
+        "t": "blank",
+        "id": "b6",
+        "hint": {
+         "baseWord": "real"
+        }
+       },
+       {
+        "t": "text",
+        "v": "."
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "label": "III",
+   "instruction": "Complete the following sentences as required.",
+   "questions": [
+    {
+     "id": "q13",
+     "number": 13,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "There was so much to see at the aquarium. （改为反意疑问句）"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "text",
+        "v": "There was so much to see at the aquarium, "
+       },
+       {
+        "t": "blank",
+        "id": "b7"
+       },
+       {
+        "t": "text",
+        "v": " "
+       },
+       {
+        "t": "blank",
+        "id": "b8"
+       },
+       {
+        "t": "text",
+        "v": "?"
+       }
+      ],
+      "scoring": "all"
+     }
+    },
+    {
+     "id": "q14",
+     "number": 14,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "There was a big tank full of fish. （保持句意基本不变）"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "text",
+        "v": "There was a big tank "
+       },
+       {
+        "t": "blank",
+        "id": "b9"
+       },
+       {
+        "t": "text",
+        "v": " "
+       },
+       {
+        "t": "blank",
+        "id": "b10"
+       },
+       {
+        "t": "text",
+        "v": " fish."
+       }
+      ],
+      "scoring": "all"
+     }
+    },
+    {
+     "id": "q15",
+     "number": 15,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "“Sometimes small fish swim in a group for protection,” replied Mr. Lin. （直接引语改为间接引语）"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "text",
+        "v": "Mr. Lin replied that sometimes small fish "
+       },
+       {
+        "t": "blank",
+        "id": "b11"
+       },
+       {
+        "t": "text",
+        "v": " in a group for protection."
+       }
+      ]
+     }
+    },
+    {
+     "id": "q16",
+     "number": 16,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "We all had a good time at the aquarium. （保持句意基本不变）"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "text",
+        "v": "We all "
+       },
+       {
+        "t": "blank",
+        "id": "b12"
+       },
+       {
+        "t": "text",
+        "v": " "
+       },
+       {
+        "t": "blank",
+        "id": "b13"
+       },
+       {
+        "t": "text",
+        "v": " at the aquarium."
+       }
+      ],
+      "scoring": "all"
+     }
+    },
+    {
+     "id": "q17",
+     "number": 17,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "order",
+      "items": [
+       {
+        "id": "w1",
+        "content": [
+         {
+          "t": "text",
+          "v": "hard"
+         }
+        ]
+       },
+       {
+        "id": "w2",
+        "content": [
+         {
+          "t": "text",
+          "v": "baby penguins"
+         }
+        ]
+       },
+       {
+        "id": "w3",
+        "content": [
+         {
+          "t": "text",
+          "v": "own"
+         }
+        ]
+       },
+       {
+        "id": "w4",
+        "content": [
+         {
+          "t": "text",
+          "v": "to"
+         }
+        ]
+       },
+       {
+        "id": "w5",
+        "content": [
+         {
+          "t": "text",
+          "v": "their"
+         }
+        ]
+       },
+       {
+        "id": "w6",
+        "content": [
+         {
+          "t": "text",
+          "v": "on"
+         }
+        ]
+       },
+       {
+        "id": "w7",
+        "content": [
+         {
+          "t": "text",
+          "v": "is"
+         }
+        ]
+       },
+       {
+        "id": "w8",
+        "content": [
+         {
+          "t": "text",
+          "v": "live"
+         }
+        ]
+       },
+       {
+        "id": "w9",
+        "content": [
+         {
+          "t": "text",
+          "v": "it"
+         }
+        ]
+       },
+       {
+        "id": "w10",
+        "content": [
+         {
+          "t": "text",
+          "v": "for"
+         }
+        ]
+       }
+      ],
+      "ending": "."
+     }
+    }
+   ]
+  }
+ ]
+}

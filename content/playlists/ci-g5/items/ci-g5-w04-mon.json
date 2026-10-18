@@ -1,0 +1,500 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g5-w04-mon",
+  "playlistId": "ci-g5",
+  "order": 16,
+  "week": 4,
+  "day": "mon",
+  "title": "Anne Frank and Her Diary",
+  "titleZh": "安妮·弗兰克与她的日记",
+  "displayName": "Week 4 Monday Anne Frank and Her Diary",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读理解"
+  },
+  "meta": {
+    "genre": "记叙文",
+    "wordCount": 145,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与社会",
+    "contentRequirement": "中外文学作品",
+    "intro": "即使身处黑暗，依然心存希望——安妮·弗兰克和她的日记。",
+    "hasVideo": false
+  },
+  "thumbnail": "assets/ci-g5/ci-g5-w04-mon-1.jpg",
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X5年级.pdf",
+    "pdfPages": [
+      35,
+      36
+    ],
+    "bookPages": [
+      26,
+      27
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g5/ci-g5-w04-mon-1.jpg",
+        "alt": "A person writing in an open diary with a pen on a wooden table (black and white photo).",
+        "w": 1180,
+        "h": 509
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-life",
+        "headword": "life",
+        "ipa": "laɪf",
+        "pos": "n.",
+        "meaningZh": "生命；生活"
+      },
+      {
+        "id": "v-die",
+        "headword": "die",
+        "ipa": "daɪ",
+        "pos": "v.",
+        "meaningZh": "死亡，去世"
+      },
+      {
+        "id": "v-born",
+        "headword": "born",
+        "ipa": "bɔːn",
+        "pos": "v.",
+        "meaningZh": "(仅用于被动语态)出生"
+      },
+      {
+        "id": "v-hate",
+        "headword": "hate",
+        "ipa": "heɪt",
+        "pos": "v.",
+        "meaningZh": "憎恨"
+      },
+      {
+        "id": "v-defeat",
+        "headword": "defeat",
+        "ipa": "dɪˈfiːt",
+        "pos": "v.",
+        "meaningZh": "击败，打败"
+      },
+      {
+        "id": "v-dead",
+        "headword": "dead",
+        "ipa": "ded",
+        "pos": "adj.",
+        "meaningZh": "死亡的，去世的"
+      },
+      {
+        "id": "v-survive",
+        "headword": "survive",
+        "ipa": "səˈvaɪv",
+        "pos": "v.",
+        "meaningZh": "幸存；留存"
+      },
+      {
+        "id": "v-keep-a-diary",
+        "headword": "keep a diary",
+        "ipa": "",
+        "pos": "",
+        "meaningZh": "写日记"
+      },
+      {
+        "id": "v-meaning",
+        "headword": "meaning",
+        "ipa": "ˈmiːnɪŋ",
+        "pos": "n.",
+        "meaningZh": "意义"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Anne Frank’s "
+          },
+          {
+            "t": "vocab",
+            "v": "life",
+            "ref": "v-life"
+          },
+          {
+            "t": "text",
+            "v": " was short. She was only fifteen years old when she "
+          },
+          {
+            "t": "vocab",
+            "v": "died",
+            "ref": "v-die"
+          },
+          {
+            "t": "text",
+            "v": " in 1945."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Anne was "
+          },
+          {
+            "t": "vocab",
+            "v": "born",
+            "ref": "v-born"
+          },
+          {
+            "t": "text",
+            "v": " in Germany. Her father’s family had lived there for a very long time. In 1933, a man named "
+          },
+          {
+            "t": "gloss",
+            "v": "Adolf Hitler",
+            "zh": "阿道夫·希特勒"
+          },
+          {
+            "t": "text",
+            "v": " "
+          },
+          {
+            "t": "gloss",
+            "v": "came into power",
+            "zh": "上台执政"
+          },
+          {
+            "t": "text",
+            "v": ". Hitler "
+          },
+          {
+            "t": "vocab",
+            "v": "hated",
+            "ref": "v-hate"
+          },
+          {
+            "t": "text",
+            "v": " "
+          },
+          {
+            "t": "gloss",
+            "v": "Jewish people",
+            "zh": "犹太人"
+          },
+          {
+            "t": "text",
+            "v": ". The Franks were Jewish. So, they had to "
+          },
+          {
+            "t": "gloss",
+            "v": "flee",
+            "zh": "逃离"
+          },
+          {
+            "t": "text",
+            "v": " Germany. They had to go into hiding."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "By the time Hitler was "
+          },
+          {
+            "t": "vocab",
+            "v": "defeated",
+            "ref": "v-defeat"
+          },
+          {
+            "t": "text",
+            "v": ", Anne’s mother was "
+          },
+          {
+            "t": "vocab",
+            "v": "dead",
+            "ref": "v-dead"
+          },
+          {
+            "t": "text",
+            "v": ". So were Anne and her sister. Anne’s father was the only one in the family who "
+          },
+          {
+            "t": "vocab",
+            "v": "survived",
+            "ref": "v-survive"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "But something else survived, too. Anne’s diary. Anne "
+          },
+          {
+            "t": "vocab",
+            "v": "kept a diary",
+            "ref": "v-keep-a-diary"
+          },
+          {
+            "t": "text",
+            "v": " for two years "
+          },
+          {
+            "t": "gloss",
+            "v": "while",
+            "zh": "在……期间"
+          },
+          {
+            "t": "text",
+            "v": " her family was in hiding. Life was terrible then, but Anne was hopeful about the world in her diary."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Today, we are still reading Anne’s diary. A short life—even a very short life—can be full of "
+          },
+          {
+            "t": "vocab",
+            "v": "meaning",
+            "ref": "v-meaning"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Which of the following is NOT true?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Anne Frank was born in Germany."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Hitler came into power when Anne was fifteen."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The Franks fled Germany after Hitler came into power."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why did Anne Frank’s family have to leave Germany?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They wanted to travel."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Anne’s father found a better job in another country."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Hitler came into power and he hated Jewish people."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "When Hitler was defeated, who stayed alive?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Anne’s mother and sister."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Anne’s sister and father."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Only Anne’s father."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Which of the following adjectives CANNOT describe Anne Frank?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Hopeful."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Brave."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Lazy."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

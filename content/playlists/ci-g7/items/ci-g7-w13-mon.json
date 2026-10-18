@@ -1,0 +1,462 @@
+{
+ "schemaVersion": "1.0",
+ "id": "ci-g7-w13-mon",
+ "playlistId": "ci-g7",
+ "order": 61,
+ "week": 13,
+ "day": "mon",
+ "title": "First-Ever 3D Scan of the Titanic",
+ "titleZh": "泰坦尼克号首张全尺寸3D扫描图",
+ "displayName": "Week 13 Monday First-Ever 3D Scan of the Titanic",
+ "taskType": {
+  "code": "reading_choice",
+  "labelZh": "阅读单选"
+ },
+ "meta": {
+  "genre": "新闻报道",
+  "wordCount": 210,
+  "difficulty": 3,
+  "suggestedMinutes": 7,
+  "themeContext": "人与社会",
+  "contentRequirement": "科学技术与工程",
+  "intro": "首张全尺寸3D扫描图展示泰坦尼克号沉船全貌。",
+  "hasVideo": false
+ },
+ "thumbnail": "assets/ci-g7/ci-g7-w13-mon-1.jpg",
+ "source": {
+  "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+  "pdfPages": [
+   107,
+   108
+  ],
+  "bookPages": [
+   98,
+   99
+  ]
+ },
+ "status": {
+  "content": "transcribed",
+  "version": "1.0.0"
+ },
+ "article": {
+  "images": [
+   {
+    "id": "img1",
+    "src": "assets/ci-g7/ci-g7-w13-mon-1.jpg",
+    "alt": "A dark, stormy illustration of the Titanic bow rising over rough waves.",
+    "w": 1178,
+    "h": 788
+   }
+  ],
+  "vocabulary": [
+   {
+    "id": "v-remains",
+    "headword": "remains",
+    "pos": "n.",
+    "meaningZh": "残骸，遗迹",
+    "ipa": "rɪˈmeɪnz"
+   },
+   {
+    "id": "v-angle",
+    "headword": "angle",
+    "pos": "n.",
+    "meaningZh": "角度",
+    "ipa": "ˈæŋɡl"
+   }
+  ],
+  "blocks": [
+   {
+    "id": "i1",
+    "type": "imageRef",
+    "image": "img1"
+   },
+   {
+    "id": "p1",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "The "
+     },
+     {
+      "t": "vocab",
+      "v": "remains",
+      "ref": "v-remains"
+     },
+     {
+      "t": "text",
+      "v": " of the Titanic lie deep below the surface of the "
+     },
+     {
+      "t": "gloss",
+      "v": "Atlantic",
+      "zh": "大西洋"
+     },
+     {
+      "t": "text",
+      "v": ". It is the most famous "
+     },
+     {
+      "t": "gloss",
+      "v": "shipwreck",
+      "zh": "沉船"
+     },
+     {
+      "t": "text",
+      "v": " in history. There have been a lot of opinions about its sinking. In the movie "
+     },
+     {
+      "t": "em",
+      "v": "Titanic"
+     },
+     {
+      "t": "text",
+      "v": ", the ship hit an iceberg. But was this the whole truth?"
+     }
+    ]
+   },
+   {
+    "id": "p2",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "Magellan Ltd. has been trying to find out the answer to that question. They have been doing this with the help of new technologies. For example, remote-controlled "
+     },
+     {
+      "t": "gloss",
+      "v": "submersibles",
+      "zh": "潜水艇"
+     },
+     {
+      "t": "text",
+      "v": " have taken photos of the shipwreck from every "
+     },
+     {
+      "t": "vocab",
+      "v": "angle",
+      "ref": "v-angle"
+     },
+     {
+      "t": "text",
+      "v": " possible. The team spent more than 200 hours carefully examining and photographing the wreck. In total, they collected 700,000 images. Using these images, the company created the first-ever full-sized 3D model of the shipwreck, showing every part clearly."
+     }
+    ]
+   },
+   {
+    "id": "p3",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "The company hopes that this detailed 3D model will help scientists finally work out what really sank the Titanic. Researchers can now study the ship without going deep into the ocean."
+     }
+    ]
+   },
+   {
+    "id": "p4",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "“There is still much to learn from the wreck,” said Parks Stephenson, a Titanic researcher. “She has stories to tell. With this full 3D model, I’m seeing new details that none of us have ever seen before. This has allowed me to see the shipwreck in a completely new light and understand better what happened that night.”"
+     }
+    ]
+   }
+  ]
+ },
+ "sections": [
+  {
+   "id": "s1",
+   "label": "",
+   "instruction": "Choose the best answer.",
+   "questions": [
+    {
+     "id": "q1",
+     "number": 1,
+     "points": 1,
+     "skills": [
+      "main_idea"
+     ],
+     "interaction": {
+      "kind": "choice",
+      "variant": "standard",
+      "maxChoices": 1,
+      "prompt": [
+       {
+        "t": "text",
+        "v": "What is the main purpose of creating the 3D model of the Titanic?"
+       }
+      ],
+      "options": [
+       {
+        "id": "A",
+        "content": [
+         {
+          "t": "text",
+          "v": "To help scientists study how it sank."
+         }
+        ]
+       },
+       {
+        "id": "B",
+        "content": [
+         {
+          "t": "text",
+          "v": "To find valuable items from the ship."
+         }
+        ]
+       },
+       {
+        "id": "C",
+        "content": [
+         {
+          "t": "text",
+          "v": "To make a new movie about the ship."
+         }
+        ]
+       },
+       {
+        "id": "D",
+        "content": [
+         {
+          "t": "text",
+          "v": "To attract more tourists to visit the wreck."
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "q2",
+     "number": 2,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "choice",
+      "variant": "standard",
+      "maxChoices": 1,
+      "prompt": [
+       {
+        "t": "text",
+        "v": "How did Magellan Ltd. collect images of the shipwreck?"
+       }
+      ],
+      "options": [
+       {
+        "id": "A",
+        "content": [
+         {
+          "t": "text",
+          "v": "By studying old photos and drawings."
+         }
+        ]
+       },
+       {
+        "id": "B",
+        "content": [
+         {
+          "t": "text",
+          "v": "By interviewing survivors of the disaster."
+         }
+        ]
+       },
+       {
+        "id": "C",
+        "content": [
+         {
+          "t": "text",
+          "v": "By using remote-controlled submersibles."
+         }
+        ]
+       },
+       {
+        "id": "D",
+        "content": [
+         {
+          "t": "text",
+          "v": "By sending divers down to the ocean floor."
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "q3",
+     "number": 3,
+     "points": 1,
+     "skills": [
+      "attitude"
+     ],
+     "interaction": {
+      "kind": "choice",
+      "variant": "standard",
+      "maxChoices": 1,
+      "prompt": [
+       {
+        "t": "text",
+        "v": "What does Parks Stephenson think of the 3D model?"
+       }
+      ],
+      "options": [
+       {
+        "id": "A",
+        "content": [
+         {
+          "t": "text",
+          "v": "It is not useful for his research."
+         }
+        ]
+       },
+       {
+        "id": "B",
+        "content": [
+         {
+          "t": "text",
+          "v": "It is less accurate than he expected."
+         }
+        ]
+       },
+       {
+        "id": "C",
+        "content": [
+         {
+          "t": "text",
+          "v": "It shows nothing new about the ship."
+         }
+        ]
+       },
+       {
+        "id": "D",
+        "content": [
+         {
+          "t": "text",
+          "v": "It reveals new details about the wreck."
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "q4",
+     "number": 4,
+     "points": 1,
+     "skills": [
+      "inference"
+     ],
+     "interaction": {
+      "kind": "choice",
+      "variant": "standard",
+      "maxChoices": 1,
+      "prompt": [
+       {
+        "t": "text",
+        "v": "According to the article, what was the main challenge in examining the Titanic?"
+       }
+      ],
+      "options": [
+       {
+        "id": "A",
+        "content": [
+         {
+          "t": "text",
+          "v": "The bad weather in the Atlantic."
+         }
+        ]
+       },
+       {
+        "id": "B",
+        "content": [
+         {
+          "t": "text",
+          "v": "The high cost of the equipment."
+         }
+        ]
+       },
+       {
+        "id": "C",
+        "content": [
+         {
+          "t": "text",
+          "v": "The poor condition of the wreck."
+         }
+        ]
+       },
+       {
+        "id": "D",
+        "content": [
+         {
+          "t": "text",
+          "v": "Its location deep under the ocean."
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "q5",
+     "number": 5,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "choice",
+      "variant": "standard",
+      "maxChoices": 1,
+      "prompt": [
+       {
+        "t": "text",
+        "v": "How has the new 3D model changed the way researchers study the Titanic?"
+       }
+      ],
+      "options": [
+       {
+        "id": "A",
+        "content": [
+         {
+          "t": "text",
+          "v": "It helps them find survivors of the accident."
+         }
+        ]
+       },
+       {
+        "id": "B",
+        "content": [
+         {
+          "t": "text",
+          "v": "It allows them to bring the ship to the surface."
+         }
+        ]
+       },
+       {
+        "id": "C",
+        "content": [
+         {
+          "t": "text",
+          "v": "It shows exactly why the iceberg caused the sinking."
+         }
+        ]
+       },
+       {
+        "id": "D",
+        "content": [
+         {
+          "t": "text",
+          "v": "It lets them study the wreck without going underwater."
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

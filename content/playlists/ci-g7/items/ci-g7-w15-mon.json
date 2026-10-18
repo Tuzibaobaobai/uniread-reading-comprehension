@@ -1,0 +1,494 @@
+{
+ "schemaVersion": "1.0",
+ "id": "ci-g7-w15-mon",
+ "playlistId": "ci-g7",
+ "order": 71,
+ "week": 15,
+ "day": "mon",
+ "title": "Artist Brings Historical Figures Back to Life",
+ "titleZh": "艺术家让历史人物“重现人间”",
+ "displayName": "Week 15 Monday Artist Brings Historical Figures Back to Life",
+ "taskType": {
+  "code": "reading_choice",
+  "labelZh": "阅读单选"
+ },
+ "meta": {
+  "genre": "记叙文",
+  "wordCount": 196,
+  "difficulty": 4,
+  "suggestedMinutes": 10,
+  "themeContext": "人与社会",
+  "contentRequirement": "人类发明与创新",
+  "intro": "著名的历史人物都长什么样？",
+  "hasVideo": false
+ },
+ "thumbnail": "assets/ci-g7/ci-g7-w15-mon-1.jpg",
+ "source": {
+  "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+  "pdfPages": [
+   123,
+   124
+  ],
+  "bookPages": [
+   114,
+   115
+  ]
+ },
+ "status": {
+  "content": "transcribed",
+  "version": "1.0.0"
+ },
+ "article": {
+  "images": [
+   {
+    "id": "img1",
+    "src": "assets/ci-g7/ci-g7-w15-mon-1.jpg",
+    "alt": "A white marble statue of a seated, bearded philosopher against a cloudy sky",
+    "w": 829,
+    "h": 1269
+   }
+  ],
+  "vocabulary": [
+   {
+    "id": "v-statue",
+    "headword": "statue",
+    "ipa": "ˈstætʃuː",
+    "pos": "n.",
+    "meaningZh": "雕像"
+   },
+   {
+    "id": "v-realistic",
+    "headword": "realistic",
+    "ipa": "ˌriːəˈlɪstɪk",
+    "pos": "adj.",
+    "meaningZh": "逼真的；真实的"
+   },
+   {
+    "id": "v-portrait",
+    "headword": "portrait",
+    "ipa": "ˈpɔːtreɪt",
+    "pos": "n.",
+    "meaningZh": "肖像"
+   },
+   {
+    "id": "v-accurate",
+    "headword": "accurate",
+    "ipa": "ˈækjərət",
+    "pos": "adj.",
+    "meaningZh": "精确的"
+   },
+   {
+    "id": "v-description",
+    "headword": "description",
+    "ipa": "dɪˈskrɪpʃn",
+    "pos": "n.",
+    "meaningZh": "描述"
+   }
+  ],
+  "blocks": [
+   {
+    "id": "i1",
+    "type": "imageRef",
+    "image": "img1"
+   },
+   {
+    "id": "p1",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "What did famous people in history—such as William Shakespeare and Vincent van Gogh—look like? It seems impossible for us to know. However, Becca Saladin Segovia is working to bring them back to life."
+     }
+    ]
+   },
+   {
+    "id": "p2",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "Segovia is an American artist. She turns paintings and "
+     },
+     {
+      "t": "vocab",
+      "v": "statues",
+      "ref": "v-statue"
+     },
+     {
+      "t": "text",
+      "v": " of historical figures into "
+     },
+     {
+      "t": "vocab",
+      "v": "realistic",
+      "ref": "v-realistic"
+     },
+     {
+      "t": "text",
+      "v": " "
+     },
+     {
+      "t": "vocab",
+      "v": "portraits",
+      "ref": "v-portrait"
+     },
+     {
+      "t": "text",
+      "v": "."
+     }
+    ]
+   },
+   {
+    "id": "p3",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "“I loved history a lot. But I felt like it was not so real,” Segovia said. “There is too much "
+     },
+     {
+      "t": "gloss",
+      "v": "dry content",
+      "zh": "枯燥无味的内容"
+     },
+     {
+      "t": "text",
+      "v": ". And none of it can show us what people in history looked like. I like making them look more realistic. In this way, we can be reminded that history is real. It’s all about real events and real people.”"
+     }
+    ]
+   },
+   {
+    "id": "p4",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "To create her portraits, Segovia mainly uses Photoshop. AI tools also help her to do the work. Each portrait takes her three to eight hours to finish. Sometimes, she has to spend more time on a portrait. That’s usually because the design of the figure’s clothing includes many small details."
+     }
+    ]
+   },
+   {
+    "id": "p5",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "Segovia also faces some other difficulties. The biggest of them all is to find "
+     },
+     {
+      "t": "vocab",
+      "v": "accurate",
+      "ref": "v-accurate"
+     },
+     {
+      "t": "text",
+      "v": " paintings of the figures. To solve this problem, she usually uses modern "
+     },
+     {
+      "t": "vocab",
+      "v": "descriptions",
+      "ref": "v-description"
+     },
+     {
+      "t": "text",
+      "v": " of the historical figures to create her portraits."
+     }
+    ]
+   }
+  ]
+ },
+ "sections": [
+  {
+   "id": "s1",
+   "label": "",
+   "instruction": "Choose the best answer.",
+   "questions": [
+    {
+     "id": "q1",
+     "number": 1,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "choice",
+      "variant": "standard",
+      "maxChoices": 1,
+      "prompt": [
+       {
+        "t": "text",
+        "v": "What does Segovia create in her project?"
+       }
+      ],
+      "options": [
+       {
+        "id": "A",
+        "content": [
+         {
+          "t": "text",
+          "v": "Famous statues."
+         }
+        ]
+       },
+       {
+        "id": "B",
+        "content": [
+         {
+          "t": "text",
+          "v": "AI tools for artists."
+         }
+        ]
+       },
+       {
+        "id": "C",
+        "content": [
+         {
+          "t": "text",
+          "v": "Historical paintings."
+         }
+        ]
+       },
+       {
+        "id": "D",
+        "content": [
+         {
+          "t": "text",
+          "v": "Realistic portraits of historical figures."
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "q2",
+     "number": 2,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "choice",
+      "variant": "standard",
+      "maxChoices": 1,
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Why does Segovia do this work?"
+       }
+      ],
+      "options": [
+       {
+        "id": "A",
+        "content": [
+         {
+          "t": "text",
+          "v": "To show her painting skills."
+         }
+        ]
+       },
+       {
+        "id": "B",
+        "content": [
+         {
+          "t": "text",
+          "v": "To teach people about art history."
+         }
+        ]
+       },
+       {
+        "id": "C",
+        "content": [
+         {
+          "t": "text",
+          "v": "To make money from history fans."
+         }
+        ]
+       },
+       {
+        "id": "D",
+        "content": [
+         {
+          "t": "text",
+          "v": "To make history feel more real to people."
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "q3",
+     "number": 3,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "choice",
+      "variant": "standard",
+      "maxChoices": 1,
+      "prompt": [
+       {
+        "t": "text",
+        "v": "What tool does Segovia mainly use?"
+       }
+      ],
+      "options": [
+       {
+        "id": "A",
+        "content": [
+         {
+          "t": "text",
+          "v": "Photoshop."
+         }
+        ]
+       },
+       {
+        "id": "B",
+        "content": [
+         {
+          "t": "text",
+          "v": "Paint brushes."
+         }
+        ]
+       },
+       {
+        "id": "C",
+        "content": [
+         {
+          "t": "text",
+          "v": "A special camera."
+         }
+        ]
+       },
+       {
+        "id": "D",
+        "content": [
+         {
+          "t": "text",
+          "v": "Sculpting tools."
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "q4",
+     "number": 4,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "choice",
+      "variant": "standard",
+      "maxChoices": 1,
+      "prompt": [
+       {
+        "t": "text",
+        "v": "What is the most difficult part of her work?"
+       }
+      ],
+      "options": [
+       {
+        "id": "A",
+        "content": [
+         {
+          "t": "text",
+          "v": "Using AI tools correctly."
+         }
+        ]
+       },
+       {
+        "id": "B",
+        "content": [
+         {
+          "t": "text",
+          "v": "Drawing the clothing details."
+         }
+        ]
+       },
+       {
+        "id": "C",
+        "content": [
+         {
+          "t": "text",
+          "v": "Choosing which figures to draw."
+         }
+        ]
+       },
+       {
+        "id": "D",
+        "content": [
+         {
+          "t": "text",
+          "v": "Finding accurate paintings of the figures."
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "q5",
+     "number": 5,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "choice",
+      "variant": "standard",
+      "maxChoices": 1,
+      "prompt": [
+       {
+        "t": "text",
+        "v": "How does Segovia solve her biggest problem?"
+       }
+      ],
+      "options": [
+       {
+        "id": "A",
+        "content": [
+         {
+          "t": "text",
+          "v": "By using her imagination."
+         }
+        ]
+       },
+       {
+        "id": "B",
+        "content": [
+         {
+          "t": "text",
+          "v": "By skipping those figures."
+         }
+        ]
+       },
+       {
+        "id": "C",
+        "content": [
+         {
+          "t": "text",
+          "v": "By using modern descriptions."
+         }
+        ]
+       },
+       {
+        "id": "D",
+        "content": [
+         {
+          "t": "text",
+          "v": "By asking other artists for help."
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

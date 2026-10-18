@@ -1,0 +1,539 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g5-w09-fri",
+  "playlistId": "ci-g5",
+  "order": 45,
+  "week": 9,
+  "day": "fri",
+  "title": "Electricity Around Us",
+  "titleZh": "我们身边的电",
+  "displayName": "Week 9 Friday Electricity Around Us",
+  "taskType": {
+    "code": "weekly_intensive",
+    "labelZh": "每周精读"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 167,
+    "difficulty": 3,
+    "suggestedMinutes": 13,
+    "themeContext": "人与社会",
+    "contentRequirement": "科学与技术",
+    "intro": "我们的生活离不开电。",
+    "hasVideo": true
+  },
+  "thumbnail": "assets/ci-g5/ci-g5-w09-fri-1.jpg",
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X5年级.pdf",
+    "pdfPages": [
+      81,
+      82
+    ],
+    "bookPages": [
+      72,
+      73
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g5/ci-g5-w09-fri-1.jpg",
+        "alt": "A hand holds a glowing light bulb in front of a blurred background.",
+        "w": 973,
+        "h": 640
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-electricity",
+        "headword": "electricity",
+        "ipa": "ɪˌlekˈtrɪsəti",
+        "pos": "n.",
+        "meaningZh": "电，电能"
+      },
+      {
+        "id": "v-wire",
+        "headword": "wire",
+        "ipa": "ˈwaɪə(r)",
+        "pos": "n.",
+        "meaningZh": "电线"
+      },
+      {
+        "id": "v-energy",
+        "headword": "energy",
+        "ipa": "ˈenədʒi",
+        "pos": "n.",
+        "meaningZh": "能量"
+      },
+      {
+        "id": "v-heat",
+        "headword": "heat",
+        "ipa": "hiːt",
+        "pos": "n.",
+        "meaningZh": "热，热能"
+      },
+      {
+        "id": "v-toast",
+        "headword": "toast",
+        "ipa": "təʊst",
+        "pos": "n.",
+        "meaningZh": "烤面包片，吐司"
+      },
+      {
+        "id": "v-metal",
+        "headword": "metal",
+        "ipa": "ˈmetl",
+        "pos": "n.",
+        "meaningZh": "金属"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Electricity is all around us. It runs in "
+          },
+          {
+            "t": "vocab",
+            "v": "wires",
+            "ref": "v-wire"
+          },
+          {
+            "t": "text",
+            "v": " and is not very easy to see. It is a form of "
+          },
+          {
+            "t": "vocab",
+            "v": "energy",
+            "ref": "v-energy"
+          },
+          {
+            "t": "text",
+            "v": " that can give things the ability to move and work."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Electricity is useful. Look around in your home. A fan "
+          },
+          {
+            "t": "gloss",
+            "v": "converts",
+            "zh": "转换"
+          },
+          {
+            "t": "text",
+            "v": " electrical energy into "
+          },
+          {
+            "t": "gloss",
+            "v": "kinetic energy",
+            "zh": "动能"
+          },
+          {
+            "t": "text",
+            "v": " of its "
+          },
+          {
+            "t": "gloss",
+            "v": "fan blades",
+            "zh": "叶片"
+          },
+          {
+            "t": "text",
+            "v": ". That way, you can get cool air! A "
+          },
+          {
+            "t": "gloss",
+            "v": "toaster",
+            "zh": "烤面包机"
+          },
+          {
+            "t": "text",
+            "v": " converts electricity into "
+          },
+          {
+            "t": "vocab",
+            "v": "heat",
+            "ref": "v-heat"
+          },
+          {
+            "t": "text",
+            "v": " to turn bread into "
+          },
+          {
+            "t": "vocab",
+            "v": "toast",
+            "ref": "v-toast"
+          },
+          {
+            "t": "text",
+            "v": ". Now you can enjoy your warm breakfast!"
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Electricity is dangerous. So be careful when using it. "
+          },
+          {
+            "t": "gloss",
+            "v": "Beware of",
+            "zh": "当心"
+          },
+          {
+            "t": "text",
+            "v": " "
+          },
+          {
+            "t": "gloss",
+            "v": "conductors",
+            "zh": "导体"
+          },
+          {
+            "t": "text",
+            "v": "! They let electricity pass through them easily. Many "
+          },
+          {
+            "t": "vocab",
+            "v": "metals",
+            "ref": "v-metal"
+          },
+          {
+            "t": "text",
+            "v": " are good conductors. Touching a conductor in a "
+          },
+          {
+            "t": "gloss",
+            "v": "circuit",
+            "zh": "电路"
+          },
+          {
+            "t": "text",
+            "v": " is dangerous, because you may get an "
+          },
+          {
+            "t": "gloss",
+            "v": "electric shock",
+            "zh": "触电"
+          },
+          {
+            "t": "text",
+            "v": ". Ouch!"
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Plastic, wood, glass and "
+          },
+          {
+            "t": "gloss",
+            "v": "rubber",
+            "zh": "橡胶"
+          },
+          {
+            "t": "text",
+            "v": " do not let electricity "
+          },
+          {
+            "t": "gloss",
+            "v": "flow",
+            "zh": "流"
+          },
+          {
+            "t": "text",
+            "v": " through them. They are known as "
+          },
+          {
+            "t": "gloss",
+            "v": "insulators",
+            "zh": "绝缘体"
+          },
+          {
+            "t": "text",
+            "v": ". That’s why wires are "
+          },
+          {
+            "t": "gloss",
+            "v": "wrapped",
+            "zh": "包裹"
+          },
+          {
+            "t": "text",
+            "v": " in plastic. People won’t get shocked if they touch a wire."
+          }
+        ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Which let electricity pass through them easily, insulators or conductors?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What energy can electrical energy be converted into?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Could you give an example of an insulator?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why do people wrap wires in plastic?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "II",
+      "instruction": "Choose the word to fill the blank.",
+      "bank": [
+        {
+          "id": "A",
+          "content": [
+            {
+              "t": "text",
+              "v": "toaster"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "content": [
+            {
+              "t": "text",
+              "v": "energy"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "content": [
+            {
+              "t": "text",
+              "v": "heat"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "content": [
+            {
+              "t": "text",
+              "v": "flow"
+            }
+          ]
+        },
+        {
+          "id": "E",
+          "content": [
+            {
+              "t": "text",
+              "v": "move"
+            }
+          ]
+        },
+        {
+          "id": "F",
+          "content": [
+            {
+              "t": "text",
+              "v": "plastic"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Electricity is a form of "
+              },
+              {
+                "t": "blank",
+                "id": "b1"
+              },
+              {
+                "t": "text",
+                "v": " that can give things the ability to "
+              },
+              {
+                "t": "blank",
+                "id": "b2"
+              },
+              {
+                "t": "text",
+                "v": " and work."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "A(n) "
+              },
+              {
+                "t": "blank",
+                "id": "b3"
+              },
+              {
+                "t": "text",
+                "v": " converts electricity into "
+              },
+              {
+                "t": "blank",
+                "id": "b4"
+              },
+              {
+                "t": "text",
+                "v": " to turn bread into toast."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Wires are wrapped in "
+              },
+              {
+                "t": "blank",
+                "id": "b5"
+              },
+              {
+                "t": "text",
+                "v": ", because it does not let electricity "
+              },
+              {
+                "t": "blank",
+                "id": "b6"
+              },
+              {
+                "t": "text",
+                "v": " through."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

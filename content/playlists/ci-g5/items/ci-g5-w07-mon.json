@@ -1,0 +1,378 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g5-w07-mon",
+  "playlistId": "ci-g5",
+  "order": 31,
+  "week": 7,
+  "day": "mon",
+  "title": "Most Popular Passwords—Is Yours on the List?",
+  "titleZh": "最常用密码榜——你的密码上榜了吗?",
+  "displayName": "Week 7 Monday Most Popular Passwords—Is Yours on the List?",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读理解"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 170,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与自我",
+    "contentRequirement": "安全与防护",
+    "intro": "你的密码安全吗?",
+    "hasVideo": false
+  },
+  "thumbnail": "assets/ci-g5/ci-g5-w07-mon-1.jpg",
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X5年级.pdf",
+    "pdfPages": [
+      59,
+      60
+    ],
+    "bookPages": [
+      50,
+      51
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g5/ci-g5-w07-mon-1.jpg",
+        "alt": "A person shields a cash-machine keypad with one hand while typing a PIN with the other.",
+        "w": 784,
+        "h": 507
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-password",
+        "headword": "password",
+        "pos": "n.",
+        "meaningZh": "密码",
+        "ipa": "ˈpɑːswɜːd"
+      },
+      {
+        "id": "v-sunshine",
+        "headword": "sunshine",
+        "pos": "n.",
+        "meaningZh": "阳光",
+        "ipa": "ˈsʌnʃaɪn"
+      },
+      {
+        "id": "v-had-better",
+        "headword": "had better",
+        "pos": "",
+        "meaningZh": "最好（做某事）"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      },
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "We all have them. Some are stronger than others, and the weaker ones can be "
+          },
+          {
+            "t": "gloss",
+            "v": "cracked",
+            "zh": "破译"
+          },
+          {
+            "t": "text",
+            "v": " in a second. Any guesses?"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "They’re passwords!"
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "In fact, many people are still using simple passwords that are easy to guess. “123456” is the most popular in the world. “123456789” and “12345” are the second and third. “111111” and “123123” are in the top 10 list too."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "A large number of people love using their own name as a password. Women use more loving words, like “"
+          },
+          {
+            "t": "vocab",
+            "v": "sunshine",
+            "ref": "v-sunshine"
+          },
+          {
+            "t": "text",
+            "v": "” or “iloveyou”. But men like to use the names of sports more often."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "In Britain, most people use “123456”. In Spain, the top password is simpler, which is “12345”. In India and Japan, it is just the word “password”."
+          }
+        ]
+      },
+      {
+        "id": "p6",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "If you want to protect your data online, you need a strong password. You "
+          },
+          {
+            "t": "vocab",
+            "v": "had better",
+            "ref": "v-had-better"
+          },
+          {
+            "t": "text",
+            "v": " use difficult words, often change your passwords and never "
+          },
+          {
+            "t": "gloss",
+            "v": "reuse",
+            "zh": "重复使用"
+          },
+          {
+            "t": "text",
+            "v": " them."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The top three most popular passwords are “123456”, “______” and “12345”."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "111111"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "123456789"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "123123"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What do women use more often as passwords?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The names of sports."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Numbers."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Loving words."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why are some passwords cracked in a second?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because they are strong."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because they are weak."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because they are difficult."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What should you never do if you want to protect your data online?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Often change your passwords."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Use difficult words."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Reuse your passwords."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

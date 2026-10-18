@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-18T02:19:34.941Z",
+  "generatedAt": "2026-10-18T04:53:50.081Z",
   "playlists": [
     {
       "id": "ci-g3",
@@ -10,11 +10,11 @@
       "accent": "#F29A38",
       "gradeBand": "G3",
       "description": "60 篇外刊时文，12 周每日一练：阅读选择、完形填空、选词填空、六选四、连线、判断正误、回答问题与每周精读。",
-      "itemCount": 8,
-      "totalWords": 1025,
+      "itemCount": 60,
+      "totalWords": 7528,
       "difficultyRange": [
-        2,
-        4
+        1,
+        5
       ],
       "taskTypes": [
         "reading_choice",
@@ -23,7 +23,8 @@
         "weekly_intensive",
         "six_choose_four",
         "matching",
-        "true_false"
+        "true_false",
+        "answer_questions"
       ],
       "items": [
         {
@@ -110,6 +111,55 @@
           "thumbnail": "assets/ci-g3/ci-g3-w01-fri-1.jpg"
         },
         {
+          "id": "ci-g3-w02-mon",
+          "order": 6,
+          "week": 2,
+          "day": "mon",
+          "title": "Court Says AI Mistakes Are Not Always Illegal",
+          "displayName": "Week 2 Monday Court Says AI Mistakes Are Not Always Illegal",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 129,
+          "difficulty": 4,
+          "suggestedMinutes": 6,
+          "questionCount": 3,
+          "thumbnail": "assets/ci-g3/ci-g3-w02-mon-1.jpg"
+        },
+        {
+          "id": "ci-g3-w02-tue",
+          "order": 7,
+          "week": 2,
+          "day": "tue",
+          "title": "Zhang Xue: From a Bike-Loving Boy to a World Champion",
+          "displayName": "Week 2 Tuesday Zhang Xue: From a Bike-Loving Boy to a World Champion",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 108,
+          "difficulty": 3,
+          "suggestedMinutes": 6,
+          "questionCount": 3
+        },
+        {
+          "id": "ci-g3-w02-wed",
+          "order": 8,
+          "week": 2,
+          "day": "wed",
+          "title": "New Helpers at Hospitals",
+          "displayName": "Week 2 Wednesday New Helpers at Hospitals",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 109,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 6
+        },
+        {
           "id": "ci-g3-w02-thu",
           "order": 9,
           "week": 2,
@@ -124,6 +174,71 @@
           "difficulty": 3,
           "suggestedMinutes": 7,
           "questionCount": 4
+        },
+        {
+          "id": "ci-g3-w02-fri",
+          "order": 10,
+          "week": 2,
+          "day": "fri",
+          "title": "The Elephant House: The Birthplace of Harry Potter",
+          "displayName": "Week 2 Friday The Elephant House: The Birthplace of Harry Potter",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 125,
+          "difficulty": 3,
+          "suggestedMinutes": 9,
+          "questionCount": 6
+        },
+        {
+          "id": "ci-g3-w03-mon",
+          "order": 11,
+          "week": 3,
+          "day": "mon",
+          "title": "A City Where Street Trees Grow Lychees",
+          "displayName": "Week 3 Monday A City Where Street Trees Grow Lychees",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读选择"
+          },
+          "wordCount": 130,
+          "difficulty": 3,
+          "suggestedMinutes": 6,
+          "questionCount": 3,
+          "thumbnail": "assets/ci-g3/ci-g3-w03-mon-1.jpg"
+        },
+        {
+          "id": "ci-g3-w03-tue",
+          "order": 12,
+          "week": 3,
+          "day": "tue",
+          "title": "Yellowstone National Park",
+          "displayName": "Week 3 Tuesday Yellowstone National Park",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读选择"
+          },
+          "wordCount": 144,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4
+        },
+        {
+          "id": "ci-g3-w03-wed",
+          "order": 13,
+          "week": 3,
+          "day": "wed",
+          "title": "Fish Do Sleep",
+          "displayName": "Week 3 Wednesday Fish Do Sleep",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 152,
+          "difficulty": 5,
+          "suggestedMinutes": 8,
+          "questionCount": 5
         },
         {
           "id": "ci-g3-w03-thu",
@@ -142,6 +257,73 @@
           "questionCount": 1
         },
         {
+          "id": "ci-g3-w03-fri",
+          "order": 15,
+          "week": 3,
+          "day": "fri",
+          "title": "Working at Port Lockroy",
+          "displayName": "Week 3 Friday Working at Port Lockroy",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 114,
+          "difficulty": 2,
+          "suggestedMinutes": 9,
+          "questionCount": 7,
+          "thumbnail": "assets/ci-g3/ci-g3-w03-fri-1.jpg"
+        },
+        {
+          "id": "ci-g3-w04-mon",
+          "order": 16,
+          "week": 4,
+          "day": "mon",
+          "title": "The Teen Who Counts Super Fast",
+          "displayName": "Week 4 Monday The Teen Who Counts Super Fast",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 130,
+          "difficulty": 4,
+          "suggestedMinutes": 7,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g3/ci-g3-w04-mon-1.jpg"
+        },
+        {
+          "id": "ci-g3-w04-tue",
+          "order": 17,
+          "week": 4,
+          "day": "tue",
+          "title": "French Fry Lip Balm",
+          "displayName": "Week 4 Tuesday French Fry Lip Balm",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 130,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g3/ci-g3-w04-tue-1.jpg"
+        },
+        {
+          "id": "ci-g3-w04-wed",
+          "order": 18,
+          "week": 4,
+          "day": "wed",
+          "title": "Shadow Puppet Show",
+          "displayName": "Week 4 Wednesday Shadow Puppet Show",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 123,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 5
+        },
+        {
           "id": "ci-g3-w04-thu",
           "order": 19,
           "week": 4,
@@ -156,6 +338,683 @@
           "difficulty": 3,
           "suggestedMinutes": 8,
           "questionCount": 5
+        },
+        {
+          "id": "ci-g3-w04-fri",
+          "order": 20,
+          "week": 4,
+          "day": "fri",
+          "title": "Children’s Day Around the World",
+          "displayName": "Week 4 Friday Children’s Day Around the World",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 134,
+          "difficulty": 3,
+          "suggestedMinutes": 9,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g3/ci-g3-w04-fri-1.jpg"
+        },
+        {
+          "id": "ci-g3-w05-mon",
+          "order": 21,
+          "week": 5,
+          "day": "mon",
+          "title": "Animals Make Art",
+          "displayName": "Week 5 Monday Animals Make Art",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读选择"
+          },
+          "wordCount": 133,
+          "difficulty": 3,
+          "suggestedMinutes": 6,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g3/ci-g3-w05-mon-1.jpg"
+        },
+        {
+          "id": "ci-g3-w05-tue",
+          "order": 22,
+          "week": 5,
+          "day": "tue",
+          "title": "Girls Want to Wear Trousers",
+          "displayName": "Week 5 Tuesday Girls Want to Wear Trousers",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读选择"
+          },
+          "wordCount": 129,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g3/ci-g3-w05-tue-1.jpg"
+        },
+        {
+          "id": "ci-g3-w05-wed",
+          "order": 23,
+          "week": 5,
+          "day": "wed",
+          "title": "My Family Story",
+          "displayName": "Week 5 Wednesday My Family Story",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 147,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g3-w05-thu",
+          "order": 24,
+          "week": 5,
+          "day": "thu",
+          "title": "The Gerbil Museum",
+          "displayName": "Week 5 Thursday The Gerbil Museum",
+          "taskType": {
+            "code": "answer_questions",
+            "labelZh": "回答问题"
+          },
+          "wordCount": 113,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g3-w05-fri",
+          "order": 25,
+          "week": 5,
+          "day": "fri",
+          "title": "Wheeling Round the World",
+          "displayName": "Week 5 Friday Wheeling Round the World",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 119,
+          "difficulty": 2,
+          "suggestedMinutes": 9,
+          "questionCount": 7,
+          "thumbnail": "assets/ci-g3/ci-g3-w05-fri-1.jpg"
+        },
+        {
+          "id": "ci-g3-w06-mon",
+          "order": 26,
+          "week": 6,
+          "day": "mon",
+          "title": "The Secret to a Perfect Bowling Strike",
+          "displayName": "Week 6 Monday The Secret to a Perfect Bowling Strike",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读选择"
+          },
+          "wordCount": 128,
+          "difficulty": 4,
+          "suggestedMinutes": 7,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g3/ci-g3-w06-mon-1.jpg"
+        },
+        {
+          "id": "ci-g3-w06-tue",
+          "order": 27,
+          "week": 6,
+          "day": "tue",
+          "title": "Zero-Carbon Service Area",
+          "displayName": "Week 6 Tuesday Zero-Carbon Service Area",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读选择"
+          },
+          "wordCount": 126,
+          "difficulty": 3,
+          "suggestedMinutes": 6,
+          "questionCount": 3
+        },
+        {
+          "id": "ci-g3-w06-wed",
+          "order": 28,
+          "week": 6,
+          "day": "wed",
+          "title": "Holi Celebration",
+          "displayName": "Week 6 Wednesday Holi Celebration",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 116,
+          "difficulty": 4,
+          "suggestedMinutes": 8,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g3-w06-thu",
+          "order": 29,
+          "week": 6,
+          "day": "thu",
+          "title": "How and When to Wash Your Hands",
+          "displayName": "Week 6 Thursday How and When to Wash Your Hands",
+          "taskType": {
+            "code": "true_false",
+            "labelZh": "判断正误"
+          },
+          "wordCount": 146,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g3/ci-g3-w06-thu-1.jpg"
+        },
+        {
+          "id": "ci-g3-w06-fri",
+          "order": 30,
+          "week": 6,
+          "day": "fri",
+          "title": "Tennis Game-Set-Match",
+          "displayName": "Week 6 Friday Tennis Game-Set-Match",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 138,
+          "difficulty": 3,
+          "suggestedMinutes": 9,
+          "questionCount": 7,
+          "thumbnail": "assets/ci-g3/ci-g3-w06-fri-1.jpg"
+        },
+        {
+          "id": "ci-g3-w07-mon",
+          "order": 31,
+          "week": 7,
+          "day": "mon",
+          "title": "Post Boxes Go Solar!",
+          "displayName": "Week 7 Monday Post Boxes Go Solar!",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读选择"
+          },
+          "wordCount": 126,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g3/ci-g3-w07-mon-1.jpg"
+        },
+        {
+          "id": "ci-g3-w07-tue",
+          "order": 32,
+          "week": 7,
+          "day": "tue",
+          "title": "The Giant Chocolate Egg",
+          "displayName": "Week 7 Tuesday The Giant Chocolate Egg",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读选择"
+          },
+          "wordCount": 122,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g3/ci-g3-w07-tue-1.jpg"
+        },
+        {
+          "id": "ci-g3-w07-wed",
+          "order": 33,
+          "week": 7,
+          "day": "wed",
+          "title": "Tracing Bees",
+          "displayName": "Week 7 Wednesday Tracing Bees",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 114,
+          "difficulty": 2,
+          "suggestedMinutes": 8,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g3-w07-thu",
+          "order": 34,
+          "week": 7,
+          "day": "thu",
+          "title": "A Stylish Dog",
+          "displayName": "Week 7 Thursday A Stylish Dog",
+          "taskType": {
+            "code": "word_bank",
+            "labelZh": "选词填空"
+          },
+          "wordCount": 130,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 6,
+          "thumbnail": "assets/ci-g3/ci-g3-w07-thu-1.jpg"
+        },
+        {
+          "id": "ci-g3-w07-fri",
+          "order": 35,
+          "week": 7,
+          "day": "fri",
+          "title": "Meet Chef Lenny",
+          "displayName": "Week 7 Friday Meet Chef Lenny",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 147,
+          "difficulty": 3,
+          "suggestedMinutes": 9,
+          "questionCount": 7,
+          "thumbnail": "assets/ci-g3/ci-g3-w07-fri-1.jpg"
+        },
+        {
+          "id": "ci-g3-w08-mon",
+          "order": 36,
+          "week": 8,
+          "day": "mon",
+          "title": "Dog Waits Outside Hospital",
+          "displayName": "Week 8 Monday Dog Waits Outside Hospital",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 109,
+          "difficulty": 2,
+          "suggestedMinutes": 7,
+          "questionCount": 4
+        },
+        {
+          "id": "ci-g3-w08-tue",
+          "order": 37,
+          "week": 8,
+          "day": "tue",
+          "title": "New Year’s Celebrations in Central and South America",
+          "displayName": "Week 8 Tuesday New Year’s Celebrations in Central and South America",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 107,
+          "difficulty": 2,
+          "suggestedMinutes": 7,
+          "questionCount": 4
+        },
+        {
+          "id": "ci-g3-w08-wed",
+          "order": 38,
+          "week": 8,
+          "day": "wed",
+          "title": "Should Kids Use Skincare?",
+          "displayName": "Week 8 Wednesday Should Kids Use Skincare?",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 100,
+          "difficulty": 2,
+          "suggestedMinutes": 7,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g3-w08-thu",
+          "order": 39,
+          "week": 8,
+          "day": "thu",
+          "title": "Museum Blind Boxes",
+          "displayName": "Week 8 Thursday Museum Blind Boxes",
+          "taskType": {
+            "code": "six_choose_four",
+            "labelZh": "六选四"
+          },
+          "wordCount": 139,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 4
+        },
+        {
+          "id": "ci-g3-w08-fri",
+          "order": 40,
+          "week": 8,
+          "day": "fri",
+          "title": "What Is Cosplay?",
+          "displayName": "Week 8 Friday What Is Cosplay?",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 127,
+          "difficulty": 3,
+          "suggestedMinutes": 9,
+          "questionCount": 8,
+          "thumbnail": "assets/ci-g3/ci-g3-w08-fri-1.jpg"
+        },
+        {
+          "id": "ci-g3-w09-mon",
+          "order": 41,
+          "week": 9,
+          "day": "mon",
+          "title": "Riley’s Five Emotions",
+          "displayName": "Week 9 Monday Riley’s Five Emotions",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 111,
+          "difficulty": 1,
+          "suggestedMinutes": 6,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g3/ci-g3-w09-mon-1.jpg"
+        },
+        {
+          "id": "ci-g3-w09-tue",
+          "order": 42,
+          "week": 9,
+          "day": "tue",
+          "title": "The Chocolate Capital of the World",
+          "displayName": "Week 9 Tuesday The Chocolate Capital of the World",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 119,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g3/ci-g3-w09-tue-1.jpg"
+        },
+        {
+          "id": "ci-g3-w09-wed",
+          "order": 43,
+          "week": 9,
+          "day": "wed",
+          "title": "Ways to Feel Calm",
+          "displayName": "Week 9 Wednesday Ways to Feel Calm",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 104,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g3-w09-thu",
+          "order": 44,
+          "week": 9,
+          "day": "thu",
+          "title": "Peter Rabbit",
+          "displayName": "Week 9 Thursday Peter Rabbit",
+          "taskType": {
+            "code": "answer_questions",
+            "labelZh": "回答问题"
+          },
+          "wordCount": 118,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g3-w09-fri",
+          "order": 45,
+          "week": 9,
+          "day": "fri",
+          "title": "What CAN You Give?",
+          "displayName": "Week 9 Friday What CAN You Give?",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 133,
+          "difficulty": 3,
+          "suggestedMinutes": 9,
+          "questionCount": 6,
+          "thumbnail": "assets/ci-g3/ci-g3-w09-fri-1.jpg"
+        },
+        {
+          "id": "ci-g3-w10-mon",
+          "order": 46,
+          "week": 10,
+          "day": "mon",
+          "title": "Mipig: A Piglet Cafe in Tokyo",
+          "displayName": "Week 10 Monday Mipig: A Piglet Cafe in Tokyo",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读选择"
+          },
+          "wordCount": 129,
+          "difficulty": 3,
+          "suggestedMinutes": 6,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g3/ci-g3-w10-mon-1.jpg"
+        },
+        {
+          "id": "ci-g3-w10-tue",
+          "order": 47,
+          "week": 10,
+          "day": "tue",
+          "title": "Little World, Big Fun",
+          "displayName": "Week 10 Tuesday Little World, Big Fun",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读选择"
+          },
+          "wordCount": 127,
+          "difficulty": 3,
+          "suggestedMinutes": 6,
+          "questionCount": 3,
+          "thumbnail": "assets/ci-g3/ci-g3-w10-tue-1.jpg"
+        },
+        {
+          "id": "ci-g3-w10-wed",
+          "order": 48,
+          "week": 10,
+          "day": "wed",
+          "title": "Sunlight-Warming Fabric",
+          "displayName": "Week 10 Wednesday Sunlight-Warming Fabric",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 121,
+          "difficulty": 5,
+          "suggestedMinutes": 8,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g3-w10-thu",
+          "order": 49,
+          "week": 10,
+          "day": "thu",
+          "title": "Getting to Know Happiness",
+          "displayName": "Week 10 Thursday Getting to Know Happiness",
+          "taskType": {
+            "code": "matching",
+            "labelZh": "连线题"
+          },
+          "wordCount": 147,
+          "difficulty": 4,
+          "suggestedMinutes": 8,
+          "questionCount": 1
+        },
+        {
+          "id": "ci-g3-w10-fri",
+          "order": 50,
+          "week": 10,
+          "day": "fri",
+          "title": "Wild Weather",
+          "displayName": "Week 10 Friday Wild Weather",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 133,
+          "difficulty": 3,
+          "suggestedMinutes": 9,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g3/ci-g3-w10-fri-1.jpg"
+        },
+        {
+          "id": "ci-g3-w11-mon",
+          "order": 51,
+          "week": 11,
+          "day": "mon",
+          "title": "Dr Dan the Pancake Man",
+          "displayName": "Week 11 Monday Dr Dan the Pancake Man",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读选择"
+          },
+          "wordCount": 118,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4
+        },
+        {
+          "id": "ci-g3-w11-tue",
+          "order": 52,
+          "week": 11,
+          "day": "tue",
+          "title": "Paella: Rice Dish From Spain",
+          "displayName": "Week 11 Tuesday Paella: Rice Dish From Spain",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读选择"
+          },
+          "wordCount": 141,
+          "difficulty": 4,
+          "suggestedMinutes": 7,
+          "questionCount": 4
+        },
+        {
+          "id": "ci-g3-w11-wed",
+          "order": 53,
+          "week": 11,
+          "day": "wed",
+          "title": "Smelling Mummies",
+          "displayName": "Week 11 Wednesday Smelling Mummies",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 105,
+          "difficulty": 4,
+          "suggestedMinutes": 8,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g3-w11-thu",
+          "order": 54,
+          "week": 11,
+          "day": "thu",
+          "title": "Fire Safety for Kids",
+          "displayName": "Week 11 Thursday Fire Safety for Kids",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "判断正误"
+          },
+          "wordCount": 126,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g3-w11-fri",
+          "order": 55,
+          "week": 11,
+          "day": "fri",
+          "title": "Making Maths Fun with Colours",
+          "displayName": "Week 11 Friday Making Maths Fun with Colours",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 116,
+          "difficulty": 3,
+          "suggestedMinutes": 9,
+          "questionCount": 8,
+          "thumbnail": "assets/ci-g3/ci-g3-w11-fri-1.jpg"
+        },
+        {
+          "id": "ci-g3-w12-mon",
+          "order": 56,
+          "week": 12,
+          "day": "mon",
+          "title": "The Young Mountain Climber",
+          "displayName": "Week 12 Monday The Young Mountain Climber",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 115,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g3/ci-g3-w12-mon-1.jpg"
+        },
+        {
+          "id": "ci-g3-w12-tue",
+          "order": 57,
+          "week": 12,
+          "day": "tue",
+          "title": "Karla Cares for Zoo Animals",
+          "displayName": "Week 12 Tuesday Karla Cares for Zoo Animals",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 140,
+          "difficulty": 3,
+          "suggestedMinutes": 6,
+          "questionCount": 4
+        },
+        {
+          "id": "ci-g3-w12-wed",
+          "order": 58,
+          "week": 12,
+          "day": "wed",
+          "title": "Art Auction for a Park",
+          "displayName": "Week 12 Wednesday Art Auction for a Park",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 103,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g3-w12-thu",
+          "order": 59,
+          "week": 12,
+          "day": "thu",
+          "title": "The Real Stars in Houtong Are Cats",
+          "displayName": "Week 12 Thursday The Real Stars in Houtong Are Cats",
+          "taskType": {
+            "code": "six_choose_four",
+            "labelZh": "六选四"
+          },
+          "wordCount": 134,
+          "difficulty": 2,
+          "suggestedMinutes": 7,
+          "questionCount": 4
+        },
+        {
+          "id": "ci-g3-w12-fri",
+          "order": 60,
+          "week": 12,
+          "day": "fri",
+          "title": "New Ravens at the Tower of London",
+          "displayName": "Week 12 Friday New Ravens at the Tower of London",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 119,
+          "difficulty": 4,
+          "suggestedMinutes": 10,
+          "questionCount": 7,
+          "thumbnail": "assets/ci-g3/ci-g3-w12-fri-1.jpg"
         }
       ]
     },
@@ -166,17 +1025,983 @@
       "cover": "assets/ci-g5/cover.jpg",
       "accent": "#E8743B",
       "gradeBand": "G5",
-      "description": "60 篇外刊时文，12 周每日一练。本合集目前为试点：收录含“一对多连线”题型的第 12 周周四一篇。",
-      "itemCount": 1,
-      "totalWords": 172,
+      "description": "60 篇外刊时文，12 周每日一练：阅读理解、完形填空、七选五、选词填空、判断正误、回答问题、表格填空、连线与每周精读。",
+      "itemCount": 60,
+      "totalWords": 9691,
       "difficultyRange": [
-        3,
-        3
+        1,
+        5
       ],
       "taskTypes": [
+        "reading_choice",
+        "cloze",
+        "seven_choose_five",
+        "weekly_intensive",
+        "true_false",
+        "answer_questions",
+        "word_bank",
+        "table_fill",
         "matching"
       ],
       "items": [
+        {
+          "id": "ci-g5-w01-mon",
+          "order": 1,
+          "week": 1,
+          "day": "mon",
+          "title": "France’s Tax for Rich People",
+          "displayName": "Week 1 Monday France’s Tax for Rich People",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 122,
+          "difficulty": 2,
+          "suggestedMinutes": 6,
+          "questionCount": 4
+        },
+        {
+          "id": "ci-g5-w01-tue",
+          "order": 2,
+          "week": 1,
+          "day": "tue",
+          "title": "A Painter Who Sees the World as a Garden",
+          "displayName": "Week 1 Tuesday A Painter Who Sees the World as a Garden",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 188,
+          "difficulty": 4,
+          "suggestedMinutes": 7,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g5/ci-g5-w01-tue-1.jpg"
+        },
+        {
+          "id": "ci-g5-w01-wed",
+          "order": 3,
+          "week": 1,
+          "day": "wed",
+          "title": "UK Survey Shows Big Plastic Problem",
+          "displayName": "Week 1 Wednesday UK Survey Shows Big Plastic Problem",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 159,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 6
+        },
+        {
+          "id": "ci-g5-w01-thu",
+          "order": 4,
+          "week": 1,
+          "day": "thu",
+          "title": "Will AI Tools Become Expensive?",
+          "displayName": "Week 1 Thursday Will AI Tools Become Expensive?",
+          "taskType": {
+            "code": "seven_choose_five",
+            "labelZh": "七选五"
+          },
+          "wordCount": 180,
+          "difficulty": 4,
+          "suggestedMinutes": 8,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g5-w01-fri",
+          "order": 5,
+          "week": 1,
+          "day": "fri",
+          "title": "Strawberries and Cream at Wimbledon",
+          "displayName": "Week 1 Friday Strawberries and Cream at Wimbledon",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 146,
+          "difficulty": 3,
+          "suggestedMinutes": 12,
+          "questionCount": 7,
+          "thumbnail": "assets/ci-g5/ci-g5-w01-fri-1.jpg"
+        },
+        {
+          "id": "ci-g5-w02-mon",
+          "order": 6,
+          "week": 2,
+          "day": "mon",
+          "title": "Wu Yize Wins World Snooker Championship",
+          "displayName": "Week 2 Monday Wu Yize Wins World Snooker Championship",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 192,
+          "difficulty": 4,
+          "suggestedMinutes": 8,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g5-w02-tue",
+          "order": 7,
+          "week": 2,
+          "day": "tue",
+          "title": "Self-Driving Car",
+          "displayName": "Week 2 Tuesday Self-Driving Car",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 155,
+          "difficulty": 3,
+          "suggestedMinutes": 6,
+          "questionCount": 4
+        },
+        {
+          "id": "ci-g5-w02-wed",
+          "order": 8,
+          "week": 2,
+          "day": "wed",
+          "title": "Disney Songs Performed With Hands",
+          "displayName": "Week 2 Wednesday Disney Songs Performed With Hands",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 199,
+          "difficulty": 4,
+          "suggestedMinutes": 7,
+          "questionCount": 6
+        },
+        {
+          "id": "ci-g5-w02-thu",
+          "order": 9,
+          "week": 2,
+          "day": "thu",
+          "title": "Snowy Owl: A Large White Owl",
+          "displayName": "Week 2 Thursday Snowy Owl: A Large White Owl",
+          "taskType": {
+            "code": "true_false",
+            "labelZh": "判断正误"
+          },
+          "wordCount": 160,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 7
+        },
+        {
+          "id": "ci-g5-w02-fri",
+          "order": 10,
+          "week": 2,
+          "day": "fri",
+          "title": "AI Around Us",
+          "displayName": "Week 2 Friday AI Around Us",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 179,
+          "difficulty": 3,
+          "suggestedMinutes": 13,
+          "questionCount": 9
+        },
+        {
+          "id": "ci-g5-w03-mon",
+          "order": 11,
+          "week": 3,
+          "day": "mon",
+          "title": "Get a Taste of Bao, the Oscar-Winning Short",
+          "displayName": "Week 3 Monday Get a Taste of Bao, the Oscar-Winning Short",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读理解"
+          },
+          "wordCount": 185,
+          "difficulty": 3,
+          "suggestedMinutes": 6,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g5/ci-g5-w03-mon-1.jpg"
+        },
+        {
+          "id": "ci-g5-w03-tue",
+          "order": 12,
+          "week": 3,
+          "day": "tue",
+          "title": "China Sets New Rules for Fireworks",
+          "displayName": "Week 3 Tuesday China Sets New Rules for Fireworks",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读理解"
+          },
+          "wordCount": 198,
+          "difficulty": 4,
+          "suggestedMinutes": 8,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g5-w03-wed",
+          "order": 13,
+          "week": 3,
+          "day": "wed",
+          "title": "The Grand Canyon",
+          "displayName": "Week 3 Wednesday The Grand Canyon",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 164,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 8,
+          "thumbnail": "assets/ci-g5/ci-g5-w03-wed-1.jpg"
+        },
+        {
+          "id": "ci-g5-w03-thu",
+          "order": 14,
+          "week": 3,
+          "day": "thu",
+          "title": "Australia’s Social Media Ban for Kids",
+          "displayName": "Week 3 Thursday Australia’s Social Media Ban for Kids",
+          "taskType": {
+            "code": "answer_questions",
+            "labelZh": "回答问题"
+          },
+          "wordCount": 216,
+          "difficulty": 5,
+          "suggestedMinutes": 9,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g5/ci-g5-w03-thu-1.jpg"
+        },
+        {
+          "id": "ci-g5-w03-fri",
+          "order": 15,
+          "week": 3,
+          "day": "fri",
+          "title": "Royal Ascot in Britain",
+          "displayName": "Week 3 Friday Royal Ascot in Britain",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 129,
+          "difficulty": 3,
+          "suggestedMinutes": 11,
+          "questionCount": 8,
+          "thumbnail": "assets/ci-g5/ci-g5-w03-fri-1.jpg"
+        },
+        {
+          "id": "ci-g5-w04-mon",
+          "order": 16,
+          "week": 4,
+          "day": "mon",
+          "title": "Anne Frank and Her Diary",
+          "displayName": "Week 4 Monday Anne Frank and Her Diary",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读理解"
+          },
+          "wordCount": 145,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g5/ci-g5-w04-mon-1.jpg"
+        },
+        {
+          "id": "ci-g5-w04-tue",
+          "order": 17,
+          "week": 4,
+          "day": "tue",
+          "title": "The World’s Fastest Ant",
+          "displayName": "Week 4 Tuesday The World’s Fastest Ant",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读理解"
+          },
+          "wordCount": 158,
+          "difficulty": 3,
+          "suggestedMinutes": 6,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g5/ci-g5-w04-tue-1.jpg"
+        },
+        {
+          "id": "ci-g5-w04-wed",
+          "order": 18,
+          "week": 4,
+          "day": "wed",
+          "title": "From Tennis to Table Tennis",
+          "displayName": "Week 4 Wednesday From Tennis to Table Tennis",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 138,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 6
+        },
+        {
+          "id": "ci-g5-w04-thu",
+          "order": 19,
+          "week": 4,
+          "day": "thu",
+          "title": "Darcie Helps in the School Library",
+          "displayName": "Week 4 Thursday Darcie Helps in the School Library",
+          "taskType": {
+            "code": "seven_choose_five",
+            "labelZh": "七选五"
+          },
+          "wordCount": 181,
+          "difficulty": 3,
+          "suggestedMinutes": 10,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g5-w04-fri",
+          "order": 20,
+          "week": 4,
+          "day": "fri",
+          "title": "Antarctica: The Seventh Continent",
+          "displayName": "Week 4 Friday Antarctica: The Seventh Continent",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 140,
+          "difficulty": 3,
+          "suggestedMinutes": 11,
+          "questionCount": 6,
+          "thumbnail": "assets/ci-g5/ci-g5-w04-fri-1.jpg"
+        },
+        {
+          "id": "ci-g5-w05-mon",
+          "order": 21,
+          "week": 5,
+          "day": "mon",
+          "title": "Why Is Bluetooth Called Bluetooth?",
+          "displayName": "Week 5 Monday Why Is Bluetooth Called Bluetooth?",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读理解"
+          },
+          "wordCount": 136,
+          "difficulty": 3,
+          "suggestedMinutes": 6,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g5/ci-g5-w05-mon-1.jpg"
+        },
+        {
+          "id": "ci-g5-w05-tue",
+          "order": 22,
+          "week": 5,
+          "day": "tue",
+          "title": "World Oceans Day",
+          "displayName": "Week 5 Tuesday World Oceans Day",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读理解"
+          },
+          "wordCount": 171,
+          "difficulty": 4,
+          "suggestedMinutes": 6,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g5/ci-g5-w05-tue-1.jpg"
+        },
+        {
+          "id": "ci-g5-w05-wed",
+          "order": 23,
+          "week": 5,
+          "day": "wed",
+          "title": "Paella: A Rice Dish From Spain",
+          "displayName": "Week 5 Wednesday Paella: A Rice Dish From Spain",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 142,
+          "difficulty": 3,
+          "suggestedMinutes": 6,
+          "questionCount": 6
+        },
+        {
+          "id": "ci-g5-w05-thu",
+          "order": 24,
+          "week": 5,
+          "day": "thu",
+          "title": "Are You Afraid of Sharks?",
+          "displayName": "Week 5 Thursday Are You Afraid of Sharks?",
+          "taskType": {
+            "code": "word_bank",
+            "labelZh": "选词填空"
+          },
+          "wordCount": 137,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 8
+        },
+        {
+          "id": "ci-g5-w05-fri",
+          "order": 25,
+          "week": 5,
+          "day": "fri",
+          "title": "Have a Jazzy Day!",
+          "displayName": "Week 5 Friday Have a Jazzy Day!",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 157,
+          "difficulty": 3,
+          "suggestedMinutes": 10,
+          "questionCount": 7,
+          "thumbnail": "assets/ci-g5/ci-g5-w05-fri-1.jpg"
+        },
+        {
+          "id": "ci-g5-w06-mon",
+          "order": 26,
+          "week": 6,
+          "day": "mon",
+          "title": "Why Do Clocks Run Clockwise?",
+          "displayName": "Week 6 Monday Why Do Clocks Run Clockwise?",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 169,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g5/ci-g5-w06-mon-1.jpg"
+        },
+        {
+          "id": "ci-g5-w06-tue",
+          "order": 27,
+          "week": 6,
+          "day": "tue",
+          "title": "Do Mosquitoes Love You?",
+          "displayName": "Week 6 Tuesday Do Mosquitoes Love You?",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 171,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4
+        },
+        {
+          "id": "ci-g5-w06-wed",
+          "order": 28,
+          "week": 6,
+          "day": "wed",
+          "title": "What Do Bees Do in Winter?",
+          "displayName": "Week 6 Wednesday What Do Bees Do in Winter?",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 122,
+          "difficulty": 2,
+          "suggestedMinutes": 6,
+          "questionCount": 6
+        },
+        {
+          "id": "ci-g5-w06-thu",
+          "order": 29,
+          "week": 6,
+          "day": "thu",
+          "title": "The Nobel Prize",
+          "displayName": "Week 6 Thursday The Nobel Prize",
+          "taskType": {
+            "code": "table_fill",
+            "labelZh": "表格填空"
+          },
+          "wordCount": 137,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 8,
+          "thumbnail": "assets/ci-g5/ci-g5-w06-thu-1.jpg"
+        },
+        {
+          "id": "ci-g5-w06-fri",
+          "order": 30,
+          "week": 6,
+          "day": "fri",
+          "title": "Stan Lee: The Superhero of Marvel",
+          "displayName": "Week 6 Friday Stan Lee: The Superhero of Marvel",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 144,
+          "difficulty": 3,
+          "suggestedMinutes": 11,
+          "questionCount": 7,
+          "thumbnail": "assets/ci-g5/ci-g5-w06-fri-1.jpg"
+        },
+        {
+          "id": "ci-g5-w07-mon",
+          "order": 31,
+          "week": 7,
+          "day": "mon",
+          "title": "Most Popular Passwords—Is Yours on the List?",
+          "displayName": "Week 7 Monday Most Popular Passwords—Is Yours on the List?",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读理解"
+          },
+          "wordCount": 170,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g5/ci-g5-w07-mon-1.jpg"
+        },
+        {
+          "id": "ci-g5-w07-tue",
+          "order": 32,
+          "week": 7,
+          "day": "tue",
+          "title": "Making Healthy Foods Fun",
+          "displayName": "Week 7 Tuesday Making Healthy Foods Fun",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读理解"
+          },
+          "wordCount": 163,
+          "difficulty": 2,
+          "suggestedMinutes": 5,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g5/ci-g5-w07-tue-1.jpg"
+        },
+        {
+          "id": "ci-g5-w07-wed",
+          "order": 33,
+          "week": 7,
+          "day": "wed",
+          "title": "Do You Know About Viruses?",
+          "displayName": "Week 7 Wednesday Do You Know About Viruses?",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 141,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 6
+        },
+        {
+          "id": "ci-g5-w07-thu",
+          "order": 34,
+          "week": 7,
+          "day": "thu",
+          "title": "How Expensive!",
+          "displayName": "Week 7 Thursday How Expensive!",
+          "taskType": {
+            "code": "word_bank",
+            "labelZh": "选词填空"
+          },
+          "wordCount": 155,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 8
+        },
+        {
+          "id": "ci-g5-w07-fri",
+          "order": 35,
+          "week": 7,
+          "day": "fri",
+          "title": "Why Is the Sensitive Plant So Shy?",
+          "displayName": "Week 7 Friday Why Is the Sensitive Plant So Shy?",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 162,
+          "difficulty": 3,
+          "suggestedMinutes": 13,
+          "questionCount": 8,
+          "thumbnail": "assets/ci-g5/ci-g5-w07-fri-1.jpg"
+        },
+        {
+          "id": "ci-g5-w08-mon",
+          "order": 36,
+          "week": 8,
+          "day": "mon",
+          "title": "Why Don’t Penguins’ Feet Freeze?",
+          "displayName": "Week 8 Monday Why Don’t Penguins’ Feet Freeze?",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 163,
+          "difficulty": 4,
+          "suggestedMinutes": 7,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g5/ci-g5-w08-mon-1.jpg"
+        },
+        {
+          "id": "ci-g5-w08-tue",
+          "order": 37,
+          "week": 8,
+          "day": "tue",
+          "title": "Sudoku",
+          "displayName": "Week 8 Tuesday Sudoku",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 171,
+          "difficulty": 2,
+          "suggestedMinutes": 6,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g5/ci-g5-w08-tue-1.jpg"
+        },
+        {
+          "id": "ci-g5-w08-wed",
+          "order": 38,
+          "week": 8,
+          "day": "wed",
+          "title": "Bears Become Honey Tasters",
+          "displayName": "Week 8 Wednesday Bears Become Honey Tasters",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 168,
+          "difficulty": 2,
+          "suggestedMinutes": 8,
+          "questionCount": 6
+        },
+        {
+          "id": "ci-g5-w08-thu",
+          "order": 39,
+          "week": 8,
+          "day": "thu",
+          "title": "Can I Give You a Call Bark?",
+          "displayName": "Week 8 Thursday Can I Give You a Call Bark?",
+          "taskType": {
+            "code": "seven_choose_five",
+            "labelZh": "七选五"
+          },
+          "wordCount": 98,
+          "difficulty": 1,
+          "suggestedMinutes": 7,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g5-w08-fri",
+          "order": 40,
+          "week": 8,
+          "day": "fri",
+          "title": "Layers of the Ocean",
+          "displayName": "Week 8 Friday Layers of the Ocean",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 168,
+          "difficulty": 3,
+          "suggestedMinutes": 12,
+          "questionCount": 8,
+          "thumbnail": "assets/ci-g5/ci-g5-w08-fri-1.jpg"
+        },
+        {
+          "id": "ci-g5-w09-mon",
+          "order": 41,
+          "week": 9,
+          "day": "mon",
+          "title": "Why Do We Eat Cake on Birthdays?",
+          "displayName": "Week 9 Monday Why Do We Eat Cake on Birthdays?",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读理解"
+          },
+          "wordCount": 160,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4
+        },
+        {
+          "id": "ci-g5-w09-tue",
+          "order": 42,
+          "week": 9,
+          "day": "tue",
+          "title": "Why Do We Get Hiccups?",
+          "displayName": "Week 9 Tuesday Why Do We Get Hiccups?",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读理解"
+          },
+          "wordCount": 144,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g5/ci-g5-w09-tue-1.jpg"
+        },
+        {
+          "id": "ci-g5-w09-wed",
+          "order": 43,
+          "week": 9,
+          "day": "wed",
+          "title": "Why Do We Put Salt on Roads in Winter?",
+          "displayName": "Week 9 Wednesday Why Do We Put Salt on Roads in Winter?",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 188,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 6
+        },
+        {
+          "id": "ci-g5-w09-thu",
+          "order": 44,
+          "week": 9,
+          "day": "thu",
+          "title": "How Much Does the Sky Weigh?",
+          "displayName": "Week 9 Thursday How Much Does the Sky Weigh?",
+          "taskType": {
+            "code": "answer_questions",
+            "labelZh": "回答问题"
+          },
+          "wordCount": 144,
+          "difficulty": 3,
+          "suggestedMinutes": 10,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g5-w09-fri",
+          "order": 45,
+          "week": 9,
+          "day": "fri",
+          "title": "Electricity Around Us",
+          "displayName": "Week 9 Friday Electricity Around Us",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 167,
+          "difficulty": 3,
+          "suggestedMinutes": 13,
+          "questionCount": 7,
+          "thumbnail": "assets/ci-g5/ci-g5-w09-fri-1.jpg"
+        },
+        {
+          "id": "ci-g5-w10-mon",
+          "order": 46,
+          "week": 10,
+          "day": "mon",
+          "title": "Why Are Bugs So Loud?",
+          "displayName": "Week 10 Monday Why Are Bugs So Loud?",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 168,
+          "difficulty": 3,
+          "suggestedMinutes": 6,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g5/ci-g5-w10-mon-1.jpg"
+        },
+        {
+          "id": "ci-g5-w10-tue",
+          "order": 47,
+          "week": 10,
+          "day": "tue",
+          "title": "How Do Vaccines Work?",
+          "displayName": "Week 10 Tuesday How Do Vaccines Work?",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 158,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g5/ci-g5-w10-tue-1.jpg"
+        },
+        {
+          "id": "ci-g5-w10-wed",
+          "order": 48,
+          "week": 10,
+          "day": "wed",
+          "title": "What Is Nessie?",
+          "displayName": "Week 10 Wednesday What Is Nessie?",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 160,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 6
+        },
+        {
+          "id": "ci-g5-w10-thu",
+          "order": 49,
+          "week": 10,
+          "day": "thu",
+          "title": "The World’s Biggest Iceberg Gets Stuck",
+          "displayName": "Week 10 Thursday The World’s Biggest Iceberg Gets Stuck",
+          "taskType": {
+            "code": "word_bank",
+            "labelZh": "选词填空"
+          },
+          "wordCount": 163,
+          "difficulty": 4,
+          "suggestedMinutes": 7,
+          "questionCount": 8
+        },
+        {
+          "id": "ci-g5-w10-fri",
+          "order": 50,
+          "week": 10,
+          "day": "fri",
+          "title": "The Land of Snow",
+          "displayName": "Week 10 Friday The Land of Snow",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 111,
+          "difficulty": 2,
+          "suggestedMinutes": 11,
+          "questionCount": 7,
+          "thumbnail": "assets/ci-g5/ci-g5-w10-fri-1.jpg"
+        },
+        {
+          "id": "ci-g5-w11-mon",
+          "order": 51,
+          "week": 11,
+          "day": "mon",
+          "title": "Origins of Everyday Hand Gestures",
+          "displayName": "Week 11 Monday Origins of Everyday Hand Gestures",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读理解"
+          },
+          "wordCount": 153,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 4
+        },
+        {
+          "id": "ci-g5-w11-tue",
+          "order": 52,
+          "week": 11,
+          "day": "tue",
+          "title": "Why Is Italian the Language of Music?",
+          "displayName": "Week 11 Tuesday Why Is Italian the Language of Music?",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读理解"
+          },
+          "wordCount": 209,
+          "difficulty": 4,
+          "suggestedMinutes": 9,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g5/ci-g5-w11-tue-1.jpg"
+        },
+        {
+          "id": "ci-g5-w11-wed",
+          "order": 53,
+          "week": 11,
+          "day": "wed",
+          "title": "New Rules for Zoos in Britain",
+          "displayName": "Week 11 Wednesday New Rules for Zoos in Britain",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 173,
+          "difficulty": 4,
+          "suggestedMinutes": 9,
+          "questionCount": 7,
+          "thumbnail": "assets/ci-g5/ci-g5-w11-wed-1.jpg"
+        },
+        {
+          "id": "ci-g5-w11-thu",
+          "order": 54,
+          "week": 11,
+          "day": "thu",
+          "title": "Shakespeare’s Old Home Found in London",
+          "displayName": "Week 11 Thursday Shakespeare’s Old Home Found in London",
+          "taskType": {
+            "code": "table_fill",
+            "labelZh": "表格填空"
+          },
+          "wordCount": 166,
+          "difficulty": 4,
+          "suggestedMinutes": 8,
+          "questionCount": 8,
+          "thumbnail": "assets/ci-g5/ci-g5-w11-thu-1.jpg"
+        },
+        {
+          "id": "ci-g5-w11-fri",
+          "order": 55,
+          "week": 11,
+          "day": "fri",
+          "title": "What Is Boxing Day?",
+          "displayName": "Week 11 Friday What Is Boxing Day?",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 188,
+          "difficulty": 3,
+          "suggestedMinutes": 13,
+          "questionCount": 7
+        },
+        {
+          "id": "ci-g5-w12-mon",
+          "order": 56,
+          "week": 12,
+          "day": "mon",
+          "title": "Why Do Brits Call Dessert Pudding?",
+          "displayName": "Week 12 Monday Why Do Brits Call Dessert Pudding?",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 163,
+          "difficulty": 3,
+          "suggestedMinutes": 6,
+          "questionCount": 4,
+          "thumbnail": "assets/ci-g5/ci-g5-w12-mon-1.jpg"
+        },
+        {
+          "id": "ci-g5-w12-tue",
+          "order": 57,
+          "week": 12,
+          "day": "tue",
+          "title": "Music Makes Us Happy",
+          "displayName": "Week 12 Tuesday Music Makes Us Happy",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 187,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4
+        },
+        {
+          "id": "ci-g5-w12-wed",
+          "order": 58,
+          "week": 12,
+          "day": "wed",
+          "title": "Space Oven Can Cook Food in Space",
+          "displayName": "Week 12 Wednesday Space Oven Can Cook Food in Space",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 178,
+          "difficulty": 4,
+          "suggestedMinutes": 10,
+          "questionCount": 8
+        },
         {
           "id": "ci-g5-w12-thu",
           "order": 59,
@@ -193,6 +2018,23 @@
           "suggestedMinutes": 8,
           "questionCount": 7,
           "thumbnail": "assets/ci-g5/ci-g5-w12-thu-1.jpg"
+        },
+        {
+          "id": "ci-g5-w12-fri",
+          "order": 60,
+          "week": 12,
+          "day": "fri",
+          "title": "Cooking Outside in Antarctica",
+          "displayName": "Week 12 Friday Cooking Outside in Antarctica",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 160,
+          "difficulty": 3,
+          "suggestedMinutes": 11,
+          "questionCount": 7,
+          "thumbnail": "assets/ci-g5/ci-g5-w12-fri-1.jpg"
         }
       ]
     },
@@ -203,18 +2045,22 @@
       "cover": "assets/ci-g7/cover.jpg",
       "accent": "#2E9BB5",
       "gradeBand": "G7",
-      "description": "90 篇外刊时文，18 周每日一练：阅读理解、完形填空、选词填空、回答问题、词形变换、句型转换与连词成句。",
-      "itemCount": 5,
-      "totalWords": 1046,
+      "description": "90 篇外刊时文，18 周每日一练：阅读理解、完形填空、选词填空、七选五、回答问题、短文填空、表格填空、词形变换、句型转换与连词成句。",
+      "itemCount": 90,
+      "totalWords": 19758,
       "difficultyRange": [
-        2,
-        4
+        1,
+        5
       ],
       "taskTypes": [
         "reading_choice",
         "cloze",
         "word_bank",
-        "weekly_intensive"
+        "weekly_intensive",
+        "answer_questions",
+        "table_fill",
+        "seven_choose_five",
+        "passage_fill"
       ],
       "items": [
         {
@@ -246,7 +2092,7 @@
           },
           "wordCount": 222,
           "difficulty": 4,
-          "suggestedMinutes": 11,
+          "suggestedMinutes": 9,
           "questionCount": 6
         },
         {
@@ -297,6 +2143,1401 @@
           "suggestedMinutes": 11,
           "questionCount": 17,
           "thumbnail": "assets/ci-g7/ci-g7-w01-fri-1.jpg"
+        },
+        {
+          "id": "ci-g7-w02-mon",
+          "order": 6,
+          "week": 2,
+          "day": "mon",
+          "title": "EV Batteries Get New Life",
+          "displayName": "Week 2 Monday EV Batteries Get New Life",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 268,
+          "difficulty": 5,
+          "suggestedMinutes": 8,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g7-w02-tue",
+          "order": 7,
+          "week": 2,
+          "day": "tue",
+          "title": "Small Island, Big Goal!",
+          "displayName": "Week 2 Tuesday Small Island, Big Goal!",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 219,
+          "difficulty": 3,
+          "suggestedMinutes": 11,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w02-tue-1.jpg"
+        },
+        {
+          "id": "ci-g7-w02-wed",
+          "order": 8,
+          "week": 2,
+          "day": "wed",
+          "title": "Holding Out a “Paw” Overseas",
+          "displayName": "Week 2 Wednesday Holding Out a “Paw” Overseas",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 274,
+          "difficulty": 4,
+          "suggestedMinutes": 11,
+          "questionCount": 15
+        },
+        {
+          "id": "ci-g7-w02-thu",
+          "order": 9,
+          "week": 2,
+          "day": "thu",
+          "title": "Raising Your OpenClaw Lobster: A Pet or a Beast?",
+          "displayName": "Week 2 Thursday Raising Your OpenClaw Lobster: A Pet or a Beast?",
+          "taskType": {
+            "code": "answer_questions",
+            "labelZh": "回答问题"
+          },
+          "wordCount": 218,
+          "difficulty": 3,
+          "suggestedMinutes": 10,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w02-thu-1.jpg"
+        },
+        {
+          "id": "ci-g7-w02-fri",
+          "order": 10,
+          "week": 2,
+          "day": "fri",
+          "title": "Charging Bull",
+          "displayName": "Week 2 Friday Charging Bull",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 156,
+          "difficulty": 3,
+          "suggestedMinutes": 10,
+          "questionCount": 14,
+          "thumbnail": "assets/ci-g7/ci-g7-w02-fri-1.jpg"
+        },
+        {
+          "id": "ci-g7-w03-mon",
+          "order": 11,
+          "week": 3,
+          "day": "mon",
+          "title": "Cloned AI Singers",
+          "displayName": "Week 3 Monday Cloned AI Singers",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 262,
+          "difficulty": 4,
+          "suggestedMinutes": 7,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w03-mon-1.jpg"
+        },
+        {
+          "id": "ci-g7-w03-tue",
+          "order": 12,
+          "week": 3,
+          "day": "tue",
+          "title": "Bye, Wimbledon",
+          "displayName": "Week 3 Tuesday Bye, Wimbledon",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 274,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w03-tue-1.jpg"
+        },
+        {
+          "id": "ci-g7-w03-wed",
+          "order": 13,
+          "week": 3,
+          "day": "wed",
+          "title": "No More Scoring Pressure: A New Chapter for Biology and Geography",
+          "displayName": "Week 3 Wednesday No More Scoring Pressure: A New Chapter for Biology and Geography",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 265,
+          "difficulty": 4,
+          "suggestedMinutes": 12,
+          "questionCount": 10
+        },
+        {
+          "id": "ci-g7-w03-thu",
+          "order": 14,
+          "week": 3,
+          "day": "thu",
+          "title": "Faster than a Train: Meet “The Beast” and Its Creator",
+          "displayName": "Week 3 Thursday Faster than a Train: Meet “The Beast” and Its Creator",
+          "taskType": {
+            "code": "table_fill",
+            "labelZh": "表格填空"
+          },
+          "wordCount": 212,
+          "difficulty": 4,
+          "suggestedMinutes": 7,
+          "questionCount": 8
+        },
+        {
+          "id": "ci-g7-w03-fri",
+          "order": 15,
+          "week": 3,
+          "day": "fri",
+          "title": "Here’s Your Ice Cream!",
+          "displayName": "Week 3 Friday Here’s Your Ice Cream!",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 254,
+          "difficulty": 3,
+          "suggestedMinutes": 12,
+          "questionCount": 14,
+          "thumbnail": "assets/ci-g7/ci-g7-w03-fri-1.jpg"
+        },
+        {
+          "id": "ci-g7-w04-mon",
+          "order": 16,
+          "week": 4,
+          "day": "mon",
+          "title": "Playing the Erhu in Italy and Beyond",
+          "displayName": "Week 4 Monday Playing the Erhu in Italy and Beyond",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 214,
+          "difficulty": 4,
+          "suggestedMinutes": 7,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w04-mon-1.jpg"
+        },
+        {
+          "id": "ci-g7-w04-tue",
+          "order": 17,
+          "week": 4,
+          "day": "tue",
+          "title": "The Other Side of Taylor Swift",
+          "displayName": "Week 4 Tuesday The Other Side of Taylor Swift",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 223,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w04-tue-1.jpg"
+        },
+        {
+          "id": "ci-g7-w04-wed",
+          "order": 18,
+          "week": 4,
+          "day": "wed",
+          "title": "Let Them Glow",
+          "displayName": "Week 4 Wednesday Let Them Glow",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 189,
+          "difficulty": 3,
+          "suggestedMinutes": 10,
+          "questionCount": 10
+        },
+        {
+          "id": "ci-g7-w04-thu",
+          "order": 19,
+          "week": 4,
+          "day": "thu",
+          "title": "Teen’s Phone Scary Movie Wows Australia",
+          "displayName": "Week 4 Thursday Teen’s Phone Scary Movie Wows Australia",
+          "taskType": {
+            "code": "answer_questions",
+            "labelZh": "回答问题"
+          },
+          "wordCount": 211,
+          "difficulty": 4,
+          "suggestedMinutes": 8,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g7-w04-fri",
+          "order": 20,
+          "week": 4,
+          "day": "fri",
+          "title": "Banana Women",
+          "displayName": "Week 4 Friday Banana Women",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 187,
+          "difficulty": 3,
+          "suggestedMinutes": 12,
+          "questionCount": 16
+        },
+        {
+          "id": "ci-g7-w05-mon",
+          "order": 21,
+          "week": 5,
+          "day": "mon",
+          "title": "Jay’s Beat Goes On",
+          "displayName": "Week 5 Monday Jay’s Beat Goes On",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 274,
+          "difficulty": 2,
+          "suggestedMinutes": 6,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g7-w05-tue",
+          "order": 22,
+          "week": 5,
+          "day": "tue",
+          "title": "This Coffee Van Helps Stray Cats",
+          "displayName": "Week 5 Tuesday This Coffee Van Helps Stray Cats",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 205,
+          "difficulty": 2,
+          "suggestedMinutes": 6,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w05-tue-1.jpg"
+        },
+        {
+          "id": "ci-g7-w05-wed",
+          "order": 23,
+          "week": 5,
+          "day": "wed",
+          "title": "What a Perfect Match!",
+          "displayName": "Week 5 Wednesday What a Perfect Match!",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 229,
+          "difficulty": 5,
+          "suggestedMinutes": 11,
+          "questionCount": 10
+        },
+        {
+          "id": "ci-g7-w05-thu",
+          "order": 24,
+          "week": 5,
+          "day": "thu",
+          "title": "Samara Joy Is Helping Jazz Find New Ears",
+          "displayName": "Week 5 Thursday Samara Joy Is Helping Jazz Find New Ears",
+          "taskType": {
+            "code": "seven_choose_five",
+            "labelZh": "七选五"
+          },
+          "wordCount": 255,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g7-w05-fri",
+          "order": 25,
+          "week": 5,
+          "day": "fri",
+          "title": "How Do Scabs Form?",
+          "displayName": "Week 5 Friday How Do Scabs Form?",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 179,
+          "difficulty": 3,
+          "suggestedMinutes": 14,
+          "questionCount": 15,
+          "thumbnail": "assets/ci-g7/ci-g7-w05-fri-1.jpg"
+        },
+        {
+          "id": "ci-g7-w06-mon",
+          "order": 26,
+          "week": 6,
+          "day": "mon",
+          "title": "The Daughter of Dunhuang",
+          "displayName": "Week 6 Monday The Daughter of Dunhuang",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 231,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w06-mon-1.jpg"
+        },
+        {
+          "id": "ci-g7-w06-tue",
+          "order": 27,
+          "week": 6,
+          "day": "tue",
+          "title": "“Diving Grandpas” in Tianjin",
+          "displayName": "Week 6 Tuesday “Diving Grandpas” in Tianjin",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 247,
+          "difficulty": 4,
+          "suggestedMinutes": 8,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w06-tue-1.jpg"
+        },
+        {
+          "id": "ci-g7-w06-wed",
+          "order": 28,
+          "week": 6,
+          "day": "wed",
+          "title": "Has Tipping Culture Gone Too Far?",
+          "displayName": "Week 6 Wednesday Has Tipping Culture Gone Too Far?",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 237,
+          "difficulty": 4,
+          "suggestedMinutes": 10,
+          "questionCount": 10
+        },
+        {
+          "id": "ci-g7-w06-thu",
+          "order": 29,
+          "week": 6,
+          "day": "thu",
+          "title": "“Oops, My Tooth Fell Out!”",
+          "displayName": "Week 6 Thursday “Oops, My Tooth Fell Out!”",
+          "taskType": {
+            "code": "word_bank",
+            "labelZh": "选词填空"
+          },
+          "wordCount": 207,
+          "difficulty": 2,
+          "suggestedMinutes": 6,
+          "questionCount": 10
+        },
+        {
+          "id": "ci-g7-w06-fri",
+          "order": 30,
+          "week": 6,
+          "day": "fri",
+          "title": "Why Do We Eat Birthday Cakes?",
+          "displayName": "Week 6 Friday Why Do We Eat Birthday Cakes?",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 184,
+          "difficulty": 2,
+          "suggestedMinutes": 12,
+          "questionCount": 16,
+          "thumbnail": "assets/ci-g7/ci-g7-w06-fri-1.jpg"
+        },
+        {
+          "id": "ci-g7-w07-mon",
+          "order": 31,
+          "week": 7,
+          "day": "mon",
+          "title": "Pits? No, Pets!",
+          "displayName": "Week 7 Monday Pits? No, Pets!",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 221,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w07-mon-1.jpg"
+        },
+        {
+          "id": "ci-g7-w07-tue",
+          "order": 32,
+          "week": 7,
+          "day": "tue",
+          "title": "“Secret Code” for a Free Meal",
+          "displayName": "Week 7 Tuesday “Secret Code” for a Free Meal",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 195,
+          "difficulty": 2,
+          "suggestedMinutes": 6,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g7-w07-wed",
+          "order": 33,
+          "week": 7,
+          "day": "wed",
+          "title": "500 Days of Darkness",
+          "displayName": "Week 7 Wednesday 500 Days of Darkness",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 226,
+          "difficulty": 4,
+          "suggestedMinutes": 12,
+          "questionCount": 15
+        },
+        {
+          "id": "ci-g7-w07-thu",
+          "order": 34,
+          "week": 7,
+          "day": "thu",
+          "title": "Harder Languages",
+          "displayName": "Week 7 Thursday Harder Languages",
+          "taskType": {
+            "code": "table_fill",
+            "labelZh": "表格填空"
+          },
+          "wordCount": 213,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 10
+        },
+        {
+          "id": "ci-g7-w07-fri",
+          "order": 35,
+          "week": 7,
+          "day": "fri",
+          "title": "What Cheerleading Teaches Me",
+          "displayName": "Week 7 Friday What Cheerleading Teaches Me",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 188,
+          "difficulty": 2,
+          "suggestedMinutes": 10,
+          "questionCount": 15
+        },
+        {
+          "id": "ci-g7-w08-mon",
+          "order": 36,
+          "week": 8,
+          "day": "mon",
+          "title": "Shout Your Stress Away",
+          "displayName": "Week 8 Monday Shout Your Stress Away",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 194,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w08-mon-1.jpg"
+        },
+        {
+          "id": "ci-g7-w08-tue",
+          "order": 37,
+          "week": 8,
+          "day": "tue",
+          "title": "The Dangers of Thirdhand Smoke",
+          "displayName": "Week 8 Tuesday The Dangers of Thirdhand Smoke",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 176,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w08-tue-1.jpg"
+        },
+        {
+          "id": "ci-g7-w08-wed",
+          "order": 38,
+          "week": 8,
+          "day": "wed",
+          "title": "Airport Pups Help Calm Nervous Flyers",
+          "displayName": "Week 8 Wednesday Airport Pups Help Calm Nervous Flyers",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 188,
+          "difficulty": 3,
+          "suggestedMinutes": 10,
+          "questionCount": 10
+        },
+        {
+          "id": "ci-g7-w08-thu",
+          "order": 39,
+          "week": 8,
+          "day": "thu",
+          "title": "The Art of the Brick",
+          "displayName": "Week 8 Thursday The Art of the Brick",
+          "taskType": {
+            "code": "answer_questions",
+            "labelZh": "回答问题"
+          },
+          "wordCount": 169,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 6
+        },
+        {
+          "id": "ci-g7-w08-fri",
+          "order": 40,
+          "week": 8,
+          "day": "fri",
+          "title": "Eat Your Way Around Thailand",
+          "displayName": "Week 8 Friday Eat Your Way Around Thailand",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 199,
+          "difficulty": 2,
+          "suggestedMinutes": 11,
+          "questionCount": 15
+        },
+        {
+          "id": "ci-g7-w09-mon",
+          "order": 41,
+          "week": 9,
+          "day": "mon",
+          "title": "Waikiki Clears the Way for Seals",
+          "displayName": "Week 9 Monday Waikiki Clears the Way for Seals",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 208,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w09-mon-1.jpg"
+        },
+        {
+          "id": "ci-g7-w09-tue",
+          "order": 42,
+          "week": 9,
+          "day": "tue",
+          "title": "80-Year-Old Becomes Oldest Woman to Finish Ironman",
+          "displayName": "Week 9 Tuesday 80-Year-Old Becomes Oldest Woman to Finish Ironman",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 186,
+          "difficulty": 3,
+          "suggestedMinutes": 10,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w09-tue-1.jpg"
+        },
+        {
+          "id": "ci-g7-w09-wed",
+          "order": 43,
+          "week": 9,
+          "day": "wed",
+          "title": "Who Is the World’s Cutest Panda?",
+          "displayName": "Week 9 Wednesday Who Is the World’s Cutest Panda?",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 271,
+          "difficulty": 3,
+          "suggestedMinutes": 9,
+          "questionCount": 10
+        },
+        {
+          "id": "ci-g7-w09-thu",
+          "order": 44,
+          "week": 9,
+          "day": "thu",
+          "title": "Her Hidden Name",
+          "displayName": "Week 9 Thursday Her Hidden Name",
+          "taskType": {
+            "code": "passage_fill",
+            "labelZh": "短文填空"
+          },
+          "wordCount": 244,
+          "difficulty": 4,
+          "suggestedMinutes": 10,
+          "questionCount": 10
+        },
+        {
+          "id": "ci-g7-w09-fri",
+          "order": 45,
+          "week": 9,
+          "day": "fri",
+          "title": "Why Do Our Teeth Become Sensitive?",
+          "displayName": "Week 9 Friday Why Do Our Teeth Become Sensitive?",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 148,
+          "difficulty": 3,
+          "suggestedMinutes": 11,
+          "questionCount": 17
+        },
+        {
+          "id": "ci-g7-w10-mon",
+          "order": 46,
+          "week": 10,
+          "day": "mon",
+          "title": "You’re Not Sick Anymore—Why Are You Still Coughing?",
+          "displayName": "Week 10 Monday You’re Not Sick Anymore—Why Are You Still Coughing?",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 178,
+          "difficulty": 4,
+          "suggestedMinutes": 8,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g7-w10-tue",
+          "order": 47,
+          "week": 10,
+          "day": "tue",
+          "title": "Around the Bed in 60 Days",
+          "displayName": "Week 10 Tuesday Around the Bed in 60 Days",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 239,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w10-tue-1.jpg"
+        },
+        {
+          "id": "ci-g7-w10-wed",
+          "order": 48,
+          "week": 10,
+          "day": "wed",
+          "title": "No, They’re Not Photographs",
+          "displayName": "Week 10 Wednesday No, They’re Not Photographs",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 224,
+          "difficulty": 3,
+          "suggestedMinutes": 11,
+          "questionCount": 15
+        },
+        {
+          "id": "ci-g7-w10-thu",
+          "order": 49,
+          "week": 10,
+          "day": "thu",
+          "title": "My Harry Potter Paper Artworks",
+          "displayName": "Week 10 Thursday My Harry Potter Paper Artworks",
+          "taskType": {
+            "code": "answer_questions",
+            "labelZh": "回答问题"
+          },
+          "wordCount": 178,
+          "difficulty": 2,
+          "suggestedMinutes": 8,
+          "questionCount": 6
+        },
+        {
+          "id": "ci-g7-w10-fri",
+          "order": 50,
+          "week": 10,
+          "day": "fri",
+          "title": "Top Ski Resorts in Beijing",
+          "displayName": "Week 10 Friday Top Ski Resorts in Beijing",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 211,
+          "difficulty": 2,
+          "suggestedMinutes": 12,
+          "questionCount": 15
+        },
+        {
+          "id": "ci-g7-w11-mon",
+          "order": 51,
+          "week": 11,
+          "day": "mon",
+          "title": "Helping Babies Like Her",
+          "displayName": "Week 11 Monday Helping Babies Like Her",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 186,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w11-mon-1.jpg"
+        },
+        {
+          "id": "ci-g7-w11-tue",
+          "order": 52,
+          "week": 11,
+          "day": "tue",
+          "title": "From Small Town Girl to International Star",
+          "displayName": "Week 11 Tuesday From Small Town Girl to International Star",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 183,
+          "difficulty": 3,
+          "suggestedMinutes": 6,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w11-tue-1.jpg"
+        },
+        {
+          "id": "ci-g7-w11-wed",
+          "order": 53,
+          "week": 11,
+          "day": "wed",
+          "title": "Let’s Play Ping Pong!",
+          "displayName": "Week 11 Wednesday Let’s Play Ping Pong!",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 217,
+          "difficulty": 4,
+          "suggestedMinutes": 11,
+          "questionCount": 10
+        },
+        {
+          "id": "ci-g7-w11-thu",
+          "order": 54,
+          "week": 11,
+          "day": "thu",
+          "title": "Insects Up Close",
+          "displayName": "Week 11 Thursday Insects Up Close",
+          "taskType": {
+            "code": "seven_choose_five",
+            "labelZh": "七选五"
+          },
+          "wordCount": 268,
+          "difficulty": 3,
+          "suggestedMinutes": 9,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g7-w11-fri",
+          "order": 55,
+          "week": 11,
+          "day": "fri",
+          "title": "A Field Trip to the Aquarium",
+          "displayName": "Week 11 Friday A Field Trip to the Aquarium",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 224,
+          "difficulty": 1,
+          "suggestedMinutes": 12,
+          "questionCount": 17
+        },
+        {
+          "id": "ci-g7-w12-mon",
+          "order": 56,
+          "week": 12,
+          "day": "mon",
+          "title": "“Yes, I Swallowed the Planet!”",
+          "displayName": "Week 12 Monday “Yes, I Swallowed the Planet!”",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 226,
+          "difficulty": 5,
+          "suggestedMinutes": 8,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w12-mon-1.jpg"
+        },
+        {
+          "id": "ci-g7-w12-tue",
+          "order": 57,
+          "week": 12,
+          "day": "tue",
+          "title": "The Origins of Ice Sculpting",
+          "displayName": "Week 12 Tuesday The Origins of Ice Sculpting",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 198,
+          "difficulty": 2,
+          "suggestedMinutes": 10,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w12-tue-1.jpg"
+        },
+        {
+          "id": "ci-g7-w12-wed",
+          "order": 58,
+          "week": 12,
+          "day": "wed",
+          "title": "Pictures of Cats Bring Visitors to an Old Street",
+          "displayName": "Week 12 Wednesday Pictures of Cats Bring Visitors to an Old Street",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 235,
+          "difficulty": 4,
+          "suggestedMinutes": 9,
+          "questionCount": 10
+        },
+        {
+          "id": "ci-g7-w12-thu",
+          "order": 59,
+          "week": 12,
+          "day": "thu",
+          "title": "Let’s Read More Novels!",
+          "displayName": "Week 12 Thursday Let’s Read More Novels!",
+          "taskType": {
+            "code": "answer_questions",
+            "labelZh": "回答问题"
+          },
+          "wordCount": 167,
+          "difficulty": 3,
+          "suggestedMinutes": 8,
+          "questionCount": 6
+        },
+        {
+          "id": "ci-g7-w12-fri",
+          "order": 60,
+          "week": 12,
+          "day": "fri",
+          "title": "Preparing a Picnic",
+          "displayName": "Week 12 Friday Preparing a Picnic",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 165,
+          "difficulty": 2,
+          "suggestedMinutes": 8,
+          "questionCount": 14,
+          "thumbnail": "assets/ci-g7/ci-g7-w12-fri-1.jpg"
+        },
+        {
+          "id": "ci-g7-w13-mon",
+          "order": 61,
+          "week": 13,
+          "day": "mon",
+          "title": "First-Ever 3D Scan of the Titanic",
+          "displayName": "Week 13 Monday First-Ever 3D Scan of the Titanic",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 210,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w13-mon-1.jpg"
+        },
+        {
+          "id": "ci-g7-w13-tue",
+          "order": 62,
+          "week": 13,
+          "day": "tue",
+          "title": "Hail Is Getting Larger and More Dangerous",
+          "displayName": "Week 13 Tuesday Hail Is Getting Larger and More Dangerous",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 210,
+          "difficulty": 5,
+          "suggestedMinutes": 11,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w13-tue-1.jpg"
+        },
+        {
+          "id": "ci-g7-w13-wed",
+          "order": 63,
+          "week": 13,
+          "day": "wed",
+          "title": "Trash for Toilet Use",
+          "displayName": "Week 13 Wednesday Trash for Toilet Use",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 231,
+          "difficulty": 3,
+          "suggestedMinutes": 12,
+          "questionCount": 15
+        },
+        {
+          "id": "ci-g7-w13-thu",
+          "order": 64,
+          "week": 13,
+          "day": "thu",
+          "title": "World Radio Day",
+          "displayName": "Week 13 Thursday World Radio Day",
+          "taskType": {
+            "code": "passage_fill",
+            "labelZh": "短文填空"
+          },
+          "wordCount": 170,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 10,
+          "thumbnail": "assets/ci-g7/ci-g7-w13-thu-1.jpg"
+        },
+        {
+          "id": "ci-g7-w13-fri",
+          "order": 65,
+          "week": 13,
+          "day": "fri",
+          "title": "Friendship Between Two Dogs",
+          "displayName": "Week 13 Friday Friendship Between Two Dogs",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 185,
+          "difficulty": 2,
+          "suggestedMinutes": 10,
+          "questionCount": 15
+        },
+        {
+          "id": "ci-g7-w14-mon",
+          "order": 66,
+          "week": 14,
+          "day": "mon",
+          "title": "Ocean Exploration Matters",
+          "displayName": "Week 14 Monday Ocean Exploration Matters",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 193,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w14-mon-1.jpg"
+        },
+        {
+          "id": "ci-g7-w14-tue",
+          "order": 67,
+          "week": 14,
+          "day": "tue",
+          "title": "Disposing of E-Waste Responsibly",
+          "displayName": "Week 14 Tuesday Disposing of E-Waste Responsibly",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 226,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w14-tue-1.jpg"
+        },
+        {
+          "id": "ci-g7-w14-wed",
+          "order": 68,
+          "week": 14,
+          "day": "wed",
+          "title": "World Bee Day",
+          "displayName": "Week 14 Wednesday World Bee Day",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 204,
+          "difficulty": 3,
+          "suggestedMinutes": 9,
+          "questionCount": 10
+        },
+        {
+          "id": "ci-g7-w14-thu",
+          "order": 69,
+          "week": 14,
+          "day": "thu",
+          "title": "Learning a Skill, Enriching Your Life",
+          "displayName": "Week 14 Thursday Learning a Skill, Enriching Your Life",
+          "taskType": {
+            "code": "seven_choose_five",
+            "labelZh": "七选五"
+          },
+          "wordCount": 361,
+          "difficulty": 3,
+          "suggestedMinutes": 10,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g7-w14-fri",
+          "order": 70,
+          "week": 14,
+          "day": "fri",
+          "title": "Renting a Flat",
+          "displayName": "Week 14 Friday Renting a Flat",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 190,
+          "difficulty": 1,
+          "suggestedMinutes": 11,
+          "questionCount": 16
+        },
+        {
+          "id": "ci-g7-w15-mon",
+          "order": 71,
+          "week": 15,
+          "day": "mon",
+          "title": "Artist Brings Historical Figures Back to Life",
+          "displayName": "Week 15 Monday Artist Brings Historical Figures Back to Life",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 196,
+          "difficulty": 4,
+          "suggestedMinutes": 10,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w15-mon-1.jpg"
+        },
+        {
+          "id": "ci-g7-w15-tue",
+          "order": 72,
+          "week": 15,
+          "day": "tue",
+          "title": "Kids Help Find 8,000-Year-Old Village",
+          "displayName": "Week 15 Tuesday Kids Help Find 8,000-Year-Old Village",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 219,
+          "difficulty": 3,
+          "suggestedMinutes": 6,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w15-tue-1.jpg"
+        },
+        {
+          "id": "ci-g7-w15-wed",
+          "order": 73,
+          "week": 15,
+          "day": "wed",
+          "title": "Marie Curie—a Great Woman",
+          "displayName": "Week 15 Wednesday Marie Curie—a Great Woman",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 250,
+          "difficulty": 4,
+          "suggestedMinutes": 10,
+          "questionCount": 10
+        },
+        {
+          "id": "ci-g7-w15-thu",
+          "order": 74,
+          "week": 15,
+          "day": "thu",
+          "title": "An Unexpected Joy",
+          "displayName": "Week 15 Thursday An Unexpected Joy",
+          "taskType": {
+            "code": "answer_questions",
+            "labelZh": "回答问题"
+          },
+          "wordCount": 235,
+          "difficulty": 3,
+          "suggestedMinutes": 9,
+          "questionCount": 6
+        },
+        {
+          "id": "ci-g7-w15-fri",
+          "order": 75,
+          "week": 15,
+          "day": "fri",
+          "title": "Different Rules",
+          "displayName": "Week 15 Friday Different Rules",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 205,
+          "difficulty": 3,
+          "suggestedMinutes": 12,
+          "questionCount": 17
+        },
+        {
+          "id": "ci-g7-w16-mon",
+          "order": 76,
+          "week": 16,
+          "day": "mon",
+          "title": "How Dogs Could Make Children Better Readers",
+          "displayName": "Week 16 Monday How Dogs Could Make Children Better Readers",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 189,
+          "difficulty": 3,
+          "suggestedMinutes": 6,
+          "questionCount": 5,
+          "thumbnail": "assets/ci-g7/ci-g7-w16-mon-1.jpg"
+        },
+        {
+          "id": "ci-g7-w16-tue",
+          "order": 77,
+          "week": 16,
+          "day": "tue",
+          "title": "Walking by the River",
+          "displayName": "Week 16 Tuesday Walking by the River",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 315,
+          "difficulty": 3,
+          "suggestedMinutes": 12,
+          "questionCount": 5
+        },
+        {
+          "id": "ci-g7-w16-wed",
+          "order": 78,
+          "week": 16,
+          "day": "wed",
+          "title": "What’s Your Expectation of an Ideal Life in the Future?",
+          "displayName": "Week 16 Wednesday What’s Your Expectation of an Ideal Life in the Future?",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 360,
+          "difficulty": 3,
+          "suggestedMinutes": 12,
+          "questionCount": 10,
+          "thumbnail": "assets/ci-g7/ci-g7-w16-wed-1.jpg"
+        },
+        {
+          "id": "ci-g7-w16-thu",
+          "order": 79,
+          "week": 16,
+          "day": "thu",
+          "title": "Creating Art Like a Child",
+          "displayName": "Week 16 Thursday Creating Art Like a Child",
+          "taskType": {
+            "code": "answer_questions",
+            "labelZh": "回答问题"
+          },
+          "wordCount": 264,
+          "difficulty": 4,
+          "suggestedMinutes": 9,
+          "questionCount": 6,
+          "thumbnail": "assets/ci-g7/ci-g7-w16-thu-1.jpg"
+        },
+        {
+          "id": "ci-g7-w16-fri",
+          "order": 80,
+          "week": 16,
+          "day": "fri",
+          "title": "Mark Twain on Stage",
+          "displayName": "Week 16 Friday Mark Twain on Stage",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 337,
+          "difficulty": 4,
+          "suggestedMinutes": 11,
+          "questionCount": 13
+        },
+        {
+          "id": "ci-g7-w17-mon",
+          "order": 81,
+          "week": 17,
+          "day": "mon",
+          "title": "The Best Is Yet to Come",
+          "displayName": "Week 17 Monday The Best Is Yet to Come",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 194,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4
+        },
+        {
+          "id": "ci-g7-w17-tue",
+          "order": 82,
+          "week": 17,
+          "day": "tue",
+          "title": "Let the Music Continue!",
+          "displayName": "Week 17 Tuesday Let the Music Continue!",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 266,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 3
+        },
+        {
+          "id": "ci-g7-w17-wed",
+          "order": 83,
+          "week": 17,
+          "day": "wed",
+          "title": "An Unforgettable Bazaar",
+          "displayName": "Week 17 Wednesday An Unforgettable Bazaar",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 239,
+          "difficulty": 3,
+          "suggestedMinutes": 11,
+          "questionCount": 10
+        },
+        {
+          "id": "ci-g7-w17-thu",
+          "order": 84,
+          "week": 17,
+          "day": "thu",
+          "title": "My Dancing Shoes",
+          "displayName": "Week 17 Thursday My Dancing Shoes",
+          "taskType": {
+            "code": "passage_fill",
+            "labelZh": "短文填空"
+          },
+          "wordCount": 301,
+          "difficulty": 4,
+          "suggestedMinutes": 10,
+          "questionCount": 10,
+          "thumbnail": "assets/ci-g7/ci-g7-w17-thu-1.jpg"
+        },
+        {
+          "id": "ci-g7-w17-fri",
+          "order": 85,
+          "week": 17,
+          "day": "fri",
+          "title": "A Speech on Losing Weight",
+          "displayName": "Week 17 Friday A Speech on Losing Weight",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 199,
+          "difficulty": 2,
+          "suggestedMinutes": 9,
+          "questionCount": 16
+        },
+        {
+          "id": "ci-g7-w18-mon",
+          "order": 86,
+          "week": 18,
+          "day": "mon",
+          "title": "A Bear Called Paddington",
+          "displayName": "Week 18 Monday A Bear Called Paddington",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 217,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4
+        },
+        {
+          "id": "ci-g7-w18-tue",
+          "order": 87,
+          "week": 18,
+          "day": "tue",
+          "title": "Green Teen",
+          "displayName": "Week 18 Tuesday Green Teen",
+          "taskType": {
+            "code": "reading_choice",
+            "labelZh": "阅读单选"
+          },
+          "wordCount": 200,
+          "difficulty": 3,
+          "suggestedMinutes": 7,
+          "questionCount": 4
+        },
+        {
+          "id": "ci-g7-w18-wed",
+          "order": 88,
+          "week": 18,
+          "day": "wed",
+          "title": "My Thoughts on Matilda",
+          "displayName": "Week 18 Wednesday My Thoughts on Matilda",
+          "taskType": {
+            "code": "cloze",
+            "labelZh": "完形填空"
+          },
+          "wordCount": 216,
+          "difficulty": 3,
+          "suggestedMinutes": 10,
+          "questionCount": 10
+        },
+        {
+          "id": "ci-g7-w18-thu",
+          "order": 89,
+          "week": 18,
+          "day": "thu",
+          "title": "Travelling Green Cases",
+          "displayName": "Week 18 Thursday Travelling Green Cases",
+          "taskType": {
+            "code": "answer_questions",
+            "labelZh": "回答问题"
+          },
+          "wordCount": 177,
+          "difficulty": 3,
+          "suggestedMinutes": 10,
+          "questionCount": 6
+        },
+        {
+          "id": "ci-g7-w18-fri",
+          "order": 90,
+          "week": 18,
+          "day": "fri",
+          "title": "Gym Safety Notice",
+          "displayName": "Week 18 Friday Gym Safety Notice",
+          "taskType": {
+            "code": "weekly_intensive",
+            "labelZh": "每周精读"
+          },
+          "wordCount": 154,
+          "difficulty": 2,
+          "suggestedMinutes": 9,
+          "questionCount": 16
         }
       ]
     },

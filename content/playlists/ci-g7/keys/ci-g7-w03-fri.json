@@ -1,0 +1,281 @@
+{
+  "schemaVersion": "1.0",
+  "itemId": "ci-g7-w03-fri",
+  "answerSource": "official",
+  "reviewStatus": "pending",
+  "officialRef": {
+    "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级答案.pdf",
+    "pages": [
+      8
+    ]
+  },
+  "answers": {
+    "q1": {
+      "sampleAnswer": "The ice cream shop has no human shop assistants and is operated by three robots.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "没有真人店员",
+          "examples": [
+            "no human shop assistants"
+          ],
+          "weight": 1
+        },
+        {
+          "id": "k2",
+          "descZh": "由三个机器人运营",
+          "examples": [
+            "operated by three robots"
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：没有真人店员；由三个机器人运营。",
+      "explanationZh": "第一段说这家店最特别的地方：看不到真人店员，而是由三个机器人来运营。",
+      "evidence": [
+        {
+          "block": "p1",
+          "quote": "you won’t see any human shop assistants there"
+        },
+        {
+          "block": "p1",
+          "quote": "The shop, instead, is operated by three robots."
+        }
+      ]
+    },
+    "q2": {
+      "sampleAnswer": "It can track eye contact, express emotions, and have simple conversations with people. It can also talk to customers and take orders.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "能跟踪眼神接触、表达情绪、进行简单对话",
+          "examples": [
+            "track eye contact, express emotions"
+          ],
+          "weight": 1
+        },
+        {
+          "id": "k2",
+          "descZh": "能与顾客交谈并接订单",
+          "examples": [
+            "talk to customers and take orders"
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：能跟踪眼神接触、表达情绪、进行简单对话；能与顾客交谈并接单。",
+      "explanationZh": "第二段说 Pepper 能追踪眼神、表达情绪、简单交谈，在店里的任务是和顾客聊天并接订单。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "The robot can track eye contact, express emotions, and have simple conversations with people."
+        },
+        {
+          "block": "p2",
+          "quote": "Pepper’s task is to talk to customers and take orders."
+        }
+      ]
+    },
+    "q3": {
+      "sampleAnswer": "By freeing human workers from repetitive tasks so that they can focus on creative tasks.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "让员工从重复性任务中解放出来",
+          "examples": [
+            "freed from repetitive tasks"
+          ],
+          "weight": 1
+        },
+        {
+          "id": "k2",
+          "descZh": "专注于创造性任务",
+          "examples": [
+            "focus on creative tasks"
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：让人从重复性任务中解放出来；去专注于创造性任务。",
+      "explanationZh": "Orlova 说机器人擅长做重复的活，这样人类员工就能腾出手来做更有创意的工作。",
+      "evidence": [
+        {
+          "block": "p4",
+          "quote": "With the help of robots, human workers can be freed up to focus on creative tasks."
+        }
+      ]
+    },
+    "q4": {
+      "sampleAnswer": "Robots can perform many tasks, like cleaning the house and cooking. With the help of robots, we can be freed from tiring housework and have more time to do what we like to do. (Answers may vary.)",
+      "rubricType": "opinion",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "说明机器人如何改变日常生活",
+          "examples": [
+            "Robots can do housework"
+          ],
+          "weight": 1
+        },
+        {
+          "id": "k2",
+          "descZh": "给出理由或例子",
+          "examples": [
+            "we have more time to do what we like"
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "开放题，言之有理即可：先说明机器人会如何改变生活，再给出理由或例子。",
+      "explanationZh": "这是观点题，没有唯一答案。可以结合文章，说机器人能帮我们做家务等重复的事，让我们有更多时间做喜欢的事。",
+      "evidence": [
+        {
+          "block": "p4",
+          "quote": "robots are good at doing repetitive tasks"
+        }
+      ]
+    },
+    "q5": {
+      "slots": {
+        "b1": {
+          "accept": [
+            "improvement"
+          ]
+        }
+      },
+      "explanationZh": "for 后面要用名词，improve 的名词是 improvement。room for improvement 意为“改进的余地”。"
+    },
+    "q6": {
+      "slots": {
+        "b2": {
+          "accept": [
+            "operation"
+          ]
+        }
+      },
+      "explanationZh": "into 后面接名词，operate 的名词是 operation。come into operation 意为“开始实施”。"
+    },
+    "q7": {
+      "slots": {
+        "b3": {
+          "accept": [
+            "emotional"
+          ]
+        }
+      },
+      "explanationZh": "felt quite 后面要用形容词，emotion 的形容词是 emotional（情绪激动的）。"
+    },
+    "q8": {
+      "slots": {
+        "b4": {
+          "accept": [
+            "explanation"
+          ]
+        }
+      },
+      "explanationZh": "no 后面接名词，explain 的名词是 explanation（解释）。"
+    },
+    "q9": {
+      "slots": {
+        "b5": {
+          "accept": [
+            "simply"
+          ]
+        }
+      },
+      "explanationZh": "as ... as he could 中间要用副词修饰 explained，simple 的副词是 simply。"
+    },
+    "q10": {
+      "slots": {
+        "b6": {
+          "accept": [
+            "will"
+          ]
+        },
+        "b7": {
+          "accept": [
+            "you"
+          ]
+        }
+      },
+      "explanationZh": "原句是 won’t（will not）的否定句，反意疑问句要用肯定形式 will you，主语 you 对应。"
+    },
+    "q11": {
+      "slots": {
+        "b8": {
+          "accept": [
+            "Why",
+            "why"
+          ]
+        },
+        "b9": {
+          "accept": [
+            "do"
+          ]
+        }
+      },
+      "explanationZh": "画线部分表示目的，用 Why 提问；一般现在时复数主语 the robots，助动词用 do。"
+    },
+    "q12": {
+      "slots": {
+        "b10": {
+          "accept": [
+            "cannot",
+            "can’t",
+            "can't"
+          ]
+        },
+        "b11": {
+          "accept": [
+            "or"
+          ]
+        }
+      },
+      "explanationZh": "变否定句：can 变成 cannot；并列的三件事否定后，最后一个 and 要改成 or。"
+    },
+    "q13": {
+      "slots": {
+        "b12": {
+          "accept": [
+            "are"
+          ]
+        },
+        "b13": {
+          "accept": [
+            "not"
+          ]
+        },
+        "b14": {
+          "accept": [
+            "able"
+          ]
+        },
+        "b15": {
+          "accept": [
+            "to"
+          ]
+        }
+      },
+      "explanationZh": "can’t 意思相当于 are not able to（不能），主语 Robots 是复数，所以用 are。"
+    },
+    "q14": {
+      "sequence": [
+        "w1",
+        "w6",
+        "w3",
+        "w7",
+        "w4",
+        "w5",
+        "w2"
+      ],
+      "explanationZh": "take the place of 是“取代”，用过去式 took the place of；he took the place of her to be our head teacher 意为“他代替她担任我们的班主任”。"
+    }
+  }
+}

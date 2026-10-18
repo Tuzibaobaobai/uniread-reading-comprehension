@@ -1,0 +1,519 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g5-w06-wed",
+  "playlistId": "ci-g5",
+  "order": 28,
+  "week": 6,
+  "day": "wed",
+  "title": "What Do Bees Do in Winter?",
+  "titleZh": "蜜蜂冬天做什么？",
+  "displayName": "Week 6 Wednesday What Do Bees Do in Winter?",
+  "taskType": {
+    "code": "cloze",
+    "labelZh": "完形填空"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 122,
+    "difficulty": 2,
+    "suggestedMinutes": 6,
+    "themeContext": "人与自然",
+    "contentRequirement": "动物的生活习性",
+    "intro": "蜜蜂是如何度过冬天的呢？",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X5年级.pdf",
+    "pdfPages": [
+      54
+    ],
+    "bookPages": [
+      45
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-queen",
+        "headword": "queen",
+        "ipa": "kwiːn",
+        "pos": "n.",
+        "meaningZh": "女王，王后"
+      },
+      {
+        "id": "v-stay",
+        "headword": "stay",
+        "ipa": "steɪ",
+        "pos": "v.",
+        "meaningZh": "停留，待；保持"
+      },
+      {
+        "id": "v-live-through",
+        "headword": "live through",
+        "meaningZh": "熬过，经历……之后仍旧活着"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "When winter comes, bears go into a “deep sleep” and birds fly south. But what about the bees? They have one "
+          },
+          {
+            "t": "gloss",
+            "v": "main",
+            "zh": "最重要的"
+          },
+          {
+            "t": "text",
+            "v": " job—to "
+          },
+          {
+            "t": "blank",
+            "id": "b1",
+            "number": 1
+          },
+          {
+            "t": "text",
+            "v": " the "
+          },
+          {
+            "t": "vocab",
+            "v": "queen",
+            "ref": "v-queen"
+          },
+          {
+            "t": "text",
+            "v": " bee!"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "To keep the queen bee safe and warm, worker bees "
+          },
+          {
+            "t": "vocab",
+            "v": "stay",
+            "ref": "v-stay"
+          },
+          {
+            "t": "text",
+            "v": " close together in a "
+          },
+          {
+            "t": "blank",
+            "id": "b2",
+            "number": 2
+          },
+          {
+            "t": "text",
+            "v": ". It is almost as big as a basketball! The queen stays in the middle of the group. It’s the "
+          },
+          {
+            "t": "blank",
+            "id": "b3",
+            "number": 3
+          },
+          {
+            "t": "text",
+            "v": " place of their "
+          },
+          {
+            "t": "gloss",
+            "v": "hive",
+            "zh": "蜂房"
+          },
+          {
+            "t": "text",
+            "v": "; it’s about 27℃. The "
+          },
+          {
+            "t": "gloss",
+            "v": "outer",
+            "zh": "外部的"
+          },
+          {
+            "t": "text",
+            "v": " part is cold; it’s about 8℃. All the worker bees "
+          },
+          {
+            "t": "gloss",
+            "v": "take turns",
+            "zh": "轮流"
+          },
+          {
+            "t": "text",
+            "v": " "
+          },
+          {
+            "t": "blank",
+            "id": "b4",
+            "number": 4
+          },
+          {
+            "t": "text",
+            "v": " from the outside to the inside. So every bee can "
+          },
+          {
+            "t": "blank",
+            "id": "b5",
+            "number": 5
+          },
+          {
+            "t": "text",
+            "v": " warm."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Bees need a lot of honey to keep warm all winter. A hive of bees needs about 14 kg of honey to "
+          },
+          {
+            "t": "vocab",
+            "v": "live through",
+            "ref": "v-live-through"
+          },
+          {
+            "t": "text",
+            "v": " winter. To make this much honey, they need to "
+          },
+          {
+            "t": "blank",
+            "id": "b6",
+            "number": 6
+          },
+          {
+            "t": "text",
+            "v": " more than 60 million flowers!"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer to complete the passage.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b1",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "play with"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "wait for"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "sing to"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "look after"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b2",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "bag"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "ball"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "desk"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "box"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b3",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "warmest"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "coldest"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "largest"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "smallest"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b4",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "walking"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "moving"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "sleeping"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "listening"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b5",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "lose"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "stop"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "stay"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "look"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b6",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "visit"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "grow"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "look"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "carry"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

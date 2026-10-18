@@ -1,0 +1,304 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g7-w16-thu",
+  "playlistId": "ci-g7",
+  "order": 79,
+  "week": 16,
+  "day": "thu",
+  "title": "Creating Art Like a Child",
+  "titleZh": "像孩子一样艺术创作",
+  "displayName": "Week 16 Thursday Creating Art Like a Child",
+  "taskType": {
+    "code": "answer_questions",
+    "labelZh": "回答问题"
+  },
+  "meta": {
+    "genre": "记叙文",
+    "wordCount": 264,
+    "difficulty": 4,
+    "suggestedMinutes": 9,
+    "themeContext": "人与社会",
+    "contentRequirement": "中外优秀的艺术家",
+    "intro": "毕加索——一位倾其一生保持童心的艺术大师。",
+    "hasVideo": false
+  },
+  "thumbnail": "assets/ci-g7/ci-g7-w16-thu-1.jpg",
+  "source": {
+    "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+    "pdfPages": [
+      137,
+      138
+    ],
+    "bookPages": [
+      128,
+      129
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g7/ci-g7-w16-thu-1.jpg",
+        "alt": "Two smiling girls hold up a drawing and pencils at a table.",
+        "w": 1003,
+        "h": 661
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-character",
+        "headword": "character",
+        "ipa": "ˈkærəktə(r)",
+        "pos": "n.",
+        "meaningZh": "角色"
+      },
+      {
+        "id": "v-express",
+        "headword": "express",
+        "ipa": "ɪkˈspres",
+        "pos": "v.",
+        "meaningZh": "表达"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "A few years ago, I saw an exhibition of Pablo Picasso’s "
+          },
+          {
+            "t": "gloss",
+            "v": "sculptures",
+            "zh": "雕塑作品"
+          },
+          {
+            "t": "text",
+            "v": ". Maybe, because he thought of himself as a painter first, he was freer to play with the art of sculpture. For example, what can you do with a pair of bicycle "
+          },
+          {
+            "t": "gloss",
+            "v": "handlebars",
+            "zh": "把手"
+          },
+          {
+            "t": "text",
+            "v": " and a "
+          },
+          {
+            "t": "gloss",
+            "v": "saddle",
+            "zh": "车座"
+          },
+          {
+            "t": "text",
+            "v": "? The Spanish artist turned them into a “"
+          },
+          {
+            "t": "gloss",
+            "v": "bull",
+            "zh": "公牛"
+          },
+          {
+            "t": "text",
+            "v": "”. The exhibition brought to mind Picasso’s famous "
+          },
+          {
+            "t": "gloss",
+            "v": "quote",
+            "zh": "引语"
+          },
+          {
+            "t": "text",
+            "v": ", “Every child is an artist. The problem is how to remain an artist once we grow up.”"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "I’m a writer and "
+          },
+          {
+            "t": "gloss",
+            "v": "illustrator",
+            "zh": "插图画家"
+          },
+          {
+            "t": "text",
+            "v": " of children’s books. Sometimes, I go into schools and read my stories to children. I also draw with them. I show them how to draw the "
+          },
+          {
+            "t": "vocab",
+            "v": "characters",
+            "ref": "v-character"
+          },
+          {
+            "t": "text",
+            "v": " in my books. These children draw after me. Their drawings, however, always make mine seem lifeless. I’m always surprised by them. Children just put their ideas out there. They do not overthink. Adults worry about how other people judge them. They often think a lot before putting pen to paper."
+          }
+        ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Recently, I’ve been working with a primary school. I see six-year-olds "
+          },
+          {
+            "t": "vocab",
+            "v": "expressing",
+            "ref": "v-express"
+          },
+          {
+            "t": "text",
+            "v": " themselves freely through their drawings. However, when they leave at the age of eleven, many of them feel uncomfortable about the act of drawing. They have learned that there is a “right” way to draw, and a “wrong” way. There isn’t. The most important thing is to draw and to express yourself through your work."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Picasso painted and sculpted like a child. He expressed himself freely. He cared little about what other people thought of him. Perhaps this is why his paintings and sculptures are still popular today."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What two objects did Picasso use to make a “bull”?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to Picasso’s quote, what is the main problem for adults?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What surprises the author when he draws with kids?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why do children’s drawings make the author’s seem “lifeless”?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How do children’s feelings about drawing change between ages 6 and 11?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Do you think expressing yourself is the most important goal in art? Why?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ]
+}

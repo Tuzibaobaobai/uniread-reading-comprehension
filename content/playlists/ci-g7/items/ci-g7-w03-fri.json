@@ -1,0 +1,671 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g7-w03-fri",
+  "playlistId": "ci-g7",
+  "order": 15,
+  "week": 3,
+  "day": "fri",
+  "title": "Here’s Your Ice Cream!",
+  "titleZh": "你的冰激凌来啦!",
+  "displayName": "Week 3 Friday Here’s Your Ice Cream!",
+  "taskType": {
+    "code": "weekly_intensive",
+    "labelZh": "每周精读"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 254,
+    "difficulty": 3,
+    "suggestedMinutes": 12,
+    "themeContext": "人与社会",
+    "contentRequirement": "人类发明与创新",
+    "intro": "澳大利亚开了一家冰激凌店，没有店员，只有三个机器人。",
+    "hasVideo": true
+  },
+  "thumbnail": "assets/ci-g7/ci-g7-w03-fri-1.jpg",
+  "source": {
+    "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+    "pdfPages": [
+      33,
+      34
+    ],
+    "bookPages": [
+      24,
+      25
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g7/ci-g7-w03-fri-1.jpg",
+        "alt": "A black-and-white photo of three scoops of ice cream next to a zigzag line of chocolate sauce.",
+        "w": 1059,
+        "h": 573
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-track",
+        "headword": "track",
+        "ipa": "træk",
+        "pos": "v.",
+        "meaningZh": "跟踪；追踪"
+      },
+      {
+        "id": "v-scoop",
+        "headword": "scoop",
+        "ipa": "skuːp",
+        "pos": "v.",
+        "meaningZh": "用勺舀"
+      },
+      {
+        "id": "v-automation",
+        "headword": "automation",
+        "ipa": "ˌɔːtəˈmeɪʃn",
+        "pos": "n.",
+        "meaningZh": "自动化"
+      },
+      {
+        "id": "v-repetitive",
+        "headword": "repetitive",
+        "ipa": "rɪˈpetətɪv",
+        "pos": "adj.",
+        "meaningZh": "重复乏味的"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      },
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Niska, a tech company, has opened an ice cream shop in Australia. What’s unusual about this shop? Well, you won’t see any human shop assistants there. The shop, instead, is operated by three robots. Pepper, Eka, and Tony serve people their favourite icy snacks."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The robots dance and wave flags to welcome customers. Pepper looks like a human. It was created by SoftBank, a tech company in Japan. The robot can "
+          },
+          {
+            "t": "vocab",
+            "v": "track",
+            "ref": "v-track"
+          },
+          {
+            "t": "text",
+            "v": " eye contact, express emotions, and have simple conversations with people. At Niska’s ice cream shop, Pepper’s task is to talk to customers and take orders. Eka is a robot arm. It "
+          },
+          {
+            "t": "vocab",
+            "v": "scoops",
+            "ref": "v-scoop"
+          },
+          {
+            "t": "text",
+            "v": " ice cream. Tony, meanwhile, pours chocolate and nuts on top of the scoop."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Kate Orlova is Niska’s C.E.O. She says the company aims to improve people’s shopping experience. The ice cream shop is just the beginning. “We’d love to see robots in every store,” she adds."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "In a recent Australian survey, half of the workers said their jobs had changed because of "
+          },
+          {
+            "t": "vocab",
+            "v": "automation",
+            "ref": "v-automation"
+          },
+          {
+            "t": "text",
+            "v": ". But Orlova says Niska’s robots were not created to take the place of human workers. Instead, they were designed to improve the customer experience. “Robots can’t completely replace human beings. However, robots are good at doing "
+          },
+          {
+            "t": "vocab",
+            "v": "repetitive",
+            "ref": "v-repetitive"
+          },
+          {
+            "t": "text",
+            "v": " tasks, such as scooping ice cream,” Orlova explains. “With the help of robots, human workers can be freed up to focus on creative tasks.”"
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Would you want to order ice cream from robots? What do you think of Orlova’s plan? How do you think robots will change our daily lives? What can I do for you?"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is unusual about Niska’s ice cream shop in Australia?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What can the robot Pepper do?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to Kate Orlova, how can robots help improve the customer experience?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 2,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "In your opinion, how will robots change our everyday lives?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "II",
+      "instruction": "Complete the sentences with the given words in their proper forms.",
+      "questions": [
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "There is still room for "
+              },
+              {
+                "t": "blank",
+                "id": "b1",
+                "hint": {
+                  "baseWord": "improve"
+                }
+              },
+              {
+                "t": "text",
+                "v": " in your work."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The new rules will come into "
+              },
+              {
+                "t": "blank",
+                "id": "b2",
+                "hint": {
+                  "baseWord": "operate"
+                }
+              },
+              {
+                "t": "text",
+                "v": " from next week."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I felt quite "
+              },
+              {
+                "t": "blank",
+                "id": "b3",
+                "hint": {
+                  "baseWord": "emotion"
+                }
+              },
+              {
+                "t": "text",
+                "v": " during the wedding ceremony."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "It’s really annoying when a train is late, and there’s no "
+              },
+              {
+                "t": "blank",
+                "id": "b4",
+                "hint": {
+                  "baseWord": "explain"
+                }
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The teacher explained it as "
+              },
+              {
+                "t": "blank",
+                "id": "b5",
+                "hint": {
+                  "baseWord": "simple"
+                }
+              },
+              {
+                "t": "text",
+                "v": " as he could, but the class still didn’t understand."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "III",
+      "instruction": "Complete the following sentences as required.",
+      "questions": [
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Well, you won’t see any human shop assistants there. （改为反意疑问句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Well, you won’t see any human shop assistants there, "
+              },
+              {
+                "t": "blank",
+                "id": "b6"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b7"
+              },
+              {
+                "t": "text",
+                "v": "?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The robots dance and wave flags "
+              },
+              {
+                "t": "underline",
+                "v": "to welcome customers"
+              },
+              {
+                "t": "text",
+                "v": ". （对画线部分提问）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b8"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b9"
+              },
+              {
+                "t": "text",
+                "v": " the robots dance and wave flags?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The robot can track eye contact, express emotions, and have simple conversations with people. （改为否定句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "The robot "
+              },
+              {
+                "t": "blank",
+                "id": "b10"
+              },
+              {
+                "t": "text",
+                "v": " track eye contact, express emotions, "
+              },
+              {
+                "t": "blank",
+                "id": "b11"
+              },
+              {
+                "t": "text",
+                "v": " have simple conversations with people."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Robots can’t completely replace human beings. （保持句意基本不变）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Robots "
+              },
+              {
+                "t": "blank",
+                "id": "b12"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b13"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b14"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b15"
+              },
+              {
+                "t": "text",
+                "v": " completely replace human beings."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "order",
+            "items": [
+              {
+                "id": "w1",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "he"
+                  }
+                ]
+              },
+              {
+                "id": "w2",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "head teacher"
+                  }
+                ]
+              },
+              {
+                "id": "w3",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "her"
+                  }
+                ]
+              },
+              {
+                "id": "w4",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "be"
+                  }
+                ]
+              },
+              {
+                "id": "w5",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "our"
+                  }
+                ]
+              },
+              {
+                "id": "w6",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "took the place of"
+                  }
+                ]
+              },
+              {
+                "id": "w7",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to"
+                  }
+                ]
+              }
+            ],
+            "ending": "."
+          }
+        }
+      ]
+    }
+  ]
+}

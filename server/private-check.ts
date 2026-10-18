@@ -22,11 +22,30 @@ export function privateNeedles(key: ItemKeyT): string[] {
   return out;
 }
 
+/** all text of an item's passage — answers quoted verbatim from the public article are not leaks */
+async function passageText(keyFile: string): Promise<string> {
+  try {
+    const item = JSON.parse(await readFile(keyFile.replace('/keys/', '/items/'), 'utf8')) as { article?: unknown };
+    const out: string[] = [];
+    const walk = (o: unknown) => {
+      if (Array.isArray(o)) o.forEach(walk);
+      else if (o && typeof o === 'object') Object.entries(o).forEach(([k, v]) => (k === 'v' && typeof v === 'string' ? out.push(v) : walk(v)));
+    };
+    walk(item.article);
+    return out.join(' ');
+  } catch {
+    return '';
+  }
+}
+
 export async function findLeaks(publicDir: string, keyGlob = 'content/playlists/*/keys/*.json'): Promise<string[]> {
   const needles: { needle: string; key: string }[] = [];
   for await (const f of glob(keyGlob)) {
     const key = JSON.parse(await readFile(f, 'utf8')) as ItemKeyT;
-    privateNeedles(key).forEach((needle) => needles.push({ needle, key: f }));
+    const passage = (await passageText(f)).replace(/\s+/g, ' ');
+    privateNeedles(key)
+      .filter((needle) => !passage.includes(needle.replace(/\s+/g, ' ')))
+      .forEach((needle) => needles.push({ needle, key: f }));
   }
   const leaks: string[] = [];
   for await (const f of glob(`${publicDir}/**/*.{js,mjs,html,json,css,txt,map}`)) {

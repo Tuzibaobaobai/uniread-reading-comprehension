@@ -1,0 +1,289 @@
+{
+  "schemaVersion": "1.0",
+  "itemId": "ci-g7-w10-fri",
+  "answerSource": "official",
+  "reviewStatus": "pending",
+  "officialRef": {
+    "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级答案.pdf",
+    "pages": [
+      21,
+      22
+    ]
+  },
+  "answers": {
+    "q1": {
+      "sampleAnswer": "Nanshan Ski Resort.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "南山滑雪场",
+          "examples": [
+            "Nanshan Ski Resort"
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：南山滑雪场。",
+      "explanationZh": "南山部分说它是中国北方最大的滑雪场，当然也是北京最大的。",
+      "evidence": [
+        {
+          "block": "p3",
+          "quote": "Nanshan Ski Resort is the largest ski resort in northern China."
+        }
+      ]
+    },
+    "q2": {
+      "sampleAnswer": "It is about five kilometres away from the Badaling Great Wall.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "离八达岭长城约5公里",
+          "examples": [
+            "about five kilometres away from the Badaling Great Wall"
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：离八达岭长城约五公里。",
+      "explanationZh": "八达岭滑雪场的 Location 一行直接写了位置。",
+      "evidence": [
+        {
+          "block": "p4",
+          "quote": "About five kilometres away from the Badaling Great Wall"
+        }
+      ]
+    },
+    "q3": {
+      "sampleAnswer": "It is 2,300 metres long.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "2,300米",
+          "examples": [
+            "2,300 metres long"
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：2,300米长。",
+      "explanationZh": "八达岭部分说雪橇轨道有 2,300 米长。",
+      "evidence": [
+        {
+          "block": "p5",
+          "quote": "a 2,300-metre-long snowmobile track"
+        }
+      ]
+    },
+    "q4": {
+      "sampleAnswer": "They can hike, take part in winter activities, dine, enjoy the night scenery of Beijing and so on.",
+      "rubricType": "content",
+      "match": "any",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "可以徒步、参加冬季活动、用餐、欣赏夜景等",
+          "examples": [
+            "hike",
+            "take part in winter activities",
+            "enjoy the night scenery"
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点（答出其一即可）：徒步、参加冬季活动、用餐、欣赏北京夜景等。",
+      "explanationZh": "渔阳部分说这里把徒步、冬季活动、餐饮等娱乐结合在一起，晚上还能看北京夜景。",
+      "evidence": [
+        {
+          "block": "p7",
+          "quote": "The resort combines hiking, winter activities, dining and other forms of entertainment."
+        },
+        {
+          "block": "p7",
+          "quote": "Skiers can enjoy the night scenery of Beijing there."
+        }
+      ]
+    },
+    "q5": {
+      "sampleAnswer": "I like Nanshan Ski Resort the best. It has two cable car lines. I think it would be great fun to ride in a cable car and watch the snow on the ground moving beneath me.",
+      "rubricType": "opinion",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "选定一个滑雪场并给出第一条理由",
+          "examples": [
+            "I like ... because ..."
+          ],
+          "weight": 1
+        },
+        {
+          "id": "k2",
+          "descZh": "给出第二条理由",
+          "examples": [
+            "Also, ..."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "开放题，言之成理即可：选一个滑雪场，并给出至少两条理由。",
+      "explanationZh": "这是开放题：选一个滑雪场，用文章里的信息说出两条理由，比如设施、活动或位置。",
+      "evidence": [
+        {
+          "block": "p3",
+          "quote": "Nanshan has two cable car lines."
+        }
+      ]
+    },
+    "q6": {
+      "slots": {
+        "b1": {
+          "accept": [
+            "differ"
+          ]
+        }
+      },
+      "explanationZh": "they 后面缺谓语，由 differ 变来；twins 是复数，一般现在时用 differ。意思：他们长得像，但性格不同。",
+      "tipsZh": "differ in 在……方面不同"
+    },
+    "q7": {
+      "slots": {
+        "b2": {
+          "accept": [
+            "popularity"
+          ]
+        }
+      },
+      "explanationZh": "gain in 后面要名词，由 popular 变名词 popularity（受欢迎程度）。",
+      "tipsZh": "popular → popularity"
+    },
+    "q8": {
+      "slots": {
+        "b3": {
+          "accept": [
+            "meeting"
+          ]
+        }
+      },
+      "explanationZh": "the 后面要名词，meet 变名词 meeting（会议）。",
+      "tipsZh": "meet → meeting"
+    },
+    "q9": {
+      "slots": {
+        "b4": {
+          "accept": [
+            "enjoyable"
+          ]
+        }
+      },
+      "explanationZh": "an 后面接名词 holiday，要形容词，enjoy 变 enjoyable（愉快的）；an 也提示以元音开头。",
+      "tipsZh": "enjoy → enjoyable"
+    },
+    "q10": {
+      "slots": {
+        "b5": {
+          "accept": [
+            "combination"
+          ]
+        }
+      },
+      "explanationZh": "a perfect 后面要名词，combine 变名词 combination（组合）。",
+      "tipsZh": "combine → combination"
+    },
+    "q11": {
+      "slots": {
+        "b6": {
+          "accept": [
+            "larger"
+          ]
+        },
+        "b7": {
+          "accept": [
+            "than"
+          ]
+        },
+        "b8": {
+          "accept": [
+            "any"
+          ]
+        },
+        "b9": {
+          "accept": [
+            "other"
+          ]
+        }
+      },
+      "explanationZh": "最高级 the largest 可以换成“比较级 + than any other + 单数名词”：larger than any other ski resort。",
+      "tipsZh": "比较级 + than any other + 单数名词 = 最高级"
+    },
+    "q12": {
+      "slots": {
+        "b10": {
+          "accept": [
+            "are"
+          ]
+        },
+        "b11": {
+          "accept": [
+            "offered"
+          ]
+        }
+      },
+      "explanationZh": "原句主动，宾语变主语，用被动 are + 过去分词 offered：Over 5,000 sets of ski equipment are offered for renting.",
+      "tipsZh": "一般现在时被动语态：am/is/are + 过去分词"
+    },
+    "q13": {
+      "slots": {
+        "b12": {
+          "accept": [
+            "How"
+          ]
+        },
+        "b13": {
+          "accept": [
+            "many"
+          ]
+        }
+      },
+      "explanationZh": "划线部分是数量 two to four，问数量用 How many + 可数名词复数。",
+      "tipsZh": "how many 问可数名词的数量"
+    },
+    "q14": {
+      "slots": {
+        "b14": {
+          "accept": [
+            "doesn’t",
+            "doesn't"
+          ]
+        },
+        "b15": {
+          "accept": [
+            "it"
+          ]
+        }
+      },
+      "explanationZh": "反意疑问句：前面是肯定句，后面用否定；has 作实义动词，助动词用 does，所以是 doesn’t it。",
+      "tipsZh": "前肯后否，主语 resort 用 it 代替"
+    },
+    "q15": {
+      "sequence": [
+        "w8",
+        "w2",
+        "w4",
+        "w1",
+        "w7",
+        "w6",
+        "w3",
+        "w5",
+        "w9"
+      ],
+      "explanationZh": "be equipped with 表示“配备”，用被动：will be equipped with computers；every classroom 作主语，in our school 修饰它：Every classroom in our school will be equipped with computers.",
+      "tipsZh": "be equipped with 配备某物"
+    }
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g7-w18-thu",
+  "playlistId": "ci-g7",
+  "order": 89,
+  "week": 18,
+  "day": "thu",
+  "title": "Travelling Green Cases",
+  "titleZh": "行李箱里的大自然",
+  "displayName": "Week 18 Thursday Travelling Green Cases",
+  "taskType": {
+    "code": "answer_questions",
+    "labelZh": "回答问题"
+  },
+  "meta": {
+    "genre": "记叙文",
+    "wordCount": 177,
+    "difficulty": 3,
+    "suggestedMinutes": 10,
+    "themeContext": "人与社会",
+    "contentRequirement": "优秀的艺术家及其艺术成就",
+    "intro": "绿色行囊里的风景——将各地风景装进手提箱。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+    "pdfPages": [
+      150
+    ],
+    "bookPages": [
+      141
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-landscape",
+        "headword": "landscape",
+        "ipa": "ˈlændskeɪp",
+        "pos": "n.",
+        "meaningZh": "风景"
+      },
+      {
+        "id": "v-suitcase",
+        "headword": "suitcase",
+        "ipa": "ˈsuːtkeɪs",
+        "pos": "n.",
+        "meaningZh": "行李箱"
+      },
+      {
+        "id": "v-magician",
+        "headword": "magician",
+        "ipa": "məˈdʒɪʃn",
+        "pos": "n.",
+        "meaningZh": "魔术师"
+      },
+      {
+        "id": "v-miniature",
+        "headword": "miniature",
+        "ipa": "ˈmɪnətʃə(r)",
+        "pos": "adj.",
+        "meaningZh": "微型的"
+      },
+      {
+        "id": "v-belong-to",
+        "headword": "belong to",
+        "meaningZh": "属于"
+      },
+      {
+        "id": "v-personally",
+        "headword": "personally",
+        "ipa": "ˈpɜːsənəli",
+        "pos": "adv.",
+        "meaningZh": "就个人而言"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Put "
+          },
+          {
+            "t": "vocab",
+            "v": "landscapes",
+            "ref": "v-landscape"
+          },
+          {
+            "t": "text",
+            "v": " into your "
+          },
+          {
+            "t": "vocab",
+            "v": "suitcase",
+            "ref": "v-suitcase"
+          },
+          {
+            "t": "text",
+            "v": " and bring them home. That idea sounds nice but a little crazy, doesn’t it? In fact, Kathleen Vance has been doing just that."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Vance is not a "
+          },
+          {
+            "t": "vocab",
+            "v": "magician",
+            "ref": "v-magician"
+          },
+          {
+            "t": "text",
+            "v": "; she is an artist. She is famous for creating "
+          },
+          {
+            "t": "vocab",
+            "v": "miniature",
+            "ref": "v-miniature"
+          },
+          {
+            "t": "text",
+            "v": " landscapes inside old suitcases. All her pieces use real soil, grass, plants and water. These works are living and breathing."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Vance grew up on a farm in Maryland. She lived in New York City after graduating from university. In that big city, she often wanted to get close to nature. She also hoped to bring nature into people’s everyday lives. And so the “Travelling Landscapes” series was born."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "By putting nature into boxes, the artist shows that the environment "
+          },
+          {
+            "t": "vocab",
+            "v": "belongs to",
+            "ref": "v-belong-to"
+          },
+          {
+            "t": "text",
+            "v": " each one of us. “I want people to enjoy nature and think about how they would "
+          },
+          {
+            "t": "vocab",
+            "v": "personally",
+            "ref": "v-personally"
+          },
+          {
+            "t": "text",
+            "v": " be able to protect it. We all exist on the Earth, and some people are lucky enough to own parts of the land. How they take care of it is something they should consider,” she explained."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What kind of artworks does Kathleen Vance create?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why did she start making “Travelling Landscapes”?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What message does Vance want to share through her art?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What materials does Vance use to make her suitcase landscapes real and living?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How might Vance have felt about nature while living in New York City?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "If you could protect one part of nature near your home, what would it be and why?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ]
+}

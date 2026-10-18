@@ -1,0 +1,600 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g5-w07-wed",
+  "playlistId": "ci-g5",
+  "order": 33,
+  "week": 7,
+  "day": "wed",
+  "title": "Do You Know About Viruses?",
+  "titleZh": "你了解病毒吗?",
+  "displayName": "Week 7 Wednesday Do You Know About Viruses?",
+  "taskType": {
+    "code": "cloze",
+    "labelZh": "完形填空"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 141,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与自我",
+    "contentRequirement": "身体健康",
+    "intro": "什么是病毒?它们如何生存?我们要怎样预防感染?",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X5年级.pdf",
+    "pdfPages": [
+      63
+    ],
+    "bookPages": [
+      54
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-have-a-cold",
+        "headword": "have a cold",
+        "pos": "",
+        "meaningZh": "感冒"
+      },
+      {
+        "id": "v-tired",
+        "headword": "tired",
+        "pos": "adj.",
+        "meaningZh": "累的，疲倦的",
+        "ipa": "ˈtaɪəd"
+      },
+      {
+        "id": "v-have-a-fever",
+        "headword": "have a fever",
+        "pos": "",
+        "meaningZh": "发烧"
+      },
+      {
+        "id": "v-breathe",
+        "headword": "breathe",
+        "pos": "v.",
+        "meaningZh": "呼吸",
+        "ipa": "briːð"
+      },
+      {
+        "id": "v-by-oneself",
+        "headword": "by oneself",
+        "pos": "",
+        "meaningZh": "靠自己"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "When you "
+          },
+          {
+            "t": "vocab",
+            "v": "have a cold",
+            "ref": "v-have-a-cold"
+          },
+          {
+            "t": "text",
+            "v": ", you may feel "
+          },
+          {
+            "t": "vocab",
+            "v": "tired",
+            "ref": "v-tired"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "vocab",
+            "v": "have a fever",
+            "ref": "v-have-a-fever"
+          },
+          {
+            "t": "text",
+            "v": " or even find it hard to "
+          },
+          {
+            "t": "vocab",
+            "v": "breathe",
+            "ref": "v-breathe"
+          },
+          {
+            "t": "text",
+            "v": ". Who brings these "
+          },
+          {
+            "t": "blank",
+            "id": "b1",
+            "number": 1
+          },
+          {
+            "t": "text",
+            "v": " to your body? The answer could be a "
+          },
+          {
+            "t": "gloss",
+            "v": "virus",
+            "zh": "病毒"
+          },
+          {
+            "t": "text",
+            "v": "!"
+          }
+        ]
+      },
+      {
+        "id": "h1",
+        "type": "heading",
+        "content": [
+          {
+            "t": "text",
+            "v": "What is a virus?"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "A virus is so small that you cannot "
+          },
+          {
+            "t": "blank",
+            "id": "b2",
+            "number": 2
+          },
+          {
+            "t": "text",
+            "v": " it with your eyes. It doesn’t eat, breathe or move "
+          },
+          {
+            "t": "vocab",
+            "v": "by itself",
+            "ref": "v-by-oneself"
+          },
+          {
+            "t": "text",
+            "v": ". It needs a "
+          },
+          {
+            "t": "gloss",
+            "v": "host",
+            "zh": "宿主"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "h2",
+        "type": "heading",
+        "content": [
+          {
+            "t": "text",
+            "v": "What does a virus do?"
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "A virus can get into our body "
+          },
+          {
+            "t": "gloss",
+            "v": "cells",
+            "zh": "细胞"
+          },
+          {
+            "t": "text",
+            "v": ". It makes the cell make more viruses. When there are too many viruses, the cell breaks "
+          },
+          {
+            "t": "blank",
+            "id": "b3",
+            "number": 3
+          },
+          {
+            "t": "text",
+            "v": ". Those viruses go out "
+          },
+          {
+            "t": "blank",
+            "id": "b4",
+            "number": 4
+          },
+          {
+            "t": "text",
+            "v": " the body and keep making more viruses."
+          }
+        ]
+      },
+      {
+        "id": "h3",
+        "type": "heading",
+        "content": [
+          {
+            "t": "text",
+            "v": "How does a virus "
+          },
+          {
+            "t": "blank",
+            "id": "b5",
+            "number": 5
+          },
+          {
+            "t": "text",
+            "v": "?"
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Viruses can "
+          },
+          {
+            "t": "gloss",
+            "v": "spread",
+            "zh": "传播"
+          },
+          {
+            "t": "text",
+            "v": " in the air. People may get viruses easily when they touch things. So "
+          },
+          {
+            "t": "gloss",
+            "v": "cover",
+            "zh": "掩盖"
+          },
+          {
+            "t": "text",
+            "v": " your "
+          },
+          {
+            "t": "blank",
+            "id": "b6",
+            "number": 6
+          },
+          {
+            "t": "text",
+            "v": " when you cough! Wash your hands often! These good ways can keep you safe."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Choose the best answer to complete the passage.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b1",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "jobs"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "worries"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "problems"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "games"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b2",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "see"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "touch"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "smell"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "hear"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b3",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "open"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "into"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "down"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "up"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b4",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "from"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "into"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "under"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "around"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b5",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "travel"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "work"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "grow"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "hide"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b6",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "hand"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "nose"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "ears"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "mouth"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,489 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g3-w02-wed",
+  "playlistId": "ci-g3",
+  "order": 8,
+  "week": 2,
+  "day": "wed",
+  "title": "New Helpers at Hospitals",
+  "titleZh": "医院里的新帮手",
+  "displayName": "Week 2 Wednesday New Helpers at Hospitals",
+  "taskType": {
+    "code": "cloze",
+    "labelZh": "完形填空"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 109,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与社会",
+    "contentRequirement": "志愿服务与公共服务",
+    "intro": "“陪诊师”正在帮助越来越多的人轻松就医。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X3年级.pdf",
+    "pdfPages": [
+      20
+    ],
+    "bookPages": [
+      11
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-patient",
+        "headword": "patient",
+        "ipa": "ˈpeɪʃnt",
+        "pos": "n.",
+        "meaningZh": "病人"
+      },
+      {
+        "id": "v-recently",
+        "headword": "recently",
+        "ipa": "ˈriːsntli",
+        "pos": "adv.",
+        "meaningZh": "最近"
+      },
+      {
+        "id": "v-calm",
+        "headword": "calm",
+        "ipa": "kɑːm",
+        "pos": "adj.",
+        "meaningZh": "镇静的；沉着的"
+      },
+      {
+        "id": "v-important",
+        "headword": "important",
+        "ipa": "ɪmˈpɔːtnt",
+        "pos": "adj.",
+        "meaningZh": "重要的"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "More people in China are now working as "
+          },
+          {
+            "t": "vocab",
+            "v": "patient",
+            "ref": "v-patient"
+          },
+          {
+            "t": "text",
+            "v": " "
+          },
+          {
+            "t": "gloss",
+            "v": "companions",
+            "zh": "陪伴"
+          },
+          {
+            "t": "text",
+            "v": ". They help people at "
+          },
+          {
+            "t": "blank",
+            "id": "b1",
+            "number": 1
+          },
+          {
+            "t": "text",
+            "v": " and make hospital visits easier."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "vocab",
+            "v": "Recently",
+            "ref": "v-recently"
+          },
+          {
+            "t": "text",
+            "v": ", an old woman visited a hospital in Beijing "
+          },
+          {
+            "t": "blank",
+            "id": "b2",
+            "number": 2
+          },
+          {
+            "t": "text",
+            "v": ". A young patient companion helped her get a number, find the right room, and talk with the "
+          },
+          {
+            "t": "blank",
+            "id": "b3",
+            "number": 3
+          },
+          {
+            "t": "text",
+            "v": ". The woman felt much "
+          },
+          {
+            "t": "vocab",
+            "v": "calmer",
+            "ref": "v-calm"
+          },
+          {
+            "t": "text",
+            "v": " with someone by her side."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Many elderly people in China now live alone. Some "
+          },
+          {
+            "t": "blank",
+            "id": "b4",
+            "number": 4
+          },
+          {
+            "t": "text",
+            "v": " also travel long "
+          },
+          {
+            "t": "gloss",
+            "v": "distances",
+            "zh": "长途远行"
+          },
+          {
+            "t": "text",
+            "v": " to see doctors. Because of this, more people need "
+          },
+          {
+            "t": "blank",
+            "id": "b5",
+            "number": 5
+          },
+          {
+            "t": "text",
+            "v": " at hospitals."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Patient companions are becoming "
+          },
+          {
+            "t": "vocab",
+            "v": "important",
+            "ref": "v-important"
+          },
+          {
+            "t": "text",
+            "v": " helpers. They not only help "
+          },
+          {
+            "t": "blank",
+            "id": "b6",
+            "number": 6
+          },
+          {
+            "t": "text",
+            "v": " people, but also support "
+          },
+          {
+            "t": "gloss",
+            "v": "pregnant women",
+            "zh": "孕妇"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "gloss",
+            "v": "surgery patients",
+            "zh": "手术病人"
+          },
+          {
+            "t": "text",
+            "v": ", and people from other cities."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer to complete the passage.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b1",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "hospitals"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "museums"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "parks"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b2",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "alone"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "carefully"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "happily"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b3",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "driver"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "doctor"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "friend"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b4",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "neighbours"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "patients"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "visitors"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b5",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "help"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "money"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "practice"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b6",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "busier"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "older"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "richer"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

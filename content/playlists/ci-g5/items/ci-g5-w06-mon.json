@@ -1,0 +1,488 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g5-w06-mon",
+  "playlistId": "ci-g5",
+  "order": 26,
+  "week": 6,
+  "day": "mon",
+  "title": "Why Do Clocks Run Clockwise?",
+  "titleZh": "时钟为什么顺时针走？",
+  "displayName": "Week 6 Monday Why Do Clocks Run Clockwise?",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 169,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与社会",
+    "contentRequirement": "科学与技术",
+    "intro": "揭开钟表顺时针转的秘密。",
+    "hasVideo": false
+  },
+  "thumbnail": "assets/ci-g5/ci-g5-w06-mon-1.jpg",
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X5年级.pdf",
+    "pdfPages": [
+      51,
+      52
+    ],
+    "bookPages": [
+      42,
+      43
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g5/ci-g5-w06-mon-1.jpg",
+        "alt": "A close-up of an ornate antique clock face with Roman numerals and black hands.",
+        "w": 1117,
+        "h": 725
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-stick",
+        "headword": "stick",
+        "ipa": "stɪk",
+        "pos": "n.",
+        "meaningZh": "棍子，杆子"
+      },
+      {
+        "id": "v-capture",
+        "headword": "capture",
+        "ipa": "ˈkæptʃə(r)",
+        "pos": "v.",
+        "meaningZh": "捕捉，记录"
+      },
+      {
+        "id": "v-movement",
+        "headword": "movement",
+        "ipa": "ˈmuːvmənt",
+        "pos": "n.",
+        "meaningZh": "移动，运行"
+      },
+      {
+        "id": "v-overhead",
+        "headword": "overhead",
+        "ipa": "ˌəʊvəˈhed",
+        "pos": "adv.",
+        "meaningZh": "在头顶上"
+      },
+      {
+        "id": "v-set",
+        "headword": "set",
+        "ipa": "set",
+        "pos": "v.",
+        "meaningZh": "落下"
+      },
+      {
+        "id": "v-invent",
+        "headword": "invent",
+        "ipa": "ɪnˈvent",
+        "pos": "v.",
+        "meaningZh": "发明，创造"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      },
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Time for school! Time for bed! All of us have clocks or watches to tell the time. But do you know why the hands of a clock move "
+          },
+          {
+            "t": "gloss",
+            "v": "clockwise",
+            "zh": "顺时针方向地"
+          },
+          {
+            "t": "text",
+            "v": "?"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Let’s look at the earliest clock: the shadow clock! It’s called a "
+          },
+          {
+            "t": "gloss",
+            "v": "sundial",
+            "zh": "日晷"
+          },
+          {
+            "t": "text",
+            "v": ". It’s a simple device with a "
+          },
+          {
+            "t": "vocab",
+            "v": "stick",
+            "ref": "v-stick"
+          },
+          {
+            "t": "text",
+            "v": " in the middle. The shadow of the stick "
+          },
+          {
+            "t": "vocab",
+            "v": "captures",
+            "ref": "v-capture"
+          },
+          {
+            "t": "text",
+            "v": " the "
+          },
+          {
+            "t": "vocab",
+            "v": "movement",
+            "ref": "v-movement"
+          },
+          {
+            "t": "text",
+            "v": " of the sun."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "In the "
+          },
+          {
+            "t": "gloss",
+            "v": "northern hemisphere",
+            "zh": "北半球"
+          },
+          {
+            "t": "text",
+            "v": ", if you stand facing south, you’ll see the sun move clockwise. In your eyes, the sun rises from the east (your left), passes "
+          },
+          {
+            "t": "vocab",
+            "v": "overhead",
+            "ref": "v-overhead"
+          },
+          {
+            "t": "text",
+            "v": ", and "
+          },
+          {
+            "t": "vocab",
+            "v": "sets",
+            "ref": "v-set"
+          },
+          {
+            "t": "text",
+            "v": " in the west (your right)."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "If you make a sundial, its shadow will go from west to north to east. It’s "
+          },
+          {
+            "t": "gloss",
+            "v": "opposite",
+            "zh": "相反的"
+          },
+          {
+            "t": "text",
+            "v": " to the "
+          },
+          {
+            "t": "gloss",
+            "v": "path",
+            "zh": "路径"
+          },
+          {
+            "t": "text",
+            "v": " of the sun. But in your eyes, the shadow also moves clockwise."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "In the 14th century, "
+          },
+          {
+            "t": "gloss",
+            "v": "mechanical clocks",
+            "zh": "机械钟"
+          },
+          {
+            "t": "text",
+            "v": " were "
+          },
+          {
+            "t": "vocab",
+            "v": "invented",
+            "ref": "v-invent"
+          },
+          {
+            "t": "text",
+            "v": " in the northern hemisphere. The hands of the clock were made to move clockwise, going from left to top to right."
+          }
+        ]
+      },
+      {
+        "id": "n1",
+        "type": "note",
+        "title": [
+          {
+            "t": "text",
+            "v": "Did you know?"
+          }
+        ],
+        "content": [
+          [
+            {
+              "t": "text",
+              "v": "并非所有钟表都是顺时针走的！一些犹太人和阿拉伯人的钟表是逆时针走的。"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What was the earliest clock?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The sun clock."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The shadow clock."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The mechanical clock."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Where does the sun rise if you stand facing south in the northern hemisphere?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "From your left."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "From your right."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "From the north."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How does the shadow of a sundial move?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "From east to north to west."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "From west to north to east."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "From north to east to south."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why were the hands of mechanical clocks made to move clockwise?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To copy the way people write."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To tell time more accurately"
+                  },
+                  {
+                    "t": "gloss",
+                    "v": "",
+                    "zh": "精确地"
+                  },
+                  {
+                    "t": "text",
+                    "v": "."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To follow the shadow movement on a sundial."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

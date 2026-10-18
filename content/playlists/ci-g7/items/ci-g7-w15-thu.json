@@ -1,0 +1,307 @@
+{
+ "schemaVersion": "1.0",
+ "id": "ci-g7-w15-thu",
+ "playlistId": "ci-g7",
+ "order": 74,
+ "week": 15,
+ "day": "thu",
+ "title": "An Unexpected Joy",
+ "titleZh": "一份意外的惊喜",
+ "displayName": "Week 15 Thursday An Unexpected Joy",
+ "taskType": {
+  "code": "answer_questions",
+  "labelZh": "回答问题"
+ },
+ "meta": {
+  "genre": "记叙文",
+  "wordCount": 235,
+  "difficulty": 3,
+  "suggestedMinutes": 9,
+  "themeContext": "人与自我",
+  "contentRequirement": "丰富、充实、积极向上的生活",
+  "intro": "生日那天，“我”收到了一份意想不到的大礼。",
+  "hasVideo": false
+ },
+ "source": {
+  "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+  "pdfPages": [
+   128
+  ],
+  "bookPages": [
+   119
+  ]
+ },
+ "status": {
+  "content": "transcribed",
+  "version": "1.0.0"
+ },
+ "article": {
+  "images": [],
+  "vocabulary": [
+   {
+    "id": "v-fascinate",
+    "headword": "fascinated",
+    "ipa": "ˈfæsɪneɪt",
+    "pos": "v.",
+    "meaningZh": "深深吸引，迷住"
+   },
+   {
+    "id": "v-exception",
+    "headword": "exception",
+    "ipa": "ɪkˈsepʃn",
+    "pos": "n.",
+    "meaningZh": "例外"
+   },
+   {
+    "id": "v-couldnthelp",
+    "headword": "couldn’t help",
+    "pos": "phr.",
+    "meaningZh": "情不自禁做某事"
+   },
+   {
+    "id": "v-definitely",
+    "headword": "definitely",
+    "ipa": "ˈdefɪnətli",
+    "pos": "adv.",
+    "meaningZh": "肯定，确实"
+   },
+   {
+    "id": "v-similar",
+    "headword": "similar",
+    "ipa": "ˈsɪmələ(r)",
+    "pos": "adj.",
+    "meaningZh": "相似的"
+   },
+   {
+    "id": "v-enjoyable",
+    "headword": "enjoyable",
+    "ipa": "ɪnˈdʒɔɪəbl",
+    "pos": "adj.",
+    "meaningZh": "有乐趣的，使人愉快的"
+   }
+  ],
+  "blocks": [
+   {
+    "id": "p1",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "Have you ever been "
+     },
+     {
+      "t": "vocab",
+      "v": "fascinated",
+      "ref": "v-fascinate"
+     },
+     {
+      "t": "text",
+      "v": " by a beautiful cloud in the sky, or given a great present that you hadn’t expected? These unexpected joys appear in everyone’s life, and I am no "
+     },
+     {
+      "t": "vocab",
+      "v": "exception",
+      "ref": "v-exception"
+     },
+     {
+      "t": "text",
+      "v": "."
+     }
+    ]
+   },
+   {
+    "id": "p2",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "It was a sunny Sunday morning, and that day was my 9th birthday. “What am I going to get for my birthday? I wish that mummy could come back home,” I thought. My mother left home three days before on a business trip and only my father was at home. The party was fun, and the games I played with my friends were interesting, but I "
+     },
+     {
+      "t": "vocab",
+      "v": "couldn’t help",
+      "ref": "v-couldnthelp"
+     },
+     {
+      "t": "text",
+      "v": " feeling sad. On such a special day, all I wanted was my mother."
+     }
+    ]
+   },
+   {
+    "id": "p3",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "The day soon passed and my friends left. My father was cleaning the messy room. For a long time, the room was in silence. Finally, my father said, “Shawn! It’s time for your birthday present! You "
+     },
+     {
+      "t": "vocab",
+      "v": "definitely",
+      "ref": "v-definitely"
+     },
+     {
+      "t": "text",
+      "v": " won’t know what it is!” I didn’t know, that was for sure, and felt pretty curious about it."
+     }
+    ]
+   },
+   {
+    "id": "p4",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "“Knock... Knock...” I heard the sound of the door and went to open it. It was my mother! “Happy birthday, Shawn!” she said and gave me a big hug. I didn’t expect that my mother would come home before the business trip ended. She was my birthday present!"
+     }
+    ]
+   },
+   {
+    "id": "p5",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "Have you ever had "
+     },
+     {
+      "t": "vocab",
+      "v": "similar",
+      "ref": "v-similar"
+     },
+     {
+      "t": "text",
+      "v": " amazing moments of unexpected joy in your life? They’re really "
+     },
+     {
+      "t": "vocab",
+      "v": "enjoyable",
+      "ref": "v-enjoyable"
+     },
+     {
+      "t": "text",
+      "v": " and fun!"
+     }
+    ]
+   }
+  ]
+ },
+ "sections": [
+  {
+   "id": "s1",
+   "label": "",
+   "instruction": "Answer the questions.",
+   "questions": [
+    {
+     "id": "q1",
+     "number": 1,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Why was the author sad on his birthday?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q2",
+     "number": 2,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "What was the author’s biggest wish for his birthday?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q3",
+     "number": 3,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "What was the father doing after the party?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q4",
+     "number": 4,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Who was the “birthday present”?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q5",
+     "number": 5,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "What does “unexpected joy” mean in this story?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q6",
+     "number": 6,
+     "points": 1,
+     "skills": [
+      "opinion"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "The author values “unexpected joy”. What is one small, unexpected thing that can make a normal day better for you?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    }
+   ]
+  }
+ ]
+}

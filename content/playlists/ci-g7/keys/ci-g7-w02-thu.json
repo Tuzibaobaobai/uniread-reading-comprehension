@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "1.0",
+  "itemId": "ci-g7-w02-thu",
+  "answerSource": "official",
+  "reviewStatus": "pending",
+  "officialRef": {
+    "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级答案.pdf",
+    "pages": [
+      5,
+      6
+    ]
+  },
+  "answers": {
+    "q1": {
+      "sampleAnswer": "No, they don’t.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "回答不同意（No, they don’t）",
+          "examples": [
+            "No, they don’t."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：回答“不同意/不一致”。",
+      "explanationZh": "两人观点正好相反：Mike 觉得 OpenClaw 很有用，Kathy 担心它会泄露隐私，所以回答 No。",
+      "evidence": [
+        {
+          "block": "t1",
+          "quote": "OpenClaw is a highly effective tool."
+        }
+      ]
+    },
+    "q2": {
+      "sampleAnswer": "Older chatbots only tell you what to do, but OpenClaw can actually do things for you.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "OpenClaw 能直接替你完成任务（旧机器人只给建议）",
+          "examples": [
+            "OpenClaw does it for you",
+            "can actually do things for you"
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：旧聊天机器人只告诉你做什么；OpenClaw 直接替你做。",
+      "explanationZh": "第二段用 Unlike 作对比：以前的聊天机器人只“说”，OpenClaw 能直接“做”。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "Unlike older chatbots, which only tell you what to do, OpenClaw does it for you."
+        }
+      ]
+    },
+    "q3": {
+      "sampleAnswer": "It allows him to quickly finish tasks that would usually take up a lot of time.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "快速完成原本很费时间的日常任务",
+          "examples": [
+            "quickly finish daily tasks",
+            "finish tasks that take a lot of time"
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：让他快速完成原本很费时间的日常任务。",
+      "explanationZh": "Mike 说它能帮他很快做完平时很花时间的日常事务，例如记日期、读写邮件。",
+      "evidence": [
+        {
+          "block": "t1",
+          "quote": "It can help me quickly finish daily tasks that would usually take up a lot of time."
+        }
+      ]
+    },
+    "q4": {
+      "sampleAnswer": "Because it can access, change, and expose your personal information, such as your passwords.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "能访问、修改并泄露个人信息（如密码）",
+          "examples": [
+            "access and change your personal information",
+            "expose your passwords"
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：它能访问、修改并泄露个人信息（如密码）。",
+      "explanationZh": "Kathy 说它不但能读取、改动你的个人信息，专家还警告它可能泄露密码，所以对隐私很不好。",
+      "evidence": [
+        {
+          "block": "t1",
+          "quote": "Experts have warned that it can expose your personal information, such as your passwords."
+        }
+      ]
+    },
+    "q5": {
+      "sampleAnswer": "I think it’s more like a pet. Reason 1: It helps you with daily tasks, like remembering important dates and reading emails, just like a helpful pet. Reason 2: It stores information for you and never forgets, which is useful and friendly, not dangerous. / I think it’s more like a beast. Reason 1: It can access your personal information and even change it, which is scary and dangerous—like a wild beast. Reason 2: Experts warn that it can expose your passwords, so it might hurt your privacy.",
+      "rubricType": "opinion",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "立场明确（pet 或 beast）并给出基于文章的第一条理由",
+          "examples": [
+            "It helps me finish daily tasks.",
+            "It can access and change your information."
+          ],
+          "weight": 1
+        },
+        {
+          "id": "k2",
+          "descZh": "给出基于文章的第二条理由",
+          "examples": [
+            "It never forgets.",
+            "It can expose your passwords."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "开放题，两种立场均可，需结合文章给出两条合理理由：选“宠物”写帮忙做事、存储信息；选“野兽”写访问/修改隐私、泄露密码。",
+      "explanationZh": "这是开放题，选宠物或野兽都可以，但要用文章里的内容当理由。支持“宠物”可写它帮你做事、记东西；支持“野兽”可写它会读改个人信息、可能泄露密码。控制在 30 词以内。",
+      "evidence": [
+        {
+          "block": "t1",
+          "quote": "It stores all information in a local database."
+        }
+      ]
+    }
+  }
+}

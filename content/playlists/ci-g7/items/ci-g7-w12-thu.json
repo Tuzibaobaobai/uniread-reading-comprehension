@@ -1,0 +1,266 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g7-w12-thu",
+  "playlistId": "ci-g7",
+  "order": 59,
+  "week": 12,
+  "day": "thu",
+  "title": "Let’s Read More Novels!",
+  "titleZh": "让我们多读小说吧！",
+  "displayName": "Week 12 Thursday Let’s Read More Novels!",
+  "taskType": {
+    "code": "answer_questions",
+    "labelZh": "回答问题"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 167,
+    "difficulty": 3,
+    "suggestedMinutes": 8,
+    "themeContext": "人与自我",
+    "contentRequirement": "丰富、充实、积极向上的生活",
+    "intro": "世界读书日：多读小说，让你的精神世界更丰盈。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+    "pdfPages": [
+      104
+    ],
+    "bookPages": [
+      95
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "World Book Day falls on April 23 every year. What books are you going to read to celebrate this day? I would like to suggest that you read novels, because there are many benefits to reading them."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Reading novels can provide fun and relaxation. It is good for both your physical and mental health. People who read novels have lower stress levels than those who don’t read. And novel readers have lower rates of "
+          },
+          {
+            "t": "vocab",
+            "v": "mental",
+            "ref": "v-mental"
+          },
+          {
+            "t": "text",
+            "v": " illness."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Different novelists have different "
+          },
+          {
+            "t": "vocab",
+            "v": "dialects",
+            "ref": "v-dialect"
+          },
+          {
+            "t": "text",
+            "v": " and ways of speaking. When you read their works, you can learn new words and expressions. This can help you build your language skills."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Reading novels helps you to become more "
+          },
+          {
+            "t": "vocab",
+            "v": "empathetic",
+            "ref": "v-empathetic"
+          },
+          {
+            "t": "text",
+            "v": ". As you read, you learn about what happens to the characters and how it makes them feel. At the same time, certain areas of your brain become more active. You will feel as if you are experiencing the story yourself. According to one study, novel readers have higher levels of empathy than "
+          },
+          {
+            "t": "vocab",
+            "v": "nonfiction",
+            "ref": "v-nonfiction"
+          },
+          {
+            "t": "text",
+            "v": " readers."
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-mental",
+        "headword": "mental",
+        "ipa": "ˈmentl",
+        "pos": "adj.",
+        "meaningZh": "心理的"
+      },
+      {
+        "id": "v-dialect",
+        "headword": "dialect",
+        "ipa": "ˈdaɪəlekt",
+        "pos": "n.",
+        "meaningZh": "方言"
+      },
+      {
+        "id": "v-empathetic",
+        "headword": "empathetic",
+        "ipa": "ˌempəˈθetɪk",
+        "pos": "adj.",
+        "meaningZh": "有同理心的"
+      },
+      {
+        "id": "v-nonfiction",
+        "headword": "nonfiction",
+        "ipa": "ˌnɒnˈfɪkʃn",
+        "pos": "n.",
+        "meaningZh": "非虚构作品"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "When is World Book Day?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How can reading novels benefit our health?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How does reading novels help improve language skills?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What did the study find about novel readers’ empathy levels?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why can reading novels make you feel like you’re experiencing the story yourself?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What book would you recommend to a friend on World Book Day and why?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,521 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g5-w02-tue",
+  "playlistId": "ci-g5",
+  "order": 7,
+  "week": 2,
+  "day": "tue",
+  "title": "Self-Driving Car",
+  "titleZh": "自动驾驶汽车",
+  "displayName": "Week 2 Tuesday Self-Driving Car",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 155,
+    "difficulty": 3,
+    "suggestedMinutes": 6,
+    "themeContext": "人与社会",
+    "contentRequirement": "人类发明与创新",
+    "intro": "人类对安全、便捷出行的终极向往——自动驾驶汽车。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X5年级.pdf",
+    "pdfPages": [
+      19,
+      20
+    ],
+    "bookPages": [
+      10,
+      11
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-fasten",
+        "headword": "fasten",
+        "ipa": "ˈfɑːsn",
+        "pos": "v.",
+        "meaningZh": "扣紧，系牢"
+      },
+      {
+        "id": "v-vehicle",
+        "headword": "vehicle",
+        "ipa": "ˈviːəkl",
+        "pos": "n.",
+        "meaningZh": "交通工具，车辆"
+      },
+      {
+        "id": "v-decide",
+        "headword": "decide",
+        "ipa": "dɪˈsaɪd",
+        "pos": "v.",
+        "meaningZh": "决定，判断"
+      },
+      {
+        "id": "v-get-lost",
+        "headword": "get lost",
+        "meaningZh": "迷路"
+      },
+      {
+        "id": "v-camera",
+        "headword": "camera",
+        "ipa": "ˈkæmərə",
+        "pos": "n.",
+        "meaningZh": "摄像头"
+      },
+      {
+        "id": "v-information",
+        "headword": "information",
+        "ipa": "ˌɪnfəˈmeɪʃn",
+        "pos": "n.",
+        "meaningZh": "信息"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Picture this: You get into a car and "
+          },
+          {
+            "t": "vocab",
+            "v": "fasten",
+            "ref": "v-fasten"
+          },
+          {
+            "t": "text",
+            "v": " your seat belt. The car is driving by itself!"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Self-driving cars look like "
+          },
+          {
+            "t": "vocab",
+            "v": "vehicles",
+            "ref": "v-vehicle"
+          },
+          {
+            "t": "text",
+            "v": " you see on the road. Some of them can carry people. Others are made to carry "
+          },
+          {
+            "t": "gloss",
+            "v": "cargo",
+            "zh": "货物"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Self-driving cars don’t need people to drive them. The cars have a computer. The computer "
+          },
+          {
+            "t": "vocab",
+            "v": "decides",
+            "ref": "v-decide"
+          },
+          {
+            "t": "text",
+            "v": " where to turn and how fast to go. They use "
+          },
+          {
+            "t": "gloss",
+            "v": "GPS",
+            "zh": "全球定位系统"
+          },
+          {
+            "t": "text",
+            "v": " to "
+          },
+          {
+            "t": "gloss",
+            "v": "keep track of",
+            "zh": "追踪，了解"
+          },
+          {
+            "t": "text",
+            "v": " where they are. So they never "
+          },
+          {
+            "t": "vocab",
+            "v": "get lost",
+            "ref": "v-get-lost"
+          },
+          {
+            "t": "text",
+            "v": "!"
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "vocab",
+            "v": "Cameras",
+            "ref": "v-camera"
+          },
+          {
+            "t": "text",
+            "v": " on the car “watch” other cars and people on the road. "
+          },
+          {
+            "t": "gloss",
+            "v": "Sensors",
+            "zh": "传感器"
+          },
+          {
+            "t": "text",
+            "v": " on the car take in "
+          },
+          {
+            "t": "vocab",
+            "v": "information",
+            "ref": "v-information"
+          },
+          {
+            "t": "text",
+            "v": " about the lights and sounds around the car."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The cameras and sensors then send information to the car’s computer. The computer uses this information to drive the car."
+          }
+        ]
+      },
+      {
+        "id": "p6",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "In the future, self-driving cars could be safer, faster and easier to use. No need to learn to drive. Your car may take you "
+          },
+          {
+            "t": "gloss",
+            "v": "wherever",
+            "zh": "无论哪里"
+          },
+          {
+            "t": "text",
+            "v": " you want to go!"
+          }
+        ]
+      },
+      {
+        "id": "n1",
+        "type": "note",
+        "title": [
+          {
+            "t": "text",
+            "v": "Did you know?"
+          }
+        ],
+        "content": [
+          [
+            {
+              "t": "text",
+              "v": "无人驾驶的核心技术体系主要分为感知、决策、执行三个层面。感知系统相当于人的眼睛、耳朵，负责感知周围的环境，并采集处理信息；决策系统相当于人的大脑，负责数据整合、路径规划、导航和判断决策；执行系统相当于人的小脑和四肢，负责汽车的各项驾驶动作。"
+            }
+          ],
+          [
+            {
+              "t": "text",
+              "v": "由于在短期内无法实现绝对的智能和绝对的安全，目前人们能够享受的“自动驾驶”实际上是让司机开车更轻松的“辅助驾驶”。"
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What helps self-driving cars "
+              },
+              {
+                "t": "gloss",
+                "v": "detect",
+                "zh": "发现"
+              },
+              {
+                "t": "text",
+                "v": " traffic lights and sounds?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "GPS."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Sensors."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Seat belts."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who makes decisions in a self-driving car?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The "
+                  },
+                  {
+                    "t": "gloss",
+                    "v": "passenger",
+                    "zh": "乘客"
+                  },
+                  {
+                    "t": "text",
+                    "v": "."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A human driver."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A computer."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What do cameras on self-driving cars "
+              },
+              {
+                "t": "gloss",
+                "v": "monitor",
+                "zh": "监视"
+              },
+              {
+                "t": "text",
+                "v": "?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Weather "
+                  },
+                  {
+                    "t": "gloss",
+                    "v": "conditions",
+                    "zh": "情况"
+                  },
+                  {
+                    "t": "text",
+                    "v": "."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Other cars and "
+                  },
+                  {
+                    "t": "gloss",
+                    "v": "pedestrians",
+                    "zh": "行人"
+                  },
+                  {
+                    "t": "text",
+                    "v": "."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The driver’s face."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does the car’s computer do with the "
+              },
+              {
+                "t": "gloss",
+                "v": "collected",
+                "zh": "收集到的"
+              },
+              {
+                "t": "text",
+                "v": " information?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It uses it to drive the car."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It sends it to traffic workers."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It shows it to people in the car."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

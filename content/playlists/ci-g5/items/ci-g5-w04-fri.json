@@ -1,0 +1,408 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g5-w04-fri",
+  "playlistId": "ci-g5",
+  "order": 20,
+  "week": 4,
+  "day": "fri",
+  "title": "Antarctica: The Seventh Continent",
+  "titleZh": "南极洲：第七大陆",
+  "displayName": "Week 4 Friday Antarctica: The Seventh Continent",
+  "taskType": {
+    "code": "weekly_intensive",
+    "labelZh": "每周精读"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 140,
+    "difficulty": 3,
+    "suggestedMinutes": 11,
+    "themeContext": "人与自然",
+    "contentRequirement": "自然生态",
+    "intro": "前往地球最南端，了解南极洲。",
+    "hasVideo": true
+  },
+  "thumbnail": "assets/ci-g5/ci-g5-w04-fri-1.jpg",
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X5年级.pdf",
+    "pdfPages": [
+      41,
+      42
+    ],
+    "bookPages": [
+      32,
+      33
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g5/ci-g5-w04-fri-1.jpg",
+        "alt": "A snow-covered rocky mountain rising from the sea in Antarctica (black and white photo).",
+        "w": 1113,
+        "h": 734
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-melt",
+        "headword": "melt",
+        "ipa": "melt",
+        "pos": "v.",
+        "meaningZh": "融化"
+      },
+      {
+        "id": "v-coast",
+        "headword": "coast",
+        "ipa": "kəʊst",
+        "pos": "n.",
+        "meaningZh": "海岸，海滨"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "About two hundred years ago, people found Antarctica. It is an "
+          },
+          {
+            "t": "gloss",
+            "v": "amazing",
+            "zh": "令人惊叹的"
+          },
+          {
+            "t": "text",
+            "v": " place!"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Antarctica is the coldest continent of all. It also has the strongest winds, and the lowest rainfall and snowfall."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Most of the fresh water on Earth is frozen in Antarctica’s ice. The ice has "
+          },
+          {
+            "t": "gloss",
+            "v": "built up",
+            "zh": "累积"
+          },
+          {
+            "t": "text",
+            "v": " over many thousands of years. That is because the snow doesn’t "
+          },
+          {
+            "t": "vocab",
+            "v": "melt",
+            "ref": "v-melt"
+          },
+          {
+            "t": "text",
+            "v": " "
+          },
+          {
+            "t": "gloss",
+            "v": "completely",
+            "zh": "彻底地"
+          },
+          {
+            "t": "text",
+            "v": " in the cold summers there."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Antarctica is a dangerous place to live. No trees grow on the continent. Only low plants, like "
+          },
+          {
+            "t": "gloss",
+            "v": "moss",
+            "zh": "苔藓"
+          },
+          {
+            "t": "text",
+            "v": ", grow there. Most plants and animals can be found near the "
+          },
+          {
+            "t": "vocab",
+            "v": "coasts",
+            "ref": "v-coast"
+          },
+          {
+            "t": "text",
+            "v": " or in the sea."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Antarctica is a “playground” for scientists. Some of them work there all year round. Others work there only in the summer. They study animals, ice and many other things."
+          }
+        ]
+      },
+      {
+        "id": "n1",
+        "type": "note",
+        "title": [
+          {
+            "t": "text",
+            "v": "Did you know?"
+          }
+        ],
+        "content": [
+          [
+            {
+              "t": "text",
+              "v": "在南极，科学家们利用钻孔机，让钻头穿过冰盖最上层，钻入下面的古代冻结层。在那里，被困住的微小气泡充当了已逝环境的“时间胶囊”。钻取出的冰芯使科学家得以研究过往的气候变化。"
+            }
+          ]
+        ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Match with a line.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 5,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "match",
+            "left": [
+              {
+                "id": "1",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Antarctica"
+                  }
+                ]
+              },
+              {
+                "id": "2",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Winds"
+                  }
+                ]
+              },
+              {
+                "id": "3",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Snow"
+                  }
+                ]
+              },
+              {
+                "id": "4",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Trees"
+                  }
+                ]
+              },
+              {
+                "id": "5",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Scientists"
+                  }
+                ]
+              }
+            ],
+            "right": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "doesn’t melt even in the summer."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "can’t grow in Antarctica."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "study animals, ice and many other things."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "are very strong in Antarctica."
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "is the coldest continent."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "II",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "When did people find Antarctica?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Does it rain or snow a lot in Antarctica?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why has Antarctica’s ice built up over many thousands of years?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Are there any plants in Antarctica?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What do scientists do in Antarctica?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ]
+}

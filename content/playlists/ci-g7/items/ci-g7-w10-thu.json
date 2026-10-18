@@ -1,0 +1,333 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g7-w10-thu",
+  "playlistId": "ci-g7",
+  "order": 49,
+  "week": 10,
+  "day": "thu",
+  "title": "My Harry Potter Paper Artworks",
+  "titleZh": "我的《哈利·波特》纸艺作品",
+  "displayName": "Week 10 Thursday My Harry Potter Paper Artworks",
+  "taskType": {
+    "code": "answer_questions",
+    "labelZh": "回答问题"
+  },
+  "meta": {
+    "genre": "随笔",
+    "wordCount": 178,
+    "difficulty": 2,
+    "suggestedMinutes": 8,
+    "themeContext": "人与社会",
+    "contentRequirement": "丰富、充实、积极向上的生活",
+    "intro": "“我创作了《哈利·波特》系列纸艺，还往里面加了点‘魔法’！”",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+    "pdfPages": [
+      88
+    ],
+    "bookPages": [
+      79
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-series",
+        "headword": "series",
+        "ipa": "ˈsɪəriːz",
+        "pos": "n.",
+        "meaningZh": "系列"
+      },
+      {
+        "id": "v-anniversary",
+        "headword": "anniversary",
+        "ipa": "ˌænɪˈvɜːsəri",
+        "pos": "n.",
+        "meaningZh": "周年纪念"
+      },
+      {
+        "id": "v-handle",
+        "headword": "handle",
+        "ipa": "ˈhændl",
+        "pos": "v.",
+        "meaningZh": "处理"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "My name is Kristy Edgar. I’m a paper artist."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "I’ve been making paper art for about eight years."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Since I was a kid, I’ve loved the "
+          },
+          {
+            "t": "em",
+            "v": "Harry Potter"
+          },
+          {
+            "t": "text",
+            "v": " "
+          },
+          {
+            "t": "vocab",
+            "v": "series",
+            "ref": "v-series"
+          },
+          {
+            "t": "text",
+            "v": ". Back in 2017, I started making paper art pieces of the characters in this series. But I failed—the final pieces didn’t turn out the way I wanted them to."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The first movie in the series is "
+          },
+          {
+            "t": "em",
+            "v": "Harry Potter and the Sorcerer’s Stone"
+          },
+          {
+            "t": "gloss",
+            "v": "",
+            "zh": "《哈利·波特与魔法石》"
+          },
+          {
+            "t": "text",
+            "v": ". It was released in 2001. The year 2021 was its 20th "
+          },
+          {
+            "t": "vocab",
+            "v": "anniversary",
+            "ref": "v-anniversary"
+          },
+          {
+            "t": "text",
+            "v": ". To honour it, I re-started my "
+          },
+          {
+            "t": "em",
+            "v": "Harry Potter"
+          },
+          {
+            "t": "text",
+            "v": " project during that year."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Of this project, the most difficult part was to show the magical elements. To "
+          },
+          {
+            "t": "vocab",
+            "v": "handle",
+            "ref": "v-handle"
+          },
+          {
+            "t": "text",
+            "v": " this, I experimented a lot with different materials. For example, I used "
+          },
+          {
+            "t": "gloss",
+            "v": "vellum",
+            "zh": "牛皮纸"
+          },
+          {
+            "t": "text",
+            "v": " for the "
+          },
+          {
+            "t": "gloss",
+            "v": "translucent",
+            "zh": "半透明的"
+          },
+          {
+            "t": "text",
+            "v": " parts. I brushed "
+          },
+          {
+            "t": "gloss",
+            "v": "nail polish",
+            "zh": "指甲油"
+          },
+          {
+            "t": "text",
+            "v": " on plastic to make things shiny. And I even tried my first 3D piece."
+          }
+        ]
+      },
+      {
+        "id": "p6",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "After all the hard work, I finally completed a series of 27 paper art pieces. In making it, both my creativity and skills have improved. I loved working on this magical project!"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What kind of artist is Kristy Edgar?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why did she restart her "
+              },
+              {
+                "t": "em",
+                "v": "Harry Potter"
+              },
+              {
+                "t": "text",
+                "v": " project in 2021?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What was the biggest challenge in creating the paper art?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Name one special material she used and its purpose."
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How many paper art pieces did she finally complete?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Have you worked hard on a project you loved? What did you learn from the experience?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ]
+}

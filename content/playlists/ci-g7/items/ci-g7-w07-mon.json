@@ -1,0 +1,482 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g7-w07-mon",
+  "playlistId": "ci-g7",
+  "order": 31,
+  "week": 7,
+  "day": "mon",
+  "title": "Pits? No, Pets!",
+  "titleZh": "果核？不，是宠物！",
+  "displayName": "Week 7 Monday Pits? No, Pets!",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 221,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与自我",
+    "contentRequirement": "勤于动手，乐于实践",
+    "intro": "把芒果核当宠物，感受简单的快乐。",
+    "hasVideo": false
+  },
+  "thumbnail": "assets/ci-g7/ci-g7-w07-mon-1.jpg",
+  "source": {
+    "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+    "pdfPages": [
+      59,
+      60
+    ],
+    "bookPages": [
+      50,
+      51
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g7/ci-g7-w07-mon-1.jpg",
+        "alt": "Tiny figures climbing on mango pits arranged like a mountain landscape with clouds.",
+        "w": 600,
+        "h": 927
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-remove",
+        "headword": "remove",
+        "ipa": "rɪˈmuːv",
+        "pos": "v.",
+        "meaningZh": "去除"
+      },
+      {
+        "id": "v-unique",
+        "headword": "unique",
+        "ipa": "juˈniːk",
+        "pos": "adj.",
+        "meaningZh": "独特的"
+      },
+      {
+        "id": "v-stressed",
+        "headword": "stressed",
+        "ipa": "strest",
+        "pos": "adj.",
+        "meaningZh": "焦虑的，有压力的"
+      },
+      {
+        "id": "v-trend",
+        "headword": "trend",
+        "ipa": "trend",
+        "pos": "n.",
+        "meaningZh": "潮流"
+      },
+      {
+        "id": "v-comfort",
+        "headword": "comfort",
+        "ipa": "ˈkʌmfət",
+        "pos": "n.",
+        "meaningZh": "慰藉，安慰"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      },
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "What do you do with the "
+          },
+          {
+            "t": "gloss",
+            "v": "mango pit",
+            "zh": "果核"
+          },
+          {
+            "t": "text",
+            "v": " after you eat the fruit? Maybe you just throw it away like most people? But for some creative young Chinese people, the pit isn’t useless at all. They can turn it into a lovely little “pet”. No kidding—this is really happening!"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The process of making a mango pit pet is simple and fun. The owner only needs two common tools: a toothbrush and a hairdryer. First, they use the toothbrush to carefully clean the pit under running water, "
+          },
+          {
+            "t": "vocab",
+            "v": "removing",
+            "ref": "v-remove"
+          },
+          {
+            "t": "text",
+            "v": " all the fruit bits. Next, they gently dry its natural “hairs” with the hairdryer until it becomes soft and "
+          },
+          {
+            "t": "gloss",
+            "v": "fluffy",
+            "zh": "蓬松的"
+          },
+          {
+            "t": "text",
+            "v": ". To make the pit look more like a real pet, some people stick on small “eyes” made of plastic or paper. Others paint it in different colours to give it a "
+          },
+          {
+            "t": "vocab",
+            "v": "unique",
+            "ref": "v-unique"
+          },
+          {
+            "t": "text",
+            "v": " style."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Sounds interesting, doesn’t it? But why do these young people spend time raising such an unusual “pet”? “It brings me great joy and helps me relax,” said one owner. “Mangoes are easy to buy from the market anytime. And unlike a real pet, it doesn’t need food or walks—it’s always there for me when I feel lonely or "
+          },
+          {
+            "t": "vocab",
+            "v": "stressed",
+            "ref": "v-stressed"
+          },
+          {
+            "t": "text",
+            "v": ".” This cute "
+          },
+          {
+            "t": "vocab",
+            "v": "trend",
+            "ref": "v-trend"
+          },
+          {
+            "t": "text",
+            "v": " shows how young people find fun and "
+          },
+          {
+            "t": "vocab",
+            "v": "comfort",
+            "ref": "v-comfort"
+          },
+          {
+            "t": "text",
+            "v": " in small, creative things, turning everyday objects into little friends."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why do young people enjoy keeping mango pit pets?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because they can sell them for money."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because it is a popular school project."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because it brings them joy and comfort."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because it teaches them to care for plants."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What tools are needed to make a mango pit pet?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A brush and paints."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A knife and scissors."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Glue and colored paper."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A toothbrush and a hairdryer."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why do people use a hairdryer when making a mango pit pet?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To clean the pit."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To stick the eyes on the pit."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To make the pit soft and fluffy."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To change the color and shape of the pit."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is one advantage of a mango pit pet over a real pet?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It can live longer."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It can learn tricks."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It is more beautiful."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It doesn’t need food or walks."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does this trend show about young people?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They like to keep pets."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They like to follow strange trends."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They waste food in different ways."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They find happiness in small, creative things."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

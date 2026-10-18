@@ -1,0 +1,791 @@
+{
+ "schemaVersion": "1.0",
+ "id": "ci-g7-w15-fri",
+ "playlistId": "ci-g7",
+ "order": 75,
+ "week": 15,
+ "day": "fri",
+ "title": "Different Rules",
+ "titleZh": "不同的礼仪",
+ "displayName": "Week 15 Friday Different Rules",
+ "taskType": {
+  "code": "weekly_intensive",
+  "labelZh": "每周精读"
+ },
+ "meta": {
+  "genre": "说明文",
+  "wordCount": 205,
+  "difficulty": 3,
+  "suggestedMinutes": 12,
+  "themeContext": "人与社会",
+  "contentRequirement": "公共秩序与法律法规",
+  "intro": "每个国家都有自己的“规矩”。在你去某个国家之前，要搞清楚当地的“规矩”，以免不必要的麻烦。",
+  "hasVideo": true
+ },
+ "source": {
+  "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+  "pdfPages": [
+   129,
+   130
+  ],
+  "bookPages": [
+   120,
+   121
+  ]
+ },
+ "status": {
+  "content": "transcribed",
+  "version": "1.0.0"
+ },
+ "article": {
+  "images": [],
+  "vocabulary": [
+   {
+    "id": "v-manners",
+    "headword": "manners",
+    "ipa": "ˈmænəz",
+    "pos": "n.",
+    "meaningZh": "礼貌；礼仪"
+   },
+   {
+    "id": "v-awkward",
+    "headword": "awkward",
+    "ipa": "ˈɔːkwəd",
+    "pos": "adj.",
+    "meaningZh": "尴尬的"
+   },
+   {
+    "id": "v-ruin",
+    "headword": "ruin",
+    "ipa": "ˈruːɪn",
+    "pos": "v.",
+    "meaningZh": "毁坏，破坏"
+   },
+   {
+    "id": "v-soul",
+    "headword": "soul",
+    "ipa": "səʊl",
+    "pos": "n.",
+    "meaningZh": "灵魂"
+   }
+  ],
+  "blocks": [
+   {
+    "id": "p1",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "Before you visit a country, you should learn about its social rules. Because if you don’t, you might find yourself in an "
+     },
+     {
+      "t": "vocab",
+      "v": "awkward",
+      "ref": "v-awkward"
+     },
+     {
+      "t": "text",
+      "v": " situation. Here are some interesting rules in different countries."
+     }
+    ]
+   },
+   {
+    "id": "p2",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "In Thailand, you can see that the Thai people are almost always smiling. They are very friendly. However, a simple thing can quickly "
+     },
+     {
+      "t": "vocab",
+      "v": "ruin",
+      "ref": "v-ruin"
+     },
+     {
+      "t": "text",
+      "v": " a Thai person’s mood. In this country, you can’t touch anyone’s head, because Thai people believe that the "
+     },
+     {
+      "t": "vocab",
+      "v": "soul",
+      "ref": "v-soul"
+     },
+     {
+      "t": "text",
+      "v": " is in the head."
+     }
+    ]
+   },
+   {
+    "id": "p3",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "If you are going to visit "
+     },
+     {
+      "t": "gloss",
+      "v": "Chile",
+      "zh": "智利"
+     },
+     {
+      "t": "text",
+      "v": ", remember one simple rule: Don’t eat anything with your hands. In this country, table "
+     },
+     {
+      "t": "vocab",
+      "v": "manners",
+      "ref": "v-manners"
+     },
+     {
+      "t": "text",
+      "v": " are very important. You should use knives and forks, even when you eat hamburgers and French fries."
+     }
+    ]
+   },
+   {
+    "id": "p4",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "In most parts of the world, people prefer others to be on time for every event. However, "
+     },
+     {
+      "t": "gloss",
+      "v": "Mexicans",
+      "zh": "墨西哥人"
+     },
+     {
+      "t": "text",
+      "v": " think it’s impolite to do so. In Mexico, people are always late for a friend’s party. If they have a business meeting to attend, they won’t be in a hurry. It is considered to be impolite to arrive anywhere on time. This tradition has a very simple explanation. For a very long time, this country had big problems with public transportation. So, being late has become a habit now."
+     }
+    ]
+   }
+  ]
+ },
+ "sections": [
+  {
+   "id": "s1",
+   "label": "I",
+   "instruction": "Answer the questions.",
+   "questions": [
+    {
+     "id": "q1",
+     "number": 1,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Why should we learn about different social rules?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q2",
+     "number": 2,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Thai people are very friendly, aren’t they?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q3",
+     "number": 3,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Why do Thai people get unhappy if you touch their heads?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q4",
+     "number": 4,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "What shouldn’t you do at the table in Chile?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q5",
+     "number": 5,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Why are Mexicans used to being late for parties and meetings?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q6",
+     "number": 6,
+     "points": 2,
+     "skills": [
+      "opinion"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "What are some social rules in China? What is/are the possible reason(s) behind them?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "label": "II",
+   "instruction": "Complete each sentence with one given word from the box. Each word can be used only once.",
+   "bank": [
+    {
+     "id": "A",
+     "content": [
+      {
+       "t": "text",
+       "v": "attend"
+      }
+     ]
+    },
+    {
+     "id": "B",
+     "content": [
+      {
+       "t": "text",
+       "v": "consider"
+      }
+     ]
+    },
+    {
+     "id": "C",
+     "content": [
+      {
+       "t": "text",
+       "v": "habit"
+      }
+     ]
+    },
+    {
+     "id": "D",
+     "content": [
+      {
+       "t": "text",
+       "v": "hurry"
+      }
+     ]
+    },
+    {
+     "id": "E",
+     "content": [
+      {
+       "t": "text",
+       "v": "prefer"
+      }
+     ]
+    },
+    {
+     "id": "F",
+     "content": [
+      {
+       "t": "text",
+       "v": "visit"
+      }
+     ]
+    }
+   ],
+   "questions": [
+    {
+     "id": "q7",
+     "number": 7,
+     "points": 1,
+     "skills": [
+      "vocab_in_context"
+     ],
+     "interaction": {
+      "kind": "gapMatch",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "He was invited to "
+       },
+       {
+        "t": "blank",
+        "id": "b1"
+       },
+       {
+        "t": "text",
+        "v": " the meeting in Paris."
+       }
+      ]
+     }
+    },
+    {
+     "id": "q8",
+     "number": 8,
+     "points": 1,
+     "skills": [
+      "vocab_in_context"
+     ],
+     "interaction": {
+      "kind": "gapMatch",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "We left in such a(n) "
+       },
+       {
+        "t": "blank",
+        "id": "b2"
+       },
+       {
+        "t": "text",
+        "v": " that we forgot to bring our tickets."
+       }
+      ]
+     }
+    },
+    {
+     "id": "q9",
+     "number": 9,
+     "points": 1,
+     "skills": [
+      "vocab_in_context"
+     ],
+     "interaction": {
+      "kind": "gapMatch",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "I’d like some time to "
+       },
+       {
+        "t": "blank",
+        "id": "b3"
+       },
+       {
+        "t": "text",
+        "v": " before I make a decision."
+       }
+      ]
+     }
+    },
+    {
+     "id": "q10",
+     "number": 10,
+     "points": 1,
+     "skills": [
+      "vocab_in_context"
+     ],
+     "interaction": {
+      "kind": "gapMatch",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "I’d "
+       },
+       {
+        "t": "blank",
+        "id": "b4"
+       },
+       {
+        "t": "text",
+        "v": " to stay at home but I don’t have much choice."
+       }
+      ]
+     }
+    },
+    {
+     "id": "q11",
+     "number": 11,
+     "points": 1,
+     "skills": [
+      "vocab_in_context"
+     ],
+     "interaction": {
+      "kind": "gapMatch",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "I’ve never been to Singapore, but I hope to "
+       },
+       {
+        "t": "blank",
+        "id": "b5"
+       },
+       {
+        "t": "text",
+        "v": " it next year."
+       }
+      ]
+     }
+    },
+    {
+     "id": "q12",
+     "number": 12,
+     "points": 1,
+     "skills": [
+      "vocab_in_context"
+     ],
+     "interaction": {
+      "kind": "gapMatch",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "I’m trying to break the "
+       },
+       {
+        "t": "blank",
+        "id": "b6"
+       },
+       {
+        "t": "text",
+        "v": " of turning on the TV when I come home at night."
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "label": "III",
+   "instruction": "Complete the following sentences as required.",
+   "questions": [
+    {
+     "id": "q13",
+     "number": 13,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Before you visit a country, you should "
+       },
+       {
+        "t": "underline",
+        "v": "learn about its social rules"
+       },
+       {
+        "t": "text",
+        "v": ". （对画线部分提问）"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "blank",
+        "id": "b7"
+       },
+       {
+        "t": "text",
+        "v": " "
+       },
+       {
+        "t": "blank",
+        "id": "b8"
+       },
+       {
+        "t": "text",
+        "v": " I "
+       },
+       {
+        "t": "blank",
+        "id": "b9"
+       },
+       {
+        "t": "text",
+        "v": " before I visit a country?"
+       }
+      ],
+      "scoring": "all"
+     }
+    },
+    {
+     "id": "q14",
+     "number": 14,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Don’t eat anything with your hands. （改为反意疑问句）"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "text",
+        "v": "Don’t eat anything with your hands, "
+       },
+       {
+        "t": "blank",
+        "id": "b10"
+       },
+       {
+        "t": "text",
+        "v": " "
+       },
+       {
+        "t": "blank",
+        "id": "b11"
+       },
+       {
+        "t": "text",
+        "v": "?"
+       }
+      ],
+      "scoring": "all"
+     }
+    },
+    {
+     "id": "q15",
+     "number": 15,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "It is considered to be impolite to arrive anywhere on time. （改为反意疑问句）"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "text",
+        "v": "It is considered to be impolite to arrive anywhere on time, "
+       },
+       {
+        "t": "blank",
+        "id": "b12"
+       },
+       {
+        "t": "text",
+        "v": " "
+       },
+       {
+        "t": "blank",
+        "id": "b13"
+       },
+       {
+        "t": "text",
+        "v": "?"
+       }
+      ],
+      "scoring": "all"
+     }
+    },
+    {
+     "id": "q16",
+     "number": 16,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "For a very long time, this country had big problems with public transportation. （改为一般疑问句）"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "blank",
+        "id": "b14"
+       },
+       {
+        "t": "text",
+        "v": " this country "
+       },
+       {
+        "t": "blank",
+        "id": "b15"
+       },
+       {
+        "t": "text",
+        "v": " big problems with public transportation for a long time?"
+       }
+      ],
+      "scoring": "all"
+     }
+    },
+    {
+     "id": "q17",
+     "number": 17,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "order",
+      "items": [
+       {
+        "id": "w1",
+        "content": [
+         {
+          "t": "text",
+          "v": "have"
+         }
+        ]
+       },
+       {
+        "id": "w2",
+        "content": [
+         {
+          "t": "text",
+          "v": "to"
+         }
+        ]
+       },
+       {
+        "id": "w3",
+        "content": [
+         {
+          "t": "text",
+          "v": "be"
+         }
+        ]
+       },
+       {
+        "id": "w4",
+        "content": [
+         {
+          "t": "text",
+          "v": "if"
+         }
+        ]
+       },
+       {
+        "id": "w5",
+        "content": [
+         {
+          "t": "text",
+          "v": "you"
+         }
+        ]
+       },
+       {
+        "id": "w6",
+        "content": [
+         {
+          "t": "text",
+          "v": "attend"
+         }
+        ]
+       },
+       {
+        "id": "w7",
+        "content": [
+         {
+          "t": "text",
+          "v": "a"
+         }
+        ]
+       },
+       {
+        "id": "w8",
+        "content": [
+         {
+          "t": "text",
+          "v": "meeting"
+         }
+        ]
+       },
+       {
+        "id": "w9",
+        "content": [
+         {
+          "t": "text",
+          "v": "on time"
+         }
+        ]
+       },
+       {
+        "id": "w10",
+        "content": [
+         {
+          "t": "text",
+          "v": "should"
+         }
+        ]
+       },
+       {
+        "id": "w11",
+        "content": [
+         {
+          "t": "text",
+          "v": "you"
+         }
+        ]
+       }
+      ],
+      "ending": "."
+     }
+    }
+   ]
+  }
+ ]
+}

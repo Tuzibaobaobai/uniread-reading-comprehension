@@ -1,0 +1,983 @@
+{
+ "schemaVersion": "1.0",
+ "id": "ci-g7-w13-fri",
+ "playlistId": "ci-g7",
+ "order": 65,
+ "week": 13,
+ "day": "fri",
+ "title": "Friendship Between Two Dogs",
+ "titleZh": "两只狗狗的友谊",
+ "displayName": "Week 13 Friday Friendship Between Two Dogs",
+ "taskType": {
+  "code": "weekly_intensive",
+  "labelZh": "每周精读"
+ },
+ "meta": {
+  "genre": "记叙文",
+  "wordCount": 185,
+  "difficulty": 2,
+  "suggestedMinutes": 10,
+  "themeContext": "人与自然",
+  "contentRequirement": "动物之间和谐共处",
+  "intro": "两只汪星人好朋友之间的感人故事。",
+  "hasVideo": true
+ },
+ "source": {
+  "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+  "pdfPages": [
+   113,
+   114
+  ],
+  "bookPages": [
+   104,
+   105
+  ]
+ },
+ "status": {
+  "content": "transcribed",
+  "version": "1.0.0"
+ },
+ "article": {
+  "images": [],
+  "vocabulary": [
+   {
+    "id": "v-puppy",
+    "headword": "puppy",
+    "pos": "n.",
+    "meaningZh": "小狗，幼犬",
+    "ipa": "ˈpʌpi"
+   },
+   {
+    "id": "v-vet",
+    "headword": "vet",
+    "pos": "n.",
+    "meaningZh": "兽医",
+    "ipa": "vet"
+   },
+   {
+    "id": "v-operation",
+    "headword": "operation",
+    "pos": "n.",
+    "meaningZh": "手术；操作",
+    "ipa": "ˌɒpəˈreɪʃn"
+   },
+   {
+    "id": "v-keep-an-eye-on",
+    "headword": "keep an eye on",
+    "pos": "phr.",
+    "meaningZh": "注意，留意"
+   },
+   {
+    "id": "v-drag",
+    "headword": "drag",
+    "pos": "v.",
+    "meaningZh": "拖，拽",
+    "ipa": "dræɡ"
+   },
+   {
+    "id": "v-move",
+    "headword": "move",
+    "pos": "v.",
+    "meaningZh": "感动；移动，搬动",
+    "ipa": "muːv"
+   }
+  ],
+  "blocks": [
+   {
+    "id": "p1",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "Spanky is six years old and Roman is eight. The two dogs have been good friends since they were "
+     },
+     {
+      "t": "vocab",
+      "v": "puppies",
+      "ref": "v-puppy"
+     },
+     {
+      "t": "text",
+      "v": ". They sleep together, eat together and play together."
+     }
+    ]
+   },
+   {
+    "id": "p2",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "Once, their owners noticed that one of Roman’s ears was "
+     },
+     {
+      "t": "gloss",
+      "v": "puffy",
+      "zh": "肿胀的"
+     },
+     {
+      "t": "text",
+      "v": ". The "
+     },
+     {
+      "t": "vocab",
+      "v": "vet",
+      "ref": "v-vet"
+     },
+     {
+      "t": "text",
+      "v": " said that "
+     },
+     {
+      "t": "underline",
+      "v": "he"
+     },
+     {
+      "t": "text",
+      "v": " was sick with ear problems. Roman needed an "
+     },
+     {
+      "t": "vocab",
+      "v": "operation",
+      "ref": "v-operation"
+     },
+     {
+      "t": "text",
+      "v": ", but he had to wait a few weeks. So his owners decided to set up a video camera in their home. This way, they could "
+     },
+     {
+      "t": "vocab",
+      "v": "keep an eye on",
+      "ref": "v-keep-an-eye-on"
+     },
+     {
+      "t": "text",
+      "v": " the dogs when they were away."
+     }
+    ]
+   },
+   {
+    "id": "p3",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "One day, in the video, the owners saw Spanky "
+     },
+     {
+      "t": "vocab",
+      "v": "dragging",
+      "ref": "v-drag"
+     },
+     {
+      "t": "text",
+      "v": " his bed towards Roman. After that, they both lay very close to each other on it. Spanky brought his bed to Roman so that Roman would be more comfortable and they would be closer to each other."
+     }
+    ]
+   },
+   {
+    "id": "p4",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "The owners shared the video on the internet. The friendship between Spanky and Roman "
+     },
+     {
+      "t": "vocab",
+      "v": "moved",
+      "ref": "v-move"
+     },
+     {
+      "t": "text",
+      "v": " many people. Now, Roman has had his operation and he is doing much better. The two dogs are happy to be close to each other again."
+     }
+    ]
+   }
+  ]
+ },
+ "sections": [
+  {
+   "id": "s1",
+   "label": "I",
+   "instruction": "Choose the best answer.",
+   "questions": [
+    {
+     "id": "q1",
+     "number": 1,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "choice",
+      "variant": "standard",
+      "maxChoices": 1,
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Which of the following statements is true according to the article?"
+       }
+      ],
+      "options": [
+       {
+        "id": "A",
+        "content": [
+         {
+          "t": "text",
+          "v": "Spanky and Roman are the same age."
+         }
+        ]
+       },
+       {
+        "id": "B",
+        "content": [
+         {
+          "t": "text",
+          "v": "Spanky is two years older than Roman."
+         }
+        ]
+       },
+       {
+        "id": "C",
+        "content": [
+         {
+          "t": "text",
+          "v": "Roman is two years older than Spanky."
+         }
+        ]
+       },
+       {
+        "id": "D",
+        "content": [
+         {
+          "t": "text",
+          "v": "Spanky and Roman don’t sleep together."
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "q2",
+     "number": 2,
+     "points": 1,
+     "skills": [
+      "reference"
+     ],
+     "interaction": {
+      "kind": "choice",
+      "variant": "standard",
+      "maxChoices": 1,
+      "prompt": [
+       {
+        "t": "text",
+        "v": "What does the underlined word “he” refer to in Paragraph 2?"
+       }
+      ],
+      "options": [
+       {
+        "id": "A",
+        "content": [
+         {
+          "t": "text",
+          "v": "Roman."
+         }
+        ]
+       },
+       {
+        "id": "B",
+        "content": [
+         {
+          "t": "text",
+          "v": "Spanky."
+         }
+        ]
+       },
+       {
+        "id": "C",
+        "content": [
+         {
+          "t": "text",
+          "v": "The vet."
+         }
+        ]
+       },
+       {
+        "id": "D",
+        "content": [
+         {
+          "t": "text",
+          "v": "One of the owners of Spanky and Roman."
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "q3",
+     "number": 3,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "choice",
+      "variant": "standard",
+      "maxChoices": 1,
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Why did the owners set up a video camera?"
+       }
+      ],
+      "options": [
+       {
+        "id": "A",
+        "content": [
+         {
+          "t": "text",
+          "v": "Because the vet asked them to do so."
+         }
+        ]
+       },
+       {
+        "id": "B",
+        "content": [
+         {
+          "t": "text",
+          "v": "Because they wanted to share the videos with internet users."
+         }
+        ]
+       },
+       {
+        "id": "C",
+        "content": [
+         {
+          "t": "text",
+          "v": "Because they wanted to watch the dogs while they were away."
+         }
+        ]
+       },
+       {
+        "id": "D",
+        "content": [
+         {
+          "t": "text",
+          "v": "Because they wanted to film the house while they were not at home."
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "q4",
+     "number": 4,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "choice",
+      "variant": "standard",
+      "maxChoices": 1,
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Now Roman ______."
+       }
+      ],
+      "options": [
+       {
+        "id": "A",
+        "content": [
+         {
+          "t": "text",
+          "v": "is still sick"
+         }
+        ]
+       },
+       {
+        "id": "B",
+        "content": [
+         {
+          "t": "text",
+          "v": "is getting better"
+         }
+        ]
+       },
+       {
+        "id": "C",
+        "content": [
+         {
+          "t": "text",
+          "v": "has more health problems"
+         }
+        ]
+       },
+       {
+        "id": "D",
+        "content": [
+         {
+          "t": "text",
+          "v": "is waiting to have his operation"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "id": "q5",
+     "number": 5,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "choice",
+      "variant": "standard",
+      "maxChoices": 1,
+      "prompt": [
+       {
+        "t": "text",
+        "v": "The friendship between Spanky and Roman ______."
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "text",
+        "v": "① is very moving"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "text",
+        "v": "② has lasted for a few weeks"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "text",
+        "v": "③ began when they were puppies"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "text",
+        "v": "④ ended when one of them got sick"
+       }
+      ],
+      "options": [
+       {
+        "id": "A",
+        "content": [
+         {
+          "t": "text",
+          "v": "①②"
+         }
+        ]
+       },
+       {
+        "id": "B",
+        "content": [
+         {
+          "t": "text",
+          "v": "②③"
+         }
+        ]
+       },
+       {
+        "id": "C",
+        "content": [
+         {
+          "t": "text",
+          "v": "①③"
+         }
+        ]
+       },
+       {
+        "id": "D",
+        "content": [
+         {
+          "t": "text",
+          "v": "①④"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "label": "II",
+   "instruction": "Complete the sentences with the given words in their proper forms.",
+   "questions": [
+    {
+     "id": "q6",
+     "number": 6,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "She has been off work because of "
+       },
+       {
+        "t": "blank",
+        "id": "b1",
+        "hint": {
+         "baseWord": "sick"
+        }
+       },
+       {
+        "t": "text",
+        "v": ". (sick)"
+       }
+      ]
+     }
+    },
+    {
+     "id": "q7",
+     "number": 7,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Don’t leave your "
+       },
+       {
+        "t": "blank",
+        "id": "b2",
+        "hint": {
+         "baseWord": "decide"
+        }
+       },
+       {
+        "t": "text",
+        "v": " to the last moment. (decide)"
+       }
+      ]
+     }
+    },
+    {
+     "id": "q8",
+     "number": 8,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "He was "
+       },
+       {
+        "t": "blank",
+        "id": "b3",
+        "hint": {
+         "baseWord": "comfortable"
+        }
+       },
+       {
+        "t": "text",
+        "v": " seated in his usual chair. (comfortable)"
+       }
+      ]
+     }
+    },
+    {
+     "id": "q9",
+     "number": 9,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "There isn’t an empty table. Would you mind "
+       },
+       {
+        "t": "blank",
+        "id": "b4",
+        "hint": {
+         "baseWord": "share"
+        }
+       },
+       {
+        "t": "text",
+        "v": "? (share)"
+       }
+      ]
+     }
+    },
+    {
+     "id": "q10",
+     "number": 10,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "The first thing I "
+       },
+       {
+        "t": "blank",
+        "id": "b5",
+        "hint": {
+         "baseWord": "notice"
+        }
+       },
+       {
+        "t": "text",
+        "v": " about the room was the smell. (notice)"
+       }
+      ]
+     }
+    },
+    {
+     "id": "q11",
+     "number": 11,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "I "
+       },
+       {
+        "t": "blank",
+        "id": "b6",
+        "hint": {
+         "baseWord": "wait"
+        }
+       },
+       {
+        "t": "text",
+        "v": " for her outside while she went in to see the doctor. (wait)"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "label": "III",
+   "instruction": "Complete the following sentences as required.",
+   "questions": [
+    {
+     "id": "q12",
+     "number": 12,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "The two dogs have been good friends "
+       },
+       {
+        "t": "underline",
+        "v": "since they were puppies"
+       },
+       {
+        "t": "text",
+        "v": ". （对画线部分提问）"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "blank",
+        "id": "b7"
+       },
+       {
+        "t": "text",
+        "v": " "
+       },
+       {
+        "t": "blank",
+        "id": "b8"
+       },
+       {
+        "t": "text",
+        "v": " have the two dogs been good friends?"
+       }
+      ],
+      "scoring": "all"
+     }
+    },
+    {
+     "id": "q13",
+     "number": 13,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Spanky brought his bed to Roman so that Roman would be more comfortable and they would be closer to each other. （保持句意基本不变）"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "text",
+        "v": "Spanky brought his bed to Roman "
+       },
+       {
+        "t": "blank",
+        "id": "b9"
+       },
+       {
+        "t": "text",
+        "v": " "
+       },
+       {
+        "t": "blank",
+        "id": "b10"
+       },
+       {
+        "t": "text",
+        "v": " "
+       },
+       {
+        "t": "blank",
+        "id": "b11"
+       },
+       {
+        "t": "text",
+        "v": " Roman would be more comfortable and they would be closer to each other."
+       }
+      ],
+      "scoring": "all"
+     }
+    },
+    {
+     "id": "q14",
+     "number": 14,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "The friendship between Spanky and Roman moved many people. （改为被动语态）"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "text",
+        "v": "Many people "
+       },
+       {
+        "t": "blank",
+        "id": "b12"
+       },
+       {
+        "t": "text",
+        "v": " "
+       },
+       {
+        "t": "blank",
+        "id": "b13"
+       },
+       {
+        "t": "text",
+        "v": " "
+       },
+       {
+        "t": "blank",
+        "id": "b14"
+       },
+       {
+        "t": "text",
+        "v": " the friendship between Spanky and Roman."
+       }
+      ],
+      "scoring": "all"
+     }
+    },
+    {
+     "id": "q15",
+     "number": 15,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "order",
+      "items": [
+       {
+        "id": "w1",
+        "content": [
+         {
+          "t": "text",
+          "v": "I"
+         }
+        ]
+       },
+       {
+        "id": "w2",
+        "content": [
+         {
+          "t": "text",
+          "v": "asked"
+         }
+        ]
+       },
+       {
+        "id": "w3",
+        "content": [
+         {
+          "t": "text",
+          "v": "an"
+         }
+        ]
+       },
+       {
+        "id": "w4",
+        "content": [
+         {
+          "t": "text",
+          "v": "away"
+         }
+        ]
+       },
+       {
+        "id": "w5",
+        "content": [
+         {
+          "t": "text",
+          "v": "eye"
+         }
+        ]
+       },
+       {
+        "id": "w6",
+        "content": [
+         {
+          "t": "text",
+          "v": "a lady"
+         }
+        ]
+       },
+       {
+        "id": "w7",
+        "content": [
+         {
+          "t": "text",
+          "v": "to"
+         }
+        ]
+       },
+       {
+        "id": "w8",
+        "content": [
+         {
+          "t": "text",
+          "v": "keep"
+         }
+        ]
+       },
+       {
+        "id": "w9",
+        "content": [
+         {
+          "t": "text",
+          "v": "on"
+         }
+        ]
+       },
+       {
+        "id": "w10",
+        "content": [
+         {
+          "t": "text",
+          "v": "my bag"
+         }
+        ]
+       },
+       {
+        "id": "w11",
+        "content": [
+         {
+          "t": "text",
+          "v": "I"
+         }
+        ]
+       },
+       {
+        "id": "w12",
+        "content": [
+         {
+          "t": "text",
+          "v": "when"
+         }
+        ]
+       },
+       {
+        "id": "w13",
+        "content": [
+         {
+          "t": "text",
+          "v": "was"
+         }
+        ]
+       }
+      ],
+      "ending": ".",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "I, asked, an, away, eye, a lady, to, keep, on, my bag, I, when, was （连词成句）"
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}

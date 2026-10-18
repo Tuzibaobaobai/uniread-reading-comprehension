@@ -1,0 +1,478 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g7-w08-tue",
+  "playlistId": "ci-g7",
+  "order": 37,
+  "week": 8,
+  "day": "tue",
+  "title": "The Dangers of Thirdhand Smoke",
+  "titleZh": "三手烟的危害",
+  "displayName": "Week 8 Tuesday The Dangers of Thirdhand Smoke",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 176,
+    "difficulty": 3,
+    "suggestedMinutes": 8,
+    "themeContext": "人与自我",
+    "contentRequirement": "身心健康",
+    "intro": "只听过二手烟？三手烟的危害也不容小觑。",
+    "hasVideo": false
+  },
+  "thumbnail": "assets/ci-g7/ci-g7-w08-tue-1.jpg",
+  "source": {
+    "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+    "pdfPages": [
+      69,
+      70
+    ],
+    "bookPages": [
+      60,
+      61
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g7/ci-g7-w08-tue-1.jpg",
+        "alt": "A black-and-white close-up of two hands breaking a cigarette in half.",
+        "w": 1200,
+        "h": 668
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "We all know smoking and secondhand smoke are harmful. But have you heard of thirdhand smoke?"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "When people smoke, harmful chemicals from the smoke stick to walls, clothes, and other surfaces long after the smoke is gone. This is called thirdhand smoke. Experts say it may also be dangerous to our health."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Doctors are studying thirdhand smoke to understand why some non-smokers still get lung cancer. A 2013 lab study showed it could even damage human DNA, which might increase the risk of disease."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Thirdhand smoke can stay for weeks, months, or even years. It can’t be removed by simply opening windows. What’s more, when nicotine "
+          },
+          {
+            "t": "gloss",
+            "v": "nicotine",
+            "zh": "尼古丁"
+          },
+          {
+            "t": "text",
+            "v": " in the smoke "
+          },
+          {
+            "t": "underline",
+            "v": "reacts"
+          },
+          {
+            "t": "text",
+            "v": " with air, it can form cancer-causing "
+          },
+          {
+            "t": "vocab",
+            "v": "substances",
+            "ref": "v-substance"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Although it’s hard to prove that it directly causes diseases, we should still be careful. Babies and young children are at higher risk because they often touch objects and then put their hands in their mouths. Pets may also be "
+          },
+          {
+            "t": "vocab",
+            "v": "affected",
+            "ref": "v-affect"
+          },
+          {
+            "t": "text",
+            "v": " when they lick their fur."
+          }
+        ]
+      },
+      {
+        "id": "p6",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "It’s important to "
+          },
+          {
+            "t": "vocab",
+            "v": "be aware of",
+            "ref": "v-be-aware-of"
+          },
+          {
+            "t": "text",
+            "v": " this hidden danger and try to avoid it."
+          }
+        ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-substance",
+        "headword": "substance",
+        "ipa": "ˈsʌbstəns",
+        "pos": "n.",
+        "meaningZh": "物质"
+      },
+      {
+        "id": "v-affect",
+        "headword": "affect",
+        "ipa": "əˈfekt",
+        "pos": "v.",
+        "meaningZh": "影响"
+      },
+      {
+        "id": "v-be-aware-of",
+        "headword": "be aware of",
+        "pos": "phr.",
+        "meaningZh": "意识到"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is thirdhand smoke?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A new type of cigarette invented recently."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Smoke that comes directly from a cigarette."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Smoke that non-smokers breathe in from the air."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Harmful chemicals that stay on surfaces after smoking."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What did a 2013 lab study show about thirdhand smoke?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It makes clothes smell bad."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It can damage human DNA."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It helps people stop smoking."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It only affects babies and pets."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does the underlined word “reacts” in Paragraph 4 mean about nicotine and air?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "cleans"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "disappears"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "moves away"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "combines and changes"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who are most at risk from thirdhand smoke according to the article?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Teenagers at school."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Only people who smoke."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Babies and young children."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Adults who work outdoors."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the main idea of the article?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Pets are not affected by smoking."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Smoking should be allowed only at home."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Opening windows can remove all harmful chemicals."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Thirdhand smoke is a hidden danger we should avoid."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

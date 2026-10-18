@@ -1,0 +1,801 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g7-w09-fri",
+  "playlistId": "ci-g7",
+  "order": 45,
+  "week": 9,
+  "day": "fri",
+  "title": "Why Do Our Teeth Become Sensitive?",
+  "titleZh": "牙齿为什么会敏感？",
+  "displayName": "Week 9 Friday Why Do Our Teeth Become Sensitive?",
+  "taskType": {
+    "code": "weekly_intensive",
+    "labelZh": "每周精读"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 148,
+    "difficulty": 3,
+    "suggestedMinutes": 11,
+    "themeContext": "人与自我",
+    "contentRequirement": "身心健康",
+    "intro": "牙齿敏感可真不好受！",
+    "hasVideo": true
+  },
+  "source": {
+    "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+    "pdfPages": [
+      81,
+      82
+    ],
+    "bookPages": [
+      72,
+      73
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-sour",
+        "headword": "sour",
+        "ipa": "ˈsaʊə",
+        "pos": "adj.",
+        "meaningZh": "酸的"
+      },
+      {
+        "id": "v-acidic",
+        "headword": "acidic",
+        "ipa": "əˈsɪdɪk",
+        "pos": "adj.",
+        "meaningZh": "酸性的"
+      },
+      {
+        "id": "v-wear-down",
+        "headword": "wear down",
+        "meaningZh": "磨损，磨平"
+      },
+      {
+        "id": "v-over-time",
+        "headword": "over time",
+        "meaningZh": "随着时间的推移，久而久之"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "When you drink cold water, your teeth may have an uncomfortable feeling. If you’ve ever experienced this feeling, you may have sensitive teeth. It’s a common problem shared by millions of people around the world."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "People with sensitive teeth may experience feelings of pain when they eat or drink something cold, hot, sweet or "
+          },
+          {
+            "t": "vocab",
+            "v": "sour",
+            "ref": "v-sour"
+          },
+          {
+            "t": "text",
+            "v": ". Sometimes even a deep breath of cold air can cause pain."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Scientists have found that several factors can cause you to have sensitive teeth. For example, brushing your teeth too hard can wear down the "
+          },
+          {
+            "t": "gloss",
+            "v": "enamel",
+            "zh": "牙釉质"
+          },
+          {
+            "t": "text",
+            "v": " on your teeth. Foods that are "
+          },
+          {
+            "t": "vocab",
+            "v": "acidic",
+            "ref": "v-acidic"
+          },
+          {
+            "t": "text",
+            "v": ", such as sodas and tomatoes, can also "
+          },
+          {
+            "t": "vocab",
+            "v": "wear down",
+            "ref": "v-wear-down"
+          },
+          {
+            "t": "text",
+            "v": " enamel "
+          },
+          {
+            "t": "vocab",
+            "v": "over time",
+            "ref": "v-over-time"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "If your teeth are sensitive, there are a number of ways to help reduce the pain. Using a soft toothbrush and brushing your teeth carefully and gently will help. Watching what you eat and drink can help, too."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Do many people around the world have the problem of sensitive teeth?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, if you have sensitive teeth, what may you experience?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why may brushing your teeth too hard cause you to have sensitive teeth?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "List two foods that are acidic."
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What can you do to reduce the pain if your teeth are sensitive?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why should we protect our teeth? List at least two reasons."
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "II",
+      "instruction": "Complete each sentence with one given word from the box.",
+      "bank": [
+        {
+          "id": "A",
+          "content": [
+            {
+              "t": "text",
+              "v": "breath"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "content": [
+            {
+              "t": "text",
+              "v": "common"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "content": [
+            {
+              "t": "text",
+              "v": "reduced"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "content": [
+            {
+              "t": "text",
+              "v": "shared"
+            }
+          ]
+        },
+        {
+          "id": "E",
+          "content": [
+            {
+              "t": "text",
+              "v": "uncomfortable"
+            }
+          ]
+        },
+        {
+          "id": "F",
+          "content": [
+            {
+              "t": "text",
+              "v": "watched"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "He "
+              },
+              {
+                "t": "blank",
+                "id": "b1",
+                "number": 1
+              },
+              {
+                "t": "text",
+                "v": " the chocolate cake with her."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The doctor told me to take a deep "
+              },
+              {
+                "t": "blank",
+                "id": "b2",
+                "number": 2
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The price is "
+              },
+              {
+                "t": "blank",
+                "id": "b3",
+                "number": 3
+              },
+              {
+                "t": "text",
+                "v": " from 99 cents to 85 cents."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I couldn’t sleep because the bed was so "
+              },
+              {
+                "t": "blank",
+                "id": "b4",
+                "number": 4
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I had dinner and "
+              },
+              {
+                "t": "blank",
+                "id": "b5",
+                "number": 5
+              },
+              {
+                "t": "text",
+                "v": " TV for a couple of hours."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Oil pollution is the most "
+              },
+              {
+                "t": "blank",
+                "id": "b6",
+                "number": 6
+              },
+              {
+                "t": "text",
+                "v": " cause of death for seabirds."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "III",
+      "instruction": "Complete the following sentences as required.",
+      "questions": [
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "It’s a common problem shared by millions of people around the world."
+              },
+              {
+                "t": "text",
+                "v": " （改为一般疑问句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b7"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b8"
+              },
+              {
+                "t": "text",
+                "v": " a common problem shared by millions of people around the world?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Scientists have found that "
+              },
+              {
+                "t": "underline",
+                "v": "several factors can cause you to have sensitive teeth"
+              },
+              {
+                "t": "text",
+                "v": "."
+              },
+              {
+                "t": "text",
+                "v": " （对画线部分提问）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b9"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b10"
+              },
+              {
+                "t": "text",
+                "v": " scientists found?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Using a soft toothbrush and brushing your teeth carefully and gently will help."
+              },
+              {
+                "t": "text",
+                "v": " （改为否定句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Using a soft toothbrush and brushing your teeth carefully and gently "
+              },
+              {
+                "t": "blank",
+                "id": "b11"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b12"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Watching what you eat and drink can help, too."
+              },
+              {
+                "t": "text",
+                "v": " （改为否定句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Watching what you eat and drink "
+              },
+              {
+                "t": "blank",
+                "id": "b13"
+              },
+              {
+                "t": "text",
+                "v": " help, "
+              },
+              {
+                "t": "blank",
+                "id": "b14"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "order",
+            "items": [
+              {
+                "id": "w1",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "over time"
+                  }
+                ]
+              },
+              {
+                "id": "w2",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "will"
+                  }
+                ]
+              },
+              {
+                "id": "w3",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "carefully"
+                  }
+                ]
+              },
+              {
+                "id": "w4",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the"
+                  }
+                ]
+              },
+              {
+                "id": "w5",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "teeth"
+                  }
+                ]
+              },
+              {
+                "id": "w6",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "and"
+                  }
+                ]
+              },
+              {
+                "id": "w7",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "gently"
+                  }
+                ]
+              },
+              {
+                "id": "w8",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "help"
+                  }
+                ]
+              },
+              {
+                "id": "w9",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "brushing"
+                  }
+                ]
+              },
+              {
+                "id": "w10",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "reduce"
+                  }
+                ]
+              },
+              {
+                "id": "w11",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "your"
+                  }
+                ]
+              },
+              {
+                "id": "w12",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "pain"
+                  }
+                ]
+              }
+            ],
+            "ending": "."
+          }
+        }
+      ]
+    }
+  ]
+}

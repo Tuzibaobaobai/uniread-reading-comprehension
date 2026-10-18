@@ -1,0 +1,216 @@
+{
+  "schemaVersion": "1.0",
+  "itemId": "ci-g7-w02-fri",
+  "answerSource": "official",
+  "reviewStatus": "pending",
+  "officialRef": {
+    "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级答案.pdf",
+    "pages": [
+      6
+    ]
+  },
+  "answers": {
+    "q1": {
+      "correct": [
+        "C"
+      ],
+      "explanationZh": "第一段说它是华尔街的象征（symbol of Wall Street）。",
+      "evidence": [
+        {
+          "block": "p1",
+          "quote": "It is a symbol of Wall Street."
+        }
+      ]
+    },
+    "q2": {
+      "correct": [
+        "B"
+      ],
+      "explanationZh": "第一段给出尺寸：高 3.4 米，长 4.9 米。",
+      "evidence": [
+        {
+          "block": "p1",
+          "quote": "The 3,200-kg sculpture is 3.4 meters tall and 4.9 meters long."
+        }
+      ]
+    },
+    "q3": {
+      "correct": [
+        "A"
+      ],
+      "explanationZh": "第二段说 Di Modica 1970 年身无分文来到美国。1987 年是股灾和铜牛创作的时间，别弄混。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "Di Modica arrived penniless in the U.S. in 1970."
+        }
+      ]
+    },
+    "q4": {
+      "correct": [
+        "B"
+      ],
+      "explanationZh": "铜牛重 3,200 公斤，B 对。造价是 36 万美元，创作者是意大利艺术家，位置在金融区，所以 A、C、D 都错。",
+      "evidence": [
+        {
+          "block": "p1",
+          "quote": "The 3,200-kg sculpture is 3.4 meters tall and 4.9 meters long."
+        }
+      ]
+    },
+    "q5": {
+      "slots": {
+        "b1": {
+          "accept": [
+            "arrival"
+          ]
+        }
+      },
+      "explanationZh": "空前有形容词 late，且 the late ___ of 要名词，arrive 的名词是 arrival。",
+      "tipsZh": "arrive → arrival"
+    },
+    "q6": {
+      "slots": {
+        "b2": {
+          "accept": [
+            "penniless"
+          ]
+        }
+      },
+      "explanationZh": "was 后要形容词，penny（便士）加 -less 变成“身无分文的”penniless。",
+      "tipsZh": "名词 + -less = 形容词"
+    },
+    "q7": {
+      "slots": {
+        "b3": {
+          "accept": [
+            "creative"
+          ]
+        }
+      },
+      "explanationZh": "very 后要形容词，create 变成 creative（有创造力的），会写诗、画画正合适。"
+    },
+    "q8": {
+      "slots": {
+        "b4": {
+          "accept": [
+            "popularity"
+          ]
+        }
+      },
+      "explanationZh": "in 后面要名词，popular 的名词是 popularity。",
+      "tipsZh": "popular → popularity"
+    },
+    "q9": {
+      "slots": {
+        "b5": {
+          "accept": [
+            "attraction"
+          ]
+        }
+      },
+      "explanationZh": "tourist attraction 是“旅游景点”，名词用 attraction。"
+    },
+    "q10": {
+      "slots": {
+        "b6": {
+          "accept": [
+            "known"
+          ]
+        },
+        "b7": {
+          "accept": [
+            "as"
+          ]
+        }
+      },
+      "explanationZh": "also called 可改成 also known as，意思都是“也被称为”。",
+      "tipsZh": "be known as 被称为"
+    },
+    "q11": {
+      "slots": {
+        "b8": {
+          "accept": [
+            "didn’t",
+            "didn't"
+          ]
+        },
+        "b9": {
+          "accept": [
+            "he"
+          ]
+        }
+      },
+      "explanationZh": "前面是肯定句、一般过去时，所以反意疑问用 didn’t he；Di Modica 是男性，用 he。"
+    },
+    "q12": {
+      "slots": {
+        "b10": {
+          "accept": [
+            "Why"
+          ]
+        },
+        "b11": {
+          "accept": [
+            "did"
+          ]
+        }
+      },
+      "explanationZh": "画线部分是“目的”，用 Why 提问；一般过去时，助动词用 did。",
+      "tipsZh": "Why did ...? 为什么……"
+    },
+    "q13": {
+      "slots": {
+        "b12": {
+          "accept": [
+            "on"
+          ]
+        },
+        "b13": {
+          "accept": [
+            "your"
+          ]
+        },
+        "b14": {
+          "accept": [
+            "own"
+          ]
+        }
+      },
+      "explanationZh": "by yourself（独自）可换成 on your own，这里 You 对应 your。",
+      "tipsZh": "on one’s own = by oneself"
+    },
+    "q14": {
+      "sequences": [
+        [
+          "w1",
+          "w5",
+          "w7",
+          "w10",
+          "w4",
+          "w6",
+          "w11",
+          "w8",
+          "w3",
+          "w9",
+          "w2"
+        ],
+        [
+          "w6",
+          "w5",
+          "w7",
+          "w10",
+          "w4",
+          "w1",
+          "w11",
+          "w8",
+          "w3",
+          "w9",
+          "w2"
+        ]
+      ],
+      "explanationZh": "主句 You will feel tired（你会觉得累），if 引导条件句 you carry on working so hard（如果你这样拼命地继续工作）。",
+      "tipsZh": "carry on doing sth. 继续做某事；so hard 这么努力"
+    }
+  }
+}

@@ -1,0 +1,916 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g7-w17-fri",
+  "playlistId": "ci-g7",
+  "order": 85,
+  "week": 17,
+  "day": "fri",
+  "title": "A Speech on Losing Weight",
+  "titleZh": "减肥心得演讲稿",
+  "displayName": "Week 17 Friday A Speech on Losing Weight",
+  "taskType": {
+    "code": "weekly_intensive",
+    "labelZh": "每周精读"
+  },
+  "meta": {
+    "genre": "演讲",
+    "wordCount": 199,
+    "difficulty": 2,
+    "suggestedMinutes": 9,
+    "themeContext": "人与自我",
+    "contentRequirement": "身心健康",
+    "intro": "保持健康体重，我有话要说！",
+    "hasVideo": true
+  },
+  "source": {
+    "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
+    "pdfPages": [
+      145,
+      146
+    ],
+    "bookPages": [
+      136,
+      137
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-lifestyle",
+        "headword": "lifestyle",
+        "ipa": "ˈlaɪfstaɪl",
+        "pos": "n.",
+        "meaningZh": "生活方式"
+      },
+      {
+        "id": "v-junk-food",
+        "headword": "junk food",
+        "meaningZh": "垃圾食品"
+      },
+      {
+        "id": "v-as-time-went-by",
+        "headword": "as time went by",
+        "meaningZh": "随着时间的推移"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "I’m happy to be here today to share my experience with you. Three years ago, my doctor told me that I had to lose weight to stay healthy. So, I made up my mind that I would change my "
+          },
+          {
+            "t": "vocab",
+            "v": "lifestyle",
+            "ref": "v-lifestyle"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "I believe that the key to losing weight is having a positive mind. During the past three years, whenever I faced difficulties, I would encourage myself. That’s how I could keep going."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Next, I had to change my diet. I threw away all of the "
+          },
+          {
+            "t": "vocab",
+            "v": "junk food",
+            "ref": "v-junk-food"
+          },
+          {
+            "t": "text",
+            "v": " in my house. When I went shopping, I only bought healthy food for myself. I suggest that when you get home, you should check the food in your fridge. Will it help you become the healthy person you want to be?"
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Lastly, I also started exercising. I tried to get out of my room and spend more time outside. At first, it was difficult for me. But "
+          },
+          {
+            "t": "vocab",
+            "v": "as time went by",
+            "ref": "v-as-time-went-by"
+          },
+          {
+            "t": "text",
+            "v": ", I started doing more and more exercise. Now, I’m able to run 5 kilometres every day."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Losing weight is all about making the right choices for your health. I’ve made it. And I want to tell you that you can, too!"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "In this speech, the author shares his experience of ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "seeing a doctor"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "encouraging himself"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "changing his lifestyle"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "living a successful life"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What happened to the author three years ago?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He became tired of junk food."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He became tired of staying in his room all day long."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "His doctor told him that he should spend more time outside."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "His doctor told him that he should lose weight to stay healthy."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The author believes that the key to losing weight is ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "doing exercise"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "thinking positively"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "changing one’s diet"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "aiming for a higher goal"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, which of the following statements is true?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "When the author went shopping, he bought more healthy food than junk food."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "As soon as the author started exercising, he was able to run 5 kilometres every day."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The author thought that losing weight was all about making the right choices for his health."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The author was able to keep going in losing weight because he went to see his doctor regularly."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "II",
+      "instruction": "Complete each sentence with one given item from the box. Each item can be used only once.",
+      "bank": [
+        {
+          "id": "A",
+          "content": [
+            {
+              "t": "text",
+              "v": "difficulty"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "content": [
+            {
+              "t": "text",
+              "v": "encourage"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "content": [
+            {
+              "t": "text",
+              "v": "experience"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "content": [
+            {
+              "t": "text",
+              "v": "key"
+            }
+          ]
+        },
+        {
+          "id": "E",
+          "content": [
+            {
+              "t": "text",
+              "v": "mind"
+            }
+          ]
+        },
+        {
+          "id": "F",
+          "content": [
+            {
+              "t": "text",
+              "v": "weight"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The "
+              },
+              {
+                "t": "blank",
+                "id": "b1"
+              },
+              {
+                "t": "text",
+                "v": " to success is to be ready from the start."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "He had the body of a man and the "
+              },
+              {
+                "t": "blank",
+                "id": "b2"
+              },
+              {
+                "t": "text",
+                "v": " of a child."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "This diet is designed for those who wants to lose "
+              },
+              {
+                "t": "blank",
+                "id": "b3"
+              },
+              {
+                "t": "text",
+                "v": " fast."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I think the problem can be got over without too much "
+              },
+              {
+                "t": "blank",
+                "id": "b4"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "In my "
+              },
+              {
+                "t": "blank",
+                "id": "b5"
+              },
+              {
+                "t": "text",
+                "v": ", people generally smile back if you smile at them."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The new teaching methods "
+              },
+              {
+                "t": "blank",
+                "id": "b6"
+              },
+              {
+                "t": "text",
+                "v": " children to think for themselves."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "III",
+      "instruction": "Complete the following sentences as required.",
+      "questions": [
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "So, I made up my mind that I would change my lifestyle. （保持句意基本不变）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "So, I "
+              },
+              {
+                "t": "blank",
+                "id": "b11"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b12"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b13"
+              },
+              {
+                "t": "text",
+                "v": " my lifestyle."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I believe that the key to losing weight is having a positive mind. （改为反意疑问句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "I believe that the key to losing weight is having a positive mind, "
+              },
+              {
+                "t": "blank",
+                "id": "b14"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b15"
+              },
+              {
+                "t": "text",
+                "v": "?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I threw away all of the junk food in my house. （保持句意基本不变）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "I "
+              },
+              {
+                "t": "blank",
+                "id": "b16"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b17"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b18"
+              },
+              {
+                "t": "text",
+                "v": " all of the junk food in my house."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I suggest that when you get home, you should "
+              },
+              {
+                "t": "underline",
+                "v": "check the food in your fridge"
+              },
+              {
+                "t": "text",
+                "v": ". （对划线部分提问）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "What do you suggest "
+              },
+              {
+                "t": "blank",
+                "id": "b19"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b20"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b21"
+              },
+              {
+                "t": "text",
+                "v": " when I get home?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Now, I’m able to run "
+              },
+              {
+                "t": "underline",
+                "v": "5 kilometres"
+              },
+              {
+                "t": "text",
+                "v": " every day. （对划线部分提问）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b22"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b23"
+              },
+              {
+                "t": "text",
+                "v": " are you able to run every day now?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "order",
+            "items": [
+              {
+                "id": "w1",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "photography"
+                  }
+                ]
+              },
+              {
+                "id": "w2",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "catching"
+                  }
+                ]
+              },
+              {
+                "id": "w3",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "all about"
+                  }
+                ]
+              },
+              {
+                "id": "w4",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "in time"
+                  }
+                ]
+              },
+              {
+                "id": "w5",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "moment"
+                  }
+                ]
+              },
+              {
+                "id": "w6",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "is"
+                  }
+                ]
+              },
+              {
+                "id": "w7",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "a"
+                  }
+                ]
+              }
+            ],
+            "ending": "."
+          }
+        }
+      ]
+    }
+  ]
+}
