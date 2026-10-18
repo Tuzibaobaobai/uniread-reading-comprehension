@@ -49,3 +49,13 @@ export const Locate = () => (
     <path d="M12 2v3M12 19v3M2 12h3M19 12h3" />
   </svg>
 );
+export const ChevronLeft = () => (
+  <svg viewBox="0 0 24 24" aria-hidden {...s}>
+    <path d="M15 5l-7 7 7 7" />
+  </svg>
+);
+export const ChevronRight = () => (
+  <svg viewBox="0 0 24 24" aria-hidden {...s}>
+    <path d="M9 5l7 7-7 7" />
+  </svg>
+);

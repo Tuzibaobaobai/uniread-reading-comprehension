@@ -10,7 +10,7 @@
 |---|---|---|---|---|
 | Quiz | [7870-85035](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=7870-85035) | 阅读页右栏题卡（题干、选项列表、底栏） | `src/reader/ReaderPage.tsx`、`app.css` `.question-card` | 已实现，待验收 |
 | Option-text-item | [7301-61934](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=7301-61934) | 选项行；状态：默认 / 悬停 / 选中 / 错误 / 正确-展开（含解析） | `src/reader/interactions.tsx`、`app.css` `.option*` | 已实现，待验收 |
-| Quiz-pagination | [7870-51500](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=7870-51500) | 上一题 / 题号分页（已答标记）/ 下一题·提交；提交后题号变为对错图标 | `src/reader/ReaderPage.tsx`、`app.css` `.question-nav`、`.question-dot*` | 已实现，待验收 |
+| Quiz-pagination | [7870-51500](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=7870-51500) | 上一题 / 题号分页（已答标记）/ 下一题·提交；提交后题号变为对错图标 | `src/reader/ReaderPage.tsx`、`src/reader/QuestionStrip.tsx`、`app.css` `.question-nav`、`.question-dot*`、`.strip-more` | 已实现，待验收；题号溢出时的“更多”按钮 Figma 中尚无设计，暂用现有 token 实现，待补组件 |
 | Header | [6346-84038](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=6346-84038) | 阅读页顶栏：返回按钮 + 标题。Read/Speak/Quiz、Dictionary、生词本、设置本项目不使用 | `src/reader/ReaderPage.tsx`、`app.css` `.reader-head*` | 已实现，待验收 |
 | Article Text | [7740-21130](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=7740-21130) | 文章正文排版（采用其文字样式，不采用字幕卡片结构） | `src/reader/ArticlePane.tsx`、`app.css` `.article*`、`.rt-*` | 已实现，待验收 |
 | Playlist | [16709-265119](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=16709-265119) | Playlist 详情页：左侧信息面板 + 右侧列表（行含进度条）。分享、统计按钮本项目不使用 | `src/pages/PlaylistPage.tsx`、`app.css` `.playlist-*`、`.item-row*` | 已实现，待验收 |

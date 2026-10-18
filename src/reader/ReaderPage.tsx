@@ -11,6 +11,7 @@ import correctIcon from '@/assets/icons/correct.svg';
 import wrongIcon from '@/assets/icons/wrong.svg';
 import { plainText, type BlankNode } from '@/components/Rich';
 import { ArticlePane } from './ArticlePane';
+import { QuestionStrip } from './QuestionStrip';
 import { paint, sentenceRange } from './evidence';
 import {
   ChoiceView,
@@ -99,7 +100,6 @@ function Reader({ item }: { item: ItemT }) {
 
   useEffect(() => {
     if (flat[index]) localAttempts.setPosition(item.id, flat[index].q.id);
-    document.querySelector('.question-dot.is-current')?.scrollIntoView({ block: 'nearest', inline: 'center' });
   }, [item.id, index]);
 
   const elapsed = () => attempt.durationSec + (Date.now() - sessionStart.current) / 1000;
@@ -321,7 +321,7 @@ function Reader({ item }: { item: ItemT }) {
             <button className="pill-button" disabled={pos <= 0} onClick={() => go(visible[pos - 1])}>
               上一题
             </button>
-            <div className="question-dots">
+            <QuestionStrip current={index} count={visible.length}>
               {visible.map((i) => {
                 const f = flat[i];
                 const r = review?.result.byQuestion.find((b) => b.q === f.q.id);
@@ -353,7 +353,7 @@ function Reader({ item }: { item: ItemT }) {
                   </button>
                 );
               })}
-            </div>
+            </QuestionStrip>
             {submitted ? (
               isLast ? (
                 <button className="pill-button" onClick={retry}>

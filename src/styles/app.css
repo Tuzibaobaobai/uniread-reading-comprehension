@@ -405,10 +405,28 @@ button.option:hover { background: var(--bg-hover); }
   display: flex; gap: var(--pager-num-gap); min-width: 0;
   overflow-x: auto; scrollbar-width: none;
   justify-content: safe center;
-  /* soft edges when the numbers scroll (many questions) */
-  padding: 0 12px;
-  mask-image: linear-gradient(to right, transparent, black 12px, black calc(100% - 12px), transparent);
+  position: relative; /* offsetLeft of the numbers is measured from here (centring the current one) */
+  padding: 0 var(--strip-pad);
 }
+/* more numbers than fit: fade only the edge that hides numbers, and show a "more" button there */
+.question-strip { min-width: 0; display: flex; align-items: center; gap: var(--strip-more-gap); }
+.question-strip .question-dots { flex: 1; }
+.question-strip.has-left .question-dots { mask-image: linear-gradient(to right, transparent, black var(--strip-fade)); }
+.question-strip.has-right .question-dots { mask-image: linear-gradient(to left, transparent, black var(--strip-fade)); }
+.question-strip.has-left.has-right .question-dots {
+  mask-image: linear-gradient(to right, transparent, black var(--strip-fade), black calc(100% - var(--strip-fade)), transparent);
+}
+.strip-more {
+  flex: none;
+  min-width: var(--tap); height: var(--tap); padding: 0 var(--strip-more-pad);
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--strip-more-gap);
+  border: var(--radio-border) solid var(--border-strong); border-radius: var(--radius-full);
+  background: var(--bg-card); color: var(--text-strong); box-shadow: var(--shadow-bar);
+  font-size: var(--fs-m); line-height: var(--lh-m); font-weight: var(--fw-bold); cursor: pointer;
+}
+.strip-more svg { width: var(--strip-more-icon); height: var(--strip-more-icon); flex: none; }
+.strip-more:hover { background: var(--bg-selected); }
+.strip-more-count { color: var(--accent); }
 .question-dots::-webkit-scrollbar { display: none; }
 .question-dot {
   flex: none;
