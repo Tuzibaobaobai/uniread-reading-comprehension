@@ -80,11 +80,15 @@ function checkItem(item: ItemT, key: ItemKeyT, playlistDir: string) {
     blankOwners.set(blankId, qid);
   };
 
-  // question numbering continuous from 1
+  // display numbers are continuous from 1; question ids are stable identities (docs/14 §3.2):
+  // unique across the item's sections, `q<digits>`, and NOT tied to the display number — a question
+  // inserted later gets a new never-used id (see scripts/id-changes.ts), reordering keeps ids
   const qs = allQuestions(item);
+  const seenIds = new Set<string>();
   qs.forEach((q, i) => {
     if (q.number !== i + 1) err(`question ${q.id} has number ${q.number}, expected ${i + 1}`);
-    if (q.id !== `q${i + 1}`) err(`question id ${q.id}, expected q${i + 1}`);
+    if (seenIds.has(q.id)) err(`question id ${q.id} used twice in the item`);
+    seenIds.add(q.id);
   });
 
   for (const s of item.sections) {

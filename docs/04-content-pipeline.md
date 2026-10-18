@@ -52,7 +52,8 @@ PDF 是扫描件（无文字层、无答案页），内容靠 **页面图片 →
 ### 2.4 题目 sections
 - 每个大题（I / II）一个 section；无罗马数字时省略 `label`
 - `instruction` 照抄英文指令；完形填空书中无指令时写 `"Choose the best answer to complete the passage."`
-- 题号 `number` 在整个 item 内连续（I 有 3 题，则 II 从 4 开始）；`id` = `q{number}`
+- 题号 `number` 在整个 item 内连续（I 有 3 题，则 II 从 4 开始），只用于展示
+- 小题 `id` 是永久身份（docs/14 §3.2）：**首次生产**时按顺序写 `q1…qN`（与题号相同）；之后同一道题永远保留原 id，调序只改 `number`；新增或换题用该 item 历史上从未用过的 id（已知最大编号 +1）；删除的 id 退役，不再分配给别的题。用 `npx tsx scripts/id-changes.ts --base <上一版 tag/commit>` 生成变更表并检查是否复用了退役 id
 - 题型映射：
 
 | 原题 | interaction |
@@ -121,9 +122,23 @@ PDF 是扫描件（无文字层、无答案页），内容靠 **页面图片 →
 - 原书错别字（如 “Time Tem Glasses”）：正文照录修正后的文字，在 `errata` 记录 `{original, corrected, note}`
 - 题目跨页、文章跨页：合并为同一个 item，`source.pdfPages` 列全
 
-## 7. UniRead 交付规约（[docs/14](14-agent-production-rules.md) v0.3）
+## 7. UniRead 交付规约（[docs/14](14-agent-production-rules.md) v0.6）
 
 每次生产或补齐都要满足以下要求，与上面的转录规范同时执行。
+
+**铁律：还原 RC 的布局和交互**
+- UniRead 接入必须保留 RC 原页的布局、字体、响应式和交互，只替换数据、存储和通信适配；差异一律列为未完成。
+- 每次交付附可构建源码、字体和图片依赖，以及来源页面的参考截图：`REFERENCE=1 npx playwright test e2e/reference.spec.ts` → `.work/reference/public`（作答前，可公开）和 `.work/reference/private`（提交后，含答案，私有）。
+
+**稳定题目 ID（§3.2）**
+- 小题 id 是永久身份，与展示题号 `number` 分开：同题保留 id，调序只改 `number`；新增或换题用该 item 历史未用过的 id；删除的 id 退役不再分配。改变题意、选项含义、空格归属或回答方式算换题。
+- 选项、空格、词块 id 同样不得被赋予另一含义；共享文章、图片或 bank 发生实质变化时，所有关联题一起换 id。
+- 更新已有内容前，先确定基线（上一版 tag 或 commit），用 `npx tsx scripts/id-changes.ts --base <基线>` 生成变更表，填进交接文档的“本次更新与稳定题目ID”。脚本会检查退役 id 是否被复用，发现即失败。
+- `scripts/validate.ts` 已与规约对齐：只要求 id 在 item 内唯一、题号连续，不再要求 `id = q{number}`。
+
+**机器选材清单（§3.1，可选）**
+- 每份逻辑试卷一份 `docs/handoff/production-selection.<paperId>.json`（格式 `rc-selection-2`），由 `npx tsx scripts/selection-json.ts <paperId> "<标题>" <playlistId> [itemId…]` 生成。
+- 逻辑 ID 只用小写字母、数字和连字符：`sourceId = uniread-rc`、`resourceId = <itemId>-<sectionId>`、`materialId = <itemId>-article`。脚本会检查格式、标题、Section 不重复选用、材料都被使用。
 
 **身份与范围**
 - 已有 Item／Section／Question／blank／选项／词块 ID 永不重编。题号只用于展示；内容换版、插题、重排或拆合时，在交接文档给出旧新 ID 映射。

@@ -4,13 +4,14 @@
  *
  *   npx tsx scripts/handoff-inventory.ts [playlistId …] > /tmp/inventory.md
  *
- * Logical ids (stable across restyling; not platform DB ids):
- *   resourceId = <itemId>.<sectionId>   one 大题 (section) — a shared bank never crosses a resource
- *   materialId = <itemId>.article       the article; every section of the item reuses it
+ * Logical ids (stable across restyling; not platform DB ids; same as scripts/selection-json.ts):
+ *   resourceId = <itemId>-<sectionId>   one 大题 (section) — a shared bank never crosses a resource
+ *   materialId = <itemId>-article       the article; every section of the item reuses it
  */
 import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import type { InlineT, ItemKeyT, ItemT, PlaylistT, QuestionT } from '../schema/index.ts';
+import { materialIdOf, resourceIdOf, resourceTitle } from './selection-json.ts';
 
 const root = new URL('../content/', import.meta.url);
 const read = <T>(p: string): T => JSON.parse(readFileSync(new URL(p, root), 'utf8')) as T;
@@ -58,10 +59,9 @@ for (const pl of ids) {
       const qs = s.questions;
       const kinds = [...new Set(qs.map((q) => KIND_ZH[q.interaction.kind]))].join('、');
       const pts = qs.reduce((a, q) => a + (q.points ?? 1), 0);
-      const label = s.label ? `${s.label}. ` : '';
       const bank = s.bank?.length ? `本大题内 ${s.bank.length} 项供 ${qs.length} 空，每项限用一次，改选即从原空释放` : '—';
       out.push(
-        `| ${n} | \`${it.id}.${s.id}\` | ${cell(`${it.title} · ${label}${s.instruction}`)} | \`${it.id}\` | \`${s.id}\` | \`${it.id}.article\`（${it.sections.length} 个大题共用） | ${qs[0].id}–${qs[qs.length - 1].id}／${qs.length} | ${pts} | ${kinds} | ${bank} |`,
+        `| ${n} | \`${resourceIdOf(it.id, s.id)}\` | ${cell(resourceTitle(it, it.sections.indexOf(s)))} | \`${it.id}\` | \`${s.id}\` | \`${materialIdOf(it.id)}\`（${it.sections.length} 个大题共用） | ${qs[0].id}–${qs[qs.length - 1].id}／${qs.length} | ${pts} | ${kinds} | ${bank} |`,
       );
     }
   }

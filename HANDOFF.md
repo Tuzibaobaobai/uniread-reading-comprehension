@@ -1,26 +1,29 @@
 # HANDOFF · RC 阅读理解模块 → UniRead 主平台
 
-> 交接版本：`v0.1-handoff`（Git tag）。演示站：https://uniread-reading-comprehension.vercel.app
+> 交接版本：`v0.2-handoff`（Git tag；按 UniRead 生产规约 [v0.6](docs/14-agent-production-rules.md)）。演示站：https://uniread-reading-comprehension.vercel.app
 > 本文是入口，大约 15 分钟读完；细节都链接到已有文档，不在这里重复。
 
 ## 1. 这是什么
 
 把《Current Insights 时文阅读｜提分训练3+X》练习册（扫描 PDF）转成可交互的阅读理解练习：左栏是文章，右栏是一题一页的作答区，提交后显示判分、解析和定位原文；开放问答题由 LLM 评分。适配 PC 与 iPad。
 
-本仓库是**原型和内容来源**，不是生产前端。主平台需要的是下面三样东西：**内容**、**数据格式**和**判分逻辑**。页面可以照着做，也可以重写。
+> **铁律：接入时必须还原 RC 的布局和交互。** 保留原页布局、字体、响应式与交互，只把数据、存储和通信换成平台适配；任何差异都算未完成，不能以“功能已通”验收（规约 v0.6 开头）。
+
+主平台需要拿走的是：**页面源码**、**内容**、**数据格式**和**判分逻辑**。
 
 | 拿走 | 位置 | 说明 |
 | --- | --- | --- |
+| 页面源码（原样还原） | `src/`（页面、交互）、`src/styles/`（token 与样式）、字体依赖 `@fontsource/*` | 构建 `npm ci && npm run build`；参考截图见 §5 |
 | 内容包 | `content/` | 4 个合集共 20 篇：catalog、playlist、item、图片；答案键（keys）单独交付，见 §5 |
 | 数据格式 | `schema/index.ts`（zod），JSON Schema 在 `schema/json/` | 题型按 1EdTech QTI 3.0 命名；题目与答案分离 |
 | 判分逻辑 | `src/lib/grading.ts`（客观题）、`src/lib/judge.ts`（开放题 LLM 评分）、`server/*.ts`（参考服务端） | 都是纯函数，可直接在 Node 服务端运行 |
 | 交互规范 | [docs/02](docs/02-question-types.md)、[docs/05](docs/05-ui-spec.md)；视觉见 [Figma 登记表](docs/design/figma-registry.md) | 每种题型的行为、复盘和响应式 |
 
-**可以丢弃的**：
-- `localStorage` 作答存储（`src/lib/storage.ts`）
-- `/api/rc/*` 原型接口
-- Vercel 部署脚本
-- 独立站路由和返回按钮
+**需要替换的适配层**（只换实现，不改页面）：
+- `localStorage` 作答存储（`src/lib/storage.ts`）→ 平台作答保存
+- `/api/rc/*` 原型接口 → 平台判分与评分接口
+- 独立站路由和返回按钮 → 平台导航意图
+- Vercel 部署脚本：不需要
 
 ## 2. 内容与状态
 
@@ -53,6 +56,7 @@
 
 - 各题型的边界案例（未答、部分作答、清空、非法 ID、恢复）有对应测试：`src/lib/answer-semantics.test.ts`，规则写在 [docs/14 §7](docs/14-agent-production-rules.md)。
 - 最后浏览位置记录的是 `questionId`，与学生回答分开保存。
+- **小题 ID 是永久身份**，与展示题号分开（规约 §3.2）：同一道题保留 ID，新增或换题用从未用过的 ID，退役 ID 不复用。更新内容时用 `scripts/id-changes.ts` 对比上一版生成变更表；校验器已不再要求 `id = q{number}`。
 
 ## 4. 接入契约（主平台需要提供的）
 
@@ -84,9 +88,13 @@
 | --- | --- |
 | `rc-content-public.zip` | catalog、playlist、item、图片（**不含 keys**） |
 | `MANIFEST.sha256` | 每个文件的 sha256 |
-| `production-handoff.md` | 内容交接清单，即 §2 的完整文档 |
+| `production-handoff.md` | 内容交接清单，即 §2 的完整文档（含稳定题目 ID 和布局还原两节） |
+| `production-selection.<paperId>.json` | 机器选材清单（`rc-selection-2`），每份逻辑试卷一份 |
+| `rc-reference-screens.zip` | 布局还原基线：20 篇 × 3 视口，作答前的来源页面截图 |
 
-答案键 `rc-keys-private.zip` 由内容负责人通过受控渠道单独提供，不放进 release。
+通过受控渠道单独提供、不放进 release 的：
+- 答案键 `rc-keys-private.zip`
+- 提交后的复盘截图 `rc-reference-review-private.zip`（含答案）
 
 **本地验证**（Node ≥ 22）：
 
@@ -96,6 +104,7 @@ npm run dev        # http://localhost:5173（判分与评分接口由 Vite 中�
 npm run validate   # 内容校验：20 篇，0 error
 npm test           # 单元测试：判分、评分、答案语义、私有材料扫描
 npm run e2e        # Playwright：桌面 / iPad 横屏 / iPad 竖屏
+REFERENCE=1 npx playwright test e2e/reference.spec.ts   # 重新生成布局还原基线截图
 ```
 
 ## 6. 尚待决定或补齐
@@ -106,7 +115,8 @@ npm run e2e        # Playwright：桌面 / iPad 横屏 / iPad 竖屏
 4. **答案复核**：所有 key 待人工确认；3 年级按官方答案册核对；小升初还有 3 题存疑（见交接清单）
 5. **LLM 评分校准**：需要每本书 30–50 份教师评分样本，验收标准见 docs/09 §6
 6. **待适配题型**：`textEntry`、`match`、`order`、`extendedText`
-7. **UI 组件**：Playlists 卡片、结果卡、对话框、填空输入、词库、连线等的 Figma 组件尚未提供（见登记表）
+7. **布局还原验收**：平台容器与来源页面在相同内容、视口、作答和位置下的截图和交互对照（待平台）
+8. **UI 组件**：Playlists 卡片、结果卡、对话框、填空输入、词库、连线等的 Figma 组件尚未提供（见登记表）
 
 ## 7. 联系与问题
 

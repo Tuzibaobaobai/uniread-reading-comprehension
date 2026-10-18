@@ -5,8 +5,12 @@
 //   MANIFEST.sha256         sha256 of every file in the zip
 //   production-handoff.md   content handoff (docs/handoff/…)
 //   RELEASE_NOTES.md        release body
+//   production-selection.*.json   rc-selection-2 machine selection lists (docs/handoff/)
+//   rc-reference-screens.zip      layout baseline before answering (.work/reference/public)
 // private/ → deliver through a controlled channel, never attach:
-//   rc-keys-private.zip     content/playlists/*/keys/*.json + KEYS.sha256
+//   rc-keys-private.zip                content/playlists/*/keys/*.json + KEYS.sha256
+//   rc-reference-review-private.zip    review screenshots (show answers; .work/reference/private)
+// Run `REFERENCE=1 npx playwright test e2e/reference.spec.ts` first to refresh the screenshots.
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
 import { copyFile, mkdir, readFile, rm, writeFile, glob } from 'node:fs/promises';
@@ -50,6 +54,15 @@ await writeFile(`${priv}/KEYS.sha256`, keyManifest.join('\n') + '\n');
 execFileSync('zip', ['-q', '-X', `${priv}/rc-keys-private.zip`, ...keyFiles, `${priv}/KEYS.sha256`]);
 
 await copyFile('docs/handoff/production-handoff.rc-pilot-2026-10.md', `${pub}/production-handoff.md`);
+const selections = await list('docs/handoff/production-selection.*.json');
+for (const f of selections) await copyFile(f, `${pub}/${f.split('/').pop()}`);
+
+// layout restoration baseline (iron rule): public = before answering, private = review (answers visible)
+if (!existsSync('.work/reference/public')) throw new Error('run REFERENCE=1 npx playwright test e2e/reference.spec.ts first');
+execFileSync('zip', ['-q', '-r', '-X', `${process.cwd()}/${pub}/rc-reference-screens.zip`, '.'], { cwd: '.work/reference/public' });
+execFileSync('zip', ['-q', '-r', '-X', `${process.cwd()}/${priv}/rc-reference-review-private.zip`, '.'], { cwd: '.work/reference/private' });
+const shots = (await list('.work/reference/public/**/*.png')).length;
+const reviewShots = (await list('.work/reference/private/**/*.png')).length;
 
 const commit = execFileSync('git', ['rev-parse', '--short', 'HEAD']).toString().trim();
 const items = (await list('content/playlists/*/items/*.json')).length;
@@ -57,7 +70,9 @@ await writeFile(
   `${pub}/RELEASE_NOTES.md`,
   `# ${tag} · RC 阅读理解模块交接
 
-入口文档：[HANDOFF.md](../blob/${tag}/HANDOFF.md) · 演示站：https://uniread-reading-comprehension.vercel.app
+入口文档：[HANDOFF.md](https://github.com/Tuzibaobaobai/uniread-reading-comprehension/blob/${tag}/HANDOFF.md)（按 UniRead 生产规约 v0.6） · 演示站：https://uniread-reading-comprehension.vercel.app
+
+> 铁律：接入时必须还原 RC 的布局和交互，只替换数据、存储和通信适配。
 
 ## 内容
 - 4 个合集、${items} 篇（试点选材）：3 年级 8、小升初 6、7 年级 5、5 年级 1
@@ -69,9 +84,15 @@ await writeFile(
 | --- | --- |
 | \`rc-content-public.zip\` | catalog、playlist、item、图片（${publicFiles.length} 个文件，**不含答案键**） |
 | \`MANIFEST.sha256\` | 上述文件的 sha256 |
-| \`production-handoff.md\` | 内容交接清单（UniRead 规约 v0.3 模板） |
+| \`production-handoff.md\` | 内容交接清单（UniRead 规约 v0.6 模板，含稳定题目 ID、布局还原两节） |
+| \`production-selection.*.json\` | 机器选材清单（rc-selection-2），${selections.length} 份 |
+| \`rc-reference-screens.zip\` | 布局还原基线：来源页面作答前截图（${shots} 张，3 个视口） |
 
-答案键 \`rc-keys-private.zip\`（${keyFiles.length} 个文件）通过受控渠道单独提供，不随 release 发布。
+通过受控渠道单独提供、不随 release 发布：答案键 \`rc-keys-private.zip\`（${keyFiles.length} 个文件）、复盘截图 \`rc-reference-review-private.zip\`（${reviewShots} 张，含答案）。
+
+## 相对 v0.1-handoff
+- 按规约 v0.6 更新：逻辑 ID 改为连字符形式；新增稳定题目 ID 变更表（20 个 item 全部沿用）、机器选材清单、布局还原基线
+- 校验器不再要求 \`id = q{number}\`，题目 ID 与展示题号分开
 
 ## 待决定
 账号与作答保存、难度映射、版权许可、答案人工复核、LLM 评分校准、4 种题型的平台适配、部分 Figma 组件（详见 HANDOFF.md §6）。
@@ -82,4 +103,5 @@ await writeFile(
 
 console.log(`release package → ${out}`);
 console.log(`  public : rc-content-public.zip (${publicFiles.length} files), MANIFEST.sha256, production-handoff.md, RELEASE_NOTES.md`);
-console.log(`  private: rc-keys-private.zip (${keyFiles.length} keys) — controlled delivery only`);
+console.log(`  public : ${selections.length} selection files, rc-reference-screens.zip (${shots} screenshots)`);
+console.log(`  private: rc-keys-private.zip (${keyFiles.length} keys), rc-reference-review-private.zip (${reviewShots}) — controlled delivery only`);

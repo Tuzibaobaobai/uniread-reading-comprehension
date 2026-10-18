@@ -1,19 +1,19 @@
-# 本次生产交接 · RC 试点（rc-pilot-2026-10）
+# 本次生产交接 · RC 试点（rc-pilot-2026-10，第 2 版）
 
-> 配套规约：[`14-agent-production-rules.md`](../14-agent-production-rules.md) v0.3；模板：[`14-production-handoff.template.md`](../14-production-handoff.template.md)。本文是给人和 Agent 读的附录，不是平台 API JSON。
+> 配套规约：[`14-agent-production-rules.md`](../14-agent-production-rules.md) v0.6（2026-10-17）；模板：[`14-production-handoff.template.md`](../14-production-handoff.template.md)。本文是给人和 Agent 读的附录，不是平台 API JSON。
 > 只引用私有答案的位置和摘要，不粘贴答案、密钥或带 Token 的链接。
 
 ## 本次交付范围
 
 - **任务／来源项目**：UniRead 阅读理解（RC）原型仓库 `Tuzibaobaobai/uniread-reading-comprehension`
 - **规约版本与项目依据**：
-  - 规约 v0.3
+  - 规约 v0.6
   - Schema `schema/index.ts`（zod，`SCHEMA_VERSION` 1.0）
   - 内容流程 `docs/04-content-pipeline.md`
   - 题型 `docs/02-question-types.md`；主观题 `docs/09-subjective-scoring.md`
   - 无缺失项
 - **交付类型**：**试点选材**。不是整卷，也不是完整书籍目录
-- **来源 revision**：交接时 `main` 分支（本文与内容同一提交）。每个 item 的 `status.version` 均为 1.0.0
+- **来源 revision**：上一版交付为 tag `v0.1-handoff`（e356c49）；本版为 `v0.2-handoff`（本文与内容同一提交）。每个 item 的 `status.version` 均为 1.0.0
 - **原书总量／已生产／本次交付**：
 
   | 合集 | 原书 | 已生产 = 本次交付 |
@@ -23,10 +23,11 @@
   | ci-g7 | 90 篇 | 5 篇（Week 1 Mon–Fri） |
   | ci-g5 | 60 篇 | 1 篇（Week 12 Thu，原书“一对多连线”，按产品决定每句一道单选，issue #13） |
 - **paperId（稳定逻辑标识，不是平台 DB ID）**：
-  - `ci-g3.pilot-1`：W1 Mon–Fri、W2/W3/W4 Thu，覆盖题型的选材
-  - `ci-xsc.pilot-1`：6 篇题型代表
-  - `ci-g7.w01`：7 年级第 1 周
-  - `ci-g5.pilot-1`：5 年级 W12 Thu 一篇
+  - `ci-g3-pilot-1`：W1 Mon–Fri、W2/W3/W4 Thu，覆盖题型的选材
+  - `ci-xsc-pilot-1`：6 篇题型代表
+  - `ci-g7-w01`：7 年级第 1 周
+  - `ci-g5-pilot-1`：5 年级 W12 Thu 一篇
+  - 规约 v0.6 要求逻辑 ID 只用小写字母、数字和连字符，因此本版把第 1 版中带“.”的写法（如 `ci-g7.w01`、`ci-g7-w01-mon.s1`）改为连字符形式。平台尚未接入第 1 版，旧写法未被使用
   - 同一逻辑试卷不因样式修改而换 ID
 - **标题／简介／语言**：见各合集 `playlist.json` 的 `title`、`shortTitle`、`description`；语言 `en`，界面中文
 - **适用学校年级**：`gradeBand` 取自书名，分别为 G3、G5、小升初（G6）、G7。是学校年级，**不等于** UniRead L 等级
@@ -35,14 +36,98 @@
 
 ## 大题与共享材料映射
 
-- 每个 Section 即一个大题资源（`resourceId = <itemId>.<sectionId>`）。文章是共享材料（`materialId = <itemId>.article`），同一 item 的各大题共用；统计词数时按材料去重。
+- 每个 Section 即一个大题资源（`resourceId = <itemId>-<sectionId>`）。文章是共享材料（`materialId = <itemId>-article`），同一 item 的各大题共用；统计词数时按材料去重。
+- 多 Section 的文章（`ci-g3-w01-fri`、`ci-xsc-w17-fri`、`ci-g7-w01-fri`）正文中没有空格，所以不存在未归属空格；共享 bank 都只在单个 Section 内。
 - **共享 bank**：只出现在共享词／句库（`gapMatch`）大题中，作用域就是该大题（section），不跨资源。每项限用一次。把已用词条填到别的空时，在**同一次更新**中从原空释放并填入新空（`setResponses` 一次提交），不会出现只保存一半的情况。
-- **拆合与重排**：本次没有拆合或重排，不适用旧新映射。所有 Item／Section／Question／blank／选项／词块 ID 均为首次发布值。
+- **拆合与重排**：没有拆合资源，受影响 ID 见下一节。
 - **顺序与分值**：顺序为 item `order`（周→日）加 section 顺序。分值为题目 `points`：
   - 默认每小题 1 分
   - 连线题 = 配对数
   - 7 年级回答问题 = 要点数（1–2）
   - 题号是展示用编号，不是身份
+
+## 本次更新与稳定题目ID
+
+- **本次类型**：更新已有试卷（相对上一版交付 `v0.1-handoff`）
+- **对照旧版**：tag `v0.1-handoff`（e356c49），以及各 item 文件的完整 Git 历史
+- **历史已用／退役 ID 的核对依据**：`npx tsx scripts/id-changes.ts --base v0.1-handoff` 逐个读取 item 的全部历史版本，检查当前 ID 是否曾被退役后复用。结果：**没有复用**
+- **是否涉及共享文章／图片／bank**：无
+
+**相对 `v0.1-handoff`：20 个 item 的小题 ID 全部沿用**，题面、选项、分值都没有变化。本版只改了规则、工具和交接文档。
+
+**首次公开发布以来的变化**（供平台核对，均早于 `v0.1-handoff`）：
+
+`ci-g7-w01-fri` 的回答问题改为 LLM 评分，分值随要点数调整。题面和回答方式（原始文本）不变，所以保留原 ID。基线为首次公开版本 93e9ab0：
+
+| resourceId／Item | 操作 | 原小题ID | 更新后小题ID | 展示题号变化 | 原因与证据位置 |
+| --- | --- | --- | --- | --- | --- |
+| `ci-g7-w01-fri` | 评分方式修正 | `q1` | `q1` | — | self → judge |
+| `ci-g7-w01-fri` | 分值修正 | `q1` | `q1` | — | 1 → 2 分 |
+| `ci-g7-w01-fri` | 评分方式修正 | `q2` | `q2` | — | self → judge |
+| `ci-g7-w01-fri` | 评分方式修正 | `q3` | `q3` | — | self → judge |
+| `ci-g7-w01-fri` | 分值修正 | `q3` | `q3` | — | 1 → 2 分 |
+| `ci-g7-w01-fri` | 评分方式修正 | `q4` | `q4` | — | self → judge |
+| `ci-g7-w01-fri` | 评分方式修正 | `q5` | `q5` | — | self → judge |
+| `ci-g7-w01-fri` | 分值修正 | `q5` | `q5` | — | 1 → 2 分 |
+| `ci-g7-w01-fri` | 评分方式修正 | `q6` | `q6` | — | none → judge |
+| `ci-g7-w01-fri` | 分值修正 | `q6` | `q6` | — | 1 → 2 分 |
+
+- `ci-g5-w12-thu` 在首次发布前从“一题连线”改为每句一道单选，发布版本即为 q1–q7，不涉及旧 ID。
+- 7 年级 5 个 key 的 `reviewStatus` 从 approved 改回 pending（只有 AI 复核），不影响题目 ID。
+
+**检查**
+- [x] 原题 ID 没有因页面重生成、调序、样式或标题修改而整体重编（`id-changes` 报告全部沿用）。
+- [x] 没有新增或退役 ID；旧版可通过 tag `v0.1-handoff` 定位。
+- [x] Item、Key.answers、blank／选项／bank、选材与位置引用一致（`npm run validate` 0 error；位置按 questionId 保存）。
+- [x] RC 校验器的 ID 与题号耦合**已解除**：`scripts/validate.ts` 只要求 ID 在 item 内唯一、题号连续（规约 §3.2 指出的工具缺口，由本项目作为维护方处理）。插题时 `q1/number=1, q3/number=2, q2/number=3` 可以通过校验。
+- 跨版本答案继承和历史快照是平台待实现的能力，本表只是交接证据。
+
+## 可选机器选材清单
+
+- **是否提供**：已提供，格式 `rc-selection-2`，每份逻辑试卷一份：
+  - `docs/handoff/production-selection.ci-g3-pilot-1.json`（8 个材料，9 个大题）
+  - `docs/handoff/production-selection.ci-xsc-pilot-1.json`（6 个材料，7 个大题）
+  - `docs/handoff/production-selection.ci-g7-w01.json`（5 个材料，7 个大题）
+  - `docs/handoff/production-selection.ci-g5-pilot-1.json`（1 个材料，1 个大题）
+- **生成方式**：`npx tsx scripts/selection-json.ts`，与下方清单使用同一套 ID 规则。脚本检查：ID 格式（小写字母、数字、连字符，≤128）、标题非空（≤512，无控制字符）、同一 Item 的 Section 不重复选用、每份材料都被使用。
+- **与上表是否一致**：一致（同一函数生成）。每个 `materialId` 只代表一个 `Item.article`，同一 Item 的多道大题复用同一 ID。
+- 不含平台数据库 ID 或 UUID。清单仍需接入方确认，并通过平台解析、构建和校验。
+
+## RC 布局与交互还原交接
+
+规约铁律：接入 UniRead 时必须保留 RC 原页的布局、字体、响应式和交互，只替换数据、存储和通信。
+
+- **页面源码入口**：`index.html` → `src/main.tsx`。页面在 `src/pages/`（合集列表、合集详情）和 `src/reader/`（阅读页：文章栏、题卡、各题型交互、复盘、定位原文）。版本为 tag `v0.2-handoff`；构建命令 `npm ci && npm run build`，需要 Node ≥ 22。
+- **样式与依赖**：
+  - CSS：`src/styles/tokens.css`（全部视觉 token，来自 Figma，见 `docs/design/figma-registry.md`）、`global.css`、`app.css`
+  - 字体：`@fontsource/source-sans-3` 和 `@fontsource/noto-sans-sc`，字重 400、500、700，自托管打包，无外链
+  - 图标：`src/assets/icons/`（来自 Figma）
+  - 图片：`content/assets/`
+- **布局与响应式**：
+  - ≥ 1024px：左右 50/50 分栏，各自滚动，滚动条留在卡片圆角以内
+  - < 1024px：顶部“文章 / 题目”切换
+  - 题卡按容器宽度（900px、560px）缩放分页栏
+  - 合集详情在 1200px、1023px 两档调整
+- **需保留的交互清单**：
+  - 一题一页和题号分页（已答标记，提交后显示 ✓／✗）；有未答题时提交会弹出提醒
+  - 选项行的默认、悬停、选中、错误、正确-展开（解析嵌在正确选项下）
+  - 完形、选词填空中左栏空格与题目双向联动；空格为单横线，选词题只显示字母
+  - 共享词库点选填入并原子移动；文本填空带首字母或原词提示
+  - 连线点选配对；连词成句点词块组句、点回撤销
+  - 开放题：“正在批改…”后显示 AI 评分卡，失败时退回自评
+  - 定位原文精确到句（换行也算句子边界）
+  - 每道题上方显示原书大题提示
+  - 浏览位置和作答恢复
+  - 对应的行为测试在 `e2e/*.spec.ts`
+- **对照证据**：
+  - 来源页面基线：`REFERENCE=1 npx playwright test e2e/reference.spec.ts`，覆盖 20 篇 × 3 视口（1440×900、iPad 横屏 1180×820、iPad 竖屏 820×1180），在字体加载完成后截图
+  - 作答前的截图（80 张）可公开；提交后的复盘截图（60 张）含答案，属私有材料，随答案键受控交付
+  - 打包产物与平台容器的对照：**待验证**，由平台在相同内容、视口、作答和位置下截图对比
+- **差异与未完成**：
+  1. 打包产物与平台容器的对照尚未做：待平台
+  2. 部分组件还没有 Figma 设计，暂用现有实现：合集卡片、结果、对话框、填空输入、词库、连线、开放题评分卡
+  3. 原型的 `/api/rc/*` 接口和 localStorage 需要替换为平台接口，替换时不改页面
+  4. 有差异就写未完成，不能以“功能已通”验收
 
 ## 封面、缩略图与依赖
 
@@ -150,15 +235,15 @@
 
 | 顺序 | resourceId | 独立大题标题 | Item | Section | materialId（复用） | 小题 ID／数量 | 分值 | 题型 | 共享 bank 作用域 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | `ci-g3-w01-mon.s1` | Tiny “Embryos” Begin Space Test · Choose the best answer. | `ci-g3-w01-mon` | `s1` | `ci-g3-w01-mon.article`（1 个大题共用） | q1–q3／3 | 3 | 单选 | — |
-| 2 | `ci-g3-w01-tue.s1` | Kids Find Maths and Magic in Flowers · Choose the best answer. | `ci-g3-w01-tue` | `s1` | `ci-g3-w01-tue.article`（1 个大题共用） | q1–q3／3 | 3 | 单选 | — |
-| 3 | `ci-g3-w01-wed.s1` | Pets Are Part of the Family! · Choose the best answer to complete the passage. | `ci-g3-w01-wed` | `s1` | `ci-g3-w01-wed.article`（1 个大题共用） | q1–q6／6 | 6 | 完形（每空单选） | — |
-| 4 | `ci-g3-w01-thu.s1` | Little Beads, Big Fun · Choose the proper words to complete the following passage. | `ci-g3-w01-thu` | `s1` | `ci-g3-w01-thu.article`（1 个大题共用） | q1–q6／6 | 6 | 共享词／句库 | 本大题内 8 项供 6 空，每项限用一次，改选即从原空释放 |
-| 5 | `ci-g3-w01-fri.s1` | Going GREEN · I. Choose the words or phrases to fill in the blanks. | `ci-g3-w01-fri` | `s1` | `ci-g3-w01-fri.article`（2 个大题共用） | q1–q3／3 | 3 | 共享词／句库 | 本大题内 4 项供 3 空，每项限用一次，改选即从原空释放 |
-| 6 | `ci-g3-w01-fri.s2` | Going GREEN · II. Choose the correct answer. | `ci-g3-w01-fri` | `s2` | `ci-g3-w01-fri.article`（2 个大题共用） | q4–q6／3 | 3 | 单选 | — |
-| 7 | `ci-g3-w02-thu.s1` | Shakira Sings New World Cup Song · Fill in each blank in the article with a proper sentence given below. Each sentence can be used only once. Note that there are two more sentences than you will need. | `ci-g3-w02-thu` | `s1` | `ci-g3-w02-thu.article`（1 个大题共用） | q1–q4／4 | 4 | 共享词／句库 | 本大题内 6 项供 4 空，每项限用一次，改选即从原空释放 |
-| 8 | `ci-g3-w03-thu.s1` | Please Come Out, Groundhog! · Please match the characters on the left with their respective words on the right based on the passage. | `ci-g3-w03-thu` | `s1` | `ci-g3-w03-thu.article`（1 个大题共用） | q1–q1／1 | 4 | 连线 | — |
-| 9 | `ci-g3-w04-thu.s1` | Playing With Buildings · Decide if the following statements are True (T) or False (F) according to the text. | `ci-g3-w04-thu` | `s1` | `ci-g3-w04-thu.article`（1 个大题共用） | q1–q5／5 | 5 | 单选 | — |
+| 1 | `ci-g3-w01-mon-s1` | Tiny “Embryos” Begin Space Test · 阅读选择 | `ci-g3-w01-mon` | `s1` | `ci-g3-w01-mon-article`（1 个大题共用） | q1–q3／3 | 3 | 单选 | — |
+| 2 | `ci-g3-w01-tue-s1` | Kids Find Maths and Magic in Flowers · 阅读选择 | `ci-g3-w01-tue` | `s1` | `ci-g3-w01-tue-article`（1 个大题共用） | q1–q3／3 | 3 | 单选 | — |
+| 3 | `ci-g3-w01-wed-s1` | Pets Are Part of the Family! · 完形填空 | `ci-g3-w01-wed` | `s1` | `ci-g3-w01-wed-article`（1 个大题共用） | q1–q6／6 | 6 | 完形（每空单选） | — |
+| 4 | `ci-g3-w01-thu-s1` | Little Beads, Big Fun · 选词填空 | `ci-g3-w01-thu` | `s1` | `ci-g3-w01-thu-article`（1 个大题共用） | q1–q6／6 | 6 | 共享词／句库 | 本大题内 8 项供 6 空，每项限用一次，改选即从原空释放 |
+| 5 | `ci-g3-w01-fri-s1` | Going GREEN · I. 选词填空 | `ci-g3-w01-fri` | `s1` | `ci-g3-w01-fri-article`（2 个大题共用） | q1–q3／3 | 3 | 共享词／句库 | 本大题内 4 项供 3 空，每项限用一次，改选即从原空释放 |
+| 6 | `ci-g3-w01-fri-s2` | Going GREEN · II. 阅读选择 | `ci-g3-w01-fri` | `s2` | `ci-g3-w01-fri-article`（2 个大题共用） | q4–q6／3 | 3 | 单选 | — |
+| 7 | `ci-g3-w02-thu-s1` | Shakira Sings New World Cup Song · 选词填空 | `ci-g3-w02-thu` | `s1` | `ci-g3-w02-thu-article`（1 个大题共用） | q1–q4／4 | 4 | 共享词／句库 | 本大题内 6 项供 4 空，每项限用一次，改选即从原空释放 |
+| 8 | `ci-g3-w03-thu-s1` | Please Come Out, Groundhog! · 连线 | `ci-g3-w03-thu` | `s1` | `ci-g3-w03-thu-article`（1 个大题共用） | q1–q1／1 | 4 | 连线 | — |
+| 9 | `ci-g3-w04-thu-s1` | Playing With Buildings · 判断正误 | `ci-g3-w04-thu` | `s1` | `ci-g3-w04-thu-article`（1 个大题共用） | q1–q5／5 | 5 | 单选 | — |
 
 #### 元数据来源与资产
 
@@ -203,13 +288,13 @@
 
 | 顺序 | resourceId | 独立大题标题 | Item | Section | materialId（复用） | 小题 ID／数量 | 分值 | 题型 | 共享 bank 作用域 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | `ci-xsc-w05-thu.s1` | Beijing Gives First License to Robot Chefs · Fill in each blank with a proper word or the proper form of the word in brackets. | `ci-xsc-w05-thu` | `s1` | `ci-xsc-w05-thu.article`（1 个大题共用） | q1–q10／10 | 10 | 文本填空 | — |
-| 2 | `ci-xsc-w06-mon.s1` | Various Advertisements · Choose the best answer. | `ci-xsc-w06-mon` | `s1` | `ci-xsc-w06-mon.article`（1 个大题共用） | q1–q5／5 | 5 | 单选 | — |
-| 3 | `ci-xsc-w06-thu.s1` | Aiming for the Top · Fill in each blank in the passage with a proper sentence given below. Each sentence can be used only once. There are two more sentences than you will need. | `ci-xsc-w06-thu` | `s1` | `ci-xsc-w06-thu.article`（1 个大题共用） | q1–q5／5 | 5 | 共享词／句库 | 本大题内 7 项供 5 空，每项限用一次，改选即从原空释放 |
-| 4 | `ci-xsc-w10-thu.s1` | A Trip to England · Choose the proper sentences to complete the following dialogue. | `ci-xsc-w10-thu` | `s1` | `ci-xsc-w10-thu.article`（1 个大题共用） | q1–q5／5 | 5 | 共享词／句库 | 本大题内 7 项供 5 空，每项限用一次，改选即从原空释放 |
-| 5 | `ci-xsc-w12-thu.s1` | Is Mars Similar to Earth? · Complete the table below according to the passage. | `ci-xsc-w12-thu` | `s1` | `ci-xsc-w12-thu.article`（1 个大题共用） | q1–q7／7 | 7 | 文本填空 | — |
-| 6 | `ci-xsc-w17-fri.s1` | A Day in Space · I. Decide whether the following statements are true (T) or false (F). | `ci-xsc-w17-fri` | `s1` | `ci-xsc-w17-fri.article`（2 个大题共用） | q1–q4／4 | 4 | 单选 | — |
-| 7 | `ci-xsc-w17-fri.s2` | A Day in Space · II. Match the items on the left with the correct items on the right. | `ci-xsc-w17-fri` | `s2` | `ci-xsc-w17-fri.article`（2 个大题共用） | q5–q5／1 | 4 | 连线 | — |
+| 1 | `ci-xsc-w05-thu-s1` | Beijing Gives First License to Robot Chefs · 填空 | `ci-xsc-w05-thu` | `s1` | `ci-xsc-w05-thu-article`（1 个大题共用） | q1–q10／10 | 10 | 文本填空 | — |
+| 2 | `ci-xsc-w06-mon-s1` | Various Advertisements · 阅读选择 | `ci-xsc-w06-mon` | `s1` | `ci-xsc-w06-mon-article`（1 个大题共用） | q1–q5／5 | 5 | 单选 | — |
+| 3 | `ci-xsc-w06-thu-s1` | Aiming for the Top · 选词填空 | `ci-xsc-w06-thu` | `s1` | `ci-xsc-w06-thu-article`（1 个大题共用） | q1–q5／5 | 5 | 共享词／句库 | 本大题内 7 项供 5 空，每项限用一次，改选即从原空释放 |
+| 4 | `ci-xsc-w10-thu-s1` | A Trip to England · 选词填空 | `ci-xsc-w10-thu` | `s1` | `ci-xsc-w10-thu-article`（1 个大题共用） | q1–q5／5 | 5 | 共享词／句库 | 本大题内 7 项供 5 空，每项限用一次，改选即从原空释放 |
+| 5 | `ci-xsc-w12-thu-s1` | Is Mars Similar to Earth? · 填空 | `ci-xsc-w12-thu` | `s1` | `ci-xsc-w12-thu-article`（1 个大题共用） | q1–q7／7 | 7 | 文本填空 | — |
+| 6 | `ci-xsc-w17-fri-s1` | A Day in Space · I. 判断正误 | `ci-xsc-w17-fri` | `s1` | `ci-xsc-w17-fri-article`（2 个大题共用） | q1–q4／4 | 4 | 单选 | — |
+| 7 | `ci-xsc-w17-fri-s2` | A Day in Space · II. 连线 | `ci-xsc-w17-fri` | `s2` | `ci-xsc-w17-fri-article`（2 个大题共用） | q5–q5／1 | 4 | 连线 | — |
 
 #### 元数据来源与资产
 
@@ -250,13 +335,13 @@
 
 | 顺序 | resourceId | 独立大题标题 | Item | Section | materialId（复用） | 小题 ID／数量 | 分值 | 题型 | 共享 bank 作用域 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | `ci-g7-w01-mon.s1` | Bye Bye, Balltze · Choose the best answer. | `ci-g7-w01-mon` | `s1` | `ci-g7-w01-mon.article`（1 个大题共用） | q1–q3／3 | 3 | 单选 | — |
-| 2 | `ci-g7-w01-tue.s1` | Swords Into Plowshares: A Road to Peace · Choose the best answer. | `ci-g7-w01-tue` | `s1` | `ci-g7-w01-tue.article`（1 个大题共用） | q1–q6／6 | 6 | 单选 | — |
-| 3 | `ci-g7-w01-wed.s1` | Meet the 19-Year-Old Lego Star · Choose the best answer to complete the passage. | `ci-g7-w01-wed` | `s1` | `ci-g7-w01-wed.article`（1 个大题共用） | q1–q10／10 | 10 | 完形（每空单选） | — |
-| 4 | `ci-g7-w01-thu.s1` | Phantom Blade Zero: A Playable Kung Fu Movie · Choose the best answer. | `ci-g7-w01-thu` | `s1` | `ci-g7-w01-thu.article`（1 个大题共用） | q1–q10／10 | 10 | 共享词／句库 | 本大题内 12 项供 10 空，每项限用一次，改选即从原空释放 |
-| 5 | `ci-g7-w01-fri.s1` | Why Are Fried Foods Bad for You? · I. Answer the questions. | `ci-g7-w01-fri` | `s1` | `ci-g7-w01-fri.article`（3 个大题共用） | q1–q6／6 | 10 | 开放问答 | — |
-| 6 | `ci-g7-w01-fri.s2` | Why Are Fried Foods Bad for You? · II. Complete the sentences with the given words in their proper forms. | `ci-g7-w01-fri` | `s2` | `ci-g7-w01-fri.article`（3 个大题共用） | q7–q12／6 | 6 | 文本填空 | — |
-| 7 | `ci-g7-w01-fri.s3` | Why Are Fried Foods Bad for You? · III. Complete the following sentences as required. | `ci-g7-w01-fri` | `s3` | `ci-g7-w01-fri.article`（3 个大题共用） | q13–q17／5 | 5 | 文本填空、连词成句 | — |
+| 1 | `ci-g7-w01-mon-s1` | Bye Bye, Balltze · 阅读选择 | `ci-g7-w01-mon` | `s1` | `ci-g7-w01-mon-article`（1 个大题共用） | q1–q3／3 | 3 | 单选 | — |
+| 2 | `ci-g7-w01-tue-s1` | Swords Into Plowshares: A Road to Peace · 阅读选择 | `ci-g7-w01-tue` | `s1` | `ci-g7-w01-tue-article`（1 个大题共用） | q1–q6／6 | 6 | 单选 | — |
+| 3 | `ci-g7-w01-wed-s1` | Meet the 19-Year-Old Lego Star · 完形填空 | `ci-g7-w01-wed` | `s1` | `ci-g7-w01-wed-article`（1 个大题共用） | q1–q10／10 | 10 | 完形（每空单选） | — |
+| 4 | `ci-g7-w01-thu-s1` | Phantom Blade Zero: A Playable Kung Fu Movie · 选词填空 | `ci-g7-w01-thu` | `s1` | `ci-g7-w01-thu-article`（1 个大题共用） | q1–q10／10 | 10 | 共享词／句库 | 本大题内 12 项供 10 空，每项限用一次，改选即从原空释放 |
+| 5 | `ci-g7-w01-fri-s1` | Why Are Fried Foods Bad for You? · I. 回答问题 | `ci-g7-w01-fri` | `s1` | `ci-g7-w01-fri-article`（3 个大题共用） | q1–q6／6 | 10 | 开放问答 | — |
+| 6 | `ci-g7-w01-fri-s2` | Why Are Fried Foods Bad for You? · II. 填空 | `ci-g7-w01-fri` | `s2` | `ci-g7-w01-fri-article`（3 个大题共用） | q7–q12／6 | 6 | 文本填空 | — |
+| 7 | `ci-g7-w01-fri-s3` | Why Are Fried Foods Bad for You? · III. 填空／连词成句 | `ci-g7-w01-fri` | `s3` | `ci-g7-w01-fri-article`（3 个大题共用） | q13–q17／5 | 5 | 文本填空、连词成句 | — |
 
 #### 元数据来源与资产
 
@@ -297,7 +382,7 @@
 
 | 顺序 | resourceId | 独立大题标题 | Item | Section | materialId（复用） | 小题 ID／数量 | 分值 | 题型 | 共享 bank 作用域 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | `ci-g5-w12-thu.s1` | Fixed Mindset vs Growth Mindset · Please match the items on the left with correct answers on the right based on the passage. | `ci-g5-w12-thu` | `s1` | `ci-g5-w12-thu.article`（1 个大题共用） | q1–q1／1 | 7 | 连线 | — |
+| 1 | `ci-g5-w12-thu-s1` | Fixed Mindset vs Growth Mindset · 阅读选择 | `ci-g5-w12-thu` | `s1` | `ci-g5-w12-thu-article`（1 个大题共用） | q1–q7／7 | 7 | 单选 | — |
 
 #### 元数据来源与资产
 
@@ -309,11 +394,11 @@
 
 | Item | Key 文件 | sha256 | 答案来源 | 官方出处 | Key 复核状态 | 内容状态 |
 | --- | --- | --- | --- | --- | --- | --- |
-| `ci-g5-w12-thu` | `content/playlists/ci-g5/keys/ci-g5-w12-thu.json` | 5bb1e7028b2d | official | 小学英语时文阅读提分训练3+X5年级答案.pdf p.26 | pending | reviewed v1.0.0 |
+| `ci-g5-w12-thu` | `content/playlists/ci-g5/keys/ci-g5-w12-thu.json` | ae0f38ec2be2 | official | 小学英语时文阅读提分训练3+X5年级答案.pdf p.26 | pending | reviewed v1.0.0 |
 
 #### 题型与平台适配
 
 | 题型 | 小题数 | 平台状态 |
 | --- | --- | --- |
-| 连线（match） | 1 | 待平台适配（含一对多） |
+| 单选（choice） | 7 | 可适配（single-selection） |
 

@@ -47,7 +47,7 @@
 | [05-ui-spec](05-ui-spec.md) | 页面结构与交互行为（视觉见 Figma 登记表） |
 | [06-uniread-integration](06-uniread-integration.md) | 接入 UniRead 的契约 |
 | [07-dev-plan](07-dev-plan.md) | 开发执行计划与验收 |
-| [14-agent-production-rules](14-agent-production-rules.md) | UniRead 题目资源生产规约 v0.3（交付要求） |
+| [14-agent-production-rules](14-agent-production-rules.md) | UniRead 题目资源生产规约 v0.6（交付要求；铁律：还原 RC 布局和交互） |
 | [14-production-handoff.template](14-production-handoff.template.md) | 交接文档模板；已填写的交接见 [handoff/](handoff/) |
 | [09-subjective-scoring](09-subjective-scoring.md) | 主观题 LLM as a Judge：调研、评分规则、提示、接入契约、校准 |
 | [design/figma-registry](design/figma-registry.md) | Figma 组件登记与 token 映射 |
