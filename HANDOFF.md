@@ -93,7 +93,7 @@
 | `MANIFEST.sha256` | 每个文件的 sha256 |
 | `production-handoff.md` | 内容交接清单，即 §2 的完整文档（含稳定题目 ID 和布局还原两节） |
 | `production-selection.<paperId>.json` | 机器选材清单（`rc-selection-2`），每份逻辑试卷一份 |
-| `rc-reference-screens.zip` | 布局还原基线：作答前的来源页面截图（3 个视口） |
+| `rc-reference-screens-<视口>.zip` | 布局还原基线：作答前的来源页面截图，按视口分 3 个包（desktop、ipad-landscape、ipad-portrait） |
 
 通过受控渠道单独提供、不放进 release 的：
 - 答案键 `rc-keys-private.zip`

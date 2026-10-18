@@ -6,14 +6,14 @@
 //   production-handoff.md   content handoff (docs/handoff/…)
 //   RELEASE_NOTES.md        release body
 //   production-selection.*.json   rc-selection-2 machine selection lists (docs/handoff/)
-//   rc-reference-screens.zip      layout baseline before answering (.work/reference/public)
+//   rc-reference-screens-<viewport>.zip   layout baseline before answering, one zip per viewport (.work/reference/public)
 // private/ → deliver through a controlled channel, never attach:
 //   rc-keys-private.zip                content/playlists/*/keys/*.json + KEYS.sha256
 //   rc-reference-review-private.zip    review screenshots (show answers; .work/reference/private)
 // Run `REFERENCE=1 npx playwright test e2e/reference.spec.ts` first to refresh the screenshots.
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import { copyFile, mkdir, readFile, rm, writeFile, glob } from 'node:fs/promises';
+import { copyFile, mkdir, readdir, readFile, rm, writeFile, glob } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 
 const tag = process.argv[2] ?? 'v0.1-handoff';
@@ -59,7 +59,13 @@ for (const f of selections) await copyFile(f, `${pub}/${f.split('/').pop()}`);
 
 // layout restoration baseline (iron rule): public = before answering, private = review (answers visible)
 if (!existsSync('.work/reference/public')) throw new Error('run REFERENCE=1 npx playwright test e2e/reference.spec.ts first');
-execFileSync('zip', ['-q', '-r', '-X', `${process.cwd()}/${pub}/rc-reference-screens.zip`, '.'], { cwd: '.work/reference/public' });
+// one zip per viewport (a single zip of every screenshot is too large to upload reliably)
+const viewports = (await readdir('.work/reference/public')).filter((d) => !d.startsWith('.')).sort();
+const viewportShots = {};
+for (const v of viewports) {
+  execFileSync('zip', ['-q', '-r', '-X', `${process.cwd()}/${pub}/rc-reference-screens-${v}.zip`, v], { cwd: '.work/reference/public' });
+  viewportShots[v] = (await list(`.work/reference/public/${v}/*.png`)).length;
+}
 execFileSync('zip', ['-q', '-r', '-X', `${process.cwd()}/${priv}/rc-reference-review-private.zip`, '.'], { cwd: '.work/reference/private' });
 const shots = (await list('.work/reference/public/**/*.png')).length;
 const reviewShots = (await list('.work/reference/private/**/*.png')).length;
@@ -86,7 +92,7 @@ await writeFile(
 | \`MANIFEST.sha256\` | 上述文件的 sha256 |
 | \`production-handoff.md\` | 内容交接清单（UniRead 规约 v0.6 模板，含稳定题目 ID、布局还原两节） |
 | \`production-selection.*.json\` | 机器选材清单（rc-selection-2），${selections.length} 份 |
-| \`rc-reference-screens.zip\` | 布局还原基线：来源页面作答前截图（${shots} 张，3 个视口） |
+${viewports.map((v) => `| \`rc-reference-screens-${v}.zip\` | 布局还原基线：来源页面作答前截图 · ${v}（${viewportShots[v]} 张） |`).join('\n')}
 
 通过受控渠道单独提供、不随 release 发布：答案键 \`rc-keys-private.zip\`（${keyFiles.length} 个文件）、复盘截图 \`rc-reference-review-private.zip\`（${reviewShots} 张，含答案）。
 
@@ -116,5 +122,5 @@ await writeFile(
 
 console.log(`release package → ${out}`);
 console.log(`  public : rc-content-public.zip (${publicFiles.length} files), MANIFEST.sha256, production-handoff.md, RELEASE_NOTES.md`);
-console.log(`  public : ${selections.length} selection files, rc-reference-screens.zip (${shots} screenshots)`);
+console.log(`  public : ${selections.length} selection files, ${viewports.length} rc-reference-screens-<viewport>.zip (${shots} screenshots)`);
 console.log(`  private: rc-keys-private.zip (${keyFiles.length} keys), rc-reference-review-private.zip (${reviewShots}) — controlled delivery only`);
