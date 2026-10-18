@@ -1,0 +1,904 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w18-fri",
+  "playlistId": "ci-zk",
+  "order": 90,
+  "week": 18,
+  "day": "fri",
+  "title": "Learning Chinese",
+  "titleZh": "学中文",
+  "displayName": "Week 18 Friday Learning Chinese",
+  "taskType": {
+    "code": "weekly_intensive",
+    "labelZh": "每周精读"
+  },
+  "meta": {
+    "genre": "记叙文",
+    "wordCount": 264,
+    "difficulty": 4,
+    "suggestedMinutes": 10,
+    "themeContext": "人与自我",
+    "contentRequirement": "积极的学习体验",
+    "intro": "学习中文之初体验。",
+    "hasVideo": true
+  },
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      164,
+      165
+    ],
+    "bookPages": [
+      155,
+      156
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-previously",
+        "headword": "previously",
+        "ipa": "ˈpriːviəsli",
+        "pos": "adv.",
+        "meaningZh": "(时间上)稍前地"
+      },
+      {
+        "id": "v-energetic",
+        "headword": "energetic",
+        "ipa": "ˌenəˈdʒetɪk",
+        "pos": "adj.",
+        "meaningZh": "精力充沛的"
+      },
+      {
+        "id": "v-chaos",
+        "headword": "chaos",
+        "ipa": "ˈkeɪɒs",
+        "pos": "n.",
+        "meaningZh": "混乱"
+      },
+      {
+        "id": "v-overcome",
+        "headword": "overcome",
+        "ipa": "ˌəʊvəˈkʌm",
+        "pos": "v.",
+        "meaningZh": "克服"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Three years ago, I started working at the University of Leeds. Having moved to a new city, I was looking for activities that would help me make some new friends. I noticed that a community school was offering Chinese evening classes. Without much thought, I signed up for a beginner class."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "I had no plans to move to China. I just wanted to learn a new language. It was not something I had "
+          },
+          {
+            "t": "vocab",
+            "v": "previously",
+            "ref": "v-previously"
+          },
+          {
+            "t": "text",
+            "v": " done. I was raised to speak fluent English and Spanish. But I think there should be a huge difference between learning a language as a child and as an adult."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "There was one lesson a week, each lasting 90 minutes. Mr. Kong, the teacher, was "
+          },
+          {
+            "t": "vocab",
+            "v": "energetic",
+            "ref": "v-energetic"
+          },
+          {
+            "t": "text",
+            "v": ". For each class, he would teach us what seemed like hundreds of new words. "
+          },
+          {
+            "t": "underline",
+            "v": "After each lesson, I felt as if my brain had been placed in a deep-fat fryer"
+          },
+          {
+            "t": "text",
+            "v": ". Fortunately, after a few months, I got used to this. I began to realise that the more my brain ached after class, the more information I had taken in. Between weekly classes, my mind would reorder and make sense of the "
+          },
+          {
+            "t": "vocab",
+            "v": "chaos",
+            "ref": "v-chaos"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The University of Leeds had more than 6,000 international students. Finding Chinese students who would like to practise English in exchange for Chinese was not difficult. My new Chinese friends helped me go over everything I had learnt in class."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "I think Chinese grammar is easier than English or Spanish grammar. But there are so many words and "
+          },
+          {
+            "t": "gloss",
+            "v": "idioms",
+            "zh": "习语"
+          },
+          {
+            "t": "text",
+            "v": "! Nevertheless, I am ready to "
+          },
+          {
+            "t": "vocab",
+            "v": "overcome",
+            "ref": "v-overcome"
+          },
+          {
+            "t": "text",
+            "v": " any difficulty and become fluent in Chinese."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, why did the author learn Chinese?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because he was planning to travel to China."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because he wanted to make some new friends."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because his new job required Chinese-speaking abilities."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because it was very popular to learn Chinese in his new school."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How much time did the author spend taking Chinese lessons each week?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Half an hour."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "An hour."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "One and a half hours."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Three hours."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "We can learn from the underlined part in Paragraph 3 that after each Chinese class, the author felt ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "excited"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "disappointed"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "painful"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "thankful"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, which of the following statements is true?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The author failed to find Chinese students to practice Chinese with."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The author thinks Chinese is easier than English and Spanish in terms of pronunciation."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The author’s Chinese teacher helped the author go over everything he had learnt in class."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The author had difficulties with words and idioms during the process of learning Chinese."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "II",
+      "instruction": "Complete each sentence with one given word from the box. Each word can be used only once.",
+      "bank": [
+        {
+          "id": "A",
+          "content": [
+            {
+              "t": "text",
+              "v": "difference"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "content": [
+            {
+              "t": "text",
+              "v": "difficulty"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "content": [
+            {
+              "t": "text",
+              "v": "enable"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "content": [
+            {
+              "t": "text",
+              "v": "notice"
+            }
+          ]
+        },
+        {
+          "id": "E",
+          "content": [
+            {
+              "t": "text",
+              "v": "offer"
+            }
+          ]
+        },
+        {
+          "id": "F",
+          "content": [
+            {
+              "t": "text",
+              "v": "practice"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "She had great "
+              },
+              {
+                "t": "blank",
+                "id": "b1"
+              },
+              {
+                "t": "text",
+                "v": " getting up early."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I can never tell the "
+              },
+              {
+                "t": "blank",
+                "id": "b2"
+              },
+              {
+                "t": "text",
+                "v": " between the twins."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I feel bad that I didn’t "
+              },
+              {
+                "t": "blank",
+                "id": "b3"
+              },
+              {
+                "t": "text",
+                "v": " any food to them."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Alice waved at the man, but he didn’t seem to "
+              },
+              {
+                "t": "blank",
+                "id": "b4"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I’m looking for a job that will "
+              },
+              {
+                "t": "blank",
+                "id": "b5"
+              },
+              {
+                "t": "text",
+                "v": " me to develop my skills."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "His written French is very good, but he needs to "
+              },
+              {
+                "t": "blank",
+                "id": "b6"
+              },
+              {
+                "t": "text",
+                "v": " speaking it."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "III",
+      "instruction": "Complete the following sentences as required.",
+      "questions": [
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I think there should be a huge difference between learning a language as a child and as an adult.（改为否定句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "I "
+              },
+              {
+                "t": "blank",
+                "id": "b7"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b8"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b9"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b10"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b11"
+              },
+              {
+                "t": "text",
+                "v": " a huge difference between learning a language as a child and as an adult."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I had no plans to move to China.（改为一般疑问句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b12"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b13"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b14"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b15"
+              },
+              {
+                "t": "text",
+                "v": " plans to move to China?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Finding Chinese students who would like to practise English in exchange for Chinese was not difficult.（保持句意基本不变）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "It was "
+              },
+              {
+                "t": "blank",
+                "id": "b16"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b17"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b18"
+              },
+              {
+                "t": "text",
+                "v": " Chinese students who would like to practice English in exchange for Chinese."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "My new Chinese friends helped me "
+              },
+              {
+                "t": "underline",
+                "v": "go over everything I had learnt in class"
+              },
+              {
+                "t": "text",
+                "v": ".（对画线部分提问）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b19"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b20"
+              },
+              {
+                "t": "text",
+                "v": " your new Chinese friends "
+              },
+              {
+                "t": "blank",
+                "id": "b21"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b22"
+              },
+              {
+                "t": "text",
+                "v": " do?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I think Chinese grammar is easier than English grammar.（保持句意基本不变）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "I think English grammar is "
+              },
+              {
+                "t": "blank",
+                "id": "b23"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b24"
+              },
+              {
+                "t": "text",
+                "v": " than Chinese grammar."
+              }
+            ],
+            "scoring": "all"
+          }
+        }
+      ]
+    }
+  ]
+}

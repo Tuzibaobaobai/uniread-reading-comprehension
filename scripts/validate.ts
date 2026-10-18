@@ -2,7 +2,7 @@
  * Validate every playlist / item / key in content/ against the schema plus
  * cross-reference rules the schema alone cannot express.
  *   npm run validate              # all items
- *   npm run validate -- ci-g3-w01-mon ci-xsc-w06-thu
+ *   npm run validate -- ci-g3-w01-mon ci-g7-w01-fri
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';

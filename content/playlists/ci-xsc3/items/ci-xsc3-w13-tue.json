@@ -1,0 +1,417 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w13-tue",
+  "playlistId": "ci-xsc3",
+  "order": 62,
+  "week": 13,
+  "day": "tue",
+  "title": "What’s Inside the Pyramid?",
+  "titleZh": "金字塔内部藏着什么？",
+  "displayName": "Week 13 Tuesday What’s Inside the Pyramid?",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 189,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与社会",
+    "contentRequirement": "科学技术与工程",
+    "intro": "古老的埃及胡夫金字塔内发现秘密通道。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      102
+    ],
+    "bookPages": [
+      93
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-structure",
+        "headword": "structure",
+        "ipa": "ˈstrʌktʃə(r)",
+        "pos": "n.",
+        "meaningZh": "结构"
+      },
+      {
+        "id": "v-passage",
+        "headword": "passage",
+        "ipa": "ˈpæsɪdʒ",
+        "pos": "n.",
+        "meaningZh": "通道"
+      },
+      {
+        "id": "v-internal",
+        "headword": "internal",
+        "ipa": "ɪnˈtɜːnl",
+        "pos": "adj.",
+        "meaningZh": "内部的"
+      },
+      {
+        "id": "v-triangular-ceiling",
+        "headword": "triangular ceiling",
+        "pos": "phr.",
+        "meaningZh": "三角形的天花板"
+      },
+      {
+        "id": "v-near-future",
+        "headword": "in the near future",
+        "pos": "phr.",
+        "meaningZh": "在不久的将来"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The Great Pyramid of Giza in Egypt is the oldest of the seven wonders of the ancient world. The "
+          },
+          {
+            "t": "vocab",
+            "v": "structure",
+            "ref": "v-structure"
+          },
+          {
+            "t": "text",
+            "v": " was built more than 4,500 years ago. It has never stopped surprising us in its long history. Scientists have recently discovered a hidden "
+          },
+          {
+            "t": "vocab",
+            "v": "passage",
+            "ref": "v-passage"
+          },
+          {
+            "t": "text",
+            "v": " inside the pyramid."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The passage is just above the main entrance to the pyramid. It’s about nine metres long and two metres wide. It has a "
+          },
+          {
+            "t": "vocab",
+            "v": "triangular ceiling",
+            "ref": "v-triangular-ceiling"
+          },
+          {
+            "t": "text",
+            "v": ". The pyramid has three known "
+          },
+          {
+            "t": "underline",
+            "v": "chambers"
+          },
+          {
+            "t": "text",
+            "v": ". They were built as the resting place of King Khufu and his queen. But what about the newly discovered passage? Nobody knows for sure."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "There might be “something important” below the passage. “It was very likely created to protect the chambers,” said an Egyptian "
+          },
+          {
+            "t": "gloss",
+            "v": "official",
+            "zh": "官员"
+          },
+          {
+            "t": "text",
+            "v": ", “for example, by reducing the stress from the weight of the building materials on the pyramid.”"
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The discovery was part of the ScanPyramids project. The project began in October 2015. A group of scientists from across the world are taking part in it. Thanks to modern technology, they’re now able to “see” the "
+          },
+          {
+            "t": "vocab",
+            "v": "internal",
+            "ref": "v-internal"
+          },
+          {
+            "t": "text",
+            "v": " structures of the pyramid. We expect more discoveries "
+          },
+          {
+            "t": "vocab",
+            "v": "in the near future",
+            "ref": "v-near-future"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the main discovery recently made inside the Great Pyramid?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A new burial chamber for the king."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A hidden passage near the entrance."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "An ancient treasure room."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A secret message on the wall."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The underlined word “chambers” in Paragraph 2 most likely means ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "long passages inside a pyramid"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "special rooms built for a purpose"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "ancient Egyptian tools"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "doors to enter the pyramid"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Which of the following is NOT mentioned about the newly discovered passage?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Its exact length and width."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The shape of its ceiling."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "What is hidden inside it."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Its location in the pyramid."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How did scientists find this hidden passage?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "By digging deep under the pyramid."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "By using modern scanning technology."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "By reading ancient Egyptian books."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "By following a map found nearby."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

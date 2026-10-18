@@ -1,0 +1,715 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w08-fri",
+  "playlistId": "ci-xsc3",
+  "order": 40,
+  "week": 8,
+  "day": "fri",
+  "title": "Everyday Life in London",
+  "titleZh": "伦敦的日常生活",
+  "displayName": "Week 8 Friday Everyday Life in London",
+  "taskType": {
+    "code": "weekly_intensive",
+    "labelZh": "每周精读"
+  },
+  "meta": {
+    "genre": "记叙文",
+    "wordCount": 218,
+    "difficulty": 4,
+    "suggestedMinutes": 12,
+    "themeContext": "人与社会",
+    "contentRequirement": "跨文化沟通与交流",
+    "intro": "记录身处异乡伦敦的生活点滴。",
+    "hasVideo": true
+  },
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      67,
+      68
+    ],
+    "bookPages": [
+      58,
+      59
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-exchange-student",
+        "headword": "exchange student",
+        "meaningZh": "交换生"
+      },
+      {
+        "id": "v-have-no-idea",
+        "headword": "have no idea",
+        "meaningZh": "丝毫不知道，完全不了解"
+      },
+      {
+        "id": "v-sunglasses",
+        "headword": "sunglasses",
+        "ipa": "ˈsʌŋɡlɑːsɪz",
+        "pos": "n.[复数]",
+        "meaningZh": "太阳镜，墨镜"
+      },
+      {
+        "id": "v-castle",
+        "headword": "castle",
+        "ipa": "ˈkɑːsl",
+        "pos": "n.",
+        "meaningZh": "城堡"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "As an "
+          },
+          {
+            "t": "vocab",
+            "v": "exchange student",
+            "ref": "v-exchange-student"
+          },
+          {
+            "t": "text",
+            "v": ", I have been in London for about a year now. Before I arrived here, I "
+          },
+          {
+            "t": "vocab",
+            "v": "had no idea",
+            "ref": "v-have-no-idea"
+          },
+          {
+            "t": "text",
+            "v": " what it would be like to study and live in London. Now, I have a clear answer."
+          }
+        ]
+      },
+      {
+        "id": "h1",
+        "type": "heading",
+        "content": [
+          {
+            "t": "text",
+            "v": "Eating in London"
+          }
+        ],
+        "level": 3
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "It is easy to find good food in London. There are lots of restaurants and food markets. It is possible to try food from all over the world. Traditional British food includes fish and chips, "
+          },
+          {
+            "t": "gloss",
+            "v": "pudding",
+            "zh": "布丁"
+          },
+          {
+            "t": "text",
+            "v": ", pies, cheese, tea and cake."
+          }
+        ]
+      },
+      {
+        "id": "h2",
+        "type": "heading",
+        "content": [
+          {
+            "t": "text",
+            "v": "Weather in London"
+          }
+        ],
+        "level": 3
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Does it always rain in London? No, not really. Sometimes it rains; sometimes it is sunny and beautiful. London’s weather can change very quickly. In fact, Londoners carry both "
+          },
+          {
+            "t": "vocab",
+            "v": "sunglasses",
+            "ref": "v-sunglasses"
+          },
+          {
+            "t": "text",
+            "v": " and an umbrella throughout the year."
+          }
+        ]
+      },
+      {
+        "id": "h3",
+        "type": "heading",
+        "content": [
+          {
+            "t": "text",
+            "v": "Attractions in London"
+          }
+        ],
+        "level": 3
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "London has many famous attractions, such as the London Eye, the Tower of London and the Science Museum. You can take a "
+          },
+          {
+            "t": "gloss",
+            "v": "double-decker bus",
+            "zh": "双层巴士"
+          },
+          {
+            "t": "text",
+            "v": ". It will show you around the city. The buses stop near most tourist attractions. You can get off at any point. Outside the city, there is beautiful countryside and many "
+          },
+          {
+            "t": "vocab",
+            "v": "castles",
+            "ref": "v-castle"
+          },
+          {
+            "t": "text",
+            "v": ", parks and gardens."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "In a word, London is a beautiful city. It is a good place for visiting and learning."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does traditional British food include?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Does it always rain in London?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Name at least two famous attractions in London."
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is there to see outside of the city of London?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does the author think of London?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "II",
+      "instruction": "Complete the sentences with the given words in their proper forms.",
+      "questions": [
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "These medicines may help "
+              },
+              {
+                "t": "blank",
+                "id": "b1",
+                "hint": {
+                  "baseWord": "easy"
+                }
+              },
+              {
+                "t": "text",
+                "v": " the pain. (easy)"
+              }
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "We need to be prepared. The "
+              },
+              {
+                "t": "blank",
+                "id": "b2",
+                "hint": {
+                  "baseWord": "possible"
+                }
+              },
+              {
+                "t": "text",
+                "v": " are endless. (possible)"
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The exhibition has "
+              },
+              {
+                "t": "blank",
+                "id": "b3",
+                "hint": {
+                  "baseWord": "attraction"
+                }
+              },
+              {
+                "t": "text",
+                "v": " thousands of visitors. (attraction)"
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The "
+              },
+              {
+                "t": "blank",
+                "id": "b4",
+                "hint": {
+                  "baseWord": "arrive"
+                }
+              },
+              {
+                "t": "text",
+                "v": " of their flight was delayed because of heavy fog. (arrive)"
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "There’s a(n) "
+              },
+              {
+                "t": "blank",
+                "id": "b5",
+                "hint": {
+                  "baseWord": "traditional"
+                }
+              },
+              {
+                "t": "text",
+                "v": " in our family that we have a party on New Year’s Eve. (traditional)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "III",
+      "instruction": "Complete the following sentences as required.",
+      "questions": [
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Before I arrived here, I had no idea what it would be like to study and live in London. （改为反意疑问句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Before I arrived here, I had no idea what it would be like to study and live in London, "
+              },
+              {
+                "t": "blank",
+                "id": "b6"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b7"
+              },
+              {
+                "t": "text",
+                "v": "?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "It is easy to find good food in London. （改为感叹句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b8"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b9"
+              },
+              {
+                "t": "text",
+                "v": " it is to find good food in London!"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "In fact, Londoners carry both sunglasses and an umbrella throughout the year. （改为否定句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "In fact, Londoners carry "
+              },
+              {
+                "t": "blank",
+                "id": "b10"
+              },
+              {
+                "t": "text",
+                "v": " sunglasses "
+              },
+              {
+                "t": "blank",
+                "id": "b11"
+              },
+              {
+                "t": "text",
+                "v": " an umbrella throughout the year."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "It will show you around the city. （改为被动语态）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "You "
+              },
+              {
+                "t": "blank",
+                "id": "b12"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b13"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b14"
+              },
+              {
+                "t": "text",
+                "v": " around the city by it."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "order",
+            "items": [
+              {
+                "id": "w1",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "don’t"
+                  }
+                ]
+              },
+              {
+                "id": "w2",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "a moving train"
+                  }
+                ]
+              },
+              {
+                "id": "w3",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "get"
+                  }
+                ]
+              },
+              {
+                "id": "w4",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "try"
+                  }
+                ]
+              },
+              {
+                "id": "w5",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "or"
+                  }
+                ]
+              },
+              {
+                "id": "w6",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to"
+                  }
+                ]
+              },
+              {
+                "id": "w7",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "off"
+                  }
+                ]
+              },
+              {
+                "id": "w8",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "on"
+                  }
+                ]
+              }
+            ],
+            "ending": "!"
+          }
+        }
+      ]
+    }
+  ]
+}

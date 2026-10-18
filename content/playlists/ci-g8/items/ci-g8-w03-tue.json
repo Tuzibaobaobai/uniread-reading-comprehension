@@ -1,0 +1,474 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g8-w03-tue",
+  "playlistId": "ci-g8",
+  "order": 12,
+  "week": 3,
+  "day": "tue",
+  "title": "The Great Card Craze",
+  "titleZh": "疯狂的集卡热潮",
+  "displayName": "Week 3 Tuesday The Great Card Craze",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "议论文",
+    "wordCount": 301,
+    "difficulty": 3,
+    "suggestedMinutes": 6,
+    "themeContext": "人与自我",
+    "contentRequirement": "理性消费",
+    "intro": "停不下来，根本停不下来——收集卡牌为何如此令人“上头”？",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "初2第3辑初中时文阅读提分训练3+X第3辑8年级.pdf",
+    "pdfPages": [
+      29,
+      30
+    ],
+    "bookPages": [
+      20,
+      21
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-belong",
+        "headword": "belong",
+        "ipa": "bɪˈlɒŋ",
+        "pos": "v.",
+        "meaningZh": "适应；合得来"
+      },
+      {
+        "id": "v-scratch-head",
+        "headword": "scratch one’s head",
+        "pos": "",
+        "meaningZh": "(对难题)苦思冥想"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "When my nephew was a kid, he was crazy about collecting and trading cards. Whether it was "
+          },
+          {
+            "t": "em",
+            "v": "Hongmao and Lantu"
+          },
+          {
+            "t": "text",
+            "v": " or "
+          },
+          {
+            "t": "em",
+            "v": "My Little Pony"
+          },
+          {
+            "t": "text",
+            "v": ", he believed that each one would give him superpowers—or at least make him the coolest kid on the playground. And the money he spent? Let’s just say he could have bought himself a small island. But hey, who needs an island when you have a rare, shiny Hongmao card?"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Now that he’s older (and maybe a little wiser), he can’t believe how much he once cared about those cards. But he wasn’t alone in his love for them. Kids have been collecting cards for generations. It’s all about fitting in and being part of the “club”. Nothing says “I "
+          },
+          {
+            "t": "vocab",
+            "v": "belong",
+            "ref": "v-belong"
+          },
+          {
+            "t": "text",
+            "v": "” quite like pulling out a pack of these cards."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "But there’s a dark side to all that shiny cardboard. Take the current card-collecting craze here in China. Schools are turning into trading floors faster than you can say “limited edition”. Parents and teachers are left "
+          },
+          {
+            "t": "vocab",
+            "v": "scratching their heads",
+            "ref": "v-scratch-head"
+          },
+          {
+            "t": "text",
+            "v": " while kids fill their pockets with newly found “treasures”."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "It’s not just about the cards, though; it’s about the exciting search, the social "
+          },
+          {
+            "t": "gloss",
+            "v": "pecking order",
+            "zh": "社会等级制度"
+          },
+          {
+            "t": "text",
+            "v": ", and the thrill of tearing open a new pack. With the newest anime or video game characters on them, these cards are meant to catch and hold kids’ interest. And because they’re often sold in “blind boxes”, you never know what you’re going to get. They’re like "
+          },
+          {
+            "t": "gloss",
+            "v": "scratch-off lottery tickets",
+            "zh": "刮刮乐彩票"
+          },
+          {
+            "t": "text",
+            "v": " for kids; instead of money, you win "
+          },
+          {
+            "t": "gloss",
+            "v": "bragging",
+            "zh": "吹嘘"
+          },
+          {
+            "t": "text",
+            "v": " rights."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "All this can turn into an expensive, "
+          },
+          {
+            "t": "gloss",
+            "v": "vicious cycle",
+            "zh": "恶性循环"
+          },
+          {
+            "t": "text",
+            "v": ". Don’t have the card you want? Buy more packs! Still no luck? Trade like your life depends on it! Sound familiar? Maybe it’s time to think about how far you would go—and whether it’s worth it—to complete your collection!"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "When the author’s nephew was a child, he believed that his cards ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "could make him powerful and popular"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "could teach him important life lessons"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "were not as attractive as his other toys"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "were worth more money than an island"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "attitude"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How does the nephew feel about his childhood hobby now?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He thinks it was a silly thing."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He is proud of his large collection."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He wants to take up the hobby again."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He believes it helped him become wiser."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the author, kids have been collecting cards for generations to ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "become part of a group"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "learn how to trade fairly"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "make some pocket money"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "learn about different characters"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The author suggested kids think about ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "how to find the rarest cards quickly"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "how to trade cards without spending money"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "if it is necessary to complete their collections"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "which of their cards is worth the most money"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "By writing this article, the author mainly wanted to ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "compare cards to lottery tickets"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "explain how to trade cards quickly"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "encourage kids to collect more cards"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "show the possible dangers of card collecting"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

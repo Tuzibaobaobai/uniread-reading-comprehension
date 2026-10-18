@@ -1,0 +1,316 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w01-mon",
+  "playlistId": "ci-zk",
+  "order": 1,
+  "week": 1,
+  "day": "mon",
+  "title": "China’s Another Infrastructure Miracle",
+  "titleZh": "中国又一基建奇迹",
+  "displayName": "Week 1 Monday China’s Another Infrastructure Miracle",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 263,
+    "difficulty": 4,
+    "suggestedMinutes": 7,
+    "themeContext": "人与社会",
+    "contentRequirement": "科学技术与工程",
+    "intro": "又一基建奇迹！花江峡谷大桥“横竖”都是第一。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      10
+    ],
+    "bookPages": [
+      1
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-region",
+        "headword": "region",
+        "ipa": "ˈriːdʒən",
+        "pos": "n.",
+        "meaningZh": "地区"
+      },
+      {
+        "id": "v-winding",
+        "headword": "winding",
+        "ipa": "ˈwaɪndɪŋ",
+        "pos": "adj.",
+        "meaningZh": "蜿蜒的"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Would you be brave enough to cross a bridge that touches the clouds? The Huajiang Grand Canyon Bridge in Guizhou province is now open to the public. The bridge stands about 625 metres above a river, making it both the world’s highest bridge and the largest-span bridge built in a mountainous area."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Guizhou is a mountainous "
+          },
+          {
+            "t": "vocab",
+            "v": "region",
+            "ref": "v-region"
+          },
+          {
+            "t": "text",
+            "v": ", and travelling between towns used to take a long time. Before the bridge was built, driving across the canyon took about two hours on "
+          },
+          {
+            "t": "vocab",
+            "v": "winding",
+            "ref": "v-winding"
+          },
+          {
+            "t": "text",
+            "v": " roads. Now, the trip takes only two minutes. The bridge will help people travel more easily, connect cities, and lower business costs."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The bridge also offers fun activities for visitors. A high-speed glass elevator can take people up 800 metres to a coffee shop in the clouds. The shop owner says that looking down at the mountains while sipping coffee “feels like drinking with nature”. Brave visitors can also try "
+          },
+          {
+            "t": "gloss",
+            "v": "bungee jumping",
+            "zh": "蹦极"
+          },
+          {
+            "t": "text",
+            "v": " or walk along a glass walkway."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Construction of the bridge began in January 2022 and took more than three and a half years. The steel bridge weighs about 22,000 tons. To ensure safety, engineers conducted a five-day test in August 2025. A team drove 18, then 48, and finally 96 heavy trucks onto different parts of the bridge."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Guizhou has about 40 million people. In recent years, the province has built many bridges to help people travel and reduce poverty. Now it has over 32,000 bridges, compared with only 2,900 in the 1980s. It is also home to the world’s second-highest bridge, the Duge Bridge, which opened in 2016."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Before the bridge was built, what was the main problem for travellers?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The journey often took too long."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "There were traffic jams every day."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "There were dangerous wild animals."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "There were no roads to the towns at all."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "We can learn that the Huajiang Grand Canyon Bridge was completed in ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the winter of 2022"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the summer of 2023"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the autumn of 2024"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the summer of 2025"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The engineers tested the bridge’s safety by ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "jumping on it"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "asking visitors to walk on it"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "driving many heavy trucks onto it"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "inviting people to try bungee jumping"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

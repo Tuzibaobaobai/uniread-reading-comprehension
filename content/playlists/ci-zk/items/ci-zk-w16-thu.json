@@ -1,0 +1,294 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w16-thu",
+  "playlistId": "ci-zk",
+  "order": 79,
+  "week": 16,
+  "day": "thu",
+  "title": "You Can’t Remember Being a Baby",
+  "titleZh": "人都记不住婴儿时期的事",
+  "displayName": "Week 16 Thursday You Can’t Remember Being a Baby",
+  "taskType": {
+    "code": "answer_questions",
+    "labelZh": "回答问题"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 290,
+    "difficulty": 5,
+    "suggestedMinutes": 8,
+    "themeContext": "人与自我",
+    "contentRequirement": "自我认识",
+    "intro": "你还记得自己两岁前的经历吗？",
+    "hasVideo": false
+  },
+  "thumbnail": "assets/ci-zk/ci-zk-w16-thu-1.jpg",
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      145,
+      146
+    ],
+    "bookPages": [
+      136,
+      137
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-zk/ci-zk-w16-thu-1.jpg",
+        "alt": "A black-and-white photo of a smiling baby in a onesie sitting on a laughing woman who is lying on a bed.",
+        "w": 926,
+        "h": 613
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-fuzzy",
+        "headword": "fuzzy",
+        "ipa": "ˈfʌzi",
+        "pos": "adj.",
+        "meaningZh": "模糊不清的"
+      },
+      {
+        "id": "v-narrative",
+        "headword": "narrative",
+        "ipa": "ˈnærətɪv",
+        "pos": "n.",
+        "meaningZh": "描述"
+      },
+      {
+        "id": "v-suggestive",
+        "headword": "suggestive",
+        "ipa": "səˈdʒestɪv",
+        "pos": "adj.",
+        "meaningZh": "引起联想的"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "I was dancing around in a garden with neat flowerbeds on a hot summer day, enjoying my grandmother’s attention. I was around two years old at the time. Even though it’s "
+          },
+          {
+            "t": "vocab",
+            "v": "fuzzy",
+            "ref": "v-fuzzy"
+          },
+          {
+            "t": "text",
+            "v": ", I treasure it as one of my earliest memories."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "There’s just one "
+          },
+          {
+            "t": "underline",
+            "v": "problem"
+          },
+          {
+            "t": "text",
+            "v": ": I’m not sure if it’s real. According to my parents, I may have made up the details from an old family photo."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "According to researchers, around four out of every ten of us have made up our first memory. Our brains are unable to store long-term memories before we reach the age of two. The new cells that form in a young brain may prevent it from storing information for long periods."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "But a surprising number of us have some memories from before that age. Scientists think it’s because we desire a complete "
+          },
+          {
+            "t": "vocab",
+            "v": "narrative",
+            "ref": "v-narrative"
+          },
+          {
+            "t": "text",
+            "v": " of our own existence. Sometimes, people invent stories to give themselves a full picture."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Research has shown that it’s possible to create false memories in people. Julia Shaw, a scientist in London, has even led people to believe they have committed a crime. She asked the volunteers a few "
+          },
+          {
+            "t": "vocab",
+            "v": "suggestive",
+            "ref": "v-suggestive"
+          },
+          {
+            "t": "text",
+            "v": " questions. Seventy per cent of them ended up believing that they had committed a crime. Some could even describe the police officers who caught them."
+          }
+        ]
+      },
+      {
+        "id": "p6",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Carrying around false memories from our childhood can have a great influence on us. These “memories” can help to shape who we are as adults. In one study, 180 volunteers were told that they had become ill from eating egg sandwiches as children. Many of them came to believe that they really had been sick. As a result, they immediately began to avoid egg sandwiches. Some continued to do so even four months after the experiment."
+          }
+        ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the author’s “problem” underlined in Paragraph 2?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to researchers, how many people invent their first memory?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to researchers, why are we unlikely to remember what we were like before the age of two?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does Julia Shaw’s experiment show?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What example did the author use to show that “carrying around false memories from our childhood can have a great influence on us”?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Do you desire a complete narrative of your own existence? Why or why not?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ]
+}

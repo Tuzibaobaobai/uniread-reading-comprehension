@@ -1,0 +1,337 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w18-tue",
+  "playlistId": "ci-zk",
+  "order": 87,
+  "week": 18,
+  "day": "tue",
+  "title": "Seeing Without Looking",
+  "titleZh": "无需目视，亦能“看见”",
+  "displayName": "Week 18 Tuesday Seeing Without Looking",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "随笔",
+    "wordCount": 282,
+    "difficulty": 3,
+    "suggestedMinutes": 6,
+    "themeContext": "人与社会",
+    "contentRequirement": "人类发明与创新",
+    "intro": "屏幕助读程序彻底改变了“我”的生活。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      161
+    ],
+    "bookPages": [
+      152
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-extremely",
+        "headword": "extremely",
+        "ipa": "ɪkˈstriːmli",
+        "pos": "adv.",
+        "meaningZh": "极其地"
+      },
+      {
+        "id": "v-detect",
+        "headword": "detect",
+        "ipa": "dɪˈtekt",
+        "pos": "v.",
+        "meaningZh": "发现"
+      },
+      {
+        "id": "v-belong",
+        "headword": "belong",
+        "ipa": "bɪˈlɒŋ",
+        "pos": "v.",
+        "meaningZh": "适应；合得来"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "I was born with a rare eye disease called Leber’s Congenital Amaurosis. Because of it, my eyesight is very poor. I can sense light and detect objects in front of me, but that’s about it. The disease also makes my eyes "
+          },
+          {
+            "t": "vocab",
+            "v": "extremely",
+            "ref": "v-extremely"
+          },
+          {
+            "t": "text",
+            "v": " sensitive to sunlight. Whenever I go outside, I have to wear very dark sunglasses."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Ever since I was little, my biggest challenge has been fitting in with people who can see the world clearly. In school, I had a hard time playing games or doing group activities with the other students. Because of my poor eyesight, I was often left behind while my classmates moved on."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Things finally began to improve in Grade 3. That year, I was introduced to my first piece of assistive technology. It’s a screen reader called JAWS (Job Access With Speech). When a website is designed to work with it, the screen reader can "
+          },
+          {
+            "t": "vocab",
+            "v": "detect",
+            "ref": "v-detect"
+          },
+          {
+            "t": "text",
+            "v": " everything on the page and read it aloud. That was a game-changer for people like me."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "These days, I depend on VoiceOver. This screen reader is built into every Apple device. Thanks to VoiceOver, I’ve been able to explore many parts of the digital world. I can text and email friends and family, listen to my favourite songs online, shop on Amazon, and edit documents. Without a screen reader, all of that would have been out of reach."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "I have benefited greatly from assistive technology. However, I still see room for improvement. Many apps and websites are not designed to work well with screen readers. I hope more developers will become aware of the needs of users like me. The digital world should be a place where everyone can "
+          },
+          {
+            "t": "vocab",
+            "v": "belong",
+            "ref": "v-belong"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, with the help of assistive technology, the author is now able to ______."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "① shop online　② watch movies"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "③ develop new apps　④ contact friends by email"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "①②"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "②③"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "③④"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "①④"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "attitude"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "In the last paragraph, the author complains that ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "some screen readers are too expensive"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "some screen readers are not very user-friendly"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "some assistive technology is only available on Apple devices"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "some apps and websites are not well-designed for screen reader users"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "By writing this article, the author mainly wanted to ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "compare JAWS and VoiceOver"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "explain how screen readers work"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "complain about how difficult his life is"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "show how screen readers have changed his life"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

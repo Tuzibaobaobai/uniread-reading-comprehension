@@ -1,0 +1,736 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w03-fri",
+  "playlistId": "ci-xsc3",
+  "order": 15,
+  "week": 3,
+  "day": "fri",
+  "title": "The History of Traffic Signs",
+  "titleZh": "交通标志的历史",
+  "displayName": "Week 3 Friday The History of Traffic Signs",
+  "taskType": {
+    "code": "weekly_intensive",
+    "labelZh": "每周精读"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 181,
+    "difficulty": 3,
+    "suggestedMinutes": 10,
+    "themeContext": "人与社会",
+    "contentRequirement": "历史的发展",
+    "intro": "交通标志是怎么来的?",
+    "hasVideo": true
+  },
+  "thumbnail": "assets/ci-xsc3/ci-xsc3-w03-fri-1.jpg",
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      31,
+      32
+    ],
+    "bookPages": [
+      22,
+      23
+    ]
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-xsc3/ci-xsc3-w03-fri-1.jpg",
+        "alt": "A black-and-white photo of a round no-entry traffic sign with a white bar, mounted on a pole against trees and sky.",
+        "w": 683,
+        "h": 451
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-milestone",
+        "headword": "milestone",
+        "ipa": "ˈmaɪlstəʊn",
+        "pos": "n.",
+        "meaningZh": "里程碑"
+      },
+      {
+        "id": "v-horseback",
+        "headword": "horseback",
+        "ipa": "ˈhɔːsbæk",
+        "pos": "n.",
+        "meaningZh": "马背"
+      },
+      {
+        "id": "v-column",
+        "headword": "column",
+        "ipa": "ˈkɒləm",
+        "pos": "n.",
+        "meaningZh": "柱子"
+      },
+      {
+        "id": "v-manual",
+        "headword": "manual",
+        "ipa": "ˈmænjuəl",
+        "pos": "n.",
+        "meaningZh": "手册"
+      },
+      {
+        "id": "v-as-a-result",
+        "headword": "as a result",
+        "meaningZh": "因此"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "When you visit a new place, traffic signs are very helpful. It’s hard to imagine a world without traffic signs. You may want to ask: When were traffic signs invented?"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "It may sound strange, but the first road signs were "
+          },
+          {
+            "t": "vocab",
+            "v": "milestones",
+            "ref": "v-milestone"
+          },
+          {
+            "t": "text",
+            "v": ". They were used in ancient Rome. Back then, ancient Romans travelled on "
+          },
+          {
+            "t": "vocab",
+            "v": "horseback",
+            "ref": "v-horseback"
+          },
+          {
+            "t": "text",
+            "v": " or on foot. Milestones were placed every few kilometres. The milestones let travellers know how far they were from Rome."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "After cars were invented, signs became more and more important. Drivers would get lost without signs. "
+          },
+          {
+            "t": "vocab",
+            "v": "As a result",
+            "ref": "v-as-a-result"
+          },
+          {
+            "t": "text",
+            "v": ", Americans began to place signs on busy roads. Early signs were made of wood and were placed on iron "
+          },
+          {
+            "t": "vocab",
+            "v": "columns",
+            "ref": "v-column"
+          },
+          {
+            "t": "text",
+            "v": ". In the 1920s, Americans made the first "
+          },
+          {
+            "t": "vocab",
+            "v": "manual",
+            "ref": "v-manual"
+          },
+          {
+            "t": "text",
+            "v": " for traffic signs. The book showed what each sign meant. Now, different countries have different traffic sign manuals."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The need for new traffic signs is always growing and changing. In the future, signs may be different, but their goal will not change. Traffic signs will still need to be able to tell people what to do on the road quickly."
+          }
+        ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Where were the first road signs used?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What was the use of the milestones in ancient Rome?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Early traffic signs were made of iron, weren’t they?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the function"
+              },
+              {
+                "t": "gloss",
+                "v": "",
+                "zh": "功能"
+              },
+              {
+                "t": "text",
+                "v": " of the first manual for traffic signs?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What’s the goal of future signs?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "II",
+      "instruction": "Complete the sentences with the given words in their proper forms.",
+      "questions": [
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I’m at a "
+              },
+              {
+                "t": "blank",
+                "id": "b1",
+                "hint": {
+                  "baseWord": "lose"
+                }
+              },
+              {
+                "t": "text",
+                "v": " for what to do next."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "There were many great "
+              },
+              {
+                "t": "blank",
+                "id": "b2",
+                "hint": {
+                  "baseWord": "invent"
+                }
+              },
+              {
+                "t": "text",
+                "v": " in the 19th century."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Many children have "
+              },
+              {
+                "t": "blank",
+                "id": "b3",
+                "hint": {
+                  "baseWord": "imagine"
+                }
+              },
+              {
+                "t": "text",
+                "v": " friends."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "We watched their ship moving gradually "
+              },
+              {
+                "t": "blank",
+                "id": "b4",
+                "hint": {
+                  "baseWord": "far"
+                }
+              },
+              {
+                "t": "text",
+                "v": " away."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Almost everyone in this group has some musical "
+              },
+              {
+                "t": "blank",
+                "id": "b5",
+                "hint": {
+                  "baseWord": "able"
+                }
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "You can always tell the "
+              },
+              {
+                "t": "blank",
+                "id": "b6",
+                "hint": {
+                  "baseWord": "different"
+                }
+              },
+              {
+                "t": "text",
+                "v": " between the tourists and the natives."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "III",
+      "instruction": "Complete the following sentences as required.",
+      "questions": [
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Back then, ancient Romans travelled "
+              },
+              {
+                "t": "underline",
+                "v": "on horseback or on foot"
+              },
+              {
+                "t": "text",
+                "v": ". （对画线部分提问）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b7"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b8"
+              },
+              {
+                "t": "text",
+                "v": " ancient Romans travel back then?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The milestones let travellers know how far they were from Rome. （改为一般疑问句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b9"
+              },
+              {
+                "t": "text",
+                "v": " the milestones "
+              },
+              {
+                "t": "blank",
+                "id": "b10"
+              },
+              {
+                "t": "text",
+                "v": " travellers know how far they were from Rome?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Drivers would get lost without signs. （保持句意基本不变）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Drivers would "
+              },
+              {
+                "t": "blank",
+                "id": "b11"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b12"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b13"
+              },
+              {
+                "t": "text",
+                "v": " without signs."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Now, different countries have different manuals. （改为反意疑问句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Now, different countries have different manuals, "
+              },
+              {
+                "t": "blank",
+                "id": "b14"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b15"
+              },
+              {
+                "t": "text",
+                "v": "?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "order",
+            "items": [
+              {
+                "id": "w1",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "signs"
+                  }
+                ]
+              },
+              {
+                "id": "w2",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "on"
+                  }
+                ]
+              },
+              {
+                "id": "w3",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "drivers"
+                  }
+                ]
+              },
+              {
+                "id": "w4",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "traffic"
+                  }
+                ]
+              },
+              {
+                "id": "w5",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "placed"
+                  }
+                ]
+              },
+              {
+                "id": "w6",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "roads"
+                  }
+                ]
+              },
+              {
+                "id": "w7",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "guide"
+                  }
+                ]
+              },
+              {
+                "id": "w8",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "are"
+                  }
+                ]
+              },
+              {
+                "id": "w9",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to"
+                  }
+                ]
+              }
+            ],
+            "ending": "."
+          }
+        }
+      ]
+    }
+  ],
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

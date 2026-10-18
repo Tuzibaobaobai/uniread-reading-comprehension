@@ -1,0 +1,193 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g8-w06-thu",
+  "playlistId": "ci-g8",
+  "order": 29,
+  "week": 6,
+  "day": "thu",
+  "title": "A Little Line Goes a Long Way",
+  "titleZh": "一笔一画，自有力量",
+  "displayName": "Week 6 Thursday A Little Line Goes a Long Way",
+  "taskType": {
+    "code": "answer_questions",
+    "labelZh": "回答问题"
+  },
+  "meta": {
+    "genre": "记叙文",
+    "wordCount": 285,
+    "difficulty": 3,
+    "suggestedMinutes": 8,
+    "themeContext": "人与自我",
+    "contentRequirement": "自我提升",
+    "intro": "一支画笔，使“我”迷茫的生活又重新充满了缤纷色彩。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "初2第3辑初中时文阅读提分训练3+X第3辑8年级.pdf",
+    "pdfPages": [
+      58
+    ],
+    "bookPages": [
+      49
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "When I tell people that drawing saved my life, they think I’m joking. But honestly, this hobby has helped me survive some of the darkest days in my life."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "I lost my job five years ago. I had been a magazine editor for more than twenty years, but the internet changed my job—at first slowly, then quickly—until I was completely out. Jobless middle-aged men are not just a danger to themselves; they could put anyone around them at risk. I knew I needed something to keep me going, and I thought of drawing."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "I had been drawing in my spare time for years, practising on my way to work. Now that I was out of work, spending more time drawing was suddenly easy. I found that even drawing ordinary things, like a pair of shoes, could help me feel calm."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "I liked to cook and felt comfortable in the kitchen, so I started drawing my "
+          },
+          {
+            "t": "gloss",
+            "v": "dish rack",
+            "zh": "碗碟架"
+          },
+          {
+            "t": "text",
+            "v": " every night. Now I have more than a thousand drawings of my dish rack. Every time I start drawing, I feel like every line is out of place. But that’s okay because it frees me. When I’m done, I feel like a new man. If William Wordsworth’s heart "
+          },
+          {
+            "t": "gloss",
+            "v": "leapt",
+            "zh": "猛跳"
+          },
+          {
+            "t": "text",
+            "v": " at the sight of a rainbow in the sky, mine leaps when I draw the handle of a frying pan."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "I draw not for the result but for the process. But because I’ve been at it long enough, the results aren’t too bad, either. Now I’m selling prints of my work to people all over the world. I’ve also landed a three-book deal with an art-book publisher. When you start practising your hobby regularly, who knows what you’ll achieve?"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The author first started drawing five years ago, didn’t he?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How does the author feel when he finishes drawing?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What has the author achieved by practising his hobby regularly?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 2,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What can we learn about the benefits of having a hobby from the author’s experience? What other benefits can a hobby possibly give us?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ]
+}

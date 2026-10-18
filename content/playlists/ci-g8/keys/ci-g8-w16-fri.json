@@ -1,0 +1,283 @@
+{
+  "schemaVersion": "1.0",
+  "itemId": "ci-g8-w16-fri",
+  "answerSource": "official",
+  "reviewStatus": "pending",
+  "officialRef": {
+    "pdf": "初2第3辑初初中时文阅读提分训练3+X第3辑8年级答案.pdf",
+    "pages": [
+      35
+    ]
+  },
+  "answers": {
+    "q1": {
+      "sampleAnswer": "They were talking about the difference clean water had made in their community.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "他们在谈清洁的水给社区带来的变化",
+          "examples": [
+            "the difference clean water had made in their community"
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：清洁水给社区带来的变化。",
+      "explanationZh": "第二段说村民们很想聊清洁的水给他们的社区带来了什么不同。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "These people were eager to talk about the difference clean water had made in their community."
+        }
+      ]
+    },
+    "q2": {
+      "sampleAnswer": "It had enabled her to have better health and spend more time in school, allowing her to become better educated than many of her fellow villagers.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "她身体更健康、在学校的时间更多",
+          "examples": [
+            "better health",
+            "spend more time in school"
+          ],
+          "weight": 1
+        },
+        {
+          "id": "k2",
+          "descZh": "她比很多同村人受教育更好",
+          "examples": [
+            "become better educated than many of her fellow villagers"
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：更健康、上学时间更多；因此比同村人受过更好的教育（两点缺一不可）。",
+      "explanationZh": "第三段说有了清洁的水，Natalia 更健康，能多上学，所以比村里很多人受教育更好。",
+      "evidence": [
+        {
+          "block": "p3",
+          "quote": "Access to clean water had enabled her to have better health."
+        }
+      ]
+    },
+    "q3": {
+      "sampleAnswer": "Because they have no access to clean water and have to drink dirty water.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "他们没有清洁的水，只能喝脏水",
+          "examples": [
+            "have no access to clean water",
+            "drink dirty water"
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：没有清洁水，喝脏水。",
+      "explanationZh": "倒数第二段说这些人没有清洁的水，要把脏水带回家喝，所以常常胃痛。",
+      "evidence": [
+        {
+          "block": "p6",
+          "quote": "They carry dirty water all the way home and serve it to the people they love most."
+        }
+      ]
+    },
+    "q4": {
+      "sampleAnswer": "We can donate to organisations that provide clean water solutions and save water in our own lives. (Answers may vary.)",
+      "rubricType": "opinion",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "第一种合理办法（如捐款给提供清洁水的机构）",
+          "examples": [
+            "donate to organisations that provide clean water solutions"
+          ],
+          "weight": 1
+        },
+        {
+          "id": "k2",
+          "descZh": "第二种合理办法（如自己节约用水）",
+          "examples": [
+            "save water in our own lives"
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "开放题：写出两种合理的帮助办法即可，各得 1 分。",
+      "explanationZh": "这是开放题。写出两种可行的办法，比如捐款给提供清洁水的组织，或在生活中节约用水。",
+      "evidence": []
+    },
+    "q5": {
+      "slots": {
+        "b1": {
+          "accept": [
+            "service"
+          ]
+        }
+      },
+      "explanationZh": "空前有 personal（个人的），后面要名词。serve 的名词是 service（服务）。"
+    },
+    "q6": {
+      "slots": {
+        "b2": {
+          "accept": [
+            "Education"
+          ]
+        }
+      },
+      "explanationZh": "空在句首作主语，要用名词。educated 的名词是 education（教育），首字母大写。"
+    },
+    "q7": {
+      "slots": {
+        "b3": {
+          "accept": [
+            "pride"
+          ]
+        }
+      },
+      "explanationZh": "filled her with 后面要名词。proudly 对应的名词是 pride（骄傲）。"
+    },
+    "q8": {
+      "slots": {
+        "b4": {
+          "accept": [
+            "worried"
+          ]
+        }
+      },
+      "explanationZh": "Doctors are 后面要形容词表示“担心的”，be worried about 担心。"
+    },
+    "q9": {
+      "slots": {
+        "b5": {
+          "accept": [
+            "crowded"
+          ]
+        }
+      },
+      "explanationZh": "was ... with people 表示“挤满了人”，用形容词 crowded。"
+    },
+    "q10": {
+      "slots": {
+        "b6": {
+          "accept": [
+            "immediate"
+          ]
+        }
+      },
+      "explanationZh": "空在名词 medical attention 前，要用形容词 immediate（立即的）。"
+    },
+    "q11": {
+      "slots": {
+        "b7": {
+          "accept": [
+            "What"
+          ]
+        },
+        "b8": {
+          "accept": [
+            "had"
+          ]
+        },
+        "b9": {
+          "accept": [
+            "enabled"
+          ]
+        },
+        "b10": {
+          "accept": [
+            "her"
+          ]
+        }
+      },
+      "explanationZh": "画线部分 Access to clean water 是主语，问“什么”用 What；句子是过去完成时，所以接 had enabled her。"
+    },
+    "q12": {
+      "slots": {
+        "b11": {
+          "accept": [
+            "wouldn’t",
+            "wouldn't"
+          ]
+        },
+        "b12": {
+          "accept": [
+            "it"
+          ]
+        }
+      },
+      "explanationZh": "前面是肯定句，反意疑问部分用否定：wouldn’t it？主语是动名词短语，用 it 代替。",
+      "tipsZh": "前肯后否，前否后肯"
+    },
+    "q13": {
+      "slots": {
+        "b13": {
+          "accept": [
+            "What"
+          ]
+        },
+        "b14": {
+          "accept": [
+            "do"
+          ]
+        },
+        "b15": {
+          "accept": [
+            "you"
+          ]
+        },
+        "b16": {
+          "accept": [
+            "expect"
+          ]
+        },
+        "b17": {
+          "accept": [
+            "your"
+          ]
+        }
+      },
+      "explanationZh": "直接引语要用一般现在时的疑问句：What do you expect of your daughter’s future？she 变成 you，her 变成 your。",
+      "tipsZh": "间接引语变直接引语：人称和时态都要改"
+    },
+    "q14": {
+      "slots": {
+        "b18": {
+          "accept": [
+            "What"
+          ]
+        },
+        "b19": {
+          "accept": [
+            "did"
+          ]
+        },
+        "b20": {
+          "accept": [
+            "tell"
+          ]
+        }
+      },
+      "explanationZh": "画线部分 that water is life 是 told 的宾语，问“什么”用 What；过去的事用 did，后面动词变回原形 tell。"
+    },
+    "q15": {
+      "sequence": [
+        "w3",
+        "w1",
+        "w5",
+        "w2",
+        "w4",
+        "w6"
+      ],
+      "explanationZh": "主语 local people，副词 constantly 放在动词前，suffer from 后接 this type of disease：Local people constantly suffer from this type of disease。"
+    }
+  }
+}

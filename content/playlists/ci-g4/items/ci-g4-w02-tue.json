@@ -1,0 +1,421 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g4-w02-tue",
+  "playlistId": "ci-g4",
+  "order": 7,
+  "week": 2,
+  "day": "tue",
+  "title": "Human-Sized Penguin Lived in New Zealand!",
+  "titleZh": "和人一样高的企鹅曾生活在新西兰！",
+  "displayName": "Week 2 Tuesday Human-Sized Penguin Lived in New Zealand!",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 118,
+    "difficulty": 4,
+    "suggestedMinutes": 7,
+    "themeContext": "人与自然",
+    "contentRequirement": "热爱与敬畏自然",
+    "intro": "新西兰远古企鹅体型庞大，和人类同高！",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X4年级.pdf",
+    "pdfPages": [
+      19
+    ],
+    "bookPages": [
+      10
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-human",
+        "headword": "human",
+        "meaningZh": "人类",
+        "ipa": "ˈhjuːmən",
+        "pos": "n."
+      },
+      {
+        "id": "v-dinosaur",
+        "headword": "dinosaur",
+        "meaningZh": "恐龙",
+        "ipa": "ˈdaɪnəsɔː(r)",
+        "pos": "n."
+      },
+      {
+        "id": "v-monster",
+        "headword": "monster",
+        "meaningZh": "庞大的；怪物，怪兽",
+        "ipa": "ˈmɒnstə(r)",
+        "pos": "adj.; n."
+      },
+      {
+        "id": "v-up-to",
+        "headword": "up to",
+        "meaningZh": "多达"
+      },
+      {
+        "id": "v-die-out",
+        "headword": "die out",
+        "meaningZh": "灭绝"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Before humans walked the Earth, there were "
+          },
+          {
+            "t": "vocab",
+            "v": "dinosaurs",
+            "ref": "v-dinosaur"
+          },
+          {
+            "t": "text",
+            "v": " and “"
+          },
+          {
+            "t": "vocab",
+            "v": "monster",
+            "ref": "v-monster"
+          },
+          {
+            "t": "text",
+            "v": "” penguins?"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "A scientist found the "
+          },
+          {
+            "t": "gloss",
+            "v": "fossil",
+            "zh": "化石"
+          },
+          {
+            "t": "text",
+            "v": " of a large penguin in New Zealand. It stood about 1.6 m tall. It weighed"
+          },
+          {
+            "t": "gloss",
+            "v": "",
+            "zh": "重"
+          },
+          {
+            "t": "text",
+            "v": " "
+          },
+          {
+            "t": "vocab",
+            "v": "up to",
+            "ref": "v-up-to"
+          },
+          {
+            "t": "text",
+            "v": " 80 kg. Today’s largest penguin is the "
+          },
+          {
+            "t": "gloss",
+            "v": "emperor penguin",
+            "zh": "帝企鹅"
+          },
+          {
+            "t": "text",
+            "v": ". It grows to about 1.2 m tall."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "So how could the monster penguin grow that big? It lived about 60 million years ago. Dinosaurs "
+          },
+          {
+            "t": "vocab",
+            "v": "died out",
+            "ref": "v-die-out"
+          },
+          {
+            "t": "text",
+            "v": " around the same time. There were no large "
+          },
+          {
+            "t": "gloss",
+            "v": "reptiles",
+            "zh": "爬行动物"
+          },
+          {
+            "t": "text",
+            "v": " in the waters, either. For 30 million years, it was the time of these monster penguins."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "gloss",
+            "v": "Later",
+            "zh": "后来"
+          },
+          {
+            "t": "text",
+            "v": ", they died out. Scientists are not very clear about the reason. Maybe it was because large "
+          },
+          {
+            "t": "gloss",
+            "v": "sea mammals",
+            "zh": "哺乳动物"
+          },
+          {
+            "t": "text",
+            "v": " arrived. They began "
+          },
+          {
+            "t": "gloss",
+            "v": "ruling",
+            "zh": "统治"
+          },
+          {
+            "t": "text",
+            "v": " the waters."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How tall was the monster penguin?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "1.2 m."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "1.6 m."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "2.0 m."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "When did it live?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "30 million years ago."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "60 million years ago."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "80 million years ago."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why could it grow so big?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Lots of food."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Warm weather."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "No large reptiles."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The discovery of monster penguins helps scientists understand ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "why dinosaurs became extinct"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "how climate change affects penguins"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "how animals evolve"
+                  },
+                  {
+                    "t": "gloss",
+                    "v": "",
+                    "zh": "进化"
+                  },
+                  {
+                    "t": "text",
+                    "v": " without natural enemies"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

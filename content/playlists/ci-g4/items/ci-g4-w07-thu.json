@@ -1,0 +1,291 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g4-w07-thu",
+  "playlistId": "ci-g4",
+  "order": 34,
+  "week": 7,
+  "day": "thu",
+  "title": "Sleeping Less but Feeling Great",
+  "titleZh": "睡得少却精神好",
+  "displayName": "Week 7 Thursday Sleeping Less but Feeling Great",
+  "taskType": {
+    "code": "answer_questions",
+    "labelZh": "回答问题"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 160,
+    "difficulty": 5,
+    "suggestedMinutes": 10,
+    "themeContext": "人与自我",
+    "contentRequirement": "自我管理",
+    "intro": "某些人只需很少的睡眠就能保持精力充沛。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X4年级.pdf",
+    "pdfPages": [
+      62
+    ],
+    "bookPages": [
+      53
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-tiny",
+        "headword": "tiny",
+        "ipa": "taɪni",
+        "pos": "adj.",
+        "meaningZh": "微小的"
+      },
+      {
+        "id": "v-ready",
+        "headword": "ready",
+        "ipa": "ˈredi",
+        "pos": "adj.",
+        "meaningZh": "准备好的"
+      },
+      {
+        "id": "v-adult",
+        "headword": "adult",
+        "ipa": "ˈædʌlt",
+        "pos": "n.",
+        "meaningZh": "成年人"
+      },
+      {
+        "id": "v-memory",
+        "headword": "memory",
+        "ipa": "ˈmeməri",
+        "pos": "n.",
+        "meaningZh": "记忆"
+      },
+      {
+        "id": "v-amazing",
+        "headword": "amazing",
+        "ipa": "əˈmeɪzɪŋ",
+        "pos": "adj.",
+        "meaningZh": "惊人的"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Scientists have found something very special. Some people do not need as much sleep as others. This is because of their "
+          },
+          {
+            "t": "gloss",
+            "v": "genes",
+            "zh": "基因"
+          },
+          {
+            "t": "text",
+            "v": ". Genes are "
+          },
+          {
+            "t": "vocab",
+            "v": "tiny",
+            "ref": "v-tiny"
+          },
+          {
+            "t": "text",
+            "v": " parts of DNA inside our bodies. DNA gives the body "
+          },
+          {
+            "t": "gloss",
+            "v": "instructions",
+            "zh": "指令"
+          },
+          {
+            "t": "text",
+            "v": " on how to grow, look, and work."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "People with this special gene are called natural short sleepers (NSS). They usually sleep only four to six hours each night. When they wake up, they feel happy and "
+          },
+          {
+            "t": "vocab",
+            "v": "ready",
+            "ref": "v-ready"
+          },
+          {
+            "t": "text",
+            "v": " for the day. If they sleep longer, they may even feel tired."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Most "
+          },
+          {
+            "t": "vocab",
+            "v": "adults",
+            "ref": "v-adult"
+          },
+          {
+            "t": "text",
+            "v": " need at least seven hours of sleep every night. Children need between nine and twelve hours. Sleep is very important for everyone. When we sleep, our brains "
+          },
+          {
+            "t": "gloss",
+            "v": "sort out",
+            "zh": "梳理"
+          },
+          {
+            "t": "text",
+            "v": " what we learned, fix "
+          },
+          {
+            "t": "vocab",
+            "v": "memories",
+            "ref": "v-memory"
+          },
+          {
+            "t": "text",
+            "v": ", and help our bodies rest and grow."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "But NSS can do all these things faster. Scientist Ying-Hui Fu says their brains “work at a higher level”. They show that every person’s body is different in "
+          },
+          {
+            "t": "vocab",
+            "v": "amazing",
+            "ref": "v-amazing"
+          },
+          {
+            "t": "text",
+            "v": " ways."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Answer the questions based on the passage.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why do some people need less sleep?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What are natural short sleepers (NSS)?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why is sleep important for us?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How do natural short sleepers feel when they sleep only four to six hours?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How are the brains of natural short sleepers different?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ]
+}

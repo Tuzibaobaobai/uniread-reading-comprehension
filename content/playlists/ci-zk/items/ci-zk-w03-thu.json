@@ -1,0 +1,535 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w03-thu",
+  "playlistId": "ci-zk",
+  "order": 14,
+  "week": 3,
+  "day": "thu",
+  "title": "How AI Is Re-Inventing Computers",
+  "titleZh": "人工智能如何重塑计算机",
+  "displayName": "Week 3 Thursday How AI Is Re-Inventing Computers",
+  "taskType": {
+    "code": "table_fill",
+    "labelZh": "表格填空"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 317,
+    "difficulty": 4,
+    "suggestedMinutes": 8,
+    "themeContext": "人与社会",
+    "contentRequirement": "科学技术与工程",
+    "intro": "多年以来，计算机看似一成不变，但其背后，一场大变革正在悄然进行着。",
+    "hasVideo": false
+  },
+  "thumbnail": "assets/ci-zk/ci-zk-w03-thu-1.jpg",
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      31,
+      32
+    ],
+    "bookPages": [
+      22,
+      23
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-zk/ci-zk-w03-thu-1.jpg",
+        "alt": "A computer chip sitting on a circuit board with many fine metal lines, shown in black and white.",
+        "w": 998,
+        "h": 667
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-processor",
+        "headword": "processor",
+        "ipa": "ˈprəʊsesə(r)",
+        "pos": "n.",
+        "meaningZh": "处理器"
+      },
+      {
+        "id": "v-program",
+        "headword": "program",
+        "ipa": "ˈprəʊɡræm",
+        "pos": "v.",
+        "meaningZh": "编写程序"
+      },
+      {
+        "id": "v-respond",
+        "headword": "respond",
+        "ipa": "rɪˈspɒnd",
+        "pos": "v.",
+        "meaningZh": "作出正确反应"
+      },
+      {
+        "id": "v-uncertain",
+        "headword": "uncertain",
+        "ipa": "ʌnˈsɜːtn",
+        "pos": "adj.",
+        "meaningZh": "难预料的"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Computers haven’t changed much over the past 40 years. They are smaller and faster, but they are still boxes with "
+          },
+          {
+            "t": "vocab",
+            "v": "processors",
+            "ref": "v-processor"
+          },
+          {
+            "t": "text",
+            "v": " that follow instructions from humans. "
+          },
+          {
+            "t": "gloss",
+            "v": "Artificial intelligence",
+            "zh": "人工智能"
+          },
+          {
+            "t": "text",
+            "v": ", however, is changing that—in at least three ways."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Traditional computers perform one calculation after another. The deep-learning models that power AI systems use a different method. These models perform a very large number of less accurate calculations "
+          },
+          {
+            "t": "gloss",
+            "v": "simultaneously",
+            "zh": "同时地"
+          },
+          {
+            "t": "text",
+            "v": ". For this, they need a new type of "
+          },
+          {
+            "t": "gloss",
+            "v": "chip",
+            "zh": "芯片"
+          },
+          {
+            "t": "text",
+            "v": ": one that can move data as quickly as possible so it’s available whenever and wherever it’s needed. "
+          },
+          {
+            "t": "gloss",
+            "v": "Graphics processing units",
+            "zh": "图形处理器"
+          },
+          {
+            "t": "text",
+            "v": ", or GPUs, are good at this. They were first designed to display "
+          },
+          {
+            "t": "gloss",
+            "v": "pixels",
+            "zh": "像素"
+          },
+          {
+            "t": "text",
+            "v": " on a screen many times per second. Now, chipmakers like Intel and Nvidia are developing better chips for AI systems."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The second change concerns the instructions we give computers. Christopher Bishop, a British computer scientist, explains, “For the last 40 years, we have been "
+          },
+          {
+            "t": "vocab",
+            "v": "programming",
+            "ref": "v-program"
+          },
+          {
+            "t": "text",
+            "v": " computers. For the next 40, we will be training them.”"
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "In the beginning, programmers wrote rules for the computer to follow. With machine learning, programmers no longer write rules. Instead, they create a system that learns those rules on its own. One example of this is OpenAI’s ChatGPT. It has trained itself to understand and "
+          },
+          {
+            "t": "vocab",
+            "v": "respond",
+            "ref": "v-respond"
+          },
+          {
+            "t": "text",
+            "v": " to human language."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Up to now, you have needed to type a command or click a button for a computer to do anything. In the future, computers won’t need a keyboard or a screen. Anything can become a computer. In fact, many household items, from toothbrushes to doorbells, already come in smart versions. As they improve, we will spend less time telling them what to do. They will tell us things we need to know when we need to know them. Future computers won’t just do calculations. They’ll also be good at making decisions."
+          }
+        ]
+      },
+      {
+        "id": "p6",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "In the future, computers will leave their “boxes”, and everything will be more "
+          },
+          {
+            "t": "vocab",
+            "v": "uncertain",
+            "ref": "v-uncertain"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Complete the following table according to the article.",
+      "stimulus": [
+        {
+          "id": "t1",
+          "type": "table",
+          "rows": [
+            [
+              {
+                "content": [],
+                "header": true
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Traditional computers"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Computers with AI systems"
+                  }
+                ],
+                "header": true
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "How they work"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They do "
+                  },
+                  {
+                    "t": "blank",
+                    "id": "b1",
+                    "number": 1
+                  },
+                  {
+                    "t": "text",
+                    "v": "."
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They do a very large number of "
+                  },
+                  {
+                    "t": "blank",
+                    "id": "b2",
+                    "number": 2
+                  },
+                  {
+                    "t": "text",
+                    "v": " calculations "
+                  },
+                  {
+                    "t": "blank",
+                    "id": "b3",
+                    "number": 3
+                  },
+                  {
+                    "t": "text",
+                    "v": "."
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "How they learn to work"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They just follow the rules that are created by "
+                  },
+                  {
+                    "t": "blank",
+                    "id": "b4",
+                    "number": 4
+                  },
+                  {
+                    "t": "text",
+                    "v": "."
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They learn all the rules "
+                  },
+                  {
+                    "t": "blank",
+                    "id": "b5",
+                    "number": 5
+                  },
+                  {
+                    "t": "text",
+                    "v": "."
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "When they work"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They don’t "
+                  },
+                  {
+                    "t": "blank",
+                    "id": "b6",
+                    "number": 6
+                  },
+                  {
+                    "t": "text",
+                    "v": " until they are "
+                  },
+                  {
+                    "t": "blank",
+                    "id": "b7",
+                    "number": 7
+                  },
+                  {
+                    "t": "text",
+                    "v": "."
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They not only know what to do but also know "
+                  },
+                  {
+                    "t": "blank",
+                    "id": "b8",
+                    "number": 8
+                  },
+                  {
+                    "t": "text",
+                    "v": "."
+                  }
+                ]
+              }
+            ]
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b1"
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b2"
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b3"
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b4"
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b5"
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b6"
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b7"
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b8"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,810 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w04-fri",
+  "playlistId": "ci-zk",
+  "order": 20,
+  "week": 4,
+  "day": "fri",
+  "title": "Why Do We Forget?",
+  "titleZh": "人为什么会遗忘?",
+  "displayName": "Week 4 Friday Why Do We Forget?",
+  "taskType": {
+    "code": "weekly_intensive",
+    "labelZh": "每周精读"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 190,
+    "difficulty": 4,
+    "suggestedMinutes": 12,
+    "themeContext": "人与自我",
+    "contentRequirement": "身心健康",
+    "intro": "如果你疑惑为什么自己记性不好，这篇文章或许能给你答案。",
+    "hasVideo": true
+  },
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      41,
+      42
+    ],
+    "bookPages": [
+      32,
+      33
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-recall",
+        "headword": "recall",
+        "pos": "v.",
+        "meaningZh": "记起，回忆起",
+        "ipa": "rɪˈkɔːl"
+      },
+      {
+        "id": "v-focus-on",
+        "headword": "focus on",
+        "pos": "phr.",
+        "meaningZh": "专注于"
+      },
+      {
+        "id": "v-by-product",
+        "headword": "by-product",
+        "pos": "n.",
+        "meaningZh": "副产品",
+        "ipa": "ˈbaɪ prɒdʌkt"
+      },
+      {
+        "id": "v-ease",
+        "headword": "ease",
+        "pos": "v.",
+        "meaningZh": "减轻，缓释",
+        "ipa": "iːz"
+      },
+      {
+        "id": "v-fade-away",
+        "headword": "fade away",
+        "pos": "phr.",
+        "meaningZh": "逐渐消失"
+      },
+      {
+        "id": "v-password",
+        "headword": "password",
+        "pos": "n.",
+        "meaningZh": "密码",
+        "ipa": "ˈpɑːswɜːd"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Do you remember what you had for breakfast last year on this day? Can you "
+          },
+          {
+            "t": "vocab",
+            "v": "recall",
+            "ref": "v-recall"
+          },
+          {
+            "t": "text",
+            "v": " the names of all your classmates in kindergarten? If not, why did you forget these things?"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "First of all, the biggest reason is that, during our daily lives, we "
+          },
+          {
+            "t": "vocab",
+            "v": "focus on",
+            "ref": "v-focus-on"
+          },
+          {
+            "t": "text",
+            "v": " understanding the world, not remembering it. For example, we go to a baseball game not to remember it, but to enjoy it. We do remember some details of the game, but they are only a "
+          },
+          {
+            "t": "vocab",
+            "v": "by-product",
+            "ref": "v-by-product"
+          },
+          {
+            "t": "text",
+            "v": " of this experience."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Second, forgetting helps us to get through hard times. After something sad has happened in our lives, most of us find that time helps to "
+          },
+          {
+            "t": "vocab",
+            "v": "ease",
+            "ref": "v-ease"
+          },
+          {
+            "t": "text",
+            "v": " the pain. The bad memories will slowly "
+          },
+          {
+            "t": "vocab",
+            "v": "fade away",
+            "ref": "v-fade-away"
+          },
+          {
+            "t": "text",
+            "v": ". Forgetting saves us from the dark times of our past."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Third, ____________________. You wouldn’t like to fill your memory with useless things, such as an old "
+          },
+          {
+            "t": "vocab",
+            "v": "password",
+            "ref": "v-password"
+          },
+          {
+            "t": "text",
+            "v": " you no longer use. People forget unimportant information in order to better remember important details."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Don’t be sad if you forget a lot. Forgetting is just part of having a healthy memory. It can help you to experience the world more fully!"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the author, few people can remember the names of all their classmates in kindergarten, can they?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the biggest reason why we forget so many things in our daily lives?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "We go to a baseball game just to enjoy it, but why will we still remember some details of the game?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What will probably happen after we have met something sad in our life?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Fill in the blank in Paragraph 4."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Third, ____________________."
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Your friend Lily is unhappy because she didn’t do well in an important exam. Now one week has passed but she is still very upset. Please use the information in this article to try to comfort her."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Hey, Lily, ____________________"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "II",
+      "instruction": "Complete each sentence with one given word from the box. Each word can be used only once.",
+      "bank": [
+        {
+          "id": "A",
+          "content": [
+            {
+              "t": "text",
+              "v": "forget"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "content": [
+            {
+              "t": "text",
+              "v": "happen"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "content": [
+            {
+              "t": "text",
+              "v": "pain"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "content": [
+            {
+              "t": "text",
+              "v": "remember"
+            }
+          ]
+        },
+        {
+          "id": "E",
+          "content": [
+            {
+              "t": "text",
+              "v": "save"
+            }
+          ]
+        },
+        {
+          "id": "F",
+          "content": [
+            {
+              "t": "text",
+              "v": "useless"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I felt a sharp "
+              },
+              {
+                "t": "blank",
+                "id": "b1"
+              },
+              {
+                "t": "text",
+                "v": " in my foot."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Can you "
+              },
+              {
+                "t": "blank",
+                "id": "b2"
+              },
+              {
+                "t": "text",
+                "v": " what her phone number is?"
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Anything could "
+              },
+              {
+                "t": "blank",
+                "id": "b3"
+              },
+              {
+                "t": "text",
+                "v": " in the next half hour."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Let me write down that date before I "
+              },
+              {
+                "t": "blank",
+                "id": "b4"
+              },
+              {
+                "t": "text",
+                "v": " it."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "We all need to do our part to "
+              },
+              {
+                "t": "blank",
+                "id": "b5"
+              },
+              {
+                "t": "text",
+                "v": " the planet."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "This computer is "
+              },
+              {
+                "t": "blank",
+                "id": "b6"
+              },
+              {
+                "t": "text",
+                "v": " as it’s always going wrong."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "III",
+      "instruction": "Complete the following sentences as required.",
+      "questions": [
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "We go to a baseball game not to remember it, but to enjoy it. （保持句意基本不变）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "We go to a baseball game to enjoy it "
+              },
+              {
+                "t": "blank",
+                "id": "b7"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b8"
+              },
+              {
+                "t": "text",
+                "v": " remembering it."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Forgetting helps us to get through hard times. （改为一般疑问句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b9"
+              },
+              {
+                "t": "text",
+                "v": " forgetting "
+              },
+              {
+                "t": "blank",
+                "id": "b10"
+              },
+              {
+                "t": "text",
+                "v": " you to get through hard times?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The bad memories will slowly fade away. （改为反意疑问句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "The bad memories will slowly fade away, "
+              },
+              {
+                "t": "blank",
+                "id": "b11"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b12"
+              },
+              {
+                "t": "text",
+                "v": "?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "People forget unimportant information "
+              },
+              {
+                "t": "underline",
+                "v": "in order to better remember important details."
+              },
+              {
+                "t": "text",
+                "v": " （对画线部分提问）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b13"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b14"
+              },
+              {
+                "t": "text",
+                "v": " people forget unimportant information?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "order",
+            "items": [
+              {
+                "id": "w1",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "her"
+                  }
+                ]
+              },
+              {
+                "id": "w2",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "of"
+                  }
+                ]
+              },
+              {
+                "id": "w3",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "grandmother"
+                  }
+                ]
+              },
+              {
+                "id": "w4",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "no longer"
+                  }
+                ]
+              },
+              {
+                "id": "w5",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the"
+                  }
+                ]
+              },
+              {
+                "id": "w6",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "old"
+                  }
+                ]
+              },
+              {
+                "id": "w7",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "names"
+                  }
+                ]
+              },
+              {
+                "id": "w8",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "remember"
+                  }
+                ]
+              },
+              {
+                "id": "w9",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "could"
+                  }
+                ]
+              },
+              {
+                "id": "w10",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "friends"
+                  }
+                ]
+              }
+            ],
+            "ending": "."
+          }
+        }
+      ]
+    }
+  ]
+}

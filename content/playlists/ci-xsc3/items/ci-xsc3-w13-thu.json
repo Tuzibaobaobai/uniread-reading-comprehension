@@ -1,0 +1,289 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w13-thu",
+  "playlistId": "ci-xsc3",
+  "order": 64,
+  "week": 13,
+  "day": "thu",
+  "title": "Owl Dotes on Dog",
+  "titleZh": "猫头鹰宠爱小狗",
+  "displayName": "Week 13 Thursday Owl Dotes on Dog",
+  "taskType": {
+    "code": "answer_questions",
+    "labelZh": "回答问题"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 162,
+    "difficulty": 2,
+    "suggestedMinutes": 8,
+    "themeContext": "人与自然",
+    "contentRequirement": "与自然和谐共生",
+    "intro": "动物之间的奇妙友谊——猫头鹰与狗的故事。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      104
+    ],
+    "bookPages": [
+      95
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-share",
+        "headword": "share",
+        "ipa": "ʃeə(r)",
+        "pos": "v.",
+        "meaningZh": "分享"
+      },
+      {
+        "id": "v-friendship",
+        "headword": "friendship",
+        "ipa": "ˈfrendʃɪp",
+        "pos": "n.",
+        "meaningZh": "友谊"
+      },
+      {
+        "id": "v-adopt",
+        "headword": "adopt",
+        "ipa": "əˈdɒpt",
+        "pos": "v.",
+        "meaningZh": "收养"
+      },
+      {
+        "id": "v-attention",
+        "headword": "attention",
+        "ipa": "əˈtenʃn",
+        "pos": "n.",
+        "meaningZh": "关注"
+      },
+      {
+        "id": "v-back-off",
+        "headword": "back off",
+        "pos": "phr.",
+        "meaningZh": "后退，别靠近"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "We human beings make friends with each other, but it’s not just us. Different animals can also become good friends. Tanja Brandt, a "
+          },
+          {
+            "t": "gloss",
+            "v": "falconer",
+            "zh": "训隼者"
+          },
+          {
+            "t": "text",
+            "v": ", "
+          },
+          {
+            "t": "vocab",
+            "v": "shared",
+            "ref": "v-share"
+          },
+          {
+            "t": "text",
+            "v": " the "
+          },
+          {
+            "t": "vocab",
+            "v": "friendship",
+            "ref": "v-friendship"
+          },
+          {
+            "t": "text",
+            "v": " story of her pet dog and a little owl."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Poldi, the owl, met the dog, Ingo, when Brandt "
+          },
+          {
+            "t": "vocab",
+            "v": "adopted",
+            "ref": "v-adopt"
+          },
+          {
+            "t": "text",
+            "v": " the owl and brought him home. A friendship soon started between the two animals. They enjoy taking walks together. Sometimes they sit comfortably in the grass as the owl rubs his body against the dog’s face. And when the owl wants "
+          },
+          {
+            "t": "vocab",
+            "v": "attention",
+            "ref": "v-attention"
+          },
+          {
+            "t": "text",
+            "v": ", he might give Ingo a quick bite on the ear."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Though he is small, the bird often acts as Ingo’s bodyguard. Once, they were on a walk in the forest with Brandt. There was another owl "
+          },
+          {
+            "t": "gloss",
+            "v": "shrieking",
+            "zh": "尖叫"
+          },
+          {
+            "t": "text",
+            "v": " above their heads. Poldi then shrieked right back at it. “It was as if he were saying, ‘"
+          },
+          {
+            "t": "vocab",
+            "v": "Back off",
+            "ref": "v-back-off"
+          },
+          {
+            "t": "text",
+            "v": " from my friend’,” Brandt explained. According to Brandt, “Poldi may have been smaller, but he was the boss.”"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What are the names of the owl and the dog in the story?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How did the owl and the dog become friends?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does the owl do when he wants the dog’s attention?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why did Poldi shriek at the other owl in the forest?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to Brandt, who was the “boss” in this friendship?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Have you ever seen animals become friends? Tell us about it."
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ]
+}

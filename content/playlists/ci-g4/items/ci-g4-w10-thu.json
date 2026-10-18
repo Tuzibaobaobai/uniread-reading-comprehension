@@ -1,0 +1,413 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g4-w10-thu",
+  "playlistId": "ci-g4",
+  "order": 49,
+  "week": 10,
+  "day": "thu",
+  "title": "Dry Weather Reveals a Hidden Bridge",
+  "titleZh": "干旱让隐秘古桥得以显现",
+  "displayName": "Week 10 Thursday Dry Weather Reveals a Hidden Bridge",
+  "taskType": {
+    "code": "true_false",
+    "labelZh": "判断正误"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 136,
+    "difficulty": 5,
+    "suggestedMinutes": 10,
+    "themeContext": "人与自然",
+    "contentRequirement": "不同地区的生态特征",
+    "intro": "干旱让威尔士那座通常被水淹没的古桥重见天日。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X4年级.pdf",
+    "pdfPages": [
+      86
+    ],
+    "bookPages": [
+      77
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-store",
+        "headword": "store",
+        "pos": "v.",
+        "meaningZh": "储存，存放；n. 商店",
+        "ipa": "stɔː(r)"
+      },
+      {
+        "id": "v-usually",
+        "headword": "usually",
+        "pos": "adv.",
+        "meaningZh": "通常",
+        "ipa": "ˈjuːʒuəli"
+      },
+      {
+        "id": "v-normal",
+        "headword": "normal",
+        "pos": "adj.",
+        "meaningZh": "正常的"
+      },
+      {
+        "id": "v-local",
+        "headword": "local",
+        "pos": "adj.",
+        "meaningZh": "当地的",
+        "ipa": "ˈləʊkl"
+      },
+      {
+        "id": "v-remind",
+        "headword": "remind",
+        "pos": "v.",
+        "meaningZh": "提醒",
+        "ipa": "rɪˈmaɪnd"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Something amazing has appeared in "
+          },
+          {
+            "t": "gloss",
+            "v": "Wales",
+            "zh": "威尔士"
+          },
+          {
+            "t": "text",
+            "v": "! In a place called Llwyn-On Reservoir near Merthyr Tydfil, an old bridge can now be seen. A "
+          },
+          {
+            "t": "gloss",
+            "v": "reservoir",
+            "zh": "水库"
+          },
+          {
+            "t": "text",
+            "v": " is a man-made lake that "
+          },
+          {
+            "t": "vocab",
+            "v": "stores",
+            "ref": "v-store"
+          },
+          {
+            "t": "text",
+            "v": " water for people to use. The bridge was built before the lake was made, so it is "
+          },
+          {
+            "t": "vocab",
+            "v": "usually",
+            "ref": "v-usually"
+          },
+          {
+            "t": "text",
+            "v": " deep under the water."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "This year, the weather in Wales has been very dry. From February to April, the country got only about 59% of its "
+          },
+          {
+            "t": "vocab",
+            "v": "normal",
+            "ref": "v-normal"
+          },
+          {
+            "t": "text",
+            "v": " rainfall. Because of this, the water level dropped lower and lower. As the water went down, the bridge slowly came into "
+          },
+          {
+            "t": "gloss",
+            "v": "view",
+            "zh": "映入眼帘"
+          },
+          {
+            "t": "text",
+            "v": " again."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The bridge "
+          },
+          {
+            "t": "gloss",
+            "v": "last",
+            "zh": "上次"
+          },
+          {
+            "t": "text",
+            "v": " appeared in 2022 during another dry "
+          },
+          {
+            "t": "gloss",
+            "v": "spell",
+            "zh": "干旱期"
+          },
+          {
+            "t": "text",
+            "v": ". Many "
+          },
+          {
+            "t": "vocab",
+            "v": "local",
+            "ref": "v-local"
+          },
+          {
+            "t": "text",
+            "v": " people have come to see it. Some take photos, while others walk close to it carefully."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The bridge "
+          },
+          {
+            "t": "vocab",
+            "v": "reminds",
+            "ref": "v-remind"
+          },
+          {
+            "t": "text",
+            "v": " people how weather can change our world."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Decide if the following statements are True (T) or False (F) according to the text.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "trueFalse",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The bridge is near a natural reservoir."
+              }
+            ],
+            "options": [
+              {
+                "id": "T",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "True"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "False"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "trueFalse",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The bridge is usually under water because it was built after the reservoir was made."
+              }
+            ],
+            "options": [
+              {
+                "id": "T",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "True"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "False"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "trueFalse",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The bridge disappeared after 2022."
+              }
+            ],
+            "options": [
+              {
+                "id": "T",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "True"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "False"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "trueFalse",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Usually the bridge can be seen during a dry spell when the water level is low."
+              }
+            ],
+            "options": [
+              {
+                "id": "T",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "True"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "False"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "trueFalse",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Local people are not interested in the bridge."
+              }
+            ],
+            "options": [
+              {
+                "id": "T",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "True"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "False"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

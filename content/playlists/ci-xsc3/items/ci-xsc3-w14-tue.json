@@ -1,0 +1,380 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w14-tue",
+  "playlistId": "ci-xsc3",
+  "order": 67,
+  "week": 14,
+  "day": "tue",
+  "title": "Hello, Sniffer Squirrels!",
+  "titleZh": "你好，嗅探松鼠!",
+  "displayName": "Week 14 Tuesday Hello, Sniffer Squirrels!",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读理解"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 138,
+    "difficulty": 1,
+    "suggestedMinutes": 6,
+    "themeContext": "人与社会",
+    "contentRequirement": "社会的变迁",
+    "intro": "首批缉毒松鼠即将在重庆上岗啦!",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      108
+    ],
+    "bookPages": [
+      99
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-sniffer-dog",
+        "headword": "sniffer dog",
+        "meaningZh": "嗅探犬"
+      },
+      {
+        "id": "v-drug",
+        "headword": "drug",
+        "ipa": "drʌɡ",
+        "pos": "n.",
+        "meaningZh": "毒品"
+      },
+      {
+        "id": "v-claw",
+        "headword": "claw",
+        "ipa": "klɔː",
+        "pos": "n.",
+        "meaningZh": "爪子"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "vocab",
+            "v": "Sniffer dogs",
+            "ref": "v-sniffer-dog"
+          },
+          {
+            "t": "text",
+            "v": " now have some competition. Police in Chongqing have managed to train a group of six squirrels to sniff out "
+          },
+          {
+            "t": "vocab",
+            "v": "drugs",
+            "ref": "v-drug"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "“The squirrels have a good sense of smell,” said their trainer Yin Jin. “Thankfully, we now have better ways of training them.” Once they find drugs in, for example, a box, the animals will use their "
+          },
+          {
+            "t": "vocab",
+            "v": "claws",
+            "ref": "v-claw"
+          },
+          {
+            "t": "text",
+            "v": " to scratch the box."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "In China, there are already more than 120 species of sniffer dogs. Why then are we taking the time to train squirrels? It’s partly because they’re smaller than dogs. They grow to about 21 centimetres in length. This allows them to get into tiny spaces easily. What’s more, squirrels can live up to 15 years in "
+          },
+          {
+            "t": "underline",
+            "v": "captivity"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The six squirrels are now ready to begin work. Wish them all the best in their new job!"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the main use of the trained squirrels in Chongqing?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To perform in animal shows."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To help find illegal drugs."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To search for lost people."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To guard police stations."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why are squirrels sometimes better for this work than sniffer dogs?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Their small size lets them reach small places."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They are stronger and can work longer hours."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They are cheaper to train and to keep."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They have a much better sense of smell."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The underlined word “captivity” in the third paragraph most likely means ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the wild"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "a state of being kept by humans"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "a cold environment"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "a dangerous situation"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the main purpose of this article?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To explain why dogs are no longer useful for police work."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To report on a new and unusual method for drug detection "
+                  },
+                  {
+                    "t": "gloss",
+                    "v": "",
+                    "zh": "侦查"
+                  },
+                  {
+                    "t": "text",
+                    "v": "."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To encourage people to keep squirrels as pets."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To describe the different types of police animals in China."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

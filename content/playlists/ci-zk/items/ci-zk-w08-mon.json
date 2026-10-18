@@ -1,0 +1,499 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w08-mon",
+  "playlistId": "ci-zk",
+  "order": 36,
+  "week": 8,
+  "day": "mon",
+  "title": "Teen Coder Builds a Smart Way to Count Calories",
+  "titleZh": "少年程序员打造智能卡路里计算工具",
+  "displayName": "Week 8 Monday Teen Coder Builds a Smart Way to Count Calories",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 312,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与社会",
+    "contentRequirement": "人类发明与创新",
+    "intro": "少年灵感成就爆款卡路里“识别器”。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      73,
+      74
+    ],
+    "bookPages": [
+      64,
+      65
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-nutrient",
+        "headword": "nutrient",
+        "ipa": "ˈnjuːtriənt",
+        "pos": "n.",
+        "meaningZh": "营养素；营养物"
+      },
+      {
+        "id": "v-protein",
+        "headword": "protein",
+        "ipa": "ˈprəʊtiːn",
+        "pos": "n.",
+        "meaningZh": "蛋白质"
+      },
+      {
+        "id": "v-estimate",
+        "headword": "estimate",
+        "ipa": "ˈestɪmeɪt",
+        "pos": "v.",
+        "meaningZh": "估算"
+      },
+      {
+        "id": "v-accurate",
+        "headword": "accurate",
+        "ipa": "ˈækjərət",
+        "pos": "adj.",
+        "meaningZh": "准确的"
+      },
+      {
+        "id": "v-launch",
+        "headword": "launch",
+        "ipa": "lɔːntʃ",
+        "pos": "n.",
+        "meaningZh": "上市；发布"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Have you ever wondered how many "
+          },
+          {
+            "t": "gloss",
+            "v": "calories",
+            "zh": "卡路里"
+          },
+          {
+            "t": "text",
+            "v": " are in your lunch? A new app called Cal AI can help. All you have to do is take a photo of your food, and the app will tell you its calorie count. It can also show you the "
+          },
+          {
+            "t": "vocab",
+            "v": "nutrients",
+            "ref": "v-nutrient"
+          },
+          {
+            "t": "text",
+            "v": " in your dish, such as "
+          },
+          {
+            "t": "vocab",
+            "v": "protein",
+            "ref": "v-protein"
+          },
+          {
+            "t": "text",
+            "v": ", fat, and sugar."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Cal AI was created by Zach Yadegari, an 18-year-old student. In 2023, Zach tried another calorie-counting app, MyFitnessPal, to track his meals. But typing in everything he ate took too much time. “It was very boring and hard to use,” Zach said. After just three days, he "
+          },
+          {
+            "t": "gloss",
+            "v": "quit",
+            "zh": "放弃"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Zach wanted something faster and smarter. So, he teamed up with his high school friends to develop a better app. Together, they trained Cal AI using images from three different AI models. The app can now recognise both simple and complex foods, like sandwiches, mixed bowls, and packaged snacks. It has also learnt to "
+          },
+          {
+            "t": "vocab",
+            "v": "estimate",
+            "ref": "v-estimate"
+          },
+          {
+            "t": "text",
+            "v": " how much food is on the plate by comparing photos to standard servings."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Today, Cal AI is 90% "
+          },
+          {
+            "t": "vocab",
+            "v": "accurate",
+            "ref": "v-accurate"
+          },
+          {
+            "t": "text",
+            "v": ", and it continues to improve thanks to user feedback. Since its "
+          },
+          {
+            "t": "vocab",
+            "v": "launch",
+            "ref": "v-launch"
+          },
+          {
+            "t": "text",
+            "v": " in May 2024, it has been downloaded over five million times. In February 2025 alone, the app earned over $2 million!"
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "One major factor for its success is social media. Zach reaches out to fitness influencers and asks them to talk about Cal AI. Their followers see the posts, try the app, and share it with others. As a result, it has gained particular popularity among users aged 15-25."
+          }
+        ]
+      },
+      {
+        "id": "p6",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Zach graduated from high school this summer with top grades. Even though he has been accepted by several universities, he plans to take a gap year. He wants to make Cal AI even more accurate and help people of all ages eat more healthily. This young coder isn’t slowing down—he’s just getting started."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does the Cal AI app do when you take a photo of your food?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It gives you cooking tips."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It asks you to type in what you ate."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It tells you the calories in your food."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It shows you what other people are eating."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Zach stopped using MyFitnessPal because ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "it didn’t show enough nutrients"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "it couldn’t recognise mixed foods"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "it gave the wrong calorie numbers"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "it took too much time to enter all the food"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How did Zach and his friends improve Cal AI’s ability to recognise food?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "By watching cooking videos."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "By asking users to type in food names."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "By training it with images from AI models."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "By testing with photos of food provided by their high school."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why does the author mention “90% accurate” and “$2 million” in Paragraph 4?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To show Cal AI is still new."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To explain how Cal AI works."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To compare Cal AI with other apps."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To show that Cal AI is popular and successful."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The author wrote this article to ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "teach people how to count calories by using apps"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "compare different food apps used by young people"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "explain how to become a fitness influencer on social media"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "show how a young man turned a problem into a useful invention"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

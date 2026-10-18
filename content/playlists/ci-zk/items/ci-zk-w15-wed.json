@@ -1,0 +1,731 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w15-wed",
+  "playlistId": "ci-zk",
+  "order": 73,
+  "week": 15,
+  "day": "wed",
+  "title": "Take Me Home, My Bug Buddy",
+  "titleZh": "带我回家吧，我的小虫友",
+  "displayName": "Week 15 Wednesday Take Me Home, My Bug Buddy",
+  "taskType": {
+    "code": "cloze",
+    "labelZh": "完形填空"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 305,
+    "difficulty": 4,
+    "suggestedMinutes": 8,
+    "themeContext": "人与社会",
+    "contentRequirement": "科学技术与工程",
+    "intro": "对昆虫的研究有望帮助无人机实现自主导航。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      135
+    ],
+    "bookPages": [
+      126
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Maybe you’ve seen this in a sci-fi film: several, or even hundreds, of bug-sized drones working together. For years, scientists have tried to turn this scene into a reality."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "However, there’s a problem. These machines are too "
+          },
+          {
+            "t": "blank",
+            "id": "b1",
+            "number": 1
+          },
+          {
+            "t": "text",
+            "v": " to have enough processing power. The same "
+          },
+          {
+            "t": "blank",
+            "id": "b2",
+            "number": 2
+          },
+          {
+            "t": "text",
+            "v": " also prevents other larger robots from navigating independently. Researchers from the Delft University of Technology (TU Delft) in the Netherlands believe they may have found a solution. It’s inspired by the ant."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Ants, and insects in general, are capable of embarking on long journeys to look for food. It seems that they always "
+          },
+          {
+            "t": "blank",
+            "id": "b3",
+            "number": 3
+          },
+          {
+            "t": "text",
+            "v": " how to get back home. Desert ants in the Sahara, for example, can travel more than two kilometres away from their nests without "
+          },
+          {
+            "t": "blank",
+            "id": "b4",
+            "number": 4
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "How do they achieve this? Researchers think ants may find their way home by using a “snapshot model”"
+          },
+          {
+            "t": "gloss",
+            "v": "",
+            "zh": "快照模式"
+          },
+          {
+            "t": "text",
+            "v": ". That is to say, they “take photos” of the "
+          },
+          {
+            "t": "blank",
+            "id": "b5",
+            "number": 5
+          },
+          {
+            "t": "text",
+            "v": " around them with their brain. Later, when they are travelling, the insects try to match things around them with the "
+          },
+          {
+            "t": "blank",
+            "id": "b6",
+            "number": 6
+          },
+          {
+            "t": "text",
+            "v": " in their mind. It’s a very effective way of finding directions."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "TU Delft researchers wanted to see whether they could "
+          },
+          {
+            "t": "blank",
+            "id": "b7",
+            "number": 7
+          },
+          {
+            "t": "text",
+            "v": " those insect-world observations for a 56-gram flying drone. The drone was equipped with a tiny camera and a cheap processor. The researchers then created an indoor obstacle course. They also offered several snapshots for the drone to reference."
+          }
+        ]
+      },
+      {
+        "id": "p6",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The drone moved from point to point along the course "
+          },
+          {
+            "t": "blank",
+            "id": "b8",
+            "number": 8
+          },
+          {
+            "t": "text",
+            "v": " the snapshots. After that, it returned to its home base. In the end, the drone "
+          },
+          {
+            "t": "blank",
+            "id": "b9",
+            "number": 9
+          },
+          {
+            "t": "text",
+            "v": " travelled 100 metres around the course. And it used just 0.65 kilobytes"
+          },
+          {
+            "t": "gloss",
+            "v": "",
+            "zh": "千字节"
+          },
+          {
+            "t": "text",
+            "v": " of memory."
+          }
+        ]
+      },
+      {
+        "id": "p7",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The snapshot experiments could one day help small drones find their way home on their own. They may "
+          },
+          {
+            "t": "blank",
+            "id": "b10",
+            "number": 10
+          },
+          {
+            "t": "text",
+            "v": " need heavy, complex sensors or GPS."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Choose the best answer to complete the passage.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b1",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "light"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "slow"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "small"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "weak"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b2",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "machine"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "problem"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "scientist"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "robot"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b3",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "forget"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "know"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "learn"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "wonder"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b4",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "getting lost"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "getting tired"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "giving up"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "stopping by"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b5",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "environment"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "food"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "nests"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "friends"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b6",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "memories"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "pictures"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "sounds"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "words"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b7",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "make use of"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "get rid of"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "make fun of"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "take charge of"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b8",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "in front of"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "in need of"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "on top of"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "with the help of"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b9",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "carefully"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "easily"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "successfully"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "quickly"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b10",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "at last"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "in fact"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "at least"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "no longer"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,235 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w12-thu",
+  "playlistId": "ci-zk",
+  "order": 59,
+  "week": 12,
+  "day": "thu",
+  "title": "Come and Pet the Capybaras",
+  "titleZh": "来摸摸水豚吧",
+  "displayName": "Week 12 Thursday Come and Pet the Capybaras",
+  "taskType": {
+    "code": "answer_questions",
+    "labelZh": "回答问题"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 274,
+    "difficulty": 4,
+    "suggestedMinutes": 8,
+    "themeContext": "人与自然",
+    "contentRequirement": "与自然和谐共生",
+    "intro": "在这家不同寻常的“咖啡馆”，顾客们可以尽情与卡皮巴拉们互动。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      111,
+      112
+    ],
+    "bookPages": [
+      102,
+      103
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-zk/ci-zk-w12-thu-1.jpg",
+        "alt": "A close-up black-and-white photo of a capybara",
+        "w": 977,
+        "h": 665
+      }
+    ],
+    "vocabulary": [],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Do you love capybaras? Many do. These web-footed "
+          },
+          {
+            "t": "gloss",
+            "v": "mammals",
+            "zh": "哺乳动物"
+          },
+          {
+            "t": "text",
+            "v": " are the "
+          },
+          {
+            "t": "underline",
+            "v": "“it” animal"
+          },
+          {
+            "t": "text",
+            "v": " of the moment. They have millions of fans worldwide. Now, capybara lovers in St. Augustine, Florida, have a great place to visit. At the Capybara Café, they can feed and pet these animals, and might even have one climb into their lap."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Since its opening in October 2024, the café has welcomed hundreds of animal lovers. Leah Macri is a regular visitor. “Their fur kind of feels like "
+          },
+          {
+            "t": "gloss",
+            "v": "straw",
+            "zh": "稻草"
+          },
+          {
+            "t": "text",
+            "v": ",” she said. “When they get comfortable enough, they’ll fall over.”"
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "There is a daily limit to the number of visitors. Entries must be booked several months ahead. After entering the café, visitors are taken into a smaller room in groups of six. They are given blankets to place over their lap. Then, three capybaras are brought into the room for the humans to interact with. The 30-minute experience costs $49 per person. Although it’s called a café, the place doesn’t sell coffee. It only sells capybara-themed T-shirts, cups, and stuffed animals. The income supports a local "
+          },
+          {
+            "t": "gloss",
+            "v": "animal shelter",
+            "zh": "动物收容所"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Following owls, foxes, and sloths, capybaras are the latest animals to receive star treatment. Over the past few years, capybara-themed slippers, purses, and notebooks have filled gift shops. Some zoos and wildlife parks now let visitors pet these "
+          },
+          {
+            "t": "gloss",
+            "v": "semi-aquatic",
+            "zh": "半水栖的"
+          },
+          {
+            "t": "text",
+            "v": " animals. But Macri said that none of them allows for the same close connection with the animals as the Capybara Café does."
+          }
+        ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Stephanie Angel, the café’s owner, plans to open another capybara café. The new place will also be in Florida. But considering the animals’ popularity, perhaps many other cities will see similar “cafés” soon."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, what does the phrase “‘it’ animal” in the first paragraph mean?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What can visitors buy at the café?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why does Leah Macri speak highly of the Capybara Café?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 2,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Have you ever wished a capybara café would pop up in your neighbourhood? Give your reason(s)."
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "thumbnail": "assets/ci-zk/ci-zk-w12-thu-1.jpg"
+}

@@ -1,0 +1,272 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w18-thu",
+  "playlistId": "ci-xsc3",
+  "order": 89,
+  "week": 18,
+  "day": "thu",
+  "title": "Doggies Make Us Smile!",
+  "titleZh": "狗狗让我们笑容满面!",
+  "displayName": "Week 18 Thursday Doggies Make Us Smile!",
+  "taskType": {
+    "code": "answer_questions",
+    "labelZh": "回答问题"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 171,
+    "difficulty": 3,
+    "suggestedMinutes": 9,
+    "themeContext": "人与自我",
+    "contentRequirement": "多彩的学校生活",
+    "intro": "最新研究让小学生跟狗狗互动，帮助学生们缓解压力。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      139
+    ],
+    "bookPages": [
+      130
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-trainer",
+        "headword": "trainer",
+        "ipa": "ˈtreɪnə(r)",
+        "pos": "n.",
+        "meaningZh": "驯兽师"
+      },
+      {
+        "id": "v-be-divided-into",
+        "headword": "be divided into",
+        "meaningZh": "被分成"
+      },
+      {
+        "id": "v-relaxation",
+        "headword": "relaxation",
+        "ipa": "ˌriːlækˈseɪʃn",
+        "pos": "n.",
+        "meaningZh": "放松，休息"
+      },
+      {
+        "id": "v-increase",
+        "headword": "increase",
+        "ipa": "ˈɪnkriːs",
+        "pos": "n.",
+        "meaningZh": "上升"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Scientists studied 105 students between the ages of eight and nine. Twenty-three trained dogs and their "
+          },
+          {
+            "t": "vocab",
+            "v": "trainers",
+            "ref": "v-trainer"
+          },
+          {
+            "t": "text",
+            "v": " also took part in the experiment. The children "
+          },
+          {
+            "t": "vocab",
+            "v": "were divided into",
+            "ref": "v-be-divided-into"
+          },
+          {
+            "t": "text",
+            "v": " three groups. The students in the first group spent 20 minutes with a dog and its trainer. They did this twice a week for four weeks. The second group spent the same amount of time doing "
+          },
+          {
+            "t": "vocab",
+            "v": "relaxation",
+            "ref": "v-relaxation"
+          },
+          {
+            "t": "text",
+            "v": " exercises. The last group did neither of these things."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "During this time, the scientists recorded the students’ "
+          },
+          {
+            "t": "gloss",
+            "v": "cortisol levels",
+            "zh": "皮质醇水平"
+          },
+          {
+            "t": "text",
+            "v": ". Cortisol is a "
+          },
+          {
+            "t": "gloss",
+            "v": "stress hormone",
+            "zh": "激素"
+          },
+          {
+            "t": "text",
+            "v": ". The more stressed you feel, the more cortisol you will have in your body. What did the scientists find? Both the second and third groups showed rises in cortisol levels. The first group, however, showed no big "
+          },
+          {
+            "t": "vocab",
+            "v": "increase",
+            "ref": "v-increase"
+          },
+          {
+            "t": "text",
+            "v": ". And the children had the lowest cortisol levels right after playing with the dogs."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "But here comes the next question: Is 20 minutes of playtime with a dog the best amount of time? Scientists are going to keep working to find out the answer."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How old were the children in the study?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does the amount of cortisol in our bodies tell us?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Which group of children had the lowest stress levels after four weeks?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why do you think scientists are going to do more research?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the main finding of this study?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is your favourite way to relax when you feel stressed? Why?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ]
+}

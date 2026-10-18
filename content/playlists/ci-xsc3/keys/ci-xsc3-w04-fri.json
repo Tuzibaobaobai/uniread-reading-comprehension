@@ -1,0 +1,267 @@
+{
+  "schemaVersion": "1.0",
+  "itemId": "ci-xsc3-w04-fri",
+  "answerSource": "official",
+  "reviewStatus": "pending",
+  "officialRef": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初答案.pdf",
+    "pages": [
+      11
+    ]
+  },
+  "answers": {
+    "q1": {
+      "sampleAnswer": "For twelve years.",
+      "rubricZh": "要点：十二年。",
+      "explanationZh": "第一段第一句说郭有顺在悬崖上捡垃圾已经十二年了。",
+      "evidence": [
+        {
+          "block": "p1",
+          "quote": "For twelve years, Guo Youshun has been picking up litter from a cliff."
+        }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "十二年",
+          "examples": [
+            "For twelve years.",
+            "Twelve years."
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "q2": {
+      "sampleAnswer": "Thirty metres.",
+      "rubricZh": "要点：30米。",
+      "explanationZh": "第一段说这座悬崖有 30 米高。",
+      "evidence": [
+        {
+          "block": "p1",
+          "quote": "It’s 30 metres high."
+        }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "30米",
+          "examples": [
+            "Thirty metres.",
+            "30 metres."
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "q3": {
+      "sampleAnswer": "A piece of strong rope, an orange helmet and a trash bag.",
+      "rubricZh": "要点：一根结实的绳子、一顶橙色头盔和一个垃圾袋。",
+      "explanationZh": "第二段说他的工具是结实的绳子和橙色头盔，垃圾袋和绳子系在腰上。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "Guo’s tools are a piece of strong rope and an orange helmet."
+        }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "一根结实的绳子、一顶橙色头盔和一个垃圾袋",
+          "examples": [
+            "A piece of strong rope, an orange helmet and a trash bag."
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "q4": {
+      "sampleAnswer": "A rock fell from above the cliff and crashed into pieces just two metres away from Guo. Flying pieces from the rock struck his back and helmet hard.",
+      "rubricZh": "要点：一块石头从上面掉下来，在离他两米远的地方摔碎，飞出的碎石重重砸到他的背和头盔。",
+      "explanationZh": "第三段说石头从上面掉下来，摔成碎片，飞溅的碎片砸到了他的背和头盔。",
+      "evidence": [
+        {
+          "block": "p3",
+          "quote": "a rock fell from above"
+        }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "一块石头从上面掉下来，在离他两米远的地方摔碎，飞出的碎石重重砸到他的背和头盔",
+          "examples": [
+            "A rock fell from above and crashed into pieces near him.",
+            "Flying pieces of the rock struck his back and helmet."
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "q5": {
+      "sampleAnswer": "Because he didn’t think it would be easy to find a new cleaner.",
+      "rubricZh": "要点：他觉得很难找到新的清洁工。",
+      "explanationZh": "最后一段郭有顺说，找新的清洁工不容易，所以他觉得必须继续把工作做好，没有辞职。",
+      "evidence": [
+        {
+          "block": "p4",
+          "quote": "But it wouldn’t be easy to find a new cleaner."
+        }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "他觉得很难找到新的清洁工",
+          "examples": [
+            "Because it wouldn’t be easy to find a new cleaner."
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "q6": {
+      "slots": {
+        "b1": {
+          "accept": [
+            "height"
+          ]
+        }
+      },
+      "explanationZh": "the 后面要名词。high（高的）的名词是 height（高度）。",
+      "tipsZh": "high → height"
+    },
+    "q7": {
+      "slots": {
+        "b2": {
+          "accept": [
+            "easily"
+          ]
+        }
+      },
+      "explanationZh": "这里要修饰动词 give，用副词。easy 的副词是 easily。",
+      "tipsZh": "easy → easily"
+    },
+    "q8": {
+      "slots": {
+        "b3": {
+          "accept": [
+            "strengths"
+          ]
+        }
+      },
+      "explanationZh": "和复数名词 weaknesses 并列，要用名词复数。strong 的名词是 strength，加 s 变成 strengths。",
+      "tipsZh": "strong → strength"
+    },
+    "q9": {
+      "slots": {
+        "b4": {
+          "accept": [
+            "location"
+          ]
+        }
+      },
+      "explanationZh": "exact 后面要名词，exact location 是“准确的位置”。locate 的名词是 location。",
+      "tipsZh": "locate → location"
+    },
+    "q10": {
+      "slots": {
+        "b5": {
+          "accept": [
+            "safety"
+          ]
+        }
+      },
+      "explanationZh": "everyone’s 后面要名词，和 enjoyment 并列。safe 的名词是 safety。",
+      "tipsZh": "safe → safety"
+    },
+    "q11": {
+      "slots": {
+        "b6": {
+          "accept": [
+            "has"
+          ]
+        },
+        "b7": {
+          "accept": [
+            "been"
+          ]
+        },
+        "b8": {
+          "accept": [
+            "collected"
+          ]
+        }
+      },
+      "explanationZh": "主动句是现在完成时 has collected，改被动要用 has been + 过去分词，所以是 has been collected。"
+    },
+    "q12": {
+      "slots": {
+        "b9": {
+          "accept": [
+            "Why"
+          ]
+        },
+        "b10": {
+          "accept": [
+            "do"
+          ]
+        }
+      },
+      "explanationZh": "画线部分 to keep him safe 表示目的，用 Why 提问。原句是一般现在时，助动词用 do。"
+    },
+    "q13": {
+      "slots": {
+        "b11": {
+          "accept": [
+            "would"
+          ]
+        },
+        "b12": {
+          "accept": [
+            "it"
+          ]
+        }
+      },
+      "explanationZh": "前半句是否定的 wouldn’t，反意疑问部分用肯定，要用 would it。"
+    },
+    "q14": {
+      "slots": {
+        "b13": {
+          "accept": [
+            "go"
+          ]
+        },
+        "b14": {
+          "accept": [
+            "on"
+          ]
+        }
+      },
+      "explanationZh": "keep doing sth. 和 go on doing sth. 都表示继续做某事，所以填 go on。",
+      "tipsZh": "keep doing = go on doing"
+    },
+    "q15": {
+      "sequence": [
+        "w1",
+        "w6",
+        "w3",
+        "w9",
+        "w7",
+        "w4",
+        "w2",
+        "w5",
+        "w8"
+      ],
+      "explanationZh": "句子是 We must pick up rubbish and keep our city clean.（我们必须捡起垃圾，保持城市干净）。must 后面接动词原形，keep our city clean 是“让城市保持干净”。"
+    }
+  }
+}

@@ -1,0 +1,320 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w06-thu",
+  "playlistId": "ci-xsc3",
+  "order": 29,
+  "week": 6,
+  "day": "thu",
+  "title": "Listen to Them Patiently",
+  "titleZh": "请耐心倾听他们的声音",
+  "displayName": "Week 6 Thursday Listen to Them Patiently",
+  "taskType": {
+    "code": "answer_questions",
+    "labelZh": "回答问题"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 185,
+    "difficulty": 3,
+    "suggestedMinutes": 8,
+    "themeContext": "人与社会",
+    "contentRequirement": "节假日与庆祝活动",
+    "intro": "国际口吃宣传日——别着急，我们听你慢慢说。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      52
+    ],
+    "bookPages": [
+      43
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-condition",
+        "headword": "condition",
+        "ipa": "kənˈdɪʃn",
+        "pos": "n.",
+        "meaningZh": "疾病；状况"
+      },
+      {
+        "id": "v-intelligence",
+        "headword": "intelligence",
+        "ipa": "ɪnˈtelɪdʒəns",
+        "pos": "n.",
+        "meaningZh": "智力"
+      },
+      {
+        "id": "v-root-cause",
+        "headword": "root cause",
+        "meaningZh": "根本原因"
+      },
+      {
+        "id": "v-judge",
+        "headword": "judge",
+        "ipa": "dʒʌdʒ",
+        "pos": "v.",
+        "meaningZh": "评判"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "International Stuttering Awareness Day falls on October 22 every year. How much do you know about this "
+          },
+          {
+            "t": "gloss",
+            "v": "speech disorder",
+            "zh": "言语障碍"
+          },
+          {
+            "t": "text",
+            "v": "? Millions of people around the world live with stuttering. However, there are still many wrong ideas about these people and their "
+          },
+          {
+            "t": "vocab",
+            "v": "condition",
+            "ref": "v-condition"
+          },
+          {
+            "t": "text",
+            "v": ". Let’s try to correct some of these wrong ideas!"
+          }
+        ]
+      },
+      {
+        "id": "h1",
+        "type": "heading",
+        "content": [
+          {
+            "t": "text",
+            "v": "● Stutterers are not smart."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Many smart people stutter. Stuttering is linked to a certain area of the brain. However, it doesn’t affect a person’s "
+          },
+          {
+            "t": "vocab",
+            "v": "intelligence",
+            "ref": "v-intelligence"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "h2",
+        "type": "heading",
+        "content": [
+          {
+            "t": "text",
+            "v": "● Are you too nervous?"
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Nervousness or shyness may cause stutterers to speak less. But they are not the "
+          },
+          {
+            "t": "vocab",
+            "v": "root cause",
+            "ref": "v-root-cause"
+          },
+          {
+            "t": "text",
+            "v": " of stuttering. People who stutter might be afraid of being "
+          },
+          {
+            "t": "vocab",
+            "v": "judged",
+            "ref": "v-judge"
+          },
+          {
+            "t": "text",
+            "v": " by others. So let them know that they can trust you. Be patient and don’t cut them off. Wait for them to get to the end of their sentence."
+          }
+        ]
+      },
+      {
+        "id": "h3",
+        "type": "heading",
+        "content": [
+          {
+            "t": "text",
+            "v": "● It’s just a habit."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Stuttering is not a habit. One can’t easily stop stuttering, either. People who stutter may attend "
+          },
+          {
+            "t": "gloss",
+            "v": "speech therapy",
+            "zh": "治疗"
+          },
+          {
+            "t": "text",
+            "v": " classes. But these courses don’t promise a "
+          },
+          {
+            "t": "gloss",
+            "v": "cure",
+            "zh": "治愈"
+          },
+          {
+            "t": "text",
+            "v": " for their condition. They are more about helping the person to build up the confidence to speak."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, does stuttering mean a person is not smart?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What should you do when talking to someone who stutters?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why is stuttering NOT just a habit?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the real purpose of speech therapy for people who stutter?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "When is International Stuttering Awareness Day?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "If you have a classmate who stutters, how can you make him/her feel more comfortable in class?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,472 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g4-w04-wed",
+  "playlistId": "ci-g4",
+  "order": 18,
+  "week": 4,
+  "day": "wed",
+  "title": "Table Tennis Robot Plays Against Humans",
+  "titleZh": "乒乓球机器人与人类对战",
+  "displayName": "Week 4 Wednesday Table Tennis Robot Plays Against Humans",
+  "taskType": {
+    "code": "cloze",
+    "labelZh": "完形填空"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 119,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与社会",
+    "contentRequirement": "科学与技术",
+    "intro": "日本东京的一款乒乓球机器人因能与人类对战而引发关注。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X4年级.pdf",
+    "pdfPages": [
+      36
+    ],
+    "bookPages": [
+      27
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-scientist",
+        "headword": "scientist",
+        "ipa": "ˈsaɪəntɪst",
+        "pos": "n.",
+        "meaningZh": "科学家"
+      },
+      {
+        "id": "v-technology",
+        "headword": "technology",
+        "ipa": "tekˈnɒlədʒi",
+        "pos": "n.",
+        "meaningZh": "科技，技术"
+      },
+      {
+        "id": "v-lose",
+        "headword": "lose",
+        "ipa": "luːz",
+        "pos": "v.",
+        "meaningZh": "输掉"
+      },
+      {
+        "id": "v-researcher",
+        "headword": "researcher",
+        "ipa": "rɪˈsɜːtʃə(r)",
+        "pos": "n.",
+        "meaningZh": "研究人员"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "A robot called Ace played table tennis with people in Tokyo, Japan. "
+          },
+          {
+            "t": "vocab",
+            "v": "Scientists",
+            "ref": "v-scientist"
+          },
+          {
+            "t": "text",
+            "v": " say this is an important step for "
+          },
+          {
+            "t": "blank",
+            "id": "b1",
+            "number": 1
+          },
+          {
+            "t": "text",
+            "v": " "
+          },
+          {
+            "t": "vocab",
+            "v": "technology",
+            "ref": "v-technology"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Ace won three games against human players, but it "
+          },
+          {
+            "t": "vocab",
+            "v": "lost",
+            "ref": "v-lose"
+          },
+          {
+            "t": "text",
+            "v": " to two "
+          },
+          {
+            "t": "blank",
+            "id": "b2",
+            "number": 2
+          },
+          {
+            "t": "text",
+            "v": " players. The robot was made by Sony AI. It uses "
+          },
+          {
+            "t": "blank",
+            "id": "b3",
+            "number": 3
+          },
+          {
+            "t": "text",
+            "v": " and "
+          },
+          {
+            "t": "gloss",
+            "v": "sensors",
+            "zh": "传感器"
+          },
+          {
+            "t": "text",
+            "v": " to watch the ball and move quickly."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The robot can "
+          },
+          {
+            "t": "blank",
+            "id": "b4",
+            "number": 4
+          },
+          {
+            "t": "text",
+            "v": " the ball back very fast. It can also make the ball "
+          },
+          {
+            "t": "gloss",
+            "v": "spin",
+            "zh": "旋转"
+          },
+          {
+            "t": "text",
+            "v": " like human players do. Scientists say table tennis is difficult for robots because the game is very "
+          },
+          {
+            "t": "blank",
+            "id": "b5",
+            "number": 5
+          },
+          {
+            "t": "text",
+            "v": ". Robots must move quickly and carefully."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "vocab",
+            "v": "Researchers",
+            "ref": "v-researcher"
+          },
+          {
+            "t": "text",
+            "v": " believe this technology may help robots do "
+          },
+          {
+            "t": "blank",
+            "id": "b6",
+            "number": 6
+          },
+          {
+            "t": "text",
+            "v": " jobs in the future, such as working in factories or helping people with daily tasks."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Choose the best answer to complete the passage.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b1",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "AI"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "farming"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "medical"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b2",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "famous"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "local"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "top"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b3",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "cameras"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "lights"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "phones"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b4",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "catch"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "hit"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "throw"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b5",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "quiet"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "fast"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "slow"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b6",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "easier"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "harder"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "more"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

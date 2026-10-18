@@ -1,0 +1,431 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g8-w17-tue",
+  "playlistId": "ci-g8",
+  "order": 82,
+  "week": 17,
+  "day": "tue",
+  "title": "Write to Be Remembered",
+  "titleZh": "写出让人铭记的文字",
+  "displayName": "Week 17 Tuesday Write to Be Remembered",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "议论文",
+    "wordCount": 329,
+    "difficulty": 3,
+    "suggestedMinutes": 6,
+    "themeContext": "人与自我",
+    "contentRequirement": "职业启蒙，职业精神",
+    "intro": "想让自己的文章脱颖而出吗？不妨试试这三条“黄金法则”。",
+    "hasVideo": false
+  },
+  "thumbnail": "assets/ci-g8/ci-g8-w17-tue-1.jpg",
+  "source": {
+    "pdf": "初2第3辑初中时文阅读提分训练3+X第3辑8年级.pdf",
+    "pdfPages": [
+      145,
+      146
+    ],
+    "bookPages": [
+      136,
+      137
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g8/ci-g8-w17-tue-1.jpg",
+        "alt": "A black-and-white photo of a hand holding a pen and writing in an open notebook on a table.",
+        "w": 985,
+        "h": 660
+      }
+    ],
+    "vocabulary": [],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Several years ago, a young journalist asked me if I had any tips for him. At first, I wanted to say no. My career has been full of hard work, but I’ve also had some lucky moments. It’s hard to sum up my success in just a few tips. But in the end, I shared three golden rules that have guided me whenever I write "
+          },
+          {
+            "t": "gloss",
+            "v": "nonfiction",
+            "zh": "非虚构作品"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Simple is smart. High school taught me to use big words. College teachers praised me for using big words. Then I graduated and realised that smart readers outside the classroom don’t want big words. They want big ideas made simple. Writers may think big words make them look smart. But too many big words can send a signal to some readers that the writer is showing off or doesn’t fully understand what he or she is saying. It actually takes a lot of work to express interesting ideas clearly in small words. The effort simply deserves more respect."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Be interesting. A good article should be fresh and important. Many stories are fresh, but not important. Sometimes great efforts at writing and reporting don’t attract an audience because the story fails to answer the silent question in every reader’s head: “Why should I care?” Other stories are important, but not fresh. If you have nothing new to say about a topic, don’t force it. Why would you want to write something that will be forgotten? Try to stand out!"
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Write music. I’ve always wanted people to read my writing and remember it, and to talk about it. People naturally remember musical language, and I would encourage writers to add a little music to their stories. When you write, read your work aloud and feel the rhythm of the words in your voice. Here is a good example from John F. Kennedy: Ask not what your country can do for you; ask what you can do for your country. It easily sticks in people’s minds."
+          }
+        ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "We can learn from the article that the author ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "is proud of his success"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "is a respected journalist"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "has just finished university"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "has published many novels"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "When did the author discover the value of small words?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "During his college years."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "When he was in high school."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "After graduating from college."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Ten years after entering journalism."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the author, using a lot of big words in writing might make readers ______."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "① respect the author more"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "② think the author is showing off"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "③ spend more time reading the article"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "④ doubt if the author really understood the topic"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "①②"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "③④"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "①③"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "②④"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The author mentioned John F. Kennedy’s sentence to ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "express his respect for him"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "explain how rhythm helps people remember"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "prove that writing skills apply to speaking as well"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "show that fresh and important stories are more likely to stand out"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "By writing this article, the author mainly wanted to ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "compare fiction and nonfiction writing"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "help people improve their writing skills"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "argue that college education is not useful"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "encourage young people to study journalism"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,670 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w01-fri",
+  "playlistId": "ci-zk",
+  "order": 5,
+  "week": 1,
+  "day": "fri",
+  "title": "AI Comes to Dairy Farms",
+  "titleZh": "人工智能走进奶牛场",
+  "displayName": "Week 1 Friday AI Comes to Dairy Farms",
+  "taskType": {
+    "code": "weekly_intensive",
+    "labelZh": "每周精读"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 273,
+    "difficulty": 4,
+    "suggestedMinutes": 10,
+    "themeContext": "人与社会",
+    "contentRequirement": "人类发明与创新",
+    "intro": "AI现在连奶牛都管上了——吃喝站躺全给你分析明白。",
+    "hasVideo": true
+  },
+  "thumbnail": "assets/ci-zk/ci-zk-w01-fri-1.jpg",
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      15,
+      16
+    ],
+    "bookPages": [
+      6,
+      7
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-zk/ci-zk-w01-fri-1.jpg",
+        "alt": "A black-and-white photo of a herd of dairy cows standing on grass under a cloudy sky, with one cow looking at the camera in the foreground.",
+        "w": 666,
+        "h": 432
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-arouse",
+        "headword": "arouse",
+        "ipa": "əˈraʊz",
+        "pos": "v.",
+        "meaningZh": "引起"
+      },
+      {
+        "id": "v-founder",
+        "headword": "founder",
+        "ipa": "ˈfaʊndə(r)",
+        "pos": "n.",
+        "meaningZh": "创始人"
+      },
+      {
+        "id": "v-chew",
+        "headword": "chew",
+        "ipa": "tʃuː",
+        "pos": "v.",
+        "meaningZh": "咀嚼"
+      },
+      {
+        "id": "v-idle",
+        "headword": "idle",
+        "ipa": "ˈaɪdl",
+        "pos": "v.",
+        "meaningZh": "闲荡"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "In 2018, Richard Watson tied 200 special "
+          },
+          {
+            "t": "gloss",
+            "v": "transmitters",
+            "zh": "信号发射机"
+          },
+          {
+            "t": "text",
+            "v": " to his cows’ necks. These devices are part of an artificial-intelligence (AI) system named Ida. The system sends messages to Watson’s phone regularly. The messages tell him when his cows are eating and when they are feeling sick. “There may be ten sick animals out there,” said the dairy farmer, “but can you pick them out?”"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "AI technologies are reinventing how people work. AI systems read and respond to mountains of information. They are designed to save people time and stress. The Ida system has "
+          },
+          {
+            "t": "vocab",
+            "v": "aroused",
+            "ref": "v-arouse"
+          },
+          {
+            "t": "text",
+            "v": " the interest of many dairy farmers. Watson is one of them. Standing one March morning among his cows, he pulled out his smartphone to show off his Ida app. It showed that Cow #97800 and #97782 were eating less. This might mean that they are feeling ill. Information like this, Watson added, could mean the difference between a cow’s healthy milking and early death. This could save him, and many farmers like him, hundreds of thousands of dollars each year."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Ida was developed by the tech company Connecterra. Yasir Khokhar, the company’s "
+          },
+          {
+            "t": "vocab",
+            "v": "founder",
+            "ref": "v-founder"
+          },
+          {
+            "t": "text",
+            "v": ", said he came up with the idea while living on a Dutch dairy farm. The system was trained to understand cow behaviour by studying thousands of hours of video. It now tracks seven cow behaviours: walking, standing, lying down, eating, "
+          },
+          {
+            "t": "vocab",
+            "v": "chewing",
+            "ref": "v-chew"
+          },
+          {
+            "t": "text",
+            "v": ", drinking, and "
+          },
+          {
+            "t": "vocab",
+            "v": "idling",
+            "ref": "v-idle"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "However, some farmers say they aren’t that impressed. “I can spot a cow that isn’t feeling great just by looking in her eyes,” said Mark Rodgers, a neighbour of Watson’s. “I can’t draw, paint, or anything else, but I can watch cows.”"
+          }
+        ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is Richard Watson’s job?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, what can Ida do?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 2,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why does Watson think the information Ida sends him is important?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to Yasir Khokhar, how did Ida “learn” what it is supposed to do?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How does Mark Rodgers usually tell if one of his cows is ill?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "If you owned 200 cows on a dairy farm, would you consider equipping them with Ida? Give your reason(s)."
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "II",
+      "instruction": "Complete the sentences with the given words in their proper forms.",
+      "questions": [
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "To be fair, she "
+              },
+              {
+                "t": "blank",
+                "id": "b1",
+                "hint": {
+                  "baseWord": "behaviour"
+                }
+              },
+              {
+                "t": "text",
+                "v": " better than we expected."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "You can’t do much in the art line without "
+              },
+              {
+                "t": "blank",
+                "id": "b2",
+                "hint": {
+                  "baseWord": "train"
+                }
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Get rid of "
+              },
+              {
+                "t": "blank",
+                "id": "b3",
+                "hint": {
+                  "baseWord": "death"
+                }
+              },
+              {
+                "t": "text",
+                "v": " leaves to encourage new growth."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Some people have to lead "
+              },
+              {
+                "t": "blank",
+                "id": "b4",
+                "hint": {
+                  "baseWord": "stress"
+                }
+              },
+              {
+                "t": "text",
+                "v": " lifestyles out of necessity."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The fashion "
+              },
+              {
+                "t": "blank",
+                "id": "b5",
+                "hint": {
+                  "baseWord": "design"
+                }
+              },
+              {
+                "t": "text",
+                "v": " put on a show that featured daily dress."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "III",
+      "instruction": "Complete the sentences according to the Chinese.",
+      "questions": [
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "AI technologies are reinventing how people work. （保持句意基本不变）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "AI technologies are reinventing "
+              },
+              {
+                "t": "blank",
+                "id": "b6"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b7"
+              },
+              {
+                "t": "text",
+                "v": " people work."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The Ida system has aroused the interest of many dairy farmers. （保持句意基本不变）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Many dairy farmers have "
+              },
+              {
+                "t": "blank",
+                "id": "b8"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b9"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b10"
+              },
+              {
+                "t": "text",
+                "v": " the Ida system."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "“I can spot a cow that isn’t feeling great just by looking in her eyes,” said Mark Rodgers, a neighbour of Watson’s. （改为间接引语）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Mark Rodgers, a neighbour of Watson’s, said "
+              },
+              {
+                "t": "blank",
+                "id": "b11"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b12"
+              },
+              {
+                "t": "text",
+                "v": " spot a cow that "
+              },
+              {
+                "t": "blank",
+                "id": "b13"
+              },
+              {
+                "t": "text",
+                "v": " feeling great just by looking in her eyes."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "order",
+            "items": [
+              {
+                "id": "w1",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "I"
+                  }
+                ]
+              },
+              {
+                "id": "w2",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "that is broken"
+                  }
+                ]
+              },
+              {
+                "id": "w3",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "can"
+                  }
+                ]
+              },
+              {
+                "id": "w4",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "spot"
+                  }
+                ]
+              },
+              {
+                "id": "w5",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "just by"
+                  }
+                ]
+              },
+              {
+                "id": "w6",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "a machine"
+                  }
+                ]
+              },
+              {
+                "id": "w7",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "its noise"
+                  }
+                ]
+              },
+              {
+                "id": "w8",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "listening to"
+                  }
+                ]
+              }
+            ],
+            "ending": "."
+          }
+        }
+      ]
+    }
+  ]
+}

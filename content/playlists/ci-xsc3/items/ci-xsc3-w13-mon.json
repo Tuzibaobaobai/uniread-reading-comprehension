@@ -1,0 +1,436 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w13-mon",
+  "playlistId": "ci-xsc3",
+  "order": 61,
+  "week": 13,
+  "day": "mon",
+  "title": "Strange Life Seen in Deep Ocean",
+  "titleZh": "深海惊现奇异生命",
+  "displayName": "Week 13 Monday Strange Life Seen in Deep Ocean",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 144,
+    "difficulty": 3,
+    "suggestedMinutes": 6,
+    "themeContext": "人与自然",
+    "contentRequirement": "热爱与敬畏自然，与自然和谐共生",
+    "intro": "“奋斗者”号潜入深海，发现奇异生物。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      101
+    ],
+    "bookPages": [
+      92
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-submarine",
+        "headword": "submarine",
+        "ipa": "ˌsʌbməˈriːn",
+        "pos": "n.",
+        "meaningZh": "潜艇"
+      },
+      {
+        "id": "v-creature",
+        "headword": "creature",
+        "ipa": "ˈkriːtʃə(r)",
+        "pos": "n.",
+        "meaningZh": "生物"
+      },
+      {
+        "id": "v-chemical",
+        "headword": "chemical",
+        "ipa": "ˈkemɪkl",
+        "pos": "n.",
+        "meaningZh": "化学物质"
+      },
+      {
+        "id": "v-look-through",
+        "headword": "look through",
+        "pos": "phr.",
+        "meaningZh": "透过……看"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Imagine going so deep in the ocean that there’s no sunlight at all. Recently, a team of Chinese scientists did just that. They rode in a small "
+          },
+          {
+            "t": "vocab",
+            "v": "submarine",
+            "ref": "v-submarine"
+          },
+          {
+            "t": "text",
+            "v": " to explore deep parts of the "
+          },
+          {
+            "t": "gloss",
+            "v": "Pacific Ocean",
+            "zh": "太平洋"
+          },
+          {
+            "t": "text",
+            "v": ". They went down more than 9,500 metres!"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Down in the dark, the scientists saw amazing "
+          },
+          {
+            "t": "vocab",
+            "v": "creatures",
+            "ref": "v-creature"
+          },
+          {
+            "t": "text",
+            "v": ". There were "
+          },
+          {
+            "t": "gloss",
+            "v": "clams",
+            "zh": "蛤蜊"
+          },
+          {
+            "t": "text",
+            "v": ", ice-like "
+          },
+          {
+            "t": "gloss",
+            "v": "bacteria",
+            "zh": "细菌"
+          },
+          {
+            "t": "text",
+            "v": ", and strange worms. These creatures live without sunlight. They get energy from "
+          },
+          {
+            "t": "vocab",
+            "v": "chemicals",
+            "ref": "v-chemical"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Before this trip, the deepest-sea animal ever "
+          },
+          {
+            "t": "underline",
+            "v": "recorded"
+          },
+          {
+            "t": "text",
+            "v": " was found at 8,336 metres below the surface. This time, the team went deeper and found more life than anyone had expected. Some creatures had never been seen before."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The submarine is called "
+          },
+          {
+            "t": "em",
+            "v": "Fendouzhe"
+          },
+          {
+            "t": "text",
+            "v": ". It can carry three people and stay underwater for many hours. “If you "
+          },
+          {
+            "t": "vocab",
+            "v": "look through",
+            "ref": "v-look-through"
+          },
+          {
+            "t": "text",
+            "v": " the window at the bottom of the sea,” said one of the scientists, “you will be amazed!”"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How do the deep-sea creatures get energy without sunlight?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They eat food that falls from the surface."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They get energy from chemicals."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They use special lights to make food."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They only come out at night."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The underlined word “recorded” in Paragraph 3 most likely means ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "filmed with a camera"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "written down or reported"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "sung in a song"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "remembered in mind"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Which of these is NOT mentioned about the submarine "
+              },
+              {
+                "t": "em",
+                "v": "Fendouzhe"
+              },
+              {
+                "t": "text",
+                "v": "?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It can carry three people."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It can stay underwater for many hours."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It has windows to look through."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It can go faster than other submarines."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What makes this discovery particularly special?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The scientists found gold and treasure."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They found life deeper than ever before."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The creatures could speak to humans."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They discovered a new ocean."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

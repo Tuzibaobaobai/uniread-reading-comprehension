@@ -1,6 +1,6 @@
 # HANDOFF · RC 阅读理解模块 → UniRead 主平台
 
-> 交接版本：`v0.3-handoff`（Git tag；按 UniRead 生产规约 [v0.6](docs/14-agent-production-rules.md)）。演示站：https://uniread-reading-comprehension.vercel.app
+> 交接版本：`v0.4-handoff`（Git tag；按 UniRead 生产规约 [v0.6](docs/14-agent-production-rules.md)）。演示站：https://uniread-reading-comprehension.vercel.app
 > 本文是入口，大约 15 分钟读完；细节都链接到已有文档，不在这里重复。
 
 ## 1. 这是什么
@@ -14,7 +14,7 @@
 | 拿走 | 位置 | 说明 |
 | --- | --- | --- |
 | 页面源码（原样还原） | `src/`（页面、交互）、`src/styles/`（token 与样式）、字体依赖 `@fontsource/*` | 构建 `npm ci && npm run build`；参考截图见 §5 |
-| 内容包 | `content/` | 4 个合集共 216 篇：catalog、playlist、item、图片；答案键（keys）单独交付，见 §5 |
+| 内容包 | `content/` | 7 个合集共 540 篇：catalog、playlist、item、图片；答案键（keys）单独交付，见 §5 |
 | 数据格式 | `schema/index.ts`（zod），JSON Schema 在 `schema/json/` | 题型按 1EdTech QTI 3.0 命名；题目与答案分离 |
 | 判分逻辑 | `src/lib/grading.ts`（客观题）、`src/lib/judge.ts`（开放题 LLM 评分）、`server/*.ts`（参考服务端） | 都是纯函数，可直接在 Node 服务端运行 |
 | 交互规范 | [docs/02](docs/02-question-types.md)、[docs/05](docs/05-ui-spec.md)；视觉见 [Figma 登记表](docs/design/figma-registry.md) | 每种题型的行为、复盘和响应式 |
@@ -30,9 +30,12 @@
 | 合集 | 原书 | 已做 | 答案来源 | 说明 |
 | --- | --- | --- | --- | --- |
 | `ci-g3` 3 年级 | 60 篇 | **60 篇（全书）** | official | 只经脚本核对 |
-| `ci-xsc` 小升初 | 90 篇 | 6 篇 | generated | 题型覆盖试点 |
-| `ci-g7` 7 年级（第 3 辑） | 90 篇 | **90 篇（全书）** | official（答案册页码见 key） | 含句型转换、连词成句、LLM 评分；W2–W18 只经脚本核对 |
+| `ci-g4` 4 年级 | 60 篇 | **60 篇（全书）** | official | 只经脚本核对 |
 | `ci-g5` 5 年级 | 60 篇 | **60 篇（全书）** | official | 只经脚本核对；W12 Thu 原书一对多连线按每句一道单选呈现 |
+| `ci-xsc3` 小升初（第 3 辑） | 90 篇 | **90 篇（全书）** | official | 只经脚本核对；取代旧版小升初 `ci-xsc`（已移除，ID 退役） |
+| `ci-g7` 7 年级（第 3 辑） | 90 篇 | **90 篇（全书）** | official（答案册页码见 key） | 含句型转换、连词成句、LLM 评分；W2–W18 只经脚本核对 |
+| `ci-g8` 8 年级（第 3 辑） | 90 篇 | **90 篇（全书）** | official | 只经脚本核对；含图片选项 |
+| `ci-zk` 中考（第 3 辑） | 90 篇 | **90 篇（全书）** | official | 只经脚本核对 |
 
 - **复核**：
   - 试点篇目经过 AI Agent 转录，再由另一个独立 Agent 对照页面图复核；全书批量生产的篇目（状态 `transcribed`）只经脚本核对（官方答案字母、OCR 文本覆盖、词数）。**都没有人工复核**。
@@ -46,7 +49,7 @@
 
 | 题型（interaction） | 学生回答形状 | 判分 | 平台 |
 | --- | --- | --- | --- |
-| 单选／判断 `choice` | `["B"]` | 规则 | 可适配 single-selection |
+| 单选／判断 `choice`（选项可为图片 `Option.image`） | `["B"]` | 规则 | 可适配 single-selection |
 | 完形 `inlineChoice` | 每空一题，`["A"]` | 规则 | 可适配，需逐题核对 |
 | 共享词库 `gapMatch` | `{blankId: bankId}`，每项限用一次，移动时原子释放 | 规则，逐空计分 | 可适配 slot-selection |
 | 文本填空 `textEntry` | `{blankId: "原始字符串"}` | 规则，逐空计分或整题计分（句型转换） | 待适配 |
@@ -82,7 +85,7 @@
 
 ## 5. 交付物与验证
 
-**Release `v0.3-handoff` 附件**
+**Release `v0.4-handoff` 附件**
 
 | 文件 | 内容 |
 | --- | --- |
@@ -101,7 +104,7 @@
 ```bash
 npm ci
 npm run dev        # http://localhost:5173（判分与评分接口由 Vite 中间件提供；开放题评分需要环境变量 SILICONFLOW_API_KEY）
-npm run validate   # 内容校验：216 篇，0 error
+npm run validate   # 内容校验：540 篇，0 error
 npm test           # 单元测试：判分、评分、答案语义、私有材料扫描
 npm run e2e        # Playwright：桌面 / iPad 横屏 / iPad 竖屏
 REFERENCE=1 npx playwright test e2e/reference.spec.ts   # 重新生成布局还原基线截图
@@ -112,7 +115,7 @@ REFERENCE=1 npx playwright test e2e/reference.spec.ts   # 重新生成布局还�
 1. **账号与作答保存**：`learnerId`、服务端时间、真实提交接口（原型未实现）
 2. **难度映射**：书中“难度 N 级”与 UniRead 等级／Lexile 的对应关系（本仓库未生成这两项）
 3. **版权**：封面、配图、文本的使用许可待确认
-4. **答案复核**：所有 key 待人工确认；小升初还有 3 题存疑，5 年级 1 题标“待复核”（见交接清单）
+4. **答案复核**：所有 key 待人工确认；原书与官方答案的疑似错误见 GitHub issue #14–#61（标签 `errata`），其中 7 题官方答案标“待复核”
 5. **LLM 评分校准**：需要每本书 30–50 份教师评分样本，验收标准见 docs/09 §6
 6. **待适配题型**：`textEntry`、`match`、`order`、`extendedText`
 7. **布局还原验收**：平台容器与来源页面在相同内容、视口、作答和位置下的截图和交互对照（待平台）

@@ -1,0 +1,401 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g4-w05-tue",
+  "playlistId": "ci-g4",
+  "order": 22,
+  "week": 5,
+  "day": "tue",
+  "title": "Golden Gate Bridge",
+  "titleZh": "金门大桥",
+  "displayName": "Week 5 Tuesday Golden Gate Bridge",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读选择"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 155,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与社会",
+    "contentRequirement": "世界主要国家的文化景观",
+    "intro": "你认识这座上镜率超高的大桥吗？",
+    "hasVideo": false
+  },
+  "thumbnail": "assets/ci-g4/ci-g4-w05-tue-1.jpg",
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X4年级.pdf",
+    "pdfPages": [
+      43,
+      44
+    ],
+    "bookPages": [
+      34,
+      35
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g4/ci-g4-w05-tue-1.jpg",
+        "alt": "The Golden Gate Bridge seen from a hill, in black and white.",
+        "w": 1030,
+        "h": 678
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-bridge",
+        "headword": "bridge",
+        "ipa": "brɪdʒ",
+        "pos": "n.",
+        "meaningZh": "桥"
+      },
+      {
+        "id": "v-ferry",
+        "headword": "ferry",
+        "ipa": "ˈferi",
+        "pos": "n.",
+        "meaningZh": "渡船"
+      },
+      {
+        "id": "v-build",
+        "headword": "build",
+        "ipa": "bɪld",
+        "pos": "v.",
+        "meaningZh": "建造"
+      },
+      {
+        "id": "v-fog",
+        "headword": "fog",
+        "ipa": "fɒɡ",
+        "pos": "n.",
+        "meaningZh": "雾"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The Golden Gate Bridge in "
+          },
+          {
+            "t": "gloss",
+            "v": "San Francisco",
+            "zh": "旧金山"
+          },
+          {
+            "t": "text",
+            "v": ", USA is a star. You can see it in many pictures and films."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Before the "
+          },
+          {
+            "t": "vocab",
+            "v": "bridge",
+            "ref": "v-bridge"
+          },
+          {
+            "t": "text",
+            "v": ", the only way to get from San Francisco to "
+          },
+          {
+            "t": "gloss",
+            "v": "Marin County",
+            "zh": "马林县"
+          },
+          {
+            "t": "text",
+            "v": " was by "
+          },
+          {
+            "t": "vocab",
+            "v": "ferry",
+            "ref": "v-ferry"
+          },
+          {
+            "t": "text",
+            "v": ". People always hoped there would be a bridge. But it was difficult to "
+          },
+          {
+            "t": "vocab",
+            "v": "build",
+            "ref": "v-build"
+          },
+          {
+            "t": "text",
+            "v": " one there. The "
+          },
+          {
+            "t": "gloss",
+            "v": "currents",
+            "zh": "水流"
+          },
+          {
+            "t": "text",
+            "v": " in-between were very strong. The water was very deep. Also, there was a lot of wind and "
+          },
+          {
+            "t": "vocab",
+            "v": "fog",
+            "ref": "v-fog"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "It took many years to plan the bridge. In 1933, workers finally began to build it. They worked on towers over 227 metres above the water. They worked in the cold, fog and wind. Eleven workers fell and lost their "
+          },
+          {
+            "t": "gloss",
+            "v": "lives",
+            "zh": "丧生"
+          },
+          {
+            "t": "text",
+            "v": "!"
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "In 1937, the bridge opened. Its dark orange color made it easy to see in the fog. It was the longest bridge in the world until 1964. For many people, it is still one of the most beautiful bridges in the world."
+          }
+        ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does “The Golden Gate Bridge in San Francisco, USA is a star.” mean?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The Golden Gate Bridge is famous."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The Golden Gate Bridge is shiny."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The Golden Gate Bridge is a place where many stars live."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Before the Golden Gate Bridge was built, people would go from San Francisco to Marin County by ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "plane"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "ferry"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "car"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why was it hard to build a bridge between San Francisco and Marin County?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because the river was dangerous."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because there was not enough money."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because people did not need the bridge."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The Golden Gate Bridge was painted dark orange, because ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "it looks beautiful"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "it is the color of San Francisco"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "it makes the bridge easy to see in the fog"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,671 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g8-w17-fri",
+  "playlistId": "ci-g8",
+  "order": 85,
+  "week": 17,
+  "day": "fri",
+  "title": "Why It’s Hard to Lose Weight",
+  "titleZh": "为什么减肥如此困难",
+  "displayName": "Week 17 Friday Why It’s Hard to Lose Weight",
+  "taskType": {
+    "code": "weekly_intensive",
+    "labelZh": "每周精读"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 305,
+    "difficulty": 4,
+    "suggestedMinutes": 11,
+    "themeContext": "人与自我",
+    "contentRequirement": "身心健康",
+    "intro": "变胖，真的只是因为吃得太多、动得太少吗？",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "初2第3辑初中时文阅读提分训练3+X第3辑8年级.pdf",
+    "pdfPages": [
+      151,
+      152
+    ],
+    "bookPages": [
+      142,
+      143
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-complicated",
+        "headword": "complicated",
+        "ipa": "ˈkɒmplɪkeɪtɪd",
+        "pos": "adj.",
+        "meaningZh": "复杂的"
+      },
+      {
+        "id": "v-maintain",
+        "headword": "maintain",
+        "ipa": "meɪnˈteɪn",
+        "pos": "v.",
+        "meaningZh": "保持"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "What makes people gain weight? This seems like a simple enough question to answer. If we eat a lot and don’t exercise enough, we will become fat. However, the science behind weight problems is more "
+          },
+          {
+            "t": "vocab",
+            "v": "complicated",
+            "ref": "v-complicated"
+          },
+          {
+            "t": "text",
+            "v": " than we think."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "As we know, what we eat greatly affects our weight. It is widely accepted that people have 100% control over what and how much they eat. This, however, is only partly true. People form food-related habits at a young age. You may rarely touch vegetables while overeating fried chicken. Meanwhile, the serving size and the background music can both affect how much we eat."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Our bodies themselves can decide whether we are more likely to gain weight or lose weight. Scientists have found that the more delicious the food, the more excited our brains get. If we often have delicious food, our brains will change over time. Compared to people of normal weight, fat people feel more excited when they see delicious food."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Also, our bodies use a variety of "
+          },
+          {
+            "t": "gloss",
+            "v": "hormones",
+            "zh": "激素"
+          },
+          {
+            "t": "text",
+            "v": " to signal to our brains whether we are hungry or full. "
+          },
+          {
+            "t": "gloss",
+            "v": "Ghrelin",
+            "zh": "胃饥饿素"
+          },
+          {
+            "t": "text",
+            "v": ", for example, tells the brain that the body wants food. "
+          },
+          {
+            "t": "gloss",
+            "v": "Leptin",
+            "zh": "瘦素"
+          },
+          {
+            "t": "text",
+            "v": ", meanwhile, tells the brain that it’s time to stop eating. Ghrelin and leptin help us to "
+          },
+          {
+            "t": "vocab",
+            "v": "maintain",
+            "ref": "v-maintain"
+          },
+          {
+            "t": "text",
+            "v": " a healthy weight. But sometimes they may not work properly. As we get fatter, leptin levels rise. Our brains are told not to eat all the time. In the end, they would no longer trust leptin and would stop responding to its “warnings”. When we start to lose weight, leptin levels drop. Our brains tell us we are hungry and prompt us to find food in our refrigerators."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Now you know why fat people often have a tough time losing weight. They may have tried very hard, but their bodies are working against their will."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, which of the following factors does not affect how much we eat?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The amount of food we are served."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The music that is being played in the background."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The amount of weight we have recently gained or lost."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The food-related habits we formed during our childhood."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, compared to people of a healthy weight, fat people ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "are more likely to overeat meat"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "are less likely to touch vegetables"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "feel more excited at the sight of delicious food"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "are less likely to feel excited when they see delicious food"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "When ghrelin is working properly, it is responsible for ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "making us search for food"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "telling our brains we are sick"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "maintaining the level of leptin"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "warning us not to eat all the time"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, after the levels of leptin have risen in the bodies of fat people, ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "those people lose weight"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the levels of ghrelin in their bodies slowly drop"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "those people change their lifelong habits around food"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the brains of those people finally stop taking notice of leptin’s messages"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "II",
+      "instruction": "Complete the sentences with the given words in their proper forms.",
+      "questions": [
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I think I’ve made the right "
+              },
+              {
+                "t": "blank",
+                "id": "b5",
+                "hint": {
+                  "baseWord": "decide"
+                }
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "His "
+              },
+              {
+                "t": "blank",
+                "id": "b6",
+                "hint": {
+                  "baseWord": "think"
+                }
+              },
+              {
+                "t": "text",
+                "v": " was interrupted by the sudden ringing of the phone."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Finding a parking spot in the crowded city was a "
+              },
+              {
+                "t": "blank",
+                "id": "b7",
+                "hint": {
+                  "baseWord": "rarely"
+                }
+              },
+              {
+                "t": "text",
+                "v": " stroke of luck."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "She stepped on the scale, anxiously waiting to see how much she "
+              },
+              {
+                "t": "blank",
+                "id": "b8",
+                "hint": {
+                  "baseWord": "weight"
+                }
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "We had "
+              },
+              {
+                "t": "blank",
+                "id": "b9",
+                "hint": {
+                  "baseWord": "variety"
+                }
+              },
+              {
+                "t": "text",
+                "v": " problems on our journey, including a flat tyre."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "III",
+      "instruction": "Complete the sentences according to the Chinese.",
+      "questions": [
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "我们的食量受到饮食习惯的影响。"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b10"
+              },
+              {
+                "t": "text",
+                "v": " by our eating habits."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "这就是为什么肥胖的人减肥很困难。"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "That’s why fat people often "
+              },
+              {
+                "t": "blank",
+                "id": "b11"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "我们的身体使用各种激素来维持健康的体重。"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Our bodies use "
+              },
+              {
+                "t": "blank",
+                "id": "b12"
+              },
+              {
+                "t": "text",
+                "v": " to maintain a healthy weight."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "他们可能很努力地减肥，但他们的身体违背了他们的意愿。"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "They may have tried very hard to lose weight, "
+              },
+              {
+                "t": "blank",
+                "id": "b13"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

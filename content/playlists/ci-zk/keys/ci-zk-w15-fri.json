@@ -1,0 +1,195 @@
+{
+  "schemaVersion": "1.0",
+  "itemId": "ci-zk-w15-fri",
+  "answerSource": "official",
+  "reviewStatus": "pending",
+  "officialRef": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考答案.pdf",
+    "pages": [
+      34
+    ]
+  },
+  "answers": {
+    "q1": {
+      "correct": [
+        "A"
+      ],
+      "explanationZh": "“出发前要知道”的信息里有航空公司、航班号、航站楼、到达时间和见面地点，没有说坦帕的天气。",
+      "evidence": [
+        {
+          "block": "p1",
+          "quote": "make sure you know the following information: the airline, flight number, terminal, arrival time, and the agreed meeting place"
+        }
+      ]
+    },
+    "q2": {
+      "correct": [
+        "C"
+      ],
+      "explanationZh": "文中说两个航站楼没有实际相连，所以不能直接从1号楼走到3号楼。",
+      "evidence": [
+        {
+          "block": "p4",
+          "quote": "The two terminals are not physically connected."
+        }
+      ]
+    },
+    "q3": {
+      "correct": [
+        "A"
+      ],
+      "explanationZh": "停车部分说，要等乘客在外面等着了，才能开进到达区。",
+      "evidence": [
+        {
+          "block": "p7",
+          "quote": "You should not drive into the Arrivals area until your passengers are waiting outside."
+        }
+      ]
+    },
+    "q4": {
+      "correct": [
+        "C"
+      ],
+      "explanationZh": "前60分钟免费，61-80分钟收4美元，之后每20分钟加2美元。两小时是120分钟：4+2+2=8美元。",
+      "evidence": [
+        {
+          "block": "p9",
+          "quote": "Free for the first 60 minutes. $4 for 61-80 minutes; $2 for each additional 20 minutes."
+        }
+      ]
+    },
+    "q5": {
+      "slots": {
+        "b1": {
+          "accept": [
+            "arrived"
+          ]
+        }
+      },
+      "explanationZh": "by the time 后面的从句讲过去的事，所以 arrival 要变成动词过去式 arrived（到达）。",
+      "evidence": [
+        {
+          "block": "p1",
+          "quote": "arrival time"
+        }
+      ]
+    },
+    "q6": {
+      "slots": {
+        "b2": {
+          "accept": [
+            "addition"
+          ]
+        }
+      },
+      "explanationZh": "the 后面要名词，additional 的名词形式是 addition；the addition method 是“加法”。",
+      "evidence": [
+        {
+          "block": "p9",
+          "quote": "additional"
+        }
+      ]
+    },
+    "q7": {
+      "slots": {
+        "b3": {
+          "accept": [
+            "connection"
+          ]
+        }
+      },
+      "explanationZh": "the high-speed internet 后面缺名词，connect 变成 connection（连接）。",
+      "evidence": [
+        {
+          "block": "p4",
+          "quote": "physically connected"
+        }
+      ]
+    },
+    "q8": {
+      "slots": {
+        "b4": {
+          "accept": [
+            "operation"
+          ]
+        }
+      },
+      "explanationZh": "the life-saving 后面要名词，operate 变成 operation（手术）。",
+      "evidence": [
+        {
+          "block": "p4",
+          "quote": "operates at which terminal building"
+        }
+      ]
+    },
+    "q9": {
+      "slots": {
+        "b5": {
+          "accept": [
+            "It is important to know the arrival time",
+            "It’s important to know the arrival time",
+            "It is important to know the arrival time of your passengers"
+          ]
+        }
+      },
+      "explanationZh": "“……是很重要的”用 It is important to do sth.，“到达时间”是 the arrival time。",
+      "evidence": [
+        {
+          "block": "p1",
+          "quote": "arrival time"
+        }
+      ]
+    },
+    "q10": {
+      "slots": {
+        "b6": {
+          "accept": [
+            "To avoid missing the flight",
+            "To avoid missing your flight"
+          ]
+        }
+      },
+      "explanationZh": "“为了避免”用 To avoid，后面接动词 -ing：missing the flight（误机）。",
+      "evidence": [
+        {
+          "block": "p7",
+          "quote": "To avoid circling the airport"
+        }
+      ]
+    },
+    "q11": {
+      "slots": {
+        "b7": {
+          "accept": [
+            "make sure you know the following information",
+            "make sure that you know the following information"
+          ]
+        }
+      },
+      "explanationZh": "“务必……”用 make sure（that）句子；“以下信息”是 the following information。",
+      "evidence": [
+        {
+          "block": "p1",
+          "quote": "make sure you know the following information"
+        }
+      ]
+    },
+    "q12": {
+      "slots": {
+        "b8": {
+          "accept": [
+            "until you arrive and claim your baggage",
+            "until you arrive and claim your luggage"
+          ]
+        }
+      },
+      "explanationZh": "“在……之前不应该”用 not … until …；until 引导的时间从句用一般现在时 arrive and claim。",
+      "evidence": [
+        {
+          "block": "p7",
+          "quote": "until your passengers arrive and claim their baggage"
+        }
+      ]
+    }
+  }
+}

@@ -54,5 +54,7 @@ for (const pl of readdirSync(join(ROOT, 'playlists')).sort()) {
   });
 }
 
+// playlists appear by grade (G3 … G9), not by folder name
+catalog.playlists.sort((a, b) => a.gradeBand.localeCompare(b.gradeBand, 'en', { numeric: true }) || a.id.localeCompare(b.id));
 writeFileSync(join(ROOT, 'catalog.json'), JSON.stringify(Catalog.parse(catalog), null, 2) + '\n');
 console.log(catalog.playlists.map((p) => `${p.id}: ${p.itemCount} items`).join('\n'));

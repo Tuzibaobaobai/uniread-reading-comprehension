@@ -1,0 +1,906 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w09-fri",
+  "playlistId": "ci-zk",
+  "order": 45,
+  "week": 9,
+  "day": "fri",
+  "title": "Rain or Shine",
+  "titleZh": "晴雨无阻",
+  "displayName": "Week 9 Friday Rain or Shine",
+  "taskType": {
+    "code": "weekly_intensive",
+    "labelZh": "每周精读"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 255,
+    "difficulty": 3,
+    "suggestedMinutes": 10,
+    "themeContext": "人与社会",
+    "contentRequirement": "科学技术与工程",
+    "intro": "雨天也能工作的太阳能板，一起来了解一下。",
+    "hasVideo": true
+  },
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      87,
+      88
+    ],
+    "bookPages": [
+      78,
+      79
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-convert",
+        "headword": "convert",
+        "ipa": "kənˈvɜːt",
+        "pos": "v.",
+        "meaningZh": "转化"
+      },
+      {
+        "id": "v-device",
+        "headword": "device",
+        "ipa": "dɪˈvaɪs",
+        "pos": "n.",
+        "meaningZh": "设备；装置"
+      },
+      {
+        "id": "v-roll",
+        "headword": "roll",
+        "ipa": "rəʊl",
+        "pos": "v.",
+        "meaningZh": "滚动"
+      },
+      {
+        "id": "v-friction",
+        "headword": "friction",
+        "ipa": "ˈfrɪkʃn",
+        "pos": "n.",
+        "meaningZh": "摩擦；摩擦力"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Have you ever seen a "
+          },
+          {
+            "t": "gloss",
+            "v": "solar panel",
+            "zh": "太阳能电池板"
+          },
+          {
+            "t": "text",
+            "v": " in your neighbourhood? Solar panels "
+          },
+          {
+            "t": "vocab",
+            "v": "convert",
+            "ref": "v-convert"
+          },
+          {
+            "t": "text",
+            "v": " sunlight into electricity. Over the past ten years, the price of solar panels has gone down greatly. In many parts of the world, solar energy is now the cheapest form of electricity. More and more people have started using solar energy to power their homes."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "However, solar panels also have their problems. They stop working at night and on rainy days. Is it possible to make them produce electricity all of the time?"
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Now, scientists at "
+          },
+          {
+            "t": "gloss",
+            "v": "Soochow University",
+            "zh": "苏州大学"
+          },
+          {
+            "t": "text",
+            "v": " in China have invented a new solar panel. It can produce electricity not only from solar energy but also from falling rain. When a raindrop falls on the solar panel and "
+          },
+          {
+            "t": "vocab",
+            "v": "rolls",
+            "ref": "v-roll"
+          },
+          {
+            "t": "text",
+            "v": " down, it creates "
+          },
+          {
+            "t": "vocab",
+            "v": "friction",
+            "ref": "v-friction"
+          },
+          {
+            "t": "text",
+            "v": " on the panel’s surface, which can be converted into electricity."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Sun Baoquan is one of the inventors. “Our "
+          },
+          {
+            "t": "vocab",
+            "v": "device",
+            "ref": "v-device"
+          },
+          {
+            "t": "text",
+            "v": " can produce electricity in any weather during the day,” he says. “It can even provide electricity at night if there is rain.”"
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The solar panel, however, does not make much electricity from falling rain. So Sun is still working hard to improve it. The scientist also wants to make solar panels more ______. He is trying to build solar panels that are as soft as clothing."
+          }
+        ]
+      },
+      {
+        "id": "p6",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The field of solar energy is developing fast. Scientists around the world have been improving solar panels. Some have been working on ways to combine solar panels with wind power. Some have been trying to use sunlight to produce liquid and gas fuels."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What can we know about solar panels from Paragraph 1?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They can turn the energy from the sun into electricity."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They are designed to provide power for people’s homes."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They are not as popular as they used to be ten years ago."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Their prices have stayed almost the same for ten years."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the main problem with traditional solar panels?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They break down easily."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They take up too much space."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They cannot work without sunlight."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They produce electricity too slowly."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Choose the best word to fill in the blank in Paragraph 5: The scientist also wants to make solar panels more ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "visible"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "flexible"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "possible"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "responsible"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "This article mainly talks about ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the production of solar panels"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the developments in the field of solar energy"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the advantages and disadvantages of solar panels"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the current situation of solar energy around the world"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "II",
+      "instruction": "Complete each sentence with the proper form of the given items from the box. Each item can be used only once.",
+      "stimulus": [
+        {
+          "id": "t1",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "build  creative  form  improve  power  surface"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The school has recently "
+              },
+              {
+                "t": "blank",
+                "id": "b1"
+              },
+              {
+                "t": "text",
+                "v": " a new gym."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The train is fully "
+              },
+              {
+                "t": "blank",
+                "id": "b2"
+              },
+              {
+                "t": "text",
+                "v": " by natural energy."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "This dictionary is also available in electronic "
+              },
+              {
+                "t": "blank",
+                "id": "b3"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The government plans to "
+              },
+              {
+                "t": "blank",
+                "id": "b4"
+              },
+              {
+                "t": "text",
+                "v": " more jobs for young people."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "About three-fourths of the earth’s "
+              },
+              {
+                "t": "blank",
+                "id": "b5"
+              },
+              {
+                "t": "text",
+                "v": " is covered by water."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The editor made some "
+              },
+              {
+                "t": "blank",
+                "id": "b6"
+              },
+              {
+                "t": "text",
+                "v": " to the article before it was printed."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "III",
+      "instruction": "Complete the following sentences as required.",
+      "questions": [
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Over the past ten years, the price of solar panels has gone down greatly. （改为反意疑问句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Over the past ten years, the price of solar panels has gone down greatly, "
+              },
+              {
+                "t": "blank",
+                "id": "b7"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b8"
+              },
+              {
+                "t": "text",
+                "v": "?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "More and more people have started using solar energy to power their homes. （改为被动句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Solar energy "
+              },
+              {
+                "t": "blank",
+                "id": "b9"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b10"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b11"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b12"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b13"
+              },
+              {
+                "t": "text",
+                "v": " by more and more people to power their homes."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "It can produce electricity not only from solar energy but also from falling rain. （改为否定句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "It can’t produce electricity "
+              },
+              {
+                "t": "blank",
+                "id": "b14"
+              },
+              {
+                "t": "text",
+                "v": " from solar energy "
+              },
+              {
+                "t": "blank",
+                "id": "b15"
+              },
+              {
+                "t": "text",
+                "v": " from falling rain."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The field of solar energy is developing "
+              },
+              {
+                "t": "underline",
+                "v": "fast"
+              },
+              {
+                "t": "text",
+                "v": ". （对画线部分提问）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b16"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b17"
+              },
+              {
+                "t": "text",
+                "v": " the field of solar energy "
+              },
+              {
+                "t": "blank",
+                "id": "b18"
+              },
+              {
+                "t": "text",
+                "v": "?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "order",
+            "items": [
+              {
+                "id": "w1",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "he"
+                  }
+                ]
+              },
+              {
+                "id": "w2",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "my"
+                  }
+                ]
+              },
+              {
+                "id": "w3",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "not only"
+                  }
+                ]
+              },
+              {
+                "id": "w4",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "late"
+                  }
+                ]
+              },
+              {
+                "id": "w5",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "but also"
+                  }
+                ]
+              },
+              {
+                "id": "w6",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to"
+                  }
+                ]
+              },
+              {
+                "id": "w7",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "forgot"
+                  }
+                ]
+              },
+              {
+                "id": "w8",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "turned up"
+                  }
+                ]
+              },
+              {
+                "id": "w9",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "bring"
+                  }
+                ]
+              },
+              {
+                "id": "w10",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "book"
+                  }
+                ]
+              }
+            ],
+            "ending": "."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "1.0",
+  "itemId": "ci-zk-w03-thu",
+  "answerSource": "official",
+  "reviewStatus": "pending",
+  "officialRef": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考答案.pdf",
+    "pages": [
+      7,
+      8
+    ]
+  },
+  "answers": {
+    "q1": {
+      "slots": {
+        "b1": {
+          "accept": [
+            "one calculation after another"
+          ]
+        }
+      },
+      "explanationZh": "第二段第一句说传统计算机一个接一个地做计算。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "Traditional computers perform one calculation after another."
+        }
+      ]
+    },
+    "q2": {
+      "slots": {
+        "b2": {
+          "accept": [
+            "less accurate"
+          ]
+        }
+      },
+      "explanationZh": "第二段说AI模型一次做大量“不那么精确”的计算。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "a very large number of less accurate calculations"
+        }
+      ]
+    },
+    "q3": {
+      "slots": {
+        "b3": {
+          "accept": [
+            "simultaneously"
+          ]
+        }
+      },
+      "explanationZh": "同一句最后的词是 simultaneously（同时地），表示这些计算是同时进行的。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "These models perform a very large number of less accurate calculations"
+        }
+      ]
+    },
+    "q4": {
+      "slots": {
+        "b4": {
+          "accept": [
+            "programmers"
+          ]
+        }
+      },
+      "explanationZh": "第四段开头说，一开始是程序员写规则让计算机照着做。",
+      "evidence": [
+        {
+          "block": "p4",
+          "quote": "In the beginning, programmers wrote rules for the computer to follow."
+        }
+      ]
+    },
+    "q5": {
+      "slots": {
+        "b5": {
+          "accept": [
+            "on their own"
+          ]
+        }
+      },
+      "explanationZh": "第四段说程序员只造一个系统，让它自己学规则，所以是 on their own（靠它们自己）。原文是 on its own，但表格里主语是 they，要用 their。",
+      "evidence": [
+        {
+          "block": "p4",
+          "quote": "they create a system that learns those rules on its own."
+        }
+      ]
+    },
+    "q6": {
+      "slots": {
+        "b6": {
+          "accept": [
+            "do anything"
+          ]
+        }
+      },
+      "explanationZh": "第五段说，过去要输入命令或点按钮，计算机才会做事，也就是没有指令时什么都不做。",
+      "evidence": [
+        {
+          "block": "p5",
+          "quote": "you have needed to type a command or click a button for a computer to do anything"
+        }
+      ]
+    },
+    "q7": {
+      "slots": {
+        "b7": {
+          "accept": [
+            "told commands or clicked",
+            "given commands or clicked",
+            "told/given commands or clicked",
+            "told or given commands or clicked",
+            "told commands",
+            "given commands",
+            "told",
+            "given"
+          ]
+        }
+      },
+      "explanationZh": "传统计算机要被人下指令或点击后才工作，空后面是 until they are ……，所以填被动形式 told/given commands or clicked。",
+      "evidence": [
+        {
+          "block": "p5",
+          "quote": "you have needed to type a command or click a button for a computer to do anything"
+        }
+      ]
+    },
+    "q8": {
+      "slots": {
+        "b8": {
+          "accept": [
+            "when to do it"
+          ]
+        }
+      },
+      "explanationZh": "第五段说未来的计算机会在我们需要的时候告诉我们需要知道的事，所以它们还知道什么时候去做。",
+      "evidence": [
+        {
+          "block": "p5",
+          "quote": "They will tell us things we need to know when we need to know them."
+        }
+      ]
+    }
+  }
+}

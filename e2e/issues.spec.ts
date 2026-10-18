@@ -26,11 +26,11 @@ test('#1 定位原文 highlights the sentence, not the paragraph', async ({ page
 });
 
 test('#2 first-letter blanks keep the letter after answering', async ({ page }, info) => {
-  await page.goto('/#/p/ci-xsc/ci-xsc-w12-thu');
+  await page.goto('/#/p/ci-g5/ci-g5-w06-thu');
   await showQuestions(page);
-  await page.getByRole('textbox', { name: /空格 1/ }).fill('armer');
+  await page.getByRole('textbox', { name: /空格 1/ }).fill('nventor');
   await page.getByRole('button', { name: '下一题' }).click();
-  await expect(page.locator('.stimulus .context-blank').first()).toHaveText('warmer');
+  await expect(page.locator('.stimulus .context-blank').first()).toHaveText('inventor');
   await shot(page, info.project.name, '2-first-letter');
 });
 

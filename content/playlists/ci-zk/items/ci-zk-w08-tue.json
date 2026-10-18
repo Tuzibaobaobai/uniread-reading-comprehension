@@ -1,0 +1,455 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w08-tue",
+  "playlistId": "ci-zk",
+  "order": 37,
+  "week": 8,
+  "day": "tue",
+  "title": "Crazy for Crabs",
+  "titleZh": "痴爱螃蟹",
+  "displayName": "Week 8 Tuesday Crazy for Crabs",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 342,
+    "difficulty": 4,
+    "suggestedMinutes": 7,
+    "themeContext": "人与社会",
+    "contentRequirement": "世界主要国家的文化习俗与文化景观",
+    "intro": "秋来食蟹，快哉快哉!",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      75,
+      76
+    ],
+    "bookPages": [
+      66,
+      67
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-upset",
+        "headword": "upset",
+        "ipa": "ʌpˈset",
+        "pos": "v.",
+        "meaningZh": "使（肠胃）不适"
+      },
+      {
+        "id": "v-hook",
+        "headword": "hook",
+        "ipa": "hʊk",
+        "pos": "n.",
+        "meaningZh": "钩子"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "In ancient China, when autumn came, people didn’t merely enjoy the cool breeze and falling leaves, but also got especially excited about one thing: eating crabs! For many ancient Chinese foodies, the perfect way to celebrate fall was with a plate of fresh crab and a cup of warm wine."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "According to traditional Chinese medicine, crab is a “cold” food that can "
+          },
+          {
+            "t": "vocab",
+            "v": "upset",
+            "ref": "v-upset"
+          },
+          {
+            "t": "text",
+            "v": " the stomach when eaten alone. That’s why people paired it with warm wine. Together, they made a tasty and balanced combination. The feeling was so good that one poet wrote, “There’s no better joy in this world” than enjoying crabs and wine on a mountain top."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Many poets and scholars were huge crab lovers. The famous poet Su Dongpo once traded a poem to a friend in exchange for two crabs. Ouyang Xiu chose to retire near a lake simply because the crabs there were cheaper. The writer Li Yu was nicknamed the “Crab Fairy” because he could eat up to 20 crabs a day and even had a servant dedicated to cooking crabs for him! But the funniest story is about Qian Kun, a government official. When the emperor asked where he wanted to work, he replied, “Anywhere with crabs.”"
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "In autumn, crab-themed parties were also popular among the upper class. In the classic novel "
+          },
+          {
+            "t": "em",
+            "v": "Dream of the Red Chamber"
+          },
+          {
+            "t": "gloss",
+            "v": "",
+            "zh": "《红楼梦》"
+          },
+          {
+            "t": "text",
+            "v": ", people hosted crab feasts in their gardens. They ate crabs with ginger and vinegar, drank hot wine, and wrote poems."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "During the Song dynasty, chefs invented new ways to prepare crabs. They made crab wontons, "
+          },
+          {
+            "t": "gloss",
+            "v": "crab roe soup buns",
+            "zh": "蟹粉小笼包"
+          },
+          {
+            "t": "text",
+            "v": ", and even a creative dish called “crab-stuffed orange”. Later, in the Ming dynasty, people designed a special tool set called the “Eight Crab Tools”. It included scissors, "
+          },
+          {
+            "t": "vocab",
+            "v": "hooks",
+            "ref": "v-hook"
+          },
+          {
+            "t": "text",
+            "v": ", and even a small hammer, allowing diners to open crab shells neatly and easily."
+          }
+        ]
+      },
+      {
+        "id": "p6",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "To the ancient Chinese, crabs weren’t just a tasty seasonal delicacy. They were a symbol of autumn joy. Even today, crabs still hold a special place on Chinese dinner tables, continuing to bring happiness to food lovers."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "People drink warm wine while eating crabs to ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "keep the crabs warm"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "make the crabs easier to eat"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "improve the taste of the crabs"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "balance the “cold” nature of crabs"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The examples of Su Dongpo, Ouyang Xiu, and other scholars show ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "crabs used to be expensive"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the different ways to cook crabs"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "how much the ancient Chinese loved crabs"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the reasons why eating crabs is good for health"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The author mentions “crab-themed parties” in Paragraph 4 to ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "show that only the rich could enjoy crabs"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "describe the history of crab dishes in China"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "explain how crabs became a symbol of autumn"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "show how the rich celebrated autumn with crabs"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How did ancient chefs make eating crabs more fun?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "By writing poems about crabs."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "By holding bigger crab parties."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "By inventing new crab dishes and special tools."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "By teaching people how to eat crabs neatly and easily."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why does the author write this article?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To share interesting stories about crabs in ancient China."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To show that crabs are the main food eaten in autumn in China."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To explain why crabs were important in Chinese autumn culture."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To describe how eating crabs was a tradition among poets and scholars."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

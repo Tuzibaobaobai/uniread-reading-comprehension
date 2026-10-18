@@ -1,0 +1,456 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w08-mon",
+  "playlistId": "ci-xsc3",
+  "order": 36,
+  "week": 8,
+  "day": "mon",
+  "title": "Finding Four-Legged Friends",
+  "titleZh": "寻找四脚挚友",
+  "displayName": "Week 8 Monday Finding Four-Legged Friends",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 145,
+    "difficulty": 1,
+    "suggestedMinutes": 6,
+    "themeContext": "人与社会",
+    "contentRequirement": "社会的变迁",
+    "intro": "“毛孩子”丢了怎么办？宠物侦探来帮忙。",
+    "hasVideo": false
+  },
+  "thumbnail": "assets/ci-xsc3/ci-xsc3-w08-mon-1.jpg",
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      61,
+      62
+    ],
+    "bookPages": [
+      52,
+      53
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-xsc3/ci-xsc3-w08-mon-1.jpg",
+        "alt": "A black-and-white photo of a small puppy, a kitten, a French bulldog and a fluffy white cat sitting together.",
+        "w": 1014,
+        "h": 627
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-detective",
+        "headword": "detective",
+        "ipa": "dɪˈtektɪv",
+        "pos": "n.",
+        "meaningZh": "侦探"
+      },
+      {
+        "id": "v-lizard",
+        "headword": "lizard",
+        "ipa": "ˈlɪzəd",
+        "pos": "n.",
+        "meaningZh": "蜥蜴"
+      },
+      {
+        "id": "v-be-more-likely-to",
+        "headword": "be more likely to",
+        "meaningZh": "更有可能"
+      },
+      {
+        "id": "v-hire",
+        "headword": "hire",
+        "ipa": "ˈhaɪə(r)",
+        "pos": "v.",
+        "meaningZh": "雇用"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Liu Wei often works at night. He searches in parking lots. He hides himself in dense grass. He carefully checks underground "
+          },
+          {
+            "t": "gloss",
+            "v": "pipelines",
+            "zh": "管道"
+          },
+          {
+            "t": "text",
+            "v": ". The 35-year-old man from Shanghai is a "
+          },
+          {
+            "t": "vocab",
+            "v": "detective",
+            "ref": "v-detective"
+          },
+          {
+            "t": "text",
+            "v": ". He’s not catching criminals, though. Instead, he’s looking for people’s missing pets."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Since 2012, Liu has helped to find more than 1,000 cats, dogs and even "
+          },
+          {
+            "t": "vocab",
+            "v": "lizards",
+            "ref": "v-lizard"
+          },
+          {
+            "t": "text",
+            "v": " for their owners. In his experience, cats have a better chance of being discovered. “They just hide,” he said. “They wouldn’t go far.” Dogs, however, "
+          },
+          {
+            "t": "vocab",
+            "v": "are more likely to",
+            "ref": "v-be-more-likely-to"
+          },
+          {
+            "t": "text",
+            "v": " be stolen. This makes finding a missing dog more difficult."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The pet detective business has been growing fast in recent years as more people keep pets at home. "
+          },
+          {
+            "t": "vocab",
+            "v": "Hiring",
+            "ref": "v-hire"
+          },
+          {
+            "t": "text",
+            "v": " a pet detective is not cheap. It can cost more than 10,000 yuan, but it’s worth it for pet owners. “They’re not animals,” Liu said. “They’re members of the family.”"
+          }
+        ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is special about Liu Wei’s job as a detective?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He works with the police to solve crimes."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He specializes in finding lost animals for families."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He trains dogs to help search for missing items."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He only works at night in Shanghai."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why are missing dogs usually harder to find than cats according to Liu Wei’s experience?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Dogs tend to hide in smaller places."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Cats can survive longer without food."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Dogs are more likely to be taken by others."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Cats leave clearer tracks for detectives."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The word “detective” in this article refers to someone who ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "arrests people who break the law"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "investigates and solves mysteries about lost pets"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "works mainly in police stations"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "takes care of animals at a rescue centre"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Which of the following is NOT mentioned in the article about Liu Wei’s work?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The specific number of pets he has found."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The reasons why his business has been growing recently."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The different types of places where he searches for pets."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The exact training he received to become a pet detective."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why are pet owners willing to pay high fees for Liu Wei’s services?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because they consider their pets as family members."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because it’s required by law to find missing pets."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because Liu Wei guarantees he will find every lost pet."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because there are no other pet detectives in Shanghai."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

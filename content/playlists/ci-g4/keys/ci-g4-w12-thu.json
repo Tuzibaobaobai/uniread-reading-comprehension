@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.0",
+  "itemId": "ci-g4-w12-thu",
+  "answerSource": "official",
+  "reviewStatus": "pending",
+  "officialRef": {
+    "pdf": "小学英语时文阅读提分训练3+X4年级答案.pdf",
+    "pages": [
+      22
+    ]
+  },
+  "answers": {
+    "q1": {
+      "slots": {
+        "b1": {
+          "accept": [
+            "builder"
+          ]
+        }
+      },
+      "explanationZh": "首字母是 b，William Baker 是什么人？第一部分说 He was a builder（建筑工人）。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "He was a builder."
+        }
+      ]
+    },
+    "q2": {
+      "slots": {
+        "b2": {
+          "accept": [
+            "famous"
+          ]
+        }
+      },
+      "explanationZh": "贝克街以福尔摩斯出名，be famous for 是“以……闻名”。首字母是 f。",
+      "tipsZh": "be famous for 意思是“以……闻名”。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "Who is the most famous resident of Baker Street?"
+        }
+      ]
+    },
+    "q3": {
+      "slots": {
+        "b3": {
+          "accept": [
+            "Bank",
+            "bank"
+          ]
+        }
+      },
+      "explanationZh": "Bank 站是以英格兰银行（the Bank of England）命名的，首字母大写 B。注意这里的 bank 是“银行”，不是“河岸”。",
+      "evidence": [
+        {
+          "block": "p3",
+          "quote": "It is named after the Bank of England."
+        }
+      ]
+    },
+    "q4": {
+      "slots": {
+        "b4": {
+          "accept": [
+            "inn"
+          ]
+        }
+      },
+      "explanationZh": "瑞士小屋站是以附近的一家小旅馆命名的，首字母是 i，所以填 inn。",
+      "evidence": [
+        {
+          "block": "p4",
+          "quote": "This station is named after a nearby inn"
+        }
+      ]
+    },
+    "q5": {
+      "slots": {
+        "b5": {
+          "accept": [
+            "style"
+          ]
+        }
+      },
+      "explanationZh": "那座小房子是按瑞士小屋的“风格”（style）建的，首字母是 s。",
+      "evidence": [
+        {
+          "block": "p4",
+          "quote": "It was built in the style of a Swiss cottage."
+        }
+      ]
+    }
+  }
+}

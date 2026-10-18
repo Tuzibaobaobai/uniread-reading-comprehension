@@ -1,0 +1,210 @@
+{
+ "schemaVersion": "1.0",
+ "itemId": "ci-zk-w06-thu",
+ "answerSource": "official",
+ "reviewStatus": "pending",
+ "officialRef": {
+  "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考答案.pdf",
+  "pages": [
+   14,
+   15
+  ]
+ },
+ "answers": {
+  "q1": {
+   "slots": {
+    "b1": {
+     "accept": [
+      "Examples",
+      "examples"
+     ]
+    }
+   },
+   "explanationZh": "这一列写的是每类添加剂的具体例子，所以填 Examples。",
+   "evidence": [
+    {
+     "block": "p3",
+     "quote": "dyes such as Blue 1, Red 40, and Yellow 5"
+    }
+   ]
+  },
+  "q2": {
+   "slots": {
+    "b2": {
+     "accept": [
+      "disadvantages",
+      "harms"
+     ]
+    }
+   },
+   "explanationZh": "这一列讲对人体可能的坏处，所以填 disadvantages 或 harms。",
+   "evidence": [
+    {
+     "block": "p4",
+     "quote": "Red 3 can cause cancer."
+    }
+   ]
+  },
+  "q3": {
+   "slots": {
+    "b3": {
+     "accept": [
+      "Yellow 5"
+     ]
+    }
+   },
+   "explanationZh": "文章说色素有 Blue 1、Red 40 和 Yellow 5，表里已有前三个里的 Blue 1、Red 3、Red 40，还缺 Yellow 5。",
+   "evidence": [
+    {
+     "block": "p3",
+     "quote": "dyes such as Blue 1, Red 40, and Yellow 5"
+    }
+   ]
+  },
+  "q4": {
+   "slots": {
+    "b4": {
+     "accept": [
+      "appearance"
+     ]
+    }
+   },
+   "explanationZh": "人工色素是用来改善食物的外观（appearance）的。",
+   "evidence": [
+    {
+     "block": "p2",
+     "quote": "Artificial food dyes are used to improve the appearance of various foods."
+    }
+   ]
+  },
+  "q5": {
+   "slots": {
+    "b5": {
+     "accept": [
+      "children"
+     ]
+    }
+   },
+   "explanationZh": "文章说食用色素可能让孩子多动，所以填 children。",
+   "evidence": [
+    {
+     "block": "p3",
+     "quote": "in children"
+    }
+   ]
+  },
+  "q6": {
+   "slots": {
+    "b6": {
+     "accept": [
+      "sweeteners"
+     ]
+    }
+   },
+   "explanationZh": "这一部分的小标题是 Artificial sweeteners（人工甜味剂）。",
+   "evidence": [
+    {
+     "block": "h2",
+     "quote": "Artificial sweeteners"
+    }
+   ]
+  },
+  "q7": {
+   "slots": {
+    "b7": {
+     "accept": [
+      "weight"
+     ]
+    }
+   },
+   "explanationZh": "人工甜味剂能帮人控制体重（weight）和血糖。",
+   "evidence": [
+    {
+     "block": "p6",
+     "quote": "manage their weight and blood sugar levels"
+    }
+   ]
+  },
+  "q8": {
+   "slots": {
+    "b8": {
+     "accept": [
+      "headaches"
+     ]
+    }
+   },
+   "explanationZh": "有些甜味剂，比如阿斯巴甜，会让一些人头疼（headaches）。",
+   "evidence": [
+    {
+     "block": "p6",
+     "quote": "can cause headaches in some people"
+    }
+   ]
+  },
+  "q9": {
+   "slots": {
+    "b9": {
+     "accept": [
+      "cancer"
+     ]
+    }
+   },
+   "explanationZh": "世界卫生组织说阿斯巴甜可能致癌，所以填 cancer。",
+   "evidence": [
+    {
+     "block": "p6",
+     "quote": "a possible cause of cancer in humans"
+    }
+   ]
+  },
+  "q10": {
+   "slots": {
+    "b10": {
+     "accept": [
+      "Thickening",
+      "thickening"
+     ]
+    }
+   },
+   "explanationZh": "瓜尔胶常用来使食物变稠，所以填 Thickening。",
+   "evidence": [
+    {
+     "block": "p7",
+     "quote": "Guar gum is commonly used to thicken foods."
+    }
+   ]
+  },
+  "q11": {
+   "slots": {
+    "b11": {
+     "accept": [
+      "fuller"
+     ]
+    }
+   },
+   "explanationZh": "瓜尔胶能让人觉得更饱（feel fuller），所以少吃零食。",
+   "evidence": [
+    {
+     "block": "p8",
+     "quote": "It can make people feel fuller"
+    }
+   ]
+  },
+  "q12": {
+   "slots": {
+    "b12": {
+     "accept": [
+      "salty dishes"
+     ]
+    }
+   },
+   "explanationZh": "味精是用来改善咸味菜肴的味道的。",
+   "evidence": [
+    {
+     "block": "p9",
+     "quote": "It’s used to improve the taste of salty dishes."
+    }
+   ]
+  }
+ }
+}

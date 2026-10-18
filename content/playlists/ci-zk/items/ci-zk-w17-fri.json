@@ -1,0 +1,606 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w17-fri",
+  "playlistId": "ci-zk",
+  "order": 85,
+  "week": 17,
+  "day": "fri",
+  "title": "Closing the Language Gap",
+  "titleZh": "弥合语言鸿沟",
+  "displayName": "Week 17 Friday Closing the Language Gap",
+  "taskType": {
+    "code": "weekly_intensive",
+    "labelZh": "每周精读"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 288,
+    "difficulty": 4,
+    "suggestedMinutes": 10,
+    "themeContext": "人与社会",
+    "contentRequirement": "跨文化沟通与交流",
+    "intro": "卫星可联网，语言成高墙。跨越信息鸿沟，不止于技术。",
+    "hasVideo": true
+  },
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      157,
+      158
+    ],
+    "bookPages": [
+      148,
+      149
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-satellite",
+        "headword": "satellite",
+        "ipa": "ˈsætəlaɪt",
+        "pos": "n.",
+        "meaningZh": "人造卫星"
+      },
+      {
+        "id": "v-broadcast",
+        "headword": "broadcast",
+        "ipa": "ˈbrɔːdkɑːst",
+        "pos": "v.",
+        "meaningZh": "播送"
+      },
+      {
+        "id": "v-criticise",
+        "headword": "criticise",
+        "ipa": "ˈkrɪtɪsaɪz",
+        "pos": "v.",
+        "meaningZh": "批评；指责"
+      },
+      {
+        "id": "v-misinformation",
+        "headword": "misinformation",
+        "ipa": "ˌmɪsɪnfəˈmeɪʃn",
+        "pos": "n.",
+        "meaningZh": "错误信息"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The internet is not unfamiliar to most of us in Shanghai. But around half of the world’s population still can’t connect to the internet. Big companies like SpaceX want to change this. They plan to launch special "
+          },
+          {
+            "t": "vocab",
+            "v": "satellites",
+            "ref": "v-satellite"
+          },
+          {
+            "t": "text",
+            "v": " into "
+          },
+          {
+            "t": "gloss",
+            "v": "orbit",
+            "zh": "轨道"
+          },
+          {
+            "t": "text",
+            "v": ". These satellites will be able to “"
+          },
+          {
+            "t": "vocab",
+            "v": "broadcast",
+            "ref": "v-broadcast"
+          },
+          {
+            "t": "text",
+            "v": "” the net across the Earth. But there is another "
+          },
+          {
+            "t": "underline",
+            "v": "problem to be solved before more people can enjoy using the internet"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "There are thousands of different languages spoken around the world. Most things on the web, however, are only available in a few of them. For example, about five per cent of the world speaks English at home, but around 50 per cent of the web is in English. When some people go online, they may find that the internet offers little in their own language."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Many major online platforms were founded in the United States. They started with English-speaking users. As the internet has continued to develop around the world, these companies have been forced to play catch-up. Facebook has been "
+          },
+          {
+            "t": "vocab",
+            "v": "criticised",
+            "ref": "v-criticise"
+          },
+          {
+            "t": "text",
+            "v": " for its slow pace. Take Myanmar"
+          },
+          {
+            "t": "gloss",
+            "v": "",
+            "zh": "缅甸"
+          },
+          {
+            "t": "text",
+            "v": ", one of its new markets, as an example. The company had only a few native editors for years. Without good editors, "
+          },
+          {
+            "t": "vocab",
+            "v": "misinformation",
+            "ref": "v-misinformation"
+          },
+          {
+            "t": "text",
+            "v": " started to spread across its platform."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Some companies have been trying to bring smaller languages online. Mozilla, for example, is working on Common Voice. The project collects recordings from people speaking English and German, as well as those speaking Sinhala and Yoruba. It can be used to train AI programs to help edit things online."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Meanwhile, companies like Google are developing better translation programs. These programs can make it easier to use the internet in different languages. However, it is very difficult, if not impossible, to translate things like jokes."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, how do big companies help more people connect to the internet?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the “problem to be solved before more people can enjoy using the internet” underlined in Paragraph 1?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, why did misinformation spread across Facebook’s platform in Myanmar?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, what are “Sinhala and Yoruba”?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The translation programs developed by big companies make it easier to translate things like jokes, don’t they?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "In your opinion, how can we close the language gap on the internet?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "II",
+      "instruction": "Complete the sentences with the given words in their proper forms.",
+      "questions": [
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "There’s no easy "
+              },
+              {
+                "t": "blank",
+                "id": "b1",
+                "hint": {
+                  "baseWord": "solve"
+                }
+              },
+              {
+                "t": "text",
+                "v": " to this problem. (solve)"
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Mr. Berkowitz is in charge of product "
+              },
+              {
+                "t": "blank",
+                "id": "b2",
+                "hint": {
+                  "baseWord": "develop"
+                }
+              },
+              {
+                "t": "text",
+                "v": ". (develop)"
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The twins look alike, but they "
+              },
+              {
+                "t": "blank",
+                "id": "b3",
+                "hint": {
+                  "baseWord": "different"
+                }
+              },
+              {
+                "t": "text",
+                "v": " in character. (different)"
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "blank",
+                "id": "b4",
+                "hint": {
+                  "baseWord": "connect"
+                }
+              },
+              {
+                "t": "text",
+                "v": " to the gas supply was delayed for three days. (connect)"
+              }
+            ]
+          }
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "People learning a new language often meet with some "
+              },
+              {
+                "t": "blank",
+                "id": "b5",
+                "hint": {
+                  "baseWord": "difficult"
+                }
+              },
+              {
+                "t": "text",
+                "v": " at first. (difficult)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "III",
+      "instruction": "Complete the sentences according to the Chinese.",
+      "questions": [
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "她种了很多我不熟悉的奇妙植物。"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "She grew many wonderful plants that "
+              },
+              {
+                "t": "blank",
+                "id": "b6"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "由于某种个人原因，我将不能出席。"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "For certain personal reasons, I shall "
+              },
+              {
+                "t": "blank",
+                "id": "b7"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "由于缺乏资金，这家医院正被迫关闭部分诊疗科室。"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b8"
+              },
+              {
+                "t": "text",
+                "v": " some departments due to funding shortages."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "他们快速进入新的市场，其他企业只能在后面追赶。"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "They raced ahead into new markets, leaving "
+              },
+              {
+                "t": "blank",
+                "id": "b9"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "他刚建立起自己的公司，但要站稳脚跟还得花上一段时间。"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b10"
+              },
+              {
+                "t": "text",
+                "v": ", but it will take him a while to get established."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

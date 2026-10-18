@@ -6,6 +6,7 @@ import tipIcon from '@/assets/icons/tip.svg';
 import { questionBlankIds, type Result } from '@/lib/grading';
 import { Block } from './ArticlePane';
 import { blankContext, blankCorrect, correctBlankText, showFirstLetter, type FlatQuestion, type Responses } from './model';
+import { staticContent } from '@/lib/content';
 
 export interface InteractionProps {
   item: ItemT;
@@ -44,7 +45,7 @@ function OptionList({
   explain,
   ariaLabels,
 }: {
-  options: { id: string; content: InlineT[] }[];
+  options: { id: string; content: InlineT[]; image?: string }[];
   selected?: string;
   onSelect: (id: string) => void;
   correct?: string[];
@@ -67,7 +68,11 @@ function OptionList({
             </span>
             <span className="option-text">
               {showLetter && <span className="option-letter">{o.id}. </span>}
-              <Rich nodes={o.content} />
+              {o.image ? (
+                <img className="option-image" src={staticContent.assetUrl(o.image)} alt={o.content.map((n) => ('v' in n ? n.v : '')).join('') || `选项 ${o.id}`} />
+              ) : (
+                <Rich nodes={o.content} />
+              )}
             </span>
           </span>
         );

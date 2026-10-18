@@ -1,4 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
+import { readFileSync } from 'node:fs';
+
+const playlistCount = JSON.parse(readFileSync('content/catalog.json', 'utf8')).playlists.length;
 
 const narrow = (page: Page) => (page.viewportSize()?.width ?? 1440) < 1024;
 const showQuestions = async (page: Page) => {
@@ -7,7 +10,7 @@ const showQuestions = async (page: Page) => {
 
 test('playlists → playlist → item list', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('.playlist-card')).toHaveCount(4);
+  await expect(page.locator('.playlist-card')).toHaveCount(playlistCount);
   await page.locator('.playlist-card').first().click();
   await expect(page.getByText(/合集（\d+）/)).toBeVisible();
   await expect(page.locator('.item-row-title', { hasText: 'Tiny “Embryos” Begin Space Test' })).toBeVisible();
@@ -60,11 +63,16 @@ test('word bank: entries are used once', async ({ page }) => {
   await expect(page.locator('.bank-entry.is-here')).toHaveCount(0);
 });
 
-test('matching and true/false', async ({ page }) => {
-  await page.goto('/#/p/ci-xsc/ci-xsc-w17-fri');
+test('true/false', async ({ page }) => {
+  await page.goto('/#/p/ci-g3/ci-g3-w04-thu');
   await showQuestions(page);
   await page.getByRole('radio', { name: /False/ }).click();
-  await page.locator('.question-dot').last().click();
+  await expect(page.getByRole('radio', { name: /False/ })).toBeChecked();
+});
+
+test('matching', async ({ page }) => {
+  await page.goto('/#/p/ci-g3/ci-g3-w03-thu');
+  await showQuestions(page);
   const left = page.locator('.match-col').first().locator('.match-item');
   const right = page.locator('.match-col').nth(1).locator('.match-item');
   await left.nth(0).click();
@@ -73,11 +81,11 @@ test('matching and true/false', async ({ page }) => {
 });
 
 test('table fill: typed answers', async ({ page }) => {
-  await page.goto('/#/p/ci-xsc/ci-xsc-w12-thu');
+  await page.goto('/#/p/ci-g5/ci-g5-w06-thu');
   await showQuestions(page);
   const input = page.locator('.blank-input input').first();
-  await input.fill('armer');
-  await expect(input).toHaveValue('armer');
+  await input.fill('nventor');
+  await expect(input).toHaveValue('nventor');
 });
 
 test('answer keys are not published as static files; grading goes through the API', async ({ page, request }) => {
@@ -116,4 +124,16 @@ test('restore: answers and the last viewed (unanswered) question survive a reloa
   await expect(page.locator('.question-dot.is-answered')).toHaveCount(1);
   await page.getByRole('button', { name: /^第 1 题/ }).click();
   await expect(page.getByRole('radio', { name: /Stem cells/ })).toHaveAttribute('aria-checked', 'true');
+});
+
+test('picture options: images render and can be chosen', async ({ page }) => {
+  await page.goto('/#/p/ci-g8/ci-g8-w09-tue');
+  await showQuestions(page);
+  await page.locator('.question-dot').nth(2).click();
+  const imgs = page.locator('.option-image');
+  await expect(imgs).toHaveCount(4);
+  await expect(imgs.first()).toHaveJSProperty('complete', true);
+  expect(await imgs.first().evaluate((el: HTMLImageElement) => el.naturalWidth)).toBeGreaterThan(0);
+  await page.getByRole('radio', { name: /straw/ }).click();
+  await expect(page.getByRole('radio', { name: /straw/ })).toHaveAttribute('aria-checked', 'true');
 });

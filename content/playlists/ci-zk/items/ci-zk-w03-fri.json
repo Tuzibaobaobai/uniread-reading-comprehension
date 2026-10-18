@@ -1,0 +1,811 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w03-fri",
+  "playlistId": "ci-zk",
+  "order": 15,
+  "week": 3,
+  "day": "fri",
+  "title": "Proud to Be a “Loser”",
+  "titleZh": "我骄傲，我是个“减重者”",
+  "displayName": "Week 3 Friday Proud to Be a “Loser”",
+  "taskType": {
+    "code": "weekly_intensive",
+    "labelZh": "每周精读"
+  },
+  "meta": {
+    "genre": "记叙文",
+    "wordCount": 263,
+    "difficulty": 3,
+    "suggestedMinutes": 10,
+    "themeContext": "人与自我",
+    "contentRequirement": "身心健康",
+    "intro": "历时14个月减重91公斤，这名男子的逆袭故事获千万网友见证。",
+    "hasVideo": true
+  },
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      33,
+      34
+    ],
+    "bookPages": [
+      24,
+      25
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-idol",
+        "headword": "idol",
+        "ipa": "ˈaɪdl",
+        "pos": "n.",
+        "meaningZh": "偶像"
+      },
+      {
+        "id": "v-invisible",
+        "headword": "invisible",
+        "ipa": "ɪnˈvɪzəbl",
+        "pos": "adj.",
+        "meaningZh": "看不见的"
+      },
+      {
+        "id": "v-regain",
+        "headword": "regain",
+        "ipa": "rɪˈɡeɪn",
+        "pos": "v.",
+        "meaningZh": "重新获得"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Two years ago, Vance Hinds weighed 215 kilogrammes. Then, in only 14 months, he had lost 91 kilogrammes. The 55-year-old man shared a video of his weight-loss journey online. The video has been viewed 24 million times. People have been amazed at his success."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "It all began when Hinds was listening to his favourite radio programme, "
+          },
+          {
+            "t": "em",
+            "v": "The Joe Rogan Experience"
+          },
+          {
+            "t": "text",
+            "v": ", one day. Bert Kreischer, a regular host on the programme, said he had lost 18 kilogrammes in two months. He went on to call on people to challenge him. “Of the four regular hosts of the programme, Bert is my favourite. He is one of my "
+          },
+          {
+            "t": "vocab",
+            "v": "idols",
+            "ref": "v-idol"
+          },
+          {
+            "t": "text",
+            "v": ",” said Hinds. “He used to be very fat. If he could successfully lose weight, then I can, too.”"
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The next morning, Hinds posted a picture of himself standing on a "
+          },
+          {
+            "t": "gloss",
+            "v": "scale",
+            "zh": "秤"
+          },
+          {
+            "t": "text",
+            "v": " at 215 kilogrammes. “Well, that’s the starting point,” he wrote. Every day, Hinds shared his weigh-ins, workouts, and meals online. Encouragement from his friends and family helped to keep him going."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Today, Hinds is no longer the guy on the metro that no one wants to sit next to. The man has become more confident. “At a certain point, you become "
+          },
+          {
+            "t": "vocab",
+            "v": "invisible",
+            "ref": "v-invisible"
+          },
+          {
+            "t": "text",
+            "v": ",” Hinds talked about his size in the past. “You look at people, and they look away. Friends make fun of you. Stores don’t carry your size.”"
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Many people who have lost weight later "
+          },
+          {
+            "t": "vocab",
+            "v": "regain",
+            "ref": "v-regain"
+          },
+          {
+            "t": "text",
+            "v": " it. Is Hinds worried about this problem? “People are saying I’m a role model for them,” the man said. “If I regain weight, I’ll let down all those people!”"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "calculation"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How much did Vance Hinds weigh 14 months after he had started to lose weight?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What made Hinds decide to lose weight?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What helped to keep Hinds going as he tried to lose weight?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to Hinds, what problems did he run into when he weighed 215 kilogrammes?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why doesn’t Hinds allow himself to regain weight, as many people who have lost weight end up doing?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What lessons can we learn from Hinds’s success in losing weight? (Write at least two sentences.)"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "II",
+      "instruction": "Complete the sentences with the given words in their proper forms.",
+      "questions": [
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I "
+              },
+              {
+                "t": "blank",
+                "id": "b1",
+                "hint": {
+                  "baseWord": "regular"
+                }
+              },
+              {
+                "t": "text",
+                "v": " go for a jog to stay fit."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "He runs a very "
+              },
+              {
+                "t": "blank",
+                "id": "b2",
+                "hint": {
+                  "baseWord": "success"
+                }
+              },
+              {
+                "t": "text",
+                "v": " computer business."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "She does not like anyone "
+              },
+              {
+                "t": "blank",
+                "id": "b3",
+                "hint": {
+                  "baseWord": "challenge"
+                }
+              },
+              {
+                "t": "text",
+                "v": " her idea."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "There isn’t an empty table. Would you mind "
+              },
+              {
+                "t": "blank",
+                "id": "b4",
+                "hint": {
+                  "baseWord": "share"
+                }
+              },
+              {
+                "t": "text",
+                "v": "?"
+              }
+            ]
+          }
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "These paintings were meant to be "
+              },
+              {
+                "t": "blank",
+                "id": "b5",
+                "hint": {
+                  "baseWord": "view"
+                }
+              },
+              {
+                "t": "text",
+                "v": " from a distance."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "My parents have always "
+              },
+              {
+                "t": "blank",
+                "id": "b6",
+                "hint": {
+                  "baseWord": "encouragement"
+                }
+              },
+              {
+                "t": "text",
+                "v": " me in my career choice."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "III",
+      "instruction": "Complete the following sentences as required.",
+      "questions": [
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The video has been viewed "
+              },
+              {
+                "t": "underline",
+                "v": "24 million"
+              },
+              {
+                "t": "text",
+                "v": " times. （对画线部分提问）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b7"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b8"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b9"
+              },
+              {
+                "t": "text",
+                "v": " has the video been viewed?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "He went on to call on people to challenge him. （改为一般疑问句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b10"
+              },
+              {
+                "t": "text",
+                "v": " he "
+              },
+              {
+                "t": "blank",
+                "id": "b11"
+              },
+              {
+                "t": "text",
+                "v": " on to call on people to challenge him?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Bert Kreischer said he had lost 18 kilogrammes in two months. （间接引语改为直接引语）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Bert Kreischer said, “"
+              },
+              {
+                "t": "blank",
+                "id": "b12"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b13"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b14"
+              },
+              {
+                "t": "text",
+                "v": " 18 kilogrammes in two months.”"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "If he could successfully lose weight, then I can, too. （保持句意基本不变）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "If he could successfully lose weight, "
+              },
+              {
+                "t": "blank",
+                "id": "b15"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b16"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b17"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I’ll let down all those people. （改为否定句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "I "
+              },
+              {
+                "t": "blank",
+                "id": "b18"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b19"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b20"
+              },
+              {
+                "t": "text",
+                "v": " all those people."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "order",
+            "items": [
+              {
+                "id": "w1",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "friends"
+                  }
+                ]
+              },
+              {
+                "id": "w2",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "he"
+                  }
+                ]
+              },
+              {
+                "id": "w3",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "fails"
+                  }
+                ]
+              },
+              {
+                "id": "w4",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "let"
+                  }
+                ]
+              },
+              {
+                "id": "w5",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "down"
+                  }
+                ]
+              },
+              {
+                "id": "w6",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "his"
+                  }
+                ]
+              },
+              {
+                "id": "w7",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "lose weight"
+                  }
+                ]
+              },
+              {
+                "id": "w8",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to"
+                  }
+                ]
+              },
+              {
+                "id": "w9",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "if"
+                  }
+                ]
+              },
+              {
+                "id": "w10",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "he"
+                  }
+                ]
+              },
+              {
+                "id": "w11",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "will"
+                  }
+                ]
+              }
+            ],
+            "ending": "."
+          }
+        }
+      ]
+    }
+  ]
+}

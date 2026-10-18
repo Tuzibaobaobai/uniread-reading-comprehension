@@ -1,0 +1,279 @@
+{
+  "schemaVersion": "1.0",
+  "itemId": "ci-xsc3-w06-fri",
+  "answerSource": "official",
+  "reviewStatus": "pending",
+  "officialRef": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初答案.pdf",
+    "pages": [
+      15,
+      16
+    ]
+  },
+  "answers": {
+    "q1": {
+      "sampleAnswer": "It is famous as one of the national dishes of Singapore.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "被视为新加坡的国菜之一",
+          "examples": [
+            "one of the national dishes of Singapore"
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：新加坡的国菜之一。",
+      "explanationZh": "第一段说海南鸡饭被看作新加坡的国菜之一，所以它以此闻名。",
+      "evidence": [
+        {
+          "block": "p1",
+          "quote": "It is seen as one of the national dishes of Singapore."
+        }
+      ]
+    },
+    "q2": {
+      "sampleAnswer": "Early immigrants from Hainan.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "来自海南的早期移民",
+          "examples": [
+            "Early immigrants from Hainan."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：海南来的早期移民。",
+      "explanationZh": "第二段说，早期从海南来的移民把这道菜带到了新加坡。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "They brought with them a dish made from"
+        }
+      ]
+    },
+    "q3": {
+      "sampleAnswer": "White cut chicken, or bai qie ji.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "白切鸡",
+          "examples": [
+            "White cut chicken.",
+            "Bai qie ji."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：白切鸡。",
+      "explanationZh": "第二段说后来不再用文昌鸡，改用白切鸡，因为它更嫩。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "Instead, white cut chicken, or bai qie ji, was used because it was softer."
+        }
+      ]
+    },
+    "q4": {
+      "sampleAnswer": "The making of the rice.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "做米饭",
+          "examples": [
+            "The making of the rice.",
+            "Making the rice."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：做米饭。",
+      "explanationZh": "第三段说这道菜真正的考验是米饭，每个厨师都有自己的配方和秘制调料。",
+      "evidence": [
+        {
+          "block": "p3",
+          "quote": "The real test for the dish is the rice."
+        }
+      ]
+    },
+    "q5": {
+      "sampleAnswer": "Yes, there are.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "肯定回答：Yes, there are.",
+          "examples": [
+            "Yes, there are."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：回答 Yes。",
+      "explanationZh": "第三段说每位厨师都有自己的配方和秘制调料，说明做法不止一种，所以答 Yes, there are.",
+      "evidence": [
+        {
+          "block": "p3",
+          "quote": "Each cook has his or her own"
+        }
+      ]
+    },
+    "q6": {
+      "slots": {
+        "b1": {
+          "accept": [
+            "brought"
+          ]
+        }
+      },
+      "explanationZh": "bring up 是“养育”，she was brought up 是被动，要用过去分词 brought。",
+      "tipsZh": "be brought up：被养育，被抚养"
+    },
+    "q7": {
+      "slots": {
+        "b2": {
+          "accept": [
+            "reality"
+          ]
+        }
+      },
+      "explanationZh": "become a 后面要填名词，real 的名词是 reality（现实）。"
+    },
+    "q8": {
+      "slots": {
+        "b3": {
+          "accept": [
+            "taste"
+          ]
+        }
+      },
+      "explanationZh": "good 后面要填名词，tasty 的名词是 taste，have good taste in clothes 是“穿衣有品位”。"
+    },
+    "q9": {
+      "slots": {
+        "b4": {
+          "accept": [
+            "ate"
+          ]
+        }
+      },
+      "explanationZh": "句子说的是过去早餐，用一般过去时，eat 的过去式是 ate。"
+    },
+    "q10": {
+      "slots": {
+        "b5": {
+          "accept": [
+            "service"
+          ]
+        }
+      },
+      "explanationZh": "better 后面要填名词，serve 的名词是 service（服务）。"
+    },
+    "q11": {
+      "slots": {
+        "b6": {
+          "accept": [
+            "softer"
+          ]
+        }
+      },
+      "explanationZh": "和 louder 并列，要用比较级，soft 的比较级是 softer。"
+    },
+    "q12": {
+      "slots": {
+        "b7": {
+          "accept": [
+            "was"
+          ]
+        },
+        "b8": {
+          "accept": [
+            "listed"
+          ]
+        }
+      },
+      "explanationZh": "主动句改被动句，用 be + 过去分词。chicken rice 是单数，过去时，所以填 was listed。",
+      "tipsZh": "被动语态：be + 过去分词"
+    },
+    "q13": {
+      "slots": {
+        "b9": {
+          "accept": [
+            "any"
+          ]
+        },
+        "b10": {
+          "accept": [
+            "longer",
+            "more"
+          ]
+        }
+      },
+      "explanationZh": "no longer 的意思是“不再”，改成 not ... any longer（或 any more）意思不变。",
+      "tipsZh": "not ... any longer = no longer"
+    },
+    "q14": {
+      "slots": {
+        "b11": {
+          "accept": [
+            "Why",
+            "why"
+          ]
+        },
+        "b12": {
+          "accept": [
+            "was",
+            "Was"
+          ]
+        }
+      },
+      "explanationZh": "画线部分是原因，用 Why 提问，原句是被动语态过去时，所以后面接 was。"
+    },
+    "q15": {
+      "slots": {
+        "b13": {
+          "accept": [
+            "don’t",
+            "don't",
+            "do not"
+          ]
+        },
+        "b14": {
+          "accept": [
+            "they",
+            "They"
+          ]
+        }
+      },
+      "explanationZh": "前半句是肯定句，主语是 Each cook，后半句要用否定形式。Each cook 在后半句用 they，所以填 don’t they。",
+      "tipsZh": "反意疑问句：前肯后否"
+    },
+    "q16": {
+      "sequence": [
+        "w2",
+        "w8",
+        "w6",
+        "w4",
+        "w1",
+        "w5",
+        "w7",
+        "w9",
+        "w3",
+        "w11",
+        "w10"
+      ],
+      "explanationZh": "先找主语 the dish，后面是被动 is listed as，再接 one of the most delicious foods in the world。",
+      "tipsZh": "one of the + 最高级 + 复数名词：最……之一"
+    }
+  }
+}

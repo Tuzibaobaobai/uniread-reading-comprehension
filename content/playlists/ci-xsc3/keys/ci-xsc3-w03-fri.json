@@ -1,0 +1,277 @@
+{
+  "schemaVersion": "1.0",
+  "itemId": "ci-xsc3-w03-fri",
+  "answerSource": "official",
+  "reviewStatus": "pending",
+  "officialRef": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初答案.pdf",
+    "pages": [
+      8,
+      9
+    ]
+  },
+  "answers": {
+    "q1": {
+      "sampleAnswer": "In ancient Rome.",
+      "rubricZh": "要点：古罗马。",
+      "explanationZh": "第二段说最早的路标是里程碑，它们用在古罗马。所以答案是古罗马。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "They were used in ancient Rome."
+        }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "最早的路标用于古罗马",
+          "examples": [
+            "In ancient Rome."
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "q2": {
+      "sampleAnswer": "They let travellers know how far they were from Rome.",
+      "rubricZh": "要点：让旅行者知道离罗马有多远。",
+      "explanationZh": "第二段最后一句说，里程碑让旅行的人知道自己离罗马还有多远，这就是它的作用。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "The milestones let travellers know how far they were from Rome."
+        }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "让旅行者知道离罗马多远",
+          "examples": [
+            "let travellers know how far they were from Rome"
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "q3": {
+      "sampleAnswer": "No, they weren’t.",
+      "rubricZh": "要点：回答 No，并说明早期标志是木头做的（装在铁柱上）。",
+      "explanationZh": "第三段说早期的标志是木头做的，装在铁柱子上，不是铁做的。反意疑问句问“是铁做的，对吧？”，所以回答 No, they weren’t.",
+      "evidence": [
+        {
+          "block": "p3",
+          "quote": "Early signs were made of wood and were placed on iron columns."
+        }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "否定回答：不是铁做的",
+          "examples": [
+            "No, they weren’t."
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "q4": {
+      "sampleAnswer": "It showed what each sign meant.",
+      "rubricZh": "要点：说明每个标志的意思。",
+      "explanationZh": "第三段说美国人做了第一本交通标志手册，书里告诉人们每个标志是什么意思，这就是它的功能。",
+      "evidence": [
+        {
+          "block": "p3",
+          "quote": "The book showed what each sign meant."
+        }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "说明每个标志的含义",
+          "examples": [
+            "showed what each sign meant"
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "q5": {
+      "sampleAnswer": "To be able to tell people what to do on the road quickly.",
+      "rubricZh": "要点：快速告诉人们在路上该做什么。",
+      "explanationZh": "最后一段说，将来标志可能不同，但目标不变：还是要能快速告诉人们在路上该做什么。",
+      "evidence": [
+        {
+          "block": "p4",
+          "quote": "Traffic signs will still need to be able to tell people what to do on the road quickly."
+        }
+      ],
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "快速告诉人们在路上该做什么",
+          "examples": [
+            "tell people what to do on the road quickly"
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "q6": {
+      "slots": {
+        "b1": {
+          "accept": [
+            "loss"
+          ]
+        }
+      },
+      "explanationZh": "at a loss 是固定短语，意思是“不知所措”。空格前有冠词 a，要填名词，lose 的名词是 loss。",
+      "tipsZh": "at a loss 不知所措"
+    },
+    "q7": {
+      "slots": {
+        "b2": {
+          "accept": [
+            "inventions"
+          ]
+        }
+      },
+      "explanationZh": "great 后面要填名词；many 说明是复数，invent 的名词是 invention，所以填 inventions。"
+    },
+    "q8": {
+      "slots": {
+        "b3": {
+          "accept": [
+            "imaginary"
+          ]
+        }
+      },
+      "explanationZh": "空格在 have 和名词 friends 之间，要填形容词。imagine 的形容词是 imaginary（想象中的）。"
+    },
+    "q9": {
+      "slots": {
+        "b4": {
+          "accept": [
+            "farther",
+            "further"
+          ]
+        }
+      },
+      "explanationZh": "moving ... away 说“越走越远”，要用比较级，far 的比较级是 farther。",
+      "tipsZh": "far 的比较级 farther / further"
+    },
+    "q10": {
+      "slots": {
+        "b5": {
+          "accept": [
+            "ability"
+          ]
+        }
+      },
+      "explanationZh": "musical 后面要填名词，表示“音乐才能”。able 的名词是 ability。"
+    },
+    "q11": {
+      "slots": {
+        "b6": {
+          "accept": [
+            "difference"
+          ]
+        }
+      },
+      "explanationZh": "tell the ... between 表示“分辨……之间的区别”，要填名词，different 的名词是 difference。",
+      "tipsZh": "tell the difference between 分辨……的区别"
+    },
+    "q12": {
+      "slots": {
+        "b7": {
+          "accept": [
+            "How"
+          ]
+        },
+        "b8": {
+          "accept": [
+            "did"
+          ]
+        }
+      },
+      "explanationZh": "画线部分是“骑马或步行”，表示方式，用 How 提问；原句是过去时，助动词用 did：How did ancient Romans travel back then?"
+    },
+    "q13": {
+      "slots": {
+        "b9": {
+          "accept": [
+            "Did"
+          ]
+        },
+        "b10": {
+          "accept": [
+            "let"
+          ]
+        }
+      },
+      "explanationZh": "原句是一般过去时的肯定句，没有 be 动词，改一般疑问句要在句首加 Did，后面的动词变回原形 let。"
+    },
+    "q14": {
+      "slots": {
+        "b11": {
+          "accept": [
+            "lose"
+          ]
+        },
+        "b12": {
+          "accept": [
+            "their"
+          ]
+        },
+        "b13": {
+          "accept": [
+            "way"
+          ]
+        }
+      },
+      "explanationZh": "get lost 的意思是“迷路”，可以换成 lose one’s way。Drivers 是复数，所以用 lose their way。",
+      "tipsZh": "get lost = lose one’s way"
+    },
+    "q15": {
+      "slots": {
+        "b14": {
+          "accept": [
+            "don’t",
+            "don't"
+          ]
+        },
+        "b15": {
+          "accept": [
+            "they"
+          ]
+        }
+      },
+      "explanationZh": "前面是肯定句，后面的反意疑问部分用否定。主句动词 have 是一般现在时，主语是复数，所以用 don’t they。",
+      "tipsZh": "陈述部分肯定，疑问部分否定"
+    },
+    "q16": {
+      "sequence": [
+        "w4",
+        "w1",
+        "w8",
+        "w5",
+        "w2",
+        "w6",
+        "w9",
+        "w7",
+        "w3"
+      ],
+      "explanationZh": "signs 是主语，用被动语态 are placed on roads（被放在路上），再用 to guide drivers 表示目的：Traffic signs are placed on roads to guide drivers.",
+      "tipsZh": "to do 表示目的"
+    }
+  }
+}

@@ -1,0 +1,452 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w10-mon",
+  "playlistId": "ci-xsc3",
+  "order": 46,
+  "week": 10,
+  "day": "mon",
+  "title": "Weekend Rides for Pets in Shanghai",
+  "titleZh": "上海宠物周末巴士专线",
+  "displayName": "Week 10 Monday Weekend Rides for Pets in Shanghai",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读理解"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 157,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与社会",
+    "contentRequirement": "和谐家庭与社区生活",
+    "intro": "爱宠们也有周末专车啦!",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      77,
+      78
+    ],
+    "bookPages": [
+      68,
+      69
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-run",
+        "headword": "run",
+        "ipa": "rʌn",
+        "pos": "v.",
+        "meaningZh": "提供(服务等);经营"
+      },
+      {
+        "id": "v-become-popular-among",
+        "headword": "become popular among",
+        "meaningZh": "在……中流行起来"
+      },
+      {
+        "id": "v-cushion",
+        "headword": "cushion",
+        "ipa": "ˈkʊʃn",
+        "pos": "n.",
+        "meaningZh": "坐垫"
+      },
+      {
+        "id": "v-economy",
+        "headword": "economy",
+        "ipa": "ɪˈkɒnəmi",
+        "pos": "n.",
+        "meaningZh": "经济"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Pets in Shanghai can now ride their own bus! This new pet-friendly service "
+          },
+          {
+            "t": "vocab",
+            "v": "runs",
+            "ref": "v-run"
+          },
+          {
+            "t": "text",
+            "v": " every weekend. It has quickly "
+          },
+          {
+            "t": "vocab",
+            "v": "become popular among",
+            "ref": "v-become-popular-among"
+          },
+          {
+            "t": "text",
+            "v": " animal lovers."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Each weekend, this bus takes pets and their owners to parks and shopping malls. The trip lasts about 100 minutes. A ticket costs 20 yuan for a person and their pet. Tickets should be booked online before riding. Pets must be under 40 cm tall and have a health record, and they must also stay on a "
+          },
+          {
+            "t": "gloss",
+            "v": "leash",
+            "zh": "拴狗绳"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Inside the bus, there are soft "
+          },
+          {
+            "t": "vocab",
+            "v": "cushions",
+            "ref": "v-cushion"
+          },
+          {
+            "t": "text",
+            "v": " and free snacks for pets. Safety staff check papers and make sure all pets are doing well."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The pet bus is getting lots of attention. Videos of it have become popular online. In China, there are now over 120 million cats and dogs in cities. The pet "
+          },
+          {
+            "t": "vocab",
+            "v": "economy",
+            "ref": "v-economy"
+          },
+          {
+            "t": "text",
+            "v": " is growing fast. People hope this new idea will help more pets ride safely and make life better for pet lovers."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail",
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is one main reason why the pet bus service is needed in Shanghai?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "There are not enough taxis for people with pets."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Regular buses do not allow any animals to get on."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The number of pet cats and dogs in cities is very large."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Pets need to learn how to behave on public transportation."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the rules, which of the following pets would be allowed to ride on the bus?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A healthy 45 cm tall dog with a leash."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A 35 cm tall cat without a health record."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A healthy 38 cm tall dog on a leash."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A bird in a cage with its health record."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The word “economy” in the sentence “The pet economy is growing fast.” probably refers to the ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "rules about keeping pets in cities"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "business and money related to pets"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "health of the pet population in China"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "number of people who work as safety staff"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Which of the following is NOT mentioned as a feature of the pet bus?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It provides comfortable seats for the animals."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It offers free food for the pets."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It has staff to ensure the pets’ safety and check documents."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It allows pets to run around and play freely during the trip."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the main idea of this article?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To explain why Shanghai is a great city for pet owners."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To describe a new and convenient service for pet owners and their animals."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To tell people how to book tickets for a special bus tour in Shanghai."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To compare the new pet bus with other kinds of public transportation."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

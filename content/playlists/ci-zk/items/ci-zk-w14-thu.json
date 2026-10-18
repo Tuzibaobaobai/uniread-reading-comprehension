@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w14-thu",
+  "playlistId": "ci-zk",
+  "order": 69,
+  "week": 14,
+  "day": "thu",
+  "title": "The Young and the Restless",
+  "titleZh": "年轻且充满变数",
+  "displayName": "Week 14 Thursday The Young and the Restless",
+  "taskType": {
+    "code": "answer_questions",
+    "labelZh": "回答问题"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 276,
+    "difficulty": 4,
+    "suggestedMinutes": 8,
+    "themeContext": "人与社会",
+    "contentRequirement": "家乡和社会的变迁",
+    "intro": "“阿尔法一代”已来，但他们的个性究竟如何，仍需拭目以待。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      128
+    ],
+    "bookPages": [
+      119
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-alphabet",
+        "headword": "alphabet",
+        "ipa": "ˈælfəbet",
+        "pos": "n.",
+        "meaningZh": "字母表"
+      },
+      {
+        "id": "v-unique",
+        "headword": "unique",
+        "ipa": "juˈniːk",
+        "pos": "adj.",
+        "meaningZh": "独具的；特有的"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "What comes after Gen Z? Many names have been suggested for the world’s youngest generation, such as “iPad kids” and “Generation AI”. But one name has stood out and caught on: Generation Alpha. “It stands for a new chapter,” says Mark McCrindle, the Australian researcher behind the name. Nearly twenty years ago, he asked people for ideas. Many put forward “Gen A”. But instead of going back to the start of the English "
+          },
+          {
+            "t": "vocab",
+            "v": "alphabet",
+            "ref": "v-alphabet"
+          },
+          {
+            "t": "text",
+            "v": ", he looked at the Greek one."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "In recent years, many surveys have been published about Gen Alpha. They say these kids are interested in video games and sports and care little about recycling and the news."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Such findings catch the eye. But social scientists agree that it’s too soon to say what makes this generation "
+          },
+          {
+            "t": "vocab",
+            "v": "unique",
+            "ref": "v-unique"
+          },
+          {
+            "t": "text",
+            "v": ". After all, the youngest of its members are just learning to walk. Predicting how Gen Alpha will turn out as adults has “no more value than "
+          },
+          {
+            "t": "gloss",
+            "v": "astrology",
+            "zh": "占星术"
+          },
+          {
+            "t": "text",
+            "v": ",” says Bobby Duffy, a British professor. Some surveys about Alpha kids are filled out by their parents. Many conclusions and judgments made now will turn out to be wrong later."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "There is also disagreement about who belongs to Gen Alpha and who doesn’t. McCrindle thinks the group should include those born between 2010 and 2024. But others say Gen Z only stopped being born in 2012. Because there’s no official definition for generations, one person’s Z is another’s Alpha. But no one can deny that Alphas are in their developmental years. People’s attitudes and values will change as they grow up. Duffy believes we won’t start seeing real differences between Alphas and the others for at least five years."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, why is it too early to say what makes Gen Alpha unique?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to Bobby Duffy, when can we see what makes Gen Alpha unique?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 2,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who are “the restless” in the title? Why does the author use the word “restless”?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 2,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Are you a member of Gen Alpha? How would you describe your generation?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ]
+}

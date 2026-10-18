@@ -1,0 +1,449 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w10-tue",
+  "playlistId": "ci-xsc3",
+  "order": 47,
+  "week": 10,
+  "day": "tue",
+  "title": "Amazon Trees Are Growing Bigger",
+  "titleZh": "亚马逊雨林树木正不断生长壮大",
+  "displayName": "Week 10 Tuesday Amazon Trees Are Growing Bigger",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读理解"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 154,
+    "difficulty": 3,
+    "suggestedMinutes": 6,
+    "themeContext": "人与自然",
+    "contentRequirement": "热爱与敬畏自然，与自然和谐共生",
+    "intro": "好消息!亚马逊雨林的树木正在茁壮成长。",
+    "hasVideo": false
+  },
+  "thumbnail": "assets/ci-xsc3/ci-xsc3-w10-tue-1.jpg",
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      79,
+      80
+    ],
+    "bookPages": [
+      70,
+      71
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-xsc3/ci-xsc3-w10-tue-1.jpg",
+        "alt": "Aerial view of dense Amazon rainforest treetops, black and white",
+        "w": 612,
+        "h": 1129
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-rainforest",
+        "headword": "rainforest",
+        "ipa": "ˈreɪnfɒrɪst",
+        "pos": "n.",
+        "meaningZh": "雨林"
+      },
+      {
+        "id": "v-carbon-dioxide",
+        "headword": "carbon dioxide",
+        "meaningZh": "二氧化碳"
+      },
+      {
+        "id": "v-oxygen",
+        "headword": "oxygen",
+        "ipa": "ˈɒksɪdʒən",
+        "pos": "n.",
+        "meaningZh": "氧气"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      },
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Scientists have some exciting news about the Amazon "
+          },
+          {
+            "t": "vocab",
+            "v": "rainforest",
+            "ref": "v-rainforest"
+          },
+          {
+            "t": "text",
+            "v": "—its trees are getting bigger!"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "A new study shows that trees in the forest have been growing about 3% larger every ten years. That may not sound like much, but across millions of trees, it’s huge! The reason may be that there is more carbon dioxide in the air, which plants use to grow. “This is good news,” said one scientist. “The trees are still healthy and growing.”"
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "But there are still problems. People are cutting down trees, and the weather is getting hotter. These changes can hurt the forest."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The Amazon is the biggest rainforest in the world. It is home to thousands of animals and plants. It is often called the “"
+          },
+          {
+            "t": "gloss",
+            "v": "lungs of the Earth",
+            "zh": "地球之肺"
+          },
+          {
+            "t": "text",
+            "v": "” because it helps clean the air we breathe. Its trees take in "
+          },
+          {
+            "t": "vocab",
+            "v": "carbon dioxide",
+            "ref": "v-carbon-dioxide"
+          },
+          {
+            "t": "text",
+            "v": " and give out "
+          },
+          {
+            "t": "vocab",
+            "v": "oxygen",
+            "ref": "v-oxygen"
+          },
+          {
+            "t": "text",
+            "v": ". Scientists say we must protect it before it’s too late."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why are the trees in the Amazon growing bigger according to the study?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because people are planting more trees."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because there is more of a gas in the air that plants use."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because the weather is getting much cooler."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Because scientists are helping them grow."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The Amazon is called the “lungs of the Earth” because it ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "has the biggest trees in the world"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "takes in harmful gas and gives out oxygen"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "provides a home for thousands of animals"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "makes the weather around the world cooler"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the main problem facing the Amazon despite the good news?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The trees are growing too slowly."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "There are too many animals eating the plants."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It is becoming too big to manage."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Trees are being cut down and the climate is getting hotter."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Which of the following is NOT mentioned in the article?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "How much larger the trees are growing each year."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Why the increase in tree size is important."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "What dangers the Amazon rainforest is facing."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "What scientists think we should do."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the main idea of this article?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The Amazon rainforest is in great danger and will disappear soon."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The Amazon trees are getting larger, but the forest still needs protection."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Scientists have found a new way to help the Amazon rainforest grow."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "People have stopped cutting down trees in the Amazon rainforest."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

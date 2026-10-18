@@ -1,0 +1,373 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w14-mon",
+  "playlistId": "ci-xsc3",
+  "order": 66,
+  "week": 14,
+  "day": "mon",
+  "title": "A Rare Bird Flies in Kent After 200 Years",
+  "titleZh": "绝迹两百年，珍稀鸟类重现肯特郡",
+  "displayName": "Week 14 Monday A Rare Bird Flies in Kent After 200 Years",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读理解"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 142,
+    "difficulty": 2,
+    "suggestedMinutes": 6,
+    "themeContext": "人与自然",
+    "contentRequirement": "环保意识和行为",
+    "intro": "时隔200年，罕见小鸟再次飞上英国天空。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      107
+    ],
+    "bookPages": [
+      98
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-wildlife",
+        "headword": "wildlife",
+        "ipa": "ˈwaɪldlaɪf",
+        "pos": "n.",
+        "meaningZh": "野生动物"
+      },
+      {
+        "id": "v-set-free",
+        "headword": "set…free",
+        "meaningZh": "释放……"
+      },
+      {
+        "id": "v-first-flight",
+        "headword": "first flight",
+        "meaningZh": "首次飞行"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Great news from "
+          },
+          {
+            "t": "gloss",
+            "v": "Kent, England",
+            "zh": "英国肯特郡"
+          },
+          {
+            "t": "text",
+            "v": "—a rare bird is back after 200 years! It’s called "
+          },
+          {
+            "t": "gloss",
+            "v": "red-billed chough",
+            "zh": "红嘴山鸦"
+          },
+          {
+            "t": "text",
+            "v": ", a clever black bird from the crow family. Long ago, these birds lived in Kent, but they disappeared because people hunted them and they lost their homes. Now, "
+          },
+          {
+            "t": "vocab",
+            "v": "wildlife",
+            "ref": "v-wildlife"
+          },
+          {
+            "t": "text",
+            "v": " experts are helping the choughs return. They raise young birds and "
+          },
+          {
+            "t": "vocab",
+            "v": "set them free",
+            "ref": "v-set-free"
+          },
+          {
+            "t": "text",
+            "v": " in nature. Recently, a young chough took its "
+          },
+          {
+            "t": "vocab",
+            "v": "first flight",
+            "ref": "v-first-flight"
+          },
+          {
+            "t": "text",
+            "v": " in the wild—the first in over 200 years! It shows that the birds can find food, build nests, and even start families."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "There is a five-year plan to bring around 50 choughs to Kent. Experts are making the area safe for them. They plant wildflowers and keep insects for the birds to eat."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "People in Kent are excited, too. They hope that soon the sky will be filled with these amazing birds again."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why did the red-billed chough disappear from Kent long ago?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The weather became too cold for them."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "People hunted them and destroyed their homes."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They flew away to find better food."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Other birds took over their living space."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does the first flight of a young chough in the wild show?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The birds need more help from wildlife experts."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The birds are learning to follow other birds."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The birds can survive and live independently."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The birds prefer to live near human homes."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "In the five-year plan, experts are making the area safe by ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "building special houses for the birds"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "planting wildflowers and keeping insects"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "asking people to feed the birds regularly"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "preventing all other animals from entering"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the main purpose of this article?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To describe different kinds of birds in Kent."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To explain how to take care of young birds."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To report the return of a rare bird species."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To teach people about wildlife photography."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

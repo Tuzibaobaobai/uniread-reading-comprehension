@@ -1,0 +1,427 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w01-mon",
+  "playlistId": "ci-xsc3",
+  "order": 1,
+  "week": 1,
+  "day": "mon",
+  "title": "Big “Chunk” Wins Fat Bear Week",
+  "titleZh": "大块头“胖墩”问鼎肥熊周冠军",
+  "displayName": "Week 1 Monday Big “Chunk” Wins Fat Bear Week",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读理解"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 206,
+    "difficulty": 3,
+    "suggestedMinutes": 8,
+    "themeContext": "人与自然",
+    "contentRequirement": "热爱与敬畏自然，与自然和谐共生",
+    "intro": "阿拉斯加“胖熊周”冠军诞生！",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      10
+    ],
+    "bookPages": [
+      1
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-vote-for",
+        "headword": "vote for",
+        "meaningZh": "投票支持，投票给"
+      },
+      {
+        "id": "v-weight",
+        "headword": "weight",
+        "ipa": "weɪt",
+        "pos": "n.",
+        "meaningZh": "重量"
+      },
+      {
+        "id": "v-contest",
+        "headword": "contest",
+        "ipa": "ˈkɒntest",
+        "pos": "n.",
+        "meaningZh": "竞赛"
+      },
+      {
+        "id": "v-compare",
+        "headword": "compare",
+        "ipa": "kəmˈpeə(r)",
+        "pos": "v.",
+        "meaningZh": "比较"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Do you think being fat can be a good thing? In Alaska, it sure is! Every year since 2014, the park has held an online event called Fat Bear Week. People all over the world "
+          },
+          {
+            "t": "vocab",
+            "v": "vote for",
+            "ref": "v-vote-for"
+          },
+          {
+            "t": "text",
+            "v": " the bear that has gained the most "
+          },
+          {
+            "t": "vocab",
+            "v": "weight",
+            "ref": "v-weight"
+          },
+          {
+            "t": "text",
+            "v": " before winter. The "
+          },
+          {
+            "t": "vocab",
+            "v": "contest",
+            "ref": "v-contest"
+          },
+          {
+            "t": "text",
+            "v": " is fun. But it also shows how important "
+          },
+          {
+            "t": "gloss",
+            "v": "fat",
+            "zh": "脂肪"
+          },
+          {
+            "t": "text",
+            "v": " is for bears to survive."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "This year’s winner is a huge brown bear named Chunk. At the start of summer, Chunk had a broken jaw, and many viewers worried he wouldn’t be able to eat. But Chunk surprised everyone. He kept eating "
+          },
+          {
+            "t": "gloss",
+            "v": "salmon",
+            "zh": "三文鱼"
+          },
+          {
+            "t": "text",
+            "v": " from the Brooks River and grew bigger and bigger."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Brown bears must eat a lot before winter because they "
+          },
+          {
+            "t": "underline",
+            "v": "hibernate"
+          },
+          {
+            "t": "text",
+            "v": " for several months. During this time, they do not move or eat, so they lose a lot of weight. To survive, they need to be as fat as possible."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Thanks to the thousands of salmon swimming upstream, Chunk had plenty of food. Viewers saw his amazing change through "
+          },
+          {
+            "t": "gloss",
+            "v": "live",
+            "zh": "实况转播的"
+          },
+          {
+            "t": "text",
+            "v": " “"
+          },
+          {
+            "t": "gloss",
+            "v": "bear cams",
+            "zh": "摄像头"
+          },
+          {
+            "t": "text",
+            "v": "”. They "
+          },
+          {
+            "t": "vocab",
+            "v": "compared",
+            "ref": "v-compare"
+          },
+          {
+            "t": "text",
+            "v": " his “before” and “after” photos and voted for him again and again. Now Chunk weighs about 544 kilograms. He is not just the winner of Fat Bear Week—he is a true survivor."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why is gaining weight important for bears in Fat Bear Week?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To win a prize and become famous."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To survive the winter without eating."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To attract more tourists to the park."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To show they are the strongest bears."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What made Chunk’s victory special this year?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He was the youngest bear in the contest."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He won with the highest number of votes ever."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He overcame a jaw injury to gain enough weight."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He travelled the farthest to find food."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The underlined word “hibernate” in Paragraph 3 means the bears ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "move to warmer places"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "sleep through the winter"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "hunt for more food"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "play in the snow"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Which is NOT mentioned about how people followed the contest?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Watching bears through online cameras."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Comparing bears’ photos from different times."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Visiting the park to see the bears in person."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Voting for their favourite bears repeatedly."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

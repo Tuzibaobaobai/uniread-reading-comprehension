@@ -1,0 +1,293 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g8-w08-thu",
+  "playlistId": "ci-g8",
+  "order": 39,
+  "week": 8,
+  "day": "thu",
+  "title": "Have You Heard Any Good Jokes?",
+  "titleZh": "你听过什么有趣的笑话吗？",
+  "displayName": "Week 8 Thursday Have You Heard Any Good Jokes?",
+  "taskType": {
+    "code": "answer_questions",
+    "labelZh": "回答问题"
+  },
+  "meta": {
+    "genre": "记叙文",
+    "wordCount": 261,
+    "difficulty": 3,
+    "suggestedMinutes": 8,
+    "themeContext": "人与社会",
+    "contentRequirement": "和谐社区生活",
+    "intro": "拿起电话，来听个有趣的笑话吧！",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "初2第3辑初中时文阅读提分训练3+X第3辑8年级.pdf",
+    "pdfPages": [
+      76
+    ],
+    "bookPages": [
+      67
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-old-fashioned",
+        "headword": "old-fashioned",
+        "ipa": "ˌəʊld ˈfæʃnd",
+        "pos": "adj.",
+        "meaningZh": "过时的；不时髦的"
+      },
+      {
+        "id": "v-regular",
+        "headword": "regular",
+        "ipa": "ˈregjələ(r)",
+        "pos": "adj.",
+        "meaningZh": "普通的；平凡的"
+      },
+      {
+        "id": "v-quality",
+        "headword": "quality",
+        "ipa": "ˈkwɒləti",
+        "pos": "adj.",
+        "meaningZh": "优质的；高质量的"
+      },
+      {
+        "id": "v-cycle-through",
+        "headword": "cycle through",
+        "ipa": "ˈsaɪkl θruː",
+        "pos": "phr.",
+        "meaningZh": "循环播放"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "There isn’t much need for payphones these days. Most people have a smartphone. But one "
+          },
+          {
+            "t": "vocab",
+            "v": "old-fashioned",
+            "ref": "v-old-fashioned"
+          },
+          {
+            "t": "text",
+            "v": " payphone in Washington, DC, has become quite popular. That’s because it’s not an ordinary phone."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The phone is on a pole near an elementary school. It’s free to use. Just pick up the phone and make a call. But who wants to make a "
+          },
+          {
+            "t": "vocab",
+            "v": "regular",
+            "ref": "v-regular"
+          },
+          {
+            "t": "text",
+            "v": " phone call when you can hear a joke just by pressing two buttons?"
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Don Rutledge, a teacher at the nearby school, created this “Jokes Phone”. In 2023, he bought an old payphone online and, just for fun, turned it into a joke teller by recording jokes himself."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Rutledge tried very hard to find “"
+          },
+          {
+            "t": "vocab",
+            "v": "quality",
+            "ref": "v-quality"
+          },
+          {
+            "t": "text",
+            "v": " jokes” for different age groups. The phone now "
+          },
+          {
+            "t": "vocab",
+            "v": "cycles through",
+            "ref": "v-cycle-through"
+          },
+          {
+            "t": "text",
+            "v": " hundreds of jokes. In the beginning, it received about 100 calls a day. That number dropped over the summer but rose again when school started in the fall."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Not all diallers are looking for a good laugh. The phone also offers fun facts, like “Did you know that most people can’t lick their "
+          },
+          {
+            "t": "gloss",
+            "v": "elbows",
+            "zh": "肘部"
+          },
+          {
+            "t": "text",
+            "v": "?” If you press “0#”, you connect to “"
+          },
+          {
+            "t": "underline",
+            "v": "a guy who thinks he knows everything"
+          },
+          {
+            "t": "text",
+            "v": "”. Rutledge says he has had some interesting conversations with adults this way, but most of the callers are kids. “They’re surprised that someone actually answers,” he says. “Usually, they hang up. But sometimes, they stay on the line, and I just chat with them. Many of them say, ‘You’re not a real person—this is AI.’ And I’m like, ‘No, I’m a real person! How do I prove it?’”"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Where is the “Jokes Phone” located?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "People can make regular phone calls on the “Jokes Phone” for free, can’t they?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What did Don Rutledge do to create the “Jokes Phone”?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who is the “guy who thinks he knows everything” in the last paragraph?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why are many kids surprised when they get through to the “guy who thinks he knows everything”?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Would you like to have a “Jokes Phone” in your neighbourhood? Why or why not?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ]
+}

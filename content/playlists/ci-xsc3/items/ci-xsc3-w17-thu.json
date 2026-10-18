@@ -1,0 +1,271 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w17-thu",
+  "playlistId": "ci-xsc3",
+  "order": 84,
+  "week": 17,
+  "day": "thu",
+  "title": "It’s All Just the Beginning",
+  "titleZh": "这一切才刚刚开始",
+  "displayName": "Week 17 Thursday It’s All Just the Beginning",
+  "taskType": {
+    "code": "answer_questions",
+    "labelZh": "回答问题"
+  },
+  "meta": {
+    "genre": "议论文",
+    "wordCount": 285,
+    "difficulty": 4,
+    "suggestedMinutes": 12,
+    "themeContext": "人与自我",
+    "contentRequirement": "恰当的学习方法",
+    "intro": "一切才刚刚开始。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      132
+    ],
+    "bookPages": [
+      123
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-impossible",
+        "headword": "impossible",
+        "ipa": "ɪmˈpɒsəbl",
+        "pos": "adj.",
+        "meaningZh": "不可能的"
+      },
+      {
+        "id": "v-disappointed",
+        "headword": "disappointed",
+        "ipa": "ˌdɪsəˈpɔɪntɪd",
+        "pos": "adj.",
+        "meaningZh": "失望的"
+      },
+      {
+        "id": "v-reject",
+        "headword": "reject",
+        "ipa": "rɪˈdʒekt",
+        "pos": "v.",
+        "meaningZh": "拒绝"
+      },
+      {
+        "id": "v-praise",
+        "headword": "praise",
+        "ipa": "preɪz",
+        "pos": "v.",
+        "meaningZh": "表扬，称赞"
+      },
+      {
+        "id": "v-on-the-other-hand",
+        "headword": "on the other hand",
+        "meaningZh": "另一方面"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Last month, I asked some of my students about their future plans. One of them told me he wanted to study computer science. When I asked him why, he answered, “Because I’m good at it.” “What if you weren’t good at it? What if you always got C’s?” I asked. “That’s "
+          },
+          {
+            "t": "vocab",
+            "v": "impossible",
+            "ref": "v-impossible"
+          },
+          {
+            "t": "text",
+            "v": ". I always get good scores in computer science.”"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "I was a bit "
+          },
+          {
+            "t": "vocab",
+            "v": "disappointed",
+            "ref": "v-disappointed"
+          },
+          {
+            "t": "text",
+            "v": " at his answers. This student does have the ability to do well in computer science. However, he may not become an expert if he never fails. Does this sound strange? Well, believe me—until you fail at something, you may never know if you truly want to keep working hard at it."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "An artist friend of mine was once "
+          },
+          {
+            "t": "vocab",
+            "v": "rejected",
+            "ref": "v-reject"
+          },
+          {
+            "t": "text",
+            "v": " from a master’s degree "
+          },
+          {
+            "t": "gloss",
+            "v": "master’s degree",
+            "zh": "硕士学位"
+          },
+          {
+            "t": "text",
+            "v": " programme. The failure left him heartbroken. But he didn’t want to give up. He waited for two years and tried again. This time, he was accepted. He knew he was lucky, so he worked harder. A few years later, his art became popular. Even "
+          },
+          {
+            "t": "em",
+            "v": "The New York Times"
+          },
+          {
+            "t": "text",
+            "v": " wrote about him."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Early success, "
+          },
+          {
+            "t": "vocab",
+            "v": "on the other hand",
+            "ref": "v-on-the-other-hand"
+          },
+          {
+            "t": "text",
+            "v": ", can be a bad thing. When I was a teenager, my teachers "
+          },
+          {
+            "t": "vocab",
+            "v": "praised",
+            "ref": "v-praise"
+          },
+          {
+            "t": "text",
+            "v": " everything I wrote. I could get high marks on my writing without really trying. In college, I felt I had nothing to learn about writing. I cared little about others’ views on my articles. After college, I worked as a writer. I experienced failures and criticism. That was when I really started to grow."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "I hope that student of mine will have greater success in computer science. But more importantly, I hope he will be able to keep working hard at it even if he fails sometimes."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why was the author disappointed at the student’s answer?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What did the artist friend do after his failure?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why was the author’s early success in writing a bad thing?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Do you think failure is a necessary part of success? Why or why not?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ]
+}

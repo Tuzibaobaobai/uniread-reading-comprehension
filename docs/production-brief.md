@@ -28,8 +28,8 @@ Compact rules + JSON skeletons for transcription agents. Full rules: docs/04 (§
 ```
 - `taskType.code`: reading_choice 阅读单选 · cloze 完形填空 · word_bank 选词填空 · seven_choose_five 七选五 · answer_questions 回答问题 · passage_fill 短文填空 · table_fill 表格填空 · true_false 判断正误 · six_choose_four 六选四 · weekly_intensive 每周精读 (label = TOC label).
 - `source.pdfPages`/`bookPages` list EVERY page the article and its questions occupy (Mon/Tue/Fri usually two pages; the next article's first page is the limit).
-- Omit `thumbnail` and use `"images":[]` when there is no photo. `hasVideo`: ci-g7 — true only if the article page says “本篇配视频讲解课程” (TOC ● bullets are NOT video marks); ci-g3 / ci-g5 — true for every 每周精读 (Friday) item, false otherwise (the book's introduction says so; pages carry no mark).
-- Info box values are copied as printed — book typos and errors too (never fix them yourself; report them, the coordinator files a GitHub `errata` issue and edits only after human review). A missing 建议用时 → estimate = words ÷ grade reading speed (g3 30, g5 35, g7 40 wpm) + 0.6 (g3/g5) or 0.5 (g7) min per objective question + 1 min per typed/written question, rounded; add `"errata":[{"original":"（信息框无“建议用时”）","corrected":"建议用时：N分钟","note":"原书未印，按该年级学生平均阅读速度加做题时间估算：<calculation>，取整"}]`.
+- Omit `thumbnail` and use `"images":[]` when there is no photo. `hasVideo`: ci-g7 / ci-g8 / ci-xsc3 / ci-zk — true only if the article page says “本篇配视频讲解课程” (TOC ● bullets are NOT video marks); ci-g3 / ci-g4 / ci-g5 — true for every 每周精读 (Friday) item, false otherwise (the book's introduction says so; pages carry no mark).
+- Info box values are copied as printed — book typos and errors too (never fix them yourself; report them, the coordinator files a GitHub `errata` issue and edits only after human review). A missing 建议用时 → estimate = words ÷ grade reading speed (g3 30, g4 32, g5 35, xsc3 35, g7 40, g8 45, zk 50 wpm) + 0.6 (primary books g3–g5) or 0.5 (xsc3, g7, g8, zk) min per objective question + 1 min per typed/written question, rounded; add `"errata":[{"original":"（信息框无“建议用时”）","corrected":"建议用时：N分钟","note":"原书未印，按该年级学生平均阅读速度加做题时间估算：<calculation>，取整"}]`.
 - 导读 / Words & Expressions missing on the article page → copy them from the answer book.
 
 ## Inline nodes (`content`, `prompt`, option `content`)
@@ -42,6 +42,7 @@ Numbers continuous across sections (II starts after I). First production: id = `
 | Book format | interaction | key |
 |---|---|---|
 | 单选 (A–D) | `{"kind":"choice","variant":"standard","maxChoices":1,"prompt":[…],"options":[{"id":"A","content":[…]}…]}` | `{"correct":["B"]}` |
+| 图片选项 (A–D are pictures) | choice; crop each picture to `content/assets/<pl>/<id>-optA.jpg` …; option `{"id":"A","image":"assets/<pl>/<id>-optA.jpg","content":[<short English description = alt text>]}` | `{"correct":["B"]}` |
 | 判断 T/F | choice `"variant":"trueFalse"`, options `[{"id":"T","content":[{"t":"text","v":"True"}]},{"id":"F","content":[{"t":"text","v":"False"}]}]` | `{"correct":["T"]}` |
 | 完形 (blank in article, 4 options each) | one per blank `{"kind":"inlineChoice","blankId":"b1","options":[…]}`; section instruction `"Choose the best answer to complete the passage."` if none printed | `{"correct":["A"]}` |
 | 选词填空 / 七选五 (bank, blanks in article) | section `"bank":[{"id":"A","content":[…]}…]`; one per blank `{"kind":"gapMatch","blankIds":["b1"]}`; skip the printed 1–10 answer grid | `{"correct":["E"]}` |

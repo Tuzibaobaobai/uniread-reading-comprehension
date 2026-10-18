@@ -1,0 +1,805 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w02-wed",
+  "playlistId": "ci-zk",
+  "order": 8,
+  "week": 2,
+  "day": "wed",
+  "title": "AI Has Arrived at Your Locations",
+  "titleZh": "人工智能已能定位你的拍照地点",
+  "displayName": "Week 2 Wednesday AI Has Arrived at Your Locations",
+  "taskType": {
+    "code": "cloze",
+    "labelZh": "完形填空"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 317,
+    "difficulty": 3,
+    "suggestedMinutes": 8,
+    "themeContext": "人与社会",
+    "contentRequirement": "人类发明与创新",
+    "intro": "人工智能新用途——通过照片识别拍摄位置。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      21
+    ],
+    "bookPages": [
+      12
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-reveal",
+        "headword": "reveal",
+        "ipa": "rɪˈviːl",
+        "pos": "v.",
+        "meaningZh": "揭示"
+      },
+      {
+        "id": "v-identify",
+        "headword": "identify",
+        "ipa": "aɪˈdentɪfaɪ",
+        "pos": "v.",
+        "meaningZh": "认出"
+      },
+      {
+        "id": "v-invasive",
+        "headword": "invasive",
+        "ipa": "ɪnˈveɪsɪv",
+        "pos": "adj.",
+        "meaningZh": "侵入的"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "A student project has "
+          },
+          {
+            "t": "vocab",
+            "v": "revealed",
+            "ref": "v-reveal"
+          },
+          {
+            "t": "text",
+            "v": " yet another power of AI: It can be good at locating where photos are taken."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The project is called Predicting Image Geolocations (or PIGEON). It’s the "
+          },
+          {
+            "t": "blank",
+            "id": "b1",
+            "number": 1
+          },
+          {
+            "t": "text",
+            "v": " of three Stanford students: Michal Skreta, Silas Alberti, and Lukas Haas. They designed it to "
+          },
+          {
+            "t": "vocab",
+            "v": "identify",
+            "ref": "v-identify"
+          },
+          {
+            "t": "text",
+            "v": " locations on "
+          },
+          {
+            "t": "gloss",
+            "v": "Google Street View",
+            "zh": "谷歌街景"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The team also showed the AI a few personal photos it had never seen before. To their surprise, the program was able to identify "
+          },
+          {
+            "t": "blank",
+            "id": "b2",
+            "number": 2
+          },
+          {
+            "t": "text",
+            "v": " the photos were taken in most cases."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "PIGEON works well because it can "
+          },
+          {
+            "t": "blank",
+            "id": "b3",
+            "number": 3
+          },
+          {
+            "t": "text",
+            "v": " all the little things in photos. It can notice small differences in leaves, soil, and weather."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The group says the technology can be "
+          },
+          {
+            "t": "blank",
+            "id": "b4",
+            "number": 4
+          },
+          {
+            "t": "text",
+            "v": " in many ways. It could identify roads or power lines that need fixing. It may also help researchers do surveys of "
+          },
+          {
+            "t": "vocab",
+            "v": "invasive",
+            "ref": "v-invasive"
+          },
+          {
+            "t": "text",
+            "v": " plant species in a region."
+          }
+        ]
+      },
+      {
+        "id": "p6",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Skreta believes "
+          },
+          {
+            "t": "blank",
+            "id": "b5",
+            "number": 5
+          },
+          {
+            "t": "text",
+            "v": " people will find it useful as well. “You like this destination in Italy. Where in the world could you go if you want to see something similar?” he says."
+          }
+        ]
+      },
+      {
+        "id": "p7",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "blank",
+            "id": "b6",
+            "number": 6
+          },
+          {
+            "t": "text",
+            "v": ", this new power is likely to be a double-edged sword. It could be used to reveal people’s private, personal information, says Jay Stanley, an expert at the American Civil Liberties Union."
+          }
+        ]
+      },
+      {
+        "id": "p8",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Stanley worries that companies might soon use AI to "
+          },
+          {
+            "t": "blank",
+            "id": "b7",
+            "number": 7
+          },
+          {
+            "t": "text",
+            "v": " where you’ve travelled. Governments might check your photos to see if you’ve visited certain countries. "
+          },
+          {
+            "t": "gloss",
+            "v": "Stalking",
+            "zh": "跟踪"
+          },
+          {
+            "t": "text",
+            "v": " is also a possible threat, he says. People have long been able to "
+          },
+          {
+            "t": "blank",
+            "id": "b8",
+            "number": 8
+          },
+          {
+            "t": "text",
+            "v": " GPS location information from photos they post online. That may not work anymore."
+          }
+        ]
+      },
+      {
+        "id": "p9",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The Stanford students are well aware of the "
+          },
+          {
+            "t": "blank",
+            "id": "b9",
+            "number": 9
+          },
+          {
+            "t": "text",
+            "v": ". Because of these worries, they haven’t given the public access to their program."
+          }
+        ]
+      },
+      {
+        "id": "p10",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Stanley thinks AI for location identification will become even more powerful in the future. What will that mean? Well, be very "
+          },
+          {
+            "t": "blank",
+            "id": "b10",
+            "number": 10
+          },
+          {
+            "t": "text",
+            "v": " about what’s in the background in the photos you post online!"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer to complete the passage.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b1",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "dream"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "hobby"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "name"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "work"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b2",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "how"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "when"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "where"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "why"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b3",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "depend on"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "rely on"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "look up"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "pick up"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b4",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "copied"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "invented"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "seen"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "used"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b5",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "busy"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "ordinary"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "poor"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "rich"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b6",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Besides"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "However"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Instead"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Otherwise"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b7",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "find out"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "look for"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "point out"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "think about"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b8",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "get"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "protect"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "remove"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "save"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b9",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "chances"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "doubts"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "plans"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "risks"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b10",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "careful"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "honest"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "nervous"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "serious"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

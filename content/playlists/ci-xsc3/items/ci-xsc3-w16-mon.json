@@ -1,0 +1,475 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w16-mon",
+  "playlistId": "ci-xsc3",
+  "order": 76,
+  "week": 16,
+  "day": "mon",
+  "title": "Three Brothers Break Pacific Row Record",
+  "titleZh": "三兄弟刷新横渡太平洋划船纪录",
+  "displayName": "Week 16 Monday Three Brothers Break Pacific Row Record",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读理解"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 211,
+    "difficulty": 3,
+    "suggestedMinutes": 8,
+    "themeContext": "人与社会",
+    "contentRequirement": "交流与合作，团队精神",
+    "intro": "三兄弟历时139天划船横渡太平洋，刷新纪录。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      121,
+      122
+    ],
+    "bookPages": [
+      112,
+      113
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "thumbnail": "assets/ci-xsc3/ci-xsc3-w16-mon-1.jpg",
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-xsc3/ci-xsc3-w16-mon-1.jpg",
+        "alt": "A sailing boat on the open sea, seen from the deck with sails and ropes",
+        "w": 1101,
+        "h": 721
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-cheer",
+        "headword": "cheer",
+        "ipa": "tʃɪə(r)",
+        "pos": "v.",
+        "meaningZh": "欢呼"
+      },
+      {
+        "id": "v-hit",
+        "headword": "hit",
+        "ipa": "hɪt",
+        "pos": "v.",
+        "meaningZh": "打击，危害"
+      },
+      {
+        "id": "v-raise",
+        "headword": "raise",
+        "ipa": "reɪz",
+        "pos": "v.",
+        "meaningZh": "筹募"
+      },
+      {
+        "id": "v-run-low",
+        "headword": "run low",
+        "meaningZh": "存货不足"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Recently, three brothers set a world record by rowing across the Pacific Ocean. Altogether, they travelled more than 14,000 kilometres. People "
+          },
+          {
+            "t": "vocab",
+            "v": "cheered",
+            "ref": "v-cheer"
+          },
+          {
+            "t": "text",
+            "v": " excitedly when they finally reached land. The brothers are now the first team ever to finish this journey."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The trip was very difficult. Strong storms "
+          },
+          {
+            "t": "vocab",
+            "v": "hit",
+            "ref": "v-hit"
+          },
+          {
+            "t": "text",
+            "v": " their small boat. At one point, one of the brothers fell off the boat. But he climbed back safely. Food once "
+          },
+          {
+            "t": "vocab",
+            "v": "ran low",
+            "ref": "v-run-low"
+          },
+          {
+            "t": "text",
+            "v": ". They had to row harder to reach land to get food. Despite all these difficulties, they finished the trip in just 139 days. More than 50 family members and friends were waiting to welcome them back. The brothers waved flags happily as they arrived. People hugged them and cheered."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The brothers broke the old record of 160 days. It was set by a "
+          },
+          {
+            "t": "gloss",
+            "v": "Russian rower",
+            "zh": "俄罗斯划船手"
+          },
+          {
+            "t": "text",
+            "v": " in 2014."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "But for the brothers, the journey wasn’t just about records. They also "
+          },
+          {
+            "t": "vocab",
+            "v": "raised",
+            "ref": "v-raise"
+          },
+          {
+            "t": "text",
+            "v": " more than $1.6 million. They planned to use the money to bring clean water to 40,000 people."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "“This journey is the hardest thing we’ve ever done,” said the brothers right after arriving. “We feel happy but really tired.” They added that the journey also taught them to enjoy simple things in life—like taking a shower or sleeping in a bed."
+          }
+        ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How far did the three brothers row in total?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "139 kilometres."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "1.6 million kilometres."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "14,000 kilometres."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "160 kilometres."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What happened when their food ran low?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They had to eat less and row faster to find more."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They caught fish from the ocean to eat."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They called for help to get more food."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They stopped rowing to save energy."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Besides breaking the record, what else did the brothers achieve?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They found a new way across the Pacific."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They collected money for a clean water project."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They wrote a book about their adventure."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They started a new rowing competition."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How did the brothers feel after finishing the journey?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Sad and disappointed."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Energetic and excited."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Happy but exhausted."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Scared and nervous."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the main purpose of this article?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To encourage more people to take up rowing."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To show how dangerous the Pacific Ocean can be."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To report on a record-breaking journey and its meaning."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To teach people how to prepare for long trips."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

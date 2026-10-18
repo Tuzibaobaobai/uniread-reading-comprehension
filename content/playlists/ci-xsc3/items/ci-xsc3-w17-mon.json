@@ -1,0 +1,400 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w17-mon",
+  "playlistId": "ci-xsc3",
+  "order": 81,
+  "week": 17,
+  "day": "mon",
+  "title": "Can’t Find a Book? Write One!",
+  "titleZh": "寻书不获？那就自己写一本吧！",
+  "displayName": "Week 17 Monday Can’t Find a Book? Write One!",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读理解"
+  },
+  "meta": {
+    "genre": "新闻报道",
+    "wordCount": 163,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与自我",
+    "contentRequirement": "丰富、充实、积极向上的生活",
+    "intro": "找不到想看的故事？英国12岁小作家自己动手写书。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      129
+    ],
+    "bookPages": [
+      120
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-main-character",
+        "headword": "main character",
+        "meaningZh": "主角"
+      },
+      {
+        "id": "v-minority-group",
+        "headword": "minority group",
+        "meaningZh": "少数族裔"
+      },
+      {
+        "id": "v-complain",
+        "headword": "complain",
+        "ipa": "kəmˈpleɪn",
+        "pos": "v.",
+        "meaningZh": "抱怨"
+      },
+      {
+        "id": "v-continue",
+        "headword": "continue",
+        "ipa": "kənˈtɪnjuː",
+        "pos": "v.",
+        "meaningZh": "继续"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Have you ever wanted a book but could not find it? Hephzibah, a 12-year-old from Britain, had the same problem. To solve this, she started to write her own books when she was 10."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Hephzibah felt there weren’t enough books with "
+          },
+          {
+            "t": "vocab",
+            "v": "main characters",
+            "ref": "v-main-character"
+          },
+          {
+            "t": "text",
+            "v": " from "
+          },
+          {
+            "t": "vocab",
+            "v": "minority groups",
+            "ref": "v-minority-group"
+          },
+          {
+            "t": "text",
+            "v": ". Her mum gave her an idea. She said, “Don’t just "
+          },
+          {
+            "t": "vocab",
+            "v": "complain",
+            "ref": "v-complain"
+          },
+          {
+            "t": "text",
+            "v": ". Try to change it.” Luckily, Hephzibah loved to write. She also had many good ideas. So she started her first book."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Her first book tells the story of a black girl who travels to the future. She must stop robots from taking over the world. Her second book "
+          },
+          {
+            "t": "vocab",
+            "v": "continues",
+            "ref": "v-continue"
+          },
+          {
+            "t": "text",
+            "v": " the adventure. Hephzibah hopes her stories could become a TV show or a film one day."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Now, children can borrow her books from the library. She is also a finalist "
+          },
+          {
+            "t": "gloss",
+            "v": "finalist",
+            "zh": "入围决赛者"
+          },
+          {
+            "t": "text",
+            "v": " in the BBC’s "
+          },
+          {
+            "t": "gloss",
+            "v": "Make a Difference Awards",
+            "zh": "改变世界奖"
+          },
+          {
+            "t": "text",
+            "v": " 2025. She is happy that there are more books with minority characters now. “But we still need more,” she says."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What was the best advice Hephzibah’s mother gave her?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Stop reading science fiction books."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Try to change things instead of just complaining."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Write only about her own life experiences."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Wait until she’s older to start writing."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does Hephzibah hope will happen to her stories in the future?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They will be translated into many languages."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They will become a TV show or a film."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They will win many writing awards."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They will be sold in every bookstore."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Where can children read Hephzibah’s books now?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They can buy them in bookstores."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They can borrow them from the library."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They can read them online for free."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "They can get them from her school."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the main message of this story?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Writing books is the best way to solve problems."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Children should wait for adults to solve problems."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "One person can take action to make a positive change."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Libraries need more books about robot adventures."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

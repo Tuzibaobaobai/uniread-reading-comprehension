@@ -1,0 +1,578 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g4-w06-wed",
+  "playlistId": "ci-g4",
+  "order": 28,
+  "week": 6,
+  "day": "wed",
+  "title": "From Milk to Ice Cream",
+  "titleZh": "从牛奶到冰激凌",
+  "displayName": "Week 6 Wednesday From Milk to Ice Cream",
+  "taskType": {
+    "code": "cloze",
+    "labelZh": "完形填空"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 182,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与社会",
+    "contentRequirement": "美食与文化",
+    "intro": "农场里的牛奶是如何变冰激凌的呢？",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X4年级.pdf",
+    "pdfPages": [
+      52
+    ],
+    "bookPages": [
+      43
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-farm",
+        "headword": "farm",
+        "ipa": "fɑːm",
+        "pos": "n.",
+        "meaningZh": "农场"
+      },
+      {
+        "id": "v-produce",
+        "headword": "produce",
+        "ipa": "prəˈdjuːs",
+        "pos": "v.",
+        "meaningZh": "生产"
+      },
+      {
+        "id": "v-factory",
+        "headword": "factory",
+        "ipa": "ˈfæktəri",
+        "pos": "n.",
+        "meaningZh": "工厂"
+      },
+      {
+        "id": "v-separate",
+        "headword": "separate",
+        "ipa": "ˈseprət",
+        "pos": "v.",
+        "meaningZh": "分离"
+      },
+      {
+        "id": "v-mix",
+        "headword": "mix",
+        "ipa": "mɪks",
+        "pos": "n.",
+        "meaningZh": "混合物 v. 混合"
+      },
+      {
+        "id": "v-machine",
+        "headword": "machine",
+        "ipa": "məˈʃiːn",
+        "pos": "n.",
+        "meaningZh": "机器"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Ice cream is cold. Ice cream is sweet. Ice cream is a yummy treat "
+          },
+          {
+            "t": "gloss",
+            "v": "treat",
+            "zh": "美食"
+          },
+          {
+            "t": "text",
+            "v": ". Let’s learn how milk becomes ice cream!"
+          }
+        ]
+      },
+      {
+        "id": "h1",
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "t": "text",
+            "v": "At the farm"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Cows need a lot of food and water to make milk. A healthy cow can "
+          },
+          {
+            "t": "vocab",
+            "v": "produce",
+            "ref": "v-produce"
+          },
+          {
+            "t": "text",
+            "v": " about one hundred glasses of milk in one day!"
+          }
+        ]
+      },
+      {
+        "id": "h2",
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "t": "text",
+            "v": "On the "
+          },
+          {
+            "t": "gloss",
+            "v": "truck",
+            "zh": "卡车"
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "A truck comes to "
+          },
+          {
+            "t": "blank",
+            "id": "b1",
+            "number": 1
+          },
+          {
+            "t": "text",
+            "v": " the milk from the farm. The truck has a huge "
+          },
+          {
+            "t": "gloss",
+            "v": "tank",
+            "zh": "罐"
+          },
+          {
+            "t": "text",
+            "v": " that can keep the milk cold. The truck then takes the milk to a "
+          },
+          {
+            "t": "vocab",
+            "v": "factory",
+            "ref": "v-factory"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "h3",
+        "type": "heading",
+        "level": 3,
+        "content": [
+          {
+            "t": "text",
+            "v": "At the factory"
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The milk is "
+          },
+          {
+            "t": "vocab",
+            "v": "separated",
+            "ref": "v-separate"
+          },
+          {
+            "t": "text",
+            "v": " into "
+          },
+          {
+            "t": "gloss",
+            "v": "cream",
+            "zh": "奶油"
+          },
+          {
+            "t": "text",
+            "v": " and "
+          },
+          {
+            "t": "gloss",
+            "v": "skim milk",
+            "zh": "脱脂奶"
+          },
+          {
+            "t": "text",
+            "v": ". Then the cream and milk are "
+          },
+          {
+            "t": "blank",
+            "id": "b2",
+            "number": 2
+          },
+          {
+            "t": "text",
+            "v": " with sugar and other things. The ice cream "
+          },
+          {
+            "t": "vocab",
+            "v": "mix",
+            "ref": "v-mix"
+          },
+          {
+            "t": "text",
+            "v": " is then "
+          },
+          {
+            "t": "gloss",
+            "v": "heated",
+            "zh": "加热"
+          },
+          {
+            "t": "text",
+            "v": ". This "
+          },
+          {
+            "t": "blank",
+            "id": "b3",
+            "number": 3
+          },
+          {
+            "t": "text",
+            "v": " all of the "
+          },
+          {
+            "t": "gloss",
+            "v": "germs",
+            "zh": "细菌"
+          },
+          {
+            "t": "text",
+            "v": " in it. Then the mix is cooled."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "A "
+          },
+          {
+            "t": "vocab",
+            "v": "machine",
+            "ref": "v-machine"
+          },
+          {
+            "t": "text",
+            "v": " "
+          },
+          {
+            "t": "gloss",
+            "v": "whips",
+            "zh": "搅打"
+          },
+          {
+            "t": "text",
+            "v": " the mix together. Then it is time to "
+          },
+          {
+            "t": "blank",
+            "id": "b4",
+            "number": 4
+          },
+          {
+            "t": "text",
+            "v": " "
+          },
+          {
+            "t": "gloss",
+            "v": "flavourings",
+            "zh": "调味香料"
+          },
+          {
+            "t": "text",
+            "v": ", such as chocolate or "
+          },
+          {
+            "t": "gloss",
+            "v": "vanilla",
+            "zh": "香草"
+          },
+          {
+            "t": "text",
+            "v": ". Fruit, nuts and biscuits can go in, too."
+          }
+        ]
+      },
+      {
+        "id": "p6",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The ice cream is cooled again. This time, it becomes very "
+          },
+          {
+            "t": "blank",
+            "id": "b5",
+            "number": 5
+          },
+          {
+            "t": "text",
+            "v": ". Then, a truck "
+          },
+          {
+            "t": "gloss",
+            "v": "delivers",
+            "zh": "运送"
+          },
+          {
+            "t": "text",
+            "v": " the ice cream to different shops. Want some ice cream?"
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer to complete the passage.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b1",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "find"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "pick up"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "bring"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b2",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "put together"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "taken away"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "left out"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b3",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "eats"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "cleans"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "kills"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b4",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "add"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "sell"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "break"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b5",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "hard"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "wet"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "soft"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

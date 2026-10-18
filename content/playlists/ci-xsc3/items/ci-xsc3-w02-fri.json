@@ -1,0 +1,807 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w02-fri",
+  "playlistId": "ci-xsc3",
+  "order": 10,
+  "week": 2,
+  "day": "fri",
+  "title": "Beauty out of Trash",
+  "titleZh": "垃圾中的美",
+  "displayName": "Week 2 Friday Beauty out of Trash",
+  "taskType": {
+    "code": "weekly_intensive",
+    "labelZh": "每周精读"
+  },
+  "meta": {
+    "genre": "记叙文",
+    "wordCount": 213,
+    "difficulty": 3,
+    "suggestedMinutes": 10,
+    "themeContext": "人与自然",
+    "contentRequirement": "环保意识与行为",
+    "intro": "三吨垃圾能变成什么？在一位艺术家手里，它成了一片五彩斑斓的森林。",
+    "hasVideo": true
+  },
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      23,
+      24
+    ],
+    "bookPages": [
+      14,
+      15
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Who do you think are the heroes in our lives? Maybe doctors, policemen, firemen and so on. Besides them, I think the people who clean up our rubbish are also great heroes. "
+          },
+          {
+            "t": "vocab",
+            "v": "Thanks to",
+            "ref": "v-thanks-to"
+          },
+          {
+            "t": "text",
+            "v": " them, our planet is not completely covered in trash."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "My name is Thomas Dambo. I’m a “trash artist” and work with these heroes. My job is to create beauty out of trash. By doing this, I want to show people that trash is not all ugly and "
+          },
+          {
+            "t": "vocab",
+            "v": "smelly",
+            "ref": "v-smelly"
+          },
+          {
+            "t": "text",
+            "v": ". We can recycle and use it to create something beautiful and "
+          },
+          {
+            "t": "vocab",
+            "v": "valuable",
+            "ref": "v-valuable"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "About two months ago, I started a project called “The Future Forest”. More than 700 students, 100 volunteers and many "
+          },
+          {
+            "t": "gloss",
+            "v": "landfill",
+            "zh": "垃圾填埋场"
+          },
+          {
+            "t": "text",
+            "v": " workers joined the project. Together we collected three tons of plastic waste. Then, we turned it into a colourful plastic forest in Mexico City."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "This 500-square-metre forest is filled with thousands of plastic flowers, trees and animals. Children can come to my workshop to build new plants and animals for the forest. In this way, the forest will keep growing. “The Future Forest” is now "
+          },
+          {
+            "t": "vocab",
+            "v": "on display",
+            "ref": "v-on-display"
+          },
+          {
+            "t": "text",
+            "v": ". People can visit it for the next few months."
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "There are many possibilities hidden in the rubbish. Let’s learn to recycle it better and build a brighter future for the world!"
+          }
+        ]
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-thanks-to",
+        "headword": "thanks to",
+        "meaningZh": "由于，多亏了"
+      },
+      {
+        "id": "v-smelly",
+        "headword": "smelly",
+        "ipa": "ˈsmeli",
+        "pos": "adj.",
+        "meaningZh": "难闻的"
+      },
+      {
+        "id": "v-valuable",
+        "headword": "valuable",
+        "ipa": "ˈvæljuəbl",
+        "pos": "adj.",
+        "meaningZh": "很有用的，有价值的"
+      },
+      {
+        "id": "v-on-display",
+        "headword": "on display",
+        "meaningZh": "展出"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why are people who clean up our rubbish also considered great heroes?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does a “trash artist” do?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who joined Thomas in his project “The Future Forest”?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What can children do in Thomas’ workshop?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What idea does Thomas want to express through this project?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "If you could go to Thomas’ workshop, what would you want to do? Why? (List at least two reasons.)"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "II",
+      "instruction": "Complete each sentence with one given item from the box. Each item can be used only once.",
+      "bank": [
+        {
+          "id": "A",
+          "content": [
+            {
+              "t": "text",
+              "v": "collecting"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "content": [
+            {
+              "t": "text",
+              "v": "completely"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "content": [
+            {
+              "t": "text",
+              "v": "covered"
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "content": [
+            {
+              "t": "text",
+              "v": "create"
+            }
+          ]
+        },
+        {
+          "id": "E",
+          "content": [
+            {
+              "t": "text",
+              "v": "filled"
+            }
+          ]
+        },
+        {
+          "id": "F",
+          "content": [
+            {
+              "t": "text",
+              "v": "hiding"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I’ve "
+              },
+              {
+                "t": "blank",
+                "id": "b1",
+                "number": 1
+              },
+              {
+                "t": "text",
+                "v": " forgotten her name."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The cat was "
+              },
+              {
+                "t": "blank",
+                "id": "b2",
+                "number": 2
+              },
+              {
+                "t": "text",
+                "v": " under the sofa."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The girl "
+              },
+              {
+                "t": "blank",
+                "id": "b3",
+                "number": 3
+              },
+              {
+                "t": "text",
+                "v": " her face with her hands."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "He started "
+              },
+              {
+                "t": "blank",
+                "id": "b4",
+                "number": 4
+              },
+              {
+                "t": "text",
+                "v": " stamps when he was a little boy."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The streets were "
+              },
+              {
+                "t": "blank",
+                "id": "b5",
+                "number": 5
+              },
+              {
+                "t": "text",
+                "v": " with the smell of food cooking."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The government plans to "
+              },
+              {
+                "t": "blank",
+                "id": "b6",
+                "number": 6
+              },
+              {
+                "t": "text",
+                "v": " more jobs for young people."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "III",
+      "instruction": "Complete the following sentences as required.",
+      "questions": [
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "underline",
+                "v": "About two months ago"
+              },
+              {
+                "t": "text",
+                "v": ", I started a project called “The Future Forest”. （对画线部分提问）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b7",
+                "number": 7
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b8",
+                "number": 8
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b9",
+                "number": 9
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b10",
+                "number": 10
+              },
+              {
+                "t": "text",
+                "v": " a project called “The Future Forest”?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Together we collected "
+              },
+              {
+                "t": "underline",
+                "v": "three tons of"
+              },
+              {
+                "t": "text",
+                "v": " plastic waste. （对画线部分提问）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b11",
+                "number": 11
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b12",
+                "number": 12
+              },
+              {
+                "t": "text",
+                "v": " plastic waste did you collect together?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "This 500-square-metre forest is filled with thousands of plastic flowers, trees and animals. （保持句意基本不变）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "This 500-square-metre forest is "
+              },
+              {
+                "t": "blank",
+                "id": "b13",
+                "number": 13
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b14",
+                "number": 14
+              },
+              {
+                "t": "text",
+                "v": " thousands of plastic flowers, trees and animals."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Let’s learn to recycle it better and build a brighter future for the world! （改为反意疑问句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Let’s learn to recycle it better and build a brighter future for the world, "
+              },
+              {
+                "t": "blank",
+                "id": "b15",
+                "number": 15
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b16",
+                "number": 16
+              },
+              {
+                "t": "text",
+                "v": "?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "order",
+            "items": [
+              {
+                "id": "w1",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "completely"
+                  }
+                ]
+              },
+              {
+                "id": "w2",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "them"
+                  }
+                ]
+              },
+              {
+                "id": "w3",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "not"
+                  }
+                ]
+              },
+              {
+                "id": "w4",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "thanks to"
+                  }
+                ]
+              },
+              {
+                "id": "w5",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "is"
+                  }
+                ]
+              },
+              {
+                "id": "w6",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "covered"
+                  }
+                ]
+              },
+              {
+                "id": "w7",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the"
+                  }
+                ]
+              },
+              {
+                "id": "w8",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "trash"
+                  }
+                ]
+              },
+              {
+                "id": "w9",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "in"
+                  }
+                ]
+              },
+              {
+                "id": "w10",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "beach"
+                  }
+                ]
+              }
+            ],
+            "ending": "."
+          }
+        }
+      ]
+    }
+  ]
+}

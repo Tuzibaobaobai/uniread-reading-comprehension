@@ -12,7 +12,7 @@ UniRead reading-comprehension app. Start with docs/00-overview.md.
 - Item ids `<playlist>-w<NN>-<mon..fri>` are permanent. Question ids `q<n>` are permanent identities, separate from the display `number` (continuous per item): first production uses q1…qN; afterwards keep ids for the same question, give new/changed questions a never-used id, never reuse retired ids (`npx tsx scripts/id-changes.ts --base <ref>`). Blanks `b<n>`.
 - Answers live only in `content/playlists/<pl>/keys/` — never inline them in items.
 - Every content change must pass `npm run validate -- <itemId>` with 0 errors; then `npm run build:index`.
-- Page images for transcription: `.work/pages/<playlist>/p###.jpg` (regenerate with scripts/render.swift if missing). Book page N = p(N+9) for ci-g3, p(N+8) for ci-xsc.
+- Page images for transcription: `.work/pages/<playlist>/p###.jpg` (regenerate with scripts/render.swift if missing). Book page N = p(N+9) for every current book; per-book page maps live in `scripts/book-maps.mjs`.
 
 ## Code
 - React 18 + TS + Vite. Grading is pure (`src/lib/grading.ts`) so it can run server-side. Constructed responses are scored by an LLM judge (`src/lib/judge.ts`, docs/09); keys/rubrics stay server-side: grading and keys are served by `/api/rc/grade` and `/api/rc/judge` (server/*.ts — Vercel functions; Vite middleware in dev/preview), and keys are stripped from the static build.

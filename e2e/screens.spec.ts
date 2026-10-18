@@ -1,7 +1,7 @@
 // Not a test of behaviour: captures screenshots of every page for visual review → .work/screens/
 import { test } from '@playwright/test';
 
-const items = ['ci-g3-w01-mon', 'ci-g3-w01-wed', 'ci-g3-w01-fri', 'ci-g3-w03-thu', 'ci-xsc-w06-mon', 'ci-xsc-w12-thu', 'ci-xsc-w10-thu'];
+const items = ['ci-g3-w01-mon', 'ci-g3-w01-wed', 'ci-g3-w01-fri', 'ci-g3-w03-thu', 'ci-g5-w06-thu', 'ci-g5-w12-thu', 'ci-g7-w01-fri'];
 
 test('screens', async ({ page }, info) => {
   const dir = `.work/screens/${info.project.name}`;

@@ -1,0 +1,742 @@
+{
+ "schemaVersion": "1.0",
+ "id": "ci-g8-w15-fri",
+ "playlistId": "ci-g8",
+ "order": 75,
+ "week": 15,
+ "day": "fri",
+ "title": "Living in a Cave",
+ "titleZh": "洞穴生活",
+ "displayName": "Week 15 Friday Living in a Cave",
+ "taskType": {
+  "code": "weekly_intensive",
+  "labelZh": "每周精读"
+ },
+ "meta": {
+  "genre": "专题报道",
+  "wordCount": 174,
+  "difficulty": 3,
+  "suggestedMinutes": 10,
+  "themeContext": "人与社会",
+  "contentRequirement": "公共秩序与法律法规",
+  "intro": "远离手机，住进山洞，这样的生活你能坚持多久?",
+  "hasVideo": true
+ },
+ "source": {
+  "pdf": "初2第3辑初中时文阅读提分训练3+X第3辑8年级.pdf",
+  "pdfPages": [
+   133,
+   134
+  ],
+  "bookPages": [
+   124,
+   125
+  ]
+ },
+ "status": {
+  "content": "transcribed",
+  "version": "1.0.0"
+ },
+ "article": {
+  "images": [],
+  "vocabulary": [
+   {
+    "id": "v-respond",
+    "headword": "respond",
+    "ipa": "rɪˈspɒnd",
+    "pos": "v.",
+    "meaningZh": "作出反应"
+   },
+   {
+    "id": "v-away-from",
+    "headword": "away from",
+    "ipa": "əˈweɪ frɒm",
+    "pos": "",
+    "meaningZh": "远离……"
+   }
+  ],
+  "blocks": [
+   {
+    "id": "p1",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "Can you imagine living all day in a cave without a smartphone? In southwest France, a team of 15 volunteers did just this for up to 40 days!"
+     }
+    ]
+   },
+   {
+    "id": "p2",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "The group was sent to a cave with no phone, clock, water, or light. The volunteers had to use a special bike to produce electricity. They drew water from a well that was 45 metres underground. Since the group didn’t have clocks, they soon lost all sense of time. They did things like eating and sleeping according to their body clocks."
+     }
+    ]
+   },
+   {
+    "id": "p3",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "This experiment was part of a project called “Deep Time”. The idea behind it was to test how people would "
+     },
+     {
+      "t": "vocab",
+      "v": "respond",
+      "ref": "v-respond"
+     },
+     {
+      "t": "text",
+      "v": " to losing their sense of time. The volunteers’ brain activity was examined before and after the experiment. Some scientists had been observing the volunteers during their time in the cave."
+     }
+    ]
+   },
+   {
+    "id": "p4",
+    "type": "paragraph",
+    "content": [
+     {
+      "t": "text",
+      "v": "After they left the cave, some volunteers said they wanted to stay there for a while longer. “"
+     },
+     {
+      "t": "vocab",
+      "v": "Away from",
+      "ref": "v-away-from"
+     },
+     {
+      "t": "text",
+      "v": " the busy city life, we could stop to live our lives peacefully,” said one volunteer."
+     }
+    ]
+   }
+  ]
+ },
+ "sections": [
+  {
+   "id": "s1",
+   "label": "I",
+   "instruction": "Answer the questions.",
+   "questions": [
+    {
+     "id": "q1",
+     "number": 1,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "A group of volunteers live in a cave in southwest France with no phone or clock, didn’t they?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q2",
+     "number": 2,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "How did the volunteers get water in the cave?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q3",
+     "number": 3,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "What was the aim of the “Deep Time” project?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q4",
+     "number": 4,
+     "points": 1,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "What were some of the scientists doing during the experiment on cave life?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q5",
+     "number": 5,
+     "points": 2,
+     "skills": [
+      "detail"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "According to the volunteer in the last paragraph, why did he want to live in the cave for some more time?"
+       }
+      ],
+      "scoring": "judge"
+     }
+    },
+    {
+     "id": "q6",
+     "number": 6,
+     "points": 2,
+     "skills": [
+      "opinion"
+     ],
+     "interaction": {
+      "kind": "extendedText",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Do you think it is good for us to take a break from using technology and have a simpler lifestyle? Why do you think so? (List at least two points.)"
+       }
+      ],
+      "scoring": "judge"
+     }
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "label": "II",
+   "instruction": "Complete each sentence with one given word from the box. Each word can be used only once.",
+   "bank": [
+    {
+     "id": "A",
+     "content": [
+      {
+       "t": "text",
+       "v": "examine"
+      }
+     ]
+    },
+    {
+     "id": "B",
+     "content": [
+      {
+       "t": "text",
+       "v": "imagine"
+      }
+     ]
+    },
+    {
+     "id": "C",
+     "content": [
+      {
+       "t": "text",
+       "v": "lose"
+      }
+     ]
+    },
+    {
+     "id": "D",
+     "content": [
+      {
+       "t": "text",
+       "v": "observed"
+      }
+     ]
+    },
+    {
+     "id": "E",
+     "content": [
+      {
+       "t": "text",
+       "v": "produces"
+      }
+     ]
+    },
+    {
+     "id": "F",
+     "content": [
+      {
+       "t": "text",
+       "v": "volunteers"
+      }
+     ]
+    }
+   ],
+   "questions": [
+    {
+     "id": "q7",
+     "number": 7,
+     "points": 1,
+     "skills": [
+      "vocab_in_context"
+     ],
+     "interaction": {
+      "kind": "gapMatch",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Can you "
+       },
+       {
+        "t": "blank",
+        "id": "b1"
+       },
+       {
+        "t": "text",
+        "v": " how it feels to be blind?"
+       }
+      ]
+     }
+    },
+    {
+     "id": "q8",
+     "number": 8,
+     "points": 1,
+     "skills": [
+      "vocab_in_context"
+     ],
+     "interaction": {
+      "kind": "gapMatch",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "The police "
+       },
+       {
+        "t": "blank",
+        "id": "b2"
+       },
+       {
+        "t": "text",
+        "v": " a man enter the bank."
+       }
+      ]
+     }
+    },
+    {
+     "id": "q9",
+     "number": 9,
+     "points": 1,
+     "skills": [
+      "vocab_in_context"
+     ],
+     "interaction": {
+      "kind": "gapMatch",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Schools need "
+       },
+       {
+        "t": "blank",
+        "id": "b3"
+       },
+       {
+        "t": "text",
+        "v": " to help children to read."
+       }
+      ]
+     }
+    },
+    {
+     "id": "q10",
+     "number": 10,
+     "points": 1,
+     "skills": [
+      "vocab_in_context"
+     ],
+     "interaction": {
+      "kind": "gapMatch",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "She works for a company that "
+       },
+       {
+        "t": "blank",
+        "id": "b4"
+       },
+       {
+        "t": "text",
+        "v": " electrical goods."
+       }
+      ]
+     }
+    },
+    {
+     "id": "q11",
+     "number": 11,
+     "points": 1,
+     "skills": [
+      "vocab_in_context"
+     ],
+     "interaction": {
+      "kind": "gapMatch",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "At least 600 people will "
+       },
+       {
+        "t": "blank",
+        "id": "b5"
+       },
+       {
+        "t": "text",
+        "v": " their jobs if the factory closes."
+       }
+      ]
+     }
+    },
+    {
+     "id": "q12",
+     "number": 12,
+     "points": 1,
+     "skills": [
+      "vocab_in_context"
+     ],
+     "interaction": {
+      "kind": "gapMatch",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "This study sets out to "
+       },
+       {
+        "t": "blank",
+        "id": "b6"
+       },
+       {
+        "t": "text",
+        "v": " in detail the possible effects of climate change."
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "label": "III",
+   "instruction": "Complete the following sentences as required.",
+   "questions": [
+    {
+     "id": "q13",
+     "number": 13,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "scoring": "all",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "The group was sent to a cave with no phone.（保持句意基本不变）"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "text",
+        "v": "The group was sent to a cave "
+       },
+       {
+        "t": "blank",
+        "id": "b7"
+       },
+       {
+        "t": "text",
+        "v": " "
+       },
+       {
+        "t": "blank",
+        "id": "b8"
+       },
+       {
+        "t": "text",
+        "v": "."
+       }
+      ]
+     }
+    },
+    {
+     "id": "q14",
+     "number": 14,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "scoring": "all",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "They drew water from a well which was 45 metres underground.（改为一般疑问句）"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "blank",
+        "id": "b9"
+       },
+       {
+        "t": "text",
+        "v": " they "
+       },
+       {
+        "t": "blank",
+        "id": "b10"
+       },
+       {
+        "t": "text",
+        "v": " water from a well which was 45 metres underground?"
+       }
+      ]
+     }
+    },
+    {
+     "id": "q15",
+     "number": 15,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "scoring": "all",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "The idea behind it was "
+       },
+       {
+        "t": "underline",
+        "v": "to test how people would respond to losing their sense of time"
+       },
+       {
+        "t": "text",
+        "v": ".（对画线部分提问）"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "blank",
+        "id": "b11"
+       },
+       {
+        "t": "text",
+        "v": " "
+       },
+       {
+        "t": "blank",
+        "id": "b12"
+       },
+       {
+        "t": "text",
+        "v": " the idea behind it?"
+       }
+      ]
+     }
+    },
+    {
+     "id": "q16",
+     "number": 16,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "textEntry",
+      "scoring": "all",
+      "prompt": [
+       {
+        "t": "text",
+        "v": "Some volunteers said that they wanted to live there for some more time.（改为直接引语）"
+       },
+       {
+        "t": "br"
+       },
+       {
+        "t": "text",
+        "v": "Some volunteers said, “"
+       },
+       {
+        "t": "blank",
+        "id": "b13"
+       },
+       {
+        "t": "text",
+        "v": " "
+       },
+       {
+        "t": "blank",
+        "id": "b14"
+       },
+       {
+        "t": "text",
+        "v": " to live there for some more time.”"
+       }
+      ]
+     }
+    },
+    {
+     "id": "q17",
+     "number": 17,
+     "points": 1,
+     "skills": [
+      "grammar"
+     ],
+     "interaction": {
+      "kind": "order",
+      "items": [
+       {
+        "id": "w1",
+        "content": [
+         {
+          "t": "text",
+          "v": "according to"
+         }
+        ]
+       },
+       {
+        "id": "w2",
+        "content": [
+         {
+          "t": "text",
+          "v": "they"
+         }
+        ]
+       },
+       {
+        "id": "w3",
+        "content": [
+         {
+          "t": "text",
+          "v": "didn’t"
+         }
+        ]
+       },
+       {
+        "id": "w4",
+        "content": [
+         {
+          "t": "text",
+          "v": "have"
+         }
+        ]
+       },
+       {
+        "id": "w5",
+        "content": [
+         {
+          "t": "text",
+          "v": "their"
+         }
+        ]
+       },
+       {
+        "id": "w6",
+        "content": [
+         {
+          "t": "text",
+          "v": "clocks"
+         }
+        ]
+       },
+       {
+        "id": "w7",
+        "content": [
+         {
+          "t": "text",
+          "v": "and"
+         }
+        ]
+       },
+       {
+        "id": "w8",
+        "content": [
+         {
+          "t": "text",
+          "v": "slept"
+         }
+        ]
+       },
+       {
+        "id": "w9",
+        "content": [
+         {
+          "t": "text",
+          "v": "since"
+         }
+        ]
+       },
+       {
+        "id": "w10",
+        "content": [
+         {
+          "t": "text",
+          "v": "they"
+         }
+        ]
+       },
+       {
+        "id": "w11",
+        "content": [
+         {
+          "t": "text",
+          "v": "body clocks"
+         }
+        ]
+       },
+       {
+        "id": "w12",
+        "content": [
+         {
+          "t": "text",
+          "v": "ate"
+         }
+        ]
+       }
+      ],
+      "ending": "."
+     }
+    }
+   ]
+  }
+ ]
+}

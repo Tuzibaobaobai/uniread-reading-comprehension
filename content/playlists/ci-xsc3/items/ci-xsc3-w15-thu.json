@@ -1,0 +1,260 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w15-thu",
+  "playlistId": "ci-xsc3",
+  "order": 74,
+  "week": 15,
+  "day": "thu",
+  "title": "What Is Age?",
+  "titleZh": "年龄是什么?",
+  "displayName": "Week 15 Thursday What Is Age?",
+  "taskType": {
+    "code": "answer_questions",
+    "labelZh": "回答问题"
+  },
+  "meta": {
+    "genre": "记叙文",
+    "wordCount": 233,
+    "difficulty": 3,
+    "suggestedMinutes": 10,
+    "themeContext": "人与自我",
+    "contentRequirement": "积极向上的生活",
+    "intro": "年龄不过只是一个数字而已。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      118
+    ],
+    "bookPages": [
+      109
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-university",
+        "headword": "university",
+        "ipa": "ˌjuːnɪˈvɜːsəti",
+        "pos": "n.",
+        "meaningZh": "大学"
+      },
+      {
+        "id": "v-attend",
+        "headword": "attend",
+        "ipa": "əˈtend",
+        "pos": "v.",
+        "meaningZh": "上（学）；参加"
+      },
+      {
+        "id": "v-hungry-for",
+        "headword": "hungry for",
+        "meaningZh": "渴望"
+      },
+      {
+        "id": "v-put-heart-mind",
+        "headword": "put one’s heart and mind into",
+        "meaningZh": "全身心投入"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "In many ways, Alena Analeigh is just like you. The girl is thirteen years old. She enjoys singing, watching movies and chatting with her friends. But in at least one way, Alena is very much unlike other teenagers. The American girl is now studying "
+          },
+          {
+            "t": "gloss",
+            "v": "medicine",
+            "zh": "医学"
+          },
+          {
+            "t": "text",
+            "v": " at a "
+          },
+          {
+            "t": "vocab",
+            "v": "university",
+            "ref": "v-university"
+          },
+          {
+            "t": "text",
+            "v": ". Her dream is to use her knowledge to help people in need."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Alena showed an interest in STEM at an early age. (“STEM” is short for science, technology, engineering and maths.) She is always "
+          },
+          {
+            "t": "vocab",
+            "v": "hungry for",
+            "ref": "v-hungry-for"
+          },
+          {
+            "t": "text",
+            "v": " knowledge. When she was in fifth grade, the girl started to "
+          },
+          {
+            "t": "vocab",
+            "v": "attend",
+            "ref": "v-attend"
+          },
+          {
+            "t": "text",
+            "v": " high school-level classes online after school. She “flew through” many hard books. Learning new skills was like "
+          },
+          {
+            "t": "underline",
+            "v": "a walk in the park"
+          },
+          {
+            "t": "text",
+            "v": " for her."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "But Alena is not a bookworm. A year and a half ago, she started the “Brown STEM Girls” programme. Of all the scientists and engineers in America today, only about 30 percent are women. Alena wants to change this. Through this programme, she is helping many other girls like her to experience success."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "What can you learn from Alena’s story? Must you also attend high school or university-level classes after school? Of course not. But now you know that age is just a number. You are not too young to do anything. Just think about what you are able to do as a teenager. Then, "
+          },
+          {
+            "t": "vocab",
+            "v": "put your heart and mind into",
+            "ref": "v-put-heart-mind"
+          },
+          {
+            "t": "text",
+            "v": " it."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does the underlined phrase “a walk in the park” tell us about learning for Alena?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 2,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the name of the programme Alena started, and what is its goal?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why does the author say “age is just a number”?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, what is the main lesson we can learn from Alena?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is something you are good at or interested in? How do you “put your heart and mind into it”?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ]
+}

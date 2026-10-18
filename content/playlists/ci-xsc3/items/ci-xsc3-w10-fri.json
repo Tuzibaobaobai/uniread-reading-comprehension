@@ -1,0 +1,786 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w10-fri",
+  "playlistId": "ci-xsc3",
+  "order": 50,
+  "week": 10,
+  "day": "fri",
+  "title": "The History of Sushi",
+  "titleZh": "寿司的历史",
+  "displayName": "Week 10 Friday The History of Sushi",
+  "taskType": {
+    "code": "weekly_intensive",
+    "labelZh": "每周精读"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 157,
+    "difficulty": 3,
+    "suggestedMinutes": 10,
+    "themeContext": "人与社会",
+    "contentRequirement": "世界主要国家的文化习俗",
+    "intro": "美味的寿司从何而来?",
+    "hasVideo": true
+  },
+  "thumbnail": "assets/ci-xsc3/ci-xsc3-w10-fri-1.jpg",
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      83,
+      84
+    ],
+    "bookPages": [
+      74,
+      75
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-xsc3/ci-xsc3-w10-fri-1.jpg",
+        "alt": "Close-up of pieces of nigiri sushi on a long plate, black and white",
+        "w": 663,
+        "h": 439
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-preserve",
+        "headword": "preserve",
+        "ipa": "prɪˈzɜːv",
+        "pos": "v.",
+        "meaningZh": "保存"
+      },
+      {
+        "id": "v-spread",
+        "headword": "spread",
+        "ipa": "spred",
+        "pos": "v.",
+        "meaningZh": "传播"
+      },
+      {
+        "id": "v-oblong",
+        "headword": "oblong",
+        "ipa": "ˈɒblɒŋ",
+        "pos": "adj.",
+        "meaningZh": "矩形的，长方形的"
+      },
+      {
+        "id": "v-far-from",
+        "headword": "far from",
+        "meaningZh": "远非，远未"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      },
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Sushi is popular all over the world. It has a history of at least 1,800 years."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The earliest form of sushi appeared in China in 200 A.D. At that time, sushi was a way of "
+          },
+          {
+            "t": "vocab",
+            "v": "preserving",
+            "ref": "v-preserve"
+          },
+          {
+            "t": "text",
+            "v": " food. Fish was placed in rice to "
+          },
+          {
+            "t": "gloss",
+            "v": "ferment",
+            "zh": "发酵"
+          },
+          {
+            "t": "text",
+            "v": ". In this way, people could preserve the fish for some time. The rice was thrown away and the fish was eaten when it was wanted."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "By the 7th century, this method of preserving food had "
+          },
+          {
+            "t": "vocab",
+            "v": "spread",
+            "ref": "v-spread"
+          },
+          {
+            "t": "text",
+            "v": " to Japan. The Japanese began to eat the rice with the fish. In the early 19th century, "
+          },
+          {
+            "t": "gloss",
+            "v": "Hanaya Yohei",
+            "zh": "华屋与兵卫"
+          },
+          {
+            "t": "text",
+            "v": " placed a piece of fresh fish on top of an "
+          },
+          {
+            "t": "vocab",
+            "v": "oblong",
+            "ref": "v-oblong"
+          },
+          {
+            "t": "text",
+            "v": "-shaped piece of seasoned rice. That is now the common way of eating Japanese sushi."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Sushi is still changing. People create new styles of sushi every year. The history of sushi is "
+          },
+          {
+            "t": "vocab",
+            "v": "far from",
+            "ref": "v-far-from"
+          },
+          {
+            "t": "text",
+            "v": " over."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, sushi has a history of at least ______ years."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "2,400"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "2,200"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "2,000"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "1,800"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Sushi was ______ in China in 200 A.D."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "a kind of fish"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "a kind of rice"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "a way of keeping food"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "a way of cooking rice"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the common way of eating Japanese sushi now?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "People wrap a piece of fish with rice and then eat it."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "People take a bite of the fish and then a bite of the rice."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "People place a piece of fish on top of an oblong-shaped piece of rice and eat it."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "People place an oblong-shaped piece of rice on top of a piece of fish and eat it."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "detail",
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Which of the following statements is true according to the article?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Hanaya Yohei invented sushi."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Sushi first appeared in Japan."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Sushi will not have new styles in the future."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The common way of eating Japanese sushi was formed in the 19th century."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "II",
+      "instruction": "Complete the sentences with the given words in their proper forms.",
+      "questions": [
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "He made his first TV "
+              },
+              {
+                "t": "blank",
+                "id": "b1",
+                "hint": {
+                  "baseWord": "appear"
+                }
+              },
+              {
+                "t": "text",
+                "v": " at the age of six."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Our products enjoy "
+              },
+              {
+                "t": "blank",
+                "id": "b2",
+                "hint": {
+                  "baseWord": "popular"
+                }
+              },
+              {
+                "t": "text",
+                "v": " throughout the world."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "He had been working in the company since its "
+              },
+              {
+                "t": "blank",
+                "id": "b3",
+                "hint": {
+                  "baseWord": "create"
+                }
+              },
+              {
+                "t": "text",
+                "v": " in 1989."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Plastic is one of the most "
+              },
+              {
+                "t": "blank",
+                "id": "b4",
+                "hint": {
+                  "baseWord": "common"
+                }
+              },
+              {
+                "t": "text",
+                "v": " used materials in the world."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Notes on how to use this dictionary can be found at the "
+              },
+              {
+                "t": "blank",
+                "id": "b5",
+                "hint": {
+                  "baseWord": "begin"
+                }
+              },
+              {
+                "t": "text",
+                "v": " of the book."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "III",
+      "instruction": "Complete the following sentences as required.",
+      "questions": [
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Fish was placed in rice "
+              },
+              {
+                "t": "underline",
+                "v": "to ferment"
+              },
+              {
+                "t": "text",
+                "v": ". （对画线部分提问）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "blank",
+                "id": "b6"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b7"
+              },
+              {
+                "t": "text",
+                "v": " fish placed in rice?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "In the early 19th century, Hanaya Yohei placed a piece of fresh fish on top of an oblong-shaped piece of seasoned rice. （改为被动语态）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "In the early 19th century, a piece of fresh fish "
+              },
+              {
+                "t": "blank",
+                "id": "b8"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b9"
+              },
+              {
+                "t": "text",
+                "v": " by Hanaya Yohei on top of an oblong-shaped piece of seasoned rice."
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "That is now the common way of eating Japanese sushi. （改为反意疑问句）"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "That is now the common way of eating Japanese sushi, "
+              },
+              {
+                "t": "blank",
+                "id": "b10"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b11"
+              },
+              {
+                "t": "text",
+                "v": "?"
+              }
+            ],
+            "scoring": "all"
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "order",
+            "items": [
+              {
+                "id": "w1",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "least"
+                  }
+                ]
+              },
+              {
+                "id": "w2",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "an hour"
+                  }
+                ]
+              },
+              {
+                "id": "w3",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "you"
+                  }
+                ]
+              },
+              {
+                "id": "w4",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "have"
+                  }
+                ]
+              },
+              {
+                "id": "w5",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "at"
+                  }
+                ]
+              },
+              {
+                "id": "w6",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "will"
+                  }
+                ]
+              },
+              {
+                "id": "w7",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "wait"
+                  }
+                ]
+              },
+              {
+                "id": "w8",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to"
+                  }
+                ]
+              }
+            ],
+            "ending": "."
+          }
+        }
+      ]
+    }
+  ]
+}

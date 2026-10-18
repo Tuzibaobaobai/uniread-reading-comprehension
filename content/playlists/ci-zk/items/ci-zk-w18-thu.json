@@ -1,0 +1,242 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w18-thu",
+  "playlistId": "ci-zk",
+  "order": 89,
+  "week": 18,
+  "day": "thu",
+  "title": "Trading Ojisan",
+  "titleZh": "伯伯交换卡",
+  "displayName": "Week 18 Thursday Trading Ojisan",
+  "taskType": {
+    "code": "answer_questions",
+    "labelZh": "回答问题"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 289,
+    "difficulty": 4,
+    "suggestedMinutes": 8,
+    "themeContext": "人与社会",
+    "contentRequirement": "和谐家庭与社区生活",
+    "intro": "在日本的香春町，孩子们近来热衷于集“大叔”。",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      163
+    ],
+    "bookPages": [
+      154
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-trade",
+        "headword": "trade",
+        "ipa": "treɪd",
+        "pos": "v.",
+        "meaningZh": "互相交换"
+      },
+      {
+        "id": "v-rarity",
+        "headword": "rarity",
+        "ipa": "ˈreərəti",
+        "pos": "n.",
+        "meaningZh": "稀有性"
+      },
+      {
+        "id": "v-shame",
+        "headword": "shame",
+        "ipa": "ʃeɪm",
+        "pos": "n.",
+        "meaningZh": "让人遗憾的事"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "It was the day before the new school year started in Japan. Four boys gathered at a community centre in the small town of Kawara. They were each armed with a plastic case filled with flashy cards."
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Like millions of children around the world, they were crazy about "
+          },
+          {
+            "t": "vocab",
+            "v": "trading",
+            "ref": "v-trade"
+          },
+          {
+            "t": "text",
+            "v": " cards. But they weren’t holding cartoon characters or superheroes. The faces on their cards belong to real people. There’s Hiroyuki Fukushima, a local train driver. There’s also Fumiaki Kawai, a retired robotics expert. You can even find Kawara’s "
+          },
+          {
+            "t": "gloss",
+            "v": "mayor",
+            "zh": "町长"
+          },
+          {
+            "t": "text",
+            "v": ", Shigekazu Tsuruga. Thanks to the “Ojisan Trading Card Game”, these middle-aged men, or "
+          },
+          {
+            "t": "gloss",
+            "v": "ojisan",
+            "zh": "大叔"
+          },
+          {
+            "t": "text",
+            "v": ", have become unlikely local heroes."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The "
+          },
+          {
+            "t": "vocab",
+            "v": "rarity",
+            "ref": "v-rarity"
+          },
+          {
+            "t": "text",
+            "v": " of a card isn’t decided randomly. Rather, it’s based on the ojisan’s real-world achievements. The more a man participates in volunteer work or community service, the higher his card’s “magic points” are. At the end of the game, the player with the most “magic points” wins. “It feels great when you win, but it’s even more fun when you use a card featuring someone you know,” says 12-year-old Sasuke. He plays the game about three times a week."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Eri Miyahara is one of the game’s creators. “There are so many amazing people in the community. It was a "
+          },
+          {
+            "t": "vocab",
+            "v": "shame",
+            "ref": "v-shame"
+          },
+          {
+            "t": "text",
+            "v": " that so few people knew about them,” she said. “We wanted to strengthen the connection between the children and the elderly, so we came up with trading cards.”"
+          }
+        ]
+      },
+      {
+        "id": "p5",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The plan worked. Since the game became popular, many kids in Kawara have started looking up to the ojisan as heroes. Some of them are now eager to volunteer for community activities. Some have been attending local events more regularly. They all share the same goal: to meet the ojisan on their cards."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Answer the questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Many children around the world love trading cards. According to the article, how are those in Kawara different from the rest?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why does the author think it feels unlikely that middle-aged men like Hiroyuki Fukushima and Fumiaki Kawai have become local heroes?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "According to the article, what affects the “magic points” on an ojisan trading card?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "In your opinion, how could the creators of the “Ojisan Trading Card Game” make it better and more popular?"
+              }
+            ],
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ]
+}

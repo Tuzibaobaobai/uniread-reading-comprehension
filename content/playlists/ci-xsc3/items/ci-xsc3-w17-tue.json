@@ -1,0 +1,355 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-xsc3-w17-tue",
+  "playlistId": "ci-xsc3",
+  "order": 82,
+  "week": 17,
+  "day": "tue",
+  "title": "World Wildlife Day",
+  "titleZh": "世界野生动植物日",
+  "displayName": "Week 17 Tuesday World Wildlife Day",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读理解"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 183,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与社会",
+    "contentRequirement": "节假日",
+    "intro": "世界野生动植物日——你的每一次选择，都可以影响它们的命运！",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
+    "pdfPages": [
+      130
+    ],
+    "bookPages": [
+      121
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [],
+    "vocabulary": [
+      {
+        "id": "v-rescue",
+        "headword": "rescue",
+        "ipa": "ˈreskjuː",
+        "pos": "n.",
+        "meaningZh": "救助"
+      },
+      {
+        "id": "v-botanical-garden",
+        "headword": "botanical garden",
+        "meaningZh": "植物园"
+      },
+      {
+        "id": "v-dependent",
+        "headword": "dependent",
+        "ipa": "dɪˈpendənt",
+        "pos": "adj.",
+        "meaningZh": "依赖的"
+      },
+      {
+        "id": "v-injured",
+        "headword": "injured",
+        "ipa": "ˈɪndʒəd",
+        "pos": "adj.",
+        "meaningZh": "受伤的"
+      },
+      {
+        "id": "v-care-for",
+        "headword": "care for",
+        "meaningZh": "照顾，照料"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "World Wildlife Day falls on March 3 every year. It is a global celebration of all the wonderful wild animals and plants on the planet. What can we do to make the world a better place for them? Check out the tips below!"
+          }
+        ]
+      },
+      {
+        "id": "l1",
+        "type": "list",
+        "items": [
+          [
+            {
+              "t": "text",
+              "v": "Learn more about the wildlife in your area. You can visit your local wildlife "
+            },
+            {
+              "t": "vocab",
+              "v": "rescue",
+              "ref": "v-rescue"
+            },
+            {
+              "t": "text",
+              "v": " centre and "
+            },
+            {
+              "t": "vocab",
+              "v": "botanical garden",
+              "ref": "v-botanical-garden"
+            },
+            {
+              "t": "text",
+              "v": ". Reading books about wildlife is also a good choice."
+            }
+          ],
+          [
+            {
+              "t": "text",
+              "v": "If you find a wild animal or plant somewhere, don’t take it home. You can take a picture of it instead. Wild animals and plants need to stay in their home environment to survive."
+            }
+          ],
+          [
+            {
+              "t": "text",
+              "v": "Don’t feed wild animals human food. Some animals can get sick from eating human food. Others may become "
+            },
+            {
+              "t": "vocab",
+              "v": "dependent",
+              "ref": "v-dependent"
+            },
+            {
+              "t": "text",
+              "v": " on your food and forget how to "
+            },
+            {
+              "t": "underline",
+              "v": "forage"
+            },
+            {
+              "t": "text",
+              "v": " on their own."
+            }
+          ],
+          [
+            {
+              "t": "text",
+              "v": "Don’t throw food waste or other trash on the road. Wild animals may be attracted to dangerous roads by the trash."
+            }
+          ],
+          [
+            {
+              "t": "text",
+              "v": "If you find an "
+            },
+            {
+              "t": "vocab",
+              "v": "injured",
+              "ref": "v-injured"
+            },
+            {
+              "t": "text",
+              "v": " wild animal, call your local wildlife rescue centre. The staff there will help "
+            },
+            {
+              "t": "vocab",
+              "v": "care for",
+              "ref": "v-care-for"
+            },
+            {
+              "t": "text",
+              "v": " the animals."
+            }
+          ]
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the main purpose of World Wildlife Day?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To tell people to stop eating wild animals."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To celebrate and protect wild animals and plants."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To ask people to visit zoos and botanical gardens."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To teach people how to take photos of wild animals."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The underlined word “forage” in the third tip most likely means to ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "look for food in the wild"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "depend on human help"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "learn new skills from people"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "play with other animals"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the main idea of this article?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To introduce the history of World Wildlife Day."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To explain why wild animals are in danger."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To provide tips on how to protect wildlife."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To describe different kinds of wild animals."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

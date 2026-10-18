@@ -1,0 +1,408 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g4-w08-mon",
+  "playlistId": "ci-g4",
+  "order": 36,
+  "week": 8,
+  "day": "mon",
+  "title": "Nicknames for Los Angeles",
+  "titleZh": "洛杉矶的昵称",
+  "displayName": "Week 8 Monday Nicknames for Los Angeles",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读选择"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 121,
+    "difficulty": 3,
+    "suggestedMinutes": 7,
+    "themeContext": "人与社会",
+    "contentRequirement": "世界主要国家的文化习俗",
+    "intro": "在美国西海岸的加利福尼亚州，有一座“天使之城”。",
+    "hasVideo": false
+  },
+  "thumbnail": "assets/ci-g4/ci-g4-w08-mon-1.jpg",
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X4年级.pdf",
+    "pdfPages": [
+      65,
+      66
+    ],
+    "bookPages": [
+      56,
+      57
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g4/ci-g4-w08-mon-1.jpg",
+        "alt": "Palm trees in front of the Los Angeles city skyline.",
+        "w": 1200,
+        "h": 662
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-nickname",
+        "headword": "nickname",
+        "ipa": "ˈnɪkneɪm",
+        "pos": "n.",
+        "meaningZh": "昵称，外号"
+      },
+      {
+        "id": "v-mean",
+        "headword": "mean",
+        "ipa": "miːn",
+        "pos": "v.",
+        "meaningZh": "意思是"
+      },
+      {
+        "id": "v-angel",
+        "headword": "angel",
+        "ipa": "ˈeɪndʒl",
+        "pos": "n.",
+        "meaningZh": "天使"
+      },
+      {
+        "id": "v-sunshine",
+        "headword": "sunshine",
+        "ipa": "ˈsʌnʃaɪn",
+        "pos": "n.",
+        "meaningZh": "阳光"
+      },
+      {
+        "id": "v-climate",
+        "headword": "climate",
+        "ipa": "ˈklaɪmət",
+        "pos": "n.",
+        "meaningZh": "气候"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "What "
+          },
+          {
+            "t": "gloss",
+            "v": "comes to mind",
+            "zh": "突然想到……"
+          },
+          {
+            "t": "text",
+            "v": " when you think of Los Angeles? The big Hollywood sign or Disneyland?"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "One way to learn about a city is through its nickname(s). So, what do people usually call Los Angeles?"
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The "
+          },
+          {
+            "t": "gloss",
+            "v": "best-known",
+            "zh": "最出名的"
+          },
+          {
+            "t": "text",
+            "v": " nickname for the city is L.A. It uses the first letters of Los and Angeles. Another one is La-La Land. This "
+          },
+          {
+            "t": "vocab",
+            "v": "means",
+            "ref": "v-mean"
+          },
+          {
+            "t": "text",
+            "v": " a place where people have "
+          },
+          {
+            "t": "gloss",
+            "v": "their heads in the clouds",
+            "zh": "幻想，想入非非"
+          },
+          {
+            "t": "text",
+            "v": "! It is also called the City of "
+          },
+          {
+            "t": "vocab",
+            "v": "Angels",
+            "ref": "v-angel"
+          },
+          {
+            "t": "text",
+            "v": " because Los Angeles means “the Angels” in "
+          },
+          {
+            "t": "gloss",
+            "v": "Spanish",
+            "zh": "西班牙语"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Los Angeles often has warm, sunny weather. That’s why it gets the name City of Flowers and "
+          },
+          {
+            "t": "vocab",
+            "v": "Sunshine",
+            "ref": "v-sunshine"
+          },
+          {
+            "t": "text",
+            "v": ". It is sometimes called “The Big Orange” because of the fruit that grows in the city’s warm "
+          },
+          {
+            "t": "vocab",
+            "v": "climate",
+            "ref": "v-climate"
+          },
+          {
+            "t": "text",
+            "v": "."
+          }
+        ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The most famous nickname for Los Angeles is ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Hollywood"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "L.A."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the City of Angels"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does the nickname “La-La Land” tell us about Los Angeles?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It’s full of parks and lakes."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It’s a very sunny place."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "People there are often dreamy."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why is Los Angeles called “The Big Orange”?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Its map is shaped like an orange."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It’s best known for orange juice."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It has a warm climate where oranges grow."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the main idea of the passage?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Los Angeles is a Spanish-speaking city."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Los Angeles grows a lot of oranges."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Los Angeles has many nicknames."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

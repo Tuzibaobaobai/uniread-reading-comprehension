@@ -1,0 +1,217 @@
+{
+  "schemaVersion": "1.0",
+  "itemId": "ci-xsc3-w17-fri",
+  "answerSource": "official",
+  "reviewStatus": "pending",
+  "officialRef": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初答案.pdf",
+    "pages": [
+      40
+    ]
+  },
+  "answers": {
+    "q1": {
+      "correct": [
+        "C"
+      ],
+      "explanationZh": "第一段开头说她是六年级的英语老师。",
+      "evidence": [
+        {
+          "block": "p1",
+          "quote": "I am your sixth-grade English teacher."
+        }
+      ]
+    },
+    "q2": {
+      "correct": [
+        "C"
+      ],
+      "explanationZh": "“My favourites”里她喜欢的科目是科学和美术，说明对这两样感兴趣；她最喜欢夏天，也不是只爱热狗。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "Subjects: Science, Art"
+        }
+      ]
+    },
+    "q3": {
+      "correct": [
+        "D"
+      ],
+      "explanationZh": "她说自己的目标是帮助学生爱上学习。",
+      "evidence": [
+        {
+          "block": "p4",
+          "quote": "My goal is to help you develop a love for learning."
+        }
+      ]
+    },
+    "q4": {
+      "correct": [
+        "C"
+      ],
+      "explanationZh": "“Contact me”里写了电子邮件和电话，两种方式都能联系她。",
+      "evidence": [
+        {
+          "block": "p6",
+          "quote": "E-mail:"
+        }
+      ]
+    },
+    "q5": {
+      "slots": {
+        "b1": {
+          "accept": [
+            "contact"
+          ]
+        }
+      },
+      "explanationZh": "trying to 后面要接动词原形，所以填 contact。"
+    },
+    "q6": {
+      "slots": {
+        "b2": {
+          "accept": [
+            "travelling",
+            "traveling"
+          ]
+        }
+      },
+      "explanationZh": "go + 动词-ing 表示去做某事，go travelling 是“去旅行”。"
+    },
+    "q7": {
+      "slots": {
+        "b3": {
+          "accept": [
+            "pleasing"
+          ]
+        }
+      },
+      "explanationZh": "It was ... to know 说的是事情本身“令人高兴”，用 -ing 形容词 pleasing。"
+    },
+    "q8": {
+      "slots": {
+        "b4": {
+          "accept": [
+            "learned",
+            "learnt"
+          ]
+        }
+      },
+      "explanationZh": "I’ve 是 I have，后面用现在完成时，要填 learn 的过去分词。"
+    },
+    "q9": {
+      "slots": {
+        "b5": {
+          "accept": [
+            "exciting"
+          ]
+        }
+      },
+      "explanationZh": "something 是“令人兴奋的事”，修饰事物用 exciting。"
+    },
+    "q10": {
+      "slots": {
+        "b6": {
+          "accept": [
+            "develop"
+          ]
+        }
+      },
+      "explanationZh": "enable me to 后面接动词原形，填 develop。"
+    },
+    "q11": {
+      "slots": {
+        "b7": {
+          "accept": [
+            "Will"
+          ]
+        },
+        "b8": {
+          "accept": [
+            "be"
+          ]
+        },
+        "b9": {
+          "accept": [
+            "your"
+          ]
+        }
+      },
+      "explanationZh": "含 will 的句子改一般疑问句，把 will 提到句首；this will be my... 变成 Will this be your...，my 要换成 your。"
+    },
+    "q12": {
+      "slots": {
+        "b10": {
+          "accept": [
+            "When"
+          ]
+        },
+        "b11": {
+          "accept": [
+            "did"
+          ]
+        },
+        "b12": {
+          "accept": [
+            "you"
+          ]
+        },
+        "b13": {
+          "accept": [
+            "graduate"
+          ]
+        }
+      },
+      "explanationZh": "画线的 in 2017 是时间，用 When 提问；过去的事用 did，主语变成 you，动词用原形 graduate。"
+    },
+    "q13": {
+      "slots": {
+        "b14": {
+          "accept": [
+            "will"
+          ]
+        },
+        "b15": {
+          "accept": [
+            "be"
+          ]
+        },
+        "b16": {
+          "accept": [
+            "learned",
+            "learnt"
+          ]
+        }
+      },
+      "explanationZh": "被动语态是 助动词 + be + 过去分词。will 后面用 be learned。"
+    },
+    "q14": {
+      "slots": {
+        "b17": {
+          "accept": [
+            "will"
+          ]
+        },
+        "b18": {
+          "accept": [
+            "you"
+          ]
+        }
+      },
+      "explanationZh": "以 Please 开头的祈使句，反意疑问句常用 will you。"
+    },
+    "q15": {
+      "sequence": [
+        "w3",
+        "w6",
+        "w5",
+        "w1",
+        "w2",
+        "w7",
+        "w4"
+      ],
+      "explanationZh": "先说 As a student（作为学生），再说 you should focus on studying（你应该专注于学习）。"
+    }
+  }
+}

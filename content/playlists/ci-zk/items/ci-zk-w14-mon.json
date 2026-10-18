@@ -1,0 +1,452 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-zk-w14-mon",
+  "playlistId": "ci-zk",
+  "order": 66,
+  "week": 14,
+  "day": "mon",
+  "title": "Rubik’s Cube Record Smashed by College Students",
+  "titleZh": "大学生团队打破魔方世界纪录",
+  "displayName": "Week 14 Monday Rubik’s Cube Record Smashed by College Students",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读单选"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 313,
+    "difficulty": 3,
+    "suggestedMinutes": 6,
+    "themeContext": "人与社会",
+    "contentRequirement": "科学技术与工程，人类发明与创新",
+    "intro": "大学生打造速拧魔方机器人，刷新世界纪录。",
+    "hasVideo": false
+  },
+  "thumbnail": "assets/ci-zk/ci-zk-w14-mon-1.jpg",
+  "source": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考.pdf",
+    "pdfPages": [
+      123,
+      124
+    ],
+    "bookPages": [
+      114,
+      115
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-zk/ci-zk-w14-mon-1.jpg",
+        "alt": "A black Rubik’s Cube with white stickers sitting on a white surface against a dark rough wall.",
+        "w": 908,
+        "h": 597
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-incredible",
+        "headword": "incredible",
+        "ipa": "ɪnˈkredəbl",
+        "pos": "adj.",
+        "meaningZh": "难以置信的"
+      },
+      {
+        "id": "v-scramble",
+        "headword": "scramble",
+        "ipa": "ˈskræmbl",
+        "pos": "v.",
+        "meaningZh": "打乱"
+      },
+      {
+        "id": "v-remotely",
+        "headword": "remotely",
+        "ipa": "rɪˈməʊtli",
+        "pos": "adv.",
+        "meaningZh": "远程地"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Students at "
+          },
+          {
+            "t": "gloss",
+            "v": "Purdue University",
+            "zh": "普渡大学"
+          },
+          {
+            "t": "text",
+            "v": " have built a robot that can solve a Rubik’s Cube faster than anyone ever imagined. They call it “Purdubik’s Cube”. The robot solves a cube in just 0.103 seconds. That’s faster than the time it takes to blink your eyes!"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "The Rubik’s Cube was invented in 1974 by Erno Rubik and quickly became popular worldwide. At first, people just wanted to solve the puzzle. But soon, a new group of enthusiasts emerged—“speedcubers”, who aim to solve the cube as quickly as possible. The fastest human can solve a cube in about 3.05 seconds. Amazing, right? But robots can do it even quicker. In 2020, MIT students built a robot that solved a cube in 0.380 seconds. This left a deep impression on Matthew Patrohay, who was in high school at the time. “I thought, ‘That’s a really cool project. I’d love to try and beat it someday,’” said Mr. Patrohay."
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Now, Mr. Patrohay and three other Purdue students have built a robot that beat that record. Their robot uses cameras and computer vision to detect the colours of each square. Special computer programs tell the robot how to move, and its arms turn the cube at "
+          },
+          {
+            "t": "vocab",
+            "v": "incredible",
+            "ref": "v-incredible"
+          },
+          {
+            "t": "text",
+            "v": " speed. The students even made a stronger cube so it wouldn’t fall apart. Bluetooth technology lets users "
+          },
+          {
+            "t": "vocab",
+            "v": "scramble",
+            "ref": "v-scramble"
+          },
+          {
+            "t": "text",
+            "v": " the cube "
+          },
+          {
+            "t": "vocab",
+            "v": "remotely",
+            "ref": "v-remotely"
+          },
+          {
+            "t": "text",
+            "v": ". Once scrambled, the robot solves it almost instantly. Its movements are so fast that “before you even realise it’s moving, we’ve solved it,” says Mr. Patrohay."
+          }
+        ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      },
+      {
+        "id": "p4",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Last year, the students won a school design contest with Purdubik’s Cube. After that, they kept improving it, and their efforts paid off. Now, it proudly holds the Guinness World Record for the fastest robot to solve a Rubik’s Cube. One of the students’ professors says he’s not surprised. “Take brilliant students, give them the tools and opportunities, and they’ll blow your mind,” he said."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is Purdubik’s Cube?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A cube that can be solved faster than a blink."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A robot built by Purdue students to solve cubes."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A Rubik’s Cube made for Purdue students to solve."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A program created by MIT students to solve puzzles."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why does the author mention MIT’s robot from 2020?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To explain how to use Bluetooth in cube-solving."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To show that previous robots inspired new designs."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To describe a robot that is slower than speedcubers."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To highlight Matthew Patrohay’s personal achievements."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How does Purdue’s robot solve a cube?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It follows step-by-step instructions given by MIT students."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It guesses the correct sequence without any program guidance."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It uses cameras and programs to detect colours and move the cube."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It studies how famous speedcubers move the cube to find solutions."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why does the writer include the professor’s words at the end?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To show why robots are quicker than humans."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To highlight the importance of supporting students."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To compare students with professional speedcubers."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "To explain technical details of the robot to the readers."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The author wrote this article to ______."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "celebrate students’ creativity and record-breaking effort"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "explain how Guinness World Records are kept and beaten"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "introduce the history of the Rubik’s Cube and speedcubing"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "compare different robots built in top universities in the USA"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

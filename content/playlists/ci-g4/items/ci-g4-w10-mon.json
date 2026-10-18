@@ -1,0 +1,481 @@
+{
+  "schemaVersion": "1.0",
+  "id": "ci-g4-w10-mon",
+  "playlistId": "ci-g4",
+  "order": 46,
+  "week": 10,
+  "day": "mon",
+  "title": "Tennis Courts",
+  "titleZh": "网球场",
+  "displayName": "Week 10 Monday Tennis Courts",
+  "taskType": {
+    "code": "reading_choice",
+    "labelZh": "阅读选择"
+  },
+  "meta": {
+    "genre": "说明文",
+    "wordCount": 149,
+    "difficulty": 4,
+    "suggestedMinutes": 8,
+    "themeContext": "人与社会",
+    "contentRequirement": "日常体育活动",
+    "intro": "网球的红土场、草地场和硬地场，你知道都有什么区别?",
+    "hasVideo": false
+  },
+  "source": {
+    "pdf": "小学英语时文阅读提分训练3+X4年级.pdf",
+    "pdfPages": [
+      81,
+      82
+    ],
+    "bookPages": [
+      72,
+      73
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g4/ci-g4-w10-mon-1.jpg",
+        "alt": "A tennis player swinging a racket on a court (black and white photo).",
+        "w": 1059,
+        "h": 692
+      }
+    ],
+    "vocabulary": [
+      {
+        "id": "v-court",
+        "headword": "court",
+        "pos": "n.",
+        "meaningZh": "球场；法院",
+        "ipa": "kɔːt"
+      },
+      {
+        "id": "v-traditional",
+        "headword": "traditional",
+        "pos": "adj.",
+        "meaningZh": "传统的",
+        "ipa": "trəˈdɪʃənl"
+      },
+      {
+        "id": "v-bounce",
+        "headword": "bounce",
+        "pos": "v.",
+        "meaningZh": "弹起",
+        "ipa": "baʊns"
+      },
+      {
+        "id": "v-uneven",
+        "headword": "uneven",
+        "pos": "adj.",
+        "meaningZh": "凹凸不平的",
+        "ipa": "ʌnˈiːvn"
+      },
+      {
+        "id": "v-surface",
+        "headword": "surface",
+        "pos": "n.",
+        "meaningZh": "表面，地面",
+        "ipa": "ˈsɜːfɪs"
+      },
+      {
+        "id": "v-consistent",
+        "headword": "consistent",
+        "pos": "adj.",
+        "meaningZh": "一贯的，一致的，始终如一的",
+        "ipa": "kənˈsɪstənt"
+      }
+    ],
+    "blocks": [
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
+      },
+      {
+        "id": "h1",
+        "type": "heading",
+        "content": [
+          {
+            "t": "text",
+            "v": "Grass Court"
+          }
+        ]
+      },
+      {
+        "id": "p1",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Grass courts are the most "
+          },
+          {
+            "t": "vocab",
+            "v": "traditional",
+            "ref": "v-traditional"
+          },
+          {
+            "t": "text",
+            "v": " courts. The “grass court season” only lasts for four weeks. Grass courts are the fastest. The ball "
+          },
+          {
+            "t": "vocab",
+            "v": "bounces",
+            "ref": "v-bounce"
+          },
+          {
+            "t": "text",
+            "v": " low (the soil is soft) and funny (the grass is "
+          },
+          {
+            "t": "vocab",
+            "v": "uneven",
+            "ref": "v-uneven"
+          },
+          {
+            "t": "text",
+            "v": "). "
+          },
+          {
+            "t": "gloss",
+            "v": "Wimbledon",
+            "zh": "温布尔登网球公开赛"
+          },
+          {
+            "t": "text",
+            "v": ", the oldest Grand Slam "
+          },
+          {
+            "t": "gloss",
+            "v": "tournament",
+            "zh": "大满贯赛事"
+          },
+          {
+            "t": "text",
+            "v": ", is still played on grass courts."
+          }
+        ]
+      },
+      {
+        "id": "h2",
+        "type": "heading",
+        "content": [
+          {
+            "t": "text",
+            "v": "Clay Court"
+          }
+        ]
+      },
+      {
+        "id": "p2",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Clay courts are more popular in "
+          },
+          {
+            "t": "gloss",
+            "v": "Europe",
+            "zh": "欧洲"
+          },
+          {
+            "t": "text",
+            "v": " and "
+          },
+          {
+            "t": "gloss",
+            "v": "Latin America",
+            "zh": "拉丁美洲"
+          },
+          {
+            "t": "text",
+            "v": ". There are two types: Red Clay and Green Clay. Clay courts are the slowest. The ball loses "
+          },
+          {
+            "t": "gloss",
+            "v": "speed",
+            "zh": "速度"
+          },
+          {
+            "t": "text",
+            "v": " as it hits the court and bounces high. The "
+          },
+          {
+            "t": "gloss",
+            "v": "French Open",
+            "zh": "法国网球公开赛"
+          },
+          {
+            "t": "text",
+            "v": " is the only Grand Slam tournament that uses clay courts."
+          }
+        ]
+      },
+      {
+        "id": "h3",
+        "type": "heading",
+        "content": [
+          {
+            "t": "text",
+            "v": "Hard Court"
+          }
+        ]
+      },
+      {
+        "id": "p3",
+        "type": "paragraph",
+        "content": [
+          {
+            "t": "text",
+            "v": "Hard courts are the most popular courts. Hard courts are a good "
+          },
+          {
+            "t": "vocab",
+            "v": "surface",
+            "ref": "v-surface"
+          },
+          {
+            "t": "text",
+            "v": " for all players. Hard courts are faster than clay and slower than grass. The bounce is the highest and most "
+          },
+          {
+            "t": "vocab",
+            "v": "consistent",
+            "ref": "v-consistent"
+          },
+          {
+            "t": "text",
+            "v": ". Both the "
+          },
+          {
+            "t": "gloss",
+            "v": "US Open",
+            "zh": "美国网球公开赛"
+          },
+          {
+            "t": "text",
+            "v": " and the "
+          },
+          {
+            "t": "gloss",
+            "v": "Australian Open",
+            "zh": "澳大利亚网球公开赛"
+          },
+          {
+            "t": "text",
+            "v": " are played on hard courts."
+          }
+        ]
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "I",
+      "instruction": "Choose the best answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Which court is the fastest?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Clay court."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Hard court."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Grass court."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Where is the French Open held?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "On clay courts."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "On grass courts."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "On hard courts."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is true about hard courts?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The slowest."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The most popular."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The most traditional."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Which of the following statements is most likely to be true?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Each court type tests different skills."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Hard courts are the fairest so most tournaments use them."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Grass courts are too expensive to use for all tournaments."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "thumbnail": "assets/ci-g4/ci-g4-w10-mon-1.jpg"
+}

@@ -1,0 +1,268 @@
+{
+  "schemaVersion": "1.0",
+  "itemId": "ci-xsc3-w14-fri",
+  "answerSource": "official",
+  "reviewStatus": "pending",
+  "officialRef": {
+    "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初答案.pdf",
+    "pages": [
+      34
+    ]
+  },
+  "answers": {
+    "q1": {
+      "sampleAnswer": "For 16 years.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "16年",
+          "examples": [
+            "For 16 years."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：16年。",
+      "explanationZh": "第二段说弗里基从狮子出生起就照顾它，狮子现在16岁，所以是16年。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "has taken care of a 16-year-old lion since it was born"
+        }
+      ]
+    },
+    "q2": {
+      "sampleAnswer": "He was born in a zoo.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "在动物园出生",
+          "examples": [
+            "He was born in a zoo."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：在动物园。",
+      "explanationZh": "第三段说齐恩的妈妈在动物园生下了它，所以它出生在动物园。",
+      "evidence": [
+        {
+          "block": "p3",
+          "quote": "Zion’s mother was in a zoo when she "
+        }
+      ]
+    },
+    "q3": {
+      "sampleAnswer": "Because people feared his father would hurt him.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "人们怕它的父亲会伤害它",
+          "examples": [
+            "Because people feared his father would hurt him."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：怕父亲伤害它。",
+      "explanationZh": "第三段说人们担心狮子爸爸会伤害小狮子，所以把它从妈妈身边带走。",
+      "evidence": [
+        {
+          "block": "p3",
+          "quote": "Zion was taken away from his mother because people feared his father would hurt him."
+        }
+      ]
+    },
+    "q4": {
+      "sampleAnswer": "He always takes his shoes off.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "脱掉鞋子",
+          "examples": [
+            "He always takes his shoes off."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：脱鞋。",
+      "explanationZh": "第五段说散步前弗里基总是脱鞋，因为齐恩不喜欢鞋子的声音。",
+      "evidence": [
+        {
+          "block": "p5",
+          "quote": "Frikkie always takes his shoes off because Zion doesn’t like the noises they make."
+        }
+      ]
+    },
+    "q5": {
+      "sampleAnswer": "I want to make friends with parrots. Parrots are very clever. Some of them can learn tricks; some of them can speak a few sentences. If I have a parrot friend, I can teach it some tricks. I may also teach it to talk. We will have a lot of fun together. (Any reasonable answers are acceptable.)",
+      "rubricType": "opinion",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "说出想交朋友的动物，并给出合理理由",
+          "examples": [
+            "I want to make friends with parrots. Parrots are very clever."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "开放题，言之有理即可：写出动物并给出理由。",
+      "explanationZh": "这是开放题：先写你想和哪种动物做朋友，再写原因，比如它聪明、可爱、忠诚。",
+      "evidence": [
+        {
+          "block": "p1",
+          "quote": "But for one animal lover, a lion is his best friend."
+        }
+      ]
+    },
+    "q6": {
+      "slots": {
+        "b1": {
+          "accept": [
+            "gently"
+          ]
+        }
+      },
+      "explanationZh": "laid 后面修饰动作要用副词，gentle 变成 gently（轻轻地）。"
+    },
+    "q7": {
+      "slots": {
+        "b2": {
+          "accept": [
+            "lovely"
+          ]
+        }
+      },
+      "explanationZh": "a 和 week 之间要形容词，love 变成 lovely（美好的）。"
+    },
+    "q8": {
+      "slots": {
+        "b3": {
+          "accept": [
+            "experienced"
+          ]
+        }
+      },
+      "explanationZh": "be very … in 要形容词，experienced 是“有经验的”。"
+    },
+    "q9": {
+      "slots": {
+        "b4": {
+          "accept": [
+            "strength"
+          ]
+        }
+      },
+      "explanationZh": "the 后面要名词，strong 的名词是 strength（力气）。"
+    },
+    "q10": {
+      "slots": {
+        "b5": {
+          "accept": [
+            "noisy"
+          ]
+        }
+      },
+      "explanationZh": "was so 后面要形容词，noise 变成 noisy（吵闹的）。"
+    },
+    "q11": {
+      "slots": {
+        "b6": {
+          "accept": [
+            "said"
+          ]
+        },
+        "b7": {
+          "accept": [
+            "to"
+          ]
+        },
+        "b8": {
+          "accept": [
+            "be"
+          ]
+        }
+      },
+      "explanationZh": "It is said that … 可以改成 … are said to be …，意思不变。",
+      "tipsZh": "be said to do"
+    },
+    "q12": {
+      "slots": {
+        "b9": {
+          "accept": [
+            "was"
+          ]
+        },
+        "b10": {
+          "accept": [
+            "brought"
+          ]
+        },
+        "b11": {
+          "accept": [
+            "up"
+          ]
+        }
+      },
+      "explanationZh": "被动语态是 be + 过去分词，brought up 不能拆，所以是 was brought up。",
+      "tipsZh": "bring up 的被动：be brought up"
+    },
+    "q13": {
+      "slots": {
+        "b12": {
+          "accept": [
+            "How"
+          ]
+        },
+        "b13": {
+          "accept": [
+            "often"
+          ]
+        }
+      },
+      "explanationZh": "画线部分是 every four hours，问“多久一次”，用 How often。",
+      "tipsZh": "How often 问频率"
+    },
+    "q14": {
+      "slots": {
+        "b14": {
+          "accept": [
+            "has"
+          ]
+        },
+        "b15": {
+          "accept": [
+            "he"
+          ]
+        }
+      },
+      "explanationZh": "前面是否定句 has never hurt，后面反意疑问用肯定的 has he。",
+      "tipsZh": "前否后肯：has he?"
+    },
+    "q15": {
+      "sequence": [
+        "w1",
+        "w9",
+        "w7",
+        "w6",
+        "w4",
+        "w8",
+        "w3",
+        "w5",
+        "w2"
+      ],
+      "explanationZh": "句子意思是“他已经够大，能照顾自己了”。结构是 be old enough to do，take care of himself 是“照顾他自己”。",
+      "tipsZh": "形容词 + enough to do"
+    }
+  }
+}

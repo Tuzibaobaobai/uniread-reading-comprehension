@@ -1,0 +1,285 @@
+{
+  "schemaVersion": "1.0",
+  "itemId": "ci-zk-w11-fri",
+  "answerSource": "official",
+  "reviewStatus": "pending",
+  "officialRef": {
+    "pdf": "中考第3辑初中时文阅读提分训练3+X第3辑中考答案.pdf",
+    "pages": [
+      25,
+      26
+    ]
+  },
+  "answers": {
+    "q1": {
+      "sampleAnswer": "Yes, it did.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "答出 Yes, it did",
+          "examples": [
+            "Yes, it did."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：答出 Yes, it did。",
+      "explanationZh": "第二段说人们认为世界上最早的信封出现在古代中国，所以答“Yes, it did.”。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "It is believed the envelope first appeared in ancient China."
+        }
+      ]
+    },
+    "q2": {
+      "sampleAnswer": "It was made from clay.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "用黏土（clay）制成",
+          "examples": [
+            "It was made from clay."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：用黏土（clay）制成。",
+      "explanationZh": "第二段说最早的信封是用黏土做的，形状像个球。",
+      "evidence": [
+        {
+          "block": "p2",
+          "quote": "It was made from clay and looked like a ball."
+        }
+      ]
+    },
+    "q3": {
+      "sampleAnswer": "Around the seventh century.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "大约七世纪（around the seventh century）",
+          "examples": [
+            "Around the seventh century."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：大约七世纪（around the seventh century）。",
+      "explanationZh": "第三段说大约到七世纪，纸信封才用来寄信。",
+      "evidence": [
+        {
+          "block": "p3",
+          "quote": "It was not until around the seventh century that it was used for sending messages."
+        }
+      ]
+    },
+    "q4": {
+      "sampleAnswer": "Because they were made completely by hand.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "因为完全由手工制作",
+          "examples": [
+            "Because they were made completely by hand."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：因为完全由手工制作。",
+      "explanationZh": "第三段说信封完全是手工做的，所以很贵。",
+      "evidence": [
+        {
+          "block": "p3",
+          "quote": "Since the envelope was made completely by hand, it was very expensive."
+        }
+      ]
+    },
+    "q5": {
+      "sampleAnswer": "American inventor Russel Hawes.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "美国发明家 Russel Hawes",
+          "examples": [
+            "American inventor Russel Hawes."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：美国发明家 Russel Hawes。",
+      "explanationZh": "第四段说1853年美国发明家 Russel Hawes 发明了信封制造机。",
+      "evidence": [
+        {
+          "block": "p4",
+          "quote": "In 1853, American inventor Russel Hawes invented an envelope maker."
+        }
+      ]
+    },
+    "q6": {
+      "sampleAnswer": "Billions of envelopes.",
+      "rubricType": "content",
+      "match": "all",
+      "keyPoints": [
+        {
+          "id": "k1",
+          "descZh": "数十亿个（billions of）",
+          "examples": [
+            "Billions of envelopes."
+          ],
+          "weight": 1
+        }
+      ],
+      "rubricZh": "要点：数十亿个（billions of）。",
+      "explanationZh": "最后一段说现在全世界每年用掉数十亿个信封。",
+      "evidence": [
+        {
+          "block": "p5",
+          "quote": "However, billions of envelopes are used worldwide every year."
+        }
+      ]
+    },
+    "q7": {
+      "slots": {
+        "b1": {
+          "accept": [
+            "appearance"
+          ]
+        }
+      },
+      "explanationZh": "空格前有 the，后有 of，要填名词。appear（出现）的名词是 appearance，意思是“外观”。",
+      "tipsZh": "appear → appearance"
+    },
+    "q8": {
+      "slots": {
+        "b2": {
+          "accept": [
+            "invention"
+          ]
+        }
+      },
+      "explanationZh": "after the ... of the telephone 要名词，invent 的名词是 invention（发明）。",
+      "tipsZh": "invent → invention"
+    },
+    "q9": {
+      "slots": {
+        "b3": {
+          "accept": [
+            "protection"
+          ]
+        }
+      },
+      "explanationZh": "as ... against the cold 表示“用来抵御寒冷的保护”，要名词 protection。",
+      "tipsZh": "protect → protection；as protection against 作为……的防护"
+    },
+    "q10": {
+      "slots": {
+        "b4": {
+          "accept": [
+            "expense"
+          ]
+        }
+      },
+      "explanationZh": "at little expense 是“花很少的钱”，要名词 expense。",
+      "tipsZh": "expensive → expense；at little expense 花费很少"
+    },
+    "q11": {
+      "slots": {
+        "b5": {
+          "accept": [
+            "simply"
+          ]
+        }
+      },
+      "explanationZh": "空格修饰后面的 a matter of，要用副词 simply，意思是“只不过是”。",
+      "tipsZh": "simple → simply"
+    },
+    "q12": {
+      "slots": {
+        "b6": {
+          "accept": [
+            "was it"
+          ]
+        }
+      },
+      "explanationZh": "前半句 was nothing 是否定句，反意疑问句要用肯定形式；动词是 was，主语 the early envelope 用 it，所以填 was it。",
+      "tipsZh": "前否后肯：否定陈述句 + 肯定的附加问句"
+    },
+    "q13": {
+      "slots": {
+        "b7": {
+          "accept": [
+            "What"
+          ]
+        },
+        "b8": {
+          "accept": [
+            "did"
+          ]
+        }
+      },
+      "explanationZh": "画线部分是 break the “envelope”，是做的事，要用 What 提问；原句是过去式，助动词用 did，所以填 What did。",
+      "tipsZh": "问“做什么”：What did ... have to do?"
+    },
+    "q14": {
+      "slots": {
+        "b9": {
+          "accept": [
+            "wasn't",
+            "wasn’t"
+          ]
+        },
+        "b10": {
+          "accept": [
+            "until"
+          ]
+        }
+      },
+      "explanationZh": "It was not until ... that ... 的意思是“直到……才”。换成 It wasn’t ... until ... 的形式，句意不变。",
+      "tipsZh": "not until 结构的两种说法"
+    },
+    "q15": {
+      "slots": {
+        "b11": {
+          "accept": [
+            "produced"
+          ]
+        },
+        "b12": {
+          "accept": [
+            "by"
+          ]
+        }
+      },
+      "explanationZh": "改成被动语态：could be + 过去分词 produced，再用 by 引出做事的机器。",
+      "tipsZh": "被动语态：情态动词 + be + 过去分词 + by"
+    },
+    "q16": {
+      "sequence": [
+        "w1",
+        "w8",
+        "w2",
+        "w5",
+        "w11",
+        "w7",
+        "w3",
+        "w9",
+        "w10",
+        "w4",
+        "w6"
+      ],
+      "explanationZh": "take it for granted that ... 是“认为……是理所当然”，it 是形式宾语，that 后面接内容：you have read this book。主语是 I。",
+      "tipsZh": "take it for granted that ... 认为……理所当然"
+    }
+  }
+}

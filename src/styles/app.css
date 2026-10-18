@@ -285,6 +285,8 @@ button.option:hover { background: var(--bg-hover); }
 .option.is-correct { background: var(--success-soft); }
 .option.is-correct .option-radio { border-color: var(--success); color: var(--success); }
 .option.is-correct .option-text { font-weight: var(--fw-bold); }
+/* picture options (choice options whose content is an image) */
+.option-image { display: block; max-width: 100%; max-height: var(--option-image-max-h); border-radius: var(--radius-xs); }
 .option-explain {
   display: flex; gap: var(--option-gap); align-items: flex-start;
   padding: var(--option-pad-y) var(--option-pad-x);

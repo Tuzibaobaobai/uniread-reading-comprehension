@@ -23,7 +23,7 @@ content/
 ## ID 规范（发布后永不变更）
 | 对象 | 格式 | 例 |
 |---|---|---|
-| Playlist | `ci-<book>` | `ci-g3`、`ci-xsc` |
+| Playlist | `ci-<book>` | `ci-g3`、`ci-g7`、`ci-xsc3`、`ci-zk` |
 | Item | `<playlist>-w<NN>-<mon…fri>` | `ci-g3-w01-mon` |
 | Block | 类型前缀 + 序号 | `p1` 段落、`h1` 标题、`l1` 列表、`d1` 对话、`n1` 便条、`t1` 表格、`i1` 图片位 |
 | Blank | `b<n>` | `b1` |

@@ -1,20 +1,22 @@
 # 01 · 内容盘点（Content Inventory）
 
-两本均为《Current Insights 时文阅读｜提分训练3+X》（上海学生英文报 编，华东理工大学出版社），扫描版 PDF，**无文字层、无答案**（答案在另册，未提供）。
+7 本均为《Current Insights 时文阅读｜提分训练3+X》（上海学生英文报 编，华东理工大学出版社），扫描版 PDF（带 OCR 文字层），各配一册答案（另册）。PDF 放在 `articles/`（不入库）；页码映射、周起始页、答案册页码集中在 `scripts/book-maps.mjs`。
 
-| | ci-g3 | ci-xsc |
-|---|---|---|
-| 文件 | `articles/小学英语时文阅读提分训练3+X3年级.pdf` | `articles/ssp时文 小升初.pdf` |
-| Playlist 标题 | 小学英语时文阅读｜提分训练3+X｜3年级 | 英语时文阅读｜提分训练3+X｜小升初 |
-| 页数 / 篇数 | 98 页 / 60 篇（12 周 × 5） | 122 页 / 90 篇（18 周 × 5） |
-| 页码换算 | 书页 N = PDF `p(N+9)` | 书页 N = PDF `p(N+8)` |
-| 目录页 | p006–p007 | p005–p008 |
-| 主题色 | 橙色 | 青色 |
-| 尾页 | p098 封底 | p122 = W18 Fri（无封底/答案） |
+| 合集 | 书 | 篇数 | 页码换算 | 讲解视频标记 | 版次 |
+|---|---|---|---|---|---|
+| ci-g3 | 小学 3 年级 | 60（12 周） | 书页 N = PDF p(N+9) | 每周精读（前言） | 2026.6 第 1 版 |
+| ci-g4 | 小学 4 年级 | 60（12 周） | 同上 | 每周精读（前言） | 2026.6 第 1 版 |
+| ci-g5 | 小学 5 年级 | 60（12 周） | 同上 | 每周精读（前言） | 2026.6 第 1 版 |
+| ci-xsc3 | 小升初 第 3 辑 | 90（18 周） | 同上 | 文章页标记 | 2026.5 第 1 版 |
+| ci-g7 | 初一 7 年级 第 3 辑 | 90（18 周） | 同上 | 文章页标记 | 2026.5 第 1 版 |
+| ci-g8 | 初二 8 年级 第 3 辑 | 90（18 周） | 同上 | 文章页标记 | 2026.5 第 1 版 |
+| ci-zk | 中考 第 3 辑 | 90（18 周） | 同上 | 文章页标记 | 2026.5 第 1 版 |
+
+> 旧版小升初（`ssp时文 小升初.pdf`，合集 `ci-xsc`，书页 N = PDF p(N+8)）已于 2026-10-18 移除，其 ID 退役不再复用。下文“每周结构”中的初中列以它为样本，各辑结构相同。
 
 ## 每周结构
 
-| 日 | 3年级 | 小升初 |
+| 日 | 小学（样本：3年级） | 初中各辑（样本：旧版小升初） |
 |---|---|---|
 | Mon / Tue | 阅读选择：3 选项 MCQ × 3–4 | 阅读理解：4 选项 MCQ × 5（偶有 3 选项、①–④ 组合题、词义/指代题、计算题；材料可为广告、时刻表、预订单、便条、对话） |
 | Wed | 完形填空：文中 5–6 空，A–C | 完形填空：文中 10 空，A–D，书中无指令行 |
@@ -47,32 +49,7 @@
 | 11 | Dr Dan the Pancake Man · 76 | Paella: Rice Dish From Spain · 77 | Smelling Mummies · 78 | 判 Fire Safety for Kids · 79 | Making Maths Fun with Colours · 80 |
 | 12 | The Young Mountain Climber · 82 | Karla Cares for Zoo Animals · 84 | Art Auction for a Park · 85 | 六 The Real Stars in Houtong Are Cats · 86 | New Ravens at the Tower of London · 87 |
 
-## 目录 · ci-xsc（小升初）
-书页 → PDF 页 +8。Mon/Tue = 阅读理解，Wed = 完形填空，Fri = 每周精读；Thu 题型：答=回答问题，词=选词填空，短=短文填空，七=七选五，表=表格填空，话=补全对话
-
-| W | Mon | Tue | Wed | Thu | Fri |
-|---|---|---|---|---|---|
-| 1 | The World’s Smallest Hotel: Central Hotel · 1 | Dancing Aunties in the Park · 2 | Black Friday: The Biggest Shopping Day in the U.S. · 4 | 答 “Nice,” but Not Always · 5 | The Nutty Bar · 7 |
-| 2 | Dining Etiquette: A Cultural Experience · 8 | Ginger: The Best Guide Dog in the World · 10 | Rules in Our Daily Life · 12 | 答 Are You Safe From Fraudsters? · 13 | A Rock Art Trail · 15 |
-| 3 | The Biggest Hello Kitty Fan · 16 | A TV Channel for Dogs · 17 | Different Foods Around the World · 18 | 答 Do You Really Know Your Heroes? · 19 | Lonely No More · 21 |
-| 4 | Jellycat: More Than a Toy · 22 | Tasty Guobaorou · 24 | Weekend Picnic With Family · 26 | 词 Growing an Open Mind · 27 | The Durian of Soup · 28 |
-| 5 | Mr. Green’s Diet · 29 | Warm Drinks for Winter · 30 | Healthy Eating Habits for Teenagers · 32 | 短 Beijing Gives First License to Robot Chefs · 33 | Leave No Litter Behind! · 34 |
-| 6 | Various Advertisements · 35 | The Lion’s Loyalty Test · 37 | Green People Taking Over the Earth · 39 | 七 Aiming for the Top · 40 | The Amazon River · 41 |
-| 7 | Cool New Gadgets for Everyday Problems · 42 | Welcome to Rick’s Porridge House · 44 | Mary, the Best Shop Assistant · 45 | 短 Are Smart Devices Useful? · 46 | Cast a Spell · 47 |
-| 8 | The Giving Tree · 48 | Lingling’s Change · 49 | The Underground: More Than Just Transport · 50 | 七 The Best Running Partner · 51 | *Loving Vincent* · 52 |
-| 9 | The Morning Commute Mishap · 53 | Tips for Staying Healthy · 54 | Jessica’s 14th Birthday Celebration · 55 | 表 Can Dogs Help You Read Better? · 56 | Paddington Bear Is in Prison! · 57 |
-| 10 | Jim and the TV Thieves · 58 | A Note From Father · 59 | A Lesson in Friendship · 60 | 话 A Trip to England · 61 | World Elephant Day · 62 |
-| 11 | Services Guide · 63 | The Mystery of Dinosaur Extinction · 65 | Air Travel Tips for First-Time Flyers · 67 | 短 My School Life and My Friends · 68 | Amazing Animal Teeth · 69 |
-| 12 | The Lady and the Hats · 71 | Bill’s Last Holiday Trip · 72 | Caroline and Her Family · 73 | 表 Is Mars Similar to Earth? · 74 | Do All Birds Fly South in the Winter? · 75 |
-| 13 | A Chance Meeting at the Airport · 76 | How Chicken Lost His Flight · 77 | A Day in the Life of a Dentist · 78 | 答 Keep Your Showers Short · 79 | Why Do Rabbits Have Long Ears? · 81 |
-| 14 | My First Spelling Competition · 82 | Millie’s Shopping Adventure · 83 | How to Look Great in Your School Uniform · 84 | 答 Let Me Help You Cross the Road! · 85 | What Is Banana Ketchup? · 87 |
-| 15 | Ferry Information Between Hong Kong Island and Lamma Island · 88 | Helen’s Flight Booking Details · 90 | The History and Future of Robots · 92 | 答 Some Dirty Drops in the World’s “Jar” · 93 | Colin the Caterpillar · 95 |
-| 16 | Enjoying a Picnic in Britain · 96 | The Talkative Speaker · 97 | The Future of Transportation · 98 | 答 The City of Camping Chairs · 99 | Biscuits and Gravy · 101 |
-| 17 | Spring Break Fun for U.S. Kids · 102 | Tips for Improving Your English · 104 | Understanding Typhoons: Formation and Safety Tips · 105 | 答 The Harder Way up the “Mountain” · 106 | A Day in Space · 108 |
-| 18 | How Birds Communicate Danger · 109 | Life on Mars in 2100 · 110 | The Impact of Water Pollution · 112 | 词 Webber the Treasure Hunter · 113 | Body Changes in Space · 114 |
-
 ## 已知原书问题
-- ci-xsc W7 Mon（p051）Q1 “Time Tem Glasses” 疑为排印错误
-- ci-xsc W7 Tue（p052）正文 “Rick’s” 与题目 “Rich’s” 不一致
-- ci-g3 W11 Tue（p086）信息框“建议用时”空缺
+- 原书和官方答案的疑似错误按原书照录，逐条提 GitHub issue（标签 `errata`），人工在 issue 中确认后再改
+- 原书缺“建议用时”的篇目按年级阅读速度加做题时间估算，方法记在 item 的 `errata`（见 docs/production-brief.md）
 - 处理方式见 [04-content-pipeline.md §5](04-content-pipeline.md)
