@@ -43,7 +43,7 @@ export const staticContent: ContentProvider = {
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ itemId: item.id, responses }),
     });
-    if (!res.ok) throw new Error(`grade ${res.status}`);
+    if (!res.ok) throw Object.assign(new Error(`grade ${res.status}`), { status: res.status });
     return res.json() as Promise<{ result: Result; key: ItemKeyT }>;
   },
   async getKey(item, responses) {

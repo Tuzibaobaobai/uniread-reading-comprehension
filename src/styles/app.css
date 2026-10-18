@@ -184,7 +184,7 @@ body:has(.playlist-page) { background: var(--bg-card); }
 .rt-list { padding-left: 1.4em; }
 .rt-list li { margin: .3em 0; }
 .rt-vocab { color: var(--accent-strong); font-weight: var(--fw-bold); }
-.rt-underline { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.rt-underline { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; text-decoration-skip-ink: none; } /* one continuous line under the whole phrase (#12) */
 .rt-gloss { color: var(--text-secondary); font-size: .72em; }
 .rt-dialogue { display: grid; gap: .45em; }
 .rt-dialogue-legend { margin: 0; color: var(--text-secondary); font-size: .8em; }
@@ -223,7 +223,8 @@ body:has(.playlist-page) { background: var(--bg-card); }
 .blank-chip-empty, .blank-num { color: var(--text-tertiary); font-weight: var(--fw-bold); font-size: .8em; }
 .blank-chip-hint, .blank-prefix { font-weight: var(--fw-bold); }
 .blank-chip-base, .blank-base { color: var(--text-secondary); font-size: .8em; margin-left: 4px; }
-.blank-chip-text, .blank-fill { font-weight: var(--fw-bold); color: var(--accent-strong); }
+/* answers on the line use their own colour, distinct from highlighted vocabulary (#10) */
+.blank-chip-text, .blank-fill { font-weight: var(--fw-bold); color: var(--answer-text); }
 .blank-chip.is-active, .context-blank.is-active, .gap-slot.is-active { border-bottom-color: var(--accent); background: var(--accent-soft); }
 .blank-chip.is-active .blank-chip-empty, .context-blank.is-active .blank-num { color: var(--accent-strong); }
 .blank-chip.is-correct, .gap-slot.is-correct { border-bottom-color: var(--success); }
@@ -325,7 +326,7 @@ button.option:hover { background: var(--bg-hover); }
 .blank-input:focus-within { border-bottom-color: var(--accent); background: var(--accent-soft); }
 .blank-input input {
   border: none; outline: none; font: inherit; font-size: max(var(--fs-m), 1em); min-width: 3em; padding: 4px 0;
-  background: transparent; color: var(--accent-strong); font-weight: var(--fw-bold);
+  background: transparent; color: var(--answer-text); font-weight: var(--fw-bold);
 }
 .blank-input input::placeholder { color: var(--text-tertiary); text-align: center; font-size: .8em; }
 .blank-input-prefix { font-weight: var(--fw-bold); }

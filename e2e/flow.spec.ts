@@ -7,10 +7,10 @@ const showQuestions = async (page: Page) => {
 
 test('playlists → playlist → item list', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('.playlist-card')).toHaveCount(3);
+  await expect(page.locator('.playlist-card')).toHaveCount(4);
   await page.locator('.playlist-card').first().click();
   await expect(page.getByText(/合集（\d+）/)).toBeVisible();
-  await expect(page.getByText('Week 1 Monday Tiny “Embryos” Begin Space Test')).toBeVisible();
+  await expect(page.locator('.item-row-title', { hasText: 'Tiny “Embryos” Begin Space Test' })).toBeVisible();
 });
 
 test('multiple choice: answer, unanswered warning, submit, review, restore', async ({ page }) => {
@@ -91,4 +91,29 @@ test('answer keys are not published as static files; grading goes through the AP
   await page.getByRole('button', { name: '仍然提交' }).click();
   await graded;
   await expect(page.locator('.question-dot.is-wrong')).toHaveCount(3);
+});
+
+test('grading service down: answers are kept and the message says so', async ({ page }) => {
+  await page.route('**/api/rc/grade', (route) => route.fulfill({ status: 404, body: 'NOT_FOUND' }));
+  await page.goto('/#/p/ci-g3/ci-g3-w01-mon');
+  await showQuestions(page);
+  await page.getByRole('radio', { name: /Stem cells/ }).click();
+  await page.locator('.question-dot').last().click();
+  await page.getByRole('button', { name: '提交' }).click();
+  await page.getByRole('button', { name: '仍然提交' }).click();
+  await expect(page.getByRole('alert')).toContainText('判分服务暂时不可用（404）');
+  await expect(page.locator('.question-dot.is-answered')).toHaveCount(1);
+});
+
+test('restore: answers and the last viewed (unanswered) question survive a reload', async ({ page }) => {
+  await page.goto('/#/p/ci-g3/ci-g3-w01-mon');
+  await showQuestions(page);
+  await page.getByRole('radio', { name: /Stem cells/ }).click();
+  await page.getByRole('button', { name: /^第 3 题/ }).click(); // unanswered
+  await page.reload();
+  await showQuestions(page);
+  await expect(page.locator('.question-dot.is-current')).toHaveAccessibleName(/^第 3 题/);
+  await expect(page.locator('.question-dot.is-answered')).toHaveCount(1);
+  await page.getByRole('button', { name: /^第 1 题/ }).click();
+  await expect(page.getByRole('radio', { name: /Stem cells/ })).toHaveAttribute('aria-checked', 'true');
 });

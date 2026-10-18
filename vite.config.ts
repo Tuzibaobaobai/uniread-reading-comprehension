@@ -4,6 +4,7 @@ import { rm } from 'node:fs/promises';
 import { glob } from 'node:fs/promises';
 import grade from './server/grade';
 import judge from './server/judge';
+import { findLeaks } from './server/private-check';
 
 /**
  * Serve the same API as the Vercel functions in dev and preview (docs/06), and keep answer keys
@@ -21,6 +22,9 @@ function api(): Plugin {
     configurePreviewServer: (server) => mount(server.middlewares),
     async closeBundle() {
       for await (const dir of glob('dist/playlists/*/keys')) await rm(dir, { recursive: true, force: true });
+      // fail the build if any answer / explanation text reached the public output (docs/14 §5)
+      const leaks = await findLeaks('dist');
+      if (leaks.length) throw new Error(`private answer material in public build:\n${leaks.slice(0, 10).join('\n')}`);
     },
   };
 }

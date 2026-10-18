@@ -8,6 +8,7 @@ UniRead reading-comprehension app. Start with docs/00-overview.md.
 - UI: structure/behaviour in docs/05-ui-spec.md; visuals come only from the Figma design system (docs/design/figma-registry.md). Docs never state visual values; code uses only tokens from `src/styles/tokens.css` (no colour/size literals in components).
 
 ## Content
+- UniRead production rules: docs/14-agent-production-rules.md (v0.3). Every content batch ends with a handoff doc in docs/handoff/ (template docs/14-production-handoff.template.md; inventory via `npx tsx scripts/handoff-inventory.ts`). Agent review ≠ human review: keys stay `reviewStatus: pending` until a person approves; never upgrade to official/approved to pass a check.
 - Item ids `<playlist>-w<NN>-<mon..fri>` are permanent. Questions `q<n>` numbered continuously per item; blanks `b<n>`.
 - Answers live only in `content/playlists/<pl>/keys/` — never inline them in items.
 - Every content change must pass `npm run validate -- <itemId>` with 0 errors; then `npm run build:index`.

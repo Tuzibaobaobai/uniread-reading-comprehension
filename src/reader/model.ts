@@ -43,8 +43,7 @@ export function blankText(fq: FlatQuestion | undefined, blankId: string, respons
     const id = r && typeof r === 'object' && !Array.isArray(r) ? r[blankId] : undefined;
     const entry = section.bank?.find((b) => b.id === id);
     if (!entry) return undefined;
-    const text = plainText(entry.content);
-    return text.split(' ').length > 4 ? id : text; // sentences show their letter
+    return entry.id; // word/sentence banks show only the option letter on the line (#11)
   }
   if (it.kind === 'textEntry') {
     const v = r && typeof r === 'object' && !Array.isArray(r) ? r[blankId] : undefined;
@@ -66,8 +65,7 @@ export function correctBlankText(fq: FlatQuestion, blankId: string, key: ItemKey
     if (it.kind === 'gapMatch') {
       const i = questionBlankIds(fq.q).indexOf(blankId);
       const id = k.correct[i];
-      const entry = fq.section.bank?.find((b) => b.id === id);
-      return entry ? `${id}. ${plainText(entry.content)}` : id;
+      return id; // option letter only, like the student's answer (#11)
     }
   }
   if ('slots' in k) return k.slots[blankId]?.accept[0];

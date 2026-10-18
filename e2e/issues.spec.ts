@@ -97,3 +97,40 @@ test('#8 scrollbars stay inside the rounded corners', async ({ page }) => {
   expect(gap.top).toBeGreaterThanOrEqual(gap.radius);
   expect(gap.bottom).toBeGreaterThanOrEqual(gap.radius);
 });
+
+test('#9 resource names show only the title', async ({ page }) => {
+  await page.goto('/#/p/ci-g7');
+  await expect(page.locator('.item-row-title').first()).toHaveText('Bye Bye, Balltze');
+  await page.goto('/#/p/ci-g7/ci-g7-w01-mon');
+  await expect(page.locator('.reader-head-title')).toHaveText('Bye Bye, Balltze');
+});
+
+test('#10 filled answers are coloured differently from highlighted words', async ({ page }) => {
+  await page.goto('/#/p/ci-g7/ci-g7-w01-thu');
+  await showQuestions(page);
+  await page.locator('.bank-entry', { hasText: 'control' }).click();
+  if (narrow(page)) await page.getByRole('tab', { name: '文章' }).click();
+  const filled = await page.locator('.blank-chip .blank-chip-text').first().evaluate((el) => getComputedStyle(el).color);
+  const vocab = await page.locator('.rt-vocab').first().evaluate((el) => getComputedStyle(el).color);
+  expect(filled).not.toBe(vocab);
+});
+
+test('#11 word-bank blanks show only the option letter', async ({ page }, info) => {
+  await page.goto('/#/p/ci-g7/ci-g7-w01-thu');
+  await showQuestions(page);
+  await page.getByRole('button', { name: /^第 2 题/ }).click();
+  await page.locator('.bank-entry', { hasText: 'master' }).click();
+  await page.getByRole('button', { name: /^第 2 题/ }).click();
+  await expect(page.locator('.question-scroll .gap-slot').first()).toHaveText('I');
+  if (narrow(page)) await page.getByRole('tab', { name: '文章' }).click();
+  await expect(page.locator('.blank-chip').nth(1)).toContainText('I');
+  await expect(page.locator('.blank-chip').nth(1)).not.toContainText('master');
+  await shot(page, info.project.name, '11-letter');
+});
+
+test('#12 underlined phrases are one continuous line', async ({ page }) => {
+  await page.goto('/#/p/ci-g7/ci-g7-w01-tue');
+  const u = page.locator('.rt-underline').first();
+  await expect(u).toHaveText('beat swords into plowshares');
+  await expect(u).toHaveCSS('text-decoration-skip-ink', 'none');
+});

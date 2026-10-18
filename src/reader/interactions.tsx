@@ -278,9 +278,7 @@ export function GapMatchView(props: InteractionProps) {
         aria-label={`空格 ${n.number ?? ''}${entryId ? `，已选 ${entryId}` : '，未作答'}`}
       >
         {entry ? (
-          <>
-            <b>{entry.id}</b> {plainText(entry.content).split(' ').length <= 4 ? plainText(entry.content) : ''}
-          </>
+          <b className="blank-fill">{entry.id}</b>
         ) : (
           (n.number ?? '　')
         )}

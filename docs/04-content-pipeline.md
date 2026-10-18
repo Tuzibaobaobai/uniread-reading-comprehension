@@ -66,6 +66,7 @@ PDF 是扫描件（无文字层、无答案页），内容靠 **页面图片 →
 | 短文填空 / 表格填空 / 句子补全（打字） | `textEntry`；文中/表中空格用 `blankIds`；题目句中空格放 `prompt`，一题可多空 |
 | 表格填空的表格 | 放在 section 的 `stimulus`（`table` block），表格里的空用 blank 节点；每空一个 textEntry 题（`blankIds:["b1"]`） |
 | 连线 | 一个 `match` 题，`left` id 用 `1..n`，`right` id 用 `A..`；整题一个题号，`points` = 左项数 |
+| **一对多连线 / 归类**（左边是 2–3 个类别，右边是带编号的句子，每句只属于一个类别） | 每个右边句子一道 `choice` 题（题号 = 书上编号，`prompt` = 句子），选项 = 左边类别（`A`、`B`…，各题相同）；section `instruction` 照抄原书连线指令；每题单独写 `explanationZh` 和 `evidence`（指向文中最小的对应句子，第一条用于“定位原文”）。交接文档注明原书题型为一对多连线 |
 | 回答问题 / 观点题 | `extendedText`，`"scoring":"judge"`（LLM 评分，见 docs/09）；有句子框架时放 `scaffold`；`points` = 要点数（通常 1–2） |
 | 猜词义（有选项） | `choice`；（无选项，填中文） | `textEntry`，prompt 中放 blank |
 | 用所给词的适当形式填空 | `textEntry`，blank 放 `prompt`，`hint.baseWord` = 括号里的词（不再把括号文字写进 prompt） |
@@ -111,8 +112,54 @@ PDF 是扫描件（无文字层、无答案页），内容靠 **页面图片 →
 - 词表词条只出现在标题中（标题为纯文本）时允许 validate 警告“never highlighted”
 - 表格左上角空表头写 `{"header":true,"content":[]}`
 - 书中无中文标题时从目录页补 `titleZh`
+- 词表词条有两种词性时写 `pos: "n. / v."`，`meaningZh` 用“；”分隔两种释义
+- 按行排列的短句（如口号、清单）：一组连续的行写成一个段落，行与行之间用 `br`（定位原文会把换行当作句子边界，只高亮对应的那一行）；没有特殊样式的引导语（如 “Not that...”）保留为普通文本，不改成 heading
+- 标题或彩色小标题中出现的词表词条不在正文高亮时，允许 validate 警告“never highlighted”（逐条在交接文档说明）
 - 7年级：文章页没有导读和 Words & Expressions 时，从答案册该篇的“导读”和词表照录（不要自拟）
 
 ## 6. 已知原书问题处理
 - 原书错别字（如 “Time Tem Glasses”）：正文照录修正后的文字，在 `errata` 记录 `{original, corrected, note}`
 - 题目跨页、文章跨页：合并为同一个 item，`source.pdfPages` 列全
+
+## 7. UniRead 交付规约（[docs/14](14-agent-production-rules.md) v0.3）
+
+每次生产或补齐都要满足以下要求，与上面的转录规范同时执行。
+
+**身份与范围**
+- 已有 Item／Section／Question／blank／选项／词块 ID 永不重编。题号只用于展示；内容换版、插题、重排或拆合时，在交接文档给出旧新 ID 映射。
+- 没有明确任务时，不批量重写已有题目或答案；不因样式更新重建题目身份。
+- 补充信息（平台映射、估算说明、版权、复核证据）写进交接文档，**不加进 strict JSON**，也不为“补齐字段”生成 UniRead 等级、Lexile、版权结论或考试限时。
+
+**元数据含义**
+- `gradeBand` 是学校年级（≠ UniRead L 等级）。
+- `difficulty` 是原书的“难度 N 级”。
+- `wordCount` 和 `suggestedMinutes` 取原书信息框；原书缺失时在 `errata` 记录估算方法，并在交接文档标“估算”。
+- `hasVideo` 只是原书标记，交付视频须另行说明。
+
+**复核状态**
+- 内容复核与答案复核分开记录。
+- Agent（包括独立复核 Agent）的自检只能写 `status.content: reviewed`，交接文档要写明“AI 复核，未人工复核”。
+- key 的 `reviewStatus` 只有人工确认后才能改为 `approved`，Agent 一律保持 `pending`。
+- 没有官方答案时 `answerSource` 为 `generated`，不得为通过检查改成 `official` 或 `approved`。
+
+**私有材料**
+- keys 只放在 `content/playlists/<pl>/keys/`，只由服务端读取。
+- 构建会删除公开产物中的 keys，并扫描解析和参考答案文本（`server/private-check.ts`），发现即失败。
+- 不把答案写进题干、选项、图片或页面代码。
+
+**资产**
+- 只用 `assets/...` 相对路径，不用外链、绝对路径或签名 URL。
+- 每篇的缩略图在“独立文件（裁自原书）”和“平台占位”之间选一种，无图题不强行裁图。
+
+**交互验证**
+- 新题型至少要有以下测试案例：未答、正常作答、清空或部分草稿、非法 ID、恢复，以及未答题的浏览位置（见 `src/lib/answer-semantics.test.ts` 和 e2e）。
+- 测试的期望值来自题意和规则，不能用待测实现生成。
+
+**交接**
+- 每批复制 [`14-production-handoff.template.md`](14-production-handoff.template.md)，生成 `docs/handoff/production-handoff.<批次>.md`，不覆盖模板。
+- 清单部分用 `npx tsx scripts/handoff-inventory.ts <playlistId…>` 生成，内容包括大题／材料映射、元数据来源、资产、key 位置与 sha256、题型平台状态。
+- 交接文档中记录真实执行的命令和结果；没运行的写“未运行”。
+
+**权限**
+- 规约不授权推送、部署、审批或发布。
+- `/api/rc/*` 和 localStorage 是 RC 原型适配器，不是 UniRead 保存接口。

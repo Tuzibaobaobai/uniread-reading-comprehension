@@ -42,7 +42,7 @@ export function ReaderPage() {
         <button className="back-button" onClick={() => navigate(`/p/${playlistId}`)} aria-label="返回合集">
           <img src={arrowLeft} alt="" />
         </button>
-        <span className="reader-head-title">{item?.displayName ?? ''}</span>
+        <span className="reader-head-title">{item?.title ?? ''}</span>
       </header>
       {error && <p className="error">加载失败：{error}</p>}
       {item && <Reader key={item.id} item={item} />}
@@ -57,7 +57,7 @@ function Reader({ item }: { item: ItemT }) {
   const owners = useMemo(() => blankOwners(flat), [flat]);
 
   const [attempt, setAttempt] = useState<AttemptT>(() => localAttempts.get(item.id) ?? newAttempt(item.id, item.status.version));
-  const [index, setIndex] = useState(() => Math.min(localAttempts.getPosition(item.id), flat.length - 1));
+  const [index, setIndex] = useState(() => Math.max(0, flat.findIndex((f) => f.q.id === localAttempts.getPosition(item.id))));
   const [key, setKey] = useState<ItemKeyT | null>(null);
   const [confirmOpen, setConfirmOpen] = useState(false);
   // narrow screens: open on the questions tab when coming back to review a submitted attempt
@@ -98,7 +98,7 @@ function Reader({ item }: { item: ItemT }) {
   );
 
   useEffect(() => {
-    localAttempts.setPosition(item.id, index);
+    if (flat[index]) localAttempts.setPosition(item.id, flat[index].q.id);
     document.querySelector('.question-dot.is-current')?.scrollIntoView({ block: 'nearest', inline: 'center' });
   }, [item.id, index]);
 
@@ -110,8 +110,13 @@ function Reader({ item }: { item: ItemT }) {
     let graded: Awaited<ReturnType<typeof staticContent.grade>>;
     try {
       graded = await staticContent.grade(item, responses);
-    } catch {
-      setSubmitError('提交失败，请检查网络后再试一次。');
+    } catch (e) {
+      // fetch rejects (TypeError) only when the request never reached a server
+      setSubmitError(
+        (e as { status?: number }).status
+          ? `判分服务暂时不可用（${(e as { status: number }).status}），你的答案已保存，请稍后再提交。`
+          : '网络连接失败，你的答案已保存，请检查网络后再提交。',
+      );
       return;
     }
     setKey(graded.key);

@@ -86,3 +86,28 @@ test('回答问题: no judge service → falls back to self-assessment', async (
   await expect(page.locator('.self-assess')).toBeVisible();
   await expect(page.locator('.judge')).toHaveCount(0);
 });
+
+
+test('一对多连线：每句一题、分页、单独反馈，定位原文精确到对应的那一行 (#13)', async ({ page }, info) => {
+  await page.goto('/#/p/ci-g5/ci-g5-w12-thu');
+  if (narrow(page)) await page.getByRole('tab', { name: /题目/ }).click();
+  await expect(page.locator('.question-dot')).toHaveCount(7);
+  await expect(page.locator('.q-prompt')).toContainText('I love to be challenged.');
+  await expect(page.getByRole('radio')).toHaveText(['A. Fixed Mindset', 'B. Growth Mindset']);
+  await page.getByRole('radio', { name: /Growth Mindset/ }).click(); // q1 right
+  await page.getByRole('button', { name: '下一题' }).click();
+  await page.getByRole('radio', { name: /Growth Mindset/ }).click(); // q2 wrong
+  await page.locator('.question-dot').last().click();
+  await page.getByRole('button', { name: '提交' }).click();
+  await page.getByRole('button', { name: '仍然提交' }).click();
+  await page.getByRole('button', { name: /^第 2 题/ }).click();
+  await expect(page.locator('.option.is-wrong')).toContainText('Growth Mindset');
+  await expect(page.locator('.option.is-correct .option-explain-text')).toContainText('Tell me I’m smart');
+  await page.getByRole('button', { name: '定位原文' }).click();
+  const hl = await page.evaluate(() => {
+    const h = (CSS as unknown as { highlights: Map<string, Set<Range>> }).highlights.get('evidence');
+    return h ? [...h].map((r) => r.toString()) : [];
+  });
+  expect(hl).toEqual(['Tell me I’m smart.']); // one line, not the whole Fixed Mindset paragraph
+  await page.screenshot({ path: `.work/screens/${info.project.name}/5-g5-per-statement.png` });
+});

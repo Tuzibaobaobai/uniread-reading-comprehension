@@ -22,27 +22,45 @@ const canon = (c: string) => {
 /** flatten a block's visible English text, keeping a map back to DOM positions */
 function flatten(root: HTMLElement) {
   const chars: Char[] = [];
+  const breaks = new Set<number>();
   let text = '';
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-    acceptNode: (n) => (n.parentElement?.closest(SKIP) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT),
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT, {
+    acceptNode: (n) =>
+      n.nodeType === Node.ELEMENT_NODE
+        ? (n as Element).tagName === 'BR'
+          ? NodeFilter.FILTER_ACCEPT
+          : NodeFilter.FILTER_SKIP
+        : n.parentElement?.closest(SKIP)
+          ? NodeFilter.FILTER_REJECT
+          : NodeFilter.FILTER_ACCEPT,
   });
-  for (let n = walker.nextNode() as Text | null; n; n = walker.nextNode() as Text | null) {
-    const s = n.data;
+  for (let n = walker.nextNode(); n; n = walker.nextNode()) {
+    if (n.nodeType === Node.ELEMENT_NODE) {
+      // a line break separates sentences in line-by-line text (never a range endpoint)
+      if (text && !text.endsWith(' ')) {
+        text += ' ';
+        chars.push(chars[chars.length - 1]);
+      }
+      if (text) breaks.add(text.length - 1);
+      continue;
+    }
+    const t = n as Text;
+    const s = t.data;
     for (let i = 0; i < s.length; i++) {
       const c = canon(s[i]);
       if (c === ' ' && (text.endsWith(' ') || text === '')) continue;
       text += c;
-      chars.push({ node: n, offset: i });
+      chars.push({ node: t, offset: i });
     }
   }
-  return { text, chars };
+  return { text, chars, breaks };
 }
 
 const END = /[.!?。！？]/;
 
 /** range covering the sentence(s) that contain `quote`, or null if the quote is not found */
 export function sentenceRange(block: HTMLElement, quote: string): Range | null {
-  const { text, chars } = flatten(block);
+  const { text, chars, breaks } = flatten(block);
   const q = [...quote.trim()].map(canon).join('').replace(/ +/g, ' ');
   const at = text.indexOf(q);
   if (at < 0 || !q) return null;
@@ -55,9 +73,10 @@ export function sentenceRange(block: HTMLElement, quote: string): Range | null {
     return j > 0 && END.test(text[j - 1]) && (i === text.length || text[i] === ' ');
   };
   let start = at;
-  while (start > 0 && !(text[start - 1] === ' ' && endsAt(start - 1))) start--;
+  // a sentence also starts / ends at a line break, punctuation or not
+  while (start > 0 && !(text[start - 1] === ' ' && (endsAt(start - 1) || breaks.has(start - 1)))) start--;
   let end = at + q.length; // exclusive
-  while (end < text.length && !endsAt(end)) end++;
+  while (end < text.length && !endsAt(end) && !breaks.has(end)) end++;
   const a = chars[start];
   const b = chars[end - 1];
   if (!a || !b) return null;

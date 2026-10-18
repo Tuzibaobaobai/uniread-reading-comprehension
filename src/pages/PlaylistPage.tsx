@@ -56,7 +56,7 @@ export function PlaylistPage() {
                       <span className="item-row-num">{it.order}</span>
                       <Thumb className="item-row-thumb" src={it.thumbnail} title={it.title} day={it.day} week={it.week} accent={pl.accent} />
                       <span className="item-row-text">
-                        <span className="item-row-title">{it.displayName}</span>
+                        <span className="item-row-title">{it.title}</span>
                         <span className="item-row-meta">
                           {[
                             it.taskType.labelZh,

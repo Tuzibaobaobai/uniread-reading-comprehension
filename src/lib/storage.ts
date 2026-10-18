@@ -5,9 +5,12 @@ export interface AttemptStore {
   get(itemId: string): AttemptT | null;
   save(attempt: AttemptT): void;
   clear(itemId: string): void;
-  /** current question index, a UI convenience kept separately from the attempt record */
-  getPosition(itemId: string): number;
-  setPosition(itemId: string, index: number): void;
+  /**
+   * last viewed question id — kept separately from the attempt record so an unanswered question
+   * can be the resume point (docs/14 §7: position is not inferred from the last answered question)
+   */
+  getPosition(itemId: string): string | null;
+  setPosition(itemId: string, questionId: string): void;
 }
 
 const PREFIX = 'uniread.rc.';
@@ -36,8 +39,11 @@ export const localAttempts: AttemptStore = {
     write(`attempt.${itemId}`, null);
     write(`pos.${itemId}`, null);
   },
-  getPosition: (itemId) => read<number>(`pos.${itemId}`) ?? 0,
-  setPosition: (itemId, i) => write(`pos.${itemId}`, i),
+  getPosition: (itemId) => {
+    const v = read<string | number>(`pos.${itemId}`);
+    return typeof v === 'string' ? v : null; // older builds stored an index — ignore it
+  },
+  setPosition: (itemId, questionId) => write(`pos.${itemId}`, questionId),
 };
 
 export function newAttempt(itemId: string, itemVersion: string): AttemptT {
@@ -53,4 +59,20 @@ export function newAttempt(itemId: string, itemVersion: string): AttemptT {
     responses: {},
     result: null,
   };
+}
+
+/** remove every saved attempt and position (development helper: /#/reset) */
+export function clearAllLocal(): number {
+  let n = 0;
+  try {
+    Object.keys(localStorage)
+      .filter((k) => k.startsWith(PREFIX))
+      .forEach((k) => {
+        localStorage.removeItem(k);
+        n++;
+      });
+  } catch {
+    /* storage unavailable */
+  }
+  return n;
 }
