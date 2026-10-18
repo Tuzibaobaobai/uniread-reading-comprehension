@@ -94,7 +94,7 @@ await writeFile(
 | \`production-selection.*.json\` | 机器选材清单（rc-selection-2），${selections.length} 份 |
 ${viewports.map((v) => `| \`rc-reference-screens-${v}.zip\` | 布局还原基线：来源页面作答前截图 · ${v}（${viewportShots[v]} 张） |`).join('\n')}
 
-通过受控渠道单独提供、不随 release 发布：答案键 \`rc-keys-private.zip\`（${keyFiles.length} 个文件）、复盘截图 \`rc-reference-review-private.zip\`（${reviewShots} 张，含答案）。
+私有材料不随 release 发布：答案键（${keyFiles.length} 个文件）在本 tag 的 \`content/playlists/<合集>/keys/\`；复盘截图（${reviewShots} 张，含答案）在本 tag 下运行 \`REFERENCE=1 npx playwright test e2e/reference.spec.ts\` 重新生成。流程见 HANDOFF.md §5。
 
 ## 相对 v0.3-handoff
 - 新增 330 篇：4 年级（60）、8 年级（90）、小升初第 3 辑（90）、中考第 3 辑（90），答案全部来自官方答案册

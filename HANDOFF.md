@@ -95,9 +95,28 @@
 | `production-selection.<paperId>.json` | 机器选材清单（`rc-selection-2`），每份逻辑试卷一份 |
 | `rc-reference-screens-<视口>.zip` | 布局还原基线：作答前的来源页面截图，按视口分 3 个包（desktop、ipad-landscape、ipad-portrait） |
 
-通过受控渠道单独提供、不放进 release 的：
-- 答案键 `rc-keys-private.zip`
-- 提交后的复盘截图 `rc-reference-review-private.zip`（含答案）
+**私有材料的交接流程**（答案键、提交后的复盘截图）
+
+私有材料不作为 release 附件发布，平台开发直接从 GitHub 上同一个 tag 获取：
+
+1. **答案键**（540 份）：在仓库 tag `v0.4-handoff` 的 `content/playlists/<合集>/keys/<itemId>.json`，与公开内容包里的 item 一一对应。
+   ```bash
+   git clone https://github.com/Tuzibaobaobai/uniread-reading-comprehension.git
+   cd uniread-reading-comprehension && git checkout v0.4-handoff
+   ls content/playlists/*/keys/*.json | wc -l      # 540
+   npm ci && npm run validate                       # item 与 key 一致：0 error
+   ```
+   tag 对应固定提交，文件完整性以 Git 提交哈希为准，无需另外的校验清单。
+2. **复盘截图**（提交后、显示答案，3 个视口共 1620 张）：在同一个 tag 下本地重新生成，内容与我方截图一致（像素可能因 Chrome 版本略有差异）。需要本机安装 Google Chrome。
+   ```bash
+   REFERENCE=1 npx playwright test e2e/reference.spec.ts
+   # 作答前：.work/reference/public/<视口>/   复盘：.work/reference/private/<视口>/
+   ```
+3. **平台侧要求**：
+   - key 只放在服务端，用于判分和提交后返回解析，不进入前端包、CDN 或公开接口（原型的做法见 §4）
+   - 复盘截图只用于布局和交互验收，不对外分发
+
+> ⚠️ **当前仓库是公开的**：上述答案键和原书内容实际上任何人都能看到。按产品决定暂不处理；正式上线前建议把仓库改为私有，或把 keys 移到只对平台开发开放的私有仓库。改为私有后，可改用 `node scripts/make-handoff-release.mjs <tag>` 生成的 `rc-keys-private.zip`、`rc-reference-review-private.zip` 作为 release 附件交付。
 
 **本地验证**（Node ≥ 22）：
 
