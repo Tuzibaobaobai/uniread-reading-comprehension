@@ -308,7 +308,8 @@ const ModelOutput = z.object({
   score: z.number(),
   languageIssues: z.array(z.object({ text: z.string(), fix: z.string(), noteZh: z.string().optional() })).default([]),
   feedbackZh: z.string(),
-  confidence: z.number(),
+  // occasionally omitted by the model: treat as uncertain (→ needsReview) instead of failing the judgement
+  confidence: z.number().default(0.5),
   flags: z.array(z.string()).default([]),
 });
 
@@ -418,7 +419,8 @@ export interface JudgeProvider {
 }
 
 /** POST /api/rc/judge — implemented by UniRead / server/judge.ts */
-export function httpJudge(url: string, timeoutMs = 20000): JudgeProvider {
+/** a little longer than the server's model limit (server/judge-core.ts MODEL_TIMEOUT_MS) */
+export function httpJudge(url: string, timeoutMs = 50000): JudgeProvider {
   return {
     async judge(call) {
       const ctrl = new AbortController();

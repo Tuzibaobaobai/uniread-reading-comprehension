@@ -34,7 +34,7 @@ for (const name of ['grade', 'judge', 'speak']) {
   await cp('content/playlists', `${out}/content/playlists`, { recursive: true });
   await writeFile(
     `${out}/.vc-config.json`,
-    JSON.stringify({ runtime: 'nodejs22.x', handler: 'index.mjs', launcherType: 'Nodejs', maxDuration: name === 'grade' ? 10 : 30 }, null, 2),
+    JSON.stringify({ runtime: 'nodejs22.x', handler: 'index.mjs', launcherType: 'Nodejs', maxDuration: name === 'grade' ? 10 : name === 'judge' ? 60 : 30 }, null, 2),
   );
   console.log(`${name} function → ${out}`);
 }

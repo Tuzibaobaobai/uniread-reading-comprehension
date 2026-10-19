@@ -13,6 +13,7 @@ import type { JudgementT } from '@schema';
 import { HttpError, loadItem } from './http';
 import { allQuestions } from '../src/lib/grading';
 import {
+  CAMBRIDGE_PROMPT_VERSION,
   JUDGE_OUTPUT_SCHEMA,
   buildJudgePrompt,
   buildJudgeRequest,
@@ -23,6 +24,9 @@ import {
 } from '../src/lib/judge';
 
 export { HttpError };
+
+/** model call limit — KET writing/speaking judgements usually take ~10 s but sometimes 25 s+ (function maxDuration is 60 s) */
+export const MODEL_TIMEOUT_MS = 45000;
 
 export interface Llm {
   model: string;
@@ -48,13 +52,16 @@ export function openAiCompatibleLlm(opts: { baseUrl: string; apiKey: string; mod
     const res = await fetch(`${opts.baseUrl.replace(/\/$/, '')}/chat/completions`, {
       method: 'POST',
       headers: { 'content-type': 'application/json', authorization: `Bearer ${opts.apiKey}` },
-      signal: AbortSignal.timeout(opts.timeoutMs ?? 25000),
+      signal: AbortSignal.timeout(opts.timeoutMs ?? MODEL_TIMEOUT_MS),
       body: JSON.stringify({
         model: opts.model,
         temperature: 0,
         max_tokens: 1024,
         stream: false,
         ...(jsonMode ? { response_format: { type: 'json_object' } } : {}),
+        // Cambridge marking (KET writing/speaking): no reasoning trace — 4–5 s instead of 10–35 s, same bands in tests
+        // (SiliconFlow hybrid models); a provider that rejects the flag gets the plain request below
+        ...(jsonMode && req.promptVersion === CAMBRIDGE_PROMPT_VERSION ? { enable_thinking: false } : {}),
         messages: [
           { role: 'system', content: system },
           { role: 'user', content: user },
@@ -67,7 +74,7 @@ export function openAiCompatibleLlm(opts: { baseUrl: string; apiKey: string; mod
     model: opts.model,
     async complete(req) {
       let res = await call(req, true);
-      // some models don't accept response_format: retry with the prompt-only JSON instruction
+      // some models don't accept response_format (or enable_thinking): retry with the prompt-only JSON instruction
       if (res.status === 400) res = await call(req, false);
       if (!res.ok) throw new HttpError(502, `model ${res.status}: ${(await res.text()).slice(0, 300)}`);
       const body = (await res.json()) as { choices?: { message?: { content?: string } }[] };
@@ -85,7 +92,7 @@ export function anthropicLlm(opts: { apiKey: string; model: string }): Llm {
       const res = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
         headers: { 'content-type': 'application/json', 'x-api-key': opts.apiKey, 'anthropic-version': '2023-06-01' },
-        signal: AbortSignal.timeout(25000),
+        signal: AbortSignal.timeout(MODEL_TIMEOUT_MS),
         body: JSON.stringify({
           model: opts.model,
           max_tokens: 1024,
