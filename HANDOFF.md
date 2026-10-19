@@ -89,7 +89,8 @@
 
 | 文件 | 内容 |
 | --- | --- |
-| `rc-content-public.zip` | catalog、playlist、item、图片（**不含 keys**） |
+| `rc-content-public.zip` | catalog、playlist、item、图片（**不含 keys**，不含音频） |
+| `rc-media-<合集>.zip` | 该合集的音频（KET/PET 听力，AAC 48 kbps 单声道）+ `MEDIA.json`（路径、大小、sha256、时长、引用位置）。音频不进 git，由 `scripts/audio.mjs` 从原始录音生成；请上传到 UniRead 自己的存储／CDN，item 按相同相对路径 `assets/<合集>/…` 引用 |
 | `MANIFEST.sha256` | 每个文件的 sha256 |
 | `production-handoff.md` | 内容交接清单，即 §2 的完整文档（含稳定题目 ID 和布局还原两节） |
 | `production-selection.<paperId>.json` | 机器选材清单（`rc-selection-2`），每份逻辑试卷一份 |

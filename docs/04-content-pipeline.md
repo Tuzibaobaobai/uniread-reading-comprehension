@@ -79,7 +79,7 @@ PDF 是扫描件（无文字层、无答案页），内容靠 **页面图片 →
 - 每题 `points: 1`（连线题 = 对数）
 
 ## 2.5 真题（KET / PET）
-真题按 [production-brief-ket.md](production-brief-ket.md) 生产。流程（省 token）：`scripts/render.swift` 渲染页图 → `scripts/ocr.swift` 本地 OCR（答案册另跑 `zh` 中文优先一遍，供中文详解）→ `scripts/audio.mjs` 转码音频 → 每套一个 Agent 结构化成 3 个 item + key → `npm run validate` + `npx tsx scripts/check-ket.ts <套>`（答案与答案册逐题比对）。已交付的时文阅读内容不改。
+真题按 [production-brief-ket.md](production-brief-ket.md) 生产。流程（省 token）：`scripts/render.swift` 渲染页图 → `scripts/ocr.swift` 本地 OCR（答案册另跑 `zh` 中文优先一遍，供中文详解）→ `scripts/audio.mjs` 转码音频（AAC 48 kbps 单声道；音频不进 git，交付时按合集打包为 `rc-media-<合集>.zip` + `MEDIA.json`，由 UniRead 托管到自己的存储／CDN，item 按相对路径 `assets/…` 引用）→ 每套一个 Agent 结构化成 3 个 item + key → `npm run validate` + `npx tsx scripts/check-ket.ts <套>`（答案与答案册逐题比对）。已交付的时文阅读内容不改。
 
 ## 3. 答案键规范（keys/）
 

@@ -1,8 +1,11 @@
 // Build the handoff release package (HANDOFF.md §5) into .work/release/<tag>/.
 //   node scripts/make-handoff-release.mjs v0.1-handoff
 // public/  → attach to the GitHub release:
-//   rc-content-public.zip   catalog + playlists (items, playlist.json) + assets — NO keys
+//   rc-content-public.zip   catalog + playlists (items, playlist.json) + image assets — NO keys, NO audio/video
 //   MANIFEST.sha256         sha256 of every file in the zip
+//   rc-media-<playlist>.zip audio/video of one playlist (gitignored; made by scripts/audio.mjs) + MEDIA.json
+//                           manifest {path, bytes, sha256, seconds, usedBy} — UniRead hosts these on its own CDN;
+//                           items keep referencing them by the same relative path (assets/<pl>/…)
 //   production-handoff.md   content handoff (docs/handoff/…)
 //   RELEASE_NOTES.md        release body
 //   production-selection.*.json   rc-selection-2 machine selection lists (docs/handoff/)
@@ -31,15 +34,46 @@ const list = async (pattern, exclude = () => false) => {
   return files.sort();
 };
 
-// public content (keys excluded)
+// public content (keys excluded; audio/video go in rc-media-<playlist>.zip)
 const isKey = (f) => /\/keys\//.test(f);
+const isMedia = (f) => /\.(m4a|mp3|mp4)$/i.test(f);
 const publicFiles = [
   'content/catalog.json',
   ...(await list('content/playlists/*/playlist.json')),
   ...(await list('content/playlists/*/items/*.json')),
   ...(await list('content/assets/**/*.*')),
-].filter((f) => !isKey(f) && existsSync(f));
+].filter((f) => !isKey(f) && !isMedia(f) && existsSync(f));
 if (publicFiles.some(isKey)) throw new Error('keys in public package');
+
+// media per playlist: every audio file an item references must exist (they are not in git — run scripts/audio.mjs)
+const media = new Map(); // playlist → [{path, seconds, usedBy}]
+for (const f of await list('content/playlists/*/items/*.json')) {
+  const item = JSON.parse(await readFile(f, 'utf8'));
+  for (const s of item.sections ?? []) {
+    if (!s.audio) continue;
+    const path = `content/${s.audio.src}`;
+    if (!existsSync(path)) throw new Error(`${item.id} ${s.id}: audio missing ${path} — run scripts/audio.mjs`);
+    const entries = media.get(item.playlistId) ?? [];
+    const e = entries.find((x) => x.path === path) ?? (entries.push({ path, seconds: s.audio.seconds, usedBy: [] }), entries.at(-1));
+    e.usedBy.push(`${item.id}/${s.id}`);
+    media.set(item.playlistId, entries);
+  }
+}
+const mediaZips = [];
+for (const [pl, entries] of [...media].sort()) {
+  const manifestJson = [];
+  for (const e of entries.sort((a, b) => a.path.localeCompare(b.path))) {
+    const bytes = (await readFile(e.path)).length;
+    manifestJson.push({ path: e.path.replace(/^content\//, ''), bytes, sha256: await sha(e.path), seconds: e.seconds, usedBy: e.usedBy });
+  }
+  const mDir = `${out}/media-${pl}`;
+  await mkdir(mDir, { recursive: true });
+  await writeFile(`${mDir}/MEDIA.json`, JSON.stringify({ playlist: pl, format: 'audio/mp4 (AAC, 48 kbps mono)', files: manifestJson }, null, 2) + '\n');
+  const zip = `rc-media-${pl}.zip`;
+  execFileSync('zip', ['-q', '-X', '-j', `${pub}/${zip}`, `${mDir}/MEDIA.json`]);
+  execFileSync('zip', ['-q', '-X', `${process.cwd()}/${pub}/${zip}`, ...manifestJson.map((m) => m.path)], { cwd: 'content' });
+  mediaZips.push({ zip, files: manifestJson.length, mb: manifestJson.reduce((n, m) => n + m.bytes, 0) / 1e6 });
+}
 
 const manifest = [];
 for (const f of publicFiles) manifest.push(`${await sha(f)}  ${f}`);
@@ -90,6 +124,7 @@ await writeFile(
 | --- | --- |
 | \`rc-content-public.zip\` | catalog、playlist、item、图片（${publicFiles.length} 个文件，**不含答案键**） |
 | \`MANIFEST.sha256\` | 上述文件的 sha256 |
+${mediaZips.map((m) => `| \`${m.zip}\` | 音频 ${m.files} 个（${m.mb.toFixed(1)} MB，AAC 48 kbps 单声道）+ \`MEDIA.json\`（路径、大小、sha256、时长、引用位置）；请上传到 UniRead 自己的存储／CDN，item 中按相同相对路径 \`assets/…\` 引用 |`).join('\n')}
 | \`production-handoff.md\` | 内容交接清单（UniRead 规约 v0.6 模板，含稳定题目 ID、布局还原两节） |
 | \`production-selection.*.json\` | 机器选材清单（rc-selection-2），${selections.length} 份 |
 ${viewports.map((v) => `| \`rc-reference-screens-${v}.zip\` | 布局还原基线：来源页面作答前截图 · ${v}（${viewportShots[v]} 张） |`).join('\n')}
@@ -122,5 +157,6 @@ ${viewports.map((v) => `| \`rc-reference-screens-${v}.zip\` | 布局还原基线
 
 console.log(`release package → ${out}`);
 console.log(`  public : rc-content-public.zip (${publicFiles.length} files), MANIFEST.sha256, production-handoff.md, RELEASE_NOTES.md`);
+console.log(`  public : ${mediaZips.map((m) => `${m.zip} (${m.files} files, ${m.mb.toFixed(1)} MB)`).join(', ') || 'no media'}`);
 console.log(`  public : ${selections.length} selection files, ${viewports.length} rc-reference-screens-<viewport>.zip (${shots} screenshots)`);
 console.log(`  private: rc-keys-private.zip (${keyFiles.length} keys), rc-reference-review-private.zip (${reviewShots}) — controlled delivery only`);
