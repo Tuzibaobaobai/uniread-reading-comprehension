@@ -22,6 +22,18 @@
     "intro": "三吨垃圾能变成什么？在一位艺术家手里，它成了一片五彩斑斓的森林。",
     "hasVideo": true
   },
+  "errata": [
+    {
+      "original": "III-5 连词成句词块：beach",
+      "corrected": "planet",
+      "note": "与正文 our planet 一致；经人工复核（GitHub #44）确认更正"
+    },
+    {
+      "original": "I-1 官方参考答案：Because thanks to them, our planet is not completely covered in trash.",
+      "corrected": "Thanks to them, our planet is not completely covered in trash.",
+      "note": "Because 与 thanks to 语义重复，去掉 Because；经人工复核（GitHub #44）确认更正"
+    }
+  ],
   "source": {
     "pdf": "小升初第3辑初中时文阅读提分训练3+X第3辑小升初.pdf",
     "pdfPages": [
@@ -793,7 +805,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "beach"
+                    "v": "planet"
                   }
                 ]
               }

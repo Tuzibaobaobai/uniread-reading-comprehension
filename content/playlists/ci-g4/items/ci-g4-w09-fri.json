@@ -23,6 +23,13 @@
     "hasVideo": true
   },
   "thumbnail": "assets/ci-g4/ci-g4-w09-fri-1.jpg",
+  "errata": [
+    {
+      "original": "q2：What did Stephen Hillenburg used to teach?",
+      "corrected": "What did Stephen Hillenburg use to teach?",
+      "note": "did 后应接动词原形；经人工复核（GitHub #29）确认更正"
+    }
+  ],
   "source": {
     "pdf": "小学英语时文阅读提分训练3+X4年级.pdf",
     "pdfPages": [
@@ -267,7 +274,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "What did Stephen Hillenburg used to teach?"
+                "v": "What did Stephen Hillenburg use to teach?"
               }
             ],
             "options": [

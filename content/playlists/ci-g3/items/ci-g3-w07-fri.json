@@ -332,7 +332,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Do every recipe in the book use real food?"
+                "v": "Does every recipe in the book use real food?"
               }
             ],
             "options": [
@@ -512,6 +512,13 @@
           }
         }
       ]
+    }
+  ],
+  "errata": [
+    {
+      "original": "I-3：Do every recipe in the book use real food?",
+      "corrected": "I-3：Does every recipe in the book use real food?",
+      "note": "主谓不一致；经人工复核（GitHub #17）确认更正"
     }
   ],
   "source": {

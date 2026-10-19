@@ -22,6 +22,18 @@
     "intro": "来看看美国那些奇奇怪怪的地名。",
     "hasVideo": true
   },
+  "errata": [
+    {
+      "original": "III-5：I have not yet to ___.",
+      "corrected": "I have not yet ___.",
+      "note": "句子框架与官方答案 come up with 不匹配，删去 to；经人工复核（GitHub #32）确认更正"
+    },
+    {
+      "original": "II 词形变换 4、5 所给词：(excited)、(strangely)",
+      "corrected": "(excite)、(strange)",
+      "note": "所给词应为原形；经人工复核（GitHub #32）确认更正"
+    }
+  ],
   "source": {
     "pdf": "初2第3辑初中时文阅读提分训练3+X第3辑8年级.pdf",
     "pdfPages": [
@@ -373,7 +385,7 @@
                 "t": "blank",
                 "id": "b4",
                 "hint": {
-                  "baseWord": "excited"
+                  "baseWord": "excite"
                 }
               },
               {
@@ -401,7 +413,7 @@
                 "t": "blank",
                 "id": "b5",
                 "hint": {
-                  "baseWord": "strangely"
+                  "baseWord": "strange"
                 }
               },
               {
@@ -561,7 +573,7 @@
               },
               {
                 "t": "text",
-                "v": "I have racked my brains, but I have not yet to "
+                "v": "I have racked my brains, but I have not yet "
               },
               {
                 "t": "blank",
