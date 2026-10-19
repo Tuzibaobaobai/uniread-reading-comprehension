@@ -1,0 +1,1865 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "ket1-t4-rw",
+  "playlistId": "ket1",
+  "order": 10,
+  "test": 4,
+  "paper": "reading_writing",
+  "title": "KET真题1-第4套-阅读与写作",
+  "displayName": "KET真题1-第4套-阅读与写作",
+  "taskType": {
+    "code": "exam_reading_writing",
+    "labelZh": "阅读与写作"
+  },
+  "meta": {
+    "exam": "A2 Key for Schools",
+    "durationMinutes": 60,
+    "totalMarks": 60
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ket1/ket1-t4-rw-1.jpg",
+        "alt": "Text message: Lisa, About our badminton match at the sports club this afternoon – I can’t find my racket anywhere. Do you have a spare one? Sebastian",
+        "w": 411,
+        "h": 365
+      },
+      {
+        "id": "img2",
+        "src": "assets/ket1/ket1-t4-rw-2.jpg",
+        "alt": "Text message: Mike, I looked online and there’s no bus to the beach on Saturday morning! My mum can’t drive us – is your dad free? Dave",
+        "w": 411,
+        "h": 382
+      },
+      {
+        "id": "img3",
+        "src": "assets/ket1/ket1-t4-rw-3.jpg",
+        "alt": "Email. From: Nancy. To: Fred. I didn’t copy down what our maths homework is for tomorrow. Can you have a look in your homework diary and email me?",
+        "w": 502,
+        "h": 440
+      },
+      {
+        "id": "img4",
+        "src": "assets/ket1/ket1-t4-rw-4.jpg",
+        "alt": "Notice: School Library. From next week library will open at 8.00 and close at 5.30 (Wednesdays 8.30–4.30). Speak to staff about booking a school laptop",
+        "w": 503,
+        "h": 456
+      },
+      {
+        "id": "img5",
+        "src": "assets/ket1/ket1-t4-rw-5.jpg",
+        "alt": "Notice: School Sports Day (This will take place in hall instead of field if it rains – check website) Friday, 28 September 9.00 a.m. – 3.00 p.m. Parents and friends welcome",
+        "w": 572,
+        "h": 566
+      },
+      {
+        "id": "img6",
+        "src": "assets/ket1/ket1-t4-rw-6.jpg",
+        "alt": "Text message: Joe, Did you discuss that homework with your teacher? Is it clearer now what she wants? I’m home now if you need to call. Mum",
+        "w": 471,
+        "h": 763
+      },
+      {
+        "id": "img7",
+        "src": "assets/ket1/ket1-t4-rw-7.jpg",
+        "alt": "Picture 1: Two girls are walking towards the doors of a concert hall with posters of a male singer on them.",
+        "w": 428,
+        "h": 328
+      },
+      {
+        "id": "img8",
+        "src": "assets/ket1/ket1-t4-rw-8.jpg",
+        "alt": "Picture 2: The singer is singing on stage in front of a big crowd of fans.",
+        "w": 430,
+        "h": 328
+      },
+      {
+        "id": "img9",
+        "src": "assets/ket1/ket1-t4-rw-9.jpg",
+        "alt": "Picture 3: The two girls are on stage singing together with the singer.",
+        "w": 433,
+        "h": 328
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "For each question, choose the correct answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Sebastian is asking Lisa if"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "she knows where the match is taking place."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "she can lend him some equipment."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "she is free to play badminton today."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ]
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Dave would like Mike to"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "check the bus timetable for Saturday."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "ask his father to give them a lift on Saturday."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "find out the quickest way to drive to the beach."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ]
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Nancy has lost her homework diary."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Nancy needs help with some difficult homework."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Nancy forgot to make a note of what she needs to do."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i3",
+              "type": "imageRef",
+              "image": "img3"
+            }
+          ]
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Library staff won’t have much time to help you next week."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Arrive early at the library if you would like to book a school laptop."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The times when you can visit the library will change soon."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i4",
+              "type": "imageRef",
+              "image": "img4"
+            }
+          ]
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "If the weather is bad, we will cancel sports day."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "All students should come to the hall at 9.00 a.m. on Friday."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Students can invite visitors to come and enjoy the day."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i5",
+              "type": "imageRef",
+              "image": "img5"
+            }
+          ]
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Mum is asking if Joe’s teacher"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "has changed his homework."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "helped him to understand his homework."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "needs to speak to her about his homework."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i6",
+              "type": "imageRef",
+              "image": "img6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h1",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "My trip to Rome"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "h2",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Rhodri"
+            }
+          ],
+          "level": 3
+        },
+        {
+          "id": "p1",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "I had a great time in Rome with my family. It was my first holiday outside my own country and I couldn’t wait to go. I found out all I could about Rome from the library and on the internet. Knowing about the history made seeing all the old buildings, like the Colosseum, much more interesting. We were able to do lots of sightseeing because the taxis and buses and the metro were cheap and fast."
+            }
+          ]
+        },
+        {
+          "id": "h3",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Patrick"
+            }
+          ],
+          "level": 3
+        },
+        {
+          "id": "p2",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "It was really hot when I arrived at Rome airport with my parents last summer. I loved walking around famous places like the Trevi Fountain, but all the cars and buses in the city sometimes made walking difficult. I really loved the food. The Italians have a special kind of ice cream called ‘gelato’ which is wonderful, but the best thing I had was a pizza at a local market. I also got some great things to take back for my friends."
+            }
+          ]
+        },
+        {
+          "id": "h4",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Josh"
+            }
+          ],
+          "level": 3
+        },
+        {
+          "id": "p3",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "It was so hot when my dad and I went to Rome last year that we usually waited until after the sun went down to explore the city on foot. During the day we went to museums, shops and restaurants. The pasta there is amazing, and I had some Italian ice cream, called ‘gelato’, for the first time. That was the thing I liked most. After a few days in Rome, we decided to take a train into the countryside for a day. It was nice to see all the small villages and farms."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who says it was easy to travel around in Rome?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Rhodri"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Patrick"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Josh"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who says he felt very excited before his holiday?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Rhodri"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Patrick"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Josh"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who says there was a lot of traffic in Rome?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Rhodri"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Patrick"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Josh"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who says he prepared carefully for his trip?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Rhodri"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Patrick"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Josh"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who says his favourite food on the trip was Italian ice cream?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Rhodri"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Patrick"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Josh"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who bought some things to give as gifts?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Rhodri"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Patrick"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Josh"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who took a short trip outside Rome?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Rhodri"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Patrick"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Josh"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h5",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "A wonderful year"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p4",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "em",
+              "v": "Ben Jones talks about his year of travel before studying at university."
+            }
+          ]
+        },
+        {
+          "id": "p5",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "I always knew I wanted to spend a year travelling before university. I wanted to see the world, improve my skiing, make new friends from other countries and, more than anything, try lots of things I’ve never done before."
+            }
+          ]
+        },
+        {
+          "id": "p6",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "The first place I visited was France. I’ve always loved the French language and I wanted to study it. Then, while I was there, I became interested in French food. I took some cooking lessons at a farmhouse in the French countryside, and learned to make lots of lovely dishes."
+            }
+          ]
+        },
+        {
+          "id": "p7",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Next, I visited Australia. My cousins live near the river in Sydney, so I had somewhere to stay. To begin with, we spent a lot of time sailing in their boat. But then I got a job in a hotel. It was great – the customers and staff were so friendly."
+            }
+          ]
+        },
+        {
+          "id": "p8",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "My last country was Japan, where I learned to become a skiing teacher. I planned to do a three-week course. But when I got there, I saw that I wasn’t actually that good, so I changed to a seven-week one. The course was amazing and afterwards I got a job with a skiing company."
+            }
+          ]
+        },
+        {
+          "id": "p9",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "The other teachers were very friendly and on our days off, we did activities like snowboarding. One weekend we even did winter camping. That was quite interesting, but it was cold, so I can’t say I slept well! Anyway, we’re all planning to meet up soon and I can’t wait."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What did Ben want to do during the year after he left school?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "try some different sports"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "have some new experiences"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "meet up with old friends"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why did Ben go to France?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to do a French cooking course"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to see the French countryside"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to learn to speak French"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Where did Ben live when he was in Australia?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "in the hotel where he worked"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "with members of his family"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "on a boat on the river"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why did Ben change his course in Japan?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He heard about a better one."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He knew he needed more practice."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He wasn’t enjoying the first one."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 1,
+          "skills": [
+            "attitude"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does Ben say about winter camping?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It wasn’t pleasant at night."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He would love to do it again soon."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It was the most interesting thing he’s ever done."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h6",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Eric Koston"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p10",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Eric Koston is one of the world’s best-known skateboarders. He was born in Thailand, but his family "
+            },
+            {
+              "t": "blank",
+              "id": "b19",
+              "number": 19
+            },
+            {
+              "t": "text",
+              "v": " to the US when he was a baby. His love of skateboarding began at the "
+            },
+            {
+              "t": "blank",
+              "id": "b20",
+              "number": 20
+            },
+            {
+              "t": "text",
+              "v": " of 11, when his older brother gave him a skateboard. It was an old, broken board, but he learned how to skateboard by watching other kids and then he "
+            },
+            {
+              "t": "blank",
+              "id": "b21",
+              "number": 21
+            },
+            {
+              "t": "text",
+              "v": " by himself every day."
+            }
+          ]
+        },
+        {
+          "id": "p11",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Three years later, he was so good that a company that made skateboards offered him a summer "
+            },
+            {
+              "t": "blank",
+              "id": "b22",
+              "number": 22
+            },
+            {
+              "t": "text",
+              "v": ". That’s when he "
+            },
+            {
+              "t": "blank",
+              "id": "b23",
+              "number": 23
+            },
+            {
+              "t": "text",
+              "v": " to make skateboarding his life. Since then, Eric has "
+            },
+            {
+              "t": "blank",
+              "id": "b24",
+              "number": 24
+            },
+            {
+              "t": "text",
+              "v": " many international competitions, made boarding videos and starred in a skateboarding video game. Now he owns a successful company making sports shoes and clothes."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b19",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "changed"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "moved"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "left"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b20",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "year"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "time"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "age"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b21",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "practised"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "taught"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "followed"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b22",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "career"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "job"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "work"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b23",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "thought"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "felt"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "decided"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b24",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "won"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "taken"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "tried"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "part": 5,
+      "label": "Part 5",
+      "instruction": "For each question, write the correct answer. Write ONE word for each gap.",
+      "material": [
+        {
+          "id": "n1",
+          "type": "note",
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "Hi everyone. My name is Juan and I’ve joined this website because I’m looking for a penfriend. I come "
+              },
+              {
+                "t": "strong",
+                "v": "(0) "
+              },
+              {
+                "t": "text",
+                "v": "from"
+              },
+              {
+                "t": "text",
+                "v": " Mexico and I live in a town called Playa del Carmen on the Caribbean Sea, near the city of Cancun. It’s not as famous "
+              },
+              {
+                "t": "blank",
+                "id": "b25",
+                "number": 25
+              },
+              {
+                "t": "text",
+                "v": " Cancun but I think it is one of "
+              },
+              {
+                "t": "blank",
+                "id": "b26",
+                "number": 26
+              },
+              {
+                "t": "text",
+                "v": " most beautiful places in Mexico."
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "Tourists come to Playa del Carmen from "
+              },
+              {
+                "t": "blank",
+                "id": "b27",
+                "number": 27
+              },
+              {
+                "t": "text",
+                "v": " over the world because the weather’s always warm and the food’s great. "
+              },
+              {
+                "t": "blank",
+                "id": "b28",
+                "number": 28
+              },
+              {
+                "t": "text",
+                "v": " fact, my friends and I go to the beach almost every day. It’s brilliant!"
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "Do you want "
+              },
+              {
+                "t": "blank",
+                "id": "b29",
+                "number": 29
+              },
+              {
+                "t": "text",
+                "v": " know more about Playa del Carmen? "
+              },
+              {
+                "t": "blank",
+                "id": "b30",
+                "number": 30
+              },
+              {
+                "t": "text",
+                "v": " you do, write to me soon."
+              }
+            ]
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b25"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b26"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b27"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b28"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b29"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b30"
+            ],
+            "maxWords": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "part": 6,
+      "label": "Part 6",
+      "instruction": "Read the email from your English friend, Casey. Write an email to Casey and answer the questions. Write 25 words or more.",
+      "questions": [
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 15,
+          "skills": [
+            "opinion"
+          ],
+          "material": [
+            {
+              "id": "n2",
+              "type": "note",
+              "content": [
+                [
+                  {
+                    "t": "strong",
+                    "v": "From: "
+                  },
+                  {
+                    "t": "text",
+                    "v": "Casey"
+                  }
+                ],
+                [
+                  {
+                    "t": "strong",
+                    "v": "To: "
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "Thanks for asking me to go with you to your art group on Saturday. What time does it start? What do I need to bring? How much does it cost?"
+                  }
+                ]
+              ]
+            }
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Read the email from your English friend, Casey."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write an email to Casey and answer the questions."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write "
+              },
+              {
+                "t": "strong",
+                "v": "25 words"
+              },
+              {
+                "t": "text",
+                "v": " or more."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 25
+          }
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "part": 7,
+      "label": "Part 7",
+      "instruction": "Look at the three pictures. Write the story shown in the pictures. Write 35 words or more.",
+      "questions": [
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 15,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the three pictures."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write the story shown in the pictures."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write "
+              },
+              {
+                "t": "strong",
+                "v": "35 words"
+              },
+              {
+                "t": "text",
+                "v": " or more."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 35
+          },
+          "material": [
+            {
+              "id": "i7",
+              "type": "imageRef",
+              "image": "img7"
+            },
+            {
+              "id": "i8",
+              "type": "imageRef",
+              "image": "img8"
+            },
+            {
+              "id": "i9",
+              "type": "imageRef",
+              "image": "img9"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "2021KET真题 - 第4套 - 阅读与写作.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "bookPages": [
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

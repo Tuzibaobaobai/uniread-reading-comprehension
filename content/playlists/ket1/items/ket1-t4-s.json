@@ -1,0 +1,183 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "ket1-t4-s",
+  "playlistId": "ket1",
+  "order": 12,
+  "test": 4,
+  "paper": "speaking",
+  "title": "KET真题1-第4套-口语",
+  "displayName": "KET真题1-第4套-口语",
+  "taskType": {
+    "code": "exam_speaking",
+    "labelZh": "口语"
+  },
+  "meta": {
+    "exam": "A2 Key for Schools",
+    "durationMinutes": 10,
+    "totalMarks": 30
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ket1/ket1-t4-s-1.jpg",
+        "alt": "Do you like these different school subjects? Pictures: a maths lesson with a teacher at the board; a student and a teacher looking at a map (geography); a history lesson with a picture of an old castle on the screen; two people doing an experiment in a science lab; students painting at easels in an art class.",
+        "w": 1200,
+        "h": 642
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "Answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 15,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about yourself, presents and free time."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "What’s your name?"
+              },
+              {
+                "id": "t2",
+                "text": "How old are you?"
+              },
+              {
+                "id": "t3",
+                "text": "Where do you live?"
+              },
+              {
+                "id": "t4",
+                "text": "Now, let’s talk about presents. What presents do you like to buy for your friends?"
+              },
+              {
+                "id": "t5",
+                "text": "When do you receive presents from your friends or family?"
+              },
+              {
+                "id": "t6",
+                "text": "Now, please tell me something about a present you received that you really liked."
+              },
+              {
+                "id": "t7",
+                "text": "Now, let’s talk about free time. Where do you usually watch films?"
+              },
+              {
+                "id": "t8",
+                "text": "Who do you spend your free time with?"
+              }
+            ],
+            "maxSeconds": 30,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Look at the pictures and talk about them with the examiner.",
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 15,
+          "skills": [],
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the pictures of different school subjects. Say if you like them and why or why not, then answer the examiner’s questions."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Here are some pictures that show different school subjects. Do you like these different school subjects? Say why or why not."
+              },
+              {
+                "id": "t2",
+                "text": "Do you think maths is important? Why? / Why not?"
+              },
+              {
+                "id": "t3",
+                "text": "Do you think geography is useful? Why? / Why not?"
+              },
+              {
+                "id": "t4",
+                "text": "Do you think history is interesting? Why? / Why not?"
+              },
+              {
+                "id": "t5",
+                "text": "Do you think science is fun? Why? / Why not?"
+              },
+              {
+                "id": "t6",
+                "text": "Do you think art is easy? Why? / Why not?"
+              },
+              {
+                "id": "t7",
+                "text": "So, which of these school subjects do you like best?"
+              },
+              {
+                "id": "t8",
+                "text": "Now, do you like learning alone or with a teacher? Why?"
+              },
+              {
+                "id": "t9",
+                "text": "What sort of homework do you prefer, reading something or writing something? Why?"
+              }
+            ],
+            "maxSeconds": 45,
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "2021KET真题 - 第4套 - 口语.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "bookPages": [
+      162,
+      81,
+      82,
+      83
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

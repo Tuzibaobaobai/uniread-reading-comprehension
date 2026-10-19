@@ -1,0 +1,1887 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "ket1-t3-rw",
+  "playlistId": "ket1",
+  "order": 7,
+  "test": 3,
+  "paper": "reading_writing",
+  "title": "KET真题1-第3套-阅读与写作",
+  "displayName": "KET真题1-第3套-阅读与写作",
+  "taskType": {
+    "code": "exam_reading_writing",
+    "labelZh": "阅读与写作"
+  },
+  "meta": {
+    "exam": "A2 Key for Schools",
+    "durationMinutes": 60,
+    "totalMarks": 60
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ket1/ket1-t3-rw-1.jpg",
+        "alt": "Text message: Toby, Thanks for inviting me to your badminton party at the sports club next Saturday afternoon. Will I know anyone else there? Ben",
+        "w": 420,
+        "h": 361
+      },
+      {
+        "id": "img2",
+        "src": "assets/ket1/ket1-t3-rw-2.jpg",
+        "alt": "Notice: Summer show. I have some great actors and dancers but still need people who play instruments. We practise Tuesdays and Thursdays after school. Mrs Jenkins",
+        "w": 480,
+        "h": 467
+      },
+      {
+        "id": "img3",
+        "src": "assets/ket1/ket1-t3-rw-3.jpg",
+        "alt": "Notice: Are you an excellent swimmer and over 10 years old? Then you can join the sailing club! Thursdays 5 – 8 p.m. Only £50 per term",
+        "w": 476,
+        "h": 456
+      },
+      {
+        "id": "img4",
+        "src": "assets/ket1/ket1-t3-rw-4.jpg",
+        "alt": "Text message: Justin, Have you still got that history book of mine? Could you let me have it back because Rob needs it for the weekend? Sally",
+        "w": 458,
+        "h": 657
+      },
+      {
+        "id": "img5",
+        "src": "assets/ket1/ket1-t3-rw-5.jpg",
+        "alt": "Text message: Serena, I saw your text about Dad’s birthday present, but we always get him socks! What about sunglasses? Mum can take us to get some. Karin",
+        "w": 457,
+        "h": 653
+      },
+      {
+        "id": "img6",
+        "src": "assets/ket1/ket1-t3-rw-6.jpg",
+        "alt": "Notice: City Library. Library computers are for members only – ask receptionist about becoming a member.",
+        "w": 504,
+        "h": 406
+      },
+      {
+        "id": "img7",
+        "src": "assets/ket1/ket1-t3-rw-7.jpg",
+        "alt": "Picture 1: A boy and a girl are looking at a treasure map; the girl points to an X next to a tree.",
+        "w": 430,
+        "h": 330
+      },
+      {
+        "id": "img8",
+        "src": "assets/ket1/ket1-t3-rw-8.jpg",
+        "alt": "Picture 2: In a park, the boy reaches into a hole in a big tree while the girl watches.",
+        "w": 429,
+        "h": 330
+      },
+      {
+        "id": "img9",
+        "src": "assets/ket1/ket1-t3-rw-9.jpg",
+        "alt": "Picture 3: The boy and the girl smile as they look at an open bag full of coins.",
+        "w": 429,
+        "h": 330
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "For each question, choose the correct answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Ben wants to know"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "who is going to the party."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "what they’re going to do at the party."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "what time the party starts."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ]
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "For the show, Mrs Jenkins is looking for"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "some better actors and dancers."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "anyone with free time this summer."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "students who are good at music."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ]
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "New members of any age are welcome to join the club."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "You must be able to swim to become a member of the club."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "There is a special price for new members who join the club on Thursday."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i3",
+              "type": "imageRef",
+              "image": "img3"
+            }
+          ]
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What should Justin do?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "lend the book to Rob when he’s finished reading it"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "return the book so that someone else can read it"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "use the book over the weekend"
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i4",
+              "type": "imageRef",
+              "image": "img4"
+            }
+          ]
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Karin doesn’t agree with Serena about what to buy their father."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Karin thinks their mother will have better ideas for a present."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Karin doesn’t know what to buy her father for his birthday."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i5",
+              "type": "imageRef",
+              "image": "img5"
+            }
+          ]
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "You need to ask the receptionist which computers you can use."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Only people who work at the library can use the computers."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "If you join the library, you can use the computers."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i6",
+              "type": "imageRef",
+              "image": "img6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h1",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "A great science teacher"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p1",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "em",
+              "v": "Three teenagers talk about their science teachers."
+            }
+          ]
+        },
+        {
+          "id": "h2",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Joshua"
+            }
+          ],
+          "level": 3
+        },
+        {
+          "id": "p2",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Mrs Philips was my science teacher when I joined my school and she still is, so I don’t know what the other teachers are like. But I think Mrs Philips is amazing. Her lessons always seem to go really fast – she gives us so much great stuff to do. Even when we think something is too hard for us, she says she knows we can all do it, and she’s usually right! She also shows us drawings, photos and websites to explain how things work, which I love."
+            }
+          ]
+        },
+        {
+          "id": "h3",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Dan"
+            }
+          ],
+          "level": 3
+        },
+        {
+          "id": "p3",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "I have a fantastic science teacher called Mrs Rhodes. She loves her subject – especially plants. She is able to draw wonderful pictures of them on the board, which helps us understand them. She never seems to get tired or bored when she’s teaching. She takes time to get to know each student in the class so that she can help them better. I think she’s the reason I want to be a science teacher one day."
+            }
+          ]
+        },
+        {
+          "id": "h4",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Chris"
+            }
+          ],
+          "level": 3
+        },
+        {
+          "id": "p4",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "In just one year, Mrs James has become my favourite teacher. Until I joined her class, I was very bad at science, but she explained things so well that I soon understood them better. My marks went up almost immediately. She’s always happy to spend extra time with us at the end of lessons if we’re having problems. But it isn’t just teaching that makes her great. She’s also interested in our lives and gives advice on how to be a better person."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who says his teacher helps with things other than science?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Joshua"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Dan"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Chris"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who says his teacher is really interested in what she teaches?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Joshua"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Dan"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Chris"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who says his teacher believes every student can be successful?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Joshua"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Dan"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Chris"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who says he has chosen his future career because of his teacher?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Joshua"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Dan"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Chris"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who says his teacher helped him to improve quickly?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Joshua"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Dan"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Chris"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who says he’s only ever had one science teacher at his school?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Joshua"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Dan"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Chris"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who says his teacher is very good at drawing?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Joshua"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Dan"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Chris"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h5",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Callie Rice – ice dancer"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p5",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Growing up, I was in an ice-skating club, and my friends and I did lots of competitions. When I was 18, I entered a big one in Italy, and I came first. The prize was a job as an ice dancer in a big show. That’s how my career started."
+            }
+          ]
+        },
+        {
+          "id": "p6",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "One of the things I love about the shows is the beautiful clothes. The only trouble is that sometimes they’re heavy and I get very hot. Also, I have to change lots of times in one show. The people who make the clothes are very clever – it’s amazing how quickly they work!"
+            }
+          ]
+        },
+        {
+          "id": "p7",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Before the show starts, we get dressed, put our skates on, and wish each other good luck. Then, while I’m waiting to go on, I like to sit quietly by myself and think about what I’m going to do. The other skaters chat together or listen to music."
+            }
+          ]
+        },
+        {
+          "id": "p8",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "In the shows, we have to dance, sing, and also speak. For me, ice dancing is fine, but I’m not an actor. I’m always a bit scared I won’t remember the words. I’m not bothered about falling – it doesn’t usually happen. And I really enjoy joining in with all the songs."
+            }
+          ]
+        },
+        {
+          "id": "p9",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "People always ask me if I’m tired when each show finishes, but I love skating, so I never feel that way. I love listening to the people who came to watch – so excited as they leave, talking about what they’ve seen. That’s when I’m really happy I chose ice dancing as a career."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How did Callie’s career as an ice dancer begin?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "She won a competition."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "She saw an advert for a job."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A friend invited her to join an ice show."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does Callie say about the clothes she wears?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Some are prettier than others."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It’s hard to skate in them."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Making them takes a long time."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does Callie do just before each show?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "She talks to the other skaters."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "She checks her skates are okay."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "She takes a moment to be alone."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does Callie worry about?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "having an accident on the ice"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "forgetting what she has to say"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "dancing and singing at the same time"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How does Callie usually feel after a show?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "ready for a rest"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "glad that she’s finished"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "pleased about making people happy"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h6",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Art you can eat"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p10",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Yujia Hu was born in China, but moved to Milan, in Italy, when he was eight. His family have a Japanese restaurant there. When Yujia left school, he "
+            },
+            {
+              "t": "blank",
+              "id": "b19",
+              "number": 19
+            },
+            {
+              "t": "text",
+              "v": " a course at an art school, but he didn’t complete it. "
+            },
+            {
+              "t": "blank",
+              "id": "b20",
+              "number": 20
+            },
+            {
+              "t": "text",
+              "v": ", he went to work in the family restaurant as a sushi chef. Sushi is a Japanese dish made of rice, with fish and vegetables."
+            }
+          ]
+        },
+        {
+          "id": "p11",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Yujia is a big "
+            },
+            {
+              "t": "blank",
+              "id": "b21",
+              "number": 21
+            },
+            {
+              "t": "text",
+              "v": " of basketball, and a few years ago he "
+            },
+            {
+              "t": "blank",
+              "id": "b22",
+              "number": 22
+            },
+            {
+              "t": "text",
+              "v": " to start using sushi to make models of the faces of famous players. His next idea was to make little shoes, usually trainers, out of sushi. It "
+            },
+            {
+              "t": "blank",
+              "id": "b23",
+              "number": 23
+            },
+            {
+              "t": "text",
+              "v": " him about 30 minutes to make each shoe. Yujia doesn’t serve the sushi shoes to customers at his family’s restaurant, but he "
+            },
+            {
+              "t": "blank",
+              "id": "b24",
+              "number": 24
+            },
+            {
+              "t": "text",
+              "v": " photographs of them online."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b19",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "got"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "held"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "began"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b20",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Instead"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Really"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Maybe"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b21",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "partner"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "fan"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "member"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b22",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "believed"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "understood"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "decided"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b23",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "spends"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "takes"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "delays"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b24",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "sends"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "shares"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "joins"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "part": 5,
+      "label": "Part 5",
+      "instruction": "For each question, write the correct answer. Write ONE word for each gap.",
+      "material": [
+        {
+          "id": "n1",
+          "type": "note",
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "From: "
+              },
+              {
+                "t": "text",
+                "v": "Jason"
+              }
+            ],
+            [
+              {
+                "t": "strong",
+                "v": "To: "
+              },
+              {
+                "t": "text",
+                "v": "Mum"
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "We "
+              },
+              {
+                "t": "strong",
+                "v": "(0) "
+              },
+              {
+                "t": "text",
+                "v": "are all having a great time camping in the forest. My class has got "
+              },
+              {
+                "t": "blank",
+                "id": "b25",
+                "number": 25
+              },
+              {
+                "t": "text",
+                "v": " best place on the campsite, with a great view of the mountains."
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "Last night, "
+              },
+              {
+                "t": "blank",
+                "id": "b26",
+                "number": 26
+              },
+              {
+                "t": "text",
+                "v": " rained really hard. Lots of people got wet, "
+              },
+              {
+                "t": "blank",
+                "id": "b27",
+                "number": 27
+              },
+              {
+                "t": "text",
+                "v": " I was lucky my new tent stayed dry all night! I’m really glad we decided to buy it. It’s much better "
+              },
+              {
+                "t": "blank",
+                "id": "b28",
+                "number": 28
+              },
+              {
+                "t": "text",
+                "v": " my old one."
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "By the way, I forgot "
+              },
+              {
+                "t": "blank",
+                "id": "b29",
+                "number": 29
+              },
+              {
+                "t": "text",
+                "v": " tell the football coach that I’m away "
+              },
+              {
+                "t": "blank",
+                "id": "b30",
+                "number": 30
+              },
+              {
+                "t": "text",
+                "v": " the moment. Can you let him know that I can’t come to practice this week?"
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "Thanks!"
+              }
+            ]
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b25"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b26"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b27"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b28"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b29"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b30"
+            ],
+            "maxWords": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "part": 6,
+      "label": "Part 6",
+      "instruction": "Write an email to Chris and answer the questions. Write 25 words or more.",
+      "questions": [
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 15,
+          "skills": [
+            "opinion"
+          ],
+          "material": [
+            {
+              "id": "n2",
+              "type": "note",
+              "content": [
+                [
+                  {
+                    "t": "strong",
+                    "v": "From: "
+                  },
+                  {
+                    "t": "text",
+                    "v": "Chris"
+                  }
+                ],
+                [
+                  {
+                    "t": "strong",
+                    "v": "To: "
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "Please tell me about the cycle race on Saturday. Where is it? What time does it begin? What do I need to bring?"
+                  }
+                ]
+              ]
+            }
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Read the email from your English friend, Chris."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write an email to Chris and answer the questions."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write "
+              },
+              {
+                "t": "strong",
+                "v": "25 words"
+              },
+              {
+                "t": "text",
+                "v": " or more."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 25
+          }
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "part": 7,
+      "label": "Part 7",
+      "instruction": "Look at the three pictures. Write the story shown in the pictures. Write 35 words or more.",
+      "questions": [
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 15,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the three pictures."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write the story shown in the pictures."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write "
+              },
+              {
+                "t": "strong",
+                "v": "35 words"
+              },
+              {
+                "t": "text",
+                "v": " or more."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 35
+          },
+          "material": [
+            {
+              "id": "i7",
+              "type": "imageRef",
+              "image": "img7"
+            },
+            {
+              "id": "i8",
+              "type": "imageRef",
+              "image": "img8"
+            },
+            {
+              "id": "i9",
+              "type": "imageRef",
+              "image": "img9"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "2021KET真题 - 第3套 - 阅读与写作.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "bookPages": [
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,1901 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "ket1-t2-rw",
+  "playlistId": "ket1",
+  "order": 4,
+  "test": 2,
+  "paper": "reading_writing",
+  "title": "KET真题1-第2套-阅读与写作",
+  "displayName": "KET真题1-第2套-阅读与写作",
+  "taskType": {
+    "code": "exam_reading_writing",
+    "labelZh": "阅读与写作"
+  },
+  "meta": {
+    "exam": "A2 Key for Schools",
+    "durationMinutes": 60,
+    "totalMarks": 60
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ket1/ket1-t2-rw-1.jpg",
+        "alt": "Notice: Fashionista Clothes. Please keep the receipt – you cannot return anything without it.",
+        "w": 479,
+        "h": 284
+      },
+      {
+        "id": "img2",
+        "src": "assets/ket1/ket1-t2-rw-2.jpg",
+        "alt": "Text message: Luke, Thanks for asking me to go to the cinema. It sounds fun, but I’m afraid I’ve got too much homework. Maybe some other time. Sally",
+        "w": 411,
+        "h": 382
+      },
+      {
+        "id": "img3",
+        "src": "assets/ket1/ket1-t2-rw-3.jpg",
+        "alt": "Text message: Did anyone pick up my biology textbook by mistake after our science lesson in the library? I don’t mind coming to get it from you. Jessica",
+        "w": 411,
+        "h": 380
+      },
+      {
+        "id": "img4",
+        "src": "assets/ket1/ket1-t2-rw-4.jpg",
+        "alt": "Text message: Laila, I’m visiting my grandparents this weekend so I can’t meet you to finish our art project. Are you free this Thursday instead? Nathan",
+        "w": 412,
+        "h": 434
+      },
+      {
+        "id": "img5",
+        "src": "assets/ket1/ket1-t2-rw-5.jpg",
+        "alt": "Advertisement: 24 hour sale! Download any 10 songs for 99p. Then £1.99 per song as usual",
+        "w": 532,
+        "h": 280
+      },
+      {
+        "id": "img6",
+        "src": "assets/ket1/ket1-t2-rw-6.jpg",
+        "alt": "Text message: Aaron, Thanks for lending me your bike. I’ll bring it back as soon as mine is repaired. It might be ready by next weekend. Stella",
+        "w": 412,
+        "h": 434
+      },
+      {
+        "id": "img7",
+        "src": "assets/ket1/ket1-t2-rw-7.jpg",
+        "alt": "Picture 1: A boy in a striped T-shirt is sitting on the grass in a park reading a book, while two boys play basketball on a court behind him.",
+        "w": 425,
+        "h": 328
+      },
+      {
+        "id": "img8",
+        "src": "assets/ket1/ket1-t2-rw-8.jpg",
+        "alt": "Picture 2: The ball comes towards the boy and he catches it; his book is on the grass and the two boys are looking at him.",
+        "w": 428,
+        "h": 328
+      },
+      {
+        "id": "img9",
+        "src": "assets/ket1/ket1-t2-rw-9.jpg",
+        "alt": "Picture 3: The boy in the striped T-shirt is playing basketball with the two other boys.",
+        "w": 427,
+        "h": 328
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "For each question, choose the correct answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Make sure that your receipt is correct before you leave the shop."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "If you want to bring something back to this shop, you need a receipt."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Someone will check your receipt when you go out of the shop."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ]
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Sally is telling Luke"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "why she is too busy to see a movie."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "which homework she needs to complete."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "when she will be available to see a movie."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ]
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jessica needs to borrow a textbook from someone in her science class."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jessica wants someone from her science class to bring her textbook to her."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jessica is hoping someone in her science class has found her textbook."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i3",
+              "type": "imageRef",
+              "image": "img3"
+            }
+          ]
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why did Nathan write the message?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to check if Laila can work on their art project over the weekend"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to tell Laila he won’t be able to complete the project on his own"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to ask Laila if she’s able to meet him earlier than they planned"
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i4",
+              "type": "imageRef",
+              "image": "img4"
+            }
+          ]
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "You have 24 hours to buy as many songs as you like for 99p each."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The cost of each song is £1.99 after you buy more than ten songs."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Some popular songs that cost £1.99 aren’t included in the sale."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i5",
+              "type": "imageRef",
+              "image": "img5"
+            }
+          ]
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Stella is checking when Aaron will need his bike back."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Stella can’t say exactly when she will be able to return Aaron’s bike."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Stella wants to know if she can borrow Aaron’s bike until next weekend."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i6",
+              "type": "imageRef",
+              "image": "img6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h1",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "How three young people became DJs"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "h2",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "DJ Fire"
+            }
+          ],
+          "level": 3
+        },
+        {
+          "id": "p1",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "This Russian DJ grew up travelling with his parents who were in a rock band. He started learning piano at four, and drums at twelve. As a teenager, he wrote songs and posted them online as a hobby. Then, at 20, a music company started paying him to write songs for pop bands – and some have been on the radio. Later he became interested in electronic music and started playing it in clubs. He’s hoping to get an invitation to play at some international festivals this summer."
+            }
+          ]
+        },
+        {
+          "id": "h3",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "DJ Goldrock"
+            }
+          ],
+          "level": 3
+        },
+        {
+          "id": "p2",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "This South African DJ started playing the piano when he was 5. At 15, he played pop songs at a cousin’s birthday party, and got a hundred kids dancing. At that moment, he knew he wanted to be a DJ and never have a normal job. He started a website where he played his favourite songs, and soon had lots of fans. He’s now 20 and has his own show on national radio. For the past three years, he’s spent his summers going around the world playing dance music at festivals."
+            }
+          ]
+        },
+        {
+          "id": "h4",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "DJ Mango"
+            }
+          ],
+          "level": 3
+        },
+        {
+          "id": "p3",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "At 15, this Brazilian DJ’s parents gave him a new computer and DJ equipment for making electronic dance music. Later that year, he started playing music at local dance parties to make some extra money, and the parties just got bigger and bigger. A few years later, a journalist asked him why he became a DJ. He said that as a child his dream was to play the electric guitar for a rock group, but he wasn’t good enough!"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who travels to different countries every year to play his music?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Fire"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Goldrock"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Mango"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who comes from a family of musicians?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Fire"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Goldrock"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Mango"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who was paid to make music as a teenager?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Fire"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Goldrock"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Mango"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who knows how to play more than one musical instrument?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Fire"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Goldrock"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Mango"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who works for a radio station?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Fire"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Goldrock"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Mango"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who writes music for other musicians?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Fire"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Goldrock"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Mango"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who wanted to play in a band when he was younger?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Fire"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Goldrock"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "DJ Mango"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h5",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "A path across Canada"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p4",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "em",
+              "v": "Thirteen-year-old Kara Finch writes about The Great Trail – a footpath that goes across Canada."
+            }
+          ]
+        },
+        {
+          "id": "p5",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "The Great Trail goes from one side of Canada to the other. At 24,000 km, it is the longest trail in the world. The Great Trail project began in 1992 and took 25 years to complete. It opened in 2017, exactly 150 years after Canada became one country."
+            }
+          ]
+        },
+        {
+          "id": "p6",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "The Great Trail is actually lots of paths joined together. You can cycle, walk or horse-ride on most of it, but there are parts where the only way you can travel is by boat. And there are others where the trail is part of the highway, which doesn’t sound very safe to me."
+            }
+          ]
+        },
+        {
+          "id": "p7",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "My father and I spent a day walking along part of The Great Trail that was surprisingly busy. We were told you don’t usually see bears when there are lots of people, but we did. It was moving through the trees, quite close to us, and I felt a little afraid. ‘I don’t think it’s hungry!’ laughed my dad."
+            }
+          ]
+        },
+        {
+          "id": "p8",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "At lunchtime, we talked to an old man on the trail. Dad asked him if he thought the path was going to help Canadians learn more about their countryside. ‘Not really,’ he said. ‘We’ve always loved to be outdoors. But it will bring us tourists from around the world, which is important.’"
+            }
+          ]
+        },
+        {
+          "id": "p9",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "In the future, the path will probably change, and new parts may open. We saw nothing to tell us we were on The Great Trail, which is a shame. I know there’s information on the website, but it’s good to know when you’re walking on a special path. They need to add some signs, I think."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is Kara doing in the first paragraph?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "telling tourists how long it takes to walk The Great Trail"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "explaining the history of The Great Trail"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "giving walkers advice about walking in Canada"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does Kara think is dangerous?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Some parts of the path are on roads."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "You need a boat for parts of the path."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Bikes and horses share the same path."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does Kara say about the bear she saw?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It looked hungry."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It was on the path."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It walked near her."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What did the old man say about the trail?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "People from other countries will come to see it."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "People will go into the countryside more because of it."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "People from Canada will use it to see other parts of their country."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 1,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does Kara say should happen next?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "There should be a website about the trail."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Some parts of the trail should close."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "There should be more signs along the trail."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h6",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Sally Ride"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p10",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Sally Ride was born on 26th May, 1951, in California, USA. After high school, she went to Stanford University to study physics. While she was there, she saw an advertisement in her university newspaper "
+            },
+            {
+              "t": "blank",
+              "id": "b19",
+              "number": 19
+            },
+            {
+              "t": "text",
+              "v": " women to join the US space programme. Six women, including Sally, were "
+            },
+            {
+              "t": "blank",
+              "id": "b20",
+              "number": 20
+            },
+            {
+              "t": "text",
+              "v": " to become astronauts. On 18th June 1983, Sally became the first American woman to fly into space. Six days later, on 24th June, she "
+            },
+            {
+              "t": "blank",
+              "id": "b21",
+              "number": 21
+            },
+            {
+              "t": "text",
+              "v": " to Earth."
+            }
+          ]
+        },
+        {
+          "id": "p11",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "When Sally "
+            },
+            {
+              "t": "blank",
+              "id": "b22",
+              "number": 22
+            },
+            {
+              "t": "text",
+              "v": " working as an astronaut in 1987, she started teaching at the University of California. She wanted to find ways to get more people, "
+            },
+            {
+              "t": "blank",
+              "id": "b23",
+              "number": 23
+            },
+            {
+              "t": "text",
+              "v": " girls, interested in studying science and mathematics. She also found time to write science books for children about "
+            },
+            {
+              "t": "blank",
+              "id": "b24",
+              "number": 24
+            },
+            {
+              "t": "text",
+              "v": " space."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b19",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "inviting"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "showing"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "looking"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b20",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "thought"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "decided"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "chosen"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b21",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "completed"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "returned"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "arrived"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b22",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "ended"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "closed"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "stopped"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b23",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "especially"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "exactly"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "clearly"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b24",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "exploring"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "going"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "travelling"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "part": 5,
+      "label": "Part 5",
+      "instruction": "For each question, write the correct answer. Write ONE word for each gap.",
+      "material": [
+        {
+          "id": "n1",
+          "type": "note",
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "From: "
+              },
+              {
+                "t": "text",
+                "v": "Riley"
+              }
+            ],
+            [
+              {
+                "t": "strong",
+                "v": "To: "
+              },
+              {
+                "t": "text",
+                "v": "Kris"
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "My dad’s "
+              },
+              {
+                "t": "strong",
+                "v": "(0) "
+              },
+              {
+                "t": "text",
+                "v": "got"
+              },
+              {
+                "t": "text",
+                "v": " three tickets for the hockey match next Wednesday. One was for my brother, but now he’s "
+              },
+              {
+                "t": "blank",
+                "id": "b25",
+                "number": 25
+              },
+              {
+                "t": "text",
+                "v": " free that day, so we have an extra one. Do you "
+              },
+              {
+                "t": "blank",
+                "id": "b26",
+                "number": 26
+              },
+              {
+                "t": "text",
+                "v": " to come? Dad would like to leave our house at 4 o’clock. Let me know as soon "
+              },
+              {
+                "t": "blank",
+                "id": "b27",
+                "number": 27
+              },
+              {
+                "t": "text",
+                "v": " possible."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n2",
+          "type": "note",
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "From: "
+              },
+              {
+                "t": "text",
+                "v": "Kris"
+              }
+            ],
+            [
+              {
+                "t": "strong",
+                "v": "To: "
+              },
+              {
+                "t": "text",
+                "v": "Riley"
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "Wow! That’s really kind "
+              },
+              {
+                "t": "blank",
+                "id": "b28",
+                "number": 28
+              },
+              {
+                "t": "text",
+                "v": " you. Thanks! I asked Mum if I can come and she said yes. I finish school a bit later "
+              },
+              {
+                "t": "blank",
+                "id": "b29",
+                "number": 29
+              },
+              {
+                "t": "text",
+                "v": " you, so Mum will drive me to your house at 4 o’clock. Is there anything I need "
+              },
+              {
+                "t": "blank",
+                "id": "b30",
+                "number": 30
+              },
+              {
+                "t": "text",
+                "v": " bring with me?"
+              }
+            ]
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b25"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b26"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b27"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b28"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b29"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b30"
+            ],
+            "maxWords": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "part": 6,
+      "label": "Part 6",
+      "instruction": "Write an email to Andi. Write 25 words or more.",
+      "questions": [
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 15,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "You would like to go to the cinema with your English friend, Andi."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write an email to Andi."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "In your email:"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "• ask Andi to go to the cinema with you"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "• say why you want to go to the cinema"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "• explain how you will travel there."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write "
+              },
+              {
+                "t": "strong",
+                "v": "25 words"
+              },
+              {
+                "t": "text",
+                "v": " or more."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 25
+          }
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "part": 7,
+      "label": "Part 7",
+      "instruction": "Look at the three pictures. Write the story shown in the pictures. Write 35 words or more.",
+      "questions": [
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 15,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the three pictures."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write the story shown in the pictures."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write "
+              },
+              {
+                "t": "strong",
+                "v": "35 words"
+              },
+              {
+                "t": "text",
+                "v": " or more."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 35
+          },
+          "material": [
+            {
+              "id": "i7",
+              "type": "imageRef",
+              "image": "img7"
+            },
+            {
+              "id": "i8",
+              "type": "imageRef",
+              "image": "img8"
+            },
+            {
+              "id": "i9",
+              "type": "imageRef",
+              "image": "img9"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "2021KET真题 - 第2套 - 阅读与写作.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "bookPages": [
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "ket1-t2-s",
+  "playlistId": "ket1",
+  "order": 6,
+  "test": 2,
+  "paper": "speaking",
+  "title": "KET真题1-第2套-口语",
+  "displayName": "KET真题1-第2套-口语",
+  "taskType": {
+    "code": "exam_speaking",
+    "labelZh": "口语"
+  },
+  "meta": {
+    "exam": "A2 Key for Schools",
+    "durationMinutes": 10,
+    "totalMarks": 30
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ket1/ket1-t2-s-1.jpg",
+        "alt": "Do you like these different outdoor activities? Pictures: people swimming in a lake; young people climbing a mountain; friends looking at a bird in a forest; a family having a barbecue in the garden; two young men running past shops in a city.",
+        "w": 1200,
+        "h": 634
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "Answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 15,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about yourself, films and transport."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "What’s your name?"
+              },
+              {
+                "id": "t2",
+                "text": "How old are you?"
+              },
+              {
+                "id": "t3",
+                "text": "Where do you live?"
+              },
+              {
+                "id": "t4",
+                "text": "Now, let’s talk about films. How often do you go to the cinema?"
+              },
+              {
+                "id": "t5",
+                "text": "Who do you usually watch films with?"
+              },
+              {
+                "id": "t6",
+                "text": "Now, please tell me something about a film you have watched."
+              },
+              {
+                "id": "t7",
+                "text": "Now, let’s talk about transport. How long is your journey to school?"
+              },
+              {
+                "id": "t8",
+                "text": "What is the best way to travel around your area?"
+              }
+            ],
+            "maxSeconds": 30,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Look at the pictures and talk about them with the examiner.",
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 15,
+          "skills": [],
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the pictures of different outdoor activities. Say if you like them and why or why not, then answer the examiner’s questions."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Here are some pictures that show different outdoor activities. Do you like these different outdoor activities? Say why or why not."
+              },
+              {
+                "id": "t2",
+                "text": "Do you think swimming in a lake is a good idea? Why? / Why not?"
+              },
+              {
+                "id": "t3",
+                "text": "Do you think climbing a mountain is hard? Why? / Why not?"
+              },
+              {
+                "id": "t4",
+                "text": "Do you think spending time in a forest is interesting? Why? / Why not?"
+              },
+              {
+                "id": "t5",
+                "text": "Do you think having a barbecue at home is great? Why? / Why not?"
+              },
+              {
+                "id": "t6",
+                "text": "Do you think running in a city is healthy? Why? / Why not?"
+              },
+              {
+                "id": "t7",
+                "text": "So, which of these outdoor activities do you like best?"
+              },
+              {
+                "id": "t8",
+                "text": "Now, do you prefer doing activities indoors or outdoors when you have free time? Why?"
+              },
+              {
+                "id": "t9",
+                "text": "When is the best time for you to do outdoor activities? Why?"
+              }
+            ],
+            "maxSeconds": 45,
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "2021KET真题 - 第2套 -口语.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "bookPages": [
+      160,
+      75,
+      76,
+      77
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "ket1-t3-s",
+  "playlistId": "ket1",
+  "order": 9,
+  "test": 3,
+  "paper": "speaking",
+  "title": "KET真题1-第3套-口语",
+  "displayName": "KET真题1-第3套-口语",
+  "taskType": {
+    "code": "exam_speaking",
+    "labelZh": "口语"
+  },
+  "meta": {
+    "exam": "A2 Key for Schools",
+    "durationMinutes": 10,
+    "totalMarks": 30
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ket1/ket1-t3-s-1.jpg",
+        "w": 1200,
+        "h": 654,
+        "alt": "Do you like these different fun activities? Pictures: young people dancing at a party with balloons; two young men carrying shopping bags in a shopping centre; travellers with suitcases walking into an airport; two girls laughing on a sofa while watching cartoons on TV; a group of young people walking in a forest."
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "Answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 15,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about yourself, sports and the weather."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "What’s your name?"
+              },
+              {
+                "id": "t2",
+                "text": "How old are you?"
+              },
+              {
+                "id": "t3",
+                "text": "Where do you live?"
+              },
+              {
+                "id": "t4",
+                "text": "Now, let’s talk about sports. Who do you usually do sports with?"
+              },
+              {
+                "id": "t5",
+                "text": "What sports do you like doing in winter?"
+              },
+              {
+                "id": "t6",
+                "text": "Now, please tell me something about the sports that you do at school."
+              },
+              {
+                "id": "t7",
+                "text": "Now, let’s talk about the weather. What kind of weather do you like least?"
+              },
+              {
+                "id": "t8",
+                "text": "What activities do you enjoy doing when the weather is hot?"
+              }
+            ],
+            "maxSeconds": 30,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Look at the pictures and talk about them with the examiner.",
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 15,
+          "skills": [],
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the pictures of different fun activities. Say if you like them and why or why not, then answer the examiner’s questions."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Here are some pictures that show different fun activities. Do you like these different fun activities? Say why or why not."
+              },
+              {
+                "id": "t2",
+                "text": "Do you think going to parties is great? Why? / Why not?"
+              },
+              {
+                "id": "t3",
+                "text": "Do you think going shopping is cool? Why? / Why not?"
+              },
+              {
+                "id": "t4",
+                "text": "Do you think going away on holiday is special? Why? / Why not?"
+              },
+              {
+                "id": "t5",
+                "text": "Do you think watching cartoons is boring? Why? / Why not?"
+              },
+              {
+                "id": "t6",
+                "text": "Do you think going for a long walk is healthy? Why? / Why not?"
+              },
+              {
+                "id": "t7",
+                "text": "So, which of these fun activities do you like best?"
+              },
+              {
+                "id": "t8",
+                "text": "Now, which is more fun, dancing or listening to music? Why?"
+              },
+              {
+                "id": "t9",
+                "text": "Do you prefer doing lots of activities or being lazy on holiday? Why?"
+              }
+            ],
+            "maxSeconds": 45,
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "2021KET真题 - 第3套 - 口语.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "bookPages": [
+      161,
+      78,
+      79,
+      80
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}
