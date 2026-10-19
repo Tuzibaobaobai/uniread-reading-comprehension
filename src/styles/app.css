@@ -287,6 +287,11 @@ button.option:hover { background: var(--bg-hover); }
 .option.is-correct .option-text { font-weight: var(--fw-bold); }
 /* picture options (choice options whose content is an image) */
 .option-image { display: block; max-width: 100%; max-height: var(--option-image-max-h); border-radius: var(--radius-xs); }
+/* picture options (KET Listening Part 1): three cards side by side, letter above the picture */
+.options.has-images { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+.options.has-images .option-text { display: grid; gap: 8px; justify-items: center; }
+.options.has-images .option-image { width: 100%; height: auto; object-fit: contain; }
+.q-prompt-hint { font-weight: var(--fw-regular); color: var(--text-secondary); }
 .option-explain {
   display: flex; gap: var(--option-gap); align-items: flex-start;
   padding: var(--option-pad-y) var(--option-pad-x);
@@ -518,6 +523,114 @@ button.option:hover { background: var(--bg-hover); }
 .dialog-dots .question-dot { width: 56px; height: 56px; background: var(--accent-soft); color: var(--accent-strong); }
 .dialog-actions { display: flex; justify-content: flex-end; gap: 12px; }
 .dialog-actions .pill-button { height: 56px; padding: 0 28px; }
+
+/* ======================================================= exam papers (KET/PET 真题) */
+
+/* left pane: Part heading + recording + material */
+.exam-part-kicker { margin: 0 0 4px; color: var(--text-tertiary); font-size: var(--fs-s); line-height: var(--lh-s); }
+.exam-instruction { margin: 8px 0 24px; color: var(--text-secondary); font-size: var(--fs-l); line-height: var(--lh-l); }
+.exam-empty { color: var(--text-tertiary); font-size: var(--fs-m); }
+.exam-q-material .article-figure img { max-height: none; }
+.exam-q-material.is-sequence { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--panel-gap); }
+.exam-q-material.is-sequence .article-figure { margin: 0; }
+.transcript { margin-top: 32px; border-top: 1px solid var(--border); padding-top: 16px; font-size: var(--fs-l); line-height: var(--lh-l); }
+.transcript summary { cursor: pointer; font-weight: var(--fw-bold); color: var(--text-primary); min-height: var(--tap); display: flex; align-items: center; }
+
+/* Figma UIkit-Read `player` (11728:110946) */
+.player { margin: 0 0 24px; padding: var(--player-pad); border-radius: var(--radius-m); background: var(--bg-card); box-shadow: var(--shadow-card-lg); display: grid; gap: 16px; }
+.player-progress { display: flex; align-items: center; gap: 16px; }
+.player-time { flex: none; min-width: var(--player-time-w); font-size: var(--fs-m); line-height: var(--lh-m); font-weight: var(--fw-bold); color: var(--grey-9); font-variant-numeric: tabular-nums; }
+.player-track {
+  flex: 1; min-width: 0; height: var(--tap); margin: 0; background: transparent; appearance: none; -webkit-appearance: none; cursor: pointer;
+}
+.player-track::-webkit-slider-runnable-track {
+  height: var(--track-h); border-radius: var(--radius-full);
+  background: linear-gradient(to right, var(--accent) var(--progress, 0%), var(--track-bg) var(--progress, 0%));
+}
+.player-track::-moz-range-track { height: var(--track-h); border-radius: var(--radius-full); background: var(--track-bg); }
+.player-track::-moz-range-progress { height: var(--track-h); border-radius: var(--radius-full); background: var(--accent); }
+.player-track::-webkit-slider-thumb { -webkit-appearance: none; width: 0; height: 0; }
+.player-track::-moz-range-thumb { width: 0; height: 0; border: 0; }
+.player-track:disabled { cursor: default; }
+.player-actions { display: flex; justify-content: center; gap: var(--player-btn-gap); }
+.player-btn {
+  height: var(--player-btn-h); width: var(--player-btn-w); border: none; border-radius: var(--radius-m);
+  background: var(--bg-card); box-shadow: var(--shadow-btn-m); display: grid; place-items: center;
+}
+.player-btn.is-square { width: var(--player-btn-h); }
+.player-btn.is-forward img { transform: scaleX(-1); }
+.player-btn:disabled { opacity: var(--disabled-opacity); }
+.player-note { margin: 0; text-align: center; color: var(--text-secondary); font-size: var(--fs-s); line-height: var(--lh-s); }
+
+/* exam bar above the question: timer, flag, report (待补组件) */
+.exam-bar { display: flex; align-items: center; justify-content: flex-end; gap: 12px; padding: 16px var(--quiz-pad) 0; flex: none; }
+.exam-timer { margin-right: auto; padding: 0 16px; min-height: 40px; display: inline-flex; align-items: center; border-radius: var(--radius-full); background: var(--bg-subtle); font-weight: var(--fw-bold); font-variant-numeric: tabular-nums; color: var(--text-strong); }
+.exam-timer.is-warn { background: var(--exam-warn-soft); color: var(--exam-warn); }
+.exam-timer.is-alert { background: var(--exam-warn); color: var(--text-on-accent); }
+.flag-toggle.is-on { border-color: var(--flag); color: var(--text-strong); }
+.question-dot.is-flagged { box-shadow: inset 0 0 0 2px var(--flag); }
+
+/* writing: live word count */
+.word-count { margin: 8px 0 0; color: var(--text-secondary); font-size: var(--fs-s); line-height: var(--lh-s); text-align: right; }
+.word-count.is-enough { color: var(--success-text); }
+
+/* Cambridge criteria (AI 评分) */
+.judge-standard { margin: 0; color: var(--text-secondary); font-size: var(--fs-s); line-height: var(--lh-s); }
+.criteria { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: var(--fs-l); line-height: var(--lh-l); }
+.criteria-row { display: grid; grid-template-columns: 6em 1fr auto; align-items: center; gap: 12px; }
+.criteria-row.is-muted { color: var(--text-tertiary); }
+.criteria-bar { height: var(--criteria-bar-h); border-radius: var(--radius-full); background: var(--track-bg); overflow: hidden; }
+.criteria-bar > span { display: block; height: 100%; background: var(--accent); }
+.criteria-band { font-weight: var(--fw-bold); font-variant-numeric: tabular-nums; }
+
+/* speaking — Figma UIkit-Speak sentence card (8872:81973) */
+.speak-turns { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.speak-card { border-radius: var(--radius-l); background: var(--bg-card); box-shadow: var(--shadow-card-lg); padding: 20px var(--option-pad-x) 8px; border: 1px solid var(--border); }
+.speak-card.is-active { border-color: var(--accent); }
+.speak-count { margin: 0; color: var(--text-secondary); font-size: var(--fs-l); line-height: var(--lh-l); }
+.speak-line { margin: 4px 0 12px; font-size: var(--fs-4xl); line-height: 1.5; font-weight: var(--fw-medium); color: var(--grey-12); }
+.speak-said { margin: 0 0 12px; padding: 12px 16px; border-radius: var(--radius-s); background: var(--bg-subtle); font-size: var(--fs-l); line-height: var(--lh-l); }
+.speak-said-label { display: block; color: var(--text-secondary); font-size: var(--fs-s); line-height: var(--lh-s); }
+.speak-error { margin: 0 0 12px; color: var(--danger); font-size: var(--fs-m); }
+.speak-actions { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border); padding-top: 8px; }
+.speak-btn {
+  display: flex; align-items: center; justify-content: center; gap: 16px; min-height: var(--tap);
+  padding: 12px 12px 12px 8px; border: none; border-radius: var(--radius-row); background: transparent;
+  font-size: var(--fs-3xl); line-height: var(--lh-3xl); font-weight: var(--fw-medium); color: var(--grey-12);
+}
+.speak-btn:disabled { opacity: var(--disabled-opacity); }
+.speak-btn-icon { flex: none; width: var(--speak-btn-icon); height: var(--speak-btn-icon); border-radius: var(--radius-full); background: var(--grey-3); display: grid; place-items: center; }
+.speak-btn-icon.is-submit { background: var(--success); }
+.speak-btn-icon.is-loading img { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* mode choice + score report (待补组件) */
+.mode-dialog, .report-dialog { width: min(560px, 100%); }
+.mode-options { display: grid; gap: 12px; margin-top: 8px; }
+.mode-option {
+  display: grid; gap: 4px; text-align: left; padding: var(--option-pad-y) var(--option-pad-x);
+  border: 1px solid var(--border); border-radius: var(--radius-s); background: var(--bg-card); font-size: var(--fs-m); line-height: var(--lh-m);
+}
+.mode-option b { font-size: var(--fs-2xl); line-height: var(--lh-2xl); color: var(--text-primary); }
+.mode-option span { color: var(--text-secondary); }
+.report-table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; font-size: var(--fs-m); }
+.report-table th, .report-table td { text-align: left; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.report-table td:last-child, .report-table th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.report-skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.report-skill { display: grid; gap: 2px; padding: 16px; border-radius: var(--radius-s); background: var(--bg-subtle); }
+.report-skill-name { color: var(--text-secondary); font-size: var(--fs-s); }
+.report-skill-scale { font-size: var(--fs-5xl); line-height: var(--lh-5xl); font-weight: var(--fw-bold); color: var(--text-primary); }
+.report-skill-grade { font-weight: var(--fw-bold); color: var(--accent-strong); }
+.report-skill-raw { color: var(--text-secondary); font-size: var(--fs-s); }
+.report-note { font-size: var(--fs-s); line-height: var(--lh-s); }
+
+@media (hover: hover) and (pointer: fine) {
+  .mode-option:hover { border-color: var(--accent); }
+  .speak-btn:hover:not(:disabled) .speak-btn-icon { background: var(--grey-5); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .speak-btn-icon.is-loading img { animation: none; }
+}
 
 /* ======================================================= responsive */
 

@@ -2,7 +2,7 @@
  * Pure grading functions. No DOM / storage dependencies so the same code can run
  * on a UniRead server where keys/ are kept private.
  */
-import type { AnswerKeyT, AttemptT, InlineT, ItemKeyT, ItemT, QuestionT } from '@schema';
+import type { AnswerKeyT, AttemptT, BlockT, InlineT, ItemKeyT, ItemT, QuestionT } from '@schema';
 
 export type ResponseValue = string[] | Record<string, string> | string;
 export type Result = NonNullable<AttemptT['result']>;
@@ -32,6 +32,14 @@ export function questionBlankIds(q: QuestionT): string[] {
   return (it.prompt ?? []).filter((n): n is Extract<InlineT, { t: 'blank' }> => n.t === 'blank').map((n) => n.id);
 }
 
+/** every block of an item: article, section stimulus, and (exam items) section / question material */
+export function allBlocks(item: ItemT): BlockT[] {
+  return [
+    ...item.article.blocks,
+    ...item.sections.flatMap((s) => [...(s.stimulus ?? []), ...(s.material ?? []), ...s.questions.flatMap((q) => q.material ?? [])]),
+  ];
+}
+
 /** first-letter hint lookup so "n" + "ice" and "nice" are both accepted */
 export function collectBlankHints(item: ItemT): Map<string, string> {
   const hints = new Map<string, string>();
@@ -39,7 +47,7 @@ export function collectBlankHints(item: ItemT): Map<string, string> {
     rich?.forEach((n) => {
       if (n.t === 'blank' && n.hint?.firstLetter) hints.set(n.id, n.hint.firstLetter);
     });
-  const visitBlocks = (blocks: ItemT['article']['blocks']) =>
+  const visitBlocks = (blocks: BlockT[]) =>
     blocks.forEach((b) => {
       switch (b.type) {
         case 'paragraph':
@@ -63,9 +71,8 @@ export function collectBlankHints(item: ItemT): Map<string, string> {
           break;
       }
     });
-  visitBlocks(item.article.blocks);
+  visitBlocks(allBlocks(item));
   item.sections.forEach((s) => {
-    if (s.stimulus) visitBlocks(s.stimulus);
     s.questions.forEach((q) => {
       const it = q.interaction;
       if ('prompt' in it) visit(it.prompt);
@@ -143,8 +150,9 @@ export function gradeQuestion(
     return { ...base, correct: ok, points: ok ? maxPoints : 0 };
   }
 
-  // extendedText: scored later by the LLM judge (docs/09), by the learner, or not at all
-  const scoring = q.interaction.kind === 'extendedText' ? q.interaction.scoring : 'none';
+  // extendedText / speaking: scored later by the LLM judge (docs/09), by the learner, or not at all
+  const it = q.interaction;
+  const scoring = it.kind === 'extendedText' || it.kind === 'speaking' ? it.scoring : 'none';
   return { ...base, correct: null, points: 0, scoredBy: scoring === 'judge' ? 'pending' : scoring === 'self' ? 'self' : 'none' };
 }
 
@@ -154,7 +162,7 @@ export function allQuestions(item: ItemT): QuestionT[] {
 
 /** questions graded deterministically (constructed responses are excluded) */
 export function isScored(q: QuestionT): boolean {
-  return q.interaction.kind !== 'extendedText';
+  return q.interaction.kind !== 'extendedText' && q.interaction.kind !== 'speaking';
 }
 
 /** a question counts toward score/maxScore once its points are decided by rules or by the judge */
@@ -195,5 +203,10 @@ export function isAnswered(q: QuestionT, response: ResponseValue | undefined): b
     }
     case 'extendedText':
       return typeof response === 'string' && response.trim() !== '';
+    case 'speaking': {
+      // every turn has a (transcribed) recording
+      const r = response as Record<string, string>;
+      return typeof r === 'object' && !Array.isArray(r) && it.turns.every((t) => (r[t.id] ?? '') !== '');
+    }
   }
 }

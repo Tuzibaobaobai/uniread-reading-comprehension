@@ -1,0 +1,183 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "ket1-t1-s",
+  "playlistId": "ket1",
+  "order": 3,
+  "test": 1,
+  "paper": "speaking",
+  "title": "KET真题1-第1套-口语",
+  "displayName": "KET真题1-第1套-口语",
+  "taskType": {
+    "code": "exam_speaking",
+    "labelZh": "口语"
+  },
+  "meta": {
+    "exam": "A2 Key for Schools",
+    "durationMinutes": 10,
+    "totalMarks": 30
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ket1/ket1-t1-s-1.jpg",
+        "alt": "Do you like these different things to wear? Pictures: a boy holding up a pair of jeans in a shop; a young man wearing sunglasses; a boy and a girl in trainers sitting on a bench; a boy and a girl wearing caps; a girl looking at the watch on a boy’s wrist.",
+        "w": 1200,
+        "h": 649
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "Answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 15,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about yourself, weekends and languages."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "What’s your name?"
+              },
+              {
+                "id": "t2",
+                "text": "How old are you?"
+              },
+              {
+                "id": "t3",
+                "text": "Where do you live?"
+              },
+              {
+                "id": "t4",
+                "text": "Now, let’s talk about weekends. What’s your favourite day at the weekend?"
+              },
+              {
+                "id": "t5",
+                "text": "What do you usually eat for lunch at the weekend?"
+              },
+              {
+                "id": "t6",
+                "text": "Now, please tell me something about a weekend that you enjoyed."
+              },
+              {
+                "id": "t7",
+                "text": "Now, let’s talk about languages. How often do you speak English?"
+              },
+              {
+                "id": "t8",
+                "text": "What is easy for you about learning a new language?"
+              }
+            ],
+            "maxSeconds": 30,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Look at the pictures and talk about them with the examiner.",
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 15,
+          "skills": [],
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the pictures of different things to wear. Say if you like them and why or why not, then answer the examiner’s questions."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Here are some pictures that show different things to wear. Do you like these different things to wear? Say why or why not."
+              },
+              {
+                "id": "t2",
+                "text": "Do you think wearing jeans is boring? Why? / Why not?"
+              },
+              {
+                "id": "t3",
+                "text": "Do you think wearing sunglasses is important? Why? / Why not?"
+              },
+              {
+                "id": "t4",
+                "text": "Do you think wearing trainers is cool? Why? / Why not?"
+              },
+              {
+                "id": "t5",
+                "text": "Do you think wearing a cap in the sun is a good idea? Why? / Why not?"
+              },
+              {
+                "id": "t6",
+                "text": "Do you think wearing a watch is useful? Why? / Why not?"
+              },
+              {
+                "id": "t7",
+                "text": "So, which of these things to wear do you like best?"
+              },
+              {
+                "id": "t8",
+                "text": "Now, do you prefer wearing a watch or using your phone to tell the time? Why?"
+              },
+              {
+                "id": "t9",
+                "text": "What kind of jewellery can you wear at school? Why?"
+              }
+            ],
+            "maxSeconds": 45,
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "01 KET真题 - 第1套 - 口语.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "bookPages": [
+      159,
+      72,
+      73,
+      74
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

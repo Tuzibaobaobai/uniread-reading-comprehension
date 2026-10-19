@@ -16,6 +16,8 @@ export interface ContentProvider {
   getKey(item: ItemT, responses: Record<string, ResponseValue>): Promise<ItemKeyT>;
   /** LLM judge for constructed responses (docs/09); absent → learners self-assess */
   judge?: JudgeProvider;
+  /** speech-to-text for one recorded speaking answer (exam 口语); absent → recording is not available */
+  speak?(call: { itemId: string; questionId: string; turnId: string; audio: Blob }): Promise<string>;
   assetUrl(path: string): string;
 }
 
@@ -36,7 +38,8 @@ function cached<T>(path: string): Promise<T> {
 export const staticContent: ContentProvider = {
   getCatalog: () => cached<CatalogT>('catalog.json'),
   getPlaylist: (id) => cached<PlaylistT>(`playlists/${id}/playlist.json`),
-  getItem: (id) => cached<ItemT>(`playlists/${id.replace(/-w\d{2}-\w{3}$/, '')}/items/${id}.json`),
+  // <pl>-wNN-<day> (时文阅读) or <pl>-t<N>-<paper> (exam papers)
+  getItem: (id) => cached<ItemT>(`playlists/${id.replace(/-w\d{2}-\w{3}$|-t\d+-(rw|l|s)$/, '')}/items/${id}.json`),
   async grade(item, responses) {
     const res = await fetch(`${base}api/rc/grade`, {
       method: 'POST',
@@ -52,4 +55,16 @@ export const staticContent: ContentProvider = {
   assetUrl: (path) => `${base}${path}`,
   // served by the Vercel function / UniRead, and by the Vite dev+preview middleware; unavailable → self-assessment
   judge: httpJudge(import.meta.env.VITE_JUDGE_URL ?? `${base}api/rc/judge`),
+  async speak({ itemId, questionId, turnId, audio }) {
+    const bytes = new Uint8Array(await audio.arrayBuffer());
+    let bin = '';
+    for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
+    const res = await fetch(`${base}api/rc/speak`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ itemId, questionId, turnId, audio: btoa(bin), mime: audio.type }),
+    });
+    if (!res.ok) throw Object.assign(new Error(`speak ${res.status}`), { status: res.status });
+    return ((await res.json()) as { text: string }).text;
+  },
 };

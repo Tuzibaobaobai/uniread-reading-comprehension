@@ -10,3 +10,7 @@ playwright-report/
 .vercel
 .env*
 *.tsbuildinfo
+# audio/video are delivered assets, not source: regenerate with scripts/audio.mjs, shipped as rc-media-<playlist>.zip
+content/assets/**/*.m4a
+content/assets/**/*.mp3
+content/assets/**/*.mp4

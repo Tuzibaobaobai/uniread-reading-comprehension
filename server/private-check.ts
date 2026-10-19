@@ -4,7 +4,7 @@
  */
 import { readFile } from 'node:fs/promises';
 import { glob } from 'node:fs/promises';
-import type { AnswerKeyT, ItemKeyT } from '@schema';
+import type { AnswerKeyT, BlockT, InlineT, ItemKeyT } from '@schema';
 
 /** distinctive private strings from one key (explanations, tips, reference answers, key-point notes) */
 export function privateNeedles(key: ItemKeyT): string[] {
@@ -19,19 +19,25 @@ export function privateNeedles(key: ItemKeyT): string[] {
       a.keyPoints?.forEach((k) => add(k.descZh));
     }
   });
+  // listening transcripts (exam papers) are revealed only after submitting
+  const text = (nodes: InlineT[]) => nodes.map((n) => ('v' in n ? n.v : '')).join('');
+  const blockTexts = (b: BlockT): string[] =>
+    b.type === 'paragraph' || b.type === 'heading' ? [text(b.content)] : b.type === 'dialogue' ? b.turns.map((t) => text(t.content)) : [];
+  Object.values(key.transcripts ?? {}).forEach((blocks) => blocks.flatMap(blockTexts).forEach((s) => add(s)));
   return out;
 }
 
 /** all text of an item's passage — answers quoted verbatim from the public article are not leaks */
 async function passageText(keyFile: string): Promise<string> {
   try {
-    const item = JSON.parse(await readFile(keyFile.replace('/keys/', '/items/'), 'utf8')) as { article?: unknown };
+    const item = JSON.parse(await readFile(keyFile.replace('/keys/', '/items/'), 'utf8')) as { article?: unknown; format?: string };
     const out: string[] = [];
     const walk = (o: unknown) => {
       if (Array.isArray(o)) o.forEach(walk);
       else if (o && typeof o === 'object') Object.entries(o).forEach(([k, v]) => (k === 'v' && typeof v === 'string' ? out.push(v) : walk(v)));
     };
-    walk(item.article);
+    // exam papers: the whole question paper is public (narrator lines often repeat its printed instructions)
+    walk(item.format === 'exam' ? item : item.article);
     return out.join(' ');
   } catch {
     return '';

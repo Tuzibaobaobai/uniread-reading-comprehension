@@ -14,8 +14,18 @@
 | Header | [6346-84038](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=6346-84038) | 阅读页顶栏：返回按钮 + 标题。Read/Speak/Quiz、Dictionary、生词本、设置本项目不使用 | `src/reader/ReaderPage.tsx`、`app.css` `.reader-head*` | 已实现，待验收 |
 | Article Text | [7740-21130](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=7740-21130) | 文章正文排版（采用其文字样式，不采用字幕卡片结构） | `src/reader/ArticlePane.tsx`、`app.css` `.article*`、`.rt-*` | 已实现，待验收 |
 | Playlist | [16709-265119](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=16709-265119) | Playlist 详情页：左侧信息面板 + 右侧列表（行含进度条）。分享、统计按钮本项目不使用 | `src/pages/PlaylistPage.tsx`、`app.css` `.playlist-*`、`.item-row*` | 已实现，待验收 |
+| UIkit-Read · player | [11728-110946](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=11728-110946)（页 [15476-159261](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=15476-159261)） | 听力录音播放器：进度行 + 后退 / 播放·暂停 / 前进（btn-play 3221-7266、btn-pause 3221-7268、btn-before） | `src/reader/AudioPlayer.tsx`、`app.css` `.player*` | 已实现，待验收；考试模式锁定状态 Figma 中尚无，按 btn-play Disabled 实现 |
+| UIkit-Speak · 句卡 Focus | [8872-81973](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=8872-81973)（页 [15450-159260](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=15450-159260)） | 口语：考官问题卡 + 听题 / 回答（录音、✓ 结束、识别中）/ 回放 | `src/reader/Speaking.tsx`、`app.css` `.speak-*` | 已实现，待验收 |
+| 整段跟读评分 | [15504-104872](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=15504-104872) | 口语评分结果（按词着色需发音评测，暂未使用） | — | 已登记 |
+| Quiz · 结果卡 | [15450-159259](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=15450-159259) | 通过 / 未通过结果卡、View Answers / Try Again | 成绩报告暂用 `.dialog` 实现 | 待按结果卡对齐 |
+| 拼写 / 字母块 | [15092-99049](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=15092-99049) | 填空输入、对错反馈 | 沿用现有填空样式 | 已登记 |
+| Header · Read/Speak/Quiz + 设置 | [7762-32671](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=7762-32671) | 顶栏模式切换、字号 / 播放速度设置 | 本项目暂不使用 | 已登记 |
+| Dictionary | [15476-159262](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=15476-159262) | 查词面板 | 本项目暂不使用 | 已登记 |
+| Vocabulary | [12074-89149](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=12074-89149) | 词卡轮播 | 本项目暂不使用 | 已登记 |
 
 待提供：Playlists 列表页（缩略图卡片）、结果卡、对话框（未答提醒）、输入框（填空）、词库芯片（选词填空）、连线、Tokens/Variables 页。
+
+真题（KET/PET）待补组件（暂用现有 token 实现）：看图选择题图片选项卡片、题目级材料区（告示）、示例题样式、写作区（字数统计 / 要点清单 / 多图题干）、写作与口语评分结果（Cambridge 维度分）、听力原文面板、练习 / 考试模式选择、考试倒计时与警告、标记题目、交卷确认、成绩报告、Playlist 按“第 N 套”分组。
 
 ## Token 映射规则
 

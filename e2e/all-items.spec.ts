@@ -2,7 +2,7 @@
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
-const catalog = JSON.parse(readFileSync('content/catalog.json', 'utf8')) as { playlists: { id: string; items: { id: string; title: string }[] }[] };
+const catalog = JSON.parse(readFileSync('content/catalog.json', 'utf8')) as { playlists: { id: string; items: { id: string; title: string; paper?: string }[] }[] };
 
 test('every item renders', async ({ page }, info) => {
   test.skip(info.project.name !== 'desktop', 'desktop only');
@@ -12,7 +12,11 @@ test('every item renders', async ({ page }, info) => {
   for (const p of catalog.playlists) {
     for (const it of p.items) {
       await page.goto(`/#/p/${p.id}/${it.id}`);
-      await expect(page.locator('.article-title'), it.id).toHaveText(it.title);
+      if ('paper' in it) {
+        // exam papers ask for practice / exam mode first; the pane shows the paper title above the Part
+        await page.getByRole('button', { name: /练习模式/ }).click();
+        await expect(page.locator('.exam-part-kicker'), it.id).toHaveText(it.title);
+      } else await expect(page.locator('.article-title'), it.id).toHaveText(it.title);
       await expect(page.locator('.q-prompt').first(), it.id).toBeVisible();
       await expect(page.locator('.question-dot').first(), it.id).toBeVisible();
     }

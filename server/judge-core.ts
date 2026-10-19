@@ -127,7 +127,8 @@ export async function judgeCall(call: JudgeCall, opts: { contentRoot?: string; l
   const { item, key, playlist } = await loadItem(call.itemId, opts.contentRoot);
   const q = allQuestions(item).find((x) => x.id === call.questionId);
   const k = key.answers[call.questionId];
-  if (!q || q.interaction.kind !== 'extendedText' || !k || !('sampleAnswer' in k)) throw new HttpError(400, 'not a judged question');
+  const judged = q?.interaction.kind === 'extendedText' || q?.interaction.kind === 'speaking';
+  if (!q || !judged || !k || !('sampleAnswer' in k)) throw new HttpError(400, 'not a judged question');
 
   const req = buildJudgeRequest(item, q, k, String(call.response ?? ''), playlist.gradeBand);
   const rules = shortCircuit(req);

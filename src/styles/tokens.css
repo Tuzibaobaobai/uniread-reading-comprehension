@@ -148,6 +148,26 @@
   --blank-line: 1.5px;
   --blank-line-color: var(--grey-12);
 
+  /* ---- Figma UIkit-Read: player (11728:110946), btn-play / btn-pause / btn-before */
+  --shadow-btn-m: 0 4px 7.5px rgba(0, 0, 0, 0.1);           /* drop-shadow/btn */
+  --track-bg: #ebebeb;
+  --track-h: 8px;
+  --player-btn-h: 72px;
+  --player-btn-w: 128px;
+  --player-btn-gap: 12px;
+  --player-icon: 44px;
+  --player-icon-s: 32px;
+  --player-pad: 24px;
+  --player-time-w: 52px;
+
+  /* ---- exam papers (KET/PET): not yet in Figma — built from existing tokens (待补组件) */
+  --exam-warn: var(--danger);
+  --exam-warn-soft: var(--danger-soft);
+  --flag: #f59e0b;
+  --criteria-bar-h: 6px;
+  --record-dot: 12px;
+  --speak-btn-icon: 64px;           /* UIkit-Speak btn bg 64 × 64 */
+
   --tap: 44px;
   --gutter: 40px;
 }

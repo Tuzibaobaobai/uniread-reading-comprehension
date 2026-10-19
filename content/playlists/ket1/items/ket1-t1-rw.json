@@ -1,0 +1,1866 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "ket1-t1-rw",
+  "playlistId": "ket1",
+  "order": 1,
+  "test": 1,
+  "paper": "reading_writing",
+  "title": "KET真题1-第1套-阅读与写作",
+  "displayName": "KET真题1-第1套-阅读与写作",
+  "taskType": {
+    "code": "exam_reading_writing",
+    "labelZh": "阅读与写作"
+  },
+  "meta": {
+    "exam": "A2 Key for Schools",
+    "durationMinutes": 60,
+    "totalMarks": 60
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ket1/ket1-t1-rw-1.jpg",
+        "alt": "Notice: Found: blue sports bag. Collect from school office (with student ID card)",
+        "w": 393,
+        "h": 373
+      },
+      {
+        "id": "img2",
+        "src": "assets/ket1/ket1-t1-rw-2.jpg",
+        "alt": "Notice: Room 3.1. Mrs Gray’s students. This room is closed for repairs. Lessons in room 4.2 until Friday",
+        "w": 465,
+        "h": 373
+      },
+      {
+        "id": "img3",
+        "src": "assets/ket1/ket1-t1-rw-3.jpg",
+        "alt": "Email. From: Head teacher. To: All students. The school kitchen will be closed for hot lunches Monday – Friday next week. We can still serve sandwiches and salads.",
+        "w": 524,
+        "h": 508
+      },
+      {
+        "id": "img4",
+        "src": "assets/ket1/ket1-t1-rw-4.jpg",
+        "alt": "Text message: Hi Suzy, I’ve finished our history project. Shall I bring it round later to show you before I give it to the teacher tomorrow? Mark",
+        "w": 420,
+        "h": 677
+      },
+      {
+        "id": "img5",
+        "src": "assets/ket1/ket1-t1-rw-5.jpg",
+        "alt": "Email. From: Ben. To: Tom. Dad will pick us up after the school concert. There are some tickets left on the website if you know anyone who wants one.",
+        "w": 508,
+        "h": 495
+      },
+      {
+        "id": "img6",
+        "src": "assets/ket1/ket1-t1-rw-6.jpg",
+        "alt": "Email. From: Mr Jones. To: Photography club members. Some of you have asked to learn to use software to improve your pictures. If enough people are interested, we’ll start next Tuesday.",
+        "w": 508,
+        "h": 494
+      },
+      {
+        "id": "img7",
+        "src": "assets/ket1/ket1-t1-rw-7.jpg",
+        "alt": "Picture 1: Two boys are walking along a street and see a banknote lying on the pavement.",
+        "w": 435,
+        "h": 336
+      },
+      {
+        "id": "img8",
+        "src": "assets/ket1/ket1-t1-rw-8.jpg",
+        "alt": "Picture 2: One boy bends down and picks up the banknote.",
+        "w": 435,
+        "h": 336
+      },
+      {
+        "id": "img9",
+        "src": "assets/ket1/ket1-t1-rw-9.jpg",
+        "alt": "Picture 3: The boys are at an ice-cream shop counter, paying for two ice-cream sundaes with the money.",
+        "w": 434,
+        "h": 336
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "For each question, choose the correct answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A student has found the wrong ID card in his sports bag."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The person who lost his bag can get it from the school office."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "If you find a lost sports bag, please take it to the school office."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ]
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Mrs Gray is not coming to the school until Friday."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Mrs Gray’s class is going to be on a different day this week."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Mrs Gray isn’t able to use her usual room at the moment."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ]
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Students have to bring their own food to school for lunch next week."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The school is going to stop offering lunch to students after next week."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Only a few types of food will be available for student lunches next week."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i3",
+              "type": "imageRef",
+              "image": "img3"
+            }
+          ]
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Mark is asking Suzy if he should visit her today."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Mark wants Suzy to help him complete their project."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Mark thinks Suzy should give the project to the teacher."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i4",
+              "type": "imageRef",
+              "image": "img4"
+            }
+          ]
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What should Tom do?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "go online to check if there are still concert tickets available"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "tell people that it is still possible for them to come to the concert"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "ask if his father can collect them after the concert"
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i5",
+              "type": "imageRef",
+              "image": "img5"
+            }
+          ]
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Mr Jones is offering to teach club members something new."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Some people have told Mr Jones they want to leave the photography club."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Mr Jones wants to find out more about photography software."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i6",
+              "type": "imageRef",
+              "image": "img6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h1",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "My favourite book"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "h2",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Jian"
+            }
+          ],
+          "level": 3
+        },
+        {
+          "id": "p1",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "This well-known book was in a box of old books that a neighbour gave me. I wasn’t sure about it when I picked it up because I saw the pictures and thought it was a book for little children. But I was bored, so I started reading. After a few pages I couldn’t stop, and when I got to the last page, I was quite upset that there wasn’t more. It’s about two friends who play a game, and how it changes their lives. It’s brilliant!"
+            }
+          ]
+        },
+        {
+          "id": "h3",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Max"
+            }
+          ],
+          "level": 3
+        },
+        {
+          "id": "p2",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "This was one of the first books I ever had, but it’s still a favourite. Even before I could read, I loved looking at the drawings as my parents read the story to me. Now my little sister’s got it, and she loves it too. The writer has become quite famous, but this is the first book she wrote, and not many people have heard of it. It’s very different from the books she wrote later. I suppose what you write about changes as your life changes."
+            }
+          ]
+        },
+        {
+          "id": "h4",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Kojo"
+            }
+          ],
+          "level": 3
+        },
+        {
+          "id": "p3",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "I read this book for the first time when I was about eight. One of the reasons I liked it was that it was about people growing up in a place which I knew nothing about. My friend read it too, and our ideas for games often came from this book. I read it again recently, and I still think it’s great, except the last few pages. What happens in them doesn’t seem real."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who does not like the way the book ends?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jian"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Max"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kojo"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who enjoyed the pictures in the book?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jian"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Max"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kojo"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who explains how he got the book?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jian"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Max"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kojo"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who enjoyed learning about lives which are different from his own?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jian"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Max"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kojo"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who says something about what happens in the story?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jian"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Max"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kojo"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who says the book is not very well-known?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jian"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Max"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kojo"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who felt sad when he finished the book?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jian"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Max"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kojo"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h5",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "A young cheesemaker"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p4",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "16-year-old Pat Tulloch has an unusual hobby. She makes cheese on the family farm in Australia. She began by making yoghurt with her mother when she was little. Then she started watching her father’s workers make cheese. When she was ten, she made some herself for the first time. ‘It wasn’t great,’ she says, ‘but the workers told me what I was doing wrong and that helped me to slowly get better.’"
+            }
+          ]
+        },
+        {
+          "id": "p5",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Pat always needs good milk for her cheese, but she doesn’t have to buy it. Her mother and father keep 100 cows on their farm. Pat can just ask them when she needs more. Last year, Pat’s neighbour gave her a young cow to keep and look after, but it doesn’t produce milk to make cheese yet."
+            }
+          ]
+        },
+        {
+          "id": "p6",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Pat and her family make several types of cheese. Recently they won a prize for one of them. ‘It’s been great for helping customers find out about us,’ says Pat. ‘Last month we started selling cheese in New Zealand. People there read about our prize in a food magazine. Soon we’re going to do some advertisements, too.’"
+            }
+          ]
+        },
+        {
+          "id": "p7",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Pat’s next idea is to post some online recipes for cooking with cheese. ‘One of my favourites is cheese with eggs for breakfast. It’s great! Our cheese is also lovely with pasta – I hope a restaurant might buy some one day.’ But right now Pat is still at school. ‘Making cheese is fun and winning a prize for it is great, but doing well in my studies matters more for now.’"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Pat learned to make good cheese"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "by listening to the advice she got."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "by seeing how her mother did it."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "by practising at home on her own."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Where does Pat get the milk for her cheese?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "from her neighbour’s farm"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "her father helps her to buy it"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "her parents give it to her"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Pat says winning the prize means"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "more people know about her family’s cheese."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "she can be the star of the family’s new advertisements."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "she was invited to visit another country."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What’s the most important thing for Pat at the moment?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "writing a new cookbook"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "being successful at school"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "selling cheese to a restaurant"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "In this article, Pat is explaining"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "why her family started making cheese."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "how to win a competition for making cheese."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "how she has become part of a cheese-making business."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h6",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Philo T. Farnsworth"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p8",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Philo T. Farnsworth was born in the USA in 1906. As a child, he was very interested in science and electricity and spent a lot of time "
+            },
+            {
+              "t": "blank",
+              "id": "b19",
+              "number": 19
+            },
+            {
+              "t": "text",
+              "v": " about it. He also won a national "
+            },
+            {
+              "t": "blank",
+              "id": "b20",
+              "number": 20
+            },
+            {
+              "t": "text",
+              "v": " for young engineers when he was just 13."
+            }
+          ]
+        },
+        {
+          "id": "p9",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "When he was 20, Farnsworth "
+            },
+            {
+              "t": "blank",
+              "id": "b21",
+              "number": 21
+            },
+            {
+              "t": "text",
+              "v": " his own business. In 1927, he showed everyone his new idea: a "
+            },
+            {
+              "t": "blank",
+              "id": "b22",
+              "number": 22
+            },
+            {
+              "t": "text",
+              "v": " of sending pictures using electricity. Many other people were working on ideas for a machine to do this, but Farnsworth’s was the first that had no moving parts. In fact, it was the first true electronic TV."
+            }
+          ]
+        },
+        {
+          "id": "p10",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "After many business problems, Farnsworth had success in 1938 when another company "
+            },
+            {
+              "t": "blank",
+              "id": "b23",
+              "number": 23
+            },
+            {
+              "t": "text",
+              "v": " him $1 million for his idea. He is not very famous these "
+            },
+            {
+              "t": "blank",
+              "id": "b24",
+              "number": 24
+            },
+            {
+              "t": "text",
+              "v": " but, as the father of electronic television, Farnsworth changed the world."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b19",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "learning"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "studying"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "understanding"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b20",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "game"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "match"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "competition"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b21",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "became"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "turned"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "started"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b22",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "plan"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "way"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "thing"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b23",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "offered"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "took"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "sold"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b24",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "times"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "days"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "years"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "part": 5,
+      "label": "Part 5",
+      "instruction": "For each question, write the correct answer. Write ONE word for each gap.",
+      "material": [
+        {
+          "id": "n1",
+          "type": "note",
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "From: "
+              },
+              {
+                "t": "text",
+                "v": "Rachel"
+              }
+            ],
+            [
+              {
+                "t": "strong",
+                "v": "To: "
+              },
+              {
+                "t": "text",
+                "v": "Chris"
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "We’re back "
+              },
+              {
+                "t": "strong",
+                "v": "(0) "
+              },
+              {
+                "t": "text",
+                "v": "from"
+              },
+              {
+                "t": "text",
+                "v": " our family holiday in the US. It was amazing! It’s "
+              },
+              {
+                "t": "blank",
+                "id": "b25",
+                "number": 25
+              },
+              {
+                "t": "text",
+                "v": " biggest country I’ve ever been to. We travelled from Los Angeles to Seattle "
+              },
+              {
+                "t": "blank",
+                "id": "b26",
+                "number": 26
+              },
+              {
+                "t": "text",
+                "v": " car. It’s nearly 2000 km and the trip took us "
+              },
+              {
+                "t": "blank",
+                "id": "b27",
+                "number": 27
+              },
+              {
+                "t": "text",
+                "v": " very long time – nearly a week."
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "My family liked Los Angeles best, "
+              },
+              {
+                "t": "blank",
+                "id": "b28",
+                "number": 28
+              },
+              {
+                "t": "text",
+                "v": " I didn’t agree – Seattle was my favourite place. It’s smaller "
+              },
+              {
+                "t": "blank",
+                "id": "b29",
+                "number": 29
+              },
+              {
+                "t": "text",
+                "v": " Los Angeles, and the food was better. Seattle is near the sea and we ate lots of fish. The only problem was that "
+              },
+              {
+                "t": "blank",
+                "id": "b30",
+                "number": 30
+              },
+              {
+                "t": "text",
+                "v": " rained almost every day!"
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "Let’s meet for a chat soon. I have a present for you!"
+              }
+            ]
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b25"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b26"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b27"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b28"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b29"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b30"
+            ],
+            "maxWords": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "part": 6,
+      "label": "Part 6",
+      "instruction": "Write an email to your English friend, Lee. Write 25 words or more.",
+      "questions": [
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 15,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "You are going camping next weekend with your family."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write an email to your English friend, Lee."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "In your email:"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "• ask Lee to come camping with you and your family"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "• say why you are going camping"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "• tell Lee what to bring."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write "
+              },
+              {
+                "t": "strong",
+                "v": "25 words"
+              },
+              {
+                "t": "text",
+                "v": " or more."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 25
+          }
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "part": 7,
+      "label": "Part 7",
+      "instruction": "Look at the three pictures. Write the story shown in the pictures. Write 35 words or more.",
+      "questions": [
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 15,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the three pictures."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write the story shown in the pictures."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write "
+              },
+              {
+                "t": "strong",
+                "v": "35 words"
+              },
+              {
+                "t": "text",
+                "v": " or more."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 35
+          },
+          "material": [
+            {
+              "id": "i7",
+              "type": "imageRef",
+              "image": "img7"
+            },
+            {
+              "id": "i8",
+              "type": "imageRef",
+              "image": "img8"
+            },
+            {
+              "id": "i9",
+              "type": "imageRef",
+              "image": "img9"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "01 KET真题 - 第1套 - 阅读与写作.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "bookPages": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

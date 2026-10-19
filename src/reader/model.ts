@@ -1,6 +1,6 @@
 /** Derived lookups for the reader: blank ownership, blank display text, context sentences. */
 import type { BlockT, InlineT, ItemKeyT, ItemT, QuestionT, SectionT } from '@schema';
-import { questionBlankIds, type ResponseValue, type Result } from '@/lib/grading';
+import { allBlocks, questionBlankIds, type ResponseValue, type Result } from '@/lib/grading';
 import { plainText } from '@/components/Rich';
 
 export type Responses = Record<string, ResponseValue>;
@@ -104,8 +104,7 @@ function inlinesOf(b: BlockT): InlineT[][] {
  * the blank in context (useful on narrow screens where the article is on another tab)
  */
 export function blankContext(item: ItemT, blankId: string): InlineT[] | null {
-  const blocks = [...item.article.blocks, ...item.sections.flatMap((s) => s.stimulus ?? [])];
-  for (const b of blocks) {
+  for (const b of allBlocks(item)) {
     for (const run of inlinesOf(b)) {
       const idx = run.findIndex((n) => n.t === 'blank' && n.id === blankId);
       if (idx < 0) continue;

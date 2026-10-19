@@ -1,21 +1,21 @@
-import { forwardRef, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
-import type { BlockT, ItemT } from '@schema';
+import { forwardRef, useLayoutEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
+import type { ArticleItemT, BlockT, ItemT } from '@schema';
 import { Rich, type BlankNode } from '@/components/Rich';
 import { staticContent } from '@/lib/content';
 import { highlightSupported, paint, sentenceRange } from './evidence';
 
 interface Props {
-  item: ItemT;
+  item: ArticleItemT;
   renderBlank: (n: BlankNode) => ReactNode;
   /** evidence for the current question (review mode) */
   evidence: { block: string; quote: string }[];
 }
 
-/** left pane: title → info box → images → body → Words & Expressions (static content) */
-export const ArticlePane = forwardRef<HTMLDivElement, Props>(function ArticlePane({ item, renderBlank, evidence }, ref) {
-  const m = item.meta;
-  const rootRef = useRef<HTMLDivElement | null>(null);
-  // blocks whose quote could not be matched fall back to whole-block highlighting
+/**
+ * highlight the evidence sentences of the current question inside `root` (CSS Custom Highlight API);
+ * returns the blocks whose quote could not be matched — they fall back to whole-block highlighting
+ */
+export function useEvidencePaint(rootRef: RefObject<HTMLElement | null>, evidence: { block: string; quote: string }[], deps: unknown[] = []) {
   const [fallback, setFallback] = useState<Set<string>>(new Set());
   const evKey = evidence.map((e) => `${e.block}|${e.quote}`).join('\n');
   useLayoutEffect(() => {
@@ -30,12 +30,25 @@ export const ArticlePane = forwardRef<HTMLDivElement, Props>(function ArticlePan
     paint('evidence', ranges);
     setFallback(miss);
     return () => paint('evidence', []);
-  }, [evKey]); // eslint-disable-line react-hooks/exhaustive-deps
-  const setRef = (el: HTMLDivElement | null) => {
-    rootRef.current = el;
+  }, [evKey, ...deps]); // eslint-disable-line react-hooks/exhaustive-deps
+  return fallback;
+}
+
+/** forward a pane's scroll element to both a local ref and the parent's ref */
+export function mergeRefs<T>(local: { current: T | null }, ref: ((el: T | null) => void) | { current: T | null } | null) {
+  return (el: T | null) => {
+    local.current = el;
     if (typeof ref === 'function') ref(el);
     else if (ref) ref.current = el;
   };
+}
+
+/** left pane: title → info box → images → body → Words & Expressions (static content) */
+export const ArticlePane = forwardRef<HTMLDivElement, Props>(function ArticlePane({ item, renderBlank, evidence }, ref) {
+  const m = item.meta;
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  const fallback = useEvidencePaint(rootRef, evidence);
+  const setRef = mergeRefs(rootRef, ref);
   const info: [string, string | number | undefined][] = [
     ['语篇类型', m.genre],
     ['词数', m.wordCount],
@@ -104,7 +117,7 @@ export const ArticlePane = forwardRef<HTMLDivElement, Props>(function ArticlePan
   );
 });
 
-function Figure({ img }: { img?: ItemT['article']['images'][number] }) {
+export function Figure({ img }: { img?: ItemT['article']['images'][number] }) {
   if (!img) return null;
   return (
     <figure className="article-figure">

@@ -56,5 +56,24 @@
 - < 1024px（iPad 竖屏、分屏）：顶部「文章 / 题目」分段切换；完形与选词类题在题目页顶部显示可折叠的文章片段（当前空格附近的句子）
 - 按容器宽度判断，不按设备类型
 
+## 6. 真题（KET / PET，`format: exam`）
+
+题型尽量复用上面的交互；参考 Cambridge 官方机考（底部题号栏、计时、标记、写作实时字数）和 Cambridge 练习/考试两种模式。
+
+| Part | 交互 |
+|---|---|
+| R&W 1 告示 | `choice`，告示图作为题目材料显示在左栏 |
+| R&W 2 三篇短文配人 | `choice`，选项为三个人名 |
+| R&W 3 长文 / 听力 3、4 | `choice` |
+| R&W 4 选择型完形 | `inlineChoice`（同完形） |
+| R&W 5 开放式完形 / 听力 2 笔记填空 | `textEntry`，空格在左栏材料（表格）中；示例 (0) 以文字呈现 |
+| R&W 6 邮件、7 看图写故事 | `extendedText` + 字数下限计数；AI 按 Cambridge 写作标准评分（内容 / 条理性 / 语言各 0–5），界面注明“评分遵照 Cambridge 标准” |
+| 听力 1 看图选择 | `choice` 图片选项，三张卡片并排 |
+| 听力 5 人物配对 | 每人一道 `choice`，选项 A–H |
+| 口语 | `speaking`：逐句听题（TTS）→ 录音 → 回放 / 重录；提交后转写并按 Cambridge 口语标准评分（发音暂不评估） |
+
+- **练习模式**：不限时；录音可暂停、拖动、±5 秒；提交后看答案、解析、听力原文。
+- **考试模式**：按官方时长倒计时（剩 5 分钟、1 分钟提醒，到时自动交卷）；每段录音只能播放一次（录音已含两遍），不能暂停或拖动；可标记题目；交卷后显示成绩报告：各 Part 得分 + Cambridge English Scale 估算（Cambridge 官方练习题换算表，标明“估算”）。
+
 ## 参考
 IELTS on computer（左右分屏、拖放与标记）、TOEFL iBT Review 屏、NAEP 数字化测评（触屏、划除选项）、Newsela “Let’s Review”、Cambridge Linguaskill gap-fill、WCAG 2.2 SC 2.5.7 / 2.5.8、Apple HIG 44pt、Material 48dp、MDN Visual Viewport API。

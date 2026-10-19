@@ -104,6 +104,18 @@ Attempt（运行时）── responses{ qid → value } + result
 ```
 xAPI 映射：actor = learnerId；verb = `answered`（每题）/ `completed`（提交）；object = `<itemId>#<qid>`；result.score.scaled = score / maxScore。
 
+## 真题 item（`format: "exam"`，KET / PET）
+
+2026-10 起新增，**纯增量**：已交付的 540 条时文阅读（`ArticleItem`）文件、ID 与结构都不变，`SCHEMA_VERSION` 仍为 `1.0`。`Item = ArticleItem | ExamItem`。
+
+- `ExamItem`：`format: "exam"`、`id` = `<playlist>-t<套>-<rw|l|s>`、`test`（第 N 套）、`paper`（`reading_writing` / `listening` / `speaking`）、`meta {exam, durationMinutes, totalMarks}`；`article` 只作图片登记表（`blocks` / `vocabulary` 为空）。
+- 一个 Part = 一个 section：`part`、`label`（`Part N`）、`material`（左栏材料，可含空格）、`audio {src, seconds}`（听力，文件已含两遍播放）。
+- 题目可带 `material`（当前题的左栏材料，如 R&W Part 1 告示）；选项可带 `image`（听力 Part 1 看图选择）。
+- `extendedText.minWords`（写作字数下限，实时计数）；新交互 `speaking {prompt, turns[{id, text}], maxSeconds, scoring}`，作答为 `{turnId: 语音转写}`。
+- Key：`rubricType` 增加 `cambridge_a2_writing` / `cambridge_a2_speaking`（keyPoints = 评分维度，weight 5，按 0–5 档给分）；`transcripts {sectionId: Block[]}` 为听力原文，与答案一样只在提交后由服务端返回。
+- Attempt：`mode`（`practice` / `exam`）、`flagged`（考试模式标记的题）、`played`（考试模式已播放的录音）。Judgement 的 keyPoint 可带 `band`。
+- Catalog：真题 playlist 带 `format: "exam"`，ItemSummary 用 `test` / `paper` 代替 `week` / `day`，没有 `difficulty`；真题 playlist 排在时文阅读之后。
+
 ## 版本
 - `schemaVersion`：数据结构版本（破坏性变更才升级）
 - `item.status.version`：内容版本（semver），修订文字或答案时递增；Attempt 记录 `itemVersion`

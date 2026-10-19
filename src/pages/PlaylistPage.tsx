@@ -6,7 +6,7 @@ import { useAsync } from '@/lib/useAsync';
 import arrowLeft from '@/assets/icons/arrow-left.svg';
 import starIcon from '@/assets/icons/star.svg';
 import { Thumb } from '@/components/Thumb';
-import { formatMinutes } from '@/lib/labels';
+import { DAY_NAME, PAPER_EN, formatMinutes } from '@/lib/labels';
 
 export function PlaylistPage() {
   const { playlistId = '' } = useParams();
@@ -14,8 +14,13 @@ export function PlaylistPage() {
   const { data: catalog, error } = useAsync(() => staticContent.getCatalog(), []);
   const pl = catalog?.playlists.find((p) => p.id === playlistId);
 
-  const weeks = new Map<number, NonNullable<typeof pl>['items']>();
-  pl?.items.forEach((i) => weeks.set(i.week, [...(weeks.get(i.week) ?? []), i]));
+  // 时文阅读: grouped by week; exam papers (KET/PET 真题): grouped by test (第 N 套)
+  const exam = pl?.format === 'exam';
+  const groups = new Map<number, NonNullable<typeof pl>['items']>();
+  pl?.items.forEach((i) => {
+    const g = (exam ? i.test : i.week) ?? 0;
+    groups.set(g, [...(groups.get(g) ?? []), i]);
+  });
 
   return (
     <main className="page playlist-page">
@@ -32,9 +37,13 @@ export function PlaylistPage() {
             <h1 className="playlist-intro-title">{pl.title}</h1>
             <div className="playlist-intro-stats">
               <span>{pl.totalWords.toLocaleString()} 单词</span>
-              <span>
-                L{pl.difficultyRange[0]}~L{pl.difficultyRange[1]}
-              </span>
+              {exam ? (
+                <span>{pl.gradeBand}</span>
+              ) : (
+                <span>
+                  L{pl.difficultyRange[0]}~L{pl.difficultyRange[1]}
+                </span>
+              )}
             </div>
             <p className="playlist-intro-desc">{pl.description}</p>
             <button className="playlist-fav">
@@ -44,9 +53,9 @@ export function PlaylistPage() {
           </aside>
           <section className="playlist-items">
             <h2 className="playlist-items-head">合集（{pl.itemCount}）</h2>
-            {[...weeks].map(([week, items]) => (
-              <div key={week} className="week-group">
-                <h3 className="week-label">Week {week}</h3>
+            {[...groups].map(([group, items]) => (
+              <div key={group} className="week-group">
+                <h3 className="week-label">{exam ? `第 ${group} 套` : `Week ${group}`}</h3>
                 {items.map((it) => {
                   const att = localAttempts.get(it.id);
                   const done = att?.status === 'submitted' && att.result;
@@ -54,14 +63,20 @@ export function PlaylistPage() {
                   return (
                     <Link key={it.id} to={`/p/${pl.id}/${it.id}`} className="item-row">
                       <span className="item-row-num">{it.order}</span>
-                      <Thumb className="item-row-thumb" src={it.thumbnail} title={it.title} day={it.day} week={it.week} accent={pl.accent} />
+                      <Thumb
+                        className="item-row-thumb"
+                        src={it.thumbnail}
+                        title={it.title}
+                        kicker={it.paper ? `Test ${it.test} · ${PAPER_EN[it.paper]}` : `Week ${it.week} · ${DAY_NAME[it.day!]}`}
+                        accent={pl.accent}
+                      />
                       <span className="item-row-text">
                         <span className="item-row-title">{it.title}</span>
                         <span className="item-row-meta">
                           {[
                             it.taskType.labelZh,
-                            `${it.wordCount} 单词`,
-                            `L${it.difficulty}`,
+                            it.wordCount ? `${it.wordCount} 单词` : null,
+                            it.difficulty !== undefined ? `L${it.difficulty}` : null,
                             `${it.questionCount} 题`,
                             formatMinutes(it.suggestedMinutes),
                             done ? `得分 ${att.result!.score}/${att.result!.maxScore}` : att ? '进行中' : null,

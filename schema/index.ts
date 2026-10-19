@@ -12,7 +12,11 @@ export const SCHEMA_VERSION = '1.0';
 /* ------------------------------------------------------------------ ids */
 
 export const PlaylistId = z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/);
-export const ItemId = z.string().regex(/^[a-z0-9-]+-w\d{2}-(mon|tue|wed|thu|fri)$/);
+/** 时文阅读 item: <playlist>-wNN-<day> */
+export const ArticleItemId = z.string().regex(/^[a-z0-9-]+-w\d{2}-(mon|tue|wed|thu|fri)$/);
+/** exam paper (KET/PET 真题): <playlist>-t<test>-<rw|l|s> */
+export const ExamItemId = z.string().regex(/^[a-z0-9]+-t\d+-(rw|l|s)$/);
+export const ItemId = z.union([ArticleItemId, ExamItemId]);
 export const Day = z.enum(['mon', 'tue', 'wed', 'thu', 'fri']);
 
 /* ------------------------------------------------------------- inline */
@@ -238,6 +242,24 @@ export const ExtendedText = z
     /** sentence frame with blanks, e.g. "They felt ___ but ___." */
     scaffold: Rich.optional(),
     scoring: z.enum(['judge', 'self', 'none']),
+    /** writing tasks: minimum word count printed in the task (live word counter) */
+    minWords: z.number().int().positive().optional(),
+  })
+  .strict();
+
+/**
+ * 口语 — the examiner's lines are read aloud (TTS) one by one; the learner records an answer after each.
+ * Recordings are transcribed on the server (/api/rc/speak) and the transcript is judged as a whole.
+ * Response: {turnId: transcript}.
+ */
+export const Speaking = z
+  .object({
+    kind: z.literal('speaking'),
+    prompt: Rich,
+    turns: z.array(z.object({ id: z.string().regex(/^t\d+$/), text: z.string() }).strict()).min(1),
+    /** longest recording per turn */
+    maxSeconds: z.number().int().positive(),
+    scoring: z.enum(['judge', 'self']),
   })
   .strict();
 
@@ -261,6 +283,7 @@ export const Interaction = z.discriminatedUnion('kind', [
   Match,
   ExtendedText,
   Order,
+  Speaking,
 ]);
 export type InteractionT = z.infer<typeof Interaction>;
 
@@ -285,6 +308,8 @@ export const Question = z
     points: z.number().nonnegative().default(1),
     skills: z.array(Skill).default([]),
     interaction: Interaction,
+    /** exam items: material shown in the left pane while this question is current (e.g. a KET Part 1 notice) */
+    material: z.array(Block).optional(),
   })
   .strict();
 export type QuestionT = z.infer<typeof Question>;
@@ -300,6 +325,12 @@ export const Section = z
     bank: z.array(BankEntry).optional(),
     /** a table or other stimulus that belongs to the question area (e.g. 表格填空) */
     stimulus: z.array(Block).optional(),
+    /** exam items: Part number (KET Reading & Writing 1–7, Listening 1–5, Speaking 1–2) */
+    part: z.number().int().positive().optional(),
+    /** exam items: the Part's texts shown in the left pane (passage, notes form with blanks…) */
+    material: z.array(Block).optional(),
+    /** exam items: the Part's recording; the file already contains both plays */
+    audio: z.object({ src: z.string(), seconds: z.number().int().positive() }).strict().optional(),
     questions: z.array(Question).min(1),
   })
   .strict();
@@ -318,16 +349,20 @@ export const TaskTypeCode = z.enum([
   'table_fill', // 表格填空
   'dialogue_completion', // 补全对话
   'weekly_intensive', // 每周精读
+  'exam_reading_writing', // 真题 · 阅读与写作
+  'exam_listening', // 真题 · 听力
+  'exam_speaking', // 真题 · 口语
 ]);
 
 export const Errata = z
   .object({ original: z.string(), corrected: z.string(), note: z.string().optional() })
   .strict();
 
-export const Item = z
+/** 时文阅读 item (the original v1.0 shape; delivered content is frozen) */
+export const ArticleItem = z
   .object({
     schemaVersion: z.literal(SCHEMA_VERSION),
-    id: ItemId,
+    id: ArticleItemId,
     playlistId: PlaylistId,
     order: z.number().int().positive(),
     week: z.number().int().positive(),
@@ -350,7 +385,52 @@ export const Item = z
       .strict(),
   })
   .strict();
+export type ArticleItemT = z.infer<typeof ArticleItem>;
+
+export const ExamPaper = z.enum(['reading_writing', 'listening', 'speaking']);
+
+/**
+ * One paper of an exam test (KET/PET 真题): Reading & Writing, Listening or Speaking.
+ * Parts are sections; each section carries its own material / audio, so `article` holds only the image registry.
+ */
+export const ExamItem = z
+  .object({
+    schemaVersion: z.literal(SCHEMA_VERSION),
+    format: z.literal('exam'),
+    id: ExamItemId,
+    playlistId: PlaylistId,
+    order: z.number().int().positive(),
+    /** 第 N 套 */
+    test: z.number().int().positive(),
+    paper: ExamPaper,
+    title: z.string(),
+    displayName: z.string(),
+    taskType: z.object({ code: TaskTypeCode, labelZh: z.string() }).strict(),
+    meta: z
+      .object({
+        exam: z.string(), // e.g. "A2 Key for Schools"
+        durationMinutes: z.number().int().positive(), // official time for the paper
+        totalMarks: z.number().int().positive(),
+        intro: z.string().optional(),
+      })
+      .strict(),
+    thumbnail: z.string().optional(),
+    article: Article,
+    sections: z.array(Section).min(1),
+    errata: z.array(Errata).optional(),
+    source: z
+      .object({ pdf: z.string(), pdfPages: z.array(z.number().int()), bookPages: z.array(z.number().int()) })
+      .strict(),
+    status: z
+      .object({ content: z.enum(['transcribed', 'reviewed']), version: z.string() })
+      .strict(),
+  })
+  .strict();
+export type ExamItemT = z.infer<typeof ExamItem>;
+
+export const Item = z.union([ArticleItem, ExamItem]);
 export type ItemT = z.infer<typeof Item>;
+export const isExam = (item: ItemT): item is ExamItemT => 'format' in item && item.format === 'exam';
 
 /* --------------------------------------------------------------- keys */
 
@@ -405,8 +485,12 @@ export const AnswerKey = z.union([
       sampleAnswer: z.string(),
       /** free-text marking note for humans */
       rubricZh: z.string().optional(),
-      /** content: answer must convey the key points; opinion: stance + supported reason(s), no single right answer */
-      rubricType: z.enum(['content', 'opinion']).optional(),
+      /**
+       * content: answer must convey the key points; opinion: stance + supported reason(s), no single right answer;
+       * cambridge_a2_writing / cambridge_a2_speaking: Cambridge English A2 Key assessment scales — keyPoints are the
+       * criteria (weight = top band, 5), each judged on a 0–5 band; the UI states that Cambridge's scales were used.
+       */
+      rubricType: z.enum(['content', 'opinion', 'cambridge_a2_writing', 'cambridge_a2_speaking']).optional(),
       /** 得分要点 — what a full-mark answer must convey; weights sum to the question's points */
       keyPoints: z.array(JudgeKeyPoint).optional(),
       /** all = every key point needed for full marks; any = any one key point (“答出其一即可”) */
@@ -427,6 +511,8 @@ export const ItemKey = z
     /** where the official answers come from (answer-book PDF pages) */
     officialRef: z.object({ pdf: z.string(), pages: z.array(z.number().int().positive()) }).strict().optional(),
     answers: z.record(AnswerKey),
+    /** listening transcripts by section id — private like the answers, revealed after submitting */
+    transcripts: z.record(z.array(Block)).optional(),
   })
   .strict();
 export type ItemKeyT = z.infer<typeof ItemKey>;
@@ -457,13 +543,17 @@ export const ItemSummary = z
   .object({
     id: ItemId,
     order: z.number().int(),
-    week: z.number().int(),
-    day: Day,
+    /** 时文阅读 only */
+    week: z.number().int().optional(),
+    day: Day.optional(),
+    /** exam papers only: 第 N 套 + paper */
+    test: z.number().int().optional(),
+    paper: ExamPaper.optional(),
     title: z.string(),
     displayName: z.string(),
     taskType: z.object({ code: TaskTypeCode, labelZh: z.string() }).strict(),
     wordCount: z.number().int(),
-    difficulty: z.number().int(),
+    difficulty: z.number().int().optional(),
     suggestedMinutes: z.number().int(),
     questionCount: z.number().int(),
     thumbnail: z.string().optional(),
@@ -478,6 +568,8 @@ export const Catalog = z
       z
         .object({
           id: PlaylistId,
+          /** exam = 真题 playlist (items grouped by test); absent = 时文阅读 */
+          format: z.literal('exam').optional(),
           title: z.string(),
           shortTitle: z.string(),
           cover: z.string(),
@@ -510,7 +602,17 @@ export const Judgement = z
   .object({
     score: z.number().nonnegative(),
     maxPoints: z.number().positive(),
-    keyPoints: z.array(z.object({ id: z.string(), met: z.enum(['yes', 'partial', 'no']), quote: z.string().optional() }).strict()),
+    keyPoints: z.array(
+      z
+        .object({
+          id: z.string(),
+          met: z.enum(['yes', 'partial', 'no']),
+          quote: z.string().optional(),
+          /** Cambridge rubrics: the criterion's band (0–5) */
+          band: z.number().int().min(0).max(5).optional(),
+        })
+        .strict(),
+    ),
     languageIssues: z.array(z.object({ text: z.string(), fix: z.string(), noteZh: z.string().optional() }).strict()),
     feedbackZh: z.string(),
     confidence: z.number().min(0).max(1),
@@ -534,6 +636,12 @@ export const Attempt = z
     submittedAt: z.string().nullable(),
     durationSec: z.number().nonnegative(),
     status: z.enum(['in_progress', 'submitted']),
+    /** exam papers: practice (default) or timed exam mode */
+    mode: z.enum(['practice', 'exam']).optional(),
+    /** exam mode: questions the learner flagged for review */
+    flagged: z.array(z.string()).optional(),
+    /** exam mode: sections whose recording has been played (it can be played once) */
+    played: z.array(z.string()).optional(),
     responses: z.record(ResponseValue),
     result: z
       .object({

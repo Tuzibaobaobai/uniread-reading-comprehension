@@ -10,7 +10,7 @@
  */
 import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
-import type { InlineT, ItemKeyT, ItemT, PlaylistT, QuestionT } from '../schema/index.ts';
+import { isExam, type InlineT, type ItemKeyT, type ItemT, type PlaylistT, type QuestionT } from '../schema/index.ts';
 import { materialIdOf, resourceIdOf, resourceTitle } from './selection-json.ts';
 
 const root = new URL('../content/', import.meta.url);
@@ -27,6 +27,7 @@ const KIND_ZH: Record<QuestionT['interaction']['kind'], string> = {
   match: '连线',
   extendedText: '开放问答',
   order: '连词成句',
+  speaking: '口语录音（AI 评分）',
 };
 const PLATFORM: Record<string, string> = {
   choice: '可适配（single-selection）',
@@ -71,6 +72,13 @@ for (const pl of ids) {
   out.push('| Item | 原书页（PDF／书页） | 难度（原书“难度 N 级”） | 词数 | 建议用时 | hasVideo | 图片资产 | 缩略图策略 |');
   out.push('| --- | --- | --- | --- | --- | --- | --- | --- |');
   for (const it of items) {
+    if (isExam(it)) {
+      const audio = it.sections.flatMap((s) => (s.audio ? [`\`${s.audio.src}\``] : [])).join('<br>') || '无';
+      out.push(
+        `| \`${it.id}\` | ${it.source.pdfPages.join(',')}／${it.source.bookPages.join(',')} | ${it.meta.exam}（真题，无难度级） | — | ${it.meta.durationMinutes} 分钟（官方考试时长） | 否 | ${it.article.images.length} 张图片；音频：${audio} | 平台占位（RC 以标题生成文字卡） |`,
+      );
+      continue;
+    }
     const m = it.meta;
     const estimated = (it.errata ?? []).find((e) => /无“建议用时”/.test(e.original));
     const imgs = it.article.images.map((i) => `\`${i.src}\``).join('<br>') || '无';

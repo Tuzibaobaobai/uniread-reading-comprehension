@@ -6,8 +6,8 @@
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { Item, ItemKey, Playlist, type InlineT, type ItemT, type ItemKeyT } from '../schema/index.ts';
-import { allQuestions, questionBlankIds } from '../src/lib/grading.ts';
+import { ArticleItem, ExamItem, ItemKey, Playlist, isExam, type BlockT, type InlineT, type ItemT, type ItemKeyT } from '../schema/index.ts';
+import { allBlocks, allQuestions, questionBlankIds } from '../src/lib/grading.ts';
 
 const ROOT = join(import.meta.dirname, '..', 'content');
 const only = new Set(process.argv.slice(2));
@@ -19,7 +19,7 @@ const readJson = (p: string) => JSON.parse(readFileSync(p, 'utf8'));
 
 function walkInline(item: ItemT, fn: (n: InlineT, where: string) => void) {
   const visit = (rich: InlineT[] | undefined, where: string) => rich?.forEach((n) => fn(n, where));
-  const visitBlocks = (blocks: ItemT['article']['blocks'], where: string) =>
+  const visitBlocks = (blocks: BlockT[], where: string) =>
     blocks.forEach((b) => {
       const w = `${where}/${b.id}`;
       switch (b.type) {
@@ -42,6 +42,8 @@ function walkInline(item: ItemT, fn: (n: InlineT, where: string) => void) {
   visitBlocks(item.article.blocks, 'article');
   item.sections.forEach((s) => {
     if (s.stimulus) visitBlocks(s.stimulus, s.id);
+    if (s.material) visitBlocks(s.material, `${s.id}/material`);
+    s.questions.forEach((q) => q.material && visitBlocks(q.material, `${q.id}/material`));
     s.bank?.forEach((e) => visit(e.content, `${s.id}/bank`));
     s.questions.forEach((q) => {
       const it = q.interaction;
@@ -59,8 +61,8 @@ function checkItem(item: ItemT, key: ItemKeyT, playlistDir: string) {
 
   // ids unique
   const blockIds = new Set<string>();
-  const allBlocks = [...item.article.blocks, ...item.sections.flatMap((s) => s.stimulus ?? [])];
-  allBlocks.forEach((b) => (blockIds.has(b.id) ? err(`duplicate block id ${b.id}`) : blockIds.add(b.id)));
+  const blocks = allBlocks(item);
+  blocks.forEach((b) => (blockIds.has(b.id) ? err(`duplicate block id ${b.id}`) : blockIds.add(b.id)));
 
   // blanks: unique, and each referenced by exactly one question
   const blanks = new Map<string, string>();
@@ -150,7 +152,8 @@ function checkItem(item: ItemT, key: ItemKeyT, playlistDir: string) {
           });
           break;
         }
-        case 'extendedText': {
+        case 'extendedText':
+        case 'speaking': {
           if (!('sampleAnswer' in k)) {
             err(`${q.id} key must have "sampleAnswer"`);
             break;
@@ -164,6 +167,8 @@ function checkItem(item: ItemT, key: ItemKeyT, playlistDir: string) {
               if (sum !== pts) err(`${q.id} keyPoints weights sum to ${sum}, question points = ${pts}`);
             } else if (k.keyPoints.some((p) => p.weight > pts)) err(`${q.id} keyPoint weight exceeds points`);
             k.anchors?.forEach((a, i) => a.score > pts && err(`${q.id} anchor ${i + 1} score > points`));
+            if (k.rubricType?.startsWith('cambridge_') && k.keyPoints?.some((p) => p.weight !== 5))
+              err(`${q.id} Cambridge criteria are 0–5 bands: every keyPoint weight must be 5`);
           } else if (it.scoring === 'self' || it.scoring === 'none') {
             warn(`${q.id} is "${it.scoring}" — consider scoring "judge" with keyPoints`);
           }
@@ -210,16 +215,35 @@ function checkItem(item: ItemT, key: ItemKeyT, playlistDir: string) {
   item.article.images.forEach((img) => {
     if (!existsSync(join(ROOT, img.src))) err(`image file missing: ${img.src}`);
   });
-  item.article.blocks.forEach((b) => b.type === 'imageRef' && !imageIds.has(b.image) && err(`imageRef ${b.image} unknown`));
+  blocks.forEach((b) => b.type === 'imageRef' && !imageIds.has(b.image) && err(`imageRef ${b.image} unknown`));
+  allQuestions(item).forEach((q) => {
+    const it = q.interaction;
+    const imgs = [...('options' in it ? it.options.map((o) => o.image) : []), ...(it.kind === 'match' ? it.right.map((r) => r.image) : [])];
+    imgs.forEach((src) => src && !existsSync(join(ROOT, src)) && err(`${q.id} option image missing: ${src}`));
+  });
+  item.sections.forEach((s) => s.audio && !existsSync(join(ROOT, s.audio.src)) && err(`${s.id} audio missing: ${s.audio.src}`));
+  if (isExam(item)) {
+    item.sections.forEach((s) => s.part === undefined && err(`${s.id} needs "part"`));
+    if (key.transcripts) Object.keys(key.transcripts).forEach((sid) => item.sections.some((s) => s.id === sid) || err(`transcript for unknown section ${sid}`));
+    if (item.paper === 'listening') item.sections.forEach((s) => s.audio || err(`${s.id} listening part has no audio`));
+    const marks = allQuestions(item).reduce((n, q) => n + (q.points ?? 1), 0);
+    if (marks !== item.meta.totalMarks) err(`question points sum to ${marks}, meta.totalMarks = ${item.meta.totalMarks}`);
+  }
   if (item.thumbnail && !existsSync(join(ROOT, item.thumbnail))) err(`thumbnail missing: ${item.thumbnail}`);
 
   // naming
+  if (!existsSync(join(playlistDir, 'keys', `${id}.json`))) err('key file missing');
+  if (isExam(item)) {
+    const suffix = { reading_writing: 'rw', listening: 'l', speaking: 's' }[item.paper];
+    const expectedId = `${item.playlistId}-t${item.test}-${suffix}`;
+    if (item.id !== expectedId) err(`id should be ${expectedId}`);
+    return;
+  }
   const dayName = { mon: 'Monday', tue: 'Tuesday', wed: 'Wednesday', thu: 'Thursday', fri: 'Friday' }[item.day];
   const expected = `Week ${item.week} ${dayName} ${item.title}`;
   if (item.displayName !== expected) err(`displayName should be "${expected}"`);
   const expectedId = `${item.playlistId}-w${String(item.week).padStart(2, '0')}-${item.day}`;
   if (item.id !== expectedId) err(`id should be ${expectedId}`);
-  if (!existsSync(join(playlistDir, 'keys', `${id}.json`))) err('key file missing');
 }
 
 for (const pl of readdirSync(join(ROOT, 'playlists'))) {
@@ -235,7 +259,9 @@ for (const pl of readdirSync(join(ROOT, 'playlists'))) {
   for (const f of itemFiles) {
     const id = f.replace(/\.json$/, '');
     if (only.size && !only.has(id)) continue;
-    const iRes = Item.safeParse(readJson(join(dir, 'items', f)));
+    const raw = readJson(join(dir, 'items', f));
+    // parse by format so schema errors name the right fields (a union only reports "invalid input")
+    const iRes = (raw?.format === 'exam' ? ExamItem : ArticleItem).safeParse(raw);
     const kPath = join(dir, 'keys', f);
     const kRes = existsSync(kPath) ? ItemKey.safeParse(readJson(kPath)) : null;
     if (!iRes.success) errors.push(`${id}: item schema: ${iRes.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join('; ')}`);

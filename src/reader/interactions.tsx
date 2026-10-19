@@ -4,6 +4,7 @@ import { Rich, plainText, type BlankNode } from '@/components/Rich';
 import { Check, Cross, Locate } from '@/components/Icons';
 import tipIcon from '@/assets/icons/tip.svg';
 import { questionBlankIds, type Result } from '@/lib/grading';
+import { CAMBRIDGE_NOTE_ZH, isCambridge } from '@/lib/judge';
 import { Block } from './ArticlePane';
 import { blankContext, blankCorrect, correctBlankText, showFirstLetter, type FlatQuestion, type Responses } from './model';
 import { staticContent } from '@/lib/content';
@@ -55,7 +56,7 @@ function OptionList({
   explain?: { text?: string; block?: string; quote?: string; onLocate?: (blockId: string, quote?: string) => void };
 }) {
   return (
-    <div className="options" role="radiogroup" aria-readonly={locked || undefined}>
+    <div className={`options ${options.length > 0 && options.every((o) => o.image) ? 'has-images' : ''}`} role="radiogroup" aria-readonly={locked || undefined}>
       {options.map((o) => {
         const isSel = selected === o.id;
         const isRight = correct?.includes(o.id);
@@ -155,19 +156,24 @@ export function ChoiceView(props: InteractionProps) {
   return (
     <>
       <QuestionPrompt number={fq.q.number}>
-        <Rich nodes={it.prompt} />
+        {/* exam Part 1 notices print no question: the notice itself (left pane) is the stem */}
+        {it.prompt.length ? <Rich nodes={it.prompt} /> : fq.q.material?.length ? <span className="q-prompt-hint">阅读左侧的告示，选择正确的一项。</span> : null}
       </QuestionPrompt>
       <OptionList
         options={it.options}
         selected={selected}
         correct={correct}
         locked={!!review}
-        explain={choiceExplain(props)}
+        explain={hasImageOptions(fq.q) ? undefined : choiceExplain(props)}
         onSelect={(id) => setOne(props, [id])}
       />
     </>
   );
 }
+
+/** picture options sit side by side, so their explanation goes below the options instead of inside one */
+export const hasImageOptions = (q: InteractionProps['fq']['q']) =>
+  q.interaction.kind === 'choice' && q.interaction.options.length > 0 && q.interaction.options.every((o) => o.image);
 
 /* ---------------------------------------------------------- inlineChoice */
 
@@ -609,10 +615,11 @@ export function ExtendedTextView(props: InteractionProps & { selfAssessed?: bool
         value={value}
         readOnly={!!review}
         placeholder="在这里写下你的答案…"
-        rows={3}
+        rows={it.minWords ? 6 : 3}
         autoCapitalize="sentences"
         onChange={(e) => setOne(props, e.target.value || undefined)}
       />
+      {it.minWords && <WordCount text={value} min={it.minWords} />}
       {review && <JudgeVerdict {...props} />}
       {review && rowOf(props)?.scoredBy === 'self' && (
         <div className="self-assess">
@@ -631,10 +638,31 @@ export function ExtendedTextView(props: InteractionProps & { selfAssessed?: bool
 
 const rowOf = (props: InteractionProps) => props.review?.result.byQuestion.find((b) => b.q === props.fq.q.id);
 
+export const countWords = (text: string) => (text.match(/[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*/g) ?? []).length;
+
+/** writing tasks: live word count against the task's minimum (Cambridge shows a live counter too) */
+function WordCount({ text, min }: { text: string; min: number }) {
+  const n = countWords(text);
+  return (
+    <p className={`word-count ${n >= min ? 'is-enough' : ''}`} aria-live="polite">
+      已写 {n} 词 · 至少 {min} 词
+    </p>
+  );
+}
+
+const CRITERIA_ZH: Record<string, string> = {
+  content: '内容',
+  organisation: '条理性',
+  language: '语言',
+  grammar_vocabulary: '语法与词汇',
+  interactive_communication: '互动交流',
+  global: '整体表现',
+};
+
 const MET_LABEL = { yes: '已答到', partial: '部分答到', no: '未答到' } as const;
 
 /** LLM judge verdict (docs/09): score, key points, feedback, language fixes; provisional when sent to review */
-function JudgeVerdict(props: InteractionProps) {
+export function JudgeVerdict(props: InteractionProps) {
   const row = rowOf(props);
   if (!row) return null;
   if (row.scoredBy === 'pending') {
@@ -649,6 +677,56 @@ function JudgeVerdict(props: InteractionProps) {
   const k = props.review?.key.answers[props.fq.q.id];
   const points = k && 'keyPoints' in k ? (k.keyPoints ?? []) : [];
   const full = j.score >= j.maxPoints;
+  const rubric = k && 'sampleAnswer' in k ? k.rubricType : undefined;
+  if (isCambridge(rubric)) {
+    return (
+      <section className={`judge ${full ? 'is-full' : j.score > 0 ? 'is-partial' : 'is-zero'}`} aria-label="AI 评分">
+        <div className="judge-head">
+          <span className="judge-score">
+            {j.score}
+            <span className="judge-max"> / {j.maxPoints}</span>
+          </span>
+          <span className="judge-tag">Cambridge 标准 · AI 评分</span>
+          {j.needsReview && <span className="judge-tag is-review">待老师确认</span>}
+        </div>
+        <p className="judge-standard">{CAMBRIDGE_NOTE_ZH[rubric]}</p>
+        <ul className="criteria">
+          {points.map((p) => {
+            const band = j.keyPoints.find((x) => x.id === p.id)?.band ?? 0;
+            return (
+              <li key={p.id} className="criteria-row">
+                <span className="criteria-name">{CRITERIA_ZH[p.id] ?? p.id}</span>
+                <span className="criteria-bar" aria-hidden>
+                  <span style={{ width: `${(band / p.weight) * 100}%` }} />
+                </span>
+                <span className="criteria-band">
+                  {band}/{p.weight}
+                </span>
+              </li>
+            );
+          })}
+          {rubric === 'cambridge_a2_speaking' && (
+            <li className="criteria-row is-muted">
+              <span className="criteria-name">发音</span>
+              <span className="criteria-bar" aria-hidden />
+              <span className="criteria-band">未评估</span>
+            </li>
+          )}
+        </ul>
+        {j.feedbackZh && <p className="judge-feedback">{j.feedbackZh}</p>}
+        {j.languageIssues.length > 0 && (
+          <ul className="judge-language">
+            {j.languageIssues.map((l, i) => (
+              <li key={i}>
+                <s>{l.text}</s> → <b>{l.fix}</b>
+                {l.noteZh && <span className="judge-language-note">（{l.noteZh}）</span>}
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+    );
+  }
   return (
     <section className={`judge ${full ? 'is-full' : j.score > 0 ? 'is-partial' : 'is-zero'}`} aria-label="AI 批改">
       <div className="judge-head">

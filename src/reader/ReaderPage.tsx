@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import type { AttemptT, ItemKeyT, ItemT } from '@schema';
+import { isExam, type AttemptT, type ItemKeyT, type ItemT } from '@schema';
 import { staticContent } from '@/lib/content';
 import { localAttempts, newAttempt } from '@/lib/storage';
 import { isAnswered, isScored, type Result } from '@/lib/grading';
@@ -11,6 +11,9 @@ import correctIcon from '@/assets/icons/correct.svg';
 import wrongIcon from '@/assets/icons/wrong.svg';
 import { plainText, type BlankNode } from '@/components/Rich';
 import { ArticlePane } from './ArticlePane';
+import { ExamPane } from './ExamPane';
+import { ExamReport, ExamTimer, ModeDialog } from './ExamChrome';
+import { SpeakingView } from './Speaking';
 import { QuestionStrip } from './QuestionStrip';
 import { paint, sentenceRange } from './evidence';
 import {
@@ -22,6 +25,7 @@ import {
   OrderView,
   orderSentence,
   TextEntryView,
+  hasImageOptions,
   type InteractionProps,
 } from './interactions';
 import { blankCorrect, blankOwners, blankText, correctBlankText, evidenceOf, flatten, showFirstLetter, type Responses } from './model';
@@ -67,6 +71,8 @@ function Reader({ item }: { item: ItemT }) {
   const sessionStart = useRef(Date.now());
   const flashTimer = useRef<number>();
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const exam = isExam(item) ? item : null;
+  const [reportOpen, setReportOpen] = useState(false);
 
   const submitted = attempt.status === 'submitted' && !!attempt.result;
   const result = attempt.result as Result | null;
@@ -105,6 +111,7 @@ function Reader({ item }: { item: ItemT }) {
   const elapsed = () => attempt.durationSec + (Date.now() - sessionStart.current) / 1000;
 
   const submit = async () => {
+    if (attempt.status === 'submitted') return;
     setConfirmOpen(false);
     setSubmitError(null);
     let graded: Awaited<ReturnType<typeof staticContent.grade>>;
@@ -130,8 +137,27 @@ function Reader({ item }: { item: ItemT }) {
     persist(submitted);
     setIndex(0);
     setTab('questions');
+    if (exam) setReportOpen(true);
     void runJudge(submitted);
   };
+
+  /** exam papers: practice or timed exam mode, chosen before a new attempt; the clock starts now */
+  const chooseMode = (mode: 'practice' | 'exam') => {
+    sessionStart.current = Date.now();
+    persist({ ...attempt, mode, startedAt: new Date().toISOString(), durationSec: 0 });
+  };
+  const examMode = !!exam && attempt.mode === 'exam' && !submitted;
+  const toggleFlag = (qid: string) => {
+    const flagged = attempt.flagged ?? [];
+    persist({ ...attempt, flagged: flagged.includes(qid) ? flagged.filter((f) => f !== qid) : [...flagged, qid] });
+  };
+  const played = useMemo(() => new Set(attempt.played ?? []), [attempt.played]);
+  const markPlayed = (sectionId: string) =>
+    setAttempt((prev) => {
+      const next = { ...prev, played: [...new Set([...(prev.played ?? []), sectionId])] };
+      localAttempts.save(next);
+      return next;
+    });
 
   /** score constructed responses with the LLM judge; questions it can't judge fall back to self-assessment */
   const runJudge = async (a: AttemptT) => {
@@ -141,7 +167,7 @@ function Reader({ item }: { item: ItemT }) {
       pending.map((qid) =>
         staticContent.judge
           ? staticContent.judge
-              .judge({ itemId: item.id, itemVersion: item.status.version, questionId: qid, response: String(a.responses[qid] ?? '') })
+              .judge({ itemId: item.id, itemVersion: item.status.version, questionId: qid, response: responseText(a.responses[qid]) })
               .then((j) => ({ qid, j }), () => ({ qid, j: null }))
           : Promise.resolve({ qid, j: null }),
       ),
@@ -168,6 +194,7 @@ function Reader({ item }: { item: ItemT }) {
     setAttempt(newAttempt(item.id, item.status.version));
     setKey(null);
     setIndex(0);
+    setReportOpen(false);
   };
 
   // save elapsed time when leaving mid-attempt
@@ -275,7 +302,7 @@ function Reader({ item }: { item: ItemT }) {
     <div className={`reader-body tab-${tab}`}>
       <div className="reader-tabs" role="tablist">
         <button role="tab" aria-selected={tab === 'article'} className={tab === 'article' ? 'is-active' : ''} onClick={() => setTab('article')}>
-          文章
+          {exam ? '材料' : '文章'}
         </button>
         <button role="tab" aria-selected={tab === 'questions'} className={tab === 'questions' ? 'is-active' : ''} onClick={() => setTab('questions')}>
           题目 {submitted ? '' : `${flat.length - unanswered.length}/${flat.length}`}
@@ -283,11 +310,46 @@ function Reader({ item }: { item: ItemT }) {
       </div>
 
       <section className="reader-left">
-        <ArticlePane ref={articleRef} item={item} renderBlank={renderBlank} evidence={evidence} />
+        {exam ? (
+          <ExamPane
+            ref={articleRef}
+            item={exam}
+            fq={current}
+            renderBlank={renderBlank}
+            evidence={evidence}
+            transcript={review?.key.transcripts?.[current?.section.id ?? '']}
+            locked={examMode}
+            played={played}
+            onPlayed={markPlayed}
+          />
+        ) : (
+          !isExam(item) && <ArticlePane ref={articleRef} item={item} renderBlank={renderBlank} evidence={evidence} />
+        )}
       </section>
 
       <section className="reader-right">
         <div className="question-card">
+          {exam && (examMode || attempt.mode === 'exam' || submitted) && (
+            <div className="exam-bar">
+              {examMode && (
+                <ExamTimer endsAt={Date.parse(attempt.startedAt) + exam.meta.durationMinutes * 60000} onTimeUp={() => void submit()} />
+              )}
+              {examMode && current && (
+                <button
+                  className={`chip flag-toggle ${attempt.flagged?.includes(current.q.id) ? 'is-on' : ''}`}
+                  aria-pressed={!!attempt.flagged?.includes(current.q.id)}
+                  onClick={() => toggleFlag(current.q.id)}
+                >
+                  {attempt.flagged?.includes(current.q.id) ? '已标记' : '标记本题'}
+                </button>
+              )}
+              {submitted && result && (
+                <button className="chip" onClick={() => setReportOpen(true)}>
+                  成绩报告
+                </button>
+              )}
+            </div>
+          )}
           <div className="question-scroll thin-scroll">
             {current && iprops && (
               <>
@@ -305,7 +367,7 @@ function Reader({ item }: { item: ItemT }) {
                     persist({ ...attempt, result: { ...result, selfAssessed: { ...result.selfAssessed, [current.q.id]: v } } })
                   }
                 />
-                {review && !EMBEDDED_EXPLAIN.has(current.q.interaction.kind) && (
+                {review && (!EMBEDDED_EXPLAIN.has(current.q.interaction.kind) || hasImageOptions(current.q)) && (
                   <Explanation item={item} fq={current} keyData={review.key} onLocate={locate} result={review.result} />
                 )}
               </>
@@ -337,7 +399,7 @@ function Reader({ item }: { item: ItemT }) {
                 return (
                   <button
                     key={i}
-                    className={`question-dot ${i === index ? 'is-current' : ''} ${state}`}
+                    className={`question-dot ${i === index ? 'is-current' : ''} ${state} ${examMode && attempt.flagged?.includes(f.q.id) ? 'is-flagged' : ''}`}
                     onClick={() => go(i)}
                     aria-label={`第 ${f.q.number} 题${state === 'is-correct' ? '，正确' : state === 'is-wrong' ? '，错误' : state === 'is-answered' ? '，已作答' : ''}`}
                     aria-current={i === index}
@@ -380,6 +442,8 @@ function Reader({ item }: { item: ItemT }) {
         </div>
       </section>
 
+      {exam && !submitted && !attempt.mode && <ModeDialog item={exam} onChoose={chooseMode} />}
+      {exam && reportOpen && result && <ExamReport item={exam} result={result} onClose={() => setReportOpen(false)} />}
       {confirmOpen && (
         <div className="dialog-backdrop" role="presentation" onClick={() => setConfirmOpen(false)}>
           <div className="dialog" role="dialog" aria-modal aria-labelledby="dlg-title" onClick={(e) => e.stopPropagation()}>
@@ -443,8 +507,13 @@ function QuestionBody({
       return <ExtendedTextView {...props} selfAssessed={selfAssessed} onSelfAssess={onSelfAssess} />;
     case 'order':
       return <OrderView {...props} />;
+    case 'speaking':
+      return <SpeakingView key={props.fq.q.id} {...props} />;
   }
 }
+
+/** what the judge receives: the text answer, or a speaking task's {turnId: transcript} as JSON */
+const responseText = (r: unknown) => (typeof r === 'string' ? r : r && typeof r === 'object' ? JSON.stringify(r) : '');
 
 function Explanation({
   fq,

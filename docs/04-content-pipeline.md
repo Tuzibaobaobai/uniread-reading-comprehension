@@ -78,6 +78,9 @@ PDF 是扫描件（无文字层、无答案页），内容靠 **页面图片 →
 - `skills` 至少标一个：`main_idea | detail | inference | vocab_in_context | reference | attitude | structure | grammar | calculation | opinion`
 - 每题 `points: 1`（连线题 = 对数）
 
+## 2.5 真题（KET / PET）
+真题按 [production-brief-ket.md](production-brief-ket.md) 生产。流程（省 token）：`scripts/render.swift` 渲染页图 → `scripts/ocr.swift` 本地 OCR（答案册另跑 `zh` 中文优先一遍，供中文详解）→ `scripts/audio.mjs` 转码音频 → 每套一个 Agent 结构化成 3 个 item + key → `npm run validate` + `npx tsx scripts/check-ket.ts <套>`（答案与答案册逐题比对）。已交付的时文阅读内容不改。
+
 ## 3. 答案键规范（keys/）
 
 **有官方答案的书（ci-g3、ci-g7）**：答案以答案册为准（`.work/pages/<pl>-key/p###.jpg`），`answerSource: "official"`，`officialRef: {"pdf": "<答案 PDF 文件名>", "pages": [..]}`。`explanationZh` 由你参考答案册的“详解”**重新写成面向学生的口语化解析**（定位原文 → 推理 → 必要时说明错项），不要照抄；书中“语言点”可提炼为 `tipsZh`（可选，1 句）。如果你独立作答与官方答案不同，以官方为准，并在 `explanationZh` 末尾加“【与独立作答不一致，待复核】”。开放题 `sampleAnswer` 用官方参考答案。

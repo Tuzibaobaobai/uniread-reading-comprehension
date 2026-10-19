@@ -9,7 +9,7 @@
  *   npx tsx scripts/check-week.ts <pl> <week>      exit 1 on a letter mismatch
  */
 import { existsSync, readFileSync } from 'node:fs';
-import type { InlineT, ItemKeyT, ItemT } from '../schema/index.ts';
+import type { ArticleItemT, InlineT, ItemKeyT } from '../schema/index.ts';
 import { BOOKS } from './book-maps.mjs';
 
 const [pl, wk] = process.argv.slice(2);
@@ -35,7 +35,7 @@ const loaded = DAYS.map((day) => {
   const id = `${pl}-w${String(week).padStart(2, '0')}-${day}`;
   const f = `content/playlists/${pl}/items/${id}.json`;
   if (!existsSync(f)) return null;
-  const item = JSON.parse(readFileSync(f, 'utf8')) as ItemT;
+  const item = JSON.parse(readFileSync(f, 'utf8')) as ArticleItemT; // 时文阅读 books only (KET: scripts/check-ket.ts)
   const key = JSON.parse(readFileSync(f.replace('/items/', '/keys/'), 'utf8')) as ItemKeyT;
   const all = JSON.stringify(item.article) + JSON.stringify(item.sections);
   return { id, item, key, vocab: new Set(words(all.replace(/"[a-zA-Z]+":/g, ' '))) };
@@ -43,7 +43,7 @@ const loaded = DAYS.map((day) => {
 // For each single-letter question, pick the answer entry with the same number whose explanation shares the
 // most words with THAT question (stem + options; cloze/word-bank explanations list the option words),
 // falling back to the whole article. Only confident picks are compared.
-const qWords = (q: ItemT['sections'][number]['questions'][number], bank?: { content: InlineT[] }[]) => {
+const qWords = (q: ArticleItemT['sections'][number]['questions'][number], bank?: { content: InlineT[] }[]) => {
   const it = q.interaction;
   const parts = ['prompt' in it ? text(it.prompt as InlineT[]) : '', 'options' in it ? it.options.map((o) => text(o.content)).join(' ') : ''];
   if (it.kind === 'gapMatch' && bank) parts.push(bank.map((b) => text(b.content)).join(' '));
@@ -91,7 +91,7 @@ for (const { id, item, key } of loaded) {
 
   // 2. text fidelity
   const ocr = new Set(words(item.source.pdfPages.map((p) => page(pl, p)).join(' ')));
-  const blockText = (b: ItemT['article']['blocks'][number]): string => {
+  const blockText = (b: ArticleItemT['article']['blocks'][number]): string => {
     if (b.type === 'table') return b.rows.flat().map((c) => text(c.content)).join(' ');
     if (b.type === 'note') return b.content.map((c) => text(c)).join(' ');
     if (b.type === 'list') return b.items.map((i) => text(i)).join(' ');
