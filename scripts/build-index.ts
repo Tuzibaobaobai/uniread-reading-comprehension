@@ -36,6 +36,7 @@ for (const pl of readdirSync(join(ROOT, 'playlists')).sort()) {
     title: playlist.title,
     shortTitle: playlist.shortTitle,
     cover: playlist.cover,
+    ...(playlist.banner ? { banner: playlist.banner } : {}),
     accent: playlist.accent,
     gradeBand: playlist.gradeBand,
     description: playlist.description,
