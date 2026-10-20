@@ -1,0 +1,89 @@
+/*
+  forbidden-native：禁用浏览器默认交互（长按菜单、拖拽、点击高亮等），保留选中与编辑。
+  forbidden-menu：在 forbidden-native 基础上，额外禁止选中与编辑（阅读区、装饰图片等）。
+*/
+
+@mixin forbidden-native {
+  // iOS 长按系统菜单（拷贝、查询、分享等）
+  -webkit-touch-callout: none !important;
+
+  // 禁止拖拽（元素自身）
+  -webkit-user-drag: none !important;
+  -khtml-user-drag: none !important;
+  -moz-user-drag: none !important;
+  -o-user-drag: none !important;
+
+  // 禁止移动端点击高亮
+  -webkit-tap-highlight-color: transparent !important;
+
+  // 禁止双击缩放，保留单指平移 / 滚动
+  touch-action: manipulation !important;
+
+  // 禁止系统上下文菜单（支持的浏览器生效）
+  context-menu: none !important;
+
+  // 禁止过度滚动连锁（橡皮筋、滚动穿透）
+  overscroll-behavior: none !important;
+
+  // 禁止 iOS 自动调整文本字号
+  -webkit-text-size-adjust: none !important;
+  text-size-adjust: none !important;
+
+  // user-drag 不继承，需显式覆盖媒体与链接
+  img,
+  a,
+  svg,
+  video,
+  canvas {
+    -webkit-user-drag: none !important;
+    -khtml-user-drag: none !important;
+    -moz-user-drag: none !important;
+    -o-user-drag: none !important;
+  }
+}
+
+@mixin forbidden-select {
+  // 禁止选中（含双击选中文字 / 图片）
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+
+  // WebKit：禁止将元素变为可编辑
+  -webkit-user-modify: read-only !important;
+
+  // 即使偶发选中也不显示高亮
+  &::selection {
+    background: transparent !important;
+    color: inherit !important;
+  }
+
+  &::-moz-selection {
+    background: transparent !important;
+    color: inherit !important;
+  }
+
+  img,
+  a,
+  svg,
+  video,
+  canvas {
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+  }
+
+  // // 表单控件保留原生选中与编辑能力
+  // input,
+  // textarea,
+  // select,
+  // [contenteditable='true'] {
+  //   -webkit-user-select: text !important;
+  //   -moz-user-select: text !important;
+  //   -ms-user-select: text !important;
+  //   user-select: text !important;
+  //   -webkit-user-modify: read-write !important;
+  //   touch-action: auto !important;
+  // }
+}

@@ -17,7 +17,8 @@ UniRead reading-comprehension app. Start with docs/00-overview.md.
 ## Code
 - React 18 + TS + Vite. Grading is pure (`src/lib/grading.ts`) so it can run server-side. Constructed responses are scored by an LLM judge (`src/lib/judge.ts`, docs/09); keys/rubrics stay server-side: grading and keys are served by `/api/rc/grade` and `/api/rc/judge` (server/*.ts — Vercel functions; Vite middleware in dev/preview), and keys are stripped from the static build.
 - Components depend on `ContentProvider` / `AttemptStore` interfaces (docs/06), not on fetch/localStorage directly.
-- Interactions must work by tap/click alone (no drag-only), targets ≥ 44px, inputs ≥ 16px font, no native <select>.
+- Interactions must work by tap/click alone (no drag-only), targets ≥ 44px, inputs ≥ 16px font (both at the 1000px design width), no native <select>.
+- UI style kit (`ui-style-kit/`, rules in `.claude/rules/ui-style.md`; decision GitHub #62): CSS is written in px for a 1000px design width; `postcss-mobile-forever` scales it with vw below 1000px (font sizes too) and caps it at 1000px. RC keeps its own breakpoints on top (≥ 1024px 50/50 split, < 1024px 文章 / 题目 tabs). Project exceptions to the kit: fonts and type scale come from Figma (`tokens.css`), not the kit's fonts; colours/sizes stay tokens. Full-screen shell: `body` is fixed, pages scroll in `.app-scroll` — never `100vh`/`100dvh`. Hover-only styles go in `@media (hover: hover) and (pointer: fine)`; shared animations are switched off under `prefers-reduced-motion`; text that may be truncated uses `OverflowTip`.
 
 ## Workflow
 - Verify every change locally (dev server, build, test, e2e). Never `git push` or deploy to Vercel without the user's explicit confirmation.

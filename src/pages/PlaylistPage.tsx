@@ -7,6 +7,7 @@ import arrowLeft from '@/assets/icons/arrow-left.svg';
 import starIcon from '@/assets/icons/star.svg';
 import { Thumb } from '@/components/Thumb';
 import { DAY_NAME, PAPER_EN, formatMinutes } from '@/lib/labels';
+import OverflowTip from '@/components/OverflowTip';
 
 export function PlaylistPage() {
   const { playlistId = '' } = useParams();
@@ -71,7 +72,7 @@ export function PlaylistPage() {
                         accent={pl.accent}
                       />
                       <span className="item-row-text">
-                        <span className="item-row-title">{it.title}</span>
+                        <OverflowTip className="item-row-title">{it.title}</OverflowTip>
                         <span className="item-row-meta">
                           {[
                             it.taskType.labelZh,

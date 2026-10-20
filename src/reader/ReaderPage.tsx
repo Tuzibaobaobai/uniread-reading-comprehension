@@ -29,6 +29,7 @@ import {
   type InteractionProps,
 } from './interactions';
 import { blankCorrect, blankOwners, blankText, correctBlankText, evidenceOf, flatten, showFirstLetter, type Responses } from './model';
+import OverflowTip from '@/components/OverflowTip';
 
 export function ReaderPage() {
   const { playlistId = '', itemId = '' } = useParams();
@@ -47,7 +48,7 @@ export function ReaderPage() {
         <button className="back-button" onClick={() => navigate(`/p/${playlistId}`)} aria-label="返回合集">
           <img src={arrowLeft} alt="" />
         </button>
-        <span className="reader-head-title">{item?.title ?? ''}</span>
+        <OverflowTip className="reader-head-title">{item?.title ?? ''}</OverflowTip>
       </header>
       {error && <p className="error">加载失败：{error}</p>}
       {item && <Reader key={item.id} item={item} />}

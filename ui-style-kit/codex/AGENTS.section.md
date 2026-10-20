@@ -1,0 +1,38 @@
+# 界面样式约定
+
+写页面、组件或样式时遵守。范围包括缩放、全屏壳、超宽文字、默认字体字号和区域禁止选中，不必等用户提到。非界面任务不要展开。
+
+参考实现在仓库根目录 `ui-style-kit/`。下面任一情况先读 `ui-style-kit/SKILL.md`，再按其中文件原样接入，不要重写测量逻辑：
+
+- 项目还没有 `postcss-mobile-forever`、viewport 或全屏壳
+- 项目里还没有 `OverflowTip` / `FittyText`
+- 某个区域需要禁止选中，但还没有 `src/sass/forbidden.scss`
+
+## 缩放与全屏壳
+
+- 设计稿宽度 1000px。业务样式写 `px`。小于 1000px 时整页含字号转 `vw`，大于等于 1000px 封顶为原始 px。
+- 不要排除 `font-size`，不要用 `100vh` 做全屏高度。需要时可以用断点重排整页。
+- 全屏：viewport 为 `width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover`；`body` 用 `position: fixed` 铺满；`#root` 留 `env(safe-area-inset-*)`。滚动放在子容器（`flex: 1; min-height: 0; overflow: auto`）。
+
+## 超宽文字
+
+固定或弹性宽度里、有可能放不下的文字，实现时自行二选一。同一段文字不要两个一起用，也不要只写省略号却不挂组件。确定放得下的短文案（「更多」、固定两个字的标签）不要套。
+
+- 可以省略、需要时再看全文（卡片标题、列表名、用户昵称、描述）：`OverflowTip`。调用方写 `overflow: hidden` 加单行 `ellipsis` 或 `line-clamp`。
+- 必须在盒子里完整可见（导航、按钮、菜单、不允许出现省略号的短标题）：`FittyText`。父级必须约束宽度；字号写在 class 上，作为缩小上限。
+
+## 样式写法
+
+- 字体和字号是默认，不强制。接入项目没有另行声明时：字号用 12、14、16、18、20、22、24，字重用 400、500、600、700，正文用 `var(--font-primary-font-family)`。项目已有自己的字体、字号档位或 mixin 时，以项目声明为准，不要改成这套。
+- 多处共用的动画放 `src/sass/`，并在 `prefers-reduced-motion: reduce` 下关闭或减弱。
+- 只在悬停时出现的样式放进 `@media (hover: hover) and (pointer: fine)`。
+- 某个区域需要禁止选中时，不要手写 `user-select`。把 `ui-style-kit/sass/forbidden.scss` 复制到 `src/sass/forbidden.scss`，在该区域 `@include forbidden.forbidden-select`。不要加在 `body` / `#root` 上，输入框和文本域不要包进这个区域。
+
+## 全局根样式
+
+接入或补全屏壳时按 `ui-style-kit/global-shell.css` 合并，不要只抄安全区。
+
+- 没有另行声明字体时，`:root` 定义 `--font-primary-font-family: 'Noto Sans SC', 'PingFang SC', sans-serif`。字体文件在 `ui-style-kit/fonts/`，按相同子目录复制到 `public/font/`，并保留许可文件。`@font-face` 使用 `font-display: swap`；Noto 用可变字重覆盖 400–700。展示用字体同样自托管。项目已声明自己的字体时，保留该声明，不必复制这套字体，也不要覆盖。
+- 使用上述默认字体时，`#root` 设置该 `font-family`、`font-style: normal`、默认 `font-weight: 500`。项目已声明字体时，`#root` 沿用项目的字体和默认字重。两种情况都保留 `font-synthesis: none`、`text-rendering: optimizeLegibility` 与抗锯齿。
+- `body` 默认白底，并禁用长按菜单、拖拽、点击高亮、双击缩放、滚动穿透和系统改字号。图片、链接、svg、视频不再单独可拖拽。沉浸式时 body 改黑底，并清掉 `#root` 上下安全区。
+- 根节点不禁止选中。需要禁止选中的区域使用上面的 `forbidden-select`。

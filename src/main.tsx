@@ -25,6 +25,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     {/* hash routing keeps the static build deployable anywhere (no server rewrites) */}
     <HashRouter>
+      <div className="app-scroll">
       <Routes>
         <Route path="/" element={<PlaylistsPage />} />
         <Route path="/p/:playlistId" element={<PlaylistPage />} />
@@ -32,6 +33,7 @@ createRoot(document.getElementById('root')!).render(
         {import.meta.env.DEV && <Route path="/reset" element={<Reset />} />}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      </div>
     </HashRouter>
   </StrictMode>,
 );

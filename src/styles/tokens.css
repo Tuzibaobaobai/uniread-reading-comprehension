@@ -160,6 +160,12 @@
   --player-pad: 24px;
   --player-time-w: 52px;
 
+  /* ---- ui-style-kit OverflowTip (full text of truncated titles; not in Figma yet) */
+  --tip-bg: var(--text-primary);
+  --shadow-tip: 0 4px 12px rgba(0, 0, 0, 0.28);
+  --tip-max-w: 320px;
+  --tip-max-h: 240px;
+
   /* ---- exam papers (KET/PET): not yet in Figma — built from existing tokens (待补组件) */
   --exam-warn: var(--danger);
   --exam-warn-soft: var(--danger-soft);

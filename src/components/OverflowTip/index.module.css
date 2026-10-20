@@ -1,0 +1,29 @@
+/* from ui-style-kit/components/OverflowTip/index.module.scss — colours and sizes mapped to tokens.css */
+.root {
+  min-width: 0;
+  max-width: 100%;
+  -webkit-touch-callout: none;
+}
+
+.tip {
+  z-index: 1060;
+  box-sizing: border-box;
+  max-width: min(var(--tip-max-w), calc(100% - 24px));
+  max-height: var(--tip-max-h);
+  overflow: auto;
+  padding: 8px 12px;
+  border-radius: var(--radius-row);
+  background: var(--tip-bg);
+  box-shadow: var(--shadow-tip);
+  pointer-events: auto;
+}
+
+.tipText {
+  display: block;
+  font-size: var(--fs-s);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-s);
+  color: var(--white);
+  white-space: pre-wrap;
+  word-break: break-word;
+}

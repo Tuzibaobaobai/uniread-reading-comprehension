@@ -1,0 +1,29 @@
+.root {
+  min-width: 0;
+  max-width: 100%;
+  -webkit-touch-callout: none;
+}
+
+.tip {
+  z-index: 1060;
+  box-sizing: border-box;
+  max-width: min(320px, calc(100vw - 24px));
+  max-height: min(240px, calc(100vh - 24px));
+  overflow: auto;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.88);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+  pointer-events: auto;
+}
+
+.tipText {
+  display: block;
+  /* 14px / 400 会随 postcss-mobile-forever 一起缩放 */
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--neutral-white-100, #fff);
+  white-space: pre-wrap;
+  word-break: break-word;
+}

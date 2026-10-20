@@ -41,3 +41,5 @@
 
 ## 响应式
 见 [02 §5](02-question-types.md#5-响应式)：按容器宽度在 50/50 分栏与「文章 / 题目」切换之间切换。
+
+整体缩放（GitHub #62，UniRead `ui-style-kit`）：设计宽度 1000px，CSS 写 px，构建时由 `postcss-mobile-forever` 转为 vw；视口小于 1000px 时整页（含字号）等比缩小，≥ 1000px 保持原尺寸。RC 的断点切换照常叠加生效。全屏壳：`body` 固定铺满，页面在 `.app-scroll` 内滚动，`#root` 留出安全区；viewport 禁止用户缩放（`maximum-scale=1`）。
