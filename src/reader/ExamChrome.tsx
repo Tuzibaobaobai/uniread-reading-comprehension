@@ -32,8 +32,7 @@ export function ModeDialog({
         <h2 id="mode-title">{item.title}</h2>
         {reason === 'timeout' && <p className="mode-timeout">上次考试时间已到，但没有交卷。选择练习模式会保留已经作答的内容；选择考试模式会清空作答、重新计时。</p>}
         <p>
-          {item.meta.exam} · {PAPER_ZH[item.paper]} · {item.paper === 'reading' || item.paper === 'writing' ? '建议用时（官方阅读与写作合计 60 分钟）' : '官方考试时长'}{' '}
-          {item.meta.durationMinutes} 分钟 · 满分 {item.meta.totalMarks} 分
+          {item.meta.exam} · {PAPER_ZH[item.paper]} · 官方考试时长 {item.meta.durationMinutes} 分钟 · 满分 {item.meta.totalMarks} 分
         </p>
         <div className="mode-options">
           <button className="mode-option" onClick={() => onChoose('practice')}>

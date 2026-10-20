@@ -349,7 +349,7 @@ function Reader({ item }: { item: ItemT }) {
             fq={current}
             renderBlank={renderBlank}
             evidence={evidence}
-            transcript={review?.key.transcripts?.[current?.section.id ?? '']}
+            transcripts={review?.key.transcripts}
             locked={examMode}
             played={played}
             onPlayed={markPlayed}
@@ -435,9 +435,11 @@ function Reader({ item }: { item: ItemT }) {
                 return (
                   <button
                     key={i}
-                    className={`question-dot ${i === index ? 'is-current' : ''} ${state} ${examMode && attempt.flagged?.includes(f.q.id) ? 'is-flagged' : ''}`}
+                    className={`question-dot ${i === index ? 'is-current' : ''} ${state} ${examMode && attempt.flagged?.includes(f.q.id) ? 'is-flagged' : ''} ${exam && f.firstInSection ? 'part-start' : ''}`}
+                    // exam papers: the first number of each Part carries the Part's label (GitHub #72)
+                    data-part={exam && f.firstInSection ? `P${f.section.part ?? ''}` : undefined}
                     onClick={() => go(i)}
-                    aria-label={`第 ${f.q.number} 题${state === 'is-correct' ? '，正确' : state === 'is-wrong' ? '，错误' : state === 'is-answered' ? '，已作答' : ''}`}
+                    aria-label={`${exam && f.section.part ? `Part ${f.section.part} ` : ''}第 ${f.q.number} 题${state === 'is-correct' ? '，正确' : state === 'is-wrong' ? '，错误' : state === 'is-answered' ? '，已作答' : ''}`}
                     aria-current={i === index}
                   >
                     {state === 'is-correct' || state === 'is-wrong' ? (

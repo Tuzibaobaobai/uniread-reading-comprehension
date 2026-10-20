@@ -6,10 +6,8 @@ import { CAMBRIDGE_PROMPT_VERSION, buildJudgePrompt, buildJudgeRequest, parseJud
 import { examReport } from './cambridge';
 
 const load = <T>(p: string) => JSON.parse(readFileSync(new URL(`../../content/playlists/ket1/${p}`, import.meta.url), 'utf8')) as T;
-const rw = load<ExamItemT>('items/ket1-t1-w.json');
-const rwKey = load<ItemKeyT>('keys/ket1-t1-w.json');
-const rd = load<ExamItemT>('items/ket1-t1-r.json');
-const rdKey = load<ItemKeyT>('keys/ket1-t1-r.json');
+const rw = load<ExamItemT>('items/ket1-t1-rw.json');
+const rwKey = load<ItemKeyT>('keys/ket1-t1-rw.json');
 const sp = load<ExamItemT>('items/ket1-t1-s.json');
 const spKey = load<ItemKeyT>('keys/ket1-t1-s.json');
 const q = (item: ExamItemT, id: string) => allQuestions(item).find((x) => x.id === id)!;
@@ -80,11 +78,11 @@ describe('speaking', () => {
 });
 
 describe('exam report', () => {
-  it('reports one skill per paper since Reading and Writing are separate items (#71)', () => {
-    const r = gradeItem(rd, rdKey, { q1: [String((rdKey.answers.q1 as { correct: string[] }).correct[0])] });
-    expect(examReport(rd, r).map((x) => [x.skill, x.raw, x.max])).toEqual([['reading', 1, 30]]);
-    const w = gradeItem(rw, rwKey, { q31: 'Dear Lee, …' });
-    const rows = examReport(rw, w);
-    expect(rows.map((x) => [x.skill, x.max, x.pending])).toEqual([['writing', 30, true]]);
+  it('splits Reading & Writing into reading (auto-scored Parts 1–5) and writing (judged Parts 6–7)', () => {
+    const r = gradeItem(rw, rwKey, { q1: [String((rwKey.answers.q1 as { correct: string[] }).correct[0])] });
+    expect(examReport(rw, r).map((x) => [x.skill, x.raw, x.max, x.pending])).toEqual([
+      ['reading', 1, 30, false],
+      ['writing', 0, 30, true],
+    ]);
   });
 });

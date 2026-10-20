@@ -14,8 +14,8 @@ export const SCHEMA_VERSION = '1.0';
 export const PlaylistId = z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/);
 /** 时文阅读 item: <playlist>-wNN-<day> */
 export const ArticleItemId = z.string().regex(/^[a-z0-9-]+-w\d{2}-(mon|tue|wed|thu|fri)$/);
-/** exam paper (KET/PET 真题): <playlist>-t<test>-<r|w|l|s> (rw = Reading & Writing as one paper) */
-export const ExamItemId = z.string().regex(/^[a-z0-9]+-t\d+-(rw|r|w|l|s)$/);
+/** exam paper (KET/PET 真题): <playlist>-t<test>-<rw|l|s> */
+export const ExamItemId = z.string().regex(/^[a-z0-9]+-t\d+-(rw|l|s)$/);
 export const ItemId = z.union([ArticleItemId, ExamItemId]);
 export const Day = z.enum(['mon', 'tue', 'wed', 'thu', 'fri']);
 
@@ -350,8 +350,6 @@ export const TaskTypeCode = z.enum([
   'dialogue_completion', // 补全对话
   'weekly_intensive', // 每周精读
   'exam_reading_writing', // 真题 · 阅读与写作
-  'exam_reading', // 真题 · 阅读
-  'exam_writing', // 真题 · 写作
   'exam_listening', // 真题 · 听力
   'exam_speaking', // 真题 · 口语
 ]);
@@ -389,8 +387,7 @@ export const ArticleItem = z
   .strict();
 export type ArticleItemT = z.infer<typeof ArticleItem>;
 
-/** reading / writing: A2 Key's Reading & Writing paper shown as two items (Parts 1–5, Parts 6–7; GitHub #71) */
-export const ExamPaper = z.enum(['reading_writing', 'reading', 'writing', 'listening', 'speaking']);
+export const ExamPaper = z.enum(['reading_writing', 'listening', 'speaking']);
 
 /**
  * One paper of an exam test (KET/PET 真题): Reading & Writing, Listening or Speaking.

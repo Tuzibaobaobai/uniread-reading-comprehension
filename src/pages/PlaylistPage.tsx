@@ -124,9 +124,11 @@ function TestScore({ items }: { items: { id: string; paper?: string; suggestedMi
   items.forEach((it) => {
     if (!it.paper) return;
     const s: ExamStatus = examStatus(localAttempts.get(it.id), it.paper as never, it.suggestedMinutes);
-    if (s.kind !== 'done' || !s.report) return;
-    done++;
-    skills[s.report.skill] = s.report;
+    if (s.kind !== 'done') return;
+    s.reports.forEach((r) => {
+      skills[r.skill] = r;
+      done++;
+    });
   });
   const overall = overallScale(skills);
   return (

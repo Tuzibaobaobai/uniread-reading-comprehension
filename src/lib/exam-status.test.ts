@@ -29,6 +29,12 @@ describe('exam paper status (#70)', () => {
     const done = { ...base, status: 'submitted' as const, mode: 'exam' as const, result: { score: 17, maxScore: 25, byQuestion } };
     expect(examStatusLabel(examStatus(done, 'listening', 35))).toBe('原始分 17/25 · 换算分 120');
   });
+  it('Reading & Writing shows both scaled scores (#73: one paper, two skills)', () => {
+    const reading = Array.from({ length: 30 }, (_, i) => ({ q: `q${i + 1}`, correct: i < 20, points: i < 20 ? 1 : 0, maxPoints: 1 }));
+    const writing = ['q31', 'q32'].map((q) => ({ q, correct: false, points: 9, maxPoints: 15, scoredBy: 'judge' as const }));
+    const done = { ...base, itemId: 'ket1-t1-rw', status: 'submitted' as const, result: { score: 38, maxScore: 60, byQuestion: [...reading, ...writing] } };
+    expect(examStatusLabel(examStatus(done, 'reading_writing', 60))).toBe('原始分 38/60 · 换算分 阅读 120 / 写作 120');
+  });
 });
 
 describe('KET overall score (#68)', () => {

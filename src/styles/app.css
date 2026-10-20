@@ -526,6 +526,36 @@ body:has(.playlist-page) { background: var(--bg-card); }
 
 /* ======================================================= exam papers (KET/PET 真题) */
 
+/* question strip: exam Parts (#72) — the first number of a Part carries "P1"…, later Parts start after a divider */
+.question-dot.part-start { position: relative; }
+.question-dot.part-start::after {
+  content: attr(data-part); position: absolute; top: 2px; left: 50%; transform: translateX(-50%);
+  font-size: var(--fs-xs); line-height: 1; font-weight: var(--fw-bold); color: var(--accent-strong);
+}
+.question-dot.part-start:not(:first-child) { margin-left: var(--part-gap); }
+.question-dot.part-start:not(:first-child)::before {
+  content: ''; position: absolute; left: calc(var(--part-gap) / -2); top: 20%; bottom: 20%;
+  border-left: 1px solid var(--border-strong);
+}
+
+/* listening: every Part's recording stacked (#72) */
+.listening-stack { display: grid; gap: 16px; }
+.part-audio { padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-m); background: var(--bg-card); scroll-margin-top: 16px; }
+.part-audio.is-current { border-color: var(--accent); }
+.part-audio.is-playing { box-shadow: 0 0 0 3px var(--accent-soft); background: var(--accent-soft); }
+.part-audio-title { margin: 0; display: flex; align-items: center; gap: 12px; font-size: var(--fs-2xl); line-height: var(--lh-2xl); color: var(--text-primary); }
+.part-audio-badge { padding: 0 10px; border-radius: var(--radius-full); background: var(--accent); color: var(--text-on-accent); font-size: var(--fs-s); line-height: var(--lh-s); }
+.part-audio .exam-instruction { margin: 4px 0 8px; }
+.part-audio .player { margin: 12px 0 0; }
+.part-audio .player-note { text-align: left; margin-bottom: 4px; }
+.part-audio > .article-body, .part-audio > .transcript { margin-top: 20px; }
+.part-audio-state { margin: 12px 0 0; color: var(--text-secondary); font-size: var(--fs-m); }
+.part-audio-start {
+  margin-top: 12px; min-height: var(--player-btn-h); padding: 0 24px; display: inline-flex; align-items: center; gap: 12px;
+  border: none; border-radius: var(--radius-m); background: var(--bg-card); box-shadow: var(--shadow-btn-m);
+  font-size: var(--fs-l); font-weight: var(--fw-bold); color: var(--text-strong);
+}
+
 /* playlist: KET overall result on the 第 N 套 row (#68) */
 .week-label:has(.test-score) { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .test-score { padding: 2px 12px; border-radius: var(--radius-full); background: var(--bg-subtle); color: var(--text-secondary); font-size: var(--fs-s); line-height: var(--lh-s); font-weight: var(--fw-bold); }

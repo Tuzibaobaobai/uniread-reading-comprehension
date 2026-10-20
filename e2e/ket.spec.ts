@@ -9,8 +9,7 @@ const tab = async (page: Page, name: RegExp) => {
 test('playlist groups the papers by test', async ({ page }) => {
   await page.goto('/#/p/ket1');
   await expect(page.locator('.week-label').first()).toContainText('第 1 套');
-  await expect(page.locator('.item-row-title').first()).toHaveText('KET真题1-第1套-阅读');
-  await expect(page.locator('.item-row-title').nth(1)).toHaveText('KET真题1-第1套-写作');
+  await expect(page.locator('.item-row-title').first()).toHaveText('KET真题1-第1套-阅读与写作');
   await expect(page.locator('.test-score').first()).toHaveText('KET 成绩：已完成 0/4');
 });
 
@@ -18,9 +17,10 @@ test('listening, exam mode: picture options by tap, locked recording, report and
   await page.goto('/#/p/ket1/ket1-t1-l');
   await page.getByRole('button', { name: /考试模式/ }).click();
   await expect(page.locator('.exam-timer')).toContainText('剩余');
-  // recording: no seeking, no skip buttons in exam mode
+  // recordings: one start button for the whole exam, no pause / skip / seek controls
   await tab(page, /材料/);
-  await expect(page.getByRole('slider', { name: '播放进度' })).toBeDisabled();
+  await expect(page.locator('.part-audio')).toHaveCount(5);
+  await expect(page.getByRole('button', { name: '开始播放听力' })).toHaveCount(1);
   await expect(page.getByRole('button', { name: /后退/ })).toHaveCount(0);
   // the transcript is private until submitting
   await expect(page.locator('.transcript')).toHaveCount(0);
@@ -40,17 +40,14 @@ test('listening, exam mode: picture options by tap, locked recording, report and
 });
 
 test('reading & writing: notice in the left pane, open cloze by typing, word counter', async ({ page }) => {
-  await page.goto('/#/p/ket1/ket1-t1-r');
+  await page.goto('/#/p/ket1/ket1-t1-rw');
   await page.getByRole('button', { name: /练习模式/ }).click();
   await tab(page, /材料/);
   await expect(page.locator('.exam-q-material img')).toHaveCount(1);
   await tab(page, /题目/);
   await page.locator('.question-dot', { hasText: '25' }).click();
   await page.locator('.blank-input input').first().fill('the');
-  await page.goto('/#/p/ket1/ket1-t1-w');
-  await page.getByRole('button', { name: /练习模式/ }).click();
-  await tab(page, /题目/);
-  await expect(page.locator('.q-num').first()).toHaveText('31.');
+  await page.locator('.question-dot', { hasText: '31' }).click();
   await page.locator('textarea').fill('Dear Lee, we are going camping. Come with us!');
   await expect(page.locator('.word-count')).toHaveText('已写 9 词 · 至少 25 词');
 });
@@ -83,7 +80,7 @@ test('#65 closing the mode dialog: a new paper goes back to the playlist, 重新
 });
 
 test('#66 switch from practice to exam mode and back', async ({ page }) => {
-  await page.goto('/#/p/ket1/ket1-t1-r');
+  await page.goto('/#/p/ket1/ket1-t1-rw');
   await page.getByRole('button', { name: /练习模式/ }).click();
   await tab(page, /题目/);
   await page.locator('.option').first().click();
@@ -134,4 +131,31 @@ test('#69 #70 playlist labels: 考试中, 考试超时 → practice keeps the an
   await expect(page.getByRole('dialog', { name: '成绩报告' })).toBeVisible();
   await page.goto('/#/p/ket1');
   await expect(page.locator('.item-row', { hasText: '第3套-听力' })).toContainText(/原始分 \d+\/25 · 换算分/);
+});
+
+test('#72 listening: every Part stacked; the exam recording keeps playing while moving between Parts', async ({ page }) => {
+  await page.goto('/#/p/ket1/ket1-t4-l');
+  await page.getByRole('button', { name: /考试模式/ }).click();
+  await tab(page, /材料/);
+  await page.getByRole('button', { name: '开始播放听力' }).click();
+  await expect(page.locator('.part-audio.is-playing .part-audio-title')).toContainText('Part 1');
+  await tab(page, /题目/);
+  await page.getByRole('button', { name: /Part 2 第 6 题/ }).click();
+  await tab(page, /材料/);
+  await expect(page.locator('.part-audio.is-current .part-audio-title')).toContainText('Part 2');
+  await expect(page.locator('.part-audio.is-playing .part-audio-title')).toContainText('Part 1'); // audio did not follow
+  await expect(page.locator('.question-dot.part-start')).toHaveCount(5);
+});
+
+test('#72 listening practice: each Part has its own controls, one plays at a time', async ({ page }) => {
+  await page.goto('/#/p/ket1/ket1-t4-l');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await tab(page, /材料/);
+  const play = page.getByRole('button', { name: '播放', exact: true });
+  await expect(play).toHaveCount(5);
+  await play.first().click();
+  await expect(page.locator('.part-audio.is-playing')).toHaveCount(1);
+  await page.locator('.part-audio').nth(1).getByRole('button', { name: '播放', exact: true }).click();
+  await expect(page.locator('.part-audio.is-playing .part-audio-title')).toContainText('Part 2');
+  await expect(page.getByRole('button', { name: '暂停' })).toHaveCount(1);
 });

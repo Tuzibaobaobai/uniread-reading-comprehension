@@ -1,66 +1,86 @@
 {
   "schemaVersion": "1.0",
   "format": "exam",
-  "id": "ket1-t2-r",
+  "id": "ket1-t4-rw",
   "playlistId": "ket1",
-  "order": 5,
-  "test": 2,
-  "paper": "reading",
-  "title": "KET真题1-第2套-阅读",
-  "displayName": "KET真题1-第2套-阅读",
+  "order": 10,
+  "test": 4,
+  "paper": "reading_writing",
+  "title": "KET真题1-第4套-阅读与写作",
+  "displayName": "KET真题1-第4套-阅读与写作",
   "taskType": {
-    "code": "exam_reading",
-    "labelZh": "阅读"
+    "code": "exam_reading_writing",
+    "labelZh": "阅读与写作"
   },
   "meta": {
     "exam": "A2 Key for Schools",
-    "durationMinutes": 40,
-    "totalMarks": 30,
-    "intro": "官方 Reading and Writing 为一张试卷（60 分钟）；本合集拆为阅读（Part 1–5，建议 40 分钟）和写作（Part 6–7，建议 20 分钟）两项。"
+    "durationMinutes": 60,
+    "totalMarks": 60
   },
   "article": {
     "images": [
       {
         "id": "img1",
-        "src": "assets/ket1/ket1-t2-r-1.jpg",
-        "alt": "Notice: Fashionista Clothes. Please keep the receipt – you cannot return anything without it.",
-        "w": 479,
-        "h": 284
+        "src": "assets/ket1/ket1-t4-rw-1.jpg",
+        "alt": "Text message: Lisa, About our badminton match at the sports club this afternoon – I can’t find my racket anywhere. Do you have a spare one? Sebastian",
+        "w": 411,
+        "h": 365
       },
       {
         "id": "img2",
-        "src": "assets/ket1/ket1-t2-r-2.jpg",
-        "alt": "Text message: Luke, Thanks for asking me to go to the cinema. It sounds fun, but I’m afraid I’ve got too much homework. Maybe some other time. Sally",
+        "src": "assets/ket1/ket1-t4-rw-2.jpg",
+        "alt": "Text message: Mike, I looked online and there’s no bus to the beach on Saturday morning! My mum can’t drive us – is your dad free? Dave",
         "w": 411,
         "h": 382
       },
       {
         "id": "img3",
-        "src": "assets/ket1/ket1-t2-r-3.jpg",
-        "alt": "Text message: Did anyone pick up my biology textbook by mistake after our science lesson in the library? I don’t mind coming to get it from you. Jessica",
-        "w": 411,
-        "h": 380
+        "src": "assets/ket1/ket1-t4-rw-3.jpg",
+        "alt": "Email. From: Nancy. To: Fred. I didn’t copy down what our maths homework is for tomorrow. Can you have a look in your homework diary and email me?",
+        "w": 502,
+        "h": 440
       },
       {
         "id": "img4",
-        "src": "assets/ket1/ket1-t2-r-4.jpg",
-        "alt": "Text message: Laila, I’m visiting my grandparents this weekend so I can’t meet you to finish our art project. Are you free this Thursday instead? Nathan",
-        "w": 412,
-        "h": 434
+        "src": "assets/ket1/ket1-t4-rw-4.jpg",
+        "alt": "Notice: School Library. From next week library will open at 8.00 and close at 5.30 (Wednesdays 8.30–4.30). Speak to staff about booking a school laptop",
+        "w": 503,
+        "h": 456
       },
       {
         "id": "img5",
-        "src": "assets/ket1/ket1-t2-r-5.jpg",
-        "alt": "Advertisement: 24 hour sale! Download any 10 songs for 99p. Then £1.99 per song as usual",
-        "w": 532,
-        "h": 280
+        "src": "assets/ket1/ket1-t4-rw-5.jpg",
+        "alt": "Notice: School Sports Day (This will take place in hall instead of field if it rains – check website) Friday, 28 September 9.00 a.m. – 3.00 p.m. Parents and friends welcome",
+        "w": 572,
+        "h": 566
       },
       {
         "id": "img6",
-        "src": "assets/ket1/ket1-t2-r-6.jpg",
-        "alt": "Text message: Aaron, Thanks for lending me your bike. I’ll bring it back as soon as mine is repaired. It might be ready by next weekend. Stella",
-        "w": 412,
-        "h": 434
+        "src": "assets/ket1/ket1-t4-rw-6.jpg",
+        "alt": "Text message: Joe, Did you discuss that homework with your teacher? Is it clearer now what she wants? I’m home now if you need to call. Mum",
+        "w": 471,
+        "h": 763
+      },
+      {
+        "id": "img7",
+        "src": "assets/ket1/ket1-t4-rw-7.jpg",
+        "alt": "Picture 1: Two girls are walking towards the doors of a concert hall with posters of a male singer on them.",
+        "w": 428,
+        "h": 328
+      },
+      {
+        "id": "img8",
+        "src": "assets/ket1/ket1-t4-rw-8.jpg",
+        "alt": "Picture 2: The singer is singing on stage in front of a big crowd of fans.",
+        "w": 430,
+        "h": 328
+      },
+      {
+        "id": "img9",
+        "src": "assets/ket1/ket1-t4-rw-9.jpg",
+        "alt": "Picture 3: The two girls are on stage singing together with the singer.",
+        "w": 433,
+        "h": 328
       }
     ],
     "blocks": [],
@@ -84,14 +104,19 @@
             "kind": "choice",
             "variant": "standard",
             "maxChoices": 1,
-            "prompt": [],
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Sebastian is asking Lisa if"
+              }
+            ],
             "options": [
               {
                 "id": "A",
                 "content": [
                   {
                     "t": "text",
-                    "v": "Make sure that your receipt is correct before you leave the shop."
+                    "v": "she knows where the match is taking place."
                   }
                 ]
               },
@@ -100,7 +125,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "If you want to bring something back to this shop, you need a receipt."
+                    "v": "she can lend him some equipment."
                   }
                 ]
               },
@@ -109,7 +134,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Someone will check your receipt when you go out of the shop."
+                    "v": "she is free to play badminton today."
                   }
                 ]
               }
@@ -137,7 +162,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Sally is telling Luke"
+                "v": "Dave would like Mike to"
               }
             ],
             "options": [
@@ -146,7 +171,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "why she is too busy to see a movie."
+                    "v": "check the bus timetable for Saturday."
                   }
                 ]
               },
@@ -155,7 +180,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "which homework she needs to complete."
+                    "v": "ask his father to give them a lift on Saturday."
                   }
                 ]
               },
@@ -164,7 +189,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "when she will be available to see a movie."
+                    "v": "find out the quickest way to drive to the beach."
                   }
                 ]
               }
@@ -196,7 +221,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Jessica needs to borrow a textbook from someone in her science class."
+                    "v": "Nancy has lost her homework diary."
                   }
                 ]
               },
@@ -205,7 +230,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Jessica wants someone from her science class to bring her textbook to her."
+                    "v": "Nancy needs help with some difficult homework."
                   }
                 ]
               },
@@ -214,7 +239,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Jessica is hoping someone in her science class has found her textbook."
+                    "v": "Nancy forgot to make a note of what she needs to do."
                   }
                 ]
               }
@@ -239,19 +264,14 @@
             "kind": "choice",
             "variant": "standard",
             "maxChoices": 1,
-            "prompt": [
-              {
-                "t": "text",
-                "v": "Why did Nathan write the message?"
-              }
-            ],
+            "prompt": [],
             "options": [
               {
                 "id": "A",
                 "content": [
                   {
                     "t": "text",
-                    "v": "to check if Laila can work on their art project over the weekend"
+                    "v": "Library staff won’t have much time to help you next week."
                   }
                 ]
               },
@@ -260,7 +280,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "to tell Laila he won’t be able to complete the project on his own"
+                    "v": "Arrive early at the library if you would like to book a school laptop."
                   }
                 ]
               },
@@ -269,7 +289,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "to ask Laila if she’s able to meet him earlier than they planned"
+                    "v": "The times when you can visit the library will change soon."
                   }
                 ]
               }
@@ -301,7 +321,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "You have 24 hours to buy as many songs as you like for 99p each."
+                    "v": "If the weather is bad, we will cancel sports day."
                   }
                 ]
               },
@@ -310,7 +330,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "The cost of each song is £1.99 after you buy more than ten songs."
+                    "v": "All students should come to the hall at 9.00 a.m. on Friday."
                   }
                 ]
               },
@@ -319,7 +339,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Some popular songs that cost £1.99 aren’t included in the sale."
+                    "v": "Students can invite visitors to come and enjoy the day."
                   }
                 ]
               }
@@ -344,14 +364,19 @@
             "kind": "choice",
             "variant": "standard",
             "maxChoices": 1,
-            "prompt": [],
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Mum is asking if Joe’s teacher"
+              }
+            ],
             "options": [
               {
                 "id": "A",
                 "content": [
                   {
                     "t": "text",
-                    "v": "Stella is checking when Aaron will need his bike back."
+                    "v": "has changed his homework."
                   }
                 ]
               },
@@ -360,7 +385,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Stella can’t say exactly when she will be able to return Aaron’s bike."
+                    "v": "helped him to understand his homework."
                   }
                 ]
               },
@@ -369,7 +394,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Stella wants to know if she can borrow Aaron’s bike until next weekend."
+                    "v": "needs to speak to her about his homework."
                   }
                 ]
               }
@@ -397,7 +422,7 @@
           "content": [
             {
               "t": "text",
-              "v": "How three young people became DJs"
+              "v": "My trip to Rome"
             }
           ],
           "level": 2
@@ -408,7 +433,7 @@
           "content": [
             {
               "t": "text",
-              "v": "DJ Fire"
+              "v": "Rhodri"
             }
           ],
           "level": 3
@@ -419,7 +444,7 @@
           "content": [
             {
               "t": "text",
-              "v": "This Russian DJ grew up travelling with his parents who were in a rock band. He started learning piano at four, and drums at twelve. As a teenager, he wrote songs and posted them online as a hobby. Then, at 20, a music company started paying him to write songs for pop bands – and some have been on the radio. Later he became interested in electronic music and started playing it in clubs. He’s hoping to get an invitation to play at some international festivals this summer."
+              "v": "I had a great time in Rome with my family. It was my first holiday outside my own country and I couldn’t wait to go. I found out all I could about Rome from the library and on the internet. Knowing about the history made seeing all the old buildings, like the Colosseum, much more interesting. We were able to do lots of sightseeing because the taxis and buses and the metro were cheap and fast."
             }
           ]
         },
@@ -429,7 +454,7 @@
           "content": [
             {
               "t": "text",
-              "v": "DJ Goldrock"
+              "v": "Patrick"
             }
           ],
           "level": 3
@@ -440,7 +465,7 @@
           "content": [
             {
               "t": "text",
-              "v": "This South African DJ started playing the piano when he was 5. At 15, he played pop songs at a cousin’s birthday party, and got a hundred kids dancing. At that moment, he knew he wanted to be a DJ and never have a normal job. He started a website where he played his favourite songs, and soon had lots of fans. He’s now 20 and has his own show on national radio. For the past three years, he’s spent his summers going around the world playing dance music at festivals."
+              "v": "It was really hot when I arrived at Rome airport with my parents last summer. I loved walking around famous places like the Trevi Fountain, but all the cars and buses in the city sometimes made walking difficult. I really loved the food. The Italians have a special kind of ice cream called ‘gelato’ which is wonderful, but the best thing I had was a pizza at a local market. I also got some great things to take back for my friends."
             }
           ]
         },
@@ -450,7 +475,7 @@
           "content": [
             {
               "t": "text",
-              "v": "DJ Mango"
+              "v": "Josh"
             }
           ],
           "level": 3
@@ -461,7 +486,7 @@
           "content": [
             {
               "t": "text",
-              "v": "At 15, this Brazilian DJ’s parents gave him a new computer and DJ equipment for making electronic dance music. Later that year, he started playing music at local dance parties to make some extra money, and the parties just got bigger and bigger. A few years later, a journalist asked him why he became a DJ. He said that as a child his dream was to play the electric guitar for a rock group, but he wasn’t good enough!"
+              "v": "It was so hot when my dad and I went to Rome last year that we usually waited until after the sun went down to explore the city on foot. During the day we went to museums, shops and restaurants. The pasta there is amazing, and I had some Italian ice cream, called ‘gelato’, for the first time. That was the thing I liked most. After a few days in Rome, we decided to take a train into the countryside for a day. It was nice to see all the small villages and farms."
             }
           ]
         }
@@ -481,7 +506,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Who travels to different countries every year to play his music?"
+                "v": "Who says it was easy to travel around in Rome?"
               }
             ],
             "options": [
@@ -490,7 +515,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Fire"
+                    "v": "Rhodri"
                   }
                 ]
               },
@@ -499,7 +524,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Goldrock"
+                    "v": "Patrick"
                   }
                 ]
               },
@@ -508,7 +533,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Mango"
+                    "v": "Josh"
                   }
                 ]
               }
@@ -529,7 +554,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Who comes from a family of musicians?"
+                "v": "Who says he felt very excited before his holiday?"
               }
             ],
             "options": [
@@ -538,7 +563,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Fire"
+                    "v": "Rhodri"
                   }
                 ]
               },
@@ -547,7 +572,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Goldrock"
+                    "v": "Patrick"
                   }
                 ]
               },
@@ -556,7 +581,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Mango"
+                    "v": "Josh"
                   }
                 ]
               }
@@ -577,7 +602,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Who was paid to make music as a teenager?"
+                "v": "Who says there was a lot of traffic in Rome?"
               }
             ],
             "options": [
@@ -586,7 +611,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Fire"
+                    "v": "Rhodri"
                   }
                 ]
               },
@@ -595,7 +620,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Goldrock"
+                    "v": "Patrick"
                   }
                 ]
               },
@@ -604,7 +629,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Mango"
+                    "v": "Josh"
                   }
                 ]
               }
@@ -625,7 +650,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Who knows how to play more than one musical instrument?"
+                "v": "Who says he prepared carefully for his trip?"
               }
             ],
             "options": [
@@ -634,7 +659,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Fire"
+                    "v": "Rhodri"
                   }
                 ]
               },
@@ -643,7 +668,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Goldrock"
+                    "v": "Patrick"
                   }
                 ]
               },
@@ -652,7 +677,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Mango"
+                    "v": "Josh"
                   }
                 ]
               }
@@ -673,7 +698,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Who works for a radio station?"
+                "v": "Who says his favourite food on the trip was Italian ice cream?"
               }
             ],
             "options": [
@@ -682,7 +707,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Fire"
+                    "v": "Rhodri"
                   }
                 ]
               },
@@ -691,7 +716,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Goldrock"
+                    "v": "Patrick"
                   }
                 ]
               },
@@ -700,7 +725,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Mango"
+                    "v": "Josh"
                   }
                 ]
               }
@@ -721,7 +746,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Who writes music for other musicians?"
+                "v": "Who bought some things to give as gifts?"
               }
             ],
             "options": [
@@ -730,7 +755,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Fire"
+                    "v": "Rhodri"
                   }
                 ]
               },
@@ -739,7 +764,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Goldrock"
+                    "v": "Patrick"
                   }
                 ]
               },
@@ -748,7 +773,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Mango"
+                    "v": "Josh"
                   }
                 ]
               }
@@ -769,7 +794,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Who wanted to play in a band when he was younger?"
+                "v": "Who took a short trip outside Rome?"
               }
             ],
             "options": [
@@ -778,7 +803,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Fire"
+                    "v": "Rhodri"
                   }
                 ]
               },
@@ -787,7 +812,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Goldrock"
+                    "v": "Patrick"
                   }
                 ]
               },
@@ -796,7 +821,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "DJ Mango"
+                    "v": "Josh"
                   }
                 ]
               }
@@ -817,7 +842,7 @@
           "content": [
             {
               "t": "text",
-              "v": "A path across Canada"
+              "v": "A wonderful year"
             }
           ],
           "level": 2
@@ -828,7 +853,7 @@
           "content": [
             {
               "t": "em",
-              "v": "Thirteen-year-old Kara Finch writes about The Great Trail – a footpath that goes across Canada."
+              "v": "Ben Jones talks about his year of travel before studying at university."
             }
           ]
         },
@@ -838,7 +863,7 @@
           "content": [
             {
               "t": "text",
-              "v": "The Great Trail goes from one side of Canada to the other. At 24,000 km, it is the longest trail in the world. The Great Trail project began in 1992 and took 25 years to complete. It opened in 2017, exactly 150 years after Canada became one country."
+              "v": "I always knew I wanted to spend a year travelling before university. I wanted to see the world, improve my skiing, make new friends from other countries and, more than anything, try lots of things I’ve never done before."
             }
           ]
         },
@@ -848,7 +873,7 @@
           "content": [
             {
               "t": "text",
-              "v": "The Great Trail is actually lots of paths joined together. You can cycle, walk or horse-ride on most of it, but there are parts where the only way you can travel is by boat. And there are others where the trail is part of the highway, which doesn’t sound very safe to me."
+              "v": "The first place I visited was France. I’ve always loved the French language and I wanted to study it. Then, while I was there, I became interested in French food. I took some cooking lessons at a farmhouse in the French countryside, and learned to make lots of lovely dishes."
             }
           ]
         },
@@ -858,7 +883,7 @@
           "content": [
             {
               "t": "text",
-              "v": "My father and I spent a day walking along part of The Great Trail that was surprisingly busy. We were told you don’t usually see bears when there are lots of people, but we did. It was moving through the trees, quite close to us, and I felt a little afraid. ‘I don’t think it’s hungry!’ laughed my dad."
+              "v": "Next, I visited Australia. My cousins live near the river in Sydney, so I had somewhere to stay. To begin with, we spent a lot of time sailing in their boat. But then I got a job in a hotel. It was great – the customers and staff were so friendly."
             }
           ]
         },
@@ -868,7 +893,7 @@
           "content": [
             {
               "t": "text",
-              "v": "At lunchtime, we talked to an old man on the trail. Dad asked him if he thought the path was going to help Canadians learn more about their countryside. ‘Not really,’ he said. ‘We’ve always loved to be outdoors. But it will bring us tourists from around the world, which is important.’"
+              "v": "My last country was Japan, where I learned to become a skiing teacher. I planned to do a three-week course. But when I got there, I saw that I wasn’t actually that good, so I changed to a seven-week one. The course was amazing and afterwards I got a job with a skiing company."
             }
           ]
         },
@@ -878,7 +903,7 @@
           "content": [
             {
               "t": "text",
-              "v": "In the future, the path will probably change, and new parts may open. We saw nothing to tell us we were on The Great Trail, which is a shame. I know there’s information on the website, but it’s good to know when you’re walking on a special path. They need to add some signs, I think."
+              "v": "The other teachers were very friendly and on our days off, we did activities like snowboarding. One weekend we even did winter camping. That was quite interesting, but it was cold, so I can’t say I slept well! Anyway, we’re all planning to meet up soon and I can’t wait."
             }
           ]
         }
@@ -889,7 +914,7 @@
           "number": 14,
           "points": 1,
           "skills": [
-            "main_idea"
+            "detail"
           ],
           "interaction": {
             "kind": "choice",
@@ -898,7 +923,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "What is Kara doing in the first paragraph?"
+                "v": "What did Ben want to do during the year after he left school?"
               }
             ],
             "options": [
@@ -907,7 +932,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "telling tourists how long it takes to walk The Great Trail"
+                    "v": "try some different sports"
                   }
                 ]
               },
@@ -916,7 +941,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "explaining the history of The Great Trail"
+                    "v": "have some new experiences"
                   }
                 ]
               },
@@ -925,7 +950,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "giving walkers advice about walking in Canada"
+                    "v": "meet up with old friends"
                   }
                 ]
               }
@@ -946,7 +971,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "What does Kara think is dangerous?"
+                "v": "Why did Ben go to France?"
               }
             ],
             "options": [
@@ -955,7 +980,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Some parts of the path are on roads."
+                    "v": "to do a French cooking course"
                   }
                 ]
               },
@@ -964,7 +989,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "You need a boat for parts of the path."
+                    "v": "to see the French countryside"
                   }
                 ]
               },
@@ -973,7 +998,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Bikes and horses share the same path."
+                    "v": "to learn to speak French"
                   }
                 ]
               }
@@ -994,7 +1019,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "What does Kara say about the bear she saw?"
+                "v": "Where did Ben live when he was in Australia?"
               }
             ],
             "options": [
@@ -1003,7 +1028,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "It looked hungry."
+                    "v": "in the hotel where he worked"
                   }
                 ]
               },
@@ -1012,7 +1037,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "It was on the path."
+                    "v": "with members of his family"
                   }
                 ]
               },
@@ -1021,7 +1046,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "It walked near her."
+                    "v": "on a boat on the river"
                   }
                 ]
               }
@@ -1042,7 +1067,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "What did the old man say about the trail?"
+                "v": "Why did Ben change his course in Japan?"
               }
             ],
             "options": [
@@ -1051,7 +1076,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "People from other countries will come to see it."
+                    "v": "He heard about a better one."
                   }
                 ]
               },
@@ -1060,7 +1085,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "People will go into the countryside more because of it."
+                    "v": "He knew he needed more practice."
                   }
                 ]
               },
@@ -1069,7 +1094,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "People from Canada will use it to see other parts of their country."
+                    "v": "He wasn’t enjoying the first one."
                   }
                 ]
               }
@@ -1081,7 +1106,7 @@
           "number": 18,
           "points": 1,
           "skills": [
-            "opinion"
+            "attitude"
           ],
           "interaction": {
             "kind": "choice",
@@ -1090,7 +1115,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "What does Kara say should happen next?"
+                "v": "What does Ben say about winter camping?"
               }
             ],
             "options": [
@@ -1099,7 +1124,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "There should be a website about the trail."
+                    "v": "It wasn’t pleasant at night."
                   }
                 ]
               },
@@ -1108,7 +1133,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Some parts of the trail should close."
+                    "v": "He would love to do it again soon."
                   }
                 ]
               },
@@ -1117,7 +1142,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "There should be more signs along the trail."
+                    "v": "It was the most interesting thing he’s ever done."
                   }
                 ]
               }
@@ -1138,7 +1163,7 @@
           "content": [
             {
               "t": "text",
-              "v": "Sally Ride"
+              "v": "Eric Koston"
             }
           ],
           "level": 2
@@ -1149,7 +1174,7 @@
           "content": [
             {
               "t": "text",
-              "v": "Sally Ride was born on 26th May, 1951, in California, USA. After high school, she went to Stanford University to study physics. While she was there, she saw an advertisement in her university newspaper "
+              "v": "Eric Koston is one of the world’s best-known skateboarders. He was born in Thailand, but his family "
             },
             {
               "t": "blank",
@@ -1158,7 +1183,7 @@
             },
             {
               "t": "text",
-              "v": " women to join the US space programme. Six women, including Sally, were "
+              "v": " to the US when he was a baby. His love of skateboarding began at the "
             },
             {
               "t": "blank",
@@ -1167,7 +1192,7 @@
             },
             {
               "t": "text",
-              "v": " to become astronauts. On 18th June 1983, Sally became the first American woman to fly into space. Six days later, on 24th June, she "
+              "v": " of 11, when his older brother gave him a skateboard. It was an old, broken board, but he learned how to skateboard by watching other kids and then he "
             },
             {
               "t": "blank",
@@ -1176,7 +1201,7 @@
             },
             {
               "t": "text",
-              "v": " to Earth."
+              "v": " by himself every day."
             }
           ]
         },
@@ -1186,7 +1211,7 @@
           "content": [
             {
               "t": "text",
-              "v": "When Sally "
+              "v": "Three years later, he was so good that a company that made skateboards offered him a summer "
             },
             {
               "t": "blank",
@@ -1195,7 +1220,7 @@
             },
             {
               "t": "text",
-              "v": " working as an astronaut in 1987, she started teaching at the University of California. She wanted to find ways to get more people, "
+              "v": ". That’s when he "
             },
             {
               "t": "blank",
@@ -1204,7 +1229,7 @@
             },
             {
               "t": "text",
-              "v": " girls, interested in studying science and mathematics. She also found time to write science books for children about "
+              "v": " to make skateboarding his life. Since then, Eric has "
             },
             {
               "t": "blank",
@@ -1213,7 +1238,7 @@
             },
             {
               "t": "text",
-              "v": " space."
+              "v": " many international competitions, made boarding videos and starred in a skateboarding video game. Now he owns a successful company making sports shoes and clothes."
             }
           ]
         }
@@ -1235,7 +1260,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "inviting"
+                    "v": "changed"
                   }
                 ]
               },
@@ -1244,7 +1269,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "showing"
+                    "v": "moved"
                   }
                 ]
               },
@@ -1253,7 +1278,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "looking"
+                    "v": "left"
                   }
                 ]
               }
@@ -1276,7 +1301,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "thought"
+                    "v": "year"
                   }
                 ]
               },
@@ -1285,7 +1310,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "decided"
+                    "v": "time"
                   }
                 ]
               },
@@ -1294,7 +1319,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "chosen"
+                    "v": "age"
                   }
                 ]
               }
@@ -1317,7 +1342,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "completed"
+                    "v": "practised"
                   }
                 ]
               },
@@ -1326,7 +1351,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "returned"
+                    "v": "taught"
                   }
                 ]
               },
@@ -1335,7 +1360,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "arrived"
+                    "v": "followed"
                   }
                 ]
               }
@@ -1358,7 +1383,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "ended"
+                    "v": "career"
                   }
                 ]
               },
@@ -1367,7 +1392,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "closed"
+                    "v": "job"
                   }
                 ]
               },
@@ -1376,7 +1401,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "stopped"
+                    "v": "work"
                   }
                 ]
               }
@@ -1399,7 +1424,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "especially"
+                    "v": "thought"
                   }
                 ]
               },
@@ -1408,7 +1433,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "exactly"
+                    "v": "felt"
                   }
                 ]
               },
@@ -1417,7 +1442,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "clearly"
+                    "v": "decided"
                   }
                 ]
               }
@@ -1440,7 +1465,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "exploring"
+                    "v": "won"
                   }
                 ]
               },
@@ -1449,7 +1474,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "going"
+                    "v": "taken"
                   }
                 ]
               },
@@ -1458,7 +1483,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "travelling"
+                    "v": "tried"
                   }
                 ]
               }
@@ -1479,28 +1504,8 @@
           "content": [
             [
               {
-                "t": "strong",
-                "v": "From: "
-              },
-              {
                 "t": "text",
-                "v": "Riley"
-              }
-            ],
-            [
-              {
-                "t": "strong",
-                "v": "To: "
-              },
-              {
-                "t": "text",
-                "v": "Kris"
-              }
-            ],
-            [
-              {
-                "t": "text",
-                "v": "My dad’s "
+                "v": "Hi everyone. My name is Juan and I’ve joined this website because I’m looking for a penfriend. I come "
               },
               {
                 "t": "strong",
@@ -1508,11 +1513,11 @@
               },
               {
                 "t": "text",
-                "v": "got"
+                "v": "from"
               },
               {
                 "t": "text",
-                "v": " three tickets for the hockey match next Wednesday. One was for my brother, but now he’s "
+                "v": " Mexico and I live in a town called Playa del Carmen on the Caribbean Sea, near the city of Cancun. It’s not as famous "
               },
               {
                 "t": "blank",
@@ -1521,7 +1526,7 @@
               },
               {
                 "t": "text",
-                "v": " free that day, so we have an extra one. Do you "
+                "v": " Cancun but I think it is one of "
               },
               {
                 "t": "blank",
@@ -1530,7 +1535,13 @@
               },
               {
                 "t": "text",
-                "v": " to come? Dad would like to leave our house at 4 o’clock. Let me know as soon "
+                "v": " most beautiful places in Mexico."
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "Tourists come to Playa del Carmen from "
               },
               {
                 "t": "blank",
@@ -1539,39 +1550,7 @@
               },
               {
                 "t": "text",
-                "v": " possible."
-              }
-            ]
-          ]
-        },
-        {
-          "id": "n2",
-          "type": "note",
-          "content": [
-            [
-              {
-                "t": "strong",
-                "v": "From: "
-              },
-              {
-                "t": "text",
-                "v": "Kris"
-              }
-            ],
-            [
-              {
-                "t": "strong",
-                "v": "To: "
-              },
-              {
-                "t": "text",
-                "v": "Riley"
-              }
-            ],
-            [
-              {
-                "t": "text",
-                "v": "Wow! That’s really kind "
+                "v": " over the world because the weather’s always warm and the food’s great. "
               },
               {
                 "t": "blank",
@@ -1580,7 +1559,13 @@
               },
               {
                 "t": "text",
-                "v": " you. Thanks! I asked Mum if I can come and she said yes. I finish school a bit later "
+                "v": " fact, my friends and I go to the beach almost every day. It’s brilliant!"
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "Do you want "
               },
               {
                 "t": "blank",
@@ -1589,7 +1574,7 @@
               },
               {
                 "t": "text",
-                "v": " you, so Mum will drive me to your house at 4 o’clock. Is there anything I need "
+                "v": " know more about Playa del Carmen? "
               },
               {
                 "t": "blank",
@@ -1598,7 +1583,7 @@
               },
               {
                 "t": "text",
-                "v": " bring with me?"
+                "v": " you do, write to me soon."
               }
             ]
           ]
@@ -1696,10 +1681,158 @@
           }
         }
       ]
+    },
+    {
+      "id": "s6",
+      "part": 6,
+      "label": "Part 6",
+      "instruction": "Read the email from your English friend, Casey. Write an email to Casey and answer the questions. Write 25 words or more.",
+      "questions": [
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 15,
+          "skills": [
+            "opinion"
+          ],
+          "material": [
+            {
+              "id": "n2",
+              "type": "note",
+              "content": [
+                [
+                  {
+                    "t": "strong",
+                    "v": "From: "
+                  },
+                  {
+                    "t": "text",
+                    "v": "Casey"
+                  }
+                ],
+                [
+                  {
+                    "t": "strong",
+                    "v": "To: "
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "Thanks for asking me to go with you to your art group on Saturday. What time does it start? What do I need to bring? How much does it cost?"
+                  }
+                ]
+              ]
+            }
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Read the email from your English friend, Casey."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write an email to Casey and answer the questions."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write "
+              },
+              {
+                "t": "strong",
+                "v": "25 words"
+              },
+              {
+                "t": "text",
+                "v": " or more."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 25
+          }
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "part": 7,
+      "label": "Part 7",
+      "instruction": "Look at the three pictures. Write the story shown in the pictures. Write 35 words or more.",
+      "questions": [
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 15,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the three pictures."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write the story shown in the pictures."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write "
+              },
+              {
+                "t": "strong",
+                "v": "35 words"
+              },
+              {
+                "t": "text",
+                "v": " or more."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 35
+          },
+          "material": [
+            {
+              "id": "i7",
+              "type": "imageRef",
+              "image": "img7"
+            },
+            {
+              "id": "i8",
+              "type": "imageRef",
+              "image": "img8"
+            },
+            {
+              "id": "i9",
+              "type": "imageRef",
+              "image": "img9"
+            }
+          ]
+        }
+      ]
     }
   ],
   "source": {
-    "pdf": "2021KET真题 - 第2套 - 阅读与写作.pdf",
+    "pdf": "2021KET真题 - 第4套 - 阅读与写作.pdf",
     "pdfPages": [
       1,
       2,
@@ -1708,17 +1841,21 @@
       5,
       6,
       7,
-      8
+      8,
+      9,
+      10
     ],
     "bookPages": [
-      24,
-      25,
-      26,
-      27,
-      28,
-      29,
-      30,
-      31
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65
     ]
   },
   "status": {

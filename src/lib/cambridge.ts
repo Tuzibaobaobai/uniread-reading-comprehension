@@ -77,8 +77,6 @@ function speakingRaw(judgements: JudgementT[]): number | null {
 
 /** the skill a one-skill paper reports (A2 Key's Reading & Writing paper reports two) */
 export const PAPER_SKILL: Partial<Record<ExamItemT['paper'], Skill>> = {
-  reading: 'reading',
-  writing: 'writing',
   listening: 'listening',
   speaking: 'speaking',
 };
@@ -101,9 +99,15 @@ function report(skill: Skill, rs: Row[]): SkillReport {
   return { skill, raw: Math.round(r * 2) / 2, max: s.max, scaleMax, scale: s.pending ? null : toScale(skill, r), pending: s.pending };
 }
 
-/** one-skill paper (Reading, Writing, Listening or Speaking): the report needs only the saved result */
-export function skillReport(skill: Skill, result: Result): SkillReport {
-  return report(skill, result.byQuestion);
+/**
+ * per-skill reports for one submitted paper, from the saved result alone (so list pages need no item):
+ * Reading & Writing = auto-scored questions (Parts 1–5) → reading, judged ones (Parts 6–7) → writing
+ */
+export function paperReports(paper: ExamItemT['paper'], result: Result): SkillReport[] {
+  const one = PAPER_SKILL[paper];
+  if (one) return [report(one, result.byQuestion)];
+  const auto = (r: Row) => r.scoredBy === undefined || r.scoredBy === 'auto';
+  return [report('reading', result.byQuestion.filter(auto)), report('writing', result.byQuestion.filter((r) => !auto(r)))];
 }
 
 /**
@@ -119,13 +123,5 @@ export function overallScale(skills: Partial<Record<Skill, SkillReport>>): numbe
 
 /** per-skill raw scores and scale estimates for one submitted exam paper */
 export function examReport(item: ItemT, result: Result): SkillReport[] {
-  if (!('format' in item)) return [];
-  const one = PAPER_SKILL[item.paper];
-  if (one) return [skillReport(one, result)];
-  // the combined Reading & Writing paper: Parts 1–5 reading, Parts 6–7 writing
-  const byQ = new Map(result.byQuestion.map((r) => [r.q, r]));
-  const rows = (sections: typeof item.sections) =>
-    sections.flatMap((s) => s.questions).map((q) => byQ.get(q.id)).filter((r): r is Row => !!r);
-  const writingParts = item.sections.filter((s) => s.questions.every((q) => q.interaction.kind === 'extendedText'));
-  return [report('reading', rows(item.sections.filter((s) => !writingParts.includes(s)))), report('writing', rows(writingParts))];
+  return 'format' in item ? paperReports(item.paper, result) : [];
 }

@@ -3,7 +3,7 @@
  * Pure: takes the saved attempt and the paper's official duration.
  */
 import type { AttemptT, ExamItemT } from '@schema';
-import { PAPER_SKILL, skillReport, type SkillReport } from './cambridge';
+import { paperReports, type Skill, type SkillReport } from './cambridge';
 import type { Result } from './grading';
 
 export type ExamStatus =
@@ -15,7 +15,7 @@ export type ExamStatus =
   /** exam mode, time ran out without submitting (the learner left the page) */
   | { kind: 'timedOut' }
   /** submitted: raw score and Cambridge English Scale estimate (null while the judge is still scoring) */
-  | { kind: 'done'; raw: number; max: number; report: SkillReport | null; pending: boolean };
+  | { kind: 'done'; raw: number; max: number; reports: SkillReport[]; pending: boolean };
 
 /** exam mode ends at startedAt + the paper's official time */
 export const examEndsAt = (attempt: AttemptT, durationMinutes: number) => Date.parse(attempt.startedAt) + durationMinutes * 60000;
@@ -24,13 +24,12 @@ export function examStatus(attempt: AttemptT | null, paper: ExamItemT['paper'], 
   if (!attempt) return { kind: 'new' };
   if (attempt.status === 'submitted' && attempt.result) {
     const r = attempt.result as Result;
-    const skill = PAPER_SKILL[paper];
-    const report = skill ? skillReport(skill, r) : null;
+    const reports = paperReports(paper, r);
     const pending = r.byQuestion.some((b) => b.scoredBy === 'pending');
     // raw = every question's points, including judged writing / speaking once scored
     const raw = r.byQuestion.reduce((n, b) => n + b.points, 0);
     const max = r.byQuestion.reduce((n, b) => n + b.maxPoints, 0);
-    return { kind: 'done', raw: Math.round(raw * 2) / 2, max, report, pending };
+    return { kind: 'done', raw: Math.round(raw * 2) / 2, max, reports, pending };
   }
   if (attempt.mode === 'exam') {
     const endsAt = examEndsAt(attempt, durationMinutes);
@@ -39,6 +38,8 @@ export function examStatus(attempt: AttemptT | null, paper: ExamItemT['paper'], 
   if (attempt.mode === 'practice') return { kind: 'practicing' };
   return Object.keys(attempt.responses).length ? { kind: 'practicing' } : { kind: 'new' };
 }
+
+const SKILL_ZH: Record<Skill, string> = { reading: '阅读', writing: '写作', listening: '听力', speaking: '口语' };
 
 /** playlist row label (#69: raw score and scaled score shown separately) */
 export function examStatusLabel(s: ExamStatus): string | null {
@@ -53,6 +54,8 @@ export function examStatusLabel(s: ExamStatus): string | null {
       return '考试超时';
     case 'done':
       if (s.pending) return `原始分 ${s.raw}/${s.max} · 换算分评分中`;
-      return `原始分 ${s.raw}/${s.max} · 换算分 ${s.report?.scale ?? '<82'}`;
+      // Reading & Writing reports two skills: 换算分 阅读 125 / 写作 130
+      if (s.reports.length > 1) return `原始分 ${s.raw}/${s.max} · 换算分 ${s.reports.map((x) => `${SKILL_ZH[x.skill]} ${x.scale ?? '<82'}`).join(' / ')}`;
+      return `原始分 ${s.raw}/${s.max} · 换算分 ${s.reports[0]?.scale ?? '<82'}`;
   }
 }
