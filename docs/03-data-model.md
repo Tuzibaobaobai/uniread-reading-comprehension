@@ -108,7 +108,7 @@ xAPI 映射：actor = learnerId；verb = `answered`（每题）/ `completed`（�
 
 2026-10 起新增，**纯增量**：已交付的 540 条时文阅读（`ArticleItem`）文件、ID 与结构都不变，`SCHEMA_VERSION` 仍为 `1.0`。`Item = ArticleItem | ExamItem`。
 
-- `ExamItem`：`format: "exam"`、`id` = `<playlist>-t<套>-<rw|l|s>`、`test`（第 N 套）、`paper`（`reading_writing` / `listening` / `speaking`）、`meta {exam, durationMinutes, totalMarks}`；`article` 只作图片登记表（`blocks` / `vocabulary` 为空）。
+- `ExamItem`：`format: "exam"`、`id` = `<playlist>-t<套>-<r|w|l|s>`、`test`（第 N 套）、`paper`（`reading` / `writing` / `listening` / `speaking`；Cambridge 的 Reading and Writing 合卷拆为阅读、写作两项，见 #71，题号保留原书编号）、`meta {exam, durationMinutes, totalMarks}`；`article` 只作图片登记表（`blocks` / `vocabulary` 为空）。
 - 一个 Part = 一个 section：`part`、`label`（`Part N`）、`material`（左栏材料，可含空格）、`audio {src, seconds}`（听力，文件已含两遍播放）。
 - 题目可带 `material`（当前题的左栏材料，如 R&W Part 1 告示）；选项可带 `image`（听力 Part 1 看图选择）。
 - `extendedText.minWords`（写作字数下限，实时计数）；新交互 `speaking {prompt, turns[{id, text}], maxSeconds, scoring}`，作答为 `{turnId: 语音转写}`。

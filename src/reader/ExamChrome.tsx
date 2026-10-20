@@ -1,21 +1,39 @@
 import { useEffect, useState } from 'react';
 import type { ExamItemT } from '@schema';
-import { examReport, grade, type Skill } from '@/lib/cambridge';
+import { GRADE_BANDS, SCALE, examReport, grade, toScale, type Skill } from '@/lib/cambridge';
 import type { Result } from '@/lib/grading';
 import { PAPER_ZH } from '@/lib/labels';
 
 /* Exam-paper chrome (KET/PET 真题). Not yet in Figma — built from existing tokens (待补组件, docs/design/figma-registry.md). */
 
-/** practice or timed exam — asked before a new attempt */
-export function ModeDialog({ item, onChoose }: { item: ExamItemT; onChoose: (mode: 'practice' | 'exam') => void }) {
+/** why the mode is being asked: a new attempt, 重新作答, or an exam whose time ran out while away */
+export type ModeReason = 'new' | 'retry' | 'timeout';
+
+/** practice or timed exam — asked before an attempt; closing returns to the playlist / the finished review (#65) */
+export function ModeDialog({
+  item,
+  reason,
+  onChoose,
+  onCancel,
+}: {
+  item: ExamItemT;
+  reason: ModeReason;
+  onChoose: (mode: 'practice' | 'exam') => void;
+  onCancel: () => void;
+}) {
   const listening = item.paper === 'listening';
   const speaking = item.paper === 'speaking';
   return (
-    <div className="dialog-backdrop" role="presentation">
-      <div className="dialog mode-dialog" role="dialog" aria-modal aria-labelledby="mode-title">
+    <div className="dialog-backdrop" role="presentation" onClick={onCancel}>
+      <div className="dialog mode-dialog" role="dialog" aria-modal aria-labelledby="mode-title" onClick={(e) => e.stopPropagation()}>
+        <button className="dialog-close" onClick={onCancel} aria-label={reason === 'retry' ? '关闭，返回作答结果' : '关闭，返回合集'}>
+          ×
+        </button>
         <h2 id="mode-title">{item.title}</h2>
+        {reason === 'timeout' && <p className="mode-timeout">上次考试时间已到，但没有交卷。选择练习模式会保留已经作答的内容；选择考试模式会清空作答、重新计时。</p>}
         <p>
-          {item.meta.exam} · {PAPER_ZH[item.paper]} · 官方考试时长 {item.meta.durationMinutes} 分钟 · 满分 {item.meta.totalMarks} 分
+          {item.meta.exam} · {PAPER_ZH[item.paper]} · {item.paper === 'reading' || item.paper === 'writing' ? '建议用时（官方阅读与写作合计 60 分钟）' : '官方考试时长'}{' '}
+          {item.meta.durationMinutes} 分钟 · 满分 {item.meta.totalMarks} 分
         </p>
         <div className="mode-options">
           <button className="mode-option" onClick={() => onChoose('practice')}>
@@ -31,6 +49,107 @@ export function ModeDialog({ item, onChoose }: { item: ExamItemT; onChoose: (mod
               限时 {item.meta.durationMinutes} 分钟，时间到自动交卷
               {listening ? '；每段录音只能播放一次（录音中已含两遍），不能暂停或拖动' : ''}；可以标记题目，交卷后出分并估算 Cambridge 分数。
             </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/** switch practice ↔ exam during an attempt (#66) */
+export function SwitchModeDialog({
+  from,
+  answered,
+  onConfirm,
+  onCancel,
+}: {
+  from: 'practice' | 'exam';
+  answered: number;
+  onConfirm: () => void;
+  onCancel: () => void;
+}) {
+  const toExam = from === 'practice';
+  return (
+    <div className="dialog-backdrop" role="presentation" onClick={onCancel}>
+      <div className="dialog" role="dialog" aria-modal aria-labelledby="switch-title" onClick={(e) => e.stopPropagation()}>
+        <h2 id="switch-title">{toExam ? '切换到考试模式？' : '结束考试，切换到练习模式？'}</h2>
+        <p>
+          {toExam
+            ? `考试要从头开始并重新计时${answered ? `，当前已作答的 ${answered} 题会被清空` : ''}。`
+            : '计时停止，已经作答的内容会保留，可以继续练习，录音也可以暂停和回放。'}
+        </p>
+        <div className="dialog-actions">
+          <button className="pill-button" onClick={onCancel}>
+            取消
+          </button>
+          <button className="pill-button primary" autoFocus onClick={onConfirm}>
+            {toExam ? '开始考试' : '切换到练习'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const SKILLS: Skill[] = ['reading', 'writing', 'listening', 'speaking'];
+
+/**
+ * Cambridge English Scale conversion table (#67): the official anchor points per skill and the A2 Key result
+ * bands; raw scores in between are interpolated
+ */
+export function ScaleTableDialog({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="dialog-backdrop" role="presentation" onClick={onClose}>
+      <div className="dialog scale-dialog" role="dialog" aria-modal aria-labelledby="scale-title" onClick={(e) => e.stopPropagation()}>
+        <button className="dialog-close" onClick={onClose} aria-label="关闭，返回成绩报告">
+          ×
+        </button>
+        <h2 id="scale-title">Cambridge English Scale 换算表</h2>
+        <p>A2 Key / A2 Key for Schools（2020 年起的考试）官方练习题换算表。表中为官方锚点，其间的原始分按比例换算，满分对应 150。</p>
+        <div className="scale-tables">
+          {SKILLS.map((k) => (
+            <table key={k} className="report-table scale-table">
+              <caption>
+                {SKILL_ZH[k]}（满分 {SCALE[k].max}）
+              </caption>
+              <thead>
+                <tr>
+                  <th>原始分</th>
+                  <th>换算分</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[[SCALE[k].max, 150] as [number, number], ...[...SCALE[k].anchors].reverse()].map(([raw, scale]) => (
+                  <tr key={raw}>
+                    <td>{raw}</td>
+                    <td>{scale === toScale(k, raw) ? scale : toScale(k, raw)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ))}
+        </div>
+        <table className="report-table">
+          <caption>成绩等级（总分 = 四项换算分的平均）</caption>
+          <tbody>
+            {GRADE_BANDS.map(([min, label], i) => (
+              <tr key={label}>
+                <td>
+                  {min}–{i === 0 ? 150 : GRADE_BANDS[i - 1][0] - 1}
+                </td>
+                <td>{label}</td>
+              </tr>
+            ))}
+            <tr>
+              <td>82–99</td>
+              <td>低于 A1（82 为最低报告分）</td>
+            </tr>
+          </tbody>
+        </table>
+        <p className="report-note">来源：Cambridge English《A2 Key and A2 Key for Schools — Converting practice test scores to Cambridge English Scale scores》（UCLES 2019）。仅供练习参考，真实考试的换算会因试卷而异。</p>
+        <div className="dialog-actions">
+          <button className="pill-button primary" autoFocus onClick={onClose}>
+            关闭
           </button>
         </div>
       </div>
@@ -67,6 +186,7 @@ const SKILL_ZH: Record<Skill, string> = { reading: '阅读', writing: '写作', 
 /** per-skill raw scores and the Cambridge English Scale estimate */
 export function ExamReport({ item, result, onClose }: { item: ExamItemT; result: Result; onClose: () => void }) {
   const rows = examReport(item, result);
+  const [tableOpen, setTableOpen] = useState(false);
   const parts = item.sections.map((s) => {
     const rs = s.questions.map((q) => result.byQuestion.find((r) => r.q === q.id)).filter((r) => !!r);
     return { s, got: rs.reduce((n, r) => n + r.points, 0), max: rs.reduce((n, r) => n + r.maxPoints, 0), pending: rs.some((r) => r.scoredBy === 'pending') };
@@ -104,7 +224,11 @@ export function ExamReport({ item, result, onClose }: { item: ExamItemT; result:
           ))}
         </div>
         <p className="report-note">
-          Cambridge English Scale 分数按 Cambridge 官方练习题换算表（A2 Key / A2 Key for Schools，2020 年起的考试）估算，仅供参考；写作与口语由 AI 按 Cambridge
+          Cambridge English Scale 分数按 Cambridge 官方练习题
+          <button className="link-button" onClick={() => setTableOpen(true)}>
+            换算表
+          </button>
+          （A2 Key / A2 Key for Schools，2020 年起的考试）估算，仅供参考；写作与口语由 AI 按 Cambridge
           官方评分标准评分{item.paper === 'speaking' ? '，发音暂未评估，按其余三项折算' : ''}。
         </p>
         <div className="dialog-actions">
@@ -113,6 +237,7 @@ export function ExamReport({ item, result, onClose }: { item: ExamItemT; result:
           </button>
         </div>
       </div>
+      {tableOpen && <ScaleTableDialog onClose={() => setTableOpen(false)} />}
     </div>
   );
 }

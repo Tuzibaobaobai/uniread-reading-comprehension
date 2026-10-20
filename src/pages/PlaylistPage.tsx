@@ -8,6 +8,8 @@ import starIcon from '@/assets/icons/star.svg';
 import { Thumb } from '@/components/Thumb';
 import { DAY_NAME, PAPER_EN, formatMinutes } from '@/lib/labels';
 import OverflowTip from '@/components/OverflowTip';
+import { examStatus, examStatusLabel, type ExamStatus } from '@/lib/exam-status';
+import { grade, overallScale, type Skill, type SkillReport } from '@/lib/cambridge';
 
 export function PlaylistPage() {
   const { playlistId = '' } = useParams();
@@ -56,11 +58,15 @@ export function PlaylistPage() {
             <h2 className="playlist-items-head">合集（{pl.itemCount}）</h2>
             {[...groups].map(([group, items]) => (
               <div key={group} className="week-group">
-                <h3 className="week-label">{exam ? `第 ${group} 套` : `Week ${group}`}</h3>
+                <h3 className="week-label">
+                  {exam ? `第 ${group} 套` : `Week ${group}`}
+                  {exam && <TestScore items={items} />}
+                </h3>
                 {items.map((it) => {
                   const att = localAttempts.get(it.id);
                   const done = att?.status === 'submitted' && att.result;
                   const progress = done ? 1 : att ? Math.min(Object.keys(att.responses).length / it.questionCount, 1) : 0;
+                  const status = it.paper ? examStatusLabel(examStatus(att, it.paper, it.suggestedMinutes)) : null;
                   return (
                     <Link key={it.id} to={`/p/${pl.id}/${it.id}`} className="item-row">
                       <span className="item-row-num">{it.order}</span>
@@ -80,7 +86,7 @@ export function PlaylistPage() {
                             it.difficulty !== undefined ? `L${it.difficulty}` : null,
                             `${it.questionCount} 题`,
                             formatMinutes(it.suggestedMinutes),
-                            done ? `得分 ${att.result!.score}/${att.result!.maxScore}` : att ? '进行中' : null,
+                            it.paper ? status : done ? `得分 ${att.result!.score}/${att.result!.maxScore}` : att ? '进行中' : null,
                           ]
                             .filter(Boolean)
                             .join(' · ')}
@@ -105,5 +111,27 @@ export function PlaylistPage() {
         </>
       )}
     </main>
+  );
+}
+
+/**
+ * KET overall result for one test (GitHub #68): the four skills' Cambridge English Scale scores averaged,
+ * once Reading, Writing, Listening and Speaking are all submitted and scored
+ */
+function TestScore({ items }: { items: { id: string; paper?: string; suggestedMinutes: number }[] }) {
+  const skills: Partial<Record<Skill, SkillReport>> = {};
+  let done = 0;
+  items.forEach((it) => {
+    if (!it.paper) return;
+    const s: ExamStatus = examStatus(localAttempts.get(it.id), it.paper as never, it.suggestedMinutes);
+    if (s.kind !== 'done' || !s.report) return;
+    done++;
+    skills[s.report.skill] = s.report;
+  });
+  const overall = overallScale(skills);
+  return (
+    <span className={`test-score ${overall !== null ? 'is-final' : ''}`} title="四项 Cambridge English Scale 分数的平均（估算）">
+      {overall !== null ? `KET 成绩 ${overall} · ${grade(overall)}` : `KET 成绩：已完成 ${done}/4`}
+    </span>
   );
 }

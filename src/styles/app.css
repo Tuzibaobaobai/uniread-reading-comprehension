@@ -526,6 +526,11 @@ body:has(.playlist-page) { background: var(--bg-card); }
 
 /* ======================================================= exam papers (KET/PET 真题) */
 
+/* playlist: KET overall result on the 第 N 套 row (#68) */
+.week-label:has(.test-score) { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.test-score { padding: 2px 12px; border-radius: var(--radius-full); background: var(--bg-subtle); color: var(--text-secondary); font-size: var(--fs-s); line-height: var(--lh-s); font-weight: var(--fw-bold); }
+.test-score.is-final { background: var(--accent-soft); color: var(--accent-strong); }
+
 /* left pane: Part heading + recording + material */
 .exam-part-kicker { margin: 0 0 4px; color: var(--text-tertiary); font-size: var(--fs-s); line-height: var(--lh-s); }
 .exam-instruction { margin: 8px 0 24px; color: var(--text-secondary); font-size: var(--fs-l); line-height: var(--lh-l); }
@@ -605,6 +610,18 @@ body:has(.playlist-page) { background: var(--bg-card); }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* mode choice + score report (待补组件) */
+.dialog { position: relative; }
+.dialog-close {
+  position: absolute; top: 12px; right: 12px; width: var(--tap); height: var(--tap);
+  border: none; border-radius: var(--radius-full); background: transparent;
+  font-size: var(--fs-4xl); line-height: 1; color: var(--text-secondary);
+}
+.mode-timeout { padding: 12px 16px; border-radius: var(--radius-s); background: var(--exam-warn-soft); color: var(--exam-warn) !important; }
+.exam-mode-tag { margin-right: auto; padding: 0 16px; min-height: 40px; display: inline-flex; align-items: center; border-radius: var(--radius-full); background: var(--bg-subtle); font-weight: var(--fw-bold); color: var(--text-secondary); }
+.link-button { border: none; background: none; padding: 0 2px; font: inherit; color: var(--accent-strong); text-decoration: underline; text-underline-offset: 3px; min-height: 0; }
+.scale-dialog { width: min(720px, 100%); max-height: 100%; overflow-y: auto; }
+.scale-tables { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }
+.report-table caption { text-align: left; font-weight: var(--fw-bold); color: var(--text-primary); padding-bottom: 4px; }
 .mode-dialog, .report-dialog { width: min(560px, 100%); }
 .mode-options { display: grid; gap: 12px; margin-top: 8px; }
 .mode-option {

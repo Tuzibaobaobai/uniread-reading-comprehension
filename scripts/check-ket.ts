@@ -6,7 +6,7 @@
  * choice / inlineChoice letters must match; text answers must accept every printed alternative
  * ("25(th) June / June 25(th)" → 25 June, 25th June, June 25, June 25th).
  */
-import { readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { ItemKeyT } from '../schema/index.ts';
 import { normalizeText } from '../src/lib/grading.ts';
@@ -76,7 +76,10 @@ for (const [paper, from, to, count] of papers) {
   const printed = answers(from, to, count);
   const lost = [...Array(count).keys()].map((i) => i + 1).filter((n) => !printed.get(n));
   if (lost.length) (problems++, console.log(`${paper}: answers ${lost.join(', ')} not found in the OCR — check the answer-book page image by hand`));
-  const key = JSON.parse(readFileSync(join(ROOT, 'content/playlists', pl, 'keys', `${pl}-t${test}-${paper}.json`), 'utf8')) as ItemKeyT;
+  // Reading & Writing: one key per paper, or (since #71) the Reading key (Parts 1–5 hold every printed answer)
+  const keyFile = (p: string) => join(ROOT, 'content/playlists', pl, 'keys', `${pl}-t${test}-${p}.json`);
+  const file = paper === 'rw' && !existsSync(keyFile('rw')) ? keyFile('r') : keyFile(paper);
+  const key = JSON.parse(readFileSync(file, 'utf8')) as ItemKeyT;
   for (const [n, ans] of printed) {
     const k = key.answers[`q${n}`];
     const bad = (m: string) => (problems++, console.log(`${paper} Q${n}: ${m}`));

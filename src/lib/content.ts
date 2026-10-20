@@ -39,7 +39,7 @@ export const staticContent: ContentProvider = {
   getCatalog: () => cached<CatalogT>('catalog.json'),
   getPlaylist: (id) => cached<PlaylistT>(`playlists/${id}/playlist.json`),
   // <pl>-wNN-<day> (时文阅读) or <pl>-t<N>-<paper> (exam papers)
-  getItem: (id) => cached<ItemT>(`playlists/${id.replace(/-w\d{2}-\w{3}$|-t\d+-(rw|l|s)$/, '')}/items/${id}.json`),
+  getItem: (id) => cached<ItemT>(`playlists/${id.replace(/-w\d{2}-\w{3}$|-t\d+-(rw|r|w|l|s)$/, '')}/items/${id}.json`),
   async grade(item, responses) {
     const res = await fetch(`${base}api/rc/grade`, {
       method: 'POST',

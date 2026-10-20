@@ -1,86 +1,66 @@
 {
   "schemaVersion": "1.0",
   "format": "exam",
-  "id": "ket1-t1-rw",
+  "id": "ket1-t3-r",
   "playlistId": "ket1",
-  "order": 1,
-  "test": 1,
-  "paper": "reading_writing",
-  "title": "KET真题1-第1套-阅读与写作",
-  "displayName": "KET真题1-第1套-阅读与写作",
+  "order": 9,
+  "test": 3,
+  "paper": "reading",
+  "title": "KET真题1-第3套-阅读",
+  "displayName": "KET真题1-第3套-阅读",
   "taskType": {
-    "code": "exam_reading_writing",
-    "labelZh": "阅读与写作"
+    "code": "exam_reading",
+    "labelZh": "阅读"
   },
   "meta": {
     "exam": "A2 Key for Schools",
-    "durationMinutes": 60,
-    "totalMarks": 60
+    "durationMinutes": 40,
+    "totalMarks": 30,
+    "intro": "官方 Reading and Writing 为一张试卷（60 分钟）；本合集拆为阅读（Part 1–5，建议 40 分钟）和写作（Part 6–7，建议 20 分钟）两项。"
   },
   "article": {
     "images": [
       {
         "id": "img1",
-        "src": "assets/ket1/ket1-t1-rw-1.jpg",
-        "alt": "Notice: Found: blue sports bag. Collect from school office (with student ID card)",
-        "w": 393,
-        "h": 373
+        "src": "assets/ket1/ket1-t3-r-1.jpg",
+        "alt": "Text message: Toby, Thanks for inviting me to your badminton party at the sports club next Saturday afternoon. Will I know anyone else there? Ben",
+        "w": 420,
+        "h": 361
       },
       {
         "id": "img2",
-        "src": "assets/ket1/ket1-t1-rw-2.jpg",
-        "alt": "Notice: Room 3.1. Mrs Gray’s students. This room is closed for repairs. Lessons in room 4.2 until Friday",
-        "w": 465,
-        "h": 373
+        "src": "assets/ket1/ket1-t3-r-2.jpg",
+        "alt": "Notice: Summer show. I have some great actors and dancers but still need people who play instruments. We practise Tuesdays and Thursdays after school. Mrs Jenkins",
+        "w": 480,
+        "h": 467
       },
       {
         "id": "img3",
-        "src": "assets/ket1/ket1-t1-rw-3.jpg",
-        "alt": "Email. From: Head teacher. To: All students. The school kitchen will be closed for hot lunches Monday – Friday next week. We can still serve sandwiches and salads.",
-        "w": 524,
-        "h": 508
+        "src": "assets/ket1/ket1-t3-r-3.jpg",
+        "alt": "Notice: Are you an excellent swimmer and over 10 years old? Then you can join the sailing club! Thursdays 5 – 8 p.m. Only £50 per term",
+        "w": 476,
+        "h": 456
       },
       {
         "id": "img4",
-        "src": "assets/ket1/ket1-t1-rw-4.jpg",
-        "alt": "Text message: Hi Suzy, I’ve finished our history project. Shall I bring it round later to show you before I give it to the teacher tomorrow? Mark",
-        "w": 420,
-        "h": 677
+        "src": "assets/ket1/ket1-t3-r-4.jpg",
+        "alt": "Text message: Justin, Have you still got that history book of mine? Could you let me have it back because Rob needs it for the weekend? Sally",
+        "w": 458,
+        "h": 657
       },
       {
         "id": "img5",
-        "src": "assets/ket1/ket1-t1-rw-5.jpg",
-        "alt": "Email. From: Ben. To: Tom. Dad will pick us up after the school concert. There are some tickets left on the website if you know anyone who wants one.",
-        "w": 508,
-        "h": 495
+        "src": "assets/ket1/ket1-t3-r-5.jpg",
+        "alt": "Text message: Serena, I saw your text about Dad’s birthday present, but we always get him socks! What about sunglasses? Mum can take us to get some. Karin",
+        "w": 457,
+        "h": 653
       },
       {
         "id": "img6",
-        "src": "assets/ket1/ket1-t1-rw-6.jpg",
-        "alt": "Email. From: Mr Jones. To: Photography club members. Some of you have asked to learn to use software to improve your pictures. If enough people are interested, we’ll start next Tuesday.",
-        "w": 508,
-        "h": 494
-      },
-      {
-        "id": "img7",
-        "src": "assets/ket1/ket1-t1-rw-7.jpg",
-        "alt": "Picture 1: Two boys are walking along a street and see a banknote lying on the pavement.",
-        "w": 435,
-        "h": 336
-      },
-      {
-        "id": "img8",
-        "src": "assets/ket1/ket1-t1-rw-8.jpg",
-        "alt": "Picture 2: One boy bends down and picks up the banknote.",
-        "w": 435,
-        "h": 336
-      },
-      {
-        "id": "img9",
-        "src": "assets/ket1/ket1-t1-rw-9.jpg",
-        "alt": "Picture 3: The boys are at an ice-cream shop counter, paying for two ice-cream sundaes with the money.",
-        "w": 434,
-        "h": 336
+        "src": "assets/ket1/ket1-t3-r-6.jpg",
+        "alt": "Notice: City Library. Library computers are for members only – ask receptionist about becoming a member.",
+        "w": 504,
+        "h": 406
       }
     ],
     "blocks": [],
@@ -104,14 +84,19 @@
             "kind": "choice",
             "variant": "standard",
             "maxChoices": 1,
-            "prompt": [],
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Ben wants to know"
+              }
+            ],
             "options": [
               {
                 "id": "A",
                 "content": [
                   {
                     "t": "text",
-                    "v": "A student has found the wrong ID card in his sports bag."
+                    "v": "who is going to the party."
                   }
                 ]
               },
@@ -120,7 +105,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "The person who lost his bag can get it from the school office."
+                    "v": "what they’re going to do at the party."
                   }
                 ]
               },
@@ -129,7 +114,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "If you find a lost sports bag, please take it to the school office."
+                    "v": "what time the party starts."
                   }
                 ]
               }
@@ -154,14 +139,19 @@
             "kind": "choice",
             "variant": "standard",
             "maxChoices": 1,
-            "prompt": [],
+            "prompt": [
+              {
+                "t": "text",
+                "v": "For the show, Mrs Jenkins is looking for"
+              }
+            ],
             "options": [
               {
                 "id": "A",
                 "content": [
                   {
                     "t": "text",
-                    "v": "Mrs Gray is not coming to the school until Friday."
+                    "v": "some better actors and dancers."
                   }
                 ]
               },
@@ -170,7 +160,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Mrs Gray’s class is going to be on a different day this week."
+                    "v": "anyone with free time this summer."
                   }
                 ]
               },
@@ -179,7 +169,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Mrs Gray isn’t able to use her usual room at the moment."
+                    "v": "students who are good at music."
                   }
                 ]
               }
@@ -211,7 +201,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Students have to bring their own food to school for lunch next week."
+                    "v": "New members of any age are welcome to join the club."
                   }
                 ]
               },
@@ -220,7 +210,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "The school is going to stop offering lunch to students after next week."
+                    "v": "You must be able to swim to become a member of the club."
                   }
                 ]
               },
@@ -229,7 +219,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Only a few types of food will be available for student lunches next week."
+                    "v": "There is a special price for new members who join the club on Thursday."
                   }
                 ]
               }
@@ -254,14 +244,19 @@
             "kind": "choice",
             "variant": "standard",
             "maxChoices": 1,
-            "prompt": [],
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What should Justin do?"
+              }
+            ],
             "options": [
               {
                 "id": "A",
                 "content": [
                   {
                     "t": "text",
-                    "v": "Mark is asking Suzy if he should visit her today."
+                    "v": "lend the book to Rob when he’s finished reading it"
                   }
                 ]
               },
@@ -270,7 +265,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Mark wants Suzy to help him complete their project."
+                    "v": "return the book so that someone else can read it"
                   }
                 ]
               },
@@ -279,7 +274,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Mark thinks Suzy should give the project to the teacher."
+                    "v": "use the book over the weekend"
                   }
                 ]
               }
@@ -304,19 +299,14 @@
             "kind": "choice",
             "variant": "standard",
             "maxChoices": 1,
-            "prompt": [
-              {
-                "t": "text",
-                "v": "What should Tom do?"
-              }
-            ],
+            "prompt": [],
             "options": [
               {
                 "id": "A",
                 "content": [
                   {
                     "t": "text",
-                    "v": "go online to check if there are still concert tickets available"
+                    "v": "Karin doesn’t agree with Serena about what to buy their father."
                   }
                 ]
               },
@@ -325,7 +315,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "tell people that it is still possible for them to come to the concert"
+                    "v": "Karin thinks their mother will have better ideas for a present."
                   }
                 ]
               },
@@ -334,7 +324,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "ask if his father can collect them after the concert"
+                    "v": "Karin doesn’t know what to buy her father for his birthday."
                   }
                 ]
               }
@@ -366,7 +356,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Mr Jones is offering to teach club members something new."
+                    "v": "You need to ask the receptionist which computers you can use."
                   }
                 ]
               },
@@ -375,7 +365,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Some people have told Mr Jones they want to leave the photography club."
+                    "v": "Only people who work at the library can use the computers."
                   }
                 ]
               },
@@ -384,7 +374,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Mr Jones wants to find out more about photography software."
+                    "v": "If you join the library, you can use the computers."
                   }
                 ]
               }
@@ -412,10 +402,20 @@
           "content": [
             {
               "t": "text",
-              "v": "My favourite book"
+              "v": "A great science teacher"
             }
           ],
           "level": 2
+        },
+        {
+          "id": "p1",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "em",
+              "v": "Three teenagers talk about their science teachers."
+            }
+          ]
         },
         {
           "id": "h2",
@@ -423,28 +423,7 @@
           "content": [
             {
               "t": "text",
-              "v": "Jian"
-            }
-          ],
-          "level": 3
-        },
-        {
-          "id": "p1",
-          "type": "paragraph",
-          "content": [
-            {
-              "t": "text",
-              "v": "This well-known book was in a box of old books that a neighbour gave me. I wasn’t sure about it when I picked it up because I saw the pictures and thought it was a book for little children. But I was bored, so I started reading. After a few pages I couldn’t stop, and when I got to the last page, I was quite upset that there wasn’t more. It’s about two friends who play a game, and how it changes their lives. It’s brilliant!"
-            }
-          ]
-        },
-        {
-          "id": "h3",
-          "type": "heading",
-          "content": [
-            {
-              "t": "text",
-              "v": "Max"
+              "v": "Joshua"
             }
           ],
           "level": 3
@@ -455,17 +434,17 @@
           "content": [
             {
               "t": "text",
-              "v": "This was one of the first books I ever had, but it’s still a favourite. Even before I could read, I loved looking at the drawings as my parents read the story to me. Now my little sister’s got it, and she loves it too. The writer has become quite famous, but this is the first book she wrote, and not many people have heard of it. It’s very different from the books she wrote later. I suppose what you write about changes as your life changes."
+              "v": "Mrs Philips was my science teacher when I joined my school and she still is, so I don’t know what the other teachers are like. But I think Mrs Philips is amazing. Her lessons always seem to go really fast – she gives us so much great stuff to do. Even when we think something is too hard for us, she says she knows we can all do it, and she’s usually right! She also shows us drawings, photos and websites to explain how things work, which I love."
             }
           ]
         },
         {
-          "id": "h4",
+          "id": "h3",
           "type": "heading",
           "content": [
             {
               "t": "text",
-              "v": "Kojo"
+              "v": "Dan"
             }
           ],
           "level": 3
@@ -476,7 +455,28 @@
           "content": [
             {
               "t": "text",
-              "v": "I read this book for the first time when I was about eight. One of the reasons I liked it was that it was about people growing up in a place which I knew nothing about. My friend read it too, and our ideas for games often came from this book. I read it again recently, and I still think it’s great, except the last few pages. What happens in them doesn’t seem real."
+              "v": "I have a fantastic science teacher called Mrs Rhodes. She loves her subject – especially plants. She is able to draw wonderful pictures of them on the board, which helps us understand them. She never seems to get tired or bored when she’s teaching. She takes time to get to know each student in the class so that she can help them better. I think she’s the reason I want to be a science teacher one day."
+            }
+          ]
+        },
+        {
+          "id": "h4",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Chris"
+            }
+          ],
+          "level": 3
+        },
+        {
+          "id": "p4",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "In just one year, Mrs James has become my favourite teacher. Until I joined her class, I was very bad at science, but she explained things so well that I soon understood them better. My marks went up almost immediately. She’s always happy to spend extra time with us at the end of lessons if we’re having problems. But it isn’t just teaching that makes her great. She’s also interested in our lives and gives advice on how to be a better person."
             }
           ]
         }
@@ -496,7 +496,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Who does not like the way the book ends?"
+                "v": "Who says his teacher helps with things other than science?"
               }
             ],
             "options": [
@@ -505,7 +505,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Jian"
+                    "v": "Joshua"
                   }
                 ]
               },
@@ -514,7 +514,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Max"
+                    "v": "Dan"
                   }
                 ]
               },
@@ -523,7 +523,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Kojo"
+                    "v": "Chris"
                   }
                 ]
               }
@@ -544,7 +544,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Who enjoyed the pictures in the book?"
+                "v": "Who says his teacher is really interested in what she teaches?"
               }
             ],
             "options": [
@@ -553,7 +553,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Jian"
+                    "v": "Joshua"
                   }
                 ]
               },
@@ -562,7 +562,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Max"
+                    "v": "Dan"
                   }
                 ]
               },
@@ -571,7 +571,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Kojo"
+                    "v": "Chris"
                   }
                 ]
               }
@@ -592,7 +592,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Who explains how he got the book?"
+                "v": "Who says his teacher believes every student can be successful?"
               }
             ],
             "options": [
@@ -601,7 +601,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Jian"
+                    "v": "Joshua"
                   }
                 ]
               },
@@ -610,7 +610,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Max"
+                    "v": "Dan"
                   }
                 ]
               },
@@ -619,7 +619,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Kojo"
+                    "v": "Chris"
                   }
                 ]
               }
@@ -640,7 +640,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Who enjoyed learning about lives which are different from his own?"
+                "v": "Who says he has chosen his future career because of his teacher?"
               }
             ],
             "options": [
@@ -649,7 +649,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Jian"
+                    "v": "Joshua"
                   }
                 ]
               },
@@ -658,7 +658,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Max"
+                    "v": "Dan"
                   }
                 ]
               },
@@ -667,7 +667,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Kojo"
+                    "v": "Chris"
                   }
                 ]
               }
@@ -688,7 +688,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Who says something about what happens in the story?"
+                "v": "Who says his teacher helped him to improve quickly?"
               }
             ],
             "options": [
@@ -697,7 +697,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Jian"
+                    "v": "Joshua"
                   }
                 ]
               },
@@ -706,7 +706,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Max"
+                    "v": "Dan"
                   }
                 ]
               },
@@ -715,7 +715,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Kojo"
+                    "v": "Chris"
                   }
                 ]
               }
@@ -736,7 +736,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Who says the book is not very well-known?"
+                "v": "Who says he’s only ever had one science teacher at his school?"
               }
             ],
             "options": [
@@ -745,7 +745,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Jian"
+                    "v": "Joshua"
                   }
                 ]
               },
@@ -754,7 +754,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Max"
+                    "v": "Dan"
                   }
                 ]
               },
@@ -763,7 +763,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Kojo"
+                    "v": "Chris"
                   }
                 ]
               }
@@ -784,7 +784,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Who felt sad when he finished the book?"
+                "v": "Who says his teacher is very good at drawing?"
               }
             ],
             "options": [
@@ -793,7 +793,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Jian"
+                    "v": "Joshua"
                   }
                 ]
               },
@@ -802,7 +802,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Max"
+                    "v": "Dan"
                   }
                 ]
               },
@@ -811,7 +811,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "Kojo"
+                    "v": "Chris"
                   }
                 ]
               }
@@ -832,20 +832,10 @@
           "content": [
             {
               "t": "text",
-              "v": "A young cheesemaker"
+              "v": "Callie Rice – ice dancer"
             }
           ],
           "level": 2
-        },
-        {
-          "id": "p4",
-          "type": "paragraph",
-          "content": [
-            {
-              "t": "text",
-              "v": "16-year-old Pat Tulloch has an unusual hobby. She makes cheese on the family farm in Australia. She began by making yoghurt with her mother when she was little. Then she started watching her father’s workers make cheese. When she was ten, she made some herself for the first time. ‘It wasn’t great,’ she says, ‘but the workers told me what I was doing wrong and that helped me to slowly get better.’"
-            }
-          ]
         },
         {
           "id": "p5",
@@ -853,7 +843,7 @@
           "content": [
             {
               "t": "text",
-              "v": "Pat always needs good milk for her cheese, but she doesn’t have to buy it. Her mother and father keep 100 cows on their farm. Pat can just ask them when she needs more. Last year, Pat’s neighbour gave her a young cow to keep and look after, but it doesn’t produce milk to make cheese yet."
+              "v": "Growing up, I was in an ice-skating club, and my friends and I did lots of competitions. When I was 18, I entered a big one in Italy, and I came first. The prize was a job as an ice dancer in a big show. That’s how my career started."
             }
           ]
         },
@@ -863,7 +853,7 @@
           "content": [
             {
               "t": "text",
-              "v": "Pat and her family make several types of cheese. Recently they won a prize for one of them. ‘It’s been great for helping customers find out about us,’ says Pat. ‘Last month we started selling cheese in New Zealand. People there read about our prize in a food magazine. Soon we’re going to do some advertisements, too.’"
+              "v": "One of the things I love about the shows is the beautiful clothes. The only trouble is that sometimes they’re heavy and I get very hot. Also, I have to change lots of times in one show. The people who make the clothes are very clever – it’s amazing how quickly they work!"
             }
           ]
         },
@@ -873,7 +863,27 @@
           "content": [
             {
               "t": "text",
-              "v": "Pat’s next idea is to post some online recipes for cooking with cheese. ‘One of my favourites is cheese with eggs for breakfast. It’s great! Our cheese is also lovely with pasta – I hope a restaurant might buy some one day.’ But right now Pat is still at school. ‘Making cheese is fun and winning a prize for it is great, but doing well in my studies matters more for now.’"
+              "v": "Before the show starts, we get dressed, put our skates on, and wish each other good luck. Then, while I’m waiting to go on, I like to sit quietly by myself and think about what I’m going to do. The other skaters chat together or listen to music."
+            }
+          ]
+        },
+        {
+          "id": "p8",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "In the shows, we have to dance, sing, and also speak. For me, ice dancing is fine, but I’m not an actor. I’m always a bit scared I won’t remember the words. I’m not bothered about falling – it doesn’t usually happen. And I really enjoy joining in with all the songs."
+            }
+          ]
+        },
+        {
+          "id": "p9",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "People always ask me if I’m tired when each show finishes, but I love skating, so I never feel that way. I love listening to the people who came to watch – so excited as they leave, talking about what they’ve seen. That’s when I’m really happy I chose ice dancing as a career."
             }
           ]
         }
@@ -893,7 +903,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Pat learned to make good cheese"
+                "v": "How did Callie’s career as an ice dancer begin?"
               }
             ],
             "options": [
@@ -902,7 +912,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "by listening to the advice she got."
+                    "v": "She won a competition."
                   }
                 ]
               },
@@ -911,7 +921,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "by seeing how her mother did it."
+                    "v": "She saw an advert for a job."
                   }
                 ]
               },
@@ -920,7 +930,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "by practising at home on her own."
+                    "v": "A friend invited her to join an ice show."
                   }
                 ]
               }
@@ -941,7 +951,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Where does Pat get the milk for her cheese?"
+                "v": "What does Callie say about the clothes she wears?"
               }
             ],
             "options": [
@@ -950,7 +960,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "from her neighbour’s farm"
+                    "v": "Some are prettier than others."
                   }
                 ]
               },
@@ -959,7 +969,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "her father helps her to buy it"
+                    "v": "It’s hard to skate in them."
                   }
                 ]
               },
@@ -968,7 +978,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "her parents give it to her"
+                    "v": "Making them takes a long time."
                   }
                 ]
               }
@@ -989,7 +999,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Pat says winning the prize means"
+                "v": "What does Callie do just before each show?"
               }
             ],
             "options": [
@@ -998,7 +1008,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "more people know about her family’s cheese."
+                    "v": "She talks to the other skaters."
                   }
                 ]
               },
@@ -1007,7 +1017,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "she can be the star of the family’s new advertisements."
+                    "v": "She checks her skates are okay."
                   }
                 ]
               },
@@ -1016,7 +1026,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "she was invited to visit another country."
+                    "v": "She takes a moment to be alone."
                   }
                 ]
               }
@@ -1037,7 +1047,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "What’s the most important thing for Pat at the moment?"
+                "v": "What does Callie worry about?"
               }
             ],
             "options": [
@@ -1046,7 +1056,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "writing a new cookbook"
+                    "v": "having an accident on the ice"
                   }
                 ]
               },
@@ -1055,7 +1065,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "being successful at school"
+                    "v": "forgetting what she has to say"
                   }
                 ]
               },
@@ -1064,7 +1074,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "selling cheese to a restaurant"
+                    "v": "dancing and singing at the same time"
                   }
                 ]
               }
@@ -1076,7 +1086,7 @@
           "number": 18,
           "points": 1,
           "skills": [
-            "main_idea"
+            "detail"
           ],
           "interaction": {
             "kind": "choice",
@@ -1085,7 +1095,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "In this article, Pat is explaining"
+                "v": "How does Callie usually feel after a show?"
               }
             ],
             "options": [
@@ -1094,7 +1104,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "why her family started making cheese."
+                    "v": "ready for a rest"
                   }
                 ]
               },
@@ -1103,7 +1113,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "how to win a competition for making cheese."
+                    "v": "glad that she’s finished"
                   }
                 ]
               },
@@ -1112,7 +1122,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "how she has become part of a cheese-making business."
+                    "v": "pleased about making people happy"
                   }
                 ]
               }
@@ -1133,18 +1143,18 @@
           "content": [
             {
               "t": "text",
-              "v": "Philo T. Farnsworth"
+              "v": "Art you can eat"
             }
           ],
           "level": 2
         },
         {
-          "id": "p8",
+          "id": "p10",
           "type": "paragraph",
           "content": [
             {
               "t": "text",
-              "v": "Philo T. Farnsworth was born in the USA in 1906. As a child, he was very interested in science and electricity and spent a lot of time "
+              "v": "Yujia Hu was born in China, but moved to Milan, in Italy, when he was eight. His family have a Japanese restaurant there. When Yujia left school, he "
             },
             {
               "t": "blank",
@@ -1153,7 +1163,7 @@
             },
             {
               "t": "text",
-              "v": " about it. He also won a national "
+              "v": " a course at an art school, but he didn’t complete it. "
             },
             {
               "t": "blank",
@@ -1162,17 +1172,17 @@
             },
             {
               "t": "text",
-              "v": " for young engineers when he was just 13."
+              "v": ", he went to work in the family restaurant as a sushi chef. Sushi is a Japanese dish made of rice, with fish and vegetables."
             }
           ]
         },
         {
-          "id": "p9",
+          "id": "p11",
           "type": "paragraph",
           "content": [
             {
               "t": "text",
-              "v": "When he was 20, Farnsworth "
+              "v": "Yujia is a big "
             },
             {
               "t": "blank",
@@ -1181,7 +1191,7 @@
             },
             {
               "t": "text",
-              "v": " his own business. In 1927, he showed everyone his new idea: a "
+              "v": " of basketball, and a few years ago he "
             },
             {
               "t": "blank",
@@ -1190,17 +1200,7 @@
             },
             {
               "t": "text",
-              "v": " of sending pictures using electricity. Many other people were working on ideas for a machine to do this, but Farnsworth’s was the first that had no moving parts. In fact, it was the first true electronic TV."
-            }
-          ]
-        },
-        {
-          "id": "p10",
-          "type": "paragraph",
-          "content": [
-            {
-              "t": "text",
-              "v": "After many business problems, Farnsworth had success in 1938 when another company "
+              "v": " to start using sushi to make models of the faces of famous players. His next idea was to make little shoes, usually trainers, out of sushi. It "
             },
             {
               "t": "blank",
@@ -1209,7 +1209,7 @@
             },
             {
               "t": "text",
-              "v": " him $1 million for his idea. He is not very famous these "
+              "v": " him about 30 minutes to make each shoe. Yujia doesn’t serve the sushi shoes to customers at his family’s restaurant, but he "
             },
             {
               "t": "blank",
@@ -1218,7 +1218,7 @@
             },
             {
               "t": "text",
-              "v": " but, as the father of electronic television, Farnsworth changed the world."
+              "v": " photographs of them online."
             }
           ]
         }
@@ -1240,7 +1240,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "learning"
+                    "v": "got"
                   }
                 ]
               },
@@ -1249,7 +1249,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "studying"
+                    "v": "held"
                   }
                 ]
               },
@@ -1258,7 +1258,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "understanding"
+                    "v": "began"
                   }
                 ]
               }
@@ -1281,7 +1281,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "game"
+                    "v": "Instead"
                   }
                 ]
               },
@@ -1290,7 +1290,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "match"
+                    "v": "Really"
                   }
                 ]
               },
@@ -1299,7 +1299,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "competition"
+                    "v": "Maybe"
                   }
                 ]
               }
@@ -1322,7 +1322,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "became"
+                    "v": "partner"
                   }
                 ]
               },
@@ -1331,7 +1331,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "turned"
+                    "v": "fan"
                   }
                 ]
               },
@@ -1340,7 +1340,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "started"
+                    "v": "member"
                   }
                 ]
               }
@@ -1363,7 +1363,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "plan"
+                    "v": "believed"
                   }
                 ]
               },
@@ -1372,7 +1372,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "way"
+                    "v": "understood"
                   }
                 ]
               },
@@ -1381,7 +1381,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "thing"
+                    "v": "decided"
                   }
                 ]
               }
@@ -1404,7 +1404,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "offered"
+                    "v": "spends"
                   }
                 ]
               },
@@ -1413,7 +1413,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "took"
+                    "v": "takes"
                   }
                 ]
               },
@@ -1422,7 +1422,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "sold"
+                    "v": "delays"
                   }
                 ]
               }
@@ -1445,7 +1445,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "times"
+                    "v": "sends"
                   }
                 ]
               },
@@ -1454,7 +1454,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "days"
+                    "v": "shares"
                   }
                 ]
               },
@@ -1463,7 +1463,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "years"
+                    "v": "joins"
                   }
                 ]
               }
@@ -1489,7 +1489,7 @@
               },
               {
                 "t": "text",
-                "v": "Rachel"
+                "v": "Jason"
               }
             ],
             [
@@ -1499,13 +1499,13 @@
               },
               {
                 "t": "text",
-                "v": "Chris"
+                "v": "Mum"
               }
             ],
             [
               {
                 "t": "text",
-                "v": "We’re back "
+                "v": "We "
               },
               {
                 "t": "strong",
@@ -1513,11 +1513,7 @@
               },
               {
                 "t": "text",
-                "v": "from"
-              },
-              {
-                "t": "text",
-                "v": " our family holiday in the US. It was amazing! It’s "
+                "v": "are all having a great time camping in the forest. My class has got "
               },
               {
                 "t": "blank",
@@ -1526,7 +1522,13 @@
               },
               {
                 "t": "text",
-                "v": " biggest country I’ve ever been to. We travelled from Los Angeles to Seattle "
+                "v": " best place on the campsite, with a great view of the mountains."
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "Last night, "
               },
               {
                 "t": "blank",
@@ -1535,7 +1537,7 @@
               },
               {
                 "t": "text",
-                "v": " car. It’s nearly 2000 km and the trip took us "
+                "v": " rained really hard. Lots of people got wet, "
               },
               {
                 "t": "blank",
@@ -1544,13 +1546,7 @@
               },
               {
                 "t": "text",
-                "v": " very long time – nearly a week."
-              }
-            ],
-            [
-              {
-                "t": "text",
-                "v": "My family liked Los Angeles best, "
+                "v": " I was lucky my new tent stayed dry all night! I’m really glad we decided to buy it. It’s much better "
               },
               {
                 "t": "blank",
@@ -1559,7 +1555,13 @@
               },
               {
                 "t": "text",
-                "v": " I didn’t agree – Seattle was my favourite place. It’s smaller "
+                "v": " my old one."
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "By the way, I forgot "
               },
               {
                 "t": "blank",
@@ -1568,7 +1570,7 @@
               },
               {
                 "t": "text",
-                "v": " Los Angeles, and the food was better. Seattle is near the sea and we ate lots of fish. The only problem was that "
+                "v": " tell the football coach that I’m away "
               },
               {
                 "t": "blank",
@@ -1577,13 +1579,13 @@
               },
               {
                 "t": "text",
-                "v": " rained almost every day!"
+                "v": " the moment. Can you let him know that I can’t come to practice this week?"
               }
             ],
             [
               {
                 "t": "text",
-                "v": "Let’s meet for a chat soon. I have a present for you!"
+                "v": "Thanks!"
               }
             ]
           ]
@@ -1681,159 +1683,10 @@
           }
         }
       ]
-    },
-    {
-      "id": "s6",
-      "part": 6,
-      "label": "Part 6",
-      "instruction": "Write an email to your English friend, Lee. Write 25 words or more.",
-      "questions": [
-        {
-          "id": "q31",
-          "number": 31,
-          "points": 15,
-          "skills": [
-            "opinion"
-          ],
-          "interaction": {
-            "kind": "extendedText",
-            "prompt": [
-              {
-                "t": "text",
-                "v": "You are going camping next weekend with your family."
-              },
-              {
-                "t": "br"
-              },
-              {
-                "t": "text",
-                "v": "Write an email to your English friend, Lee."
-              },
-              {
-                "t": "br"
-              },
-              {
-                "t": "br"
-              },
-              {
-                "t": "text",
-                "v": "In your email:"
-              },
-              {
-                "t": "br"
-              },
-              {
-                "t": "text",
-                "v": "• ask Lee to come camping with you and your family"
-              },
-              {
-                "t": "br"
-              },
-              {
-                "t": "text",
-                "v": "• say why you are going camping"
-              },
-              {
-                "t": "br"
-              },
-              {
-                "t": "text",
-                "v": "• tell Lee what to bring."
-              },
-              {
-                "t": "br"
-              },
-              {
-                "t": "br"
-              },
-              {
-                "t": "text",
-                "v": "Write "
-              },
-              {
-                "t": "strong",
-                "v": "25 words"
-              },
-              {
-                "t": "text",
-                "v": " or more."
-              }
-            ],
-            "scoring": "judge",
-            "minWords": 25
-          }
-        }
-      ]
-    },
-    {
-      "id": "s7",
-      "part": 7,
-      "label": "Part 7",
-      "instruction": "Look at the three pictures. Write the story shown in the pictures. Write 35 words or more.",
-      "questions": [
-        {
-          "id": "q32",
-          "number": 32,
-          "points": 15,
-          "skills": [
-            "opinion"
-          ],
-          "interaction": {
-            "kind": "extendedText",
-            "prompt": [
-              {
-                "t": "text",
-                "v": "Look at the three pictures."
-              },
-              {
-                "t": "br"
-              },
-              {
-                "t": "text",
-                "v": "Write the story shown in the pictures."
-              },
-              {
-                "t": "br"
-              },
-              {
-                "t": "text",
-                "v": "Write "
-              },
-              {
-                "t": "strong",
-                "v": "35 words"
-              },
-              {
-                "t": "text",
-                "v": " or more."
-              }
-            ],
-            "scoring": "judge",
-            "minWords": 35
-          },
-          "material": [
-            {
-              "id": "i7",
-              "type": "imageRef",
-              "image": "img7"
-            },
-            {
-              "id": "i8",
-              "type": "imageRef",
-              "image": "img8"
-            },
-            {
-              "id": "i9",
-              "type": "imageRef",
-              "image": "img9"
-            }
-          ]
-        }
-      ]
     }
   ],
   "source": {
-    "pdf": "01 KET真题 - 第1套 - 阅读与写作.pdf",
+    "pdf": "2021KET真题 - 第3套 - 阅读与写作.pdf",
     "pdfPages": [
       1,
       2,
@@ -1842,21 +1695,17 @@
       5,
       6,
       7,
-      8,
-      9,
-      10
+      8
     ],
     "bookPages": [
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-      16,
-      17
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47
     ]
   },
   "status": {

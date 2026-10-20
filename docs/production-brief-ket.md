@@ -1,6 +1,6 @@
 # Production brief — KET / A2 Key for Schools 真题 (token-lean)
 
-Compact rules for transcribing one KET test (= 3 items: Reading & Writing, Listening, Speaking). Inline nodes, blocks and the question table are the same as in [production-brief.md](production-brief.md) — read its "Inline nodes" and "Questions" sections; this brief only adds the exam rules. Schema: `ExamItem` in `schema/index.ts`.
+Compact rules for transcribing one KET test. Items are produced as 3 papers (Reading & Writing, Listening, Speaking) and the Reading & Writing paper is then split into two items (GitHub #71): `<pl>-t<N>-r` (Parts 1–5, Q1–30, 30 marks, suggested 40 min) and `<pl>-t<N>-w` (Parts 6–7, Q31–32, 30 marks, suggested 20 min) — printed question numbers, question ids and section ids are kept; order per test = r, w, l, s. Inline nodes, blocks and the question table are the same as in [production-brief.md](production-brief.md) — read its "Inline nodes" and "Questions" sections; this brief only adds the exam rules. Schema: `ExamItem` in `schema/index.ts`.
 
 **Delivered 时文阅读 content (`content/playlists/ci-*`) is frozen — never touch it.**
 

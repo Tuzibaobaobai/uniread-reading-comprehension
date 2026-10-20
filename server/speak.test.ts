@@ -12,7 +12,7 @@ describe('POST /api/rc/speak', () => {
   });
   it('rejects turns that are not part of a speaking question, and missing ASR', async () => {
     await expect(speakCall({ ...call, turnId: 't99' }, { contentRoot: root, asr })).rejects.toMatchObject({ status: 400 });
-    await expect(speakCall({ ...call, itemId: 'ket1-t1-rw' }, { contentRoot: root, asr })).rejects.toMatchObject({ status: 400 });
+    await expect(speakCall({ ...call, itemId: 'ket1-t1-w' }, { contentRoot: root, asr })).rejects.toMatchObject({ status: 400 });
     await expect(speakCall(call, { contentRoot: root, asr: null })).rejects.toMatchObject({ status: 503 });
   });
 });

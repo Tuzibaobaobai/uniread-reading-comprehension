@@ -16,9 +16,9 @@ export class HttpError extends Error {
 /** content/ next to the function (Vercel bundles it in) or at the project root (dev) */
 export const contentRoot = () => join(process.cwd(), 'content');
 
-const ID = /^[a-z0-9]+(-[a-z0-9]+)*-w\d{2}-(mon|tue|wed|thu|fri)$|^[a-z0-9]+-t\d+-(rw|l|s)$/;
+const ID = /^[a-z0-9]+(-[a-z0-9]+)*-w\d{2}-(mon|tue|wed|thu|fri)$|^[a-z0-9]+-t\d+-(rw|r|w|l|s)$/;
 /** item id → playlist folder: <pl>-wNN-<day> (时文阅读) or <pl>-t<N>-<paper> (exam papers) */
-export const playlistOf = (itemId: string) => itemId.replace(/-w\d{2}-(mon|tue|wed|thu|fri)$|-t\d+-(rw|l|s)$/, '');
+export const playlistOf = (itemId: string) => itemId.replace(/-w\d{2}-(mon|tue|wed|thu|fri)$|-t\d+-(rw|r|w|l|s)$/, '');
 
 export async function loadItem(itemId: unknown, root = contentRoot()): Promise<{ item: ItemT; key: ItemKeyT; playlist: PlaylistT }> {
   if (typeof itemId !== 'string' || !ID.test(itemId)) throw new HttpError(400, 'bad itemId');

@@ -87,8 +87,10 @@ function checkItem(item: ItemT, key: ItemKeyT, playlistDir: string) {
   // inserted later gets a new never-used id (see scripts/id-changes.ts), reordering keeps ids
   const qs = allQuestions(item);
   const seenIds = new Set<string>();
+  // exam papers keep the printed numbers, so a paper split from a longer one starts later (Writing: 31, 32)
+  const first = isExam(item) ? (qs[0]?.number ?? 1) : 1;
   qs.forEach((q, i) => {
-    if (q.number !== i + 1) err(`question ${q.id} has number ${q.number}, expected ${i + 1}`);
+    if (q.number !== first + i) err(`question ${q.id} has number ${q.number}, expected ${first + i}`);
     if (seenIds.has(q.id)) err(`question id ${q.id} used twice in the item`);
     seenIds.add(q.id);
   });
@@ -234,7 +236,7 @@ function checkItem(item: ItemT, key: ItemKeyT, playlistDir: string) {
   // naming
   if (!existsSync(join(playlistDir, 'keys', `${id}.json`))) err('key file missing');
   if (isExam(item)) {
-    const suffix = { reading_writing: 'rw', listening: 'l', speaking: 's' }[item.paper];
+    const suffix = { reading_writing: 'rw', reading: 'r', writing: 'w', listening: 'l', speaking: 's' }[item.paper];
     const expectedId = `${item.playlistId}-t${item.test}-${suffix}`;
     if (item.id !== expectedId) err(`id should be ${expectedId}`);
     return;

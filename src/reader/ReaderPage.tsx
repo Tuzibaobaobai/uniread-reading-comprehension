@@ -12,7 +12,8 @@ import wrongIcon from '@/assets/icons/wrong.svg';
 import { plainText, type BlankNode } from '@/components/Rich';
 import { ArticlePane } from './ArticlePane';
 import { ExamPane } from './ExamPane';
-import { ExamReport, ExamTimer, ModeDialog } from './ExamChrome';
+import { ExamReport, ExamTimer, ModeDialog, SwitchModeDialog, type ModeReason } from './ExamChrome';
+import { examEndsAt } from '@/lib/exam-status';
 import { SpeakingView } from './Speaking';
 import { QuestionStrip } from './QuestionStrip';
 import { paint, sentenceRange } from './evidence';
@@ -59,6 +60,7 @@ export function ReaderPage() {
 type Tab = 'article' | 'questions';
 
 function Reader({ item }: { item: ItemT }) {
+  const navigate = useNavigate();
   const flat = useMemo(() => flatten(item), [item]);
   const owners = useMemo(() => blankOwners(flat), [flat]);
 
@@ -74,6 +76,16 @@ function Reader({ item }: { item: ItemT }) {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const exam = isExam(item) ? item : null;
   const [reportOpen, setReportOpen] = useState(false);
+  const endsAt = exam ? examEndsAt(attempt, exam.meta.durationMinutes) : 0;
+  // exam papers: practice / exam is chosen before an attempt (#65), after time ran out while away (#70),
+  // and when switching mid-attempt (#66)
+  const [modeDialog, setModeDialog] = useState<ModeReason | null>(() => {
+    if (!exam || attempt.status === 'submitted') return null;
+    if (!attempt.mode) return 'new';
+    if (attempt.mode === 'exam' && Date.now() >= endsAt) return 'timeout';
+    return null;
+  });
+  const [switchOpen, setSwitchOpen] = useState(false);
 
   const submitted = attempt.status === 'submitted' && !!attempt.result;
   const result = attempt.result as Result | null;
@@ -142,12 +154,30 @@ function Reader({ item }: { item: ItemT }) {
     void runJudge(submitted);
   };
 
-  /** exam papers: practice or timed exam mode, chosen before a new attempt; the clock starts now */
-  const chooseMode = (mode: 'practice' | 'exam') => {
+  /**
+   * exam papers: start in practice or timed exam mode. An exam always starts from a clean sheet and the clock
+   * starts now; practice keeps the answers already given (a timed-out or stopped exam continues as practice, #70 #66).
+   */
+  const startMode = (mode: 'practice' | 'exam') => {
+    setModeDialog(null);
+    setSwitchOpen(false);
     sessionStart.current = Date.now();
-    persist({ ...attempt, mode, startedAt: new Date().toISOString(), durationSec: 0 });
+    const fresh = mode === 'exam' || attempt.status === 'submitted';
+    const base = fresh ? newAttempt(item.id, item.status.version) : attempt;
+    if (fresh) {
+      localAttempts.clear(item.id);
+      setKey(null);
+      setIndex(0);
+      setReportOpen(false);
+    }
+    persist({ ...base, mode, startedAt: new Date().toISOString(), durationSec: fresh ? 0 : base.durationSec, played: fresh ? [] : base.played });
   };
-  const examMode = !!exam && attempt.mode === 'exam' && !submitted;
+  /** closing the mode dialog: back to the review of a finished attempt, else back to the playlist (#65) */
+  const cancelMode = () => {
+    if (modeDialog === 'retry') setModeDialog(null);
+    else navigate(`/p/${item.playlistId}`);
+  };
+  const examMode = !!exam && attempt.mode === 'exam' && !submitted && modeDialog !== 'timeout';
   const toggleFlag = (qid: string) => {
     const flagged = attempt.flagged ?? [];
     persist({ ...attempt, flagged: flagged.includes(qid) ? flagged.filter((f) => f !== qid) : [...flagged, qid] });
@@ -190,6 +220,7 @@ function Reader({ item }: { item: ItemT }) {
   }, [attempt.attemptId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const retry = () => {
+    if (exam) return setModeDialog('retry');
     localAttempts.clear(item.id);
     sessionStart.current = Date.now();
     setAttempt(newAttempt(item.id, item.status.version));
@@ -330,10 +361,14 @@ function Reader({ item }: { item: ItemT }) {
 
       <section className="reader-right">
         <div className="question-card">
-          {exam && (examMode || attempt.mode === 'exam' || submitted) && (
+          {exam && (attempt.mode || submitted) && !modeDialog && (
             <div className="exam-bar">
-              {examMode && (
-                <ExamTimer endsAt={Date.parse(attempt.startedAt) + exam.meta.durationMinutes * 60000} onTimeUp={() => void submit()} />
+              {examMode && <ExamTimer endsAt={endsAt} onTimeUp={() => void submit()} />}
+              {!submitted && attempt.mode === 'practice' && <span className="exam-mode-tag">练习模式</span>}
+              {!submitted && attempt.mode && (
+                <button className="chip" onClick={() => setSwitchOpen(true)}>
+                  {attempt.mode === 'exam' ? '切换到练习模式' : '切换到考试模式'}
+                </button>
               )}
               {examMode && current && (
                 <button
@@ -443,7 +478,10 @@ function Reader({ item }: { item: ItemT }) {
         </div>
       </section>
 
-      {exam && !submitted && !attempt.mode && <ModeDialog item={exam} onChoose={chooseMode} />}
+      {exam && modeDialog && <ModeDialog item={exam} reason={modeDialog} onChoose={startMode} onCancel={cancelMode} />}
+      {exam && switchOpen && attempt.mode && (
+        <SwitchModeDialog from={attempt.mode} answered={Object.keys(attempt.responses).length} onConfirm={() => startMode(attempt.mode === 'exam' ? 'practice' : 'exam')} onCancel={() => setSwitchOpen(false)} />
+      )}
       {exam && reportOpen && result && <ExamReport item={exam} result={result} onClose={() => setReportOpen(false)} />}
       {confirmOpen && (
         <div className="dialog-backdrop" role="presentation" onClick={() => setConfirmOpen(false)}>
