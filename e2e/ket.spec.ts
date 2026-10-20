@@ -177,3 +177,12 @@ test('#74 speaking: one examiner question per page, numbered on across Parts', a
   await expect(page.locator('.speak-line')).toHaveText(turns[1].text);
   await expect(page.locator('.q-num')).toHaveText('2.');
 });
+
+test('speaking: 听题 plays the generated examiner recording', async ({ page }) => {
+  await page.goto('/#/p/ket1/ket1-t1-s');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await tab(page, /题目/);
+  const audio = page.waitForRequest((r) => /ket1-t1-s-q1-t1\.mp3$/.test(r.url()));
+  await page.getByRole('button', { name: '听题' }).click();
+  await audio;
+});

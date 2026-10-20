@@ -256,7 +256,18 @@ export const Speaking = z
   .object({
     kind: z.literal('speaking'),
     prompt: Rich,
-    turns: z.array(z.object({ id: z.string().regex(/^t\d+$/), text: z.string() }).strict()).min(1),
+    turns: z
+      .array(
+        z
+          .object({
+            id: z.string().regex(/^t\d+$/),
+            text: z.string(),
+            /** the examiner line as audio (scripts/tts.mjs); absent → the browser reads it aloud */
+            audio: z.object({ src: z.string(), seconds: z.number().positive() }).strict().optional(),
+          })
+          .strict(),
+      )
+      .min(1),
     /** longest recording per turn */
     maxSeconds: z.number().int().positive(),
     scoring: z.enum(['judge', 'self']),

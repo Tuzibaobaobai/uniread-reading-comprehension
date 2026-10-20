@@ -17,8 +17,22 @@ function recorderMime(): string | undefined {
   return ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/ogg;codecs=opus'].find((m) => MediaRecorder.isTypeSupported(m));
 }
 
-/** read an examiner line aloud (British English voice when the device has one) */
-function speak(text: string) {
+let examiner: HTMLAudioElement | null = null;
+
+/** play an examiner line: its generated recording (scripts/tts.mjs, Volcano Engine), else the device's voice */
+function speak(turn: { text: string; audio?: { src: string } }) {
+  examiner?.pause();
+  if (typeof speechSynthesis !== 'undefined') speechSynthesis.cancel();
+  if (turn.audio) {
+    examiner = new Audio(staticContent.assetUrl(turn.audio.src));
+    void examiner.play().catch(() => speakWithDevice(turn.text));
+    return;
+  }
+  speakWithDevice(turn.text);
+}
+
+/** fallback: the browser's speech synthesis (British English voice when the device has one) */
+function speakWithDevice(text: string) {
   if (typeof speechSynthesis === 'undefined') return;
   speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
@@ -55,6 +69,7 @@ export function SpeakingView(props: InteractionProps) {
     () => () => {
       window.clearInterval(timer.current);
       if (rec.current?.state === 'recording') rec.current.stop();
+      examiner?.pause();
       if (typeof speechSynthesis !== 'undefined') speechSynthesis.cancel();
     },
     [fq.q.id],
@@ -69,6 +84,7 @@ export function SpeakingView(props: InteractionProps) {
 
   const start = async (turnId: string) => {
     setError(null);
+    examiner?.pause();
     if (typeof speechSynthesis !== 'undefined') speechSynthesis.cancel();
     let stream: MediaStream;
     try {
@@ -144,7 +160,7 @@ export function SpeakingView(props: InteractionProps) {
               )}
               {isActive && state === 'error' && error && <p className="speak-error">{error}</p>}
               <div className="speak-actions">
-                <button className="speak-btn" onClick={() => speak(t.text)} disabled={busy}>
+                <button className="speak-btn" onClick={() => speak(t)} disabled={busy}>
                   <span className="speak-btn-icon">
                     <img src={listenIcon} alt="" width={40} height={40} />
                   </span>

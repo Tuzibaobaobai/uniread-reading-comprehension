@@ -222,6 +222,10 @@ function checkItem(item: ItemT, key: ItemKeyT, playlistDir: string) {
     imgs.forEach((src) => src && !existsSync(join(ROOT, src)) && err(`${q.id} option image missing: ${src}`));
   });
   item.sections.forEach((s) => s.audio && !existsSync(join(ROOT, s.audio.src)) && err(`${s.id} audio missing: ${s.audio.src}`));
+  allQuestions(item).forEach((q) => {
+    const it = q.interaction;
+    if (it.kind === 'speaking') it.turns.forEach((t) => t.audio && !existsSync(join(ROOT, t.audio.src)) && err(`${q.id} ${t.id} examiner audio missing: ${t.audio.src} — run scripts/tts.mjs`));
+  });
   if (isExam(item)) {
     item.sections.forEach((s) => s.part === undefined && err(`${s.id} needs "part"`));
     if (key.transcripts) Object.keys(key.transcripts).forEach((sid) => item.sections.some((s) => s.id === sid) || err(`transcript for unknown section ${sid}`));

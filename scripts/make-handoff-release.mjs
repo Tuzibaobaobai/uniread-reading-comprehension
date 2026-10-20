@@ -49,13 +49,17 @@ if (publicFiles.some(isKey)) throw new Error('keys in public package');
 const media = new Map(); // playlist → [{path, seconds, usedBy}]
 for (const f of await list('content/playlists/*/items/*.json')) {
   const item = JSON.parse(await readFile(f, 'utf8'));
-  for (const s of item.sections ?? []) {
-    if (!s.audio) continue;
-    const path = `content/${s.audio.src}`;
-    if (!existsSync(path)) throw new Error(`${item.id} ${s.id}: audio missing ${path} — run scripts/audio.mjs`);
+  // listening recordings (scripts/audio.mjs) and speaking examiner lines (scripts/tts.mjs)
+  const refs = (item.sections ?? []).flatMap((s) => [
+    ...(s.audio ? [{ audio: s.audio, at: `${item.id}/${s.id}` }] : []),
+    ...s.questions.flatMap((q) => (q.interaction.turns ?? []).filter((t) => t.audio).map((t) => ({ audio: t.audio, at: `${item.id}/${q.id}/${t.id}` }))),
+  ]);
+  for (const { audio, at } of refs) {
+    const path = `content/${audio.src}`;
+    if (!existsSync(path)) throw new Error(`${at}: audio missing ${path} — run scripts/audio.mjs / scripts/tts.mjs`);
     const entries = media.get(item.playlistId) ?? [];
-    const e = entries.find((x) => x.path === path) ?? (entries.push({ path, seconds: s.audio.seconds, usedBy: [] }), entries.at(-1));
-    e.usedBy.push(`${item.id}/${s.id}`);
+    const e = entries.find((x) => x.path === path) ?? (entries.push({ path, seconds: audio.seconds, usedBy: [] }), entries.at(-1));
+    e.usedBy.push(at);
     media.set(item.playlistId, entries);
   }
 }
@@ -68,7 +72,7 @@ for (const [pl, entries] of [...media].sort()) {
   }
   const mDir = `${out}/media-${pl}`;
   await mkdir(mDir, { recursive: true });
-  await writeFile(`${mDir}/MEDIA.json`, JSON.stringify({ playlist: pl, format: 'audio/mp4 (AAC, 48 kbps mono)', files: manifestJson }, null, 2) + '\n');
+  await writeFile(`${mDir}/MEDIA.json`, JSON.stringify({ playlist: pl, format: 'listening: audio/mp4 (AAC, 48 kbps mono); speaking examiner lines: audio/mpeg (64 kbps, Volcano Engine TTS)', files: manifestJson }, null, 2) + '\n');
   const zip = `rc-media-${pl}.zip`;
   execFileSync('zip', ['-q', '-X', '-j', `${pub}/${zip}`, `${mDir}/MEDIA.json`]);
   execFileSync('zip', ['-q', '-X', `${process.cwd()}/${pub}/${zip}`, ...manifestJson.map((m) => m.path)], { cwd: 'content' });
