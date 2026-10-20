@@ -119,13 +119,15 @@ export function SpeakingView(props: InteractionProps) {
 
   return (
     <>
-      <QuestionPrompt number={fq.q.number}>
+      <QuestionPrompt number={fq.display}>
         <Rich nodes={it.prompt} />
       </QuestionPrompt>
       {!review && !supported && <p className="hint-line">当前浏览器不支持录音，请使用最新版 Safari 或 Chrome。</p>}
       {!review && supported && <p className="hint-line">点“听题”听考官提问，再点“回答”录音，说完点 ✓ 结束（最长 {it.maxSeconds} 秒）。</p>}
       <ol className="speak-turns">
         {it.turns.map((t, i) => {
+          // one page per examiner question (GitHub #74); the whole Part is still scored together
+          if (fq.turn !== undefined && fq.turn !== i) return null;
           const isActive = active === t.id;
           const said = answers[t.id];
           return (
@@ -183,7 +185,8 @@ export function SpeakingView(props: InteractionProps) {
         })}
       </ol>
       {error && state !== 'error' && <p className="speak-error">{error}</p>}
-      {review && <JudgeVerdict {...props} />}
+      {review && (fq.turn === undefined || fq.turn === it.turns.length - 1) && <JudgeVerdict {...props} />}
+      {review && fq.turn !== undefined && fq.turn < it.turns.length - 1 && <p className="hint-line">本部分的评分显示在最后一题（第 {fq.display + it.turns.length - 1 - fq.turn} 页）。</p>}
     </>
   );
 }

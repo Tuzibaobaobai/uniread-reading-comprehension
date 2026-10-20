@@ -1,6 +1,6 @@
 /** Derived lookups for the reader: blank ownership, blank display text, context sentences. */
 import type { BlockT, InlineT, ItemKeyT, ItemT, QuestionT, SectionT } from '@schema';
-import { allBlocks, questionBlankIds, type ResponseValue, type Result } from '@/lib/grading';
+import { allBlocks, isAnswered, questionBlankIds, type ResponseValue, type Result } from '@/lib/grading';
 import { plainText } from '@/components/Rich';
 
 export type Responses = Record<string, ResponseValue>;
@@ -11,14 +11,39 @@ export interface FlatQuestion {
   index: number;
   /** first question of its section — show the section instruction prominently */
   firstInSection: boolean;
+  /** number on the page / pager: the question number, or the page number for a speaking turn */
+  display: number;
+  /** speaking: one page per examiner question (GitHub #74) — index into interaction.turns */
+  turn?: number;
 }
 
+/**
+ * one entry per page. A speaking question (one Part, scored as a whole) gets a page per examiner question,
+ * numbered on from the pages before it.
+ */
 export function flatten(item: ItemT): FlatQuestion[] {
   const out: FlatQuestion[] = [];
   item.sections.forEach((section) =>
-    section.questions.forEach((q, i) => out.push({ q, section, index: out.length, firstInSection: i === 0 })),
+    section.questions.forEach((q, i) => {
+      const it = q.interaction;
+      if (it.kind === 'speaking')
+        it.turns.forEach((_, turn) =>
+          out.push({ q, section, index: out.length, firstInSection: i === 0 && turn === 0, display: out.length + 1, turn }),
+        );
+      else out.push({ q, section, index: out.length, firstInSection: i === 0, display: q.number });
+    }),
   );
   return out;
+}
+
+/** is this page answered: the question, or for a speaking page its own turn */
+export function pageAnswered(f: FlatQuestion, responses: Responses): boolean {
+  const it = f.q.interaction;
+  if (it.kind === 'speaking' && f.turn !== undefined) {
+    const r = responses[f.q.id];
+    return !!r && typeof r === 'object' && !Array.isArray(r) && !!(r as Record<string, string>)[it.turns[f.turn].id];
+  }
+  return isAnswered(f.q, responses[f.q.id]);
 }
 
 /** blankId → index of the question that answers it */

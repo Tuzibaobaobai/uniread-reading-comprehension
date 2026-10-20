@@ -1,5 +1,6 @@
 // KET 真题 (exam papers): mode choice, tap-only answering, exam-mode audio, transcript after submitting, report.
 import { expect, test, type Page } from '@playwright/test';
+import { readFileSync } from 'node:fs';
 
 const narrow = (page: Page) => (page.viewportSize()?.width ?? 1440) < 1024;
 const tab = async (page: Page, name: RegExp) => {
@@ -158,4 +159,21 @@ test('#72 listening practice: each Part has its own controls, one plays at a tim
   await page.locator('.part-audio').nth(1).getByRole('button', { name: '播放', exact: true }).click();
   await expect(page.locator('.part-audio.is-playing .part-audio-title')).toContainText('Part 2');
   await expect(page.getByRole('button', { name: '暂停' })).toHaveCount(1);
+});
+
+test('#74 speaking: one examiner question per page, numbered on across Parts', async ({ page }) => {
+  const item = JSON.parse(readFileSync('content/playlists/ket1/items/ket1-t1-s.json', 'utf8')) as {
+    sections: { questions: { interaction: { turns: { text: string }[] } }[] }[];
+  };
+  const turns = item.sections.flatMap((s) => s.questions.flatMap((q) => q.interaction.turns));
+  await page.goto('/#/p/ket1/ket1-t1-s');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await tab(page, /题目/);
+  await expect(page.locator('.question-dot')).toHaveCount(turns.length);
+  await expect(page.locator('.question-dot.part-start')).toHaveCount(2);
+  await expect(page.locator('.speak-card')).toHaveCount(1);
+  await expect(page.locator('.speak-line')).toHaveText(turns[0].text);
+  await page.getByRole('button', { name: '下一题' }).click();
+  await expect(page.locator('.speak-line')).toHaveText(turns[1].text);
+  await expect(page.locator('.q-num')).toHaveText('2.');
 });

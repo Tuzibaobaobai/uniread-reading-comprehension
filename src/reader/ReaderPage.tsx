@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { isExam, type AttemptT, type ItemKeyT, type ItemT } from '@schema';
 import { staticContent } from '@/lib/content';
 import { localAttempts, newAttempt } from '@/lib/storage';
-import { isAnswered, isScored, type Result } from '@/lib/grading';
+import { isScored, type Result } from '@/lib/grading';
 import { applyJudgement, fallbackToSelf } from '@/lib/judge';
 import { Check, Cross, Locate } from '@/components/Icons';
 import arrowLeft from '@/assets/icons/arrow-left.svg';
@@ -29,7 +29,7 @@ import {
   hasImageOptions,
   type InteractionProps,
 } from './interactions';
-import { blankCorrect, blankOwners, blankText, correctBlankText, evidenceOf, flatten, showFirstLetter, type Responses } from './model';
+import { blankCorrect, blankOwners, blankText, correctBlankText, evidenceOf, flatten, pageAnswered, showFirstLetter, type Responses } from './model';
 import OverflowTip from '@/components/OverflowTip';
 
 export function ReaderPage() {
@@ -65,7 +65,7 @@ function Reader({ item }: { item: ItemT }) {
   const owners = useMemo(() => blankOwners(flat), [flat]);
 
   const [attempt, setAttempt] = useState<AttemptT>(() => localAttempts.get(item.id) ?? newAttempt(item.id, item.status.version));
-  const [index, setIndex] = useState(() => Math.max(0, flat.findIndex((f) => f.q.id === localAttempts.getPosition(item.id))));
+  const [index, setIndex] = useState(() => Math.max(0, flat.findIndex((f) => pageKey(f) === localAttempts.getPosition(item.id))));
   const [key, setKey] = useState<ItemKeyT | null>(null);
   const [confirmOpen, setConfirmOpen] = useState(false);
   // narrow screens: open on the questions tab when coming back to review a submitted attempt
@@ -118,7 +118,7 @@ function Reader({ item }: { item: ItemT }) {
   );
 
   useEffect(() => {
-    if (flat[index]) localAttempts.setPosition(item.id, flat[index].q.id);
+    if (flat[index]) localAttempts.setPosition(item.id, pageKey(flat[index]));
   }, [item.id, index]);
 
   const elapsed = () => attempt.durationSec + (Date.now() - sessionStart.current) / 1000;
@@ -240,7 +240,7 @@ function Reader({ item }: { item: ItemT }) {
     [item.id],
   );
 
-  const unanswered = flat.filter((f) => !isAnswered(f.q, responses[f.q.id]));
+  const unanswered = flat.filter((f) => !pageAnswered(f, responses));
   const current = flat[index];
 
   const visible = useMemo(() => flat.map((f) => f.index), [flat]);
@@ -403,7 +403,10 @@ function Reader({ item }: { item: ItemT }) {
                     persist({ ...attempt, result: { ...result, selfAssessed: { ...result.selfAssessed, [current.q.id]: v } } })
                   }
                 />
-                {review && (!EMBEDDED_EXPLAIN.has(current.q.interaction.kind) || hasImageOptions(current.q)) && (
+                {review &&
+                  (!EMBEDDED_EXPLAIN.has(current.q.interaction.kind) || hasImageOptions(current.q)) &&
+                  // speaking: the Part's model answer once, on its last page
+                  (current.q.interaction.kind !== 'speaking' || current.turn === undefined || current.turn === current.q.interaction.turns.length - 1) && (
                   <Explanation item={item} fq={current} keyData={review.key} onLocate={locate} result={review.result} />
                 )}
               </>
@@ -429,7 +432,7 @@ function Reader({ item }: { item: ItemT }) {
                     : r?.correct === false
                       ? 'is-wrong'
                       : 'is-neutral'
-                  : isAnswered(f.q, responses[f.q.id])
+                  : pageAnswered(f, responses)
                     ? 'is-answered'
                     : '';
                 return (
@@ -439,14 +442,14 @@ function Reader({ item }: { item: ItemT }) {
                     // exam papers: the first number of each Part carries the Part's label (GitHub #72)
                     data-part={exam && f.firstInSection ? `P${f.section.part ?? ''}` : undefined}
                     onClick={() => go(i)}
-                    aria-label={`${exam && f.section.part ? `Part ${f.section.part} ` : ''}第 ${f.q.number} 题${state === 'is-correct' ? '，正确' : state === 'is-wrong' ? '，错误' : state === 'is-answered' ? '，已作答' : ''}`}
+                    aria-label={`${exam && f.section.part ? `Part ${f.section.part} ` : ''}第 ${f.display} 题${state === 'is-correct' ? '，正确' : state === 'is-wrong' ? '，错误' : state === 'is-answered' ? '，已作答' : ''}`}
                     aria-current={i === index}
                   >
                     {state === 'is-correct' || state === 'is-wrong' ? (
                       <img className="question-dot-icon" src={state === 'is-correct' ? correctIcon : wrongIcon} alt="" />
                     ) : (
                       <>
-                        <span className="question-dot-num">{f.q.number}</span>
+                        <span className="question-dot-num">{f.display}</span>
                         {!review && <span className="question-dot-mark" aria-hidden />}
                       </>
                     )}
@@ -495,14 +498,14 @@ function Reader({ item }: { item: ItemT }) {
                 <button
                   key={f.q.id}
                   className="question-dot"
-                  aria-label={`第 ${f.q.number} 题`}
+                  aria-label={`第 ${f.display} 题`}
                   onClick={() => {
                     setConfirmOpen(false);
                     go(f.index);
                     setTab('questions');
                   }}
                 >
-                  <span className="question-dot-num">{f.q.number}</span>
+                  <span className="question-dot-num">{f.display}</span>
                 </button>
               ))}
             </div>
@@ -552,6 +555,9 @@ function QuestionBody({
       return <SpeakingView key={props.fq.q.id} {...props} />;
   }
 }
+
+/** resume point: the question id, plus the turn for a speaking page ("q1:3") */
+const pageKey = (f: { q: { id: string }; turn?: number }) => (f.turn === undefined ? f.q.id : `${f.q.id}:${f.turn}`);
 
 /** what the judge receives: the text answer, or a speaking task's {turnId: transcript} as JSON */
 const responseText = (r: unknown) => (typeof r === 'string' ? r : r && typeof r === 'object' ? JSON.stringify(r) : '');
