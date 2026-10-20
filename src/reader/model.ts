@@ -17,6 +17,10 @@ export interface FlatQuestion {
   turn?: number;
   /** a section where the learner answers one of several tasks (PET Writing Part 2): one page for all of them */
   choose?: true;
+  /** an exam Part answered on one page (section.view all / match, #82 #86 #87): q = its first question */
+  group?: true;
+  /** last question number on a group page (pager shows first–last) */
+  displayTo?: number;
 }
 
 /**
@@ -26,6 +30,12 @@ export interface FlatQuestion {
 export function flatten(item: ItemT): FlatQuestion[] {
   const out: FlatQuestion[] = [];
   item.sections.forEach((section) => {
+    if (section.view) {
+      const q = section.questions[0];
+      const last = section.questions[section.questions.length - 1];
+      out.push({ q, section, index: out.length, firstInSection: true, display: q.number, displayTo: last.number, group: true });
+      return;
+    }
     if (section.choose === 1) {
       const q = section.questions[0];
       out.push({ q, section, index: out.length, firstInSection: true, display: q.number, choose: true });
@@ -46,6 +56,7 @@ export function flatten(item: ItemT): FlatQuestion[] {
 /** is this page answered: the question, or for a speaking page its own turn */
 export function pageAnswered(f: FlatQuestion, responses: Responses): boolean {
   if (f.choose) return f.section.questions.some((q) => isAnswered(q, responses[q.id]));
+  if (f.group) return f.section.questions.every((q) => isAnswered(q, responses[q.id]));
   const it = f.q.interaction;
   if (it.kind === 'speaking' && f.turn !== undefined) {
     const r = responses[f.q.id];

@@ -65,11 +65,17 @@ test('speaking Part 3: the AI partner speaks with its own voice and the learner 
   await expect(page.getByRole('button', { name: '回答' })).toBeVisible();
 });
 
-test('reading Part 2: eight texts on the left, one person per question with options A–H', async ({ page }) => {
+test('#82 reading Part 2: all five people on one page, letters A–H, each letter used once', async ({ page }) => {
   await practice(page, 'pet1-t1-r');
   await tab(page, /题目/);
-  await page.getByRole('button', { name: /第 6 题/ }).click();
-  await expect(page.locator('.option')).toHaveCount(8);
+  await page.getByRole('button', { name: /第 6–10 题/ }).click();
+  await expect(page.locator('.match-row')).toHaveCount(5);
+  const row = (n: number) => page.locator('.match-row').nth(n);
+  await row(0).getByRole('radio', { name: /^F / }).click();
+  await row(1).getByRole('radio', { name: /^F / }).click(); // F moves from Q6 to Q7
+  await expect(row(0).locator('.match-row-letter.is-on')).toHaveCount(0);
+  await expect(row(1).locator('.match-row-letter.is-on')).toHaveText('F');
+  await expect(row(0).locator('.match-row-letter.is-used')).toContainText('F');
   await tab(page, /材料/);
   await expect(page.locator('.rt-note')).toHaveCount(8);
 });

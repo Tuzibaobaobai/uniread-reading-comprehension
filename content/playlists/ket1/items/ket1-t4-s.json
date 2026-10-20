@@ -126,7 +126,7 @@
       "id": "s2",
       "part": 2,
       "label": "Part 2",
-      "instruction": "Look at the pictures and talk about them with the examiner.",
+      "instruction": "Look at the pictures and talk about them with your partner. Then answer the examiner’s questions.",
       "questions": [
         {
           "id": "q2",
@@ -145,7 +145,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Look at the pictures of different school subjects. Say if you like them and why or why not, then answer the examiner’s questions."
+                "v": "Look at the pictures of different school subjects. Talk about them with your partner: say if you like them and why or why not. Then answer the examiner’s questions."
               }
             ],
             "turns": [
@@ -155,6 +155,42 @@
                 "audio": {
                   "src": "assets/ket1/ket1-t4-s-q2-t1.mp3",
                   "seconds": 9.6
+                }
+              },
+              {
+                "id": "t10",
+                "text": "My favourite subject is science because we do experiments. Do you like science?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket1/ket1-t4-s-q2-t10.mp3",
+                  "seconds": 5.8
+                }
+              },
+              {
+                "id": "t11",
+                "text": "I think maths is difficult, but it's important. What do you think about maths?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket1/ket1-t4-s-q2-t11.mp3",
+                  "seconds": 5.4
+                }
+              },
+              {
+                "id": "t12",
+                "text": "Art is easy for me and I love drawing. Are you good at art?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket1/ket1-t4-s-q2-t12.mp3",
+                  "seconds": 4.8
+                }
+              },
+              {
+                "id": "t13",
+                "text": "History is interesting because we learn about the past. Do you like history?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket1/ket1-t4-s-q2-t13.mp3",
+                  "seconds": 5.6
                 }
               },
               {

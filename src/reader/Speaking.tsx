@@ -159,7 +159,12 @@ export function SpeakingView(props: InteractionProps) {
                 {/* PET Part 3: the AI partner speaks, the learner replies (待补组件) */}
                 <span className={`speak-role ${t.role === 'partner' ? 'is-partner' : ''}`}>{t.role === 'partner' ? '搭档 Alex' : '考官'}</span>
               </p>
-              <p className="speak-line">{t.text}</p>
+              {/* exam mode: the question is only heard, as in the real test (#88); practice mode and review show it */}
+              {props.examMode && !review ? (
+                <p className="speak-line is-hidden">{t.role === 'partner' ? '（考试模式：请听搭档说话）' : '（考试模式：请听考官提问）'}</p>
+              ) : (
+                <p className="speak-line">{t.text}</p>
+              )}
               {said && (
                 <p className="speak-said">
                   <span className="speak-said-label">你的回答（语音识别）</span>

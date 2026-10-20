@@ -633,6 +633,7 @@ body:has(.playlist-page) { background: var(--bg-card); }
 .speak-card.is-active { border-color: var(--accent); }
 .speak-count { margin: 0; color: var(--text-secondary); font-size: var(--fs-l); line-height: var(--lh-l); }
 .speak-line { margin: 4px 0 12px; font-size: var(--fs-4xl); line-height: 1.5; font-weight: var(--fw-medium); color: var(--grey-12); }
+.speak-line.is-hidden { color: var(--text-tertiary); font-size: var(--fs-2xl); font-weight: var(--fw-regular); }
 .speak-said { margin: 0 0 12px; padding: 12px 16px; border-radius: var(--radius-s); background: var(--bg-subtle); font-size: var(--fs-l); line-height: var(--lh-l); }
 .speak-said-label { display: block; color: var(--text-secondary); font-size: var(--fs-s); line-height: var(--lh-s); }
 .speak-error { margin: 0 0 12px; color: var(--danger); font-size: var(--fs-m); }
@@ -647,6 +648,70 @@ body:has(.playlist-page) { background: var(--bg-card); }
 .speak-btn-icon.is-submit { background: var(--success); }
 .speak-btn-icon.is-loading img { animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* exam Parts on one page (#82 #86 #87, 待补组件) */
+.question-dot-num.is-range { font-size: var(--fs-m); line-height: var(--lh-m); white-space: nowrap; }
+.part-stack { display: grid; gap: 32px; }
+.part-stack-q .q-prompt { margin-bottom: 12px; }
+.part-grid { width: 100%; border-collapse: collapse; font-size: var(--fs-l); line-height: var(--lh-l); }
+.part-grid th, .part-grid td { padding: 8px; border-bottom: 1px solid var(--border); text-align: center; vertical-align: middle; }
+.part-grid thead th { font-weight: var(--fw-bold); color: var(--text-strong); }
+.part-grid-letter { display: inline-block; min-width: 1.5em; color: var(--accent-strong); }
+.part-grid-q { text-align: left !important; font-weight: var(--fw-regular); color: var(--text-primary); }
+.part-grid-cell { width: var(--tap); height: var(--tap); border: none; border-radius: var(--radius-full); background: transparent; display: inline-grid; place-items: center; }
+.part-grid-cell.is-selected { background: var(--bg-selected); }
+.part-grid-cell.is-correct { background: var(--success-soft); }
+.part-grid-cell.is-wrong { background: var(--danger-soft); }
+.part-explain { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 10px; font-size: var(--fs-m); line-height: var(--lh-m); }
+.part-explain li { padding: 10px 14px; border-radius: var(--radius-s); background: var(--bg-subtle); }
+.part-explain li.is-correct { background: var(--success-soft); }
+.part-explain li.is-wrong { background: var(--danger-soft); }
+.part-explain svg { width: 16px; height: 16px; vertical-align: -2px; }
+
+/* listening Parts on one page: compact options side by side so all questions fit (#86) */
+.part-stack { gap: 20px; }
+.part-stack .options { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+.part-stack .option-row { padding: 8px 12px; gap: 10px; }
+.part-stack .option-text { font-size: var(--fs-l); line-height: var(--lh-l); }
+.part-stack .q-prompt { font-size: var(--fs-2xl); line-height: var(--lh-2xl); margin: 0 0 8px; }
+.part-stack .option-explain { grid-column: 1 / -1; }
+.match-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.match-row { padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius-s); }
+.match-row.is-correct { border-color: var(--success); background: var(--success-soft); }
+.match-row.is-wrong { border-color: var(--danger); background: var(--danger-soft); }
+.match-row-text { margin: 0 0 10px; font-size: var(--fs-l); line-height: var(--lh-l); }
+.match-row-letters { display: flex; flex-wrap: wrap; gap: 6px; }
+.match-row-letter {
+  position: relative; width: var(--tap); height: var(--tap); border: 1px solid var(--border-strong); border-radius: var(--radius-full);
+  background: var(--bg-card); font-weight: var(--fw-bold); font-size: var(--fs-l); color: var(--text-strong);
+}
+.match-row-letter.is-on { background: var(--accent); border-color: var(--accent); color: var(--text-on-accent); }
+.match-row-letter.is-used { background: var(--bg-subtle); color: var(--text-tertiary); }
+.match-row-letter.is-correct { background: var(--success); border-color: var(--success); color: var(--text-on-accent); }
+.match-row-letter.is-wrong { background: var(--danger); border-color: var(--danger); color: var(--text-on-accent); }
+.match-row-owner { position: absolute; top: -6px; right: -6px; min-width: 18px; height: 18px; border-radius: var(--radius-full); background: var(--accent-soft); color: var(--accent-strong); font-size: var(--fs-xs); line-height: 18px; }
+.match-board { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+@container (max-width: 640px) { .match-board { grid-template-columns: 1fr; } }
+.match-board-people { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.match-board-person, .match-board-option {
+  width: 100%; min-height: var(--tap); display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px;
+  padding: 10px 14px; border: 1px solid var(--border); border-radius: var(--radius-s); background: var(--bg-card);
+  text-align: left; font-size: var(--fs-l); line-height: var(--lh-l); color: var(--text-primary);
+}
+.match-board-person.is-active { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.match-board-person.is-example { background: var(--bg-subtle); color: var(--text-secondary); }
+.match-board-person.is-correct { border-color: var(--success); background: var(--success-soft); }
+.match-board-person.is-wrong { border-color: var(--danger); background: var(--danger-soft); }
+.match-board-badge { min-width: 2em; height: 2em; display: grid; place-items: center; border-radius: var(--radius-full); border: 1px dashed var(--border-strong); font-weight: var(--fw-bold); }
+.match-board-badge.is-filled, .match-board-person.is-example .match-board-badge { border-style: solid; background: var(--accent); border-color: var(--accent); color: var(--text-on-accent); }
+.match-board-answer { grid-column: 2 / -1; color: var(--danger); font-weight: var(--fw-bold); }
+.match-board-options { display: grid; gap: 8px; }
+.match-board-letter { font-weight: var(--fw-bold); color: var(--accent-strong); min-width: 1.2em; }
+.match-board-option.is-used { background: var(--bg-subtle); color: var(--text-secondary); }
+.match-board-option.is-here { border-color: var(--accent); }
+.match-board-option.is-example { text-decoration: line-through; opacity: var(--disabled-opacity); }
+.match-board-option:disabled:not(.is-example) { cursor: default; }
+.match-board-used { font-size: var(--fs-s); font-weight: var(--fw-bold); color: var(--accent-strong); }
 
 /* PET Writing Part 2: choose one task (待补组件) */
 .task-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--options-gap); margin-bottom: 20px; }
@@ -700,6 +765,8 @@ body:has(.playlist-page) { background: var(--bg-card); }
 
 @media (hover: hover) and (pointer: fine) {
   .mode-option:hover { border-color: var(--accent); }
+  .match-board-option:hover:not(:disabled), .match-board-person:hover:not(:disabled) { border-color: var(--accent); }
+  .part-grid-cell:hover:not(:disabled) { background: var(--bg-hover); }
   .task-card:hover:not(:disabled) { border-color: var(--accent); }
   .speak-btn:hover:not(:disabled) .speak-btn-icon { background: var(--grey-5); }
 }
@@ -761,3 +828,6 @@ body:has(.playlist-page) { background: var(--bg-card); }
   .reader-body.no-left { grid-template-rows: minmax(0, 1fr); }
   .reader-body.no-left.tab-article .reader-right { display: flex; }
 }
+
+/* exam papers: the blank's sentence is already in the left pane — repeated only on narrow screens (#83) */
+@media (min-width: 1024px) { .exam-context { display: none; } }

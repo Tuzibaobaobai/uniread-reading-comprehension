@@ -15,6 +15,7 @@ import { ExamPane } from './ExamPane';
 import { ExamReport, ExamTimer, ModeDialog, SwitchModeDialog, type ModeReason } from './ExamChrome';
 import { examEndsAt } from '@/lib/exam-status';
 import { SpeakingView } from './Speaking';
+import { MatchBoardView, SectionAllView } from './PartViews';
 import { QuestionStrip } from './QuestionStrip';
 import { paint, sentenceRange } from './evidence';
 import {
@@ -27,6 +28,7 @@ import {
   orderSentence,
   TextEntryView,
   ChooseTaskView,
+  Emph,
   hasImageOptions,
   type InteractionProps,
 } from './interactions';
@@ -342,7 +344,7 @@ function Reader({ item }: { item: ItemT }) {
         }
       : current;
   const iprops: InteractionProps | null = page
-    ? { item, fq: page, flat, owners, responses, setResponses, review, onLocate: locate }
+    ? { item, fq: page, flat, owners, responses, setResponses, review, onLocate: locate, examMode }
     : null;
 
   const pos = visible.indexOf(index);
@@ -411,7 +413,7 @@ function Reader({ item }: { item: ItemT }) {
                 {current.section.instruction && (
                   <p className="section-instruction">
                     {current.section.label && <b>{current.section.label}. </b>}
-                    {current.section.instruction}
+                    <Emph text={current.section.instruction} />
                   </p>
                 )}
                 <QuestionBody
@@ -425,6 +427,7 @@ function Reader({ item }: { item: ItemT }) {
                   }
                 />
                 {review &&
+                  !current.group &&
                   (!EMBEDDED_EXPLAIN.has(current.q.interaction.kind) || hasImageOptions(current.q)) &&
                   // speaking: the Part's model answer once, on its last page
                   (current.q.interaction.kind !== 'speaking' || current.turn === undefined || current.turn === current.q.interaction.turns.length - 1) && (
@@ -446,7 +449,9 @@ function Reader({ item }: { item: ItemT }) {
             <QuestionStrip current={index} count={visible.length}>
               {visible.map((i) => {
                 const f = flat[i];
-                const r = review?.result.byQuestion.find((b) => b.q === f.q.id);
+                // a group page (a whole Part on one page) is correct only when all its questions are
+                const rows = (f.group ? f.section.questions : [f.q]).map((q) => review?.result.byQuestion.find((b) => b.q === q.id));
+                const r = rows.length === 1 ? rows[0] : { correct: rows.some((x) => x?.correct === false) ? false : rows.every((x) => x?.correct === true) ? true : null };
                 const state = review
                   ? r?.correct === true
                     ? 'is-correct'
@@ -463,14 +468,17 @@ function Reader({ item }: { item: ItemT }) {
                     // exam papers: the first number of each Part carries the Part's label (GitHub #72)
                     data-part={exam && f.firstInSection ? `P${f.section.part ?? ''}` : undefined}
                     onClick={() => go(i)}
-                    aria-label={`${exam && f.section.part ? `Part ${f.section.part} ` : ''}第 ${f.display} 题${state === 'is-correct' ? '，正确' : state === 'is-wrong' ? '，错误' : state === 'is-answered' ? '，已作答' : ''}`}
+                    aria-label={`${exam && f.section.part ? `Part ${f.section.part} ` : ''}第 ${f.display}${f.displayTo && f.displayTo !== f.display ? `–${f.displayTo}` : ''} 题${state === 'is-correct' ? '，正确' : state === 'is-wrong' ? '，错误' : state === 'is-answered' ? '，已作答' : ''}`}
                     aria-current={i === index}
                   >
                     {state === 'is-correct' || state === 'is-wrong' ? (
                       <img className="question-dot-icon" src={state === 'is-correct' ? correctIcon : wrongIcon} alt="" />
                     ) : (
                       <>
-                        <span className="question-dot-num">{f.display}</span>
+                        <span className={`question-dot-num ${f.displayTo ? 'is-range' : ''}`}>
+                          {f.display}
+                          {f.displayTo && f.displayTo !== f.display ? `–${f.displayTo}` : ''}
+                        </span>
                         {!review && <span className="question-dot-mark" aria-hidden />}
                       </>
                     )}
@@ -558,6 +566,7 @@ function QuestionBody({
   onSelfAssess: (v: boolean) => void;
 }) {
   if (props.fq.choose) return <ChooseTaskView {...props} selfAssessed={selfAssessed} onSelfAssess={onSelfAssess} />;
+  if (props.fq.group) return props.fq.section.view === 'match' ? <MatchBoardView {...props} /> : <SectionAllView {...props} />;
   switch (props.fq.q.interaction.kind) {
     case 'choice':
       return <ChoiceView {...props} />;

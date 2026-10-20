@@ -202,3 +202,58 @@ test('#77 #78 speaking: full-width Part 1, and a switch to exam mode starts with
   await page.getByRole('button', { name: /Part 2 第/ }).first().click();
   await expect(page.locator('.reader-body.no-left')).toHaveCount(0);
 });
+
+test('#81 #83 #84 #85 exam prompts: number only, no repeated sentence, no Chinese hints, bold key words', async ({ page }) => {
+  await page.goto('/#/p/ket1/ket1-t1-rw');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await tab(page, /题目/);
+  await expect(page.locator('.q-prompt').first()).toHaveText('1.'); // #81
+  await page.getByRole('button', { name: /第 19 题/ }).click();
+  await expect(page.locator('.q-prompt')).toHaveText('19.'); // #83
+  if (!narrow(page)) await expect(page.locator('.context-line')).toBeHidden();
+  await page.getByRole('button', { name: /第 25 题/ }).click();
+  await expect(page.locator('.hint-line')).toHaveCount(0); // #84
+  await expect(page.locator('.section-instruction b', { hasText: 'ONE' })).toBeVisible();
+  await page.goto('/#/p/ket1/ket1-t1-l');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await tab(page, /题目/);
+  await page.getByRole('button', { name: /第 6 题/ }).click();
+  await expect(page.locator('.section-instruction b')).toHaveText(['Part 2. ', 'one word', 'number', 'date', 'time']); // #85 (the Part label is bold too)
+});
+
+test('#86 listening Part 3: all five questions on one page', async ({ page }) => {
+  await page.goto('/#/p/ket1/ket1-t1-l');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await tab(page, /题目/);
+  await page.getByRole('button', { name: /第 11–15 题/ }).click();
+  await expect(page.locator('.part-stack-q')).toHaveCount(5);
+});
+
+test('#87 listening Part 5: two-column board, example option out, each option once', async ({ page }) => {
+  await page.goto('/#/p/ket1/ket1-t1-l');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await tab(page, /题目/);
+  await page.getByRole('button', { name: /第 21–25 题/ }).click();
+  await expect(page.locator('.match-board-person.is-example')).toContainText('Jack');
+  await expect(page.locator('.match-board-option')).toHaveCount(8);
+  await expect(page.getByRole('button', { name: /^B .*例题已用/ })).toBeDisabled();
+  await page.getByRole('button', { name: /^C / }).click(); // Edward (first person is active) → C
+  await expect(page.locator('.match-board-person').nth(1).locator('.match-board-badge')).toHaveText('C');
+  await page.locator('.match-board-person').nth(2).click(); // Beth
+  await page.getByRole('button', { name: /^C / }).click(); // C moves to Beth
+  await expect(page.locator('.match-board-person').nth(1).locator('.match-board-badge')).toHaveText('');
+  await expect(page.locator('.match-board-person').nth(2).locator('.match-board-badge')).toHaveText('C');
+});
+
+test('#88 #89 speaking: exam mode hides the text; Part 2 is a discussion with the AI partner', async ({ page }) => {
+  await page.goto('/#/p/ket1/ket1-t1-s');
+  await page.getByRole('button', { name: /考试模式/ }).click();
+  await tab(page, /题目/);
+  await expect(page.locator('.speak-line')).toHaveText('（考试模式：请听考官提问）');
+  await page.getByRole('button', { name: /Part 2 第/ }).first().click();
+  await page.getByRole('button', { name: '下一题' }).click();
+  await expect(page.locator('.speak-role.is-partner')).toHaveText('搭档 Alex');
+  await page.getByRole('button', { name: '切换到练习模式' }).click();
+  await page.getByRole('button', { name: '切换到练习', exact: true }).click();
+  await expect(page.locator('.speak-line')).not.toHaveText(/考试模式/);
+});

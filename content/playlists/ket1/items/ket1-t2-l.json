@@ -294,7 +294,7 @@
       "id": "s2",
       "part": 2,
       "label": "Part 2",
-      "instruction": "For each question, write the correct answer in the gap. Write one word or a number or a date or a time.",
+      "instruction": "For each question, write the correct answer in the gap. Write **one word** or a **number** or a **date** or a **time**.",
       "material": [
         {
           "id": "p1",
@@ -779,7 +779,8 @@
             ]
           }
         }
-      ]
+      ],
+      "view": "all"
     },
     {
       "id": "s4",
@@ -1066,7 +1067,8 @@
             ]
           }
         }
-      ]
+      ],
+      "view": "all"
     },
     {
       "id": "s5",
@@ -1572,7 +1574,12 @@
             ]
           }
         }
-      ]
+      ],
+      "view": "match",
+      "example": {
+        "prompt": "Luke",
+        "answer": "E"
+      }
     }
   ],
   "source": {

@@ -96,3 +96,8 @@
 
 ## 参考
 IELTS on computer（左右分屏、拖放与标记）、TOEFL iBT Review 屏、NAEP 数字化测评（触屏、划除选项）、Newsela “Let’s Review”、Cambridge Linguaskill gap-fill、WCAG 2.2 SC 2.5.7 / 2.5.8、Apple HIG 44pt、Material 48dp、MDN Visual Viewport API。
+
+### 真题交互调整（#81–#89，KET 与 PET 同步）
+- 整个 Part 一页作答（section `view`）：`all` — 题目全部显示，选项相同时为表格（KET 阅读 Part 2），否则题目纵向排列、选项横排（KET 听力 Part 3/4、PET 听力 Part 2/4）；`match` — 配对板，每个选项只能用一次，例题占用的选项划掉（KET 听力 Part 5），人物描述较长时每人一行字母按钮（PET 阅读 Part 2）。题号条显示题号范围（如 21–25）。
+- 真题题干只显示题号，不加中文作答指引；选择型完形不重复原句（窄屏仍显示）；说明中的关键要求加粗（`**…**`），不再显示“每空不超过 N 个词”。
+- 口语考试模式只听不看考官 / 搭档的原话；KET 口语 Part 2 为与 AI 搭档讨论，再回答考官提问。

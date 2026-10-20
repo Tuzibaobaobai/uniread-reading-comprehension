@@ -126,7 +126,7 @@
       "id": "s2",
       "part": 2,
       "label": "Part 2",
-      "instruction": "Look at the pictures and talk about them with the examiner.",
+      "instruction": "Look at the pictures and talk about them with your partner. Then answer the examiner’s questions.",
       "questions": [
         {
           "id": "q2",
@@ -145,7 +145,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Look at the pictures of different fun activities. Say if you like them and why or why not, then answer the examiner’s questions."
+                "v": "Look at the pictures of different fun activities. Talk about them with your partner: say if you like them and why or why not. Then answer the examiner’s questions."
               }
             ],
             "turns": [
@@ -155,6 +155,42 @@
                 "audio": {
                   "src": "assets/ket1/ket1-t3-s-q2-t1.mp3",
                   "seconds": 9.8
+                }
+              },
+              {
+                "id": "t10",
+                "text": "I love going to parties with my friends. Do you like parties?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket1/ket1-t3-s-q2-t10.mp3",
+                  "seconds": 4.2
+                }
+              },
+              {
+                "id": "t11",
+                "text": "Shopping is OK, but I don't like big shops. What about you?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket1/ket1-t3-s-q2-t11.mp3",
+                  "seconds": 4.6
+                }
+              },
+              {
+                "id": "t12",
+                "text": "Going away on holiday is the best! Where do you like going on holiday?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket1/ket1-t3-s-q2-t12.mp3",
+                  "seconds": 5.2
+                }
+              },
+              {
+                "id": "t13",
+                "text": "I think watching cartoons is fun, but my brother says it's boring. What do you think?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket1/ket1-t3-s-q2-t13.mp3",
+                  "seconds": 5.8
                 }
               },
               {

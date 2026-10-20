@@ -349,6 +349,13 @@ export const Section = z
     audio: z.object({ src: z.string(), seconds: z.number().int().positive() }).strict().optional(),
     /** the learner answers this many of the section's questions (PET Writing Part 2: 1 of 2); only those count */
     choose: z.number().int().positive().optional(),
+    /**
+     * exam Parts answered on one page (#82 #86 #87): all = every question of the Part together (a grid when the
+     * questions share their options); match = two-column board, each option used once (people ↔ texts / things)
+     */
+    view: z.enum(['all', 'match']).optional(),
+    /** the printed example of a match Part ("0 Jack — B"): shown first, its option is used up */
+    example: z.object({ prompt: z.string(), answer: z.string() }).strict().optional(),
     questions: z.array(Question).min(1),
   })
   .strict();

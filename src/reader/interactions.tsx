@@ -9,6 +9,14 @@ import { Block } from './ArticlePane';
 import { blankContext, blankCorrect, correctBlankText, showFirstLetter, type FlatQuestion, type Responses } from './model';
 import { staticContent } from '@/lib/content';
 
+/** exam papers (KET/PET): no Chinese prompts, the number alone stands for a blank (#81 #83 #84) */
+const isExamItem = (item: ItemT) => 'format' in item && item.format === 'exam';
+
+/** instruction text with **bold** key words (exam instructions, #84 #85) */
+export function Emph({ text }: { text: string }) {
+  return <>{text.split(/\*\*(.+?)\*\*/g).map((part, i) => (i % 2 ? <b key={i}>{part}</b> : part))}</>;
+}
+
 export interface InteractionProps {
   item: ItemT;
   fq: FlatQuestion;
@@ -18,6 +26,8 @@ export interface InteractionProps {
   setResponses: (update: (prev: Responses) => Responses) => void;
   review: { key: ItemKeyT; result: Result } | null;
   onLocate?: (blockId: string, quote?: string) => void;
+  /** exam papers in exam mode (speaking: the examiner's questions are heard, not read — #88) */
+  examMode?: boolean;
 }
 
 const asRecord = (v: unknown): Record<string, string> =>
@@ -36,7 +46,7 @@ function setOne(props: InteractionProps, value: Responses[string] | undefined) {
 /* ---------------------------------------------------------------- choice */
 
 /** Figma `Option-text-item`: default / hover / selected / wrong / correct-expanded (with explanation). */
-function OptionList({
+export function OptionList({
   options,
   selected,
   onSelect,
@@ -115,7 +125,7 @@ function OptionList({
   );
 }
 
-function choiceExplain(props: InteractionProps) {
+export function choiceExplain(props: InteractionProps) {
   const k = props.review?.key.answers[props.fq.q.id];
   if (!k) return undefined;
   return { text: k.explanationZh, block: k.evidence?.[0]?.block, quote: k.evidence?.[0]?.quote, onLocate: props.onLocate };
@@ -157,7 +167,7 @@ export function ChoiceView(props: InteractionProps) {
     <>
       <QuestionPrompt number={fq.q.number}>
         {/* exam Part 1 notices print no question: the notice itself (left pane) is the stem */}
-        {it.prompt.length ? <Rich nodes={it.prompt} /> : fq.q.material?.length ? <span className="q-prompt-hint">阅读左侧的告示，选择正确的一项。</span> : null}
+        {it.prompt.length ? <Rich nodes={it.prompt} /> : null}
       </QuestionPrompt>
       <OptionList
         options={it.options}
@@ -190,12 +200,13 @@ export function InlineChoiceView(props: InteractionProps) {
       <QuestionPrompt number={fq.q.number}>
         {it.prompt ? (
           <Rich nodes={it.prompt} blank={(n) => <ContextBlank n={n} active={n.id === it.blankId} text={undefined} />} />
-        ) : (
+        ) : isExamItem(item) ? null : (
           <>第 {fq.q.number} 空</>
         )}
       </QuestionPrompt>
       {!it.prompt && context && (
-        <p className="context-line">
+        // exam papers: the sentence is in the left pane already; repeated only on narrow screens (tabs)
+        <p className={`context-line ${isExamItem(item) ? 'exam-context' : ''}`}>
           <Rich nodes={context} blank={(n) => <ContextBlank n={n} active={n.id === it.blankId} />} />
         </p>
       )}
@@ -305,9 +316,11 @@ export function GapMatchView(props: InteractionProps) {
 
   return (
     <>
-      <QuestionPrompt number={fq.q.number}>{it.prompt ? <Rich nodes={it.prompt} blank={renderBlank} /> : <>第 {fq.q.number} 空</>}</QuestionPrompt>
+      <QuestionPrompt number={fq.q.number}>
+        {it.prompt ? <Rich nodes={it.prompt} blank={renderBlank} /> : isExamItem(item) ? null : <>第 {fq.q.number} 空</>}
+      </QuestionPrompt>
       {!it.prompt && context && (
-        <p className="context-line">
+        <p className={`context-line ${isExamItem(item) ? 'exam-context' : ''}`}>
           <Rich nodes={context} blank={renderBlank} />
         </p>
       )}
@@ -416,7 +429,7 @@ export function TextEntryView(props: InteractionProps) {
   return (
     <>
       <QuestionPrompt number={fq.q.number}>
-        {it.prompt ? <Rich nodes={it.prompt} blank={renderBlank} /> : <>第 {fq.q.number} 空</>}
+        {it.prompt ? <Rich nodes={it.prompt} blank={renderBlank} /> : isExamItem(item) ? null : <>第 {fq.q.number} 空</>}
       </QuestionPrompt>
       {!it.prompt && stimulus && (
         <div className="stimulus">
@@ -426,6 +439,7 @@ export function TextEntryView(props: InteractionProps) {
         </div>
       )}
       {!it.prompt && !stimulus && (
+        // typed blanks: the input lives in this sentence, so it always shows (only choice cloze hides it, #83)
         <div className="context-stack">
           {blanks.map((b) => {
             const ctx = blankContext(item, b);
@@ -437,7 +451,7 @@ export function TextEntryView(props: InteractionProps) {
           })}
         </div>
       )}
-      {it.maxWords && <p className="hint-line">每空不超过 {it.maxWords} 个词</p>}
+      {it.maxWords && !isExamItem(item) && <p className="hint-line">每空不超过 {it.maxWords} 个词</p>}
     </>
   );
 }

@@ -6,6 +6,7 @@ import playIcon from '@/assets/icons/audio-play.svg';
 import { AudioPlayer, Progress } from './AudioPlayer';
 import { Block, Figure, mergeRefs, useEvidencePaint } from './ArticlePane';
 import type { FlatQuestion } from './model';
+import { Emph } from './interactions';
 
 interface Props {
   item: ExamItemT;
@@ -70,7 +71,9 @@ export const ExamPane = forwardRef<HTMLDivElement, Props>(function ExamPane(prop
             <article className="article">
               <p className="exam-part-kicker">{item.title}</p>
               <h1 className="article-title">{section.label ?? `Part ${section.part}`}</h1>
-              <p className="exam-instruction">{section.instruction}</p>
+              <p className="exam-instruction">
+                <Emph text={section.instruction} />
+              </p>
               {materialOf(section, true)}
               {!qMaterial?.length && !section.material?.length && <p className="exam-empty">本部分没有阅读材料，请直接在右侧作答。</p>}
             </article>
@@ -125,7 +128,9 @@ function ListeningStack({
               {s.label ?? `Part ${s.part}`}
               {isPlaying && <span className="part-audio-badge">{locked ? '正在播放' : '播放中'}</span>}
             </h2>
-            <p className="exam-instruction">{s.instruction}</p>
+            <p className="exam-instruction">
+              <Emph text={s.instruction} />
+            </p>
             <p className="player-note">{locked ? EXAM_NOTE : PRACTICE_NOTE}</p>
             {!s.audio && <p className="part-audio-state">本部分录音暂缺，正在补充中；可以先看题。</p>}
             {s.audio &&

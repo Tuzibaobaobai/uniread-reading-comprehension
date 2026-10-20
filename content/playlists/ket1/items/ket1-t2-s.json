@@ -126,7 +126,7 @@
       "id": "s2",
       "part": 2,
       "label": "Part 2",
-      "instruction": "Look at the pictures and talk about them with the examiner.",
+      "instruction": "Look at the pictures and talk about them with your partner. Then answer the examiner’s questions.",
       "questions": [
         {
           "id": "q2",
@@ -145,7 +145,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Look at the pictures of different outdoor activities. Say if you like them and why or why not, then answer the examiner’s questions."
+                "v": "Look at the pictures of different outdoor activities. Talk about them with your partner: say if you like them and why or why not. Then answer the examiner’s questions."
               }
             ],
             "turns": [
@@ -155,6 +155,42 @@
                 "audio": {
                   "src": "assets/ket1/ket1-t2-s-q2-t1.mp3",
                   "seconds": 9.4
+                }
+              },
+              {
+                "id": "t10",
+                "text": "I love having a barbecue with my family. It's really fun. Do you like barbecues?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket1/ket1-t2-s-q2-t10.mp3",
+                  "seconds": 6.4
+                }
+              },
+              {
+                "id": "t11",
+                "text": "Climbing a mountain looks hard. I get tired very quickly. What do you think?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket1/ket1-t2-s-q2-t11.mp3",
+                  "seconds": 5.4
+                }
+              },
+              {
+                "id": "t12",
+                "text": "Swimming in a lake is nice in summer, but the water is cold! Would you like to do that?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket1/ket1-t2-s-q2-t12.mp3",
+                  "seconds": 5.7
+                }
+              },
+              {
+                "id": "t13",
+                "text": "I like walking in the forest because it's quiet. Do you like forests?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket1/ket1-t2-s-q2-t13.mp3",
+                  "seconds": 5
                 }
               },
               {

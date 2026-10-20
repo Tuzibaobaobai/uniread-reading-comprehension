@@ -126,7 +126,7 @@
       "id": "s2",
       "part": 2,
       "label": "Part 2",
-      "instruction": "Look at the pictures and talk about them with the examiner.",
+      "instruction": "Look at the pictures and talk about them with your partner. Then answer the examiner’s questions.",
       "questions": [
         {
           "id": "q2",
@@ -145,7 +145,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Look at the pictures of different things to wear. Say if you like them and why or why not, then answer the examiner’s questions."
+                "v": "Look at the pictures of different things to wear. Talk about them with your partner: say if you like them and why or why not. Then answer the examiner’s questions."
               }
             ],
             "turns": [
@@ -155,6 +155,42 @@
                 "audio": {
                   "src": "assets/ket1/ket1-t1-s-q2-t1.mp3",
                   "seconds": 9.3
+                }
+              },
+              {
+                "id": "t10",
+                "text": "I really like trainers. They're comfortable and I wear them every day. Do you like trainers?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket1/ket1-t1-s-q2-t10.mp3",
+                  "seconds": 7
+                }
+              },
+              {
+                "id": "t11",
+                "text": "I don't like wearing a watch. I use my phone to see the time. What about you?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket1/ket1-t1-s-q2-t11.mp3",
+                  "seconds": 5.7
+                }
+              },
+              {
+                "id": "t12",
+                "text": "Sunglasses are cool, but I only wear them in summer. Do you wear sunglasses?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket1/ket1-t1-s-q2-t12.mp3",
+                  "seconds": 5.7
+                }
+              },
+              {
+                "id": "t13",
+                "text": "I think jeans are good for school trips. Do you like wearing jeans?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket1/ket1-t1-s-q2-t13.mp3",
+                  "seconds": 4.8
                 }
               },
               {
