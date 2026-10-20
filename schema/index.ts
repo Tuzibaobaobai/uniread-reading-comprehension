@@ -553,6 +553,8 @@ export const Playlist = z
     description: z.string(),
     locale: z.string(),
     cover: z.string(),
+    /** wide version of the cover for the playlist page panel (Figma Playlist, 407:239); absent → cover */
+    banner: z.string().optional(),
     accent: z.string().regex(/^#[0-9a-fA-F]{6}$/),
     itemIds: z.array(ItemId),
     version: z.string(),
@@ -597,6 +599,7 @@ export const Catalog = z
           title: z.string(),
           shortTitle: z.string(),
           cover: z.string(),
+          banner: z.string().optional(),
           accent: z.string(),
           gradeBand: z.string(),
           description: z.string(),

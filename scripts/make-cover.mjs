@@ -1,7 +1,9 @@
-// Render a playlist cover for exam series (KET / PET 真题) from one fixed template (GitHub #76):
+// Render a playlist cover for exam series (KET / PET 真题) from one fixed template (GitHub #76) — set the
+// playlist's "cover" to cover.jpg and "banner" to banner.jpg:
 // the same authoritative layout for every book of a series type — big exam name, 官方真题, and a subtitle
 // band that names the book in the series. Uses the project's own fonts (Source Sans 3, Noto Sans SC).
-//   node scripts/make-cover.mjs ket1        → content/assets/ket1/cover.jpg (1024 × 1024)
+//   node scripts/make-cover.mjs ket1        → content/assets/ket1/cover.jpg (1024 × 1024, cards)
+//                                             + banner.jpg (1221 × 717 = Figma Playlist panel 407:239)
 //   node scripts/make-cover.mjs --all
 import { chromium } from '@playwright/test';
 import { pathToFileURL } from 'node:url';
@@ -20,7 +22,19 @@ const COVERS = {
 };
 
 const font = (pkg, file) => pathToFileURL(resolve('node_modules/@fontsource', pkg, file)).href;
-const html = ({ type, series, detail }) => {
+const BANNER_CSS = `
+  body { width: 1221px; height: 717px; }
+  .cover { width: 1221px; height: 717px; }
+  .rule { left: 64px; }
+  .top { left: 100px; right: 64px; top: 56px; font-size: 30px; }
+  .exam { left: 86px; top: 120px; font-size: 300px; letter-spacing: -10px; }
+  .title { left: auto; right: 64px; top: 360px; font-size: 112px; letter-spacing: 8px; text-align: right; }
+  .band { height: 176px; padding: 30px 64px 0 100px; display: flex; align-items: baseline; gap: 32px; }
+  .series { font-size: 76px; }
+  .detail { margin: 0; font-size: 32px; }`;
+
+/** square cover for playlist cards; wide banner (same design) for the playlist page panel */
+const html = ({ type, series, detail }, variant = 'cover') => {
   const t = TYPES[type];
   return `<!doctype html><html><head><meta charset="utf-8">
 <link rel="stylesheet" href="${font('source-sans-3', '900.css')}">
@@ -46,6 +60,7 @@ const html = ({ type, series, detail }) => {
   .band { position: absolute; left: 0; right: 0; bottom: 0; height: 200px; background: ${t.accent}; padding: 34px 72px 0 112px; }
   .series { font-family: 'Noto Sans SC'; font-weight: 900; font-size: 84px; line-height: 1.1; }
   .detail { margin-top: 10px; font-family: 'Noto Sans SC'; font-weight: 700; font-size: 34px; color: rgba(255,255,255,.85); }
+${variant === 'banner' ? BANNER_CSS : ''}
 </style></head><body><div class="cover">
   <div class="rule"></div>
   <div class="top"><span>${t.level}</span><span class="zh">${t.zh}</span></div>
@@ -63,17 +78,20 @@ if (!ids.length || ids.some((id) => !COVERS[id])) {
 const browser = await chromium.launch({ channel: 'chrome' }); // system Chrome, as in playwright.config.ts
 const page = await browser.newPage({ viewport: { width: 1024, height: 1024 } });
 for (const id of ids) {
+  for (const [variant, size] of [['cover', { width: 1024, height: 1024 }], ['banner', { width: 1221, height: 717 }]]) {
+  await page.setViewportSize(size);
   // a file:// page may load the local font files (setContent's about:blank may not)
-  const tmp = resolve('.work', `cover-${id}.html`);
+  const tmp = resolve('.work', `cover-${id}-${variant}.html`);
   mkdirSync(dirname(tmp), { recursive: true });
-  writeFileSync(tmp, html(COVERS[id]));
+  writeFileSync(tmp, html(COVERS[id], variant));
   await page.goto(pathToFileURL(tmp).href, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
   const missing = await page.evaluate(() =>
     [['900 100px "Source Sans 3"', 'KET'], ['900 100px "Noto Sans SC"', '官方真题']].filter(([f, s]) => !document.fonts.check(f, s)).map(([f]) => f),
   );
   if (missing.length) throw new Error(`fonts not loaded: ${missing.join(', ')}`);
-  await page.locator('.cover').screenshot({ path: `content/assets/${id}/cover.jpg`, type: 'jpeg', quality: 90 });
-  console.log(`cover → content/assets/${id}/cover.jpg`);
+  await page.locator('.cover').screenshot({ path: `content/assets/${id}/${variant}.jpg`, type: 'jpeg', quality: 90 });
+  console.log(`${variant} → content/assets/${id}/${variant}.jpg`);
+  }
 }
 await browser.close();

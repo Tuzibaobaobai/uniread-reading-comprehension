@@ -36,7 +36,7 @@ export function PlaylistPage() {
               <img src={arrowLeft} alt="" />
             </button>
             <div className="playlist-intro-panel" style={{ '--cover': `url("${staticContent.assetUrl(pl.cover)}")` } as React.CSSProperties}>
-            <img className="playlist-intro-cover" src={staticContent.assetUrl(pl.cover)} alt="" />
+            <img className="playlist-intro-cover" src={staticContent.assetUrl(pl.banner ?? pl.cover)} alt="" />
             <h1 className="playlist-intro-title">{pl.title}</h1>
             <div className="playlist-intro-stats">
               <span>{pl.totalWords.toLocaleString()} 单词</span>
