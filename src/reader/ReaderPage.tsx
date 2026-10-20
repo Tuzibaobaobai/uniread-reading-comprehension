@@ -242,6 +242,9 @@ function Reader({ item }: { item: ItemT }) {
 
   const unanswered = flat.filter((f) => !pageAnswered(f, responses));
   const current = flat[index];
+  // exam pages with nothing for the left pane (speaking Part 1, writing Part 6): the questions take the full width (#78)
+  const soloQuestions =
+    !!exam && exam.paper !== 'listening' && !!current && !current.section.material?.length && !current.q.material?.length;
 
   const visible = useMemo(() => flat.map((f) => f.index), [flat]);
 
@@ -331,7 +334,7 @@ function Reader({ item }: { item: ItemT }) {
   const evidence = useMemo(() => (review ? evidenceOf(review.key, current?.q.id) : []), [review?.key, current?.q.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className={`reader-body tab-${tab}`}>
+    <div className={`reader-body tab-${tab} ${soloQuestions ? 'no-left' : ''}`}>
       <div className="reader-tabs" role="tablist">
         <button role="tab" aria-selected={tab === 'article'} className={tab === 'article' ? 'is-active' : ''} onClick={() => setTab('article')}>
           {exam ? '材料' : '文章'}
@@ -396,6 +399,8 @@ function Reader({ item }: { item: ItemT }) {
                   </p>
                 )}
                 <QuestionBody
+                  // a new attempt (重新作答, practice ↔ exam) starts every interaction fresh — e.g. no recordings kept (#77)
+                  key={attempt.attemptId}
                   props={iprops}
                   selfAssessed={result?.selfAssessed?.[current.q.id]}
                   onSelfAssess={(v) =>

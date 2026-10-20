@@ -145,6 +145,10 @@ body:has(.playlist-page) { background: var(--bg-card); }
   padding: 0 var(--gutter) var(--gutter);
 }
 .reader-tabs { display: none; }
+/* exam pages without left-pane material: one column, question card centred (#78) */
+.reader-body.no-left { grid-template-columns: minmax(0, var(--solo-max-w)); justify-content: center; }
+.reader-body.no-left .reader-left, .reader-body.no-left .reader-tabs { display: none; }
+.reader-body.no-left .reader-right { display: flex; }
 .reader-left, .reader-right { min-height: 0; display: flex; flex-direction: column; }
 
 /* ------------------------------------------------------- article (Figma Article Text type styles) */
@@ -726,4 +730,10 @@ body:has(.playlist-page) { background: var(--bg-card); }
 @media (max-width: 640px) {
   .info-box { grid-template-columns: 1fr; }
   .match { grid-template-columns: 1fr; }
+}
+
+/* #78 on narrow screens too: no tabs, the questions fill the page whichever tab was last open */
+@media (max-width: 1023px) {
+  .reader-body.no-left { grid-template-rows: minmax(0, 1fr); }
+  .reader-body.no-left.tab-article .reader-right { display: flex; }
 }

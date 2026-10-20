@@ -17,8 +17,17 @@ export function PlaylistsPage() {
             <div className="playlist-card-body">
               <OverflowTip className="playlist-card-title">{p.title}</OverflowTip>
               <div className="playlist-card-meta">
-                共{p.itemCount}篇 · L{p.difficultyRange[0]}
-                {p.difficultyRange[1] !== p.difficultyRange[0] ? `–${p.difficultyRange[1]}` : ''}
+                {p.format === 'exam' ? (
+                  // exam papers (KET/PET 真题): papers and the CEFR level, no 时文阅读 difficulty
+                  <>
+                    共{p.itemCount}份试卷 · {p.gradeBand}
+                  </>
+                ) : (
+                  <>
+                    共{p.itemCount}篇 · L{p.difficultyRange[0]}
+                    {p.difficultyRange[1] !== p.difficultyRange[0] ? `–${p.difficultyRange[1]}` : ''}
+                  </>
+                )}
               </div>
               <div className="playlist-card-icons" aria-label="题型">
                 <Book />

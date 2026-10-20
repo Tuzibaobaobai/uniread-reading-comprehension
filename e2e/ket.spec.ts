@@ -4,14 +4,15 @@ import { readFileSync } from 'node:fs';
 
 const narrow = (page: Page) => (page.viewportSize()?.width ?? 1440) < 1024;
 const tab = async (page: Page, name: RegExp) => {
-  if (narrow(page)) await page.getByRole('tab', { name }).click();
+  // pages without left-pane material show no tabs (#78)
+  if (narrow(page) && (await page.locator('.reader-body.no-left').count()) === 0) await page.getByRole('tab', { name }).click();
 };
 
 test('playlist groups the papers by test', async ({ page }) => {
   await page.goto('/#/p/ket1');
   await expect(page.locator('.week-label').first()).toContainText('第 1 套');
   await expect(page.locator('.item-row-title').first()).toHaveText('KET真题1-第1套-阅读与写作');
-  await expect(page.locator('.test-score').first()).toHaveText('KET 成绩：已完成 0/4');
+  await expect(page.locator('.test-score').first()).toHaveText('成绩：待完成所有考试');
 });
 
 test('listening, exam mode: picture options by tap, locked recording, report and transcript after submitting', async ({ page }) => {
@@ -185,4 +186,19 @@ test('speaking: 听题 plays the generated examiner recording', async ({ page })
   const audio = page.waitForRequest((r) => /ket1-t1-s-q1-t1\.mp3$/.test(r.url()));
   await page.getByRole('button', { name: '听题' }).click();
   await audio;
+});
+
+test('#77 #78 speaking: full-width Part 1, and a switch to exam mode starts with 回答, not 重录', async ({ page }) => {
+  await page.goto('/#/p/ket1/ket1-t2-s');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await expect(page.locator('.reader-body.no-left')).toHaveCount(1);
+  await expect(page.locator('.reader-left')).toBeHidden();
+  await expect(page.locator('.reader-right')).toBeVisible();
+  await page.getByRole('button', { name: '切换到考试模式' }).click();
+  await page.getByRole('button', { name: '开始考试' }).click();
+  await expect(page.getByRole('button', { name: '回答' })).toBeVisible();
+  await expect(page.getByRole('button', { name: '重录' })).toHaveCount(0);
+  // Part 2 has the picture sheet: two columns again (narrow screens: tabs)
+  await page.getByRole('button', { name: /Part 2 第/ }).first().click();
+  await expect(page.locator('.reader-body.no-left')).toHaveCount(0);
 });

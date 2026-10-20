@@ -132,8 +132,11 @@ function TestScore({ items }: { items: { id: string; paper?: string; suggestedMi
   });
   const overall = overallScale(skills);
   return (
-    <span className={`test-score ${overall !== null ? 'is-final' : ''}`} title="四项 Cambridge English Scale 分数的平均（估算）">
-      {overall !== null ? `KET 成绩 ${overall} · ${grade(overall)}` : `KET 成绩：已完成 ${done}/4`}
+    <span
+      className={`test-score ${overall !== null ? 'is-final' : ''}`}
+      title={`四项 Cambridge English Scale 分数的平均（估算）；已完成 ${done}/4 项`}
+    >
+      {overall !== null ? `成绩：${overall} · ${grade(overall)}` : '成绩：待完成所有考试'}
     </span>
   );
 }
