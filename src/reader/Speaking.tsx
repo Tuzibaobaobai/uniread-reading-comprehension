@@ -139,7 +139,13 @@ export function SpeakingView(props: InteractionProps) {
         <Rich nodes={it.prompt} />
       </QuestionPrompt>
       {!review && !supported && <p className="hint-line">当前浏览器不支持录音，请使用最新版 Safari 或 Chrome。</p>}
-      {!review && supported && <p className="hint-line">点“听题”听考官提问，再点“回答”录音，说完点 ✓ 结束（最长 {it.maxSeconds} 秒）。</p>}
+      {!review && supported && (
+        <p className="hint-line">
+          {fq.turn !== undefined && it.turns[fq.turn]?.role === 'partner'
+            ? `点“听搭档”听搭档说话，再点“回答”回应 TA，说完点 ✓ 结束（最长 ${it.maxSeconds} 秒）。`
+            : `点“听题”听考官提问，再点“回答”录音，说完点 ✓ 结束（最长 ${it.maxSeconds} 秒）。`}
+        </p>
+      )}
       <ol className="speak-turns">
         {it.turns.map((t, i) => {
           // one page per examiner question (GitHub #74); the whole Part is still scored together
@@ -150,6 +156,8 @@ export function SpeakingView(props: InteractionProps) {
             <li key={t.id} className={`speak-card ${isActive ? 'is-active' : ''} ${said ? 'is-done' : ''}`}>
               <p className="speak-count">
                 {i + 1}/{it.turns.length}
+                {/* PET Part 3: the AI partner speaks, the learner replies (待补组件) */}
+                <span className={`speak-role ${t.role === 'partner' ? 'is-partner' : ''}`}>{t.role === 'partner' ? '搭档 Alex' : '考官'}</span>
               </p>
               <p className="speak-line">{t.text}</p>
               {said && (
@@ -164,7 +172,7 @@ export function SpeakingView(props: InteractionProps) {
                   <span className="speak-btn-icon">
                     <img src={listenIcon} alt="" width={40} height={40} />
                   </span>
-                  听题
+                  {t.role === 'partner' ? '听搭档' : '听题'}
                 </button>
                 {!review &&
                   (isActive && state === 'recording' ? (

@@ -9,7 +9,7 @@ import { Thumb } from '@/components/Thumb';
 import { DAY_NAME, PAPER_EN, formatMinutes } from '@/lib/labels';
 import OverflowTip from '@/components/OverflowTip';
 import { examStatus, examStatusLabel, type ExamStatus } from '@/lib/exam-status';
-import { grade, overallScale, type Skill, type SkillReport } from '@/lib/cambridge';
+import { examKey, grade, overallScale, type ExamKey, type Skill, type SkillReport } from '@/lib/cambridge';
 
 export function PlaylistPage() {
   const { playlistId = '' } = useParams();
@@ -60,13 +60,13 @@ export function PlaylistPage() {
               <div key={group} className="week-group">
                 <h3 className="week-label">
                   {exam ? `第 ${group} 套` : `Week ${group}`}
-                  {exam && <TestScore items={items} />}
+                  {exam && <TestScore items={items} exam={examKey(pl.exam)} />}
                 </h3>
                 {items.map((it) => {
                   const att = localAttempts.get(it.id);
                   const done = att?.status === 'submitted' && att.result;
                   const progress = done ? 1 : att ? Math.min(Object.keys(att.responses).length / it.questionCount, 1) : 0;
-                  const status = it.paper ? examStatusLabel(examStatus(att, it.paper, it.suggestedMinutes)) : null;
+                  const status = it.paper ? examStatusLabel(examStatus(att, it.paper, it.suggestedMinutes, Date.now(), examKey(pl.exam))) : null;
                   return (
                     <Link key={it.id} to={`/p/${pl.id}/${it.id}`} className="item-row">
                       <span className="item-row-num">{it.order}</span>
@@ -118,12 +118,12 @@ export function PlaylistPage() {
  * KET overall result for one test (GitHub #68): the four skills' Cambridge English Scale scores averaged,
  * once Reading, Writing, Listening and Speaking are all submitted and scored
  */
-function TestScore({ items }: { items: { id: string; paper?: string; suggestedMinutes: number }[] }) {
+function TestScore({ items, exam }: { items: { id: string; paper?: string; suggestedMinutes: number }[]; exam: ExamKey }) {
   const skills: Partial<Record<Skill, SkillReport>> = {};
   let done = 0;
   items.forEach((it) => {
     if (!it.paper) return;
-    const s: ExamStatus = examStatus(localAttempts.get(it.id), it.paper as never, it.suggestedMinutes);
+    const s: ExamStatus = examStatus(localAttempts.get(it.id), it.paper as never, it.suggestedMinutes, Date.now(), exam);
     if (s.kind !== 'done') return;
     s.reports.forEach((r) => {
       skills[r.skill] = r;
@@ -136,7 +136,7 @@ function TestScore({ items }: { items: { id: string; paper?: string; suggestedMi
       className={`test-score ${overall !== null ? 'is-final' : ''}`}
       title={`四项 Cambridge English Scale 分数的平均（估算）；已完成 ${done}/4 项`}
     >
-      {overall !== null ? `成绩：${overall} · ${grade(overall)}` : '成绩：待完成所有考试'}
+      {overall !== null ? `成绩：${overall} · ${grade(overall, exam)}` : '成绩：待完成所有考试'}
     </span>
   );
 }

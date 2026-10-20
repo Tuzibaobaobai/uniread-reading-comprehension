@@ -657,6 +657,8 @@ const CRITERIA_ZH: Record<string, string> = {
   grammar_vocabulary: '语法与词汇',
   interactive_communication: '互动交流',
   global: '整体表现',
+  communicative_achievement: '交际效果',
+  discourse_management: '话语组织',
 };
 
 const MET_LABEL = { yes: '已答到', partial: '部分答到', no: '未答到' } as const;
@@ -705,7 +707,7 @@ export function JudgeVerdict(props: InteractionProps) {
               </li>
             );
           })}
-          {rubric === 'cambridge_a2_speaking' && (
+          {(rubric === 'cambridge_a2_speaking' || rubric === 'cambridge_b1_speaking') && (
             <li className="criteria-row is-muted">
               <span className="criteria-name">发音</span>
               <span className="criteria-bar" aria-hidden />
@@ -775,5 +777,78 @@ export function QuestionPrompt({ number, children }: { number: number; children:
       <span className="q-num">{number}.</span>
       <span>{children}</span>
     </h2>
+  );
+}
+
+/* ------------------------------------------------------- choose one task */
+
+/**
+ * PET Writing Part 2: the learner answers ONE of the section's tasks (article or story). Task cards on top; the
+ * chosen task opens its writing box. Only one task holds an answer, so switching after writing asks first and
+ * clears the other text; only the chosen task is scored. 待补组件 — no Figma design yet.
+ */
+export function ChooseTaskView(props: InteractionProps & { selfAssessed?: boolean; onSelfAssess: (v: boolean) => void }) {
+  const { fq, responses, review } = props;
+  const tasks = fq.section.questions;
+  const answered = tasks.find((q) => typeof responses[q.id] === 'string' && (responses[q.id] as string).trim() !== '');
+  const [picked, setPicked] = useState<string | null>(answered?.id ?? null);
+  const [confirmTo, setConfirmTo] = useState<string | null>(null);
+  const counted = review?.result.byQuestion.find((b) => tasks.some((q) => q.id === b.q) && b.scoredBy !== 'none')?.q;
+  const selected = review ? (counted ?? null) : picked;
+  const task = tasks.find((q) => q.id === selected);
+
+  const choose = (id: string) => {
+    if (review || id === picked) return;
+    if (answered && answered.id !== id) return setConfirmTo(id);
+    setPicked(id);
+  };
+  const switchTo = (id: string) => {
+    props.setResponses((prev) => {
+      const next = { ...prev };
+      tasks.forEach((q) => q.id !== id && delete next[q.id]);
+      return next;
+    });
+    setPicked(id);
+    setConfirmTo(null);
+  };
+  const label = (q: (typeof tasks)[number]) => (q.interaction.kind === 'extendedText' ? q.interaction.prompt : []);
+
+  return (
+    <>
+      <p className="hint-line">{review ? '' : `从下面 ${tasks.length} 题中选择 1 题作答，只评分你选择的那一题。`}</p>
+      <div className="task-cards" role="radiogroup" aria-label="选择一题作答">
+        {tasks.map((q) => {
+          const isSel = q.id === selected;
+          return (
+            <button
+              key={q.id}
+              role="radio"
+              aria-checked={isSel}
+              className={`task-card ${isSel ? 'is-selected' : ''} ${review && !isSel ? 'is-unchosen' : ''}`}
+              disabled={!!review}
+              onClick={() => choose(q.id)}
+            >
+              <span className="task-card-head">
+                Question {q.number}
+                {review && !isSel && <span className="task-card-tag">未选</span>}
+              </span>
+              <span className="task-card-text">{plainText(label(q)).slice(0, 160)}</span>
+            </button>
+          );
+        })}
+      </div>
+      {confirmTo && (
+        <div className="task-switch" role="alertdialog" aria-label="切换题目">
+          <span>切换后，已经写的内容会被清空。确定切换吗？</span>
+          <button className="chip" onClick={() => setConfirmTo(null)}>
+            取消
+          </button>
+          <button className="chip is-on" onClick={() => switchTo(confirmTo)}>
+            切换并清空
+          </button>
+        </div>
+      )}
+      {task && <ExtendedTextView key={task.id} {...props} fq={{ ...fq, q: task }} />}
+    </>
   );
 }

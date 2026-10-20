@@ -189,6 +189,11 @@ body:has(.playlist-page) { background: var(--bg-card); }
 .rt-list li { margin: .3em 0; }
 .rt-vocab { color: var(--accent-strong); font-weight: var(--fw-bold); }
 .rt-underline { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; text-decoration-skip-ink: none; } /* one continuous line under the whole phrase (#12) */
+.rt-callout {
+  display: inline-block; margin: 0 4px; padding: 0 10px; transform: rotate(-2deg);
+  border: 1.5px solid var(--accent); border-radius: var(--radius-xs); background: var(--accent-soft);
+  color: var(--accent-strong); font-weight: var(--fw-bold); font-size: .85em; line-height: 1.6;
+}
 .rt-gloss { color: var(--text-secondary); font-size: .72em; }
 .rt-dialogue { display: grid; gap: .45em; }
 .rt-dialogue-legend { margin: 0; color: var(--text-secondary); font-size: .8em; }
@@ -643,6 +648,24 @@ body:has(.playlist-page) { background: var(--bg-card); }
 .speak-btn-icon.is-loading img { animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* PET Writing Part 2: choose one task (待补组件) */
+.task-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--options-gap); margin-bottom: 20px; }
+.task-card {
+  display: grid; gap: 6px; text-align: left; padding: var(--option-pad-y) var(--option-pad-x);
+  border: 1px solid var(--border); border-radius: var(--radius-s); background: var(--bg-card);
+  font-size: var(--fs-m); line-height: var(--lh-m); color: var(--text-secondary);
+}
+.task-card.is-selected { border-color: var(--accent); background: var(--accent-soft); color: var(--text-primary); }
+.task-card.is-unchosen { opacity: var(--disabled-opacity); }
+.task-card-head { display: flex; align-items: center; gap: 8px; font-weight: var(--fw-bold); font-size: var(--fs-l); color: var(--text-strong); }
+.task-card-tag { padding: 0 8px; border-radius: var(--radius-full); background: var(--bg-subtle); font-size: var(--fs-s); color: var(--text-secondary); }
+.task-switch { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: -8px 0 16px; padding: 12px 16px; border-radius: var(--radius-s); background: var(--exam-warn-soft); color: var(--exam-warn); }
+
+/* speaking: who is talking — the examiner or the AI partner (PET Part 3, 待补组件) */
+.speak-count { display: flex; align-items: center; gap: 10px; }
+.speak-role { padding: 0 10px; border-radius: var(--radius-full); background: var(--bg-subtle); font-size: var(--fs-s); line-height: var(--lh-s); font-weight: var(--fw-bold); color: var(--text-secondary); }
+.speak-role.is-partner { background: var(--accent-soft); color: var(--accent-strong); }
+
 /* mode choice + score report (待补组件) */
 .dialog { position: relative; }
 .dialog-close {
@@ -677,6 +700,7 @@ body:has(.playlist-page) { background: var(--bg-card); }
 
 @media (hover: hover) and (pointer: fine) {
   .mode-option:hover { border-color: var(--accent); }
+  .task-card:hover:not(:disabled) { border-color: var(--accent); }
   .speak-btn:hover:not(:disabled) .speak-btn-icon { background: var(--grey-5); }
 }
 /* shared motion is switched off when the system asks for less motion (ui-style-kit) */

@@ -15,6 +15,8 @@ export interface FlatQuestion {
   display: number;
   /** speaking: one page per examiner question (GitHub #74) — index into interaction.turns */
   turn?: number;
+  /** a section where the learner answers one of several tasks (PET Writing Part 2): one page for all of them */
+  choose?: true;
 }
 
 /**
@@ -23,7 +25,12 @@ export interface FlatQuestion {
  */
 export function flatten(item: ItemT): FlatQuestion[] {
   const out: FlatQuestion[] = [];
-  item.sections.forEach((section) =>
+  item.sections.forEach((section) => {
+    if (section.choose === 1) {
+      const q = section.questions[0];
+      out.push({ q, section, index: out.length, firstInSection: true, display: q.number, choose: true });
+      return;
+    }
     section.questions.forEach((q, i) => {
       const it = q.interaction;
       if (it.kind === 'speaking')
@@ -31,13 +38,14 @@ export function flatten(item: ItemT): FlatQuestion[] {
           out.push({ q, section, index: out.length, firstInSection: i === 0 && turn === 0, display: out.length + 1, turn }),
         );
       else out.push({ q, section, index: out.length, firstInSection: i === 0, display: q.number });
-    }),
-  );
+    });
+  });
   return out;
 }
 
 /** is this page answered: the question, or for a speaking page its own turn */
 export function pageAnswered(f: FlatQuestion, responses: Responses): boolean {
+  if (f.choose) return f.section.questions.some((q) => isAnswered(q, responses[q.id]));
   const it = f.q.interaction;
   if (it.kind === 'speaking' && f.turn !== undefined) {
     const r = responses[f.q.id];

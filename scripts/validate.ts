@@ -229,8 +229,18 @@ function checkItem(item: ItemT, key: ItemKeyT, playlistDir: string) {
   if (isExam(item)) {
     item.sections.forEach((s) => s.part === undefined && err(`${s.id} needs "part"`));
     if (key.transcripts) Object.keys(key.transcripts).forEach((sid) => item.sections.some((s) => s.id === sid) || err(`transcript for unknown section ${sid}`));
-    if (item.paper === 'listening') item.sections.forEach((s) => s.audio || err(`${s.id} listening part has no audio`));
-    const marks = allQuestions(item).reduce((n, q) => n + (q.points ?? 1), 0);
+    // a recording that is still missing (filed as an issue and recorded in errata) is a warning, not an error
+    const audioPending = (item.errata ?? []).some((e) => /缺少听力/.test(e.original));
+    if (item.paper === 'listening')
+      item.sections.forEach((s) => s.audio || (audioPending ? warn(`${s.id} listening part has no audio yet (errata)`) : err(`${s.id} listening part has no audio`)));
+    // a section answered "choose N of M" (PET Writing Part 2) counts N questions
+    const marks = item.sections.reduce((n, s) => {
+      const pts = s.questions.map((q) => q.points ?? 1);
+      if (!s.choose) return n + pts.reduce((a, b) => a + b, 0);
+      if (s.choose >= s.questions.length) err(`${s.id} choose ${s.choose} needs more than ${s.choose} questions`);
+      if (new Set(pts).size > 1) err(`${s.id}: questions to choose from must have the same points`);
+      return n + s.choose * pts[0];
+    }, 0);
     if (marks !== item.meta.totalMarks) err(`question points sum to ${marks}, meta.totalMarks = ${item.meta.totalMarks}`);
   }
   if (item.thumbnail && !existsSync(join(ROOT, item.thumbnail))) err(`thumbnail missing: ${item.thumbnail}`);
@@ -238,7 +248,7 @@ function checkItem(item: ItemT, key: ItemKeyT, playlistDir: string) {
   // naming
   if (!existsSync(join(playlistDir, 'keys', `${id}.json`))) err('key file missing');
   if (isExam(item)) {
-    const suffix = { reading_writing: 'rw', listening: 'l', speaking: 's' }[item.paper];
+    const suffix = { reading_writing: 'rw', reading: 'r', writing: 'w', listening: 'l', speaking: 's' }[item.paper];
     const expectedId = `${item.playlistId}-t${item.test}-${suffix}`;
     if (item.id !== expectedId) err(`id should be ${expectedId}`);
     return;

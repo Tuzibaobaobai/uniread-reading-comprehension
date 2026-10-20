@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { ExamItemT } from '@schema';
-import { GRADE_BANDS, SCALE, examReport, grade, toScale, type Skill } from '@/lib/cambridge';
+import { SCALES, examKey, examReport, grade, type ExamKey, type Skill } from '@/lib/cambridge';
 import type { Result } from '@/lib/grading';
 import { PAPER_ZH } from '@/lib/labels';
 
@@ -93,10 +93,11 @@ export function SwitchModeDialog({
 const SKILLS: Skill[] = ['reading', 'writing', 'listening', 'speaking'];
 
 /**
- * Cambridge English Scale conversion table (#67): the official anchor points per skill and the A2 Key result
+ * Cambridge English Scale conversion table (#67): the official anchor points per skill and the exam's result
  * bands; raw scores in between are interpolated
  */
-export function ScaleTableDialog({ onClose }: { onClose: () => void }) {
+export function ScaleTableDialog({ exam, onClose }: { exam: ExamKey; onClose: () => void }) {
+  const s = SCALES[exam];
   return (
     <div className="dialog-backdrop" role="presentation" onClick={onClose}>
       <div className="dialog scale-dialog" role="dialog" aria-modal aria-labelledby="scale-title" onClick={(e) => e.stopPropagation()}>
@@ -104,12 +105,14 @@ export function ScaleTableDialog({ onClose }: { onClose: () => void }) {
           ×
         </button>
         <h2 id="scale-title">Cambridge English Scale 换算表</h2>
-        <p>A2 Key / A2 Key for Schools（2020 年起的考试）官方练习题换算表。表中为官方锚点，其间的原始分按比例换算，满分对应 150。</p>
+        <p>
+          {s.name}（2020 年起的考试）官方练习题换算表。表中为官方锚点，其间的原始分按比例换算，满分对应 {s.top}。
+        </p>
         <div className="scale-tables">
           {SKILLS.map((k) => (
             <table key={k} className="report-table scale-table">
               <caption>
-                {SKILL_ZH[k]}（满分 {SCALE[k].max}）
+                {SKILL_ZH[k]}（满分 {s.skills[k].max}）
               </caption>
               <thead>
                 <tr>
@@ -118,10 +121,10 @@ export function ScaleTableDialog({ onClose }: { onClose: () => void }) {
                 </tr>
               </thead>
               <tbody>
-                {[[SCALE[k].max, 150] as [number, number], ...[...SCALE[k].anchors].reverse()].map(([raw, scale]) => (
+                {[[s.skills[k].max, s.top] as [number, number], ...[...s.skills[k].anchors].reverse()].map(([raw, scale]) => (
                   <tr key={raw}>
                     <td>{raw}</td>
-                    <td>{scale === toScale(k, raw) ? scale : toScale(k, raw)}</td>
+                    <td>{scale}</td>
                   </tr>
                 ))}
               </tbody>
@@ -131,21 +134,27 @@ export function ScaleTableDialog({ onClose }: { onClose: () => void }) {
         <table className="report-table">
           <caption>成绩等级（总分 = 四项换算分的平均）</caption>
           <tbody>
-            {GRADE_BANDS.map(([min, label], i) => (
+            {s.grades.map(([min, label], i) => (
               <tr key={label}>
                 <td>
-                  {min}–{i === 0 ? 150 : GRADE_BANDS[i - 1][0] - 1}
+                  {min}–{i === 0 ? s.top : s.grades[i - 1][0] - 1}
                 </td>
                 <td>{label}</td>
               </tr>
             ))}
             <tr>
-              <td>82–99</td>
-              <td>低于 A1（82 为最低报告分）</td>
+              <td>
+                {s.floor}–{s.grades[s.grades.length - 1][0] - 1}
+              </td>
+              <td>
+                {s.below}（{s.floor} 为最低报告分）
+              </td>
             </tr>
           </tbody>
         </table>
-        <p className="report-note">来源：Cambridge English《A2 Key and A2 Key for Schools — Converting practice test scores to Cambridge English Scale scores》（UCLES 2019）。仅供练习参考，真实考试的换算会因试卷而异。</p>
+        <p className="report-note">
+          来源：Cambridge English《{s.name} — Converting practice test scores to Cambridge English Scale scores》（UCLES 2019）。仅供练习参考，真实考试的换算会因试卷而异。
+        </p>
         <div className="dialog-actions">
           <button className="pill-button primary" autoFocus onClick={onClose}>
             关闭
@@ -185,9 +194,11 @@ const SKILL_ZH: Record<Skill, string> = { reading: '阅读', writing: '写作', 
 /** per-skill raw scores and the Cambridge English Scale estimate */
 export function ExamReport({ item, result, onClose }: { item: ExamItemT; result: Result; onClose: () => void }) {
   const rows = examReport(item, result);
+  const exam = examKey(item.meta.exam);
   const [tableOpen, setTableOpen] = useState(false);
   const parts = item.sections.map((s) => {
-    const rs = s.questions.map((q) => result.byQuestion.find((r) => r.q === q.id)).filter((r) => !!r);
+    // an unchosen writing task (PET Part 2: one of two) does not count
+    const rs = s.questions.map((q) => result.byQuestion.find((r) => r.q === q.id)).filter((r): r is Result['byQuestion'][number] => !!r && r.scoredBy !== 'none');
     return { s, got: rs.reduce((n, r) => n + r.points, 0), max: rs.reduce((n, r) => n + r.maxPoints, 0), pending: rs.some((r) => r.scoredBy === 'pending') };
   });
   return (
@@ -214,8 +225,8 @@ export function ExamReport({ item, result, onClose }: { item: ExamItemT; result:
           {rows.map((r) => (
             <div key={r.skill} className="report-skill">
               <span className="report-skill-name">{SKILL_ZH[r.skill]}</span>
-              <span className="report-skill-scale">{r.pending ? '…' : (r.scale ?? '<82')}</span>
-              <span className="report-skill-grade">{r.pending ? '评分中' : grade(r.scale)}</span>
+              <span className="report-skill-scale">{r.pending ? '…' : (r.scale ?? `<${SCALES[exam].floor}`)}</span>
+              <span className="report-skill-grade">{r.pending ? '评分中' : grade(r.scale, exam)}</span>
               <span className="report-skill-raw">
                 原始分 {r.raw} / {r.scaleMax}
               </span>
@@ -227,7 +238,7 @@ export function ExamReport({ item, result, onClose }: { item: ExamItemT; result:
           <button className="link-button" onClick={() => setTableOpen(true)}>
             换算表
           </button>
-          （A2 Key / A2 Key for Schools，2020 年起的考试）估算，仅供参考；写作与口语由 AI 按 Cambridge
+          （{SCALES[exam].name}，2020 年起的考试）估算，仅供参考；写作与口语由 AI 按 Cambridge
           官方评分标准评分{item.paper === 'speaking' ? '，发音暂未评估，按其余三项折算' : ''}。
         </p>
         <div className="dialog-actions">
@@ -236,7 +247,7 @@ export function ExamReport({ item, result, onClose }: { item: ExamItemT; result:
           </button>
         </div>
       </div>
-      {tableOpen && <ScaleTableDialog onClose={() => setTableOpen(false)} />}
+      {tableOpen && <ScaleTableDialog exam={exam} onClose={() => setTableOpen(false)} />}
     </div>
   );
 }

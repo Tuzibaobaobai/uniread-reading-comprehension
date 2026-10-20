@@ -1,8 +1,8 @@
 /**
- * Compare KET keys with the answer book (token-free check after transcription).
- *   npx tsx scripts/check-ket.ts <test> [playlist=ket1]
- * Reads the answer-book OCR (.work/text/<pl>/t<N>-key/*.txt, from scripts/ocr.swift), parses the
- * "Reading and Writing" (Q1–30) and "Listening" (Q1–25) answer lists, and checks every key:
+ * Compare exam keys (KET / PET 真题) with the answer book (token-free check after transcription).
+ *   npx tsx scripts/check-exam.ts <test> [playlist=ket1]
+ * Reads the answer-book OCR (from scripts/ocr.swift), parses each paper's printed answer list
+ * (KET: Reading and Writing Q1–30, Listening Q1–25; PET: Reading Q1–32, Listening Q1–25) and checks every key:
  * choice / inlineChoice letters must match; text answers must accept every printed alternative
  * ("25(th) June / June 25(th)" → 25 June, 25th June, June 25, June 25th).
  */
@@ -11,13 +11,35 @@ import { join } from 'node:path';
 import type { ItemKeyT } from '../schema/index.ts';
 import { normalizeText } from '../src/lib/grading.ts';
 
+/**
+ * per playlist: where the answer-book OCR is, and for each paper the headings that open its answer list
+ * (consecutive lines) and the heading that ends it
+ */
+const BOOKS: Record<string, { ocr: (t: string) => string; papers: { paper: string; from: RegExp[]; to: RegExp; count: number }[] }> = {
+  ket1: {
+    ocr: (t) => `t${t}-key`,
+    papers: [
+      { paper: 'rw', from: [/^Reading and Writing/], to: /^Part 6|^Sample answer/, count: 30 },
+      { paper: 'l', from: [/^Listening$/], to: /^Transcript/, count: 25 },
+    ],
+  },
+  // one PDF per test: question papers, then "Test N answer key and transcript"
+  pet1: {
+    ocr: (t) => `t${t}`,
+    papers: [
+      { paper: 'r', from: [/answer key and transcript$/, /^Reading$/], to: /^Writing$/, count: 32 },
+      { paper: 'l', from: [/answer key and transcript$/, /^Listening$/], to: /^Transcript$/, count: 25 },
+    ],
+  },
+};
+
 const [test, pl = 'ket1'] = process.argv.slice(2);
-if (!test) {
-  console.error('usage: npx tsx scripts/check-ket.ts <test> [playlist]');
+if (!test || !BOOKS[pl]) {
+  console.error(`usage: npx tsx scripts/check-exam.ts <test> [${Object.keys(BOOKS).join('|')}]`);
   process.exit(1);
 }
 const ROOT = join(import.meta.dirname, '..');
-const ocrDir = join(ROOT, '.work/text', pl, `t${test}-key`);
+const ocrDir = join(ROOT, '.work/text', pl, BOOKS[pl].ocr(test));
 
 /** OCR lines in reading order, Cyrillic look-alikes mapped back to Latin */
 const lines = readdirSync(ocrDir)
@@ -30,8 +52,9 @@ const lines = readdirSync(ocrDir)
  * answers between two headings, read sequentially: "1 B 2 C … 10 238 11 A" — a token equal to the next
  * question number starts the next answer (numeric answers like "238" or "0776 3214" stay intact)
  */
-function answers(from: RegExp, to: RegExp, count: number): Map<number, string> {
-  const start = lines.findIndex((l) => from.test(l));
+function answers(from: RegExp[], to: RegExp, count: number): Map<number, string> {
+  const opens = (i: number) => from.every((re, k) => re.test(lines[i + k] ?? ''));
+  const start = lines.findIndex((_, i) => opens(i)) + from.length - 1;
   const end = lines.findIndex((l, i) => i > start && to.test(l));
   const tokens = lines
     .slice(start + 1, end)
@@ -67,12 +90,9 @@ function variants(printed: string): string[] {
   });
 }
 
-const papers: [string, RegExp, RegExp, number][] = [
-  ['rw', /^Reading and Writing/, /^Part 6|^Sample answer/, 30],
-  ['l', /^Listening$/, /^Transcript/, 25],
-];
+
 let problems = 0;
-for (const [paper, from, to, count] of papers) {
+for (const { paper, from, to, count } of BOOKS[pl].papers) {
   const printed = answers(from, to, count);
   const lost = [...Array(count).keys()].map((i) => i + 1).filter((n) => !printed.get(n));
   if (lost.length) (problems++, console.log(`${paper}: answers ${lost.join(', ')} not found in the OCR — check the answer-book page image by hand`));

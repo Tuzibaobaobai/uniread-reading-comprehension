@@ -26,6 +26,7 @@ import {
   OrderView,
   orderSentence,
   TextEntryView,
+  ChooseTaskView,
   hasImageOptions,
   type InteractionProps,
 } from './interactions';
@@ -245,6 +246,10 @@ function Reader({ item }: { item: ItemT }) {
   // exam pages with nothing for the left pane (speaking Part 1, writing Part 6): the questions take the full width (#78)
   const soloQuestions =
     !!exam && exam.paper !== 'listening' && !!current && !current.section.material?.length && !current.q.material?.length;
+  // narrow screens: a page with only questions counts as the 题目 tab, so the next page with material keeps the questions in view
+  useEffect(() => {
+    if (soloQuestions) setTab('questions');
+  }, [soloQuestions]);
 
   const visible = useMemo(() => flat.map((f) => f.index), [flat]);
 
@@ -325,8 +330,19 @@ function Reader({ item }: { item: ItemT }) {
     );
   };
 
-  const iprops: InteractionProps | null = current
-    ? { item, fq: current, flat, owners, responses, setResponses, review, onLocate: locate }
+  // a choose-one page (PET Writing Part 2) stands for the task the learner picked (scored), else the first task
+  const page =
+    current?.choose
+      ? {
+          ...current,
+          q:
+            current.section.questions.find((q) =>
+              review ? review.result.byQuestion.some((b) => b.q === q.id && b.scoredBy !== 'none') : pageAnswered({ ...current, q, choose: undefined }, responses),
+            ) ?? current.q,
+        }
+      : current;
+  const iprops: InteractionProps | null = page
+    ? { item, fq: page, flat, owners, responses, setResponses, review, onLocate: locate }
     : null;
 
   const pos = visible.indexOf(index);
@@ -402,17 +418,17 @@ function Reader({ item }: { item: ItemT }) {
                   // a new attempt (重新作答, practice ↔ exam) starts every interaction fresh — e.g. no recordings kept (#77)
                   key={attempt.attemptId}
                   props={iprops}
-                  selfAssessed={result?.selfAssessed?.[current.q.id]}
+                  selfAssessed={result?.selfAssessed?.[page!.q.id]}
                   onSelfAssess={(v) =>
                     result &&
-                    persist({ ...attempt, result: { ...result, selfAssessed: { ...result.selfAssessed, [current.q.id]: v } } })
+                    persist({ ...attempt, result: { ...result, selfAssessed: { ...result.selfAssessed, [page!.q.id]: v } } })
                   }
                 />
                 {review &&
                   (!EMBEDDED_EXPLAIN.has(current.q.interaction.kind) || hasImageOptions(current.q)) &&
                   // speaking: the Part's model answer once, on its last page
                   (current.q.interaction.kind !== 'speaking' || current.turn === undefined || current.turn === current.q.interaction.turns.length - 1) && (
-                  <Explanation item={item} fq={current} keyData={review.key} onLocate={locate} result={review.result} />
+                  <Explanation item={item} fq={page!} keyData={review.key} onLocate={locate} result={review.result} />
                 )}
               </>
             )}
@@ -541,6 +557,7 @@ function QuestionBody({
   selfAssessed?: boolean;
   onSelfAssess: (v: boolean) => void;
 }) {
+  if (props.fq.choose) return <ChooseTaskView {...props} selfAssessed={selfAssessed} onSelfAssess={onSelfAssess} />;
   switch (props.fq.q.interaction.kind) {
     case 'choice':
       return <ChoiceView {...props} />;

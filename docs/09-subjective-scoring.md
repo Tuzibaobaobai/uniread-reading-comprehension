@@ -140,6 +140,10 @@
 - 口语：录音由 `/api/rc/speak`（SiliconFlow 语音识别，`ASR_MODEL` 默认 `FunAudioLLM/SenseVoiceSmall`）转写，整段问答一起评分；只凭转写无法评估发音，界面显示“发音：未评估”，Cambridge 分数估算按其余三项折算。
 - 评分结果界面固定显示“评分遵照 Cambridge English A2 Key 官方评分标准……由 AI 评估，仅供参考”（文案见 `CAMBRIDGE_NOTE_ZH`）。
 
+## 9. B1 Preliminary（PET）
+- 提示 `cambridge-b1-v1`，量表取 B1 Preliminary Assessment Scale：写作 Content / Communicative Achievement / Organisation / Language（各 0–5，每题 20），口语 Grammar & Vocabulary / Discourse Management / Interactive Communication / Global（发音不评）。口语 Part 3 的对话记录里包含 AI 搭档的台词（Partner）。
+- 换算：Cambridge《B1 Preliminary — Converting practice test scores》（2020 起）：阅读 29/23/13/5 → 160/140/120/102（满分 32）、写作 34/24/16/10（40）、听力 23/18/11/5（25）、口语 27/18/12/7（30），满分对应 170。口语四项按官方权重（Global ×2）折算到 30 分（发音缺，按比例）。
+
 ## 参考
 - 1EdTech QTI 3.0；[TAO：外部评分选项](https://userguide.taotesting.com/user-documentation/latest/public/additional-scoring-options)、[TAO：extended text](https://userguide.taotesting.com/user-documentation/latest/public/extended-text-interaction)、[PowerSchool：为题目添加 rubric](https://docs.powerschool.com/PMAAH/performance-matters/latest/add-rubrics-to-items)
 - [NAEP 评分流程（NCES）](https://nces.ed.gov/nationsreportcard/tdw/scoring/)、[评分员资格](https://nces.ed.gov/nationsreportcard/tdw/scoring/training_scorers_guide_qualify.aspx)

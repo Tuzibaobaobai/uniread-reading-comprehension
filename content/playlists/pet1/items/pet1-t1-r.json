@@ -1,0 +1,2220 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "pet1-t1-r",
+  "playlistId": "pet1",
+  "order": 1,
+  "test": 1,
+  "paper": "reading",
+  "title": "PET真题1-第1套-阅读",
+  "displayName": "PET真题1-第1套-阅读",
+  "taskType": {
+    "code": "exam_reading",
+    "labelZh": "阅读"
+  },
+  "meta": {
+    "exam": "B1 Preliminary for Schools",
+    "durationMinutes": 45,
+    "totalMarks": 32
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/pet1/pet1-t1-r-1.jpg",
+        "alt": "School Badminton Club Membership. If you’d like to join the new badminton club, sign below by Friday (tomorrow). There are only 18 places left now. Practice evenings are Tuesdays and Thursdays.",
+        "w": 474,
+        "h": 449
+      },
+      {
+        "id": "img2",
+        "src": "assets/pet1/pet1-t1-r-2.jpg",
+        "alt": "Recycling. Put paper cups in green bin, plastic bottles and cups in blue bin, and food waste in red bin.",
+        "w": 581,
+        "h": 246
+      },
+      {
+        "id": "img3",
+        "src": "assets/pet1/pet1-t1-r-3.jpg",
+        "alt": "Text message to Daniel: Your little brother’s just texted me. He’ll be late this afternoon. He forgot he had football practice at 4 p.m. Can you wait for him and bring him home as I’m really busy? Mum",
+        "w": 360,
+        "h": 585
+      },
+      {
+        "id": "img4",
+        "src": "assets/pet1/pet1-t1-r-4.jpg",
+        "alt": "Email. From: Library. To: Library members. Summer reading challenge for library members aged 12 – 18. Choose from the attached book list. You’ll get a certificate for each book you read and a prize if you read six.",
+        "w": 542,
+        "h": 533
+      },
+      {
+        "id": "img5",
+        "src": "assets/pet1/pet1-t1-r-5.jpg",
+        "alt": "OUTDOOR COURTS. All players need T-shirts, shorts, sun hats and proper tennis shoes, apart from under-10s, who may wear their gym shoes. No entry for students wearing the wrong shoes.",
+        "w": 552,
+        "h": 553
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "For each question, choose the correct answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "There are three badminton sessions a week at the new club."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The new badminton club can only have 18 members."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Students need to decide quickly whether they want to join the new club."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ]
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Unfinished burgers should go in the red bin."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Only bottles should go in the blue bin."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Plastic cups should be put in the green bin."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ]
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Daniel’s mother is texting him to"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "ask Daniel to do her a favour."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "complain that she has too much to do."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "apologise for forgetting to tell Daniel something."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i3",
+              "type": "imageRef",
+              "image": "img3"
+            }
+          ]
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "People can read any book from the library as part of the reading challenge."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Only certain people can take part in the reading challenge."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Everyone who takes part in the reading challenge will receive a prize."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i4",
+              "type": "imageRef",
+              "image": "img4"
+            }
+          ]
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Younger players must have proper tennis shoes to play here."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Only older students are allowed to play on these courts."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "All players must wear the correct kit when using these courts."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i5",
+              "type": "imageRef",
+              "image": "img5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "p1",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "The young people below are interested in joining a dance or drama group. On the opposite page there are descriptions of eight dance and drama groups. Decide which group would be the most suitable for the people below."
+            }
+          ]
+        },
+        {
+          "id": "h1",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Dance and drama groups"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "n1",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "A "
+            },
+            {
+              "t": "text",
+              "v": "Let’s go!"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "We offer classes for advanced dance and drama students who want to develop their talents to a really high level. Our expert teachers will work with you on your acting and your preferred dance style so that you are ready to compete against the best!"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n2",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "B "
+            },
+            {
+              "t": "text",
+              "v": "Mouse House"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "We welcome all levels of ability and experience, and offer drama classes for children of all ages, led by professional performers. The activities are fun and great for building self-confidence, so you are soon ready to enter competitions. We meet every Saturday and parents are welcome to wait in the hall."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n3",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "C "
+            },
+            {
+              "t": "text",
+              "v": "The Phoenix Group"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "With us, you’ll take part in weekend drama workshops and receive a free ticket per term to watch a play at the local theatre. You’ll have opportunities to perform to the public throughout the year. No experience is necessary, but you will need to book a term in advance."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n4",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "D "
+            },
+            {
+              "t": "text",
+              "v": "Monsters DC"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "This group is for young people under 16 who want to develop their acting ability, or for more experienced actors who want to teach others their skills. All our members are encouraged to take part in our annual show, and every month you can meet successful actors and get their advice on a career in acting."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n5",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "E "
+            },
+            {
+              "t": "text",
+              "v": "Peppermint Performers"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "Working with experienced theatre directors, you’ll learn performance skills through a year-long programme of workshops. The first term is a series of skills-based sessions covering a range of different performance styles, with certificates for successful students. In future terms, you’ll take part in plays performed for the general public."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n6",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "F "
+            },
+            {
+              "t": "text",
+              "v": "Moon Productions"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "In our classes, we teach jazz, tap and street dance, and you’ll soon be creating your own dances. We hold contests against other clubs and put on displays for parents every summer. Want to find out what a life as a professional dancer is like? Every term we invite a star to talk about their career."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n7",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "G "
+            },
+            {
+              "t": "text",
+              "v": "The Focus Group"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "Classes are available every evening. You’ll receive excellent training in dance and drama, and develop techniques and performance skills in no time. One-to-one tuition is offered, and it’s possible to work towards a certificate. You’ll also have the opportunity to take part in a professional play."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n8",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "H "
+            },
+            {
+              "t": "text",
+              "v": "Bubble Company"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "Just come along with your friends and we’ll do the rest. There’s no need to have any experience, and we provide all the costumes and special dance shoes if you need them. We run small hour-long classes in dance or drama every evening after school, and family members are welcome to stay and watch."
+              }
+            ]
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Maiko loves dancing and wants to learn new dance styles quickly. She’d like to meet successful dancers and also take part in competitions."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Let’s go!"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Mouse House"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The Phoenix Group"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Monsters DC"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Peppermint Performers"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Moon Productions"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The Focus Group"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Bubble Company"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Marta and her younger sister would like to join an acting group at the weekend. They haven’t done anything like this before, so their mum wants to go with them at first."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Let’s go!"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Mouse House"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The Phoenix Group"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Monsters DC"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Peppermint Performers"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Moon Productions"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The Focus Group"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Bubble Company"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Eliana’s quite nervous so would like the possibility of some drama training on her own at first. She’s free during the week and hopes to act in a play one day."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Let’s go!"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Mouse House"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The Phoenix Group"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Monsters DC"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Peppermint Performers"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Moon Productions"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The Focus Group"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Bubble Company"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Henri is an experienced dancer who enjoys entering competitions. He wants to concentrate on jazz dance and improve his drama skills too."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Let’s go!"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Mouse House"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The Phoenix Group"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Monsters DC"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Peppermint Performers"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Moon Productions"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The Focus Group"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Bubble Company"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Jose wants to perform in plays, and is interested in joining an acting course run by professionals with a diploma at the end."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Let’s go!"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Mouse House"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The Phoenix Group"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Monsters DC"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Peppermint Performers"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Moon Productions"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The Focus Group"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Bubble Company"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "p2",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "My name’s Martin Cabello and I’m a young photographer. Taking photographs was always my favourite activity as a child. And when I was 15, I felt that if I wanted to take my hobby to the next level, I had to do something special. So I decided to start a personal project: I would take one photograph every day for a whole year of my life. I knew that many other young photographers before me had done the same thing, but it seemed like a really great idea, and so I started."
+            }
+          ]
+        },
+        {
+          "id": "p3",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "After a few weeks, I decided to put these photos onto a website for young photographers because I was keen to create a photo diary, and also to have the chance to show other people my photos. I was amazed to discover that there were others who liked the way I saw and photographed things. I was also enjoying photographing a wide range of subjects. Then someone suggested that if my photographs all had a common topic or idea to connect them, my project would be even better – and I agreed."
+            }
+          ]
+        },
+        {
+          "id": "p4",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "So I began to concentrate more on taking photos of nature scenes, especially of birds and the sky. A lot of them were black and white photographs, which was very different to what many other young photographers were doing – they were all taking colour photos. As a result, I sometimes had doubts about my project, and I almost gave up several times. In the end, however, I trusted my own feelings, and became more confident about my photographic style and choices."
+            }
+          ]
+        },
+        {
+          "id": "p5",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "One day I showed my project to my art teacher at school. She told me about a national photography competition for people my age. So I entered some of my photos, just for fun. I’ll never forget the moment when the judges told me that I had won first prize; I was so happy, as my project meant so much to me. It was the first time I realised that maybe my photography really was good, and that I might actually be able to work as a professional photographer. I now have my own photography studio and I’ve never regretted my career choice."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Martin started his project because he wanted to"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "influence other photographers."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "try an original idea of his own."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "take a lot more photos than he had before."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "develop his photography further."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What happened after Martin put his photos on the website?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He became more interested in other photographers’ pictures."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He was given some advice to improve his project."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He decided that his photos weren’t good enough."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He discovered that the website wasn’t the best place for his photos."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "attitude"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How did Martin feel when he took his first nature photos?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He wasn’t sure that he was doing the right thing."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He was certain that the photos would be better in colour."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He was anxious about what others would think."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He was worried that his photos might not be interesting."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How did winning the competition affect Martin?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He realised how enjoyable competitions can be."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It helped him to make a decision about his future."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It gave him the opportunity to meet more young photographers."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He started putting more effort into his photography."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What would be a good title for this text?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "My favourite websites for sharing photographs."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The best way to become a successful young photographer."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "How a photography project changed my life."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Why more photographers should take pictures of nature."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "Five sentences have been removed from the text below. For each question, choose the correct answer. There are three extra sentences which you do not need to use.",
+      "material": [
+        {
+          "id": "h2",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Ballet for children and teenagers"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p6",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "It can take a long time to reach a professional level in ballet, so most dancers begin their training very young. It is essential that very young dancers learn the ballet movements properly right from the beginning. "
+            },
+            {
+              "t": "blank",
+              "id": "b16",
+              "number": 16
+            },
+            {
+              "t": "text",
+              "v": " This is because it is usually more difficult to change old habits than to learn new ones."
+            }
+          ]
+        },
+        {
+          "id": "p7",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "The first thing that young children who are interested in learning to dance often do is attend creative movement classes, where they can practise basic skills like jumping and turning, and just have fun. "
+            },
+            {
+              "t": "blank",
+              "id": "b17",
+              "number": 17
+            },
+            {
+              "t": "text",
+              "v": " In addition, some people recommend that they should learn either to sing or play an instrument."
+            }
+          ]
+        },
+        {
+          "id": "p8",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Young people who decide they want to have a ballet career can attend a dance school. Here, students not only study normal school subjects but also do daily dance training. "
+            },
+            {
+              "t": "blank",
+              "id": "b18",
+              "number": 18
+            },
+            {
+              "t": "text",
+              "v": " And the whole dance-school environment is set up to support the young people’s artistic development; it allows them to focus on their dance more easily, and prepares them for their future. But how can a young dancer and their parents tell which dance school is the most suitable? "
+            },
+            {
+              "t": "blank",
+              "id": "b19",
+              "number": 19
+            },
+            {
+              "t": "text",
+              "v": " The older students taking part in it should clearly have more highly-developed ballet skills than the younger dancers."
+            }
+          ]
+        },
+        {
+          "id": "p9",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "By the time they are 16 or 17, many ballet dancers are entering ballet competitions and taking classes at professional studios. "
+            },
+            {
+              "t": "blank",
+              "id": "b20",
+              "number": 20
+            },
+            {
+              "t": "text",
+              "v": " It is important for young dancers to know how well they are doing, because the dance world is very competitive and the training hard; not everyone makes it to the top."
+            }
+          ]
+        }
+      ],
+      "bank": [
+        {
+          "id": "A",
+          "content": [
+            {
+              "t": "text",
+              "v": "For all these reasons, they enjoy meeting other dancers."
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "content": [
+            {
+              "t": "text",
+              "v": "Listening to different styles of music also helps."
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "content": [
+            {
+              "t": "text",
+              "v": "Travelling long distances to dance schools can be tiring, too."
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "content": [
+            {
+              "t": "text",
+              "v": "Attending one of their public performances is a good way of finding out."
+            }
+          ]
+        },
+        {
+          "id": "E",
+          "content": [
+            {
+              "t": "text",
+              "v": "If they develop poor technique, they may have problems later on."
+            }
+          ]
+        },
+        {
+          "id": "F",
+          "content": [
+            {
+              "t": "text",
+              "v": "Few people know where to find them."
+            }
+          ]
+        },
+        {
+          "id": "G",
+          "content": [
+            {
+              "t": "text",
+              "v": "This allows them to compare themselves with teenagers from other schools."
+            }
+          ]
+        },
+        {
+          "id": "H",
+          "content": [
+            {
+              "t": "text",
+              "v": "That means they do not waste time travelling from home to dance classes."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b16"
+            ]
+          }
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b17"
+            ]
+          }
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b18"
+            ]
+          }
+        },
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b19"
+            ]
+          }
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b20"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "part": 5,
+      "label": "Part 5",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h3",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Living on a boat"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p10",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Fourteen-year-old Jon Atkins hasn’t had a typical childhood. His parents had always intended to buy a boat and sail round the world, and when Jon was eight they did "
+            },
+            {
+              "t": "blank",
+              "id": "b21",
+              "number": 21
+            },
+            {
+              "t": "text",
+              "v": " that. When they first told him of the plan, Jon felt sad about "
+            },
+            {
+              "t": "blank",
+              "id": "b22",
+              "number": 22
+            },
+            {
+              "t": "text",
+              "v": " his friends, but also excited because of the adventures he would "
+            },
+            {
+              "t": "blank",
+              "id": "b23",
+              "number": 23
+            },
+            {
+              "t": "text",
+              "v": ". Since then, Jon has sailed over 8,000 km and "
+            },
+            {
+              "t": "blank",
+              "id": "b24",
+              "number": 24
+            },
+            {
+              "t": "text",
+              "v": " that he loves living on a boat."
+            }
+          ]
+        },
+        {
+          "id": "p11",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "The boat has two sleeping cabins and Jon’s cabin has just enough "
+            },
+            {
+              "t": "blank",
+              "id": "b25",
+              "number": 25
+            },
+            {
+              "t": "text",
+              "v": " to sit up in. In the main cabin there’s a desk where he studies every day, as he needs to continue his education. Although he doesn’t have any teachers, he doesn’t think his lifestyle will "
+            },
+            {
+              "t": "blank",
+              "id": "b26",
+              "number": 26
+            },
+            {
+              "t": "text",
+              "v": " his future choices. He plans to become a ship’s captain, and is certain that life on a boat is excellent preparation for this."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b21",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "definitely"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "exactly"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "certainly"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "absolutely"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b22",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "departing"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "moving"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "remembering"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "leaving"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b23",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "have"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "set"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "do"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "make"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b24",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "expected"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "discovered"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "imagined"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "believed"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b25",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "area"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "size"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "space"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "place"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b26",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "contain"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "fix"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "limit"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "control"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "part": 6,
+      "label": "Part 6",
+      "instruction": "For each question, write the correct answer. Write one word for each gap.",
+      "material": [
+        {
+          "id": "h4",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "My city"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p12",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "em",
+              "v": "by Harry Salter"
+            }
+          ]
+        },
+        {
+          "id": "p13",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Do you live in a nice place? I do! The city "
+            },
+            {
+              "t": "blank",
+              "id": "b27",
+              "number": 27
+            },
+            {
+              "t": "text",
+              "v": " I live is called Bristol, and it’s in the south-west of England. It’s not very big, but there are loads of things for teenagers to do here."
+            }
+          ]
+        },
+        {
+          "id": "p14",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "blank",
+              "id": "b28",
+              "number": 28
+            },
+            {
+              "t": "text",
+              "v": " you’re interested in television, you should go to the Bristol TV and Radio Studios. On the tour of the studios, you can have a go at presenting and appear "
+            },
+            {
+              "t": "blank",
+              "id": "b29",
+              "number": 29
+            },
+            {
+              "t": "text",
+              "v": " your own radio drama."
+            }
+          ]
+        },
+        {
+          "id": "p15",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Or if you’re into sport, why "
+            },
+            {
+              "t": "blank",
+              "id": "b30",
+              "number": 30
+            },
+            {
+              "t": "text",
+              "v": " try canoeing? The best place is a very pretty local section of the Kennet and Avon canal. It connects Bristol to London and it "
+            },
+            {
+              "t": "blank",
+              "id": "b31",
+              "number": 31
+            },
+            {
+              "t": "text",
+              "v": " built in the early 18th century, so you can experience some local history at the same time."
+            }
+          ]
+        },
+        {
+          "id": "p16",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "These are just two "
+            },
+            {
+              "t": "blank",
+              "id": "b32",
+              "number": 32
+            },
+            {
+              "t": "text",
+              "v": " the many things you can do here. It really is a great place."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b27"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b28"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b29"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b30"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b31"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b32"
+            ],
+            "maxWords": 1
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "Test 1 完整试卷+答案解析.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "bookPages": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

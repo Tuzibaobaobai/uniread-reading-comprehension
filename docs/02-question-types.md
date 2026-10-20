@@ -77,5 +77,22 @@
 - **练习模式**：不限时；每个 Part 的录音可单独播放、暂停、拖动、±5 秒，同一时间只播一段，播完不自动播下一段；提交后看答案、解析、听力原文。
 - **考试模式**：按官方时长倒计时（剩 5 分钟、1 分钟提醒，到时自动交卷）；听力点“开始播放听力”后按考试顺序连续播放各 Part（每段录音已含两遍），正在播放的 Part 高亮，不能暂停、拖动或重播，学生可以提前看后面的题；可标记题目；交卷后显示成绩报告：各 Part 得分 + Cambridge English Scale 估算（Cambridge 官方练习题换算表，标明“估算”）。
 
+## 7. PET（B1 Preliminary for Schools）
+
+框架与 KET 相同（练习 / 考试模式、四项 Cambridge 换算、总成绩取四项平均）；阅读、写作是两张独立试卷，每套 4 个 item。
+
+| 试卷 Part | 交互 |
+|---|---|
+| 阅读 1 告示 / 3 长文 / 5 选择型完形 / 6 开放式完形 | 同 KET |
+| 阅读 2 五人配八篇短文 | 每人一道 `choice`（A–H），左栏 8 篇短文 |
+| 阅读 4 篇章补句（8 选 5） | `gapMatch` + 句库（同七选五） |
+| 写作 1 回邮件（约 100 词） | `extendedText`；输入邮件里的手写批注用行内 `callout` 显示为批注标签 |
+| 写作 2 文章 / 故事二选一 | section `choose: 1`：两张任务卡，选一题作答，切换会清空已写内容，只评分所选一题 |
+| 听力 1–4 | 同 KET（看图选择、对话选择、笔记填空） |
+| 口语 1 / 2 / 4 | `speaking`，每个问题一页；Part 2 看照片个人长述 |
+| 口语 3 双人协作 | AI 搭档：turn `role: partner` 用另一个 TTS 声音（Adam）说话，学生逐句回应；台词由 AI 编写、标为 generated |
+
+写作和口语按 B1 Preliminary 官方评分标准由 AI 评分（写作 4 项、口语 4 项，各 0–5），界面注明遵照 Cambridge 标准。
+
 ## 参考
 IELTS on computer（左右分屏、拖放与标记）、TOEFL iBT Review 屏、NAEP 数字化测评（触屏、划除选项）、Newsela “Let’s Review”、Cambridge Linguaskill gap-fill、WCAG 2.2 SC 2.5.7 / 2.5.8、Apple HIG 44pt、Material 48dp、MDN Visual Viewport API。

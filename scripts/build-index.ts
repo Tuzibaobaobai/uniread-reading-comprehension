@@ -32,7 +32,7 @@ for (const pl of readdirSync(join(ROOT, 'playlists')).sort()) {
   const exam = items.length > 0 && items.every(isExam);
   catalog.playlists.push({
     id: playlist.id,
-    ...(exam ? { format: 'exam' as const } : {}),
+    ...(exam ? { format: 'exam' as const, exam: (items[0] as ExamItemT).meta.exam } : {}),
     title: playlist.title,
     shortTitle: playlist.shortTitle,
     cover: playlist.cover,

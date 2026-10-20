@@ -35,7 +35,7 @@ const loaded = DAYS.map((day) => {
   const id = `${pl}-w${String(week).padStart(2, '0')}-${day}`;
   const f = `content/playlists/${pl}/items/${id}.json`;
   if (!existsSync(f)) return null;
-  const item = JSON.parse(readFileSync(f, 'utf8')) as ArticleItemT; // 时文阅读 books only (KET: scripts/check-ket.ts)
+  const item = JSON.parse(readFileSync(f, 'utf8')) as ArticleItemT; // 时文阅读 books only (KET: scripts/check-exam.ts)
   const key = JSON.parse(readFileSync(f.replace('/items/', '/keys/'), 'utf8')) as ItemKeyT;
   const all = JSON.stringify(item.article) + JSON.stringify(item.sections);
   return { id, item, key, vocab: new Set(words(all.replace(/"[a-zA-Z]+":/g, ' '))) };

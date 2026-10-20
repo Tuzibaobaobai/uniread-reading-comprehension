@@ -14,8 +14,8 @@ export const SCHEMA_VERSION = '1.0';
 export const PlaylistId = z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/);
 /** 时文阅读 item: <playlist>-wNN-<day> */
 export const ArticleItemId = z.string().regex(/^[a-z0-9-]+-w\d{2}-(mon|tue|wed|thu|fri)$/);
-/** exam paper (KET/PET 真题): <playlist>-t<test>-<rw|l|s> */
-export const ExamItemId = z.string().regex(/^[a-z0-9]+-t\d+-(rw|l|s)$/);
+/** exam paper (KET/PET 真题): <playlist>-t<test>-<rw|r|w|l|s> — KET: one Reading & Writing paper; PET: separate r / w */
+export const ExamItemId = z.string().regex(/^[a-z0-9]+-t\d+-(rw|r|w|l|s)$/);
 export const ItemId = z.union([ArticleItemId, ExamItemId]);
 export const Day = z.enum(['mon', 'tue', 'wed', 'thu', 'fri']);
 
@@ -53,6 +53,8 @@ export const Inline: z.ZodType<InlineT> = z.lazy(() =>
       })
       .strict(),
     z.object({ t: z.literal('br') }).strict(),
+    /** a handwritten note added to a printed text (PET Writing Part 1 email), shown as a tag after the words it comments on */
+    z.object({ t: z.literal('callout'), v: z.string() }).strict(),
   ]),
 );
 
@@ -64,7 +66,8 @@ export type InlineT =
   | { t: 'underline'; v: string; vocab?: string }
   | { t: 'gloss'; v: string; zh: string }
   | { t: 'blank'; id: string; number?: number; hint?: z.infer<typeof BlankHint> }
-  | { t: 'br' };
+  | { t: 'br' }
+  | { t: 'callout'; v: string };
 
 export const Rich = z.array(Inline);
 
@@ -262,6 +265,8 @@ export const Speaking = z
           .object({
             id: z.string().regex(/^t\d+$/),
             text: z.string(),
+            /** examiner (default) asks and the learner answers; partner (AI, PET Part 3) speaks and the learner replies */
+            role: z.enum(['examiner', 'partner']).optional(),
             /** the examiner line as audio (scripts/tts.mjs); absent → the browser reads it aloud */
             audio: z.object({ src: z.string(), seconds: z.number().positive() }).strict().optional(),
           })
@@ -342,6 +347,8 @@ export const Section = z
     material: z.array(Block).optional(),
     /** exam items: the Part's recording; the file already contains both plays */
     audio: z.object({ src: z.string(), seconds: z.number().int().positive() }).strict().optional(),
+    /** the learner answers this many of the section's questions (PET Writing Part 2: 1 of 2); only those count */
+    choose: z.number().int().positive().optional(),
     questions: z.array(Question).min(1),
   })
   .strict();
@@ -361,6 +368,8 @@ export const TaskTypeCode = z.enum([
   'dialogue_completion', // 补全对话
   'weekly_intensive', // 每周精读
   'exam_reading_writing', // 真题 · 阅读与写作
+  'exam_reading', // 真题 · 阅读
+  'exam_writing', // 真题 · 写作
   'exam_listening', // 真题 · 听力
   'exam_speaking', // 真题 · 口语
 ]);
@@ -398,7 +407,7 @@ export const ArticleItem = z
   .strict();
 export type ArticleItemT = z.infer<typeof ArticleItem>;
 
-export const ExamPaper = z.enum(['reading_writing', 'listening', 'speaking']);
+export const ExamPaper = z.enum(['reading_writing', 'reading', 'writing', 'listening', 'speaking']);
 
 /**
  * One paper of an exam test (KET/PET 真题): Reading & Writing, Listening or Speaking.
@@ -501,7 +510,9 @@ export const AnswerKey = z.union([
        * cambridge_a2_writing / cambridge_a2_speaking: Cambridge English A2 Key assessment scales — keyPoints are the
        * criteria (weight = top band, 5), each judged on a 0–5 band; the UI states that Cambridge's scales were used.
        */
-      rubricType: z.enum(['content', 'opinion', 'cambridge_a2_writing', 'cambridge_a2_speaking']).optional(),
+      rubricType: z
+        .enum(['content', 'opinion', 'cambridge_a2_writing', 'cambridge_a2_speaking', 'cambridge_b1_writing', 'cambridge_b1_speaking'])
+        .optional(),
       /** 得分要点 — what a full-mark answer must convey; weights sum to the question's points */
       keyPoints: z.array(JudgeKeyPoint).optional(),
       /** all = every key point needed for full marks; any = any one key point (“答出其一即可”) */
@@ -581,6 +592,8 @@ export const Catalog = z
           id: PlaylistId,
           /** exam = 真题 playlist (items grouped by test); absent = 时文阅读 */
           format: z.literal('exam').optional(),
+          /** exam playlists: the exam, e.g. "A2 Key for Schools" — picks the Cambridge English Scale table */
+          exam: z.string().optional(),
           title: z.string(),
           shortTitle: z.string(),
           cover: z.string(),

@@ -3,7 +3,7 @@
  * Pure: takes the saved attempt and the paper's official duration.
  */
 import type { AttemptT, ExamItemT } from '@schema';
-import { paperReports, type Skill, type SkillReport } from './cambridge';
+import { paperReports, type ExamKey, type Skill, type SkillReport } from './cambridge';
 import type { Result } from './grading';
 
 export type ExamStatus =
@@ -20,15 +20,23 @@ export type ExamStatus =
 /** exam mode ends at startedAt + the paper's official time */
 export const examEndsAt = (attempt: AttemptT, durationMinutes: number) => Date.parse(attempt.startedAt) + durationMinutes * 60000;
 
-export function examStatus(attempt: AttemptT | null, paper: ExamItemT['paper'], durationMinutes: number, now = Date.now()): ExamStatus {
+export function examStatus(
+  attempt: AttemptT | null,
+  paper: ExamItemT['paper'],
+  durationMinutes: number,
+  now = Date.now(),
+  exam: ExamKey = 'a2',
+): ExamStatus {
   if (!attempt) return { kind: 'new' };
   if (attempt.status === 'submitted' && attempt.result) {
     const r = attempt.result as Result;
-    const reports = paperReports(paper, r);
+    const reports = paperReports(paper, r, exam);
     const pending = r.byQuestion.some((b) => b.scoredBy === 'pending');
     // raw = every question's points, including judged writing / speaking once scored
-    const raw = r.byQuestion.reduce((n, b) => n + b.points, 0);
-    const max = r.byQuestion.reduce((n, b) => n + b.maxPoints, 0);
+    // raw / max over the questions that count (an unchosen PET writing task is scoredBy "none")
+    const counted = r.byQuestion.filter((b) => b.scoredBy !== 'none');
+    const raw = counted.reduce((n, b) => n + b.points, 0);
+    const max = counted.reduce((n, b) => n + b.maxPoints, 0);
     return { kind: 'done', raw: Math.round(raw * 2) / 2, max, reports, pending };
   }
   if (attempt.mode === 'exam') {

@@ -80,4 +80,4 @@ Writing keys (Q31, Q32):
 `swift scripts/crop.swift <page.jpg> content/assets/ket1/<name>.jpg x y w h` (fractions of the page; inside the frame, no border), then set `w`/`h` from `sips -g pixelWidth -g pixelHeight`. Crop on the 1600-px page images; one look at the page is enough to estimate the box — check the crop once.
 
 ## Done = 
-`npm run validate -- ket1-t<N>-rw ket1-t<N>-l ket1-t<N>-s` → 0 errors, then `npx tsx scripts/check-ket.ts <N>` (answer letters vs answer book) → 0 mismatches. Report: files written, book errors found, anything uncertain.
+`npm run validate -- ket1-t<N>-rw ket1-t<N>-l ket1-t<N>-s` → 0 errors, then `npx tsx scripts/check-exam.ts <N> ket1` (answer letters vs answer book) → 0 mismatches. Report: files written, book errors found, anything uncertain.

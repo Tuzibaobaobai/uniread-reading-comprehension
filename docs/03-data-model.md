@@ -116,6 +116,11 @@ xAPI 映射：actor = learnerId；verb = `answered`（每题）/ `completed`（�
 - Attempt：`mode`（`practice` / `exam`）、`flagged`（考试模式标记的题）、`played`（考试模式已播放的录音）。Judgement 的 keyPoint 可带 `band`。
 - Catalog：真题 playlist 带 `format: "exam"`，ItemSummary 用 `test` / `paper` 代替 `week` / `day`，没有 `difficulty`；真题 playlist 排在时文阅读之后。
 
+### PET 增量（2026-10）
+- `paper` 增加 `reading`、`writing`（id 后缀 `r`、`w`）；`meta.exam` 决定 Cambridge 换算表（`A2 Key…` → A2，`B1 Preliminary…` → B1）；catalog 的真题合集带 `exam`。
+- 行内节点 `callout`（写作输入邮件的手写批注）；section `choose`（N 选 M 作答，只计所选题）；speaking turn `role`（`examiner` / `partner`，AI 搭档）。
+- `rubricType` 增加 `cambridge_b1_writing`（content / communicative_achievement / organisation / language）、`cambridge_b1_speaking`（grammar_vocabulary / discourse_management / interactive_communication / global）。
+
 ## 版本
 - `schemaVersion`：数据结构版本（破坏性变更才升级）
 - `item.status.version`：内容版本（semver），修订文字或答案时递增；Attempt 记录 `itemVersion`

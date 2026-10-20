@@ -175,9 +175,25 @@ export function totals(byQuestion: QuestionResult[]): Pick<Result, 'score' | 'ma
   return { score: Math.round(score * 100) / 100, maxScore: scored.reduce((s, r) => s + r.maxPoints, 0) };
 }
 
+/**
+ * questions that count in a section where the learner answers `choose` of them (PET Writing Part 2: 1 of 2):
+ * the answered ones, else the first ones
+ */
+export function chosenQuestions(section: ItemT['sections'][number], responses: Record<string, ResponseValue>): QuestionT[] {
+  if (!section.choose) return section.questions;
+  const answered = section.questions.filter((q) => isAnswered(q, responses[q.id]));
+  return (answered.length ? answered : section.questions).slice(0, section.choose);
+}
+
 export function gradeItem(item: ItemT, key: ItemKeyT, responses: Record<string, ResponseValue>): Result {
   const hints = collectBlankHints(item);
-  const byQuestion = allQuestions(item).map((q) => gradeQuestion(q, key.answers[q.id], responses[q.id], hints));
+  const counted = new Set(item.sections.flatMap((s) => chosenQuestions(s, responses)).map((q) => q.id));
+  const byQuestion = allQuestions(item).map((q) =>
+    counted.has(q.id)
+      ? gradeQuestion(q, key.answers[q.id], responses[q.id], hints)
+      : // not chosen: shown as such, never counted
+        { q: q.id, correct: null, points: 0, maxPoints: q.points ?? 1, scoredBy: 'none' as const },
+  );
   return { ...totals(byQuestion), byQuestion };
 }
 

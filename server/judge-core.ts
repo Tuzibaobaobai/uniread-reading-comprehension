@@ -13,7 +13,6 @@ import type { JudgementT } from '@schema';
 import { HttpError, loadItem } from './http';
 import { allQuestions } from '../src/lib/grading';
 import {
-  CAMBRIDGE_PROMPT_VERSION,
   JUDGE_OUTPUT_SCHEMA,
   buildJudgePrompt,
   buildJudgeRequest,
@@ -61,7 +60,7 @@ export function openAiCompatibleLlm(opts: { baseUrl: string; apiKey: string; mod
         ...(jsonMode ? { response_format: { type: 'json_object' } } : {}),
         // Cambridge marking (KET writing/speaking): no reasoning trace — 4–5 s instead of 10–35 s, same bands in tests
         // (SiliconFlow hybrid models); a provider that rejects the flag gets the plain request below
-        ...(jsonMode && req.promptVersion === CAMBRIDGE_PROMPT_VERSION ? { enable_thinking: false } : {}),
+        ...(jsonMode && req.promptVersion.startsWith('cambridge-') ? { enable_thinking: false } : {}),
         messages: [
           { role: 'system', content: system },
           { role: 'user', content: user },

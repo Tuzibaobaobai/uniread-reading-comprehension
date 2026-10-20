@@ -13,20 +13,25 @@ import { allBlocks, totals, type Result } from './grading';
 const isExam = (item: ItemT) => 'format' in item && item.format === 'exam';
 
 export const PROMPT_VERSION = 'rc-judge-v3';
-/** Cambridge English A2 Key writing / speaking assessment scales (KET 真题) */
+/** Cambridge English writing / speaking assessment scales: A2 Key (KET 真题), B1 Preliminary (PET 真题) */
 export const CAMBRIDGE_PROMPT_VERSION = 'cambridge-a2-v1';
+export const CAMBRIDGE_B1_PROMPT_VERSION = 'cambridge-b1-v1';
 
 /** answers longer than this are truncated before judging (a 7th-grader's answer is 1–3 sentences) */
 export const MAX_RESPONSE_CHARS = 600;
-/** KET writing (25+ / 35+ words) and a speaking part's transcript are longer */
-export const MAX_CAMBRIDGE_CHARS = 2000;
+/** exam writing (KET 25–35 words, PET ~100) and a speaking part's transcript (PET Part 3 with partner lines) are longer */
+export const MAX_CAMBRIDGE_CHARS = 4000;
 
 type RubricType = NonNullable<ExtendedKey['rubricType']>;
-export const isCambridge = (t: RubricType | undefined): t is 'cambridge_a2_writing' | 'cambridge_a2_speaking' =>
-  t === 'cambridge_a2_writing' || t === 'cambridge_a2_speaking';
+type CambridgeRubric = Extract<RubricType, `cambridge_${string}`>;
+export const isCambridge = (t: RubricType | undefined): t is CambridgeRubric => !!t && t.startsWith('cambridge_');
 
 /** shown with every Cambridge-rubric score (the UI must say the score follows Cambridge's scales) */
-export const CAMBRIDGE_NOTE_ZH: Record<'cambridge_a2_writing' | 'cambridge_a2_speaking', string> = {
+export const CAMBRIDGE_NOTE_ZH: Record<CambridgeRubric, string> = {
+  cambridge_b1_writing:
+    '评分遵照 Cambridge English B1 Preliminary 官方写作评分标准（内容 / 交际效果 / 条理性 / 语言，各 0–5 分），由 AI 评估，仅供参考。',
+  cambridge_b1_speaking:
+    '评分遵照 Cambridge English B1 Preliminary 官方口语评分标准（语法与词汇 / 话语组织 / 互动交流 / 整体表现，各 0–5 分），由 AI 根据录音转写评估，仅供参考；发音需语音评测，暂未评估。',
   cambridge_a2_writing: '评分遵照 Cambridge English A2 Key 官方写作评分标准（内容 / 条理性 / 语言，各 0–5 分），由 AI 评估，仅供参考。',
   cambridge_a2_speaking:
     '评分遵照 Cambridge English A2 Key 官方口语评分标准（语法与词汇 / 互动交流 / 整体表现，各 0–5 分），由 AI 根据录音转写评估，仅供参考；发音需语音评测，暂未评估。',
@@ -62,7 +67,7 @@ export interface JudgeRequest {
 
 const inlineText = (nodes: InlineT[] | undefined): string =>
   (nodes ?? [])
-    .map((n) => (n.t === 'br' ? '\n' : n.t === 'blank' ? '____' : n.t === 'gloss' ? n.v : 'v' in n ? n.v : ''))
+    .map((n) => (n.t === 'br' ? '\n' : n.t === 'blank' ? '____' : n.t === 'callout' ? ` [note: ${n.v}] ` : n.t === 'gloss' ? n.v : 'v' in n ? n.v : ''))
     .join('')
     .replace(/[ \t]+/g, ' ')
     .trim();
@@ -115,9 +120,9 @@ export function speakingTranscript(q: QuestionT, response: string): string {
   } catch {
     /* not JSON: judged as empty */
   }
-  const said = q.interaction.turns.map((t) => [t.text, String(answers[t.id] ?? '').trim()] as const);
-  if (said.every(([, a]) => !a)) return '';
-  return said.map(([ex, a]) => `Examiner: ${ex}\nCandidate: ${a || '(no answer)'}`).join('\n');
+  const said = q.interaction.turns.map((t) => [t.role === 'partner' ? 'Partner' : 'Examiner', t.text, String(answers[t.id] ?? '').trim()] as const);
+  if (said.every(([, , a]) => !a)) return '';
+  return said.map(([who, line, a]) => `${who}: ${line}\nCandidate: ${a || '(no answer)'}`).join('\n');
 }
 
 export function buildJudgeRequest(item: ItemT, q: QuestionT, key: ExtendedKey, response: string, gradeBand = ''): JudgeRequest {
@@ -138,7 +143,7 @@ export function buildJudgeRequest(item: ItemT, q: QuestionT, key: ExtendedKey, r
     .filter(Boolean)
     .join('\n');
   return {
-    promptVersion: cambridge ? CAMBRIDGE_PROMPT_VERSION : PROMPT_VERSION,
+    promptVersion: cambridge ? (key.rubricType!.startsWith('cambridge_b1') ? CAMBRIDGE_B1_PROMPT_VERSION : CAMBRIDGE_PROMPT_VERSION) : PROMPT_VERSION,
     itemId: item.id,
     questionId: q.id,
     gradeBand,
@@ -192,9 +197,28 @@ Answers clearly under the required number of words are usually also lower for co
 - interactive_communication: 5 = maintains simple exchanges, despite some difficulty; requires very little prompting and support; answers are relevant and extended. 3 = maintains simple exchanges, despite some difficulty; requires prompting and support. 1 = has considerable difficulty maintaining simple exchanges; requires additional prompting and support. 0 = below band 1.
 - global: 5 = handles communication in everyday situations, despite hesitation; constructs longer utterances. 3 = conveys basic meaning in very familiar everyday situations; utterances tend to be very short (words or phrases). 1 = has difficulty conveying basic meaning even in very familiar situations; responses are limited to short phrases or isolated words. 0 = below band 1.
 Unanswered turns ("(no answer)") count against interactive_communication and global.`,
+  cambridge_b1_writing: `Writing assessment scale (B1 Preliminary, Parts 1 and 2). Mark each criterion 0–5:
+- content: 5 = all content is relevant to the task; the target reader is fully informed (Part 1: every note on the email is answered). 3 = minor irrelevances and/or omissions; the target reader is on the whole informed. 1 = irrelevances and misinterpretation of the task; the target reader is minimally informed. 0 = content totally irrelevant; the reader is not informed.
+- communicative_achievement: 5 = uses the conventions of the communicative task (email / article / story) to hold the target reader's attention and communicate straightforward ideas. 3 = uses the conventions of the communicative task in generally appropriate ways to communicate straightforward ideas. 1 = produces text that communicates simple ideas in simple ways. 0 = below band 1.
+- organisation: 5 = text is generally well organised and coherent, using a variety of linking words and cohesive devices. 3 = text is connected and coherent, using basic linking words and a limited number of cohesive devices. 1 = text is connected using basic, high-frequency linking words. 0 = below band 1.
+- language: 5 = uses a range of everyday vocabulary appropriately, with occasional inappropriate use of less common lexis; uses a range of simple and some complex grammatical forms with a good degree of control; errors do not impede communication. 3 = uses everyday vocabulary generally appropriately, while occasionally overusing certain lexis; uses simple grammatical forms with a good degree of control; while errors are noticeable, meaning can still be determined. 1 = uses basic vocabulary reasonably appropriately; uses simple grammatical forms with some degree of control; errors may impede meaning at times. 0 = below band 1.
+The task asks for about 100 words; answers clearly much shorter are usually also lower for content.`,
+  cambridge_b1_speaking: `Speaking assessment scale (B1 Preliminary). You see a transcript (speech-to-text: ignore spelling and punctuation; do NOT assess pronunciation). "Partner" lines are an AI partner standing in for the second candidate in the paired task. Mark each criterion 0–5:
+- grammar_vocabulary: 5 = shows a good degree of control of simple grammatical forms, and attempts some complex forms; uses a range of appropriate vocabulary to give and exchange views on familiar topics. 3 = shows a good degree of control of simple grammatical forms; uses a range of appropriate vocabulary when talking about everyday situations. 1 = shows sufficient control of simple grammatical forms; uses a limited range of appropriate vocabulary. 0 = below band 1.
+- discourse_management: 5 = produces extended stretches of language despite some hesitation; contributions are relevant despite some repetition; uses a range of cohesive devices. 3 = produces responses which are extended beyond short phrases, despite hesitation; contributions are mostly relevant, but there may be some repetition; uses basic cohesive devices. 1 = produces responses characterised by short phrases and frequent hesitation; repeats information or digresses from the topic. 0 = below band 1.
+- interactive_communication: 5 = initiates and responds appropriately; maintains and develops the interaction and negotiates towards an outcome with very little support. 3 = initiates and responds appropriately; keeps the interaction going with very little prompting and support. 1 = maintains simple exchanges, despite some difficulty; requires prompting and support. 0 = below band 1.
+- global: 5 = handles communication on familiar topics, despite some hesitation; organises extended discourse but occasionally produces utterances that lack coherence. 3 = handles communication in everyday situations, despite hesitation; constructs longer utterances but is not able to use complex language except in well-rehearsed utterances. 1 = conveys basic meaning in very familiar everyday situations; produces utterances which tend to be very short. 0 = below band 1.
+Unanswered turns ("(no answer)") count against discourse_management, interactive_communication and global.`,
 } as const;
 
-const SYSTEM_CAMBRIDGE = `You are a Cambridge English examiner marking a candidate's answer in an A2 Key for Schools practice test. Mark ONLY against the official assessment scale below; the scored examples show where official marks fall.
+const EXAM_NAME: Record<CambridgeRubric, string> = {
+  cambridge_a2_writing: 'A2 Key for Schools',
+  cambridge_a2_speaking: 'A2 Key for Schools',
+  cambridge_b1_writing: 'B1 Preliminary for Schools',
+  cambridge_b1_speaking: 'B1 Preliminary for Schools',
+};
+
+const SYSTEM_CAMBRIDGE = `You are a Cambridge English examiner marking a candidate's answer in an {{EXAM}} practice test. Mark ONLY against the official assessment scale below; the scored examples show where official marks fall.
 
 {{SCALE}}
 
@@ -239,7 +263,10 @@ ${r.keyPoints.map((k) => `<criterion id="${k.id}" max="${k.weight}">${k.descZh}<
 <candidate_answer>
 ${fence(req.response) || '(empty)'}
 </candidate_answer>`;
-    return { system: SYSTEM_CAMBRIDGE.replace('{{SCALE}}', CAMBRIDGE_SCALES[r.type]).replace('{{OUTPUT}}', output), user };
+    return {
+      system: SYSTEM_CAMBRIDGE.replace('{{EXAM}}', EXAM_NAME[r.type]).replace('{{SCALE}}', CAMBRIDGE_SCALES[r.type]).replace('{{OUTPUT}}', output),
+      user,
+    };
   }
   const user = `${req.gradeBand ? `<learner grade_band="${req.gradeBand}" />\n\n` : ''}<passage title="${fence(req.passage.title)}">
 ${req.passage.text}

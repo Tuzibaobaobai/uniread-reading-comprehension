@@ -39,6 +39,13 @@ export function Rich({ nodes, blank }: { nodes?: InlineT[]; blank?: (n: BlankNod
             return <Fragment key={i}>{blank ? blank(n) : <span className="rt-blank-plain">{n.number ?? ''}</span>}</Fragment>;
           case 'br':
             return <br key={i} />;
+          case 'callout':
+            // handwritten note on a printed text (PET Writing Part 1); 待补组件 — no Figma design yet
+            return (
+              <span key={i} className="rt-callout" role="note" aria-label={`批注：${n.v}`}>
+                {n.v}
+              </span>
+            );
         }
       })}
     </>

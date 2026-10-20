@@ -127,6 +127,7 @@ function ListeningStack({
             </h2>
             <p className="exam-instruction">{s.instruction}</p>
             <p className="player-note">{locked ? EXAM_NOTE : PRACTICE_NOTE}</p>
+            {!s.audio && <p className="part-audio-state">本部分录音暂缺，正在补充中；可以先看题。</p>}
             {s.audio &&
               (locked ? (
                 seq.controls(s)
