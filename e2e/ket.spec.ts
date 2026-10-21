@@ -282,3 +282,17 @@ test('#88 #89 speaking: exam mode hides the text; Part 2 is a discussion with th
   await page.getByRole('button', { name: '切换到练习', exact: true }).click();
   await expect(page.locator('.speak-line')).not.toHaveText(/考试模式/);
 });
+
+test('KET 校园版真题 2 and 3: four tests each, all papers open; emails keep their header band', async ({ page }) => {
+  for (const pl of ['ket2', 'ket3']) {
+    await page.goto(`/#/p/${pl}`);
+    await expect(page.locator('.item-row-title')).toHaveCount(12);
+    await expect(page.locator('.item-row-title').nth(11)).toHaveText(`KET真题${pl.slice(-1)}-第4套-口语`);
+  }
+  await page.goto('/#/p/ket1/ket1-t1-rw');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await tab(page, /题目/);
+  await page.getByRole('button', { name: /第 25 题/ }).click();
+  await tab(page, /材料/);
+  await expect(page.locator('.rt-note.is-email .rt-note-field-label').first()).toHaveText('From:');
+});

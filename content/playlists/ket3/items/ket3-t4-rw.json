@@ -1,0 +1,2005 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "ket3-t4-rw",
+  "playlistId": "ket3",
+  "order": 10,
+  "test": 4,
+  "paper": "reading_writing",
+  "title": "KET真题3-第4套-阅读与写作",
+  "displayName": "KET真题3-第4套-阅读与写作",
+  "taskType": {
+    "code": "exam_reading_writing",
+    "labelZh": "阅读与写作"
+  },
+  "meta": {
+    "exam": "A2 Key for Schools",
+    "durationMinutes": 60,
+    "totalMarks": 60
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ket3/ket3-t4-rw-1.jpg",
+        "alt": "Text message: Maria, Are you sure you picked up the right trainers after football practice today? Mine are missing, and they look exactly like yours. Harry",
+        "w": 384,
+        "h": 638
+      },
+      {
+        "id": "img2",
+        "src": "assets/ket3/ket3-t4-rw-2.jpg",
+        "alt": "Text message: Lizzie, Liam’s party’s on the same day as the concert! I’ve spoken to Liam but there’s nothing that he can do. What a shame! Nadia",
+        "w": 384,
+        "h": 630
+      },
+      {
+        "id": "img3",
+        "src": "assets/ket3/ket3-t4-rw-3.jpg",
+        "alt": "Website message: Upload your photos by March 17th. Winners decided on April 25th. £6 to enter",
+        "w": 481,
+        "h": 406
+      },
+      {
+        "id": "img4",
+        "src": "assets/ket3/ket3-t4-rw-4.jpg",
+        "alt": "Notice: All library staff are in a meeting this morning. If you are returning books, leave them on the desk. To borrow books, come back later.",
+        "w": 476,
+        "h": 498
+      },
+      {
+        "id": "img5",
+        "src": "assets/ket3/ket3-t4-rw-5.jpg",
+        "alt": "Text message: Alice, I’ve got your science book. Wait for me outside the library at 2 o’clock and I’ll give it back. It was very useful. Darren",
+        "w": 438,
+        "h": 745
+      },
+      {
+        "id": "img6",
+        "src": "assets/ket3/ket3-t4-rw-6.jpg",
+        "alt": "Email: Adventure Park. Ticket price £20. Visit again in the next 7 days and enter free!",
+        "w": 480,
+        "h": 498
+      },
+      {
+        "id": "img7",
+        "src": "assets/ket3/ket3-t4-rw-7.jpg",
+        "alt": "Picture 1: On a sunny day, two boys are riding their bikes along a road in the countryside.",
+        "w": 476,
+        "h": 365
+      },
+      {
+        "id": "img8",
+        "src": "assets/ket3/ket3-t4-rw-8.jpg",
+        "alt": "Picture 2: One boy has fallen off his bike and is sitting on the road holding his leg; the other boy is on his bike, talking on his phone.",
+        "w": 454,
+        "h": 365
+      },
+      {
+        "id": "img9",
+        "src": "assets/ket3/ket3-t4-rw-9.jpg",
+        "alt": "Picture 3: A man has come by car. He is putting a bike into the car, and the two boys are sitting inside.",
+        "w": 458,
+        "h": 365
+      },
+      {
+        "id": "imgp1",
+        "src": "assets/ket3/ket3-t4-rw-p1.jpg",
+        "alt": "Photo of Harry",
+        "w": 279,
+        "h": 373
+      },
+      {
+        "id": "imgp2",
+        "src": "assets/ket3/ket3-t4-rw-p2.jpg",
+        "alt": "Photo of Aaron",
+        "w": 279,
+        "h": 411
+      },
+      {
+        "id": "imgp3",
+        "src": "assets/ket3/ket3-t4-rw-p3.jpg",
+        "alt": "Photo of Sonny",
+        "w": 284,
+        "h": 411
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "For each question, choose the correct answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Harry thinks it’s possible that Maria has his trainers."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Harry is offering to help Maria find her trainers."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Harry is telling Maria to take her trainers to football practice."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ]
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How does Nadia feel?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "angry that Liam didn’t help her"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "worried about having such a busy day"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "sorry that she will have to miss an event"
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ]
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "This message on a website gives information about"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "a photograph."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "an exhibition."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "a competition."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i3",
+              "type": "imageRef",
+              "image": "img3"
+            }
+          ]
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "There is a new way of borrowing books at the library from today."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It is not possible to take books out of the library at the moment."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Visitors are invited to a special event at the library this morning."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i4",
+              "type": "imageRef",
+              "image": "img4"
+            }
+          ]
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Darren is texting Alice to let her know"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "where he’ll meet her."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "which book he needs from her."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "what time he’ll leave the library."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i5",
+              "type": "imageRef",
+              "image": "img5"
+            }
+          ]
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The adventure park will be free for everyone to visit next week."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "If you pay now and return this week, you won’t pay a second time."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "People who have already visited can pay less next time."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i6",
+              "type": "imageRef",
+              "image": "img6"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h1",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Life on a farm"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p1",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "em",
+              "v": "Three teenagers talk about what it’s like to grow up on a farm"
+            }
+          ]
+        },
+        {
+          "id": "h2",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Harry"
+            }
+          ],
+          "level": 3
+        },
+        {
+          "id": "p2",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "I love our farm. From every window of our farmhouse, you can see beautiful countryside for miles. Of course, it’s not a perfect life. There are always machines to repair, and farmers never get time off because the animals need them every day. That’s the reason my family and I can’t visit other countries in the summer. But what’s fantastic is that you’re never bored. My parents say the farm will be mine when I’m older, and I’m really happy about that."
+            }
+          ],
+          "image": "imgp1"
+        },
+        {
+          "id": "h3",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Aaron"
+            }
+          ],
+          "level": 3
+        },
+        {
+          "id": "p3",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Being a farmer is a hard life. There are so many jobs to do and most of them are quite boring. Also, farmers can’t travel much and that’s something I really want to do when I’m older. One thing I love is being up before the sun each day. That’s when I feed the chickens. It’s quiet then, with only the noise of the animals. When I was little, the cows looked so big. I always ran away when they came near me. It seems silly now."
+            }
+          ],
+          "image": "imgp2"
+        },
+        {
+          "id": "h4",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Sonny"
+            }
+          ],
+          "level": 3
+        },
+        {
+          "id": "p4",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "My mum and dad are farmers. They often work from early morning until late at night, and always seem so tired. They do too much really, so I try to help if I can. One thing I’m good at is helping Dad when the farm machines break – it’s a great feeling to get them working again. In fact, I’d like to be a mechanic when I leave school. However, I want to continue living in the countryside because I love all the animals."
+            }
+          ],
+          "image": "imgp3"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who was frightened of a kind of farm animal when he was younger?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Harry"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Aaron"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Sonny"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who describes the views from the farm?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Harry"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Aaron"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Sonny"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who thinks living on a farm is not very exciting?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Harry"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Aaron"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Sonny"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who enjoys repairing things on the farm?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Harry"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Aaron"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Sonny"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who explains why it’s difficult for farmers to go away on holiday?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Harry"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Aaron"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Sonny"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who thinks his parents don’t rest enough?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Harry"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Aaron"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Sonny"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who is happy to get up early in the morning?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Harry"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Aaron"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Sonny"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "view": "all"
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h5",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "The teenage sisters who helped clean up their local beaches"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p5",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "em",
+              "v": "Meet Melati and Isabel Wijsen, from the Indonesian island of Bali"
+            }
+          ]
+        },
+        {
+          "id": "p6",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Sisters Melati and Isabel live on the Indonesian island of Bali. Bali is very popular with tourists, who go there for its beautiful beaches. Unfortunately, as Melati and Isabel know, the beaches aren’t always as clean as everyone would like. This is because the sea brings in rubbish, just as it does in many countries."
+            }
+          ]
+        },
+        {
+          "id": "p7",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "A few years ago, Melati and Isabel’s school teacher told them about people who helped make important changes in other countries. The girls thought about changes they could make in Bali, and as they loved going to their local beach with their parents, they agreed that trying to clean it up was a good idea."
+            }
+          ]
+        },
+        {
+          "id": "p8",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "One of the biggest problems on Bali’s beaches was plastic bags. Melati and Isabel learnt that some countries don’t allow companies to make or sell plastic bags anymore. ‘We thought, “If they can do that, well, Bali can, too,”’ explains Melati. ‘So we started a group and called it "
+            },
+            {
+              "t": "em",
+              "v": "Bye Bye Plastic Bags"
+            },
+            {
+              "t": "text",
+              "v": ".’"
+            }
+          ]
+        },
+        {
+          "id": "p9",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "em",
+              "v": "Bye Bye Plastic Bags"
+            },
+            {
+              "t": "text",
+              "v": " began as a small group of people who went out and cleaned beaches. But then journalists started writing about the group, so more people heard about the idea and thought it was important. Now, plastic bags aren’t allowed in Bali anymore."
+            }
+          ]
+        },
+        {
+          "id": "p10",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "People in other countries have taken the girls’ idea and started their own "
+            },
+            {
+              "t": "em",
+              "v": "Bye Bye Plastic Bags"
+            },
+            {
+              "t": "text",
+              "v": " groups. Now, the sisters want to help those people by telling them everything they have learnt. That way, more and more young people can help make the world a cleaner place."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does the writer say about the island of Bali?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Some of its beaches are more popular than others."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It has a problem that lots of other countries have."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The number of tourists who visit it is going up."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The sisters decided to do something about the rubbish after"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "talking to their parents."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "visiting the beach."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "listening to their teacher."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What do we find out from the third paragraph?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "which countries don’t allow plastic bags"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "how the girls got the idea for starting their group"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "which beach in Bali had the biggest problem with plastic"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does the writer explain in the fourth paragraph?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "why people enjoyed cleaning the beaches"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "how news stories helped Melati and Isabel"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "how long it took people to stop using plastic bags"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What do Melati and Isabel want to do next?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "teach other young people how they can improve the world"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "try to start Bye Bye Plastic Bags groups in other countries"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "visit other places in the world that have problems with rubbish"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h6",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "The clearest lake in the world"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p11",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "On New Zealand’s South Island there is an amazing dark blue lake. Scientists say that it has this beautiful colour because the lake water is very clear. In fact, it may be the clearest lake "
+            },
+            {
+              "t": "blank",
+              "id": "b19",
+              "number": 19
+            },
+            {
+              "t": "text",
+              "v": " in the world. In places, the lake is 80 metres deep and it is possible to see all the way to the bottom."
+            }
+          ]
+        },
+        {
+          "id": "p12",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "The lake is called Rotomairewhenua, which is the name given to it by the Māori people who have lived there for thousands of years. It’s very important to them. For this "
+            },
+            {
+              "t": "blank",
+              "id": "b20",
+              "number": 20
+            },
+            {
+              "t": "text",
+              "v": " you can’t wash anything in the lake and visitors are not "
+            },
+            {
+              "t": "blank",
+              "id": "b21",
+              "number": 21
+            },
+            {
+              "t": "text",
+              "v": " to swim there."
+            }
+          ]
+        },
+        {
+          "id": "p13",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "The lake isn’t easy to get to. There are no roads to it, and if you "
+            },
+            {
+              "t": "blank",
+              "id": "b22",
+              "number": 22
+            },
+            {
+              "t": "text",
+              "v": " to walk there, it will "
+            },
+            {
+              "t": "blank",
+              "id": "b23",
+              "number": 23
+            },
+            {
+              "t": "text",
+              "v": " you two days. However, it is "
+            },
+            {
+              "t": "blank",
+              "id": "b24",
+              "number": 24
+            },
+            {
+              "t": "text",
+              "v": " to fly over the lake in a helicopter."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b19",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "everywhere"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "somewhere"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "anywhere"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b20",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "fact"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "reason"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "answer"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b21",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "allowed"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "liked"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "agreed"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b22",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "think"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "suppose"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "decide"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b23",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "spend"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "take"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "need"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b24",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "able"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "available"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "possible"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "part": 5,
+      "label": "Part 5",
+      "instruction": "For each question, write the correct answer. Write **ONE** word for each gap.",
+      "material": [
+        {
+          "id": "n1",
+          "type": "note",
+          "style": "email",
+          "header": [
+            [
+              {
+                "t": "strong",
+                "v": "From: "
+              },
+              {
+                "t": "text",
+                "v": "Lilia"
+              }
+            ],
+            [
+              {
+                "t": "strong",
+                "v": "To: "
+              },
+              {
+                "t": "text",
+                "v": "Elena"
+              }
+            ]
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "Elena,"
+              }
+            ],
+            [
+              {
+                "t": "strong",
+                "v": "(0) "
+              },
+              {
+                "t": "text",
+                "v": "Are"
+              },
+              {
+                "t": "text",
+                "v": " you free any day during the school holiday next week? I haven’t finished the school art project, so my mum has offered to take me "
+              },
+              {
+                "t": "blank",
+                "id": "b25",
+                "number": 25
+              },
+              {
+                "t": "text",
+                "v": " the new fashion museum. She says it’ll help me with ideas. Do you want to come? We can pick you up, if you like. I’m free on Wednesday, Thursday and Friday. "
+              },
+              {
+                "t": "blank",
+                "id": "b26",
+                "number": 26
+              },
+              {
+                "t": "text",
+                "v": " about you?"
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "Lilia"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n2",
+          "type": "note",
+          "style": "email",
+          "header": [
+            [
+              {
+                "t": "strong",
+                "v": "From: "
+              },
+              {
+                "t": "text",
+                "v": "Elena"
+              }
+            ],
+            [
+              {
+                "t": "strong",
+                "v": "To: "
+              },
+              {
+                "t": "text",
+                "v": "Lilia"
+              }
+            ]
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "Lilia,"
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "That’s "
+              },
+              {
+                "t": "blank",
+                "id": "b27",
+                "number": 27
+              },
+              {
+                "t": "text",
+                "v": " great idea. I’d love to come "
+              },
+              {
+                "t": "blank",
+                "id": "b28",
+                "number": 28
+              },
+              {
+                "t": "text",
+                "v": " you and your mum. I’m free on Friday. "
+              },
+              {
+                "t": "blank",
+                "id": "b29",
+                "number": 29
+              },
+              {
+                "t": "text",
+                "v": " you give me your mum’s phone number? My mum wants to talk to her "
+              },
+              {
+                "t": "blank",
+                "id": "b30",
+                "number": 30
+              },
+              {
+                "t": "text",
+                "v": " the plans."
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "Thanks,"
+              }
+            ],
+            [
+              {
+                "t": "text",
+                "v": "Elena"
+              }
+            ]
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b25"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b26"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b27"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b28"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b29"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b30"
+            ],
+            "maxWords": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "part": 6,
+      "label": "Part 6",
+      "instruction": "Read the email from your English friend, Morgan. Write an email to Morgan and answer the questions. Write 25 words or more.",
+      "questions": [
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 15,
+          "skills": [
+            "opinion"
+          ],
+          "material": [
+            {
+              "id": "n3",
+              "type": "note",
+              "style": "email",
+              "header": [
+                [
+                  {
+                    "t": "strong",
+                    "v": "From: "
+                  },
+                  {
+                    "t": "text",
+                    "v": "Morgan"
+                  }
+                ],
+                [
+                  {
+                    "t": "strong",
+                    "v": "To: "
+                  }
+                ]
+              ],
+              "content": [
+                [
+                  {
+                    "t": "text",
+                    "v": "I love doing sport! What’s your favourite sport? Why do you like doing it? Where do you do it?"
+                  }
+                ]
+              ]
+            }
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Read the email from your English friend, Morgan."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write an email to Morgan and answer the questions."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write "
+              },
+              {
+                "t": "strong",
+                "v": "25 words"
+              },
+              {
+                "t": "text",
+                "v": " or more."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 25
+          }
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "part": 7,
+      "label": "Part 7",
+      "instruction": "Look at the three pictures. Write the story shown in the pictures. Write 35 words or more.",
+      "questions": [
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 15,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the three pictures."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write the story shown in the pictures."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write "
+              },
+              {
+                "t": "strong",
+                "v": "35 words"
+              },
+              {
+                "t": "text",
+                "v": " or more."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 35
+          },
+          "material": [
+            {
+              "id": "i7",
+              "type": "imageRef",
+              "image": "img7"
+            },
+            {
+              "id": "i8",
+              "type": "imageRef",
+              "image": "img8"
+            },
+            {
+              "id": "i9",
+              "type": "imageRef",
+              "image": "img9"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "03 KET真题 - 第4套 - 阅读与写作.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "bookPages": [
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

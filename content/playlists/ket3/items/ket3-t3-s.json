@@ -1,0 +1,285 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "ket3-t3-s",
+  "playlistId": "ket3",
+  "order": 9,
+  "test": 3,
+  "paper": "speaking",
+  "title": "KET真题3-第3套-口语",
+  "displayName": "KET真题3-第3套-口语",
+  "taskType": {
+    "code": "exam_speaking",
+    "labelZh": "口语"
+  },
+  "meta": {
+    "exam": "A2 Key for Schools",
+    "durationMinutes": 10,
+    "totalMarks": 30
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ket3/ket3-t3-s-1.jpg",
+        "alt": "Do you like these different games? Pictures: two people playing table tennis; two friends watching a football match on TV and cheering; a girl playing a computer game on a laptop; a girl and a boy playing chess; girls playing basketball.",
+        "w": 1200,
+        "h": 808
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "Answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 15,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about yourself, listening to music and your town."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "What’s your name?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q1-t1.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t2",
+                "text": "How old are you?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q1-t2.mp3",
+                  "seconds": 2
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Where do you live?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q1-t3.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Now, let’s talk about listening to music. How often do you listen to music?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q1-t4.mp3",
+                  "seconds": 6.9
+                }
+              },
+              {
+                "id": "t5",
+                "text": "What do you do when you’re listening to music?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q1-t5.mp3",
+                  "seconds": 3.4
+                }
+              },
+              {
+                "id": "t6",
+                "text": "Now, please tell me something about a day when you enjoyed listening to music with friends.",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q1-t6.mp3",
+                  "seconds": 6.2
+                }
+              },
+              {
+                "id": "t7",
+                "text": "Now, let’s talk about your town. How long have you lived in your town?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q1-t7.mp3",
+                  "seconds": 6.3
+                }
+              },
+              {
+                "id": "t8",
+                "text": "When do you use buses in your town?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q1-t8.mp3",
+                  "seconds": 3.2
+                }
+              }
+            ],
+            "maxSeconds": 30,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Look at the pictures and talk about them with your partner. Then answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 15,
+          "skills": [],
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the pictures of different games. Talk about them with your partner: say if you like them and why or why not. Then answer the examiner’s questions."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Here are some pictures that show different games. Do you like these different games? Say why or why not.",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q2-t1.mp3",
+                  "seconds": 8.5
+                }
+              },
+              {
+                "id": "t10",
+                "text": "I love playing table tennis with my brother. It’s fast and fun. Do you like table tennis?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q2-t10.mp3",
+                  "seconds": 6.2
+                }
+              },
+              {
+                "id": "t11",
+                "text": "Watching football on TV with my friends is exciting. We shout a lot! Do you like watching football?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q2-t11.mp3",
+                  "seconds": 6.7
+                }
+              },
+              {
+                "id": "t12",
+                "text": "I play computer games every weekend. They’re really fun. Do you like computer games?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q2-t12.mp3",
+                  "seconds": 6
+                }
+              },
+              {
+                "id": "t13",
+                "text": "I think chess is difficult, but my dad is teaching me. Can you play chess?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q2-t13.mp3",
+                  "seconds": 5.3
+                }
+              },
+              {
+                "id": "t2",
+                "text": "Do you think playing table tennis is difficult? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q2-t2.mp3",
+                  "seconds": 5.7
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Do you think watching football is exciting? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q2-t3.mp3",
+                  "seconds": 5.6
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Do you think playing computer games is fun? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q2-t4.mp3",
+                  "seconds": 5.4
+                }
+              },
+              {
+                "id": "t5",
+                "text": "Do you think learning to play chess is interesting? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q2-t5.mp3",
+                  "seconds": 6
+                }
+              },
+              {
+                "id": "t6",
+                "text": "Do you think playing basketball is good for you? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q2-t6.mp3",
+                  "seconds": 5.8
+                }
+              },
+              {
+                "id": "t7",
+                "text": "So, which of these games do you like best?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q2-t7.mp3",
+                  "seconds": 4.1
+                }
+              },
+              {
+                "id": "t8",
+                "text": "Now, do you enjoy playing games with your family? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q2-t8.mp3",
+                  "seconds": 6.1
+                }
+              },
+              {
+                "id": "t9",
+                "text": "Do you prefer playing indoor games or outdoor games? Why?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t3-s-q2-t9.mp3",
+                  "seconds": 5.1
+                }
+              }
+            ],
+            "maxSeconds": 45,
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "03 KET真题 - 第3套 - 口语参考.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3
+    ],
+    "bookPages": [
+      78,
+      79,
+      80
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "ket3-t1-s",
+  "playlistId": "ket3",
+  "order": 3,
+  "test": 1,
+  "paper": "speaking",
+  "title": "KET真题3-第1套-口语",
+  "displayName": "KET真题3-第1套-口语",
+  "taskType": {
+    "code": "exam_speaking",
+    "labelZh": "口语"
+  },
+  "meta": {
+    "exam": "A2 Key for Schools",
+    "durationMinutes": 10,
+    "totalMarks": 30
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ket3/ket3-t1-s-1.jpg",
+        "alt": "Do you like these different jobs people do? Pictures: a pilot flying a plane; a young woman playing the violin; a doctor holding a clipboard; a man sweeping the floor with a broom; a teacher writing on the board.",
+        "w": 1200,
+        "h": 775
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "Answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 15,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about yourself, nature and your friends."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "What’s your name?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q1-t1.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t2",
+                "text": "How old are you?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q1-t2.mp3",
+                  "seconds": 2
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Where do you live?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q1-t3.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Now, let’s talk about nature. What is your favourite time of the year?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q1-t4.mp3",
+                  "seconds": 5.8
+                }
+              },
+              {
+                "id": "t5",
+                "text": "How often do you look at the stars in the sky?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q1-t5.mp3",
+                  "seconds": 4.1
+                }
+              },
+              {
+                "id": "t6",
+                "text": "Now, please tell me something about a day you spent in a park.",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q1-t6.mp3",
+                  "seconds": 4.8
+                }
+              },
+              {
+                "id": "t7",
+                "text": "Now, let’s talk about your friends. How often do you chat to your friends online?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q1-t7.mp3",
+                  "seconds": 7
+                }
+              },
+              {
+                "id": "t8",
+                "text": "When was the last time you had a meal with a friend?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q1-t8.mp3",
+                  "seconds": 3.8
+                }
+              }
+            ],
+            "maxSeconds": 30,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Look at the pictures and talk about them with your partner. Then answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 15,
+          "skills": [],
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the pictures of different jobs people do. Talk about them with your partner: say if you like them and why or why not. Then answer the examiner’s questions."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Here are some pictures that show different jobs people do. Do you like these different jobs people do? Say why or why not.",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q2-t1.mp3",
+                  "seconds": 9.6
+                }
+              },
+              {
+                "id": "t10",
+                "text": "Being a pilot is exciting. You can visit lots of countries. Would you like to be a pilot?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q2-t10.mp3",
+                  "seconds": 5.7
+                }
+              },
+              {
+                "id": "t11",
+                "text": "I love music, so I’d like to be a musician. Do you play an instrument?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q2-t11.mp3",
+                  "seconds": 4.9
+                }
+              },
+              {
+                "id": "t12",
+                "text": "Being a doctor is a difficult job, but doctors help lots of people. What do you think?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q2-t12.mp3",
+                  "seconds": 5.8
+                }
+              },
+              {
+                "id": "t13",
+                "text": "My mum is a teacher. She says it’s interesting but tiring. Do you want to be a teacher?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q2-t13.mp3",
+                  "seconds": 6.1
+                }
+              },
+              {
+                "id": "t2",
+                "text": "Do you think working as a pilot is exciting? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q2-t2.mp3",
+                  "seconds": 5.8
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Do you think working as a musician is fun? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q2-t3.mp3",
+                  "seconds": 5.9
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Do you think working as a doctor is difficult? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q2-t4.mp3",
+                  "seconds": 5.8
+                }
+              },
+              {
+                "id": "t5",
+                "text": "Do you think working as a cleaner is boring? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q2-t5.mp3",
+                  "seconds": 5.7
+                }
+              },
+              {
+                "id": "t6",
+                "text": "Do you think working as a teacher is interesting? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q2-t6.mp3",
+                  "seconds": 6
+                }
+              },
+              {
+                "id": "t7",
+                "text": "So, which of these different jobs do you like best?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q2-t7.mp3",
+                  "seconds": 4.6
+                }
+              },
+              {
+                "id": "t8",
+                "text": "Now, would you like to work in a different country in the future? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q2-t8.mp3",
+                  "seconds": 7.5
+                }
+              },
+              {
+                "id": "t9",
+                "text": "Do you think it’s good to earn a lot of money in a job? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket3/ket3-t1-s-q2-t9.mp3",
+                  "seconds": 6.3
+                }
+              }
+            ],
+            "maxSeconds": 45,
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "03 KET真题 - 第1套 - 口语参考.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3
+    ],
+    "bookPages": [
+      72,
+      73,
+      74
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

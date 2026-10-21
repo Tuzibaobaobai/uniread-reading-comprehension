@@ -40,8 +40,19 @@ const BOOKS: Record<
     ],
   },
 };
+// KET 校园版真题 2 has the same per-test PDFs as book 1
+BOOKS.ket2 = BOOKS.ket1;
 // PET 校园版真题 2 has the same per-test PDF layout as book 1
 BOOKS.pet2 = BOOKS.pet1;
+// KET 校园版真题 3 (Cambridge 2025 edition): a "参考答案&音频文稿" PDF per test, photographed spreads
+BOOKS.ket3 = {
+  ocr: (t) => `t${t}-key`,
+  bleed: true,
+  papers: [
+    { paper: 'rw', from: [/^Reading and Writing$/], to: /^Part 6$|^Sample answer/, count: 30 },
+    { paper: 'l', from: [/^Listening$/], to: /^Transcript$/, count: 25 },
+  ],
+};
 // PET 校园版真题 3 (Cambridge 2025 edition): a separate "参考答案&音频文稿" PDF per test, photographed spreads
 BOOKS.pet3 = {
   ocr: (t) => `t${t}-key`,
@@ -94,7 +105,8 @@ function answers(from: RegExp[], to: RegExp, count: number): Map<number, string>
     .join(' ')
     .replace(/\b(\d{1,2})([A-H])\b/g, '$1 $2') // "5B 6A"
     .split(/\s+/)
-    .filter(Boolean);
+    .filter(Boolean)
+    .map((t) => t.replace(/^([A-H])[^\x00-\x7f]+$/, '$1')); // "BŘš" → B (OCR noise after a letter)
   const out = new Map<number, string>();
   let q = 0;
   for (const tok of tokens) {
@@ -110,7 +122,8 @@ function answers(from: RegExp[], to: RegExp, count: number): Map<number, string>
 
 /** "(al)though" → though, although; "25(th) June" → 25 June, 25th June */
 function variants(printed: string): string[] {
-  return printed.split('/').flatMap((alt) => {
+  // alternatives are separated by "/" — but not inside a fraction ("1/4 to 2")
+  return printed.split(/(?<!\d)\/|\/(?!\d)/).flatMap((alt) => {
     let out = [''];
     for (const part of alt.trim().split(/(\([^)]*\))/)) {
       if (!part) continue;

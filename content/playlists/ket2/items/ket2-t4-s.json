@@ -1,0 +1,287 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "ket2-t4-s",
+  "playlistId": "ket2",
+  "order": 12,
+  "test": 4,
+  "paper": "speaking",
+  "title": "KET真题2-第4套-口语",
+  "displayName": "KET真题2-第4套-口语",
+  "taskType": {
+    "code": "exam_speaking",
+    "labelZh": "口语"
+  },
+  "meta": {
+    "exam": "A2 Key for Schools",
+    "durationMinutes": 10,
+    "totalMarks": 30
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ket2/ket2-t4-s-1.jpg",
+        "alt": "Do you like these different activities to do at home? Pictures: two girls tidying up a bedroom; two teenagers playing chess on the floor; three friends chatting on a sofa; a girl and a man reading magazines in a living room; two people cooking in a kitchen.",
+        "w": 1200,
+        "h": 738
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "Answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 15,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about yourself, going on trips and TV."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "What’s your name?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q1-t1.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t2",
+                "text": "How old are you?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q1-t2.mp3",
+                  "seconds": 2
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Where do you live?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q1-t3.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Now, let’s talk about going on trips. How often do you go on trips?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q1-t4.mp3",
+                  "seconds": 6.7
+                }
+              },
+              {
+                "id": "t5",
+                "text": "What do you eat when you go on trips?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q1-t5.mp3",
+                  "seconds": 3
+                }
+              },
+              {
+                "id": "t6",
+                "text": "Now, please tell me something about a trip you would like to go on.",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q1-t6.mp3",
+                  "seconds": 4.6
+                }
+              },
+              {
+                "id": "t7",
+                "text": "Now, let’s talk about TV. Who watches the most TV in your house?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q1-t7.mp3",
+                  "seconds": 6.2
+                }
+              },
+              {
+                "id": "t8",
+                "text": "When was the last time you watched TV?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q1-t8.mp3",
+                  "seconds": 3.4
+                }
+              }
+            ],
+            "maxSeconds": 30,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Look at the pictures and talk about them with your partner. Then answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 15,
+          "skills": [],
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the pictures of different activities to do at home. Talk about them with your partner: say if you like them and why or why not. Then answer the examiner’s questions."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Here are some pictures that show different activities to do at home. Do you like these different activities to do at home? Say why or why not.",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q2-t1.mp3",
+                  "seconds": 10.4
+                }
+              },
+              {
+                "id": "t10",
+                "text": "I really like playing chess at home. It’s fun to play with my brother. Do you like playing games?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q2-t10.mp3",
+                  "seconds": 6.4
+                }
+              },
+              {
+                "id": "t11",
+                "text": "I don’t like tidying up my room. It’s so boring! Do you tidy your room?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q2-t11.mp3",
+                  "seconds": 5.3
+                }
+              },
+              {
+                "id": "t12",
+                "text": "I think cooking is fun. I sometimes make pizza with my dad. Do you like cooking?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q2-t12.mp3",
+                  "seconds": 5.9
+                }
+              },
+              {
+                "id": "t13",
+                "text": "I love chatting with my friends on the sofa. We talk for hours! Do you like chatting?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q2-t13.mp3",
+                  "seconds": 5.8
+                }
+              },
+              {
+                "id": "t2",
+                "text": "Do you think tidying up is horrible? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q2-t2.mp3",
+                  "seconds": 5.4
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Do you think playing games is fun? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q2-t3.mp3",
+                  "seconds": 5
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Do you think chatting is nice? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q2-t4.mp3",
+                  "seconds": 4.9
+                }
+              },
+              {
+                "id": "t5",
+                "text": "Do you think reading magazines is exciting? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q2-t5.mp3",
+                  "seconds": 5.6
+                }
+              },
+              {
+                "id": "t6",
+                "text": "Do you think cooking is hard? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q2-t6.mp3",
+                  "seconds": 4.9
+                }
+              },
+              {
+                "id": "t7",
+                "text": "So, which of these activities to do at home do you like best?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q2-t7.mp3",
+                  "seconds": 5
+                }
+              },
+              {
+                "id": "t8",
+                "text": "Now, do you prefer spending time at home or going out at the weekend? Why?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q2-t8.mp3",
+                  "seconds": 6.9
+                }
+              },
+              {
+                "id": "t9",
+                "text": "Who do you like spending time with at home? Why?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t4-s-q2-t9.mp3",
+                  "seconds": 4.5
+                }
+              }
+            ],
+            "maxSeconds": 45,
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "02 KET真题 - 第4套 - 口语.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "bookPages": [
+      128,
+      81,
+      82,
+      83
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

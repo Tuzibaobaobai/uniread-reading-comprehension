@@ -1,0 +1,287 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "ket2-t1-s",
+  "playlistId": "ket2",
+  "order": 3,
+  "test": 1,
+  "paper": "speaking",
+  "title": "KET真题2-第1套-口语",
+  "displayName": "KET真题2-第1套-口语",
+  "taskType": {
+    "code": "exam_speaking",
+    "labelZh": "口语"
+  },
+  "meta": {
+    "exam": "A2 Key for Schools",
+    "durationMinutes": 10,
+    "totalMarks": 30
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ket2/ket2-t1-s-1.jpg",
+        "alt": "Do you like these different things you do at school? Pictures: two students doing maths at a table; a boy writing in an exercise book; students in a classroom watching a history lesson on a screen; students playing music in a band; students painting pictures in an art room.",
+        "w": 1200,
+        "h": 659
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "Answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 15,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about yourself, evenings and the weather."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "What’s your name?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q1-t1.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t2",
+                "text": "How old are you?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q1-t2.mp3",
+                  "seconds": 2
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Where do you live?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q1-t3.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Now, let’s talk about evenings. How often do you text your friends in the evening?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q1-t4.mp3",
+                  "seconds": 7.5
+                }
+              },
+              {
+                "id": "t5",
+                "text": "Who do you spend time with in the evening?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q1-t5.mp3",
+                  "seconds": 3.5
+                }
+              },
+              {
+                "id": "t6",
+                "text": "Now, please tell me something about last Saturday evening.",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q1-t6.mp3",
+                  "seconds": 4.4
+                }
+              },
+              {
+                "id": "t7",
+                "text": "Now, let’s talk about the weather. Where do you go when the weather is cold?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q1-t7.mp3",
+                  "seconds": 6.5
+                }
+              },
+              {
+                "id": "t8",
+                "text": "What do you like doing when the weather is warm?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q1-t8.mp3",
+                  "seconds": 3.5
+                }
+              }
+            ],
+            "maxSeconds": 30,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Look at the pictures and talk about them with your partner. Then answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 15,
+          "skills": [],
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the pictures of different things you do at school. Talk about them with your partner: say if you like them and why or why not. Then answer the examiner’s questions."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Here are some pictures that show different things you do at school. Do you like these different things you do at school? Say why or why not.",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q2-t1.mp3",
+                  "seconds": 10.3
+                }
+              },
+              {
+                "id": "t10",
+                "text": "I really like music lessons. Playing in a band with friends is great. Do you like playing music?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q2-t10.mp3",
+                  "seconds": 6.9
+                }
+              },
+              {
+                "id": "t11",
+                "text": "Maths is difficult for me, but I like it when I get the answer right. What about you?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q2-t11.mp3",
+                  "seconds": 5.2
+                }
+              },
+              {
+                "id": "t12",
+                "text": "I love painting pictures. It’s relaxing and I like using lots of colours. Do you like painting?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q2-t12.mp3",
+                  "seconds": 7.5
+                }
+              },
+              {
+                "id": "t13",
+                "text": "Writing stories is fun, but it takes a long time. Do you like writing stories?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q2-t13.mp3",
+                  "seconds": 5.5
+                }
+              },
+              {
+                "id": "t2",
+                "text": "Do you think doing maths is difficult? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q2-t2.mp3",
+                  "seconds": 5.4
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Do you think writing stories is interesting? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q2-t3.mp3",
+                  "seconds": 5.4
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Do you think learning about history is boring? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q2-t4.mp3",
+                  "seconds": 6
+                }
+              },
+              {
+                "id": "t5",
+                "text": "Do you think playing music is easy? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q2-t5.mp3",
+                  "seconds": 5.2
+                }
+              },
+              {
+                "id": "t6",
+                "text": "Do you think painting pictures is fun? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q2-t6.mp3",
+                  "seconds": 5.4
+                }
+              },
+              {
+                "id": "t7",
+                "text": "So, which of these sports do you like best?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q2-t7.mp3",
+                  "seconds": 4.3
+                }
+              },
+              {
+                "id": "t8",
+                "text": "Now, is it useful to learn about the geography of the world at school? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q2-t8.mp3",
+                  "seconds": 7.8
+                }
+              },
+              {
+                "id": "t9",
+                "text": "Do you think it is important to play sport at school? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t1-s-q2-t9.mp3",
+                  "seconds": 6.2
+                }
+              }
+            ],
+            "maxSeconds": 45,
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "02 KET真题 - 第1套 - 口语.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "bookPages": [
+      125,
+      72,
+      73,
+      74
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

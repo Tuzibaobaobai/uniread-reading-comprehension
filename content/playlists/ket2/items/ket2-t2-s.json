@@ -1,0 +1,287 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "ket2-t2-s",
+  "playlistId": "ket2",
+  "order": 6,
+  "test": 2,
+  "paper": "speaking",
+  "title": "KET真题2-第2套-口语",
+  "displayName": "KET真题2-第2套-口语",
+  "taskType": {
+    "code": "exam_speaking",
+    "labelZh": "口语"
+  },
+  "meta": {
+    "exam": "A2 Key for Schools",
+    "durationMinutes": 10,
+    "totalMarks": 30
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ket2/ket2-t2-s-1.jpg",
+        "alt": "Do you like these different things to do on holiday? Pictures: a group of people visiting a castle; tourists sightseeing in a city with a big wheel; a family having a barbecue on the beach; people snowboarding in the mountains; a man taking a photo of his friends at a restaurant table.",
+        "w": 1200,
+        "h": 636
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "Answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 15,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about yourself, learning English and sport."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "What’s your name?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q1-t1.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t2",
+                "text": "How old are you?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q1-t2.mp3",
+                  "seconds": 2
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Where do you live?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q1-t3.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Now, let’s talk about learning English. Who can speak English in your family?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q1-t4.mp3",
+                  "seconds": 6.6
+                }
+              },
+              {
+                "id": "t5",
+                "text": "When do you usually have your English lessons?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q1-t5.mp3",
+                  "seconds": 3.5
+                }
+              },
+              {
+                "id": "t6",
+                "text": "Now, please tell me something about your last English lesson at school.",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q1-t6.mp3",
+                  "seconds": 5.3
+                }
+              },
+              {
+                "id": "t7",
+                "text": "Now, let’s talk about sport. What sport do you do at school?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q1-t7.mp3",
+                  "seconds": 5.6
+                }
+              },
+              {
+                "id": "t8",
+                "text": "What do you wear when you do sport?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q1-t8.mp3",
+                  "seconds": 2.8
+                }
+              }
+            ],
+            "maxSeconds": 30,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Look at the pictures and talk about them with your partner. Then answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 15,
+          "skills": [],
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the pictures of different things to do on holiday. Talk about them with your partner: say if you like them and why or why not. Then answer the examiner’s questions."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Here are some pictures that show different things to do on holiday. Do you like these different things to do on holiday? Say why or why not.",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q2-t1.mp3",
+                  "seconds": 10.5
+                }
+              },
+              {
+                "id": "t10",
+                "text": "I love snowboarding in the mountains. It’s fast and exciting. Do you like snowboarding?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q2-t10.mp3",
+                  "seconds": 6.6
+                }
+              },
+              {
+                "id": "t11",
+                "text": "I don’t really like visiting castles. They’re a bit boring for me. What about you?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q2-t11.mp3",
+                  "seconds": 5.7
+                }
+              },
+              {
+                "id": "t12",
+                "text": "Having a barbecue on the beach is great fun with friends. Do you like barbecues?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q2-t12.mp3",
+                  "seconds": 6
+                }
+              },
+              {
+                "id": "t13",
+                "text": "I always take lots of photos on holiday. Do you like taking photos?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q2-t13.mp3",
+                  "seconds": 4.8
+                }
+              },
+              {
+                "id": "t2",
+                "text": "Do you think visiting a castle is interesting? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q2-t2.mp3",
+                  "seconds": 5.9
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Do you think sightseeing in a city is boring? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q2-t3.mp3",
+                  "seconds": 6
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Do you think having a barbecue on the beach is exciting? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q2-t4.mp3",
+                  "seconds": 6.5
+                }
+              },
+              {
+                "id": "t5",
+                "text": "Do you think snowboarding in the mountains is fun? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q2-t5.mp3",
+                  "seconds": 6.1
+                }
+              },
+              {
+                "id": "t6",
+                "text": "Do you think taking photos is important? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q2-t6.mp3",
+                  "seconds": 5.4
+                }
+              },
+              {
+                "id": "t7",
+                "text": "So, which of these things to do on holiday do you like best?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q2-t7.mp3",
+                  "seconds": 5.2
+                }
+              },
+              {
+                "id": "t8",
+                "text": "Now, do you like going on holiday to a city? Why? / Why not?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q2-t8.mp3",
+                  "seconds": 6.4
+                }
+              },
+              {
+                "id": "t9",
+                "text": "Do you prefer having one long holiday or a few short ones? Why?",
+                "audio": {
+                  "src": "assets/ket2/ket2-t2-s-q2-t9.mp3",
+                  "seconds": 5.9
+                }
+              }
+            ],
+            "maxSeconds": 45,
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "02 KET真题 - 第2套 - 口语.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "bookPages": [
+      126,
+      75,
+      76,
+      77
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

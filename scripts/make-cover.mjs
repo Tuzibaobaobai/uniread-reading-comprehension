@@ -18,6 +18,8 @@ const TYPES = {
 /** one entry per playlist: the series subtitle and what the book contains */
 const COVERS = {
   ket1: { type: 'KET', series: '校园版真题 1', detail: '4 套 · 阅读与写作 · 听力 · 口语' },
+  ket2: { type: 'KET', series: '校园版真题 2', detail: '4 套 · 阅读与写作 · 听力 · 口语' },
+  ket3: { type: 'KET', series: '校园版真题 3', detail: '4 套 · 阅读与写作 · 听力 · 口语' },
   pet1: { type: 'PET', series: '校园版真题 1', detail: '4 套 · 阅读 · 写作 · 听力 · 口语' },
   pet2: { type: 'PET', series: '校园版真题 2', detail: '4 套 · 阅读 · 写作 · 听力 · 口语' },
   pet3: { type: 'PET', series: '校园版真题 3', detail: '4 套 · 阅读 · 写作 · 听力 · 口语' },
