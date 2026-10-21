@@ -1,0 +1,390 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "pet1-t2-s",
+  "playlistId": "pet1",
+  "order": 8,
+  "test": 2,
+  "paper": "speaking",
+  "title": "PET真题1-第2套-口语",
+  "displayName": "PET真题1-第2套-口语",
+  "taskType": {
+    "code": "exam_speaking",
+    "labelZh": "口语"
+  },
+  "meta": {
+    "exam": "B1 Preliminary for Schools",
+    "durationMinutes": 14,
+    "totalMarks": 80
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/pet1/pet1-t2-s-1.jpg",
+        "alt": "Task 2A – Mountain biking: a young man in an orange jacket and helmet, with an orange backpack, is riding a white mountain bike down a rocky path through a steep green forest. Two other cyclists are riding behind him on the path.",
+        "w": 1125,
+        "h": 750
+      },
+      {
+        "id": "img2",
+        "src": "assets/pet1/pet1-t2-s-2.jpg",
+        "alt": "Task 2C – Ways to find out about the history of the local area. In the middle: a girl in a town square, thinking. Around her: reading the information on an old statue in the town, asking an old woman about the past, looking for information on a laptop, going on a guided tour of a castle, visiting a museum, and looking at old maps and books.",
+        "w": 1200,
+        "h": 1129
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "Answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 20,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about yourself and your everyday life."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "What’s your name?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q1-t1.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t2",
+                "text": "How old are you?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q1-t2.mp3",
+                  "seconds": 2
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Where do you live?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q1-t3.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Who do you live with?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q1-t4.mp3",
+                  "seconds": 2.1
+                }
+              },
+              {
+                "id": "t5",
+                "text": "Tell us about a teacher you like.",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q1-t5.mp3",
+                  "seconds": 3
+                }
+              },
+              {
+                "id": "t6",
+                "text": "How often do you use a mobile phone?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q1-t6.mp3",
+                  "seconds": 3.4
+                }
+              },
+              {
+                "id": "t7",
+                "text": "Which time of year do you like the most? Why?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q1-t7.mp3",
+                  "seconds": 4.3
+                }
+              },
+              {
+                "id": "t8",
+                "text": "Which do you like best, the morning or the afternoon? Why?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q1-t8.mp3",
+                  "seconds": 5.5
+                }
+              },
+              {
+                "id": "t9",
+                "text": "Tell us about sports you like.",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q1-t9.mp3",
+                  "seconds": 2.9
+                }
+              },
+              {
+                "id": "t10",
+                "text": "What type of music do you like listening to?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q1-t10.mp3",
+                  "seconds": 3.6
+                }
+              },
+              {
+                "id": "t11",
+                "text": "Tell us what you do in the school holidays.",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q1-t11.mp3",
+                  "seconds": 3.6
+                }
+              },
+              {
+                "id": "t12",
+                "text": "What new hobby would you like to try? Why?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q1-t12.mp3",
+                  "seconds": 4.1
+                }
+              }
+            ],
+            "maxSeconds": 30,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Talk about your photograph on your own.",
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 20,
+          "skills": [],
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the photograph of people on bicycles and talk about it on your own for about one minute."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Now I’d like you to talk on your own about something. I’m going to give you a photograph and I’d like you to talk about it. Here is your photograph. It shows people on bicycles. Please tell us what you can see in the photograph.",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q2-t1.mp3",
+                  "seconds": 17.5
+                }
+              }
+            ],
+            "maxSeconds": 75,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "Talk together with your partner about the situation.",
+      "questions": [
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 20,
+          "skills": [],
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Talk with your partner about the different ways a girl could find out about the history of her local area, and decide which would be best."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Now, in this part of the test you’re going to talk about something together for about two minutes. I’m going to describe a situation to you. A girl is going to write an article for her school magazine about the history of her local area. She wants to find out more about it. Here are some ways she could find out about the history of her local area. Talk together about the different ways she could find out about the history of the local area and say which would be best. All right? Now, talk together.",
+                "role": "examiner",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q3-t1.mp3",
+                  "seconds": 37
+                }
+              },
+              {
+                "id": "t2",
+                "text": "Shall I start? I think talking to an old person is a great idea. They can tell her real stories about the past. What do you think?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q3-t2.mp3",
+                  "seconds": 8.6
+                }
+              },
+              {
+                "id": "t3",
+                "text": "That’s true. What about looking on the internet? It’s quick and easy, but is the information always correct?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q3-t3.mp3",
+                  "seconds": 6.8
+                }
+              },
+              {
+                "id": "t4",
+                "text": "I like the idea of a museum too, because she can see old things from her area. Do you agree?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q3-t4.mp3",
+                  "seconds": 5.9
+                }
+              },
+              {
+                "id": "t5",
+                "text": "And what about a guided tour of the castle? The guide knows a lot, but it might be expensive. What’s your opinion?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q3-t5.mp3",
+                  "seconds": 7.2
+                }
+              },
+              {
+                "id": "t6",
+                "text": "She could also look at old maps and books, or read the sign on the statue. Are those useful, do you think?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q3-t6.mp3",
+                  "seconds": 6.9
+                }
+              },
+              {
+                "id": "t7",
+                "text": "So, which way do you think would be best for her article? I think talking to an old person, because her story would be really interesting.",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q3-t7.mp3",
+                  "seconds": 8
+                }
+              }
+            ],
+            "maxSeconds": 45,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "Answer the examiner’s questions about the topic of Part 3.",
+      "questions": [
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 20,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about history and learning about the past."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Do you like learning about history at school? Why? / Why not?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q4-t1.mp3",
+                  "seconds": 5.7
+                }
+              },
+              {
+                "id": "t2",
+                "text": "Have you been on a school trip to a museum? What did you see?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q4-t2.mp3",
+                  "seconds": 4.8
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Do you enjoy watching films about the past? Why? / Why not?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q4-t3.mp3",
+                  "seconds": 6
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Is it interesting to visit historical buildings like castles? Why? / Why not?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q4-t4.mp3",
+                  "seconds": 6.8
+                }
+              },
+              {
+                "id": "t5",
+                "text": "Do you think it’s important for young people to learn about the past? Why? / Why not?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t2-s-q4-t5.mp3",
+                  "seconds": 6.8
+                }
+              }
+            ],
+            "maxSeconds": 40,
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "Test 2 完整试卷+答案解析.pdf",
+    "pdfPages": [
+      19,
+      20,
+      21,
+      22
+    ],
+    "bookPages": [
+      84,
+      85,
+      86,
+      87
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

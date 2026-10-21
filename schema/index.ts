@@ -562,6 +562,8 @@ export const ItemKey = z
     schemaVersion: z.literal(SCHEMA_VERSION),
     itemId: ItemId,
     answerSource: z.enum(['official', 'generated']),
+    /** who wrote the 中文解析: the answer book (official) or the producer when the book has none (PET 校园版真题 3); absent = same as answerSource */
+    explanationSource: z.enum(['official', 'generated']).optional(),
     reviewStatus: z.enum(['pending', 'approved']),
     /** where the official answers come from (answer-book PDF pages) */
     officialRef: z.object({ pdf: z.string(), pages: z.array(z.number().int().positive()) }).strict().optional(),

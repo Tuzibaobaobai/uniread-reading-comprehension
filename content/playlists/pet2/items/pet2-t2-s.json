@@ -1,0 +1,381 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "pet2-t2-s",
+  "playlistId": "pet2",
+  "order": 8,
+  "test": 2,
+  "paper": "speaking",
+  "title": "PET真题2-第2套-口语",
+  "displayName": "PET真题2-第2套-口语",
+  "taskType": {
+    "code": "exam_speaking",
+    "labelZh": "口语"
+  },
+  "meta": {
+    "exam": "B1 Preliminary for Schools",
+    "durationMinutes": 14,
+    "totalMarks": 80
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/pet2/pet2-t2-s-1.jpg",
+        "alt": "Task 2A – Playing music: four teenagers are playing music together in a hall with dark red curtains and a wooden floor. On the left, a girl in a flowery shirt is playing an acoustic guitar. Next to her, a boy in a checked shirt is playing an old piano with some sheet music on it. Behind him, a boy in a pink jacket is standing and playing a small guitar. On the right, a girl in a white top is sitting on a chair and playing a black guitar.",
+        "w": 1200,
+        "h": 780
+      },
+      {
+        "id": "img2",
+        "src": "assets/pet2/pet2-t2-s-2.jpg",
+        "alt": "Task 2C – Things the library could have. In the middle: teenagers walking into a new library. Around it: a games room with table tennis and chess, a room with computers, an outdoor café with tables and umbrellas, a shop selling snacks, drinks and books, a shop selling pens, pencils and other things for school, and a small cinema showing a film about space.",
+        "w": 1200,
+        "h": 1023
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "Answer the examiner's questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 20,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about yourself and your everyday life."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "What’s your name?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q1-t1.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t2",
+                "text": "How old are you?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q1-t2.mp3",
+                  "seconds": 2
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Where do you live?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q1-t3.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Who do you live with?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q1-t4.mp3",
+                  "seconds": 2.1
+                }
+              },
+              {
+                "id": "t5",
+                "text": "What subject do you find the easiest at school? (Why?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q1-t5.mp3",
+                  "seconds": 5
+                }
+              },
+              {
+                "id": "t6",
+                "text": "What kind of music do you listen to?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q1-t6.mp3",
+                  "seconds": 3
+                }
+              },
+              {
+                "id": "t7",
+                "text": "What type of animals do you like?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q1-t7.mp3",
+                  "seconds": 2.8
+                }
+              },
+              {
+                "id": "t8",
+                "text": "Do you like shopping? (Why?/Why not?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q1-t8.mp3",
+                  "seconds": 4.2
+                }
+              },
+              {
+                "id": "t9",
+                "text": "How often do you take photos? (Why?/Why not?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q1-t9.mp3",
+                  "seconds": 5.2
+                }
+              },
+              {
+                "id": "t10",
+                "text": "Tell us about the kind of films you like.",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q1-t10.mp3",
+                  "seconds": 3.4
+                }
+              },
+              {
+                "id": "t11",
+                "text": "Where do you like to meet your friends?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q1-t11.mp3",
+                  "seconds": 2.8
+                }
+              },
+              {
+                "id": "t12",
+                "text": "Do you enjoy playing games on phones and computers?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q1-t12.mp3",
+                  "seconds": 4.2
+                }
+              }
+            ],
+            "maxSeconds": 30,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Talk about your photograph on your own.",
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 20,
+          "skills": [],
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the photograph of people playing music and talk about it on your own for about one minute."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Now I’d like you to talk on your own about something. I’m going to give you a photograph and I’d like you to talk about it. Here is your photograph. It shows people playing music. Please tell us what you can see in the photograph.",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q2-t1.mp3",
+                  "seconds": 17.5
+                }
+              }
+            ],
+            "maxSeconds": 75,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "Talk together with your partner about the situation.",
+      "questions": [
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 20,
+          "skills": [],
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Talk with your partner about the different things a new library could have, and decide which would be most popular with teenagers."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Now, in this part of the test you’re going to talk about something together for about two minutes. I’m going to describe a situation to you. A new library is going to open in a town. Here are some things the library could have. Talk together about the different things the library could have and say which would be most popular with teenagers. All right? Now, talk together.",
+                "role": "examiner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q3-t1.mp3",
+                  "seconds": 27.7
+                }
+              },
+              {
+                "id": "t2",
+                "text": "Shall I start? I think a games room with table tennis and chess would be great. Teenagers could meet their friends there. What do you think?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q3-t2.mp3",
+                  "seconds": 8.8
+                }
+              },
+              {
+                "id": "t3",
+                "text": "That’s true. What about the computers? Lots of teenagers need them for their homework. Do you agree?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q3-t3.mp3",
+                  "seconds": 6.8
+                }
+              },
+              {
+                "id": "t4",
+                "text": "I’m not sure about the shop with pens and pencils. You can buy those things in lots of places. What’s your opinion?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q3-t4.mp3",
+                  "seconds": 7.7
+                }
+              },
+              {
+                "id": "t5",
+                "text": "What about the café outside, or the room for watching films? Which one do you think teenagers would like more?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q3-t5.mp3",
+                  "seconds": 6.9
+                }
+              },
+              {
+                "id": "t6",
+                "text": "So, which thing would be most popular with teenagers? I think the games room, because it’s fun. Do you agree?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q3-t6.mp3",
+                  "seconds": 7.8
+                }
+              }
+            ],
+            "maxSeconds": 45,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "Answer the examiner's questions about the topic of Part 3.",
+      "questions": [
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 20,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about libraries and reading."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "How often do you go to a library? (Why?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q4-t1.mp3",
+                  "seconds": 4.3
+                }
+              },
+              {
+                "id": "t2",
+                "text": "What kind of things do you enjoy reading? (Why?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q4-t2.mp3",
+                  "seconds": 4.1
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Do you prefer to read about something or watch a TV programme about it? (Why?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q4-t3.mp3",
+                  "seconds": 6.3
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Have you ever read a book in English? (Why?/Why not?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q4-t4.mp3",
+                  "seconds": 5.2
+                }
+              },
+              {
+                "id": "t5",
+                "text": "Do you think it’s important for every town to have a library? (Why?/Why not?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t2-s-q4-t5.mp3",
+                  "seconds": 6.5
+                }
+              }
+            ],
+            "maxSeconds": 40,
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "Test 2 完整试卷+答案解析.pdf",
+    "pdfPages": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "bookPages": [
+      84,
+      85,
+      86,
+      87
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

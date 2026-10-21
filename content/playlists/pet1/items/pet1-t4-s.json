@@ -1,0 +1,382 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "pet1-t4-s",
+  "playlistId": "pet1",
+  "order": 16,
+  "test": 4,
+  "paper": "speaking",
+  "title": "PET真题1-第4套-口语",
+  "displayName": "PET真题1-第4套-口语",
+  "taskType": {
+    "code": "exam_speaking",
+    "labelZh": "口语"
+  },
+  "meta": {
+    "exam": "B1 Preliminary for Schools",
+    "durationMinutes": 14,
+    "totalMarks": 80
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/pet1/pet1-t4-s-1.jpg",
+        "alt": "Task 4A – In the classroom: a male teacher in a blue shirt and tie is leaning over a desk and looking at a student’s book. Four teenage students are sitting at the desks writing in their notebooks; a girl with long fair hair is smiling. There are big windows behind them.",
+        "w": 1125,
+        "h": 751
+      },
+      {
+        "id": "img2",
+        "src": "assets/pet1/pet1-t4-s-2.jpg",
+        "alt": "Task 4C – Activities to do on a long train journey. In the middle: a family of four sitting round a table on a train. Around them: playing chess, listening to music with headphones, taking photos of the view from the window, watching a film on a laptop, playing the guitar and singing, and having a picnic with sandwiches, fruit and drinks.",
+        "w": 1200,
+        "h": 969
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "Answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 20,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about yourself and your everyday life."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "What’s your name?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q1-t1.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t2",
+                "text": "How old are you?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q1-t2.mp3",
+                  "seconds": 2
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Where do you live?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q1-t3.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Who do you live with?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q1-t4.mp3",
+                  "seconds": 2.1
+                }
+              },
+              {
+                "id": "t5",
+                "text": "Tell us about a teacher you like.",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q1-t5.mp3",
+                  "seconds": 3
+                }
+              },
+              {
+                "id": "t6",
+                "text": "How often do you use a mobile phone?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q1-t6.mp3",
+                  "seconds": 3.4
+                }
+              },
+              {
+                "id": "t7",
+                "text": "Which time of year do you like the most? Why?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q1-t7.mp3",
+                  "seconds": 4.3
+                }
+              },
+              {
+                "id": "t8",
+                "text": "Which do you like best, the morning or the afternoon? Why?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q1-t8.mp3",
+                  "seconds": 5.5
+                }
+              },
+              {
+                "id": "t9",
+                "text": "Tell us about sports you like.",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q1-t9.mp3",
+                  "seconds": 2.9
+                }
+              },
+              {
+                "id": "t10",
+                "text": "What type of music do you like listening to?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q1-t10.mp3",
+                  "seconds": 3.6
+                }
+              },
+              {
+                "id": "t11",
+                "text": "Tell us what you do in the school holidays.",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q1-t11.mp3",
+                  "seconds": 3.6
+                }
+              }
+            ],
+            "maxSeconds": 30,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Talk about your photograph on your own.",
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 20,
+          "skills": [],
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the photograph of people in a classroom and talk about it on your own for about one minute."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Now I’d like you to talk on your own about something. I’m going to give you a photograph and I’d like you to talk about it. Here is your photograph. It shows people in a classroom. Please tell us what you can see in the photograph.",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q2-t1.mp3",
+                  "seconds": 17.3
+                }
+              }
+            ],
+            "maxSeconds": 75,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "Talk together with your partner about the situation.",
+      "questions": [
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 20,
+          "skills": [],
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Talk with your partner about the activities a family could do on a long train journey, and decide which would be most fun."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Now, in this part of the test you’re going to talk about something together for about two minutes. I’m going to describe a situation to you. A family is going on a long journey by train. They want to do something on the journey so they don’t feel bored. Here are some activities they could do on the journey. Talk together about the different activities they could do and say which would be most fun. All right? Now, talk together.",
+                "role": "examiner",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q3-t1.mp3",
+                  "seconds": 30.5
+                }
+              },
+              {
+                "id": "t2",
+                "text": "Shall I start? I think playing chess is a good idea, because the journey is long and it takes time. What do you think?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q3-t2.mp3",
+                  "seconds": 8.3
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Yes, and what about listening to music? Everyone can choose their own songs. But they can’t talk to each other then. Do you agree?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q3-t3.mp3",
+                  "seconds": 8.5
+                }
+              },
+              {
+                "id": "t4",
+                "text": "I like the idea of taking photos. You can see lots of beautiful places from a train window. Would you enjoy that?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q3-t4.mp3",
+                  "seconds": 7.6
+                }
+              },
+              {
+                "id": "t5",
+                "text": "Watching a film on a laptop could be fun too, but the screen is quite small for four people. What’s your opinion?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q3-t5.mp3",
+                  "seconds": 6.8
+                }
+              },
+              {
+                "id": "t6",
+                "text": "Playing the guitar and singing looks fun, but maybe the other passengers won’t like the noise. What do you think?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q3-t6.mp3",
+                  "seconds": 6.4
+                }
+              },
+              {
+                "id": "t7",
+                "text": "So, which one do you think would be most fun? I think having a picnic, because everyone likes eating together.",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q3-t7.mp3",
+                  "seconds": 6.8
+                }
+              }
+            ],
+            "maxSeconds": 45,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "Answer the examiner’s questions about the topic of Part 3.",
+      "questions": [
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 20,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about travelling and long journeys."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "How often do you go on long journeys? Why? / Why not?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q4-t1.mp3",
+                  "seconds": 5.6
+                }
+              },
+              {
+                "id": "t2",
+                "text": "What’s your favourite way to travel on a long journey? Why?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q4-t2.mp3",
+                  "seconds": 5.4
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Where would you most like to travel to in the future? Why?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q4-t3.mp3",
+                  "seconds": 4.9
+                }
+              },
+              {
+                "id": "t4",
+                "text": "What’s the best place you’ve visited in your country? Why?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q4-t4.mp3",
+                  "seconds": 4.8
+                }
+              },
+              {
+                "id": "t5",
+                "text": "Is it better to have a holiday in your own country or to go abroad? Why?",
+                "audio": {
+                  "src": "assets/pet1/pet1-t4-s-q4-t5.mp3",
+                  "seconds": 6.3
+                }
+              }
+            ],
+            "maxSeconds": 40,
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "Test 4 完整试卷+答案解析.pdf",
+    "pdfPages": [
+      19,
+      20,
+      21,
+      22
+    ],
+    "bookPages": [
+      92,
+      93,
+      94,
+      95
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

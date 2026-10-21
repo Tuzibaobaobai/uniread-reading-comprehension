@@ -1,0 +1,2267 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "pet1-t3-r",
+  "playlistId": "pet1",
+  "order": 9,
+  "test": 3,
+  "paper": "reading",
+  "title": "PET真题1-第3套-阅读",
+  "displayName": "PET真题1-第3套-阅读",
+  "taskType": {
+    "code": "exam_reading",
+    "labelZh": "阅读"
+  },
+  "meta": {
+    "exam": "B1 Preliminary for Schools",
+    "durationMinutes": 45,
+    "totalMarks": 32
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/pet1/pet1-t3-r-1.jpg",
+        "alt": "Email: This morning’s chemistry lesson has moved because the Science laboratory is needed for staff training today. Wait in Room 197 until your teacher arrives and tells you where to go for your class.",
+        "w": 416,
+        "h": 404
+      },
+      {
+        "id": "img2",
+        "src": "assets/pet1/pet1-t3-r-2.jpg",
+        "alt": "Notice: Any books borrowed from the library must be returned by the last day of term. Library staff will then take your name off the list of students who still need to return books.",
+        "w": 388,
+        "h": 375
+      },
+      {
+        "id": "img3",
+        "src": "assets/pet1/pet1-t3-r-3.jpg",
+        "alt": "Text message to Aidan: There are terrible traffic jams today, so I can’t drive to school to pick you up as usual. Why don’t you walk home rather than try to get a bus? It’ll be quicker. Mum",
+        "w": 353,
+        "h": 510
+      },
+      {
+        "id": "img4",
+        "src": "assets/pet1/pet1-t3-r-4.jpg",
+        "alt": "Email message: Please fill in the camping trip form, entering any food you need to avoid and ticking the activities you’d like to try. Remember it must be signed by your parents.",
+        "w": 449,
+        "h": 443
+      },
+      {
+        "id": "img5",
+        "src": "assets/pet1/pet1-t3-r-5.jpg",
+        "alt": "Weekend babysitter needed! Earn a little money looking after our two young children. Must be over 15 – suitable for school student. Previous experience unnecessary, but must be reliable and responsible.",
+        "w": 573,
+        "h": 360
+      },
+      {
+        "id": "imgp1",
+        "src": "assets/pet1/pet1-t3-r-p1.jpg",
+        "alt": "Photo of Joe",
+        "w": 220,
+        "h": 280
+      },
+      {
+        "id": "imgp2",
+        "src": "assets/pet1/pet1-t3-r-p2.jpg",
+        "alt": "Photo of Tom",
+        "w": 220,
+        "h": 273
+      },
+      {
+        "id": "imgp3",
+        "src": "assets/pet1/pet1-t3-r-p3.jpg",
+        "alt": "Photo of Zara",
+        "w": 220,
+        "h": 280
+      },
+      {
+        "id": "imgp4",
+        "src": "assets/pet1/pet1-t3-r-p4.jpg",
+        "alt": "Photo of Jinnie",
+        "w": 220,
+        "h": 278
+      },
+      {
+        "id": "imgp5",
+        "src": "assets/pet1/pet1-t3-r-p5.jpg",
+        "alt": "Photo of Matt",
+        "w": 220,
+        "h": 276
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "For each question, choose the correct answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The chemistry teacher will wait for students in Room 197 today."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Today’s chemistry lesson will not be in the science laboratory."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The chemistry lesson today will be watched by staff as part of their training."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ]
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Students who borrowed books must take them back by the end of term."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "There is a list of all students who have borrowed books this term."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Students who want to keep books during the holidays must tell library staff."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ]
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Aidan’s mother is"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "explaining why she will get to Aidan’s school later than usual today."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "reminding Aidan that he was going to catch a bus home today."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "suggesting how Aidan should go home after school today."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i3",
+              "type": "imageRef",
+              "image": "img3"
+            }
+          ]
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Parents who are coming on the trip should sign the form."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Students should choose what they want to do on the trip."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Students should say what they’d prefer to eat during the trip."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i4",
+              "type": "imageRef",
+              "image": "img4"
+            }
+          ]
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "People should only apply for this job if they"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "are old enough."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "know a lot about babysitting."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "are still at school."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i5",
+              "type": "imageRef",
+              "image": "img5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "For each question, choose the correct answer.",
+      "intro": [
+        {
+          "t": "text",
+          "v": "The people below all want to spend a day at a beach during their summer holidays. On the opposite page there are descriptions of eight beaches. Decide which beach would be the most suitable for the people below."
+        }
+      ],
+      "material": [
+        {
+          "id": "h1",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Best beaches for a day out"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "n1",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "A "
+            },
+            {
+              "t": "text",
+              "v": "Tantsin Beach"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "Tantsin Beach is one of the biggest sandy beaches in the area – suitable for all ages. The beach resort overlooks the bay, which is full of colourful fish and is popular for kayaking. There is a small, calm section of the bay with lifeguards to watch the swimmers, and also several eating places serving local fish dishes all day long."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n2",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "B "
+            },
+            {
+              "t": "text",
+              "v": "Eastlee Beach"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "Walking on the sand, listening to the waves and passing the wonderful selection of coffee shops and fish restaurants, it is easy to see why Eastlee Beach is so popular. Visitors love taking boat trips around the bay to see the historic lighthouse. Afternoon surfing lessons are also on offer for teenagers."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n3",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "C "
+            },
+            {
+              "t": "text",
+              "v": "Hatton Beach"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "Lively and popular, with excellent restaurants serving locally-caught fish, Hatton Beach is a great place for surfing, though not suitable for beginners. The beach’s sandy dunes lead down to several surfing, fishing, diving and water-skiing spots that are considered to be some of the finest in the area."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n4",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "D "
+            },
+            {
+              "t": "text",
+              "v": "Dunley Town Beach"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "On a trip to Dunley Town Beach, visitors will not only see the ocean and bay, but also a 14th-century castle on the hill. This fishing town has a quiet family beach, and classical concerts are held in the castle’s Great Hall most evenings."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n5",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "E "
+            },
+            {
+              "t": "text",
+              "v": "North Beach"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "On this part of the coast, sunbathers, sand sculptors and in the summer months, whale watchers all enjoy the sand and sea. North Beach is a good place to have a surfing lesson in the morning, when the waves are smaller. In front of the beach clubhouse there are fun games and activities for children and teenagers to enjoy."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n6",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "F "
+            },
+            {
+              "t": "text",
+              "v": "Manou Beach"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "Manou Beach, with its seafront cafés and hotels, is popular with families. The sea is not suitable for swimming or water sports, but beach volleyball matches are organised for different age groups all through the day. Take a trip on a boat to try and catch salmon out at sea (we’ll always be back before lunch time), take a dolphin-watching cruise, or visit the town museum."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n7",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "G "
+            },
+            {
+              "t": "text",
+              "v": "Maryland Beach"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "As the largest sandy beach along the coast, Maryland Beach is the West Coast’s top vacation spot. The whole area is busy with summertime action: wonderful places for water sports, a water park, games for all ages, and even live entertainment on the beach."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n8",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "H "
+            },
+            {
+              "t": "text",
+              "v": "Kaloa Beach"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "Located on the East Coast, Kaloa has a magnificent beach. With its soft white sand, palm trees and clear, calm blue water, this beach is a natural choice for surf lovers, water sports enthusiasts and families in search of safe, sandy fun and games."
+              }
+            ]
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Joe’s family want to go fishing in the morning. His parents would like to spend their afternoon learning about the history of the area while Joe takes part in a sports activity with other teenagers."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Tantsin Beach"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Eastlee Beach"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Hatton Beach"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Dunley Town Beach"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "North Beach"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Manou Beach"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Maryland Beach"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kaloa Beach"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp1"
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Tom and his father are very good surfers and are looking for a beach with challenging waves. They’d also like to do some other water sports and want to eat some fresh fish for dinner."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Tantsin Beach"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Eastlee Beach"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Hatton Beach"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Dunley Town Beach"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "North Beach"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Manou Beach"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Maryland Beach"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kaloa Beach"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp2"
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Zara and her family are interested in seeing ocean wildlife. The children would like to try surfing and they all want to keep their afternoon free for lying on the beach."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Tantsin Beach"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Eastlee Beach"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Hatton Beach"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Dunley Town Beach"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "North Beach"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Manou Beach"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Maryland Beach"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kaloa Beach"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp3"
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Jinnie’s family need a beach with safe swimming areas for her younger sister, near a café offering good fish lunches. They want plenty of space so they can enjoy playing games together."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Tantsin Beach"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Eastlee Beach"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Hatton Beach"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Dunley Town Beach"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "North Beach"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Manou Beach"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Maryland Beach"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kaloa Beach"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp4"
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Matt and his family all want to go to a popular beach where they can watch an outdoor show or concert as well as do some fun activities."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Tantsin Beach"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Eastlee Beach"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Hatton Beach"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Dunley Town Beach"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "North Beach"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Manou Beach"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Maryland Beach"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kaloa Beach"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp5"
+        }
+      ],
+      "view": "match"
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h2",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "The teenage snowboarder"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p1",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "em",
+              "v": "15-year-old Vanessa Hanson writes about her sport."
+            }
+          ]
+        },
+        {
+          "id": "p2",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "I was born in Denver, USA, and started snowboarding aged eight when my dad took me to a resort in the mountains, about two hours from Denver. The hill looked unbelievably steep and scary, so my dad had to do a lot of persuading to get me on a board. Because I was so young, I hadn’t even thought of asking him if I could start snowboarding, but he was already into it and wanted me to love it too – he made it look so simple. And in the end, I managed just fine."
+            }
+          ]
+        },
+        {
+          "id": "p3",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "After this experience, it wasn’t long before I’d developed a love of the sport and had improved my ability too. I started competing aged ten. Some people enter loads of competitions and end up getting bored of snowboarding, but my love of taking part, and winning too, if I’m honest, has got stronger as I’ve gotten older, which always helps me to push myself harder. I enjoy not having a fixed plan, and sometimes this goes well, like when I became the first female ever to get a perfect 100 at a local competition. I wasn’t sure I’d even attempt the jumps that got me this score until I actually set off. That achievement increased my trust in my own abilities."
+            }
+          ]
+        },
+        {
+          "id": "p4",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "During the summer, I focus on training and my studies while there’s no snow. Although I train daily, it’s nice not having to stick to quite a strict diet like I do in the winter. I also get to spend lots of time with my friends then. It’s the best way of dealing with not being able to do what I love so much and what I’m really good at."
+            }
+          ]
+        },
+        {
+          "id": "p5",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "I have to think carefully about my future. Snowboarding is such a huge part of my life now, but I also feel it’s important to have something else I can do, just in case I don’t succeed as a professional snowboarder or if I get injured. I’m wondering whether becoming a doctor is a possibility, if my active life allows time for doing a college degree. It’s impossible to imagine myself growing tired of the sport, but I can’t go on snowboarding my whole life."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Just before Vanessa snowboarded down a hill for the first time, she felt"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "worried she was too young."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "nervous about doing it."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "keen to copy her father."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "pleased to be allowed to do it."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does Vanessa say about taking part in competitions?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "She expects too much of herself."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "She sometimes loses interest."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "She always plans for them carefully."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "She enjoys them more and more."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "In the summer, Vanessa enjoys"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "the good weather where she lives."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "not having to train regularly."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "being able to eat whatever she likes."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "having plenty of time to do her schoolwork."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Vanessa says that in the future, snowboarding"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "may not be her main career."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "will be a way for her to make a lot of money."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "might not always be interesting for her."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "will help her stay fit and healthy."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What would Vanessa say to one of her friends?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "I love snowboarding, but it’s a shame I have so many accidents."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "I’m pleased that I’m more confident now. I hope this will help me, whatever I decide to do."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "I’m so happy to be a champion snowboarder like Dad – but I think he enjoys the sport more than I do."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "I’m sorry I’ve never been able to see you that much, even during the summer holidays."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "Five sentences have been removed from the text below. For each question, choose the correct answer. There are three extra sentences which you do not need to use.",
+      "material": [
+        {
+          "id": "h3",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Freezing food to keep it fresh"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p6",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Inventor and businessman Clarence Birdseye was born in New York, on December 9, 1886. From a young age, he was interested in animals and plants and around 1907, Birdseye enrolled at university to study biology. "
+            },
+            {
+              "t": "blank",
+              "id": "b16",
+              "number": 16
+            },
+            {
+              "t": "text",
+              "v": " Instead he took a job working for the US government as a naturalist in the frozen north of Canada."
+            }
+          ]
+        },
+        {
+          "id": "p7",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "When he was working in Labrador in 1912, Birdseye watched local people fishing through holes cut in an icy lake. "
+            },
+            {
+              "t": "blank",
+              "id": "b17",
+              "number": 17
+            },
+            {
+              "t": "text",
+              "v": " He noticed that they could then be kept for long periods and, when the families wanted some to eat, they could defrost them without losing any of the freshness or flavour. Birdseye realised that cooling food very quickly was the key to success when freezing it. "
+            },
+            {
+              "t": "blank",
+              "id": "b18",
+              "number": 18
+            },
+            {
+              "t": "text",
+              "v": " In warmer climates, people had experimented with freezing food by cooling it slowly. When food is frozen in this way, long sharp crystals of ice, shaped like knives, start to grow inside it. These cut into the food, causing it to break up when defrosted. "
+            },
+            {
+              "t": "blank",
+              "id": "b19",
+              "number": 19
+            },
+            {
+              "t": "text",
+              "v": " Then he began to wonder how this freezing method might work with fresh vegetables and other foods as well as fish and meat."
+            }
+          ]
+        },
+        {
+          "id": "p8",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "When Birdseye returned to the US, he invented a machine which pressed food between two very cold metal plates. By 1930, it was ready to go into production. However, home freezers were very rare at this time. "
+            },
+            {
+              "t": "blank",
+              "id": "b20",
+              "number": 20
+            },
+            {
+              "t": "text",
+              "v": " It was another 25 years before Birdseye’s invention was widely used."
+            }
+          ]
+        }
+      ],
+      "bank": [
+        {
+          "id": "A",
+          "content": [
+            {
+              "t": "text",
+              "v": "This was easy, of course, in very cold environments."
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "content": [
+            {
+              "t": "text",
+              "v": "It took Birdseye eight years to work out how to cool food quickly enough to stop them forming."
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "content": [
+            {
+              "t": "text",
+              "v": "He always came top of his university class."
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "content": [
+            {
+              "t": "text",
+              "v": "As a result, few people wanted to buy frozen food."
+            }
+          ]
+        },
+        {
+          "id": "E",
+          "content": [
+            {
+              "t": "text",
+              "v": "They didn’t catch many fish because they couldn’t keep them fresh."
+            }
+          ]
+        },
+        {
+          "id": "F",
+          "content": [
+            {
+              "t": "text",
+              "v": "However, he was unable to afford the teaching fees, and had to leave."
+            }
+          ]
+        },
+        {
+          "id": "G",
+          "content": [
+            {
+              "t": "text",
+              "v": "For example, they were taken to nearby towns."
+            }
+          ]
+        },
+        {
+          "id": "H",
+          "content": [
+            {
+              "t": "text",
+              "v": "As they pulled out fish, these immediately froze in the extremely cold air."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b16"
+            ]
+          }
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b17"
+            ]
+          }
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b18"
+            ]
+          }
+        },
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b19"
+            ]
+          }
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b20"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "part": 5,
+      "label": "Part 5",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h4",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "The tallest trees in the world"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p9",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "The tallest trees in the world are called redwoods and they grow in California. These trees can "
+            },
+            {
+              "t": "blank",
+              "id": "b21",
+              "number": 21
+            },
+            {
+              "t": "text",
+              "v": " reach heights of around 91 metres. Among the enormous redwoods, one giant tree beats them all. This tree was discovered and measured in 2006. The National Park Service then "
+            },
+            {
+              "t": "blank",
+              "id": "b22",
+              "number": 22
+            },
+            {
+              "t": "text",
+              "v": " that at 115.7 metres, it was the tallest tree in the world. Now it is so famous that it even has a name, ‘Hyperion’. In California there are other giant redwoods which are just a little shorter than Hyperion. The exact "
+            },
+            {
+              "t": "blank",
+              "id": "b23",
+              "number": 23
+            },
+            {
+              "t": "text",
+              "v": " of many of these enormous trees is kept secret to prevent them from being "
+            },
+            {
+              "t": "blank",
+              "id": "b24",
+              "number": 24
+            },
+            {
+              "t": "text",
+              "v": "."
+            }
+          ]
+        },
+        {
+          "id": "p10",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "A "
+            },
+            {
+              "t": "blank",
+              "id": "b25",
+              "number": 25
+            },
+            {
+              "t": "text",
+              "v": " redwood tree lives for 500 to 700 years, although some have been found that are more than 2,000 years old. The National Park Service says that the redwoods’ great height is "
+            },
+            {
+              "t": "blank",
+              "id": "b26",
+              "number": 26
+            },
+            {
+              "t": "text",
+              "v": " due to the climate in California; there is heavy rain every year and the temperatures are mild."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b21",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "clearly"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "easily"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "obviously"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "luckily"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b22",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "answered"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "announced"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "told"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "spoke"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b23",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "location"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "route"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "destination"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "point"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b24",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "wasted"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "damaged"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "worn"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "injured"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b25",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "familiar"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "usual"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "general"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "typical"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b26",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "mainly"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "extremely"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "properly"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "finally"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "part": 6,
+      "label": "Part 6",
+      "instruction": "For each question, write the correct answer. Write **one** word for each gap.",
+      "material": [
+        {
+          "id": "h5",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "School Jazz Band"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p11",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Do you play a jazz instrument – maybe the trumpet, guitar or drums? Do you want to have some musical fun with other students in the school "
+            },
+            {
+              "t": "blank",
+              "id": "b27",
+              "number": 27
+            },
+            {
+              "t": "text",
+              "v": " have similar interests to yours? If you do, come and join us on Tuesdays after school in the music room. At the moment, there are eight of us playing quite a wide range of instruments. We’re having such "
+            },
+            {
+              "t": "blank",
+              "id": "b28",
+              "number": 28
+            },
+            {
+              "t": "text",
+              "v": " great time and Mr Jones is an amazing jazz teacher, but we need more people, especially electric guitarists!"
+            }
+          ]
+        },
+        {
+          "id": "p12",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "We’re hoping "
+            },
+            {
+              "t": "blank",
+              "id": "b29",
+              "number": 29
+            },
+            {
+              "t": "text",
+              "v": " perform in the end-of-term show and Mr Jones said he’ll deal "
+            },
+            {
+              "t": "blank",
+              "id": "b30",
+              "number": 30
+            },
+            {
+              "t": "text",
+              "v": " all the technical arrangements and the sound system, which is great!"
+            }
+          ]
+        },
+        {
+          "id": "p13",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Either come and ask me "
+            },
+            {
+              "t": "blank",
+              "id": "b31",
+              "number": 31
+            },
+            {
+              "t": "text",
+              "v": " more details during one of the lunch breaks, "
+            },
+            {
+              "t": "blank",
+              "id": "b32",
+              "number": 32
+            },
+            {
+              "t": "text",
+              "v": " just turn up on the day. But don’t forget to bring your instrument! See you there!"
+            }
+          ]
+        },
+        {
+          "id": "p14",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Sam (from the School Jazz Band)"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b27"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b28"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b29"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b30"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b31"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b32"
+            ],
+            "maxWords": 1
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "Test 3 完整试卷+答案解析.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "bookPages": [
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

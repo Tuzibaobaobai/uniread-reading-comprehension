@@ -1,0 +1,390 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "pet3-t3-s",
+  "playlistId": "pet3",
+  "order": 12,
+  "test": 3,
+  "paper": "speaking",
+  "title": "PET真题3-第3套-口语",
+  "displayName": "PET真题3-第3套-口语",
+  "taskType": {
+    "code": "exam_speaking",
+    "labelZh": "口语"
+  },
+  "meta": {
+    "exam": "B1 Preliminary for Schools",
+    "durationMinutes": 14,
+    "totalMarks": 80
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/pet3/pet3-t3-s-1.jpg",
+        "alt": "Task 3A – Using technology: a smiling teenage boy with long twisted hair sitting at a desk at home, looking at the mobile phone in his hands. On the desk there is an open laptop and some papers; behind him there are shelves, a lamp, a plant and a window.",
+        "w": 1066,
+        "h": 708
+      },
+      {
+        "id": "img2",
+        "src": "assets/pet3/pet3-t3-s-2.jpg",
+        "alt": "Task 3C – Doing things by yourself. In the middle: a boy sitting on a sofa at home alone, wondering what to do. Around him: washing a car, reading a magazine with a hot drink, chatting to a friend on the phone, playing the guitar, playing chess on a laptop and watching sport on TV.",
+        "w": 1200,
+        "h": 1091
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "Answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 20,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about yourself and your everyday life."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "What’s your name?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q1-t1.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t2",
+                "text": "How old are you?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q1-t2.mp3",
+                  "seconds": 2
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Where do you live?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q1-t3.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Who do you live with?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q1-t4.mp3",
+                  "seconds": 2.1
+                }
+              },
+              {
+                "id": "t5",
+                "text": "How often do you use a mobile phone? Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q1-t5.mp3",
+                  "seconds": 4.5
+                }
+              },
+              {
+                "id": "t6",
+                "text": "What is your favourite time of day? Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q1-t6.mp3",
+                  "seconds": 4
+                }
+              },
+              {
+                "id": "t7",
+                "text": "Tell us about something you’d like to do in the future. Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q1-t7.mp3",
+                  "seconds": 4.9
+                }
+              },
+              {
+                "id": "t8",
+                "text": "What type of music do you like listening to? Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q1-t8.mp3",
+                  "seconds": 4.8
+                }
+              },
+              {
+                "id": "t9",
+                "text": "Do you enjoy shopping? Why? / Why not?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q1-t9.mp3",
+                  "seconds": 4.4
+                }
+              },
+              {
+                "id": "t10",
+                "text": "Tell us about something you’d like to study in the future. Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q1-t10.mp3",
+                  "seconds": 5
+                }
+              },
+              {
+                "id": "t11",
+                "text": "What type of programmes do you like watching on television? Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q1-t11.mp3",
+                  "seconds": 5.3
+                }
+              },
+              {
+                "id": "t12",
+                "text": "What kind of things do you like reading? Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q1-t12.mp3",
+                  "seconds": 4
+                }
+              }
+            ],
+            "maxSeconds": 30,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Talk about your photograph on your own.",
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 20,
+          "skills": [],
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the photograph of someone using technology and talk about it on your own for about one minute."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Now I’d like you to talk on your own about something. I’m going to give you a photograph and I’d like you to talk about it. Here is your photograph. It shows someone using technology. Please tell us what you can see in the photograph.",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q2-t1.mp3",
+                  "seconds": 17.6
+                }
+              }
+            ],
+            "maxSeconds": 75,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "Talk together with your partner about the situation.",
+      "questions": [
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 20,
+          "skills": [],
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Talk with your partner about the things a boy could do at home by himself, and decide which would be most interesting."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Now, in this part of the test you’re going to talk about something together for about two minutes. I’m going to describe a situation to you. A boy is spending an afternoon at home by himself and wants to do something interesting. Here are some things he could do. Talk together about the things he could do at home by himself and say which would be most interesting. All right? Now, talk together.",
+                "role": "examiner",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q3-t1.mp3",
+                  "seconds": 29.2
+                }
+              },
+              {
+                "id": "t2",
+                "text": "Shall I start? I think playing the guitar is a good idea. He can learn a new song and it’s never boring. What do you think?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q3-t2.mp3",
+                  "seconds": 8.8
+                }
+              },
+              {
+                "id": "t3",
+                "text": "What about washing the car? It helps his family, but I think it sounds a bit boring. Do you agree?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q3-t3.mp3",
+                  "seconds": 6.2
+                }
+              },
+              {
+                "id": "t4",
+                "text": "He could also phone a friend and have a chat. But then he isn’t really doing something by himself, is he?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q3-t4.mp3",
+                  "seconds": 6.6
+                }
+              },
+              {
+                "id": "t5",
+                "text": "I like the idea of playing chess on the computer, because it makes you think. Is it more interesting than watching sport on TV?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q3-t5.mp3",
+                  "seconds": 7
+                }
+              },
+              {
+                "id": "t6",
+                "text": "And reading a magazine? It’s relaxing, but is it interesting enough for a whole afternoon?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q3-t6.mp3",
+                  "seconds": 6
+                }
+              },
+              {
+                "id": "t7",
+                "text": "So, which one do you think would be most interesting for him? I think the guitar or the chess. Which shall we choose?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q3-t7.mp3",
+                  "seconds": 8.4
+                }
+              }
+            ],
+            "maxSeconds": 45,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "Answer the examiner’s questions about the topic of Part 3.",
+      "questions": [
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 20,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about doing things by yourself and with other people."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "What do you enjoy doing by yourself? Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q4-t1.mp3",
+                  "seconds": 4
+                }
+              },
+              {
+                "id": "t2",
+                "text": "What do you and your friends like doing together? Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q4-t2.mp3",
+                  "seconds": 4.9
+                }
+              },
+              {
+                "id": "t3",
+                "text": "How do you feel when you’re by yourself? Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q4-t3.mp3",
+                  "seconds": 4.4
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Do you prefer doing schoolwork by yourself or with your classmates? Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q4-t4.mp3",
+                  "seconds": 5.8
+                }
+              },
+              {
+                "id": "t5",
+                "text": "Do you prefer doing team sports or individual sports? Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t3-s-q4-t5.mp3",
+                  "seconds": 5.3
+                }
+              }
+            ],
+            "maxSeconds": 40,
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "PET3 - Test 3 口语问题参考.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "bookPages": [
+      88,
+      89,
+      90,
+      91
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

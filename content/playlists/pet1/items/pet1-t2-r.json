@@ -1,0 +1,2355 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "pet1-t2-r",
+  "playlistId": "pet1",
+  "order": 5,
+  "test": 2,
+  "paper": "reading",
+  "title": "PET真题1-第2套-阅读",
+  "displayName": "PET真题1-第2套-阅读",
+  "taskType": {
+    "code": "exam_reading",
+    "labelZh": "阅读"
+  },
+  "meta": {
+    "exam": "B1 Preliminary for Schools",
+    "durationMinutes": 45,
+    "totalMarks": 32
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/pet1/pet1-t2-r-1.jpg",
+        "alt": "Text message to Ella: Remember that we arranged to work on the poster for the school talent show tonight? I was wondering if we could do it another time as my aunt’s coming round. Let me know, Derek",
+        "w": 350,
+        "h": 560
+      },
+      {
+        "id": "img2",
+        "src": "assets/pet1/pet1-t2-r-2.jpg",
+        "alt": "Passengers are advised to stand away from the edge of this platform as fast trains often pass through.",
+        "w": 517,
+        "h": 281
+      },
+      {
+        "id": "img3",
+        "src": "assets/pet1/pet1-t2-r-3.jpg",
+        "alt": "Email. From: Mr Thompson. To: All students. School concert tickets can only be collected from my office Monday-Thursday at lunchtimes. Each student can have up to four tickets, and students playing in the concert can have any spare tickets.",
+        "w": 484,
+        "h": 469
+      },
+      {
+        "id": "img4",
+        "src": "assets/pet1/pet1-t2-r-4.jpg",
+        "alt": "Text message to Danni: I’m still not confident with that photography software we downloaded. Is there any chance you could help, as I need it for a homework project I’m doing next week? Cheers, Eric",
+        "w": 340,
+        "h": 562
+      },
+      {
+        "id": "img5",
+        "src": "assets/pet1/pet1-t2-r-5.jpg",
+        "alt": "School lunch rules. Pupils are requested not to leave the table as soon as they have finished, but to remain in their seats until a teacher has said that they may go.",
+        "w": 645,
+        "h": 338
+      },
+      {
+        "id": "imgp1",
+        "src": "assets/pet1/pet1-t2-r-p1.jpg",
+        "alt": "Photo of Julian",
+        "w": 174,
+        "h": 285
+      },
+      {
+        "id": "imgp2",
+        "src": "assets/pet1/pet1-t2-r-p2.jpg",
+        "alt": "Photo of Marcie and her mum",
+        "w": 240,
+        "h": 262
+      },
+      {
+        "id": "imgp3",
+        "src": "assets/pet1/pet1-t2-r-p3.jpg",
+        "alt": "Photo of Mohammed",
+        "w": 209,
+        "h": 263
+      },
+      {
+        "id": "imgp4",
+        "src": "assets/pet1/pet1-t2-r-p4.jpg",
+        "alt": "Photo of Maria",
+        "w": 209,
+        "h": 265
+      },
+      {
+        "id": "imgp5",
+        "src": "assets/pet1/pet1-t2-r-p5.jpg",
+        "alt": "Photo of Ivan and his dad",
+        "w": 240,
+        "h": 260
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "For each question, choose the correct answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Derek is contacting Ella to"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "suggest they change a plan."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "invite her to meet his aunt."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "remind her about an arrangement."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ]
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "People can get information about fast trains on this platform."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "People waiting for a fast train should not stay on this platform."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "People on this platform should not get too close to the railway line."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ]
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Students not playing in the school concert will get fewer than four tickets."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Students are not able to pick up concert tickets at any time they like."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Every student will have the same opportunity to get extra tickets."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i3",
+              "type": "imageRef",
+              "image": "img3"
+            }
+          ]
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Eric wants Danni to"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "lend him some software."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "download some software for him."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "show him how to use some software."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i4",
+              "type": "imageRef",
+              "image": "img4"
+            }
+          ]
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Sit down at the table when the teacher asks you to do so."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Wait until the teacher has finished eating before leaving the table."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Stay at the table unless the teacher tells you that you can leave."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i5",
+              "type": "imageRef",
+              "image": "img5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "For each question, choose the correct answer.",
+      "intro": [
+        {
+          "t": "text",
+          "v": "The young people below are looking for a day out with family or friends. On the opposite page there are descriptions of eight outdoor activity centres. Decide which activity centre would be the most suitable for the people below."
+        }
+      ],
+      "material": [
+        {
+          "id": "h1",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Outdoor Activity Centres"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "n1",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "A"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Bennachie Park"
+              },
+              {
+                "t": "text",
+                "v": " is an area of great natural beauty and very popular with photographers and artists. There is a sculpture trail through the forest, and a famous waterfall, and both of these can be reached on foot or by mountain bike. You can hire bikes from the Visitor Centre."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n2",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "B"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Wilder Forest"
+              },
+              {
+                "t": "text",
+                "v": " has a huge web of paths for walkers, runners and mountain bikers, and you can also do horse riding (booking required). There are beginners’ sessions available in drawing nature with painter, John Small, and a new event that starts after dark will introduce you to the stars."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n3",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "C"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Strathmoor Forest Park"
+              },
+              {
+                "t": "text",
+                "v": " is very popular both with people who want to enjoy relaxed walking and with birdwatchers who come to see rare birds found only in Strathmoor. There’s a small café, and several picnic sites for those who prefer to bring their own food."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n4",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "D"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Thornielee Park"
+              },
+              {
+                "t": "text",
+                "v": " is a wonderful place for a family day out with fantastic hilly walks, two large lakes, and many picnic sites where you can enjoy the views. It’s popular with animal lovers and has daily bird-photography drop-in sessions with our expert, Sarah Wallis."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n5",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "E"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "At "
+              },
+              {
+                "t": "strong",
+                "v": "Glengarry Forest"
+              },
+              {
+                "t": "text",
+                "v": ", there is a new storytelling event for children, called ‘Deep in the Forest’. Then there are many regular activities and events, including the ever-popular horse riding and night-time cycling with torches. The food at the Visitor Centre café is excellent and won a prize last year."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n6",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "F"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "If you love nature, "
+              },
+              {
+                "t": "strong",
+                "v": "Innerleithen Forest"
+              },
+              {
+                "t": "text",
+                "v": " is for you! There are several rare kinds of animals and birds, and a daily talk on them from an expert at the Visitor Centre. You can also get cosy in the café, which serves cake and warm drinks. Many people bring mountain bikes or you can hire them and go around the forest trails."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n7",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "G"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Boden Forest"
+              },
+              {
+                "t": "text",
+                "v": " is excellent for walking and running, and there’s also a 10-metre cliff face with climbing classes for beginners. A regular birdsong event takes place, including birdwatching from inside a special hut. Very popular for lunch is the food stall, serving mushrooms grown there and fish from Boden."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n8",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "H"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Kiroughtree Park"
+              },
+              {
+                "t": "text",
+                "v": " has everything from a visitor centre – where you can pick up a free guide full of information about the plants and animals there – to a wonderful lake, where you can have a go at sailing. Short landscape photography sessions are also available."
+              }
+            ]
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Julian wants to take pictures of wildlife but needs some advice. He likes to be near water and also wants somewhere that has outdoor eating facilities."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Bennachie Park"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Wilder Forest"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Strathmoor Forest Park"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Thornielee Park"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Glengarry Forest"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Innerleithen Forest"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Boden Forest"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kiroughtree Park"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp1"
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Marcie and her mum want to spend a day in a forest and get some exercise at the same time. They would like to be told about the wildlife there, and enjoy snacks and refreshments in comfort."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Bennachie Park"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Wilder Forest"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Strathmoor Forest Park"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Thornielee Park"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Glengarry Forest"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Innerleithen Forest"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Boden Forest"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kiroughtree Park"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp2"
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Mohammed wants a day full of activities including something that involves his two main interests, sport and animals. He also wants to try an art class and to stay for a night-time activity too."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Bennachie Park"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Wilder Forest"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Strathmoor Forest Park"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Thornielee Park"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Glengarry Forest"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Innerleithen Forest"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Boden Forest"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kiroughtree Park"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp3"
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Maria wants to be able to read about the wildlife and also to take pictures of trees and hills. She loves being outdoors and would like to try a watersport of some kind."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Bennachie Park"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Wilder Forest"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Strathmoor Forest Park"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Thornielee Park"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Glengarry Forest"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Innerleithen Forest"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Boden Forest"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kiroughtree Park"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp4"
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Ivan and his dad want an activity that involves seeing and hearing wildlife. They also want to do an adventure sport and to try food that comes directly from the local forest."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Bennachie Park"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Wilder Forest"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Strathmoor Forest Park"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Thornielee Park"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Glengarry Forest"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Innerleithen Forest"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Boden Forest"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kiroughtree Park"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp5"
+        }
+      ],
+      "view": "match"
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h2",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Rock the Planet"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p1",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "em",
+              "v": "Music journalist Nick Hilman meets young actors from this popular musical show."
+            }
+          ]
+        },
+        {
+          "id": "p2",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "em",
+              "v": "Rock the Planet"
+            },
+            {
+              "t": "text",
+              "v": ", a musical show where actors also have to be really good musicians, opened in London last year, after five years in the USA, where it was voted ‘Best Musical’ four times! But doing the show with an all-British cast of actors was challenging. The UK puts more limits on how many performances young actors can do weekly – in the USA, they’re allowed to do more shows. Because of this, twice as many actors were required here. Luckily, the director found plenty of talented UK-based actors, and they’ve just won their first ‘Best Musical’ award. Although the theatre in London is bigger than the US venue, it’s been full every night, with everyone wanting to hear the songs that first became popular in America."
+            }
+          ]
+        },
+        {
+          "id": "p3",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "I met 11-year-old Jamie, one of the show’s actors. ‘It’s brilliant that I get paid to play,’ he said, ‘especially a beautiful and expensive Gibson guitar.’ He told me how busy the young actors are. ‘We have normal school lessons each day at the theatre. While the teacher’s great, I miss my old school mates.’ And what do they think of the show? ‘Well, my whole class came! The theatre does special deals on tickets for schools. They absolutely loved it and that made me feel really confident. My parents come when they can, but it’s expensive for them,’ he explained."
+            }
+          ]
+        },
+        {
+          "id": "p4",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "When I said I also play guitar, Jamie found a spare one and invited me to play along with him and the other young actors. We played "
+            },
+            {
+              "t": "em",
+              "v": "Days"
+            },
+            {
+              "t": "text",
+              "v": ", a song I wasn’t familiar with. Jamie took me through it and I was very pleased with myself when I finally got it right. I was impressed by Jamie’s ability and wished I had similar skills. I was just trying to keep up and was glad the show’s director wasn’t there to hear my mistakes!"
+            }
+          ]
+        },
+        {
+          "id": "p5",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "While the young actors were already musicians, with some playing several instruments, none had played in a band before. Fortunately, they’ve found it pretty easy. Jamie admitted that the hard part was appearing natural when they first performed together. They were concentrating so much that they forgot to smile!"
+            }
+          ]
+        },
+        {
+          "id": "p6",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "The show’s on in London for another year, and is well worth seeing."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the difference between the shows in the UK and in the USA?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Fewer young actors were needed in America."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Brand new songs have been included in the UK."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The UK show has won more prizes."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Audiences were bigger in America."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "attitude"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does Jamie say about working on the show?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He’s glad that his family come daily to support him."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He’s embarrassed when his friends come to watch him."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He’s delighted that he’s doing something that he loves."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He’s anxious about the amount of schoolwork he’s missing."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "attitude"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How did the writer feel about playing music with the actors?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "surprised that he sounded as good as Jamie"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "satisfied that he had learned a new song"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "happy because they played his favourite tune"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "excited to be playing in front of the director"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What did the actors find difficult about performing in the show?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "having to play their instruments with other people"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "learning to play many new instruments very quickly"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "remembering the different songs they had to do"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "looking relaxed when they were playing on stage"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What would an advertisement for the show say?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Come and enjoy this wonderful show while you can – tickets are selling fast as this is "
+                  },
+                  {
+                    "t": "em",
+                    "v": "Rock the Planet"
+                  },
+                  {
+                    "t": "text",
+                    "v": "’s last month in the UK."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Book to see "
+                  },
+                  {
+                    "t": "em",
+                    "v": "Rock the Planet"
+                  },
+                  {
+                    "t": "text",
+                    "v": " for an experience to remember. Check the website for great prices for student groups."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "You won’t often see something as good as "
+                  },
+                  {
+                    "t": "em",
+                    "v": "Rock the Planet"
+                  },
+                  {
+                    "t": "text",
+                    "v": " – and with extra performers from America, the sound is even better than ever!"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "After its success in several countries around the world, "
+                  },
+                  {
+                    "t": "em",
+                    "v": "Rock the Planet"
+                  },
+                  {
+                    "t": "text",
+                    "v": " has now opened in the UK!"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "Five sentences have been removed from the text below. For each question, choose the correct answer. There are three extra sentences which you do not need to use.",
+      "material": [
+        {
+          "id": "h3",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "A day in the life of an astronaut"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p7",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "em",
+              "v": "Italian astronaut Samantha Cristoforetti talks about daily life on the International Space Station (ISS)."
+            }
+          ]
+        },
+        {
+          "id": "p8",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "For the last few months, my home has been the International Space Station, orbiting 400 km above the surface of the earth, at 25,000 km per hour. We took off in a Russian Soyuz spaceship from Kazakhstan, and the flight to the Space Station took six hours. "
+            },
+            {
+              "t": "blank",
+              "id": "b16",
+              "number": 16
+            },
+            {
+              "t": "text",
+              "v": " I felt incredibly excited."
+            }
+          ]
+        },
+        {
+          "id": "p9",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "There are two Americans, three Russians, and me. "
+            },
+            {
+              "t": "blank",
+              "id": "b17",
+              "number": 17
+            },
+            {
+              "t": "text",
+              "v": " Fortunately, we all get on well. The day starts for everyone at 7 a.m. There’s no gravity up here, so every morning I float through the cabin to attend our daily planning conference, or DPC. "
+            },
+            {
+              "t": "blank",
+              "id": "b18",
+              "number": 18
+            },
+            {
+              "t": "text",
+              "v": " It usually lasts a few minutes. After it’s finished, we speak to space centres around the world, including Houston (USA), Munich (Germany) and Tsukuba (Japan)."
+            }
+          ]
+        },
+        {
+          "id": "p10",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Then we have breakfast: oatmeal, eggs and coffee. In the past, astronauts had to suck food out of tubes. Nowadays, astronauts’ food is served in special individual boxes with covers. "
+            },
+            {
+              "t": "blank",
+              "id": "b19",
+              "number": 19
+            },
+            {
+              "t": "text",
+              "v": " Life has become much easier for astronauts over the years."
+            }
+          ]
+        },
+        {
+          "id": "p11",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Our dinner is at around 7.30 p.m. My meals were prepared by an Italian chef on Earth before I left, and they’re delicious. However, I do exchange a lot of food with my three colleagues from Russia."
+            }
+          ]
+        },
+        {
+          "id": "p12",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "blank",
+              "id": "b20",
+              "number": 20
+            },
+            {
+              "t": "text",
+              "v": " Their lentil and vegetable soup is also really good. Of course I miss fresh food, but a cargo spaceship comes once a month with fresh fruit. When I get back down to Earth, I know I’ll miss this place."
+            }
+          ]
+        }
+      ],
+      "bank": [
+        {
+          "id": "A",
+          "content": [
+            {
+              "t": "text",
+              "v": "I’m the only woman in this group."
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "content": [
+            {
+              "t": "text",
+              "v": "That was a very long time to live in space."
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "content": [
+            {
+              "t": "text",
+              "v": "People often ask what food tastes like in space."
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "content": [
+            {
+              "t": "text",
+              "v": "This stops everything floating away while we eat!"
+            }
+          ]
+        },
+        {
+          "id": "E",
+          "content": [
+            {
+              "t": "text",
+              "v": "On the other hand, the ISS is a perfect environment to do scientific experiments."
+            }
+          ]
+        },
+        {
+          "id": "F",
+          "content": [
+            {
+              "t": "text",
+              "v": "That’s the meeting where we discuss what needs to be done during the day."
+            }
+          ]
+        },
+        {
+          "id": "G",
+          "content": [
+            {
+              "t": "text",
+              "v": "They like my desserts, and they have a dark bread that I love."
+            }
+          ]
+        },
+        {
+          "id": "H",
+          "content": [
+            {
+              "t": "text",
+              "v": "I’ll never forget looking through the window and seeing it for the first time."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b16"
+            ]
+          }
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b17"
+            ]
+          }
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b18"
+            ]
+          }
+        },
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b19"
+            ]
+          }
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b20"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "part": 5,
+      "label": "Part 5",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h4",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "The world’s largest school"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p13",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "City Montessori School in Lucknow, India, is the world’s largest school. Nearly 50,000 pupils "
+            },
+            {
+              "t": "blank",
+              "id": "b21",
+              "number": 21
+            },
+            {
+              "t": "text",
+              "v": " classes there every day, and the school "
+            },
+            {
+              "t": "blank",
+              "id": "b22",
+              "number": 22
+            },
+            {
+              "t": "text",
+              "v": " nearly 4,000 staff, including teachers, cleaners, and electricians. The students learn traditional subjects such as geography and maths, and also discuss topics like world peace."
+            }
+          ]
+        },
+        {
+          "id": "p14",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Dr Jagdish Gandhi set "
+            },
+            {
+              "t": "blank",
+              "id": "b23",
+              "number": 23
+            },
+            {
+              "t": "text",
+              "v": " the school in 1959. It was hard work, and at first, he had to "
+            },
+            {
+              "t": "blank",
+              "id": "b24",
+              "number": 24
+            },
+            {
+              "t": "text",
+              "v": " people to send their children to the school. But now, students come to him from all over the city."
+            }
+          ]
+        },
+        {
+          "id": "p15",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "At such a large school, pupils have to work hard to get "
+            },
+            {
+              "t": "blank",
+              "id": "b25",
+              "number": 25
+            },
+            {
+              "t": "text",
+              "v": " by the teachers. One pupil says: ‘If you’re chosen for a school team, you can certainly feel "
+            },
+            {
+              "t": "blank",
+              "id": "b26",
+              "number": 26
+            },
+            {
+              "t": "text",
+              "v": " of that.’ Another pupil explains what he likes best: ‘Being at the world’s largest school means you can make lots of friends.’"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b21",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "arrive"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "attend"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "go"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "study"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b22",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "employs"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "receives"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "gets"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "owns"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b23",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "in"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "off"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "out"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "up"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b24",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "explain"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "hope"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "persuade"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "suggest"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b25",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "thought"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "looked"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "noticed"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "talked"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b26",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "good"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "proud"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "positive"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "happy"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "part": 6,
+      "label": "Part 6",
+      "instruction": "For each question, write the correct answer. Write **one** word for each gap.",
+      "material": [
+        {
+          "id": "h5",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "A wildlife boat tour"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p16",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "When I was on holiday with my parents, we went on a wildlife tour. The trip involved sailing round some islands off the coast, not too far "
+            },
+            {
+              "t": "blank",
+              "id": "b27",
+              "number": 27
+            },
+            {
+              "t": "text",
+              "v": " our hotel. Some other guests had been on the tour, and recommended it to my parents, who immediately decided we should go."
+            }
+          ]
+        },
+        {
+          "id": "p17",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "In the morning our guide, Jake, picked us "
+            },
+            {
+              "t": "blank",
+              "id": "b28",
+              "number": 28
+            },
+            {
+              "t": "text",
+              "v": " in his boat and off we went. Jake knew lots about the wildlife on the islands and we saw everything we were hoping to, apart from one bird, called a harrier, which didn’t appear. But that didn’t matter "
+            },
+            {
+              "t": "blank",
+              "id": "b29",
+              "number": 29
+            },
+            {
+              "t": "text",
+              "v": " we saw many other amazing birds."
+            }
+          ]
+        },
+        {
+          "id": "p18",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "My parents especially liked the fact that "
+            },
+            {
+              "t": "blank",
+              "id": "b30",
+              "number": 30
+            },
+            {
+              "t": "text",
+              "v": " were very few people on the tour. Jake had time to answer all our questions, so we felt we learnt "
+            },
+            {
+              "t": "blank",
+              "id": "b31",
+              "number": 31
+            },
+            {
+              "t": "text",
+              "v": " than we’d expected. And we agreed this wildlife experience was "
+            },
+            {
+              "t": "blank",
+              "id": "b32",
+              "number": 32
+            },
+            {
+              "t": "text",
+              "v": " of the best we’d ever had."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b27"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b28"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b29"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b30"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b31"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b32"
+            ],
+            "maxWords": 1
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "Test 2 完整试卷+答案解析.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "bookPages": [
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

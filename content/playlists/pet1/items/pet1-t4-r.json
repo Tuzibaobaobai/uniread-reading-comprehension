@@ -1,0 +1,2292 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "pet1-t4-r",
+  "playlistId": "pet1",
+  "order": 13,
+  "test": 4,
+  "paper": "reading",
+  "title": "PET真题1-第4套-阅读",
+  "displayName": "PET真题1-第4套-阅读",
+  "taskType": {
+    "code": "exam_reading",
+    "labelZh": "阅读"
+  },
+  "meta": {
+    "exam": "B1 Preliminary for Schools",
+    "durationMinutes": 45,
+    "totalMarks": 32
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/pet1/pet1-t4-r-1.jpg",
+        "alt": "Text message on a mobile phone: Kira, I’ve waited for you outside the school canteen for 20 minutes – where are you? They’ll stop serving food soon and we want to make sure we have lunch! Julia",
+        "w": 318,
+        "h": 512
+      },
+      {
+        "id": "img2",
+        "src": "assets/pet1/pet1-t4-r-2.jpg",
+        "alt": "Notice: Trainers must not be worn in classrooms. Please remove them and change back into normal shoes after sports lessons before you go back to your classroom.",
+        "w": 579,
+        "h": 257
+      },
+      {
+        "id": "img3",
+        "src": "assets/pet1/pet1-t4-r-3.jpg",
+        "alt": "Student volunteers. Volunteers needed to work with other students for between one and four hours per week on coursework they’re finding difficult. If you’re willing to help, contact the school secretary.",
+        "w": 492,
+        "h": 483
+      },
+      {
+        "id": "img4",
+        "src": "assets/pet1/pet1-t4-r-4.jpg",
+        "alt": "Very reasonable second-hand mountain bike. One previous careful owner. Excellent condition. For pictures, please contact me martin.999@nowmail.com",
+        "w": 371,
+        "h": 363
+      },
+      {
+        "id": "img5",
+        "src": "assets/pet1/pet1-t4-r-5.jpg",
+        "alt": "Email. From: School secretary. To: Students in school orchestra. School orchestra sessions will start this week. If we have to move rooms or cancel any of the sessions, we will let you know on the school website – so please check it regularly.",
+        "w": 431,
+        "h": 423
+      },
+      {
+        "id": "imgp1",
+        "src": "assets/pet1/pet1-t4-r-p1.jpg",
+        "alt": "Photo of Sandro",
+        "w": 208,
+        "h": 269
+      },
+      {
+        "id": "imgp2",
+        "src": "assets/pet1/pet1-t4-r-p2.jpg",
+        "alt": "Photo of Jana",
+        "w": 209,
+        "h": 252
+      },
+      {
+        "id": "imgp3",
+        "src": "assets/pet1/pet1-t4-r-p3.jpg",
+        "alt": "Photo of Kem",
+        "w": 209,
+        "h": 270
+      },
+      {
+        "id": "imgp4",
+        "src": "assets/pet1/pet1-t4-r-p4.jpg",
+        "alt": "Photo of Luisa",
+        "w": 202,
+        "h": 244
+      },
+      {
+        "id": "imgp5",
+        "src": "assets/pet1/pet1-t4-r-p5.jpg",
+        "alt": "Photo of Matty",
+        "w": 207,
+        "h": 250
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "For each question, choose the correct answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Julia wants Kira to"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "wait for her so they can go to lunch together."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "hurry up because she doesn’t want to miss lunch."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "get to the canteen before it closes in 20 minutes."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ]
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Do not bring your trainers to school."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Take off your trainers when the sports class is over."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Please change into the correct shoes in your classroom."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ]
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Who should contact the school secretary?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "students who need help with their coursework"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "students who want to help other students"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "teachers who want to help students"
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i3",
+              "type": "imageRef",
+              "image": "img3"
+            }
+          ]
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why does Martin want people to contact him?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "in order to help him to buy a second-hand bike"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to share ideas about the best ways to look after a bike"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "so that he can send them photos of the bike he wants to sell"
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i4",
+              "type": "imageRef",
+              "image": "img4"
+            }
+          ]
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Students must not miss any of the orchestra sessions."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The orchestra sessions will be in a different room each week."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Students should look at the website in case there are any changes."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i5",
+              "type": "imageRef",
+              "image": "img5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "For each question, choose the correct answer.",
+      "intro": [
+        {
+          "t": "text",
+          "v": "The people below all want to visit an ice cream factory with their families. On the opposite page there are descriptions of eight ice cream factories. Decide which factory would be the most suitable for the people below."
+        }
+      ],
+      "material": [
+        {
+          "id": "h1",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Ice cream factories"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "n1",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "A "
+            },
+            {
+              "t": "text",
+              "v": "Frida’s"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Frida’s"
+              },
+              {
+                "t": "text",
+                "v": " farm isn’t only famous for top-quality ice cream, but home-made cakes too – taste a range of them while you’re here! Have a go at making ice cream yourself, adding whatever you fancy, from chocolate to vegetables! A perfect birthday activity – and there’s an indoor playground for young children, too!"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n2",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "B "
+            },
+            {
+              "t": "text",
+              "v": "Henry’s"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Henry’s"
+              },
+              {
+                "t": "text",
+                "v": " has used the same methods for 50 years to produce first-class ice cream and celebration cakes! Based in an old country farmhouse, the building was the site of several interesting historical events. Visit the cows that produce our milk, and hear our plans for remaining environmentally friendly."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n3",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "C "
+            },
+            {
+              "t": "text",
+              "v": "Denton’s"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Denton’s"
+              },
+              {
+                "t": "text",
+                "v": " has made ice cream since 1900, and is one of the country’s favourites! The tour includes a talk about how Denton’s was set up and how the business has developed over the years. The shop has great gifts and, in the café, try our strange but delicious ice cream varieties, including pea and blue cheese!"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n4",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "D "
+            },
+            {
+              "t": "text",
+              "v": "Horley’s"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "At "
+              },
+              {
+                "t": "strong",
+                "v": "Horley’s"
+              },
+              {
+                "t": "text",
+                "v": ", we still make ice cream and cakes the same way it’s been done for a hundred years. Help bake cakes in the visitors’ kitchen, and record a Horley’s ad on a DVD you can keep! Visit the beautiful 18th-century farmhouse, and meet the cows that produce our milk!"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n5",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "E "
+            },
+            {
+              "t": "text",
+              "v": "Carswell’s"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "At "
+              },
+              {
+                "t": "strong",
+                "v": "Carswell’s"
+              },
+              {
+                "t": "text",
+                "v": ", visitors will enjoy walking through the huge gardens and young children will love the animals at Pets’ Corner. In the factory building, try our many flavours of ice cream, and get a souvenir from the fantastic shop – including some free ice cream!"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n6",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "F "
+            },
+            {
+              "t": "text",
+              "v": "Giulio’s"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Giulio’s"
+              },
+              {
+                "t": "text",
+                "v": " factory is famous for its beautiful gardens and fantastic children’s activities! Come and watch how ice cream is made, starting with collecting the milk. See machines turn it into ice cream, and finally, eat some! And if it’s an important celebration, we’ll make an ice-cream cake just for you!"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n7",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "G "
+            },
+            {
+              "t": "text",
+              "v": "Vascombe’s"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Vascombe’s"
+              },
+              {
+                "t": "text",
+                "v": " has made ice cream for 100 years – and it’s always been delicious! See everything we do – from caring for our animals and the surrounding environment, to producing a variety of popular ice cream flavours! Try our delicious cakes and ice cream, and get a souvenir T-shirt to take home with you!"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n8",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "H "
+            },
+            {
+              "t": "text",
+              "v": "Jacobson’s"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Jacobson’s"
+              },
+              {
+                "t": "text",
+                "v": " is based in what was once the largest cotton factory in the area, designed by a well-known 19th-century architect. The factory now operates completely on wind power, and has won prizes for its recycling methods. Visit the lab where food scientists develop delicious and unusual flavours, and try making your own ice cream!"
+              }
+            ]
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Sandro wants to visit a factory where they’ll organise something special for his birthday, and where he’ll see everything that’s involved in producing ice cream. His parents want to spend some time outdoors during their visit."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Frida’s"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Henry’s"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Denton’s"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Horley’s"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Carswell’s"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Giulio’s"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Vascombe’s"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jacobson’s"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp1"
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Jana’s family would like to go to a factory that makes ice cream using traditional methods. Jana wants to try out different activities there, and make something that she can take home."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Frida’s"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Henry’s"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Denton’s"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Horley’s"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Carswell’s"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Giulio’s"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Vascombe’s"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jacobson’s"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp2"
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Kem wants to see a factory that cares about its effects on the environment, and would like to find out how new flavours are invented. His dad enjoys visiting historically interesting buildings."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Frida’s"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Henry’s"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Denton’s"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Horley’s"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Carswell’s"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Giulio’s"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Vascombe’s"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jacobson’s"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp3"
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Luisa would like to create her own ice cream using a variety of ingredients. Her mum wants to try other products the factory makes, and find something to entertain Luisa’s small sister."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Frida’s"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Henry’s"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Denton’s"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Horley’s"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Carswell’s"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Giulio’s"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Vascombe’s"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jacobson’s"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp4"
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Matty would like to visit a factory where they produce ice cream with unusual flavours, and buy a souvenir there. His mum wants to find out about the history of the company."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Frida’s"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Henry’s"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Denton’s"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Horley’s"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Carswell’s"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Giulio’s"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Vascombe’s"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jacobson’s"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp5"
+        }
+      ],
+      "view": "match"
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h2",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Challenge yourself!"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p1",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "em",
+              "v": "15-year-old Kyle Washington writes about what he does in his free time."
+            }
+          ]
+        },
+        {
+          "id": "p2",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "I joined the National Youth Challenge (NYC) last year because I knew they went camping and sailing and taught skills like public speaking, and these were things I’d never done before. In the NYC you can do different activities to challenge yourself and you’re always learning something. There are different levels, from beginner to advanced, run by adult volunteers called ‘leaders’. When you complete each level you get a certificate."
+            }
+          ]
+        },
+        {
+          "id": "p3",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "When I first joined, my leader suggested that my first challenge should be helping to organise activities at a local children’s club for two hours a week. I wasn’t sure it was a good idea; I’d joined that same club when I was eight and I’d found it really difficult to make friends. I was quite shy then and all the other children already had their own friendship groups, so I’d stopped going after a couple of weeks. I decided to take up the challenge though, but only because I wanted my first NYC certificate."
+            }
+          ]
+        },
+        {
+          "id": "p4",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Soon, however, I wanted to spend all my free time at the children’s club. It meant a lot more to me than just getting the certificate. And when I finished the challenge, the NYC leader let me keep on volunteering at the club because I’d built up some great relationships with the children. Now I’m there for about four hours a week and I always really look forward to going."
+            }
+          ]
+        },
+        {
+          "id": "p5",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Because of what I’ve learnt at the children’s club, I’ve decided that when I finish school in three years’ time I want to go to college to become a qualified youth worker – someone who works with children. It wasn’t something I’d ever considered before starting at the club. In fact, I’d never thought about my future job, and the idea of youth work had never entered my mind. This has been my favourite part of the NYC so far and I’ve improved my own communication skills while at the same time helping others. I’ve got several other NYC certificates now and yes, one of them is for camping!"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What was the main reason why Kyle joined the NYC?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to improve some of his skills"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to reach the advanced level"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to become a volunteer leader"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to try new experiences"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why didn’t Kyle want to start helping at the children’s club?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "His memories of going there weren’t very positive."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He felt he was too shy to do a good job there."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He didn’t like the children there."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "None of his friends worked there."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Kyle still goes to the children’s club because"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "he needs to earn his next certificate."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "he enjoys spending time with the children."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "his leader asked him to carry on."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "his challenge is not yet finished."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Working at the children’s club has helped Kyle to"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "make a decision about his future career."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "go on his first camping expedition."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "get a place at college."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "achieve his dream of working with children."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "attitude"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What would Kyle’s NYC leader say about him now?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kyle’s learnt so much since he started with NYC. Now he just needs to learn to communicate better with young children."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Even though Kyle’s reduced the number of hours he works at the club, the work he does there is still extremely useful."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kyle’s a good example of why people shouldn’t be afraid of trying new things, and how this can bring unexpected benefits."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kyle’s become a different person. He used to give up on his challenges but he doesn’t do that any more."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "Five sentences have been removed from the text below. For each question, choose the correct answer. There are three extra sentences which you do not need to use.",
+      "material": [
+        {
+          "id": "h3",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Is too much messaging bad for us?"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p6",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "I’ve just read some interesting research in a magazine article about the amount of messaging that teenagers do. It seems that we send an average of 100 messages a day – that’s 3,400 every month! The researchers say that this is very likely to have some big effects on parts of our lives. "
+            },
+            {
+              "t": "blank",
+              "id": "b16",
+              "number": 16
+            },
+            {
+              "t": "text",
+              "v": " As we grow up, we start to rely less on them. But the research says that some teenagers message their parents up to 15 times a day. Some people might say that means that we depend on them too much. "
+            },
+            {
+              "t": "blank",
+              "id": "b17",
+              "number": 17
+            }
+          ]
+        },
+        {
+          "id": "p7",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "One thing did worry me a bit about the research though. It seems that for many of us, messaging doesn’t end when the lights go out for the night. "
+            },
+            {
+              "t": "blank",
+              "id": "b18",
+              "number": 18
+            },
+            {
+              "t": "text",
+              "v": " That’s because if, like me, you keep the phone on after going to bed, the light shows when a new message comes in. This disturbs our sleep, and even though we’re not completely awake, we’ll often read the message and even reply. As a result, we might end up being rather bad-tempered in the morning. "
+            },
+            {
+              "t": "blank",
+              "id": "b19",
+              "number": 19
+            }
+          ]
+        },
+        {
+          "id": "p8",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Of course, despite the fact that some of what I read in the article was rather negative, it’s not all bad news. "
+            },
+            {
+              "t": "blank",
+              "id": "b20",
+              "number": 20
+            },
+            {
+              "t": "text",
+              "v": " One advantage is that if you’re feeling a bit shy, or just tired, and you don’t want to communicate face-to-face, messaging is a great alternative. I think the main thing is that messaging can be a fantastic way to stay in touch as long as we don’t do it too much. What do you think? Message me and let me know!!"
+            }
+          ]
+        }
+      ],
+      "bank": [
+        {
+          "id": "A",
+          "content": [
+            {
+              "t": "text",
+              "v": "That surely isn’t the best way to start the day!"
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "content": [
+            {
+              "t": "text",
+              "v": "And, surprisingly, we often forget that it didn’t!"
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "content": [
+            {
+              "t": "text",
+              "v": "Despite this difficulty, messaging can be much quicker than a conversation."
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "content": [
+            {
+              "t": "text",
+              "v": "However, I think it’s just nice to stay in touch."
+            }
+          ]
+        },
+        {
+          "id": "E",
+          "content": [
+            {
+              "t": "text",
+              "v": "Another reason is that often we just can’t wait to see our friends."
+            }
+          ]
+        },
+        {
+          "id": "F",
+          "content": [
+            {
+              "t": "text",
+              "v": "There are plenty of good things about messaging too."
+            }
+          ]
+        },
+        {
+          "id": "G",
+          "content": [
+            {
+              "t": "text",
+              "v": "One of these, they say, is our connection with our parents."
+            }
+          ]
+        },
+        {
+          "id": "H",
+          "content": [
+            {
+              "t": "text",
+              "v": "Many of us message while we’re doing other things, like homework."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b16"
+            ]
+          }
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b17"
+            ]
+          }
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b18"
+            ]
+          }
+        },
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b19"
+            ]
+          }
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b20"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "part": 5,
+      "label": "Part 5",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h4",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "The Titan Arum"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p9",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "We usually expect flowers to have an attractive smell. However, this isn’t true of all of them. The flowering plant called the Titan Arum only produces flowers every ten years or so – but when it does, the smell is so "
+            },
+            {
+              "t": "blank",
+              "id": "b21",
+              "number": 21
+            },
+            {
+              "t": "text",
+              "v": " that most people say they can’t stand being near the flower, unless they hold their noses. They say that it’s the worst smell they have ever "
+            },
+            {
+              "t": "blank",
+              "id": "b22",
+              "number": 22
+            },
+            {
+              "t": "text",
+              "v": "."
+            }
+          ]
+        },
+        {
+          "id": "p10",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "The plant, which can grow to over 100 cm tall, is able to produce heat. As this happens, the bad smell is created. But the smell does have a purpose. It’s intended to encourage all kinds of insects to travel "
+            },
+            {
+              "t": "blank",
+              "id": "b23",
+              "number": 23
+            },
+            {
+              "t": "text",
+              "v": " distances to visit the flowers."
+            }
+          ]
+        },
+        {
+          "id": "p11",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "The flowers always "
+            },
+            {
+              "t": "blank",
+              "id": "b24",
+              "number": 24
+            },
+            {
+              "t": "text",
+              "v": " a lot of interest because they are produced so "
+            },
+            {
+              "t": "blank",
+              "id": "b25",
+              "number": 25
+            },
+            {
+              "t": "text",
+              "v": ". Scientists wanting to study the plant need to "
+            },
+            {
+              "t": "blank",
+              "id": "b26",
+              "number": 26
+            },
+            {
+              "t": "text",
+              "v": " out their research before the flowers disappear again for another ten years."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b21",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "messy"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "disgusting"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "frightening"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "painful"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b22",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "experienced"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "met"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "realised"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "felt"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b23",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "far"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "broad"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "wide"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "long"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b24",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "aim"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "offer"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "demand"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "attract"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b25",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "rarely"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "slightly"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "hardly"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "lately"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b26",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "take"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "find"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "carry"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "start"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "part": 6,
+      "label": "Part 6",
+      "instruction": "For each question, write the correct answer. Write **one** word for each gap.",
+      "material": [
+        {
+          "id": "h5",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "A trip to the theatre"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p12",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "We had a class day out today. We went on a theatre trip "
+            },
+            {
+              "t": "blank",
+              "id": "b27",
+              "number": 27
+            },
+            {
+              "t": "text",
+              "v": " see Shakespeare’s play "
+            },
+            {
+              "t": "em",
+              "v": "Hamlet"
+            },
+            {
+              "t": "text",
+              "v": ". A friend of mine, "
+            },
+            {
+              "t": "blank",
+              "id": "b28",
+              "number": 28
+            },
+            {
+              "t": "text",
+              "v": " has always been really into Shakespeare, had already told me the story. Basically, Hamlet discovers a terrible secret about his family, but he can’t decide "
+            },
+            {
+              "t": "blank",
+              "id": "b29",
+              "number": 29
+            },
+            {
+              "t": "text",
+              "v": " to do about it. I won’t say any more about the story, in case you decide to go and see it as well. I’d hate to spoil it for you! The only thing I didn’t like about the play was "
+            },
+            {
+              "t": "blank",
+              "id": "b30",
+              "number": 30
+            },
+            {
+              "t": "text",
+              "v": " fact that it lasted four hours. For me, that was far "
+            },
+            {
+              "t": "blank",
+              "id": "b31",
+              "number": 31
+            },
+            {
+              "t": "text",
+              "v": " long, and the seats were quite uncomfortable. Afterwards, my mum asked me "
+            },
+            {
+              "t": "blank",
+              "id": "b32",
+              "number": 32
+            },
+            {
+              "t": "text",
+              "v": " I’d go and see another Shakespeare play. I said yes, I probably would, but I’d take a cushion next time!"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b27"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b28"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b29"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b30"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b31"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b32"
+            ],
+            "maxWords": 1
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "Test 4 完整试卷+答案解析.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "bookPages": [
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

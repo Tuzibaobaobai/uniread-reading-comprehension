@@ -1,0 +1,390 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "pet2-t1-s",
+  "playlistId": "pet2",
+  "order": 4,
+  "test": 1,
+  "paper": "speaking",
+  "title": "PET真题2-第1套-口语",
+  "displayName": "PET真题2-第1套-口语",
+  "taskType": {
+    "code": "exam_speaking",
+    "labelZh": "口语"
+  },
+  "meta": {
+    "exam": "B1 Preliminary for Schools",
+    "durationMinutes": 14,
+    "totalMarks": 80
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/pet2/pet2-t1-s-1.jpg",
+        "alt": "Task 1A – Enjoying time together: six teenagers are sitting on a blue blanket on the grass in a park, with tall trees behind them. A girl in a pink jacket is using a laptop, a boy is holding a tablet, a girl is reading a book or a magazine, another girl is playing the guitar and a boy in a blue shirt is talking to her. It is a sunny day.",
+        "w": 1031,
+        "h": 650
+      },
+      {
+        "id": "img2",
+        "src": "assets/pet2/pet2-t1-s-2.jpg",
+        "alt": "Task 1C – Different ways to improve English skills. In the middle: a boy is thinking about how to improve his English. Around him: studying alone with a book at a desk, joining an English class with a teacher, watching a film in English at the cinema, listening to songs in English with headphones, having lessons with a private teacher, and using an app on a mobile phone.",
+        "w": 1200,
+        "h": 1203
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "Answer the examiner's questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 20,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about yourself and your everyday life."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "What’s your name?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q1-t1.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t2",
+                "text": "How old are you?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q1-t2.mp3",
+                  "seconds": 2
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Where do you live?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q1-t3.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Who do you live with?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q1-t4.mp3",
+                  "seconds": 2.1
+                }
+              },
+              {
+                "id": "t5",
+                "text": "What subject do you find the easiest at school? (Why?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q1-t5.mp3",
+                  "seconds": 5
+                }
+              },
+              {
+                "id": "t6",
+                "text": "What kind of music do you listen to?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q1-t6.mp3",
+                  "seconds": 3
+                }
+              },
+              {
+                "id": "t7",
+                "text": "What type of animals do you like?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q1-t7.mp3",
+                  "seconds": 2.8
+                }
+              },
+              {
+                "id": "t8",
+                "text": "Do you like shopping? (Why?/Why not?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q1-t8.mp3",
+                  "seconds": 4.2
+                }
+              },
+              {
+                "id": "t9",
+                "text": "How often do you take photos? (Why?/Why not?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q1-t9.mp3",
+                  "seconds": 5.2
+                }
+              },
+              {
+                "id": "t10",
+                "text": "Tell us about the kind of films you like.",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q1-t10.mp3",
+                  "seconds": 3.4
+                }
+              },
+              {
+                "id": "t11",
+                "text": "Where do you like to meet your friends?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q1-t11.mp3",
+                  "seconds": 2.8
+                }
+              },
+              {
+                "id": "t12",
+                "text": "Do you enjoy playing games on phones and computers?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q1-t12.mp3",
+                  "seconds": 4.2
+                }
+              }
+            ],
+            "maxSeconds": 30,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Talk about your photograph on your own.",
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 20,
+          "skills": [],
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the photograph of friends enjoying time together and talk about it on your own for about one minute."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Now I’d like you to talk on your own about something. I’m going to give you a photograph and I’d like you to talk about it. Here is your photograph. It shows friends enjoying time together. Please tell us what you can see in the photograph.",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q2-t1.mp3",
+                  "seconds": 17.9
+                }
+              }
+            ],
+            "maxSeconds": 75,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "Talk together with your partner about the situation.",
+      "questions": [
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 20,
+          "skills": [],
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Talk with your partner about the different ways a boy could improve his English before a short holiday in England, and decide which would be best."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Now, in this part of the test you’re going to talk about something together for about two minutes. I’m going to describe a situation to you. A boy is going to visit England soon for a short holiday. He wants to improve his English quickly before he goes. Here are some ways he could improve his English. Talk together about the different ways he could improve his English before his holiday and say which would be best. All right? Now, talk together.",
+                "role": "examiner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q3-t1.mp3",
+                  "seconds": 33.3
+                }
+              },
+              {
+                "id": "t2",
+                "text": "Shall I start? I think an English class is a good idea, because a teacher can correct his mistakes. What do you think?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q3-t2.mp3",
+                  "seconds": 7.7
+                }
+              },
+              {
+                "id": "t3",
+                "text": "That’s true. What about listening to songs in English? It’s fun, and he can do it every day. Do you agree?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q3-t3.mp3",
+                  "seconds": 7.5
+                }
+              },
+              {
+                "id": "t4",
+                "text": "I’m not sure about studying alone with a book. It could be a bit boring, and he won’t practise speaking. What’s your opinion?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q3-t4.mp3",
+                  "seconds": 7.5
+                }
+              },
+              {
+                "id": "t5",
+                "text": "What about watching films in English or using an app on his phone? Which one do you think is more useful?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q3-t5.mp3",
+                  "seconds": 6.4
+                }
+              },
+              {
+                "id": "t6",
+                "text": "He hasn’t got much time, so maybe a private teacher is better. He can practise speaking a lot. What do you think?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q3-t6.mp3",
+                  "seconds": 7.1
+                }
+              },
+              {
+                "id": "t7",
+                "text": "So, which way do you think would be best for him? I think the private teacher, because it helps quickly.",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q3-t7.mp3",
+                  "seconds": 6.2
+                }
+              }
+            ],
+            "maxSeconds": 45,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "Answer the examiner's questions about the topic of Part 3.",
+      "questions": [
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 20,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about learning English and other languages."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Do you enjoy learning English? (Why?/Why not?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q4-t1.mp3",
+                  "seconds": 5.2
+                }
+              },
+              {
+                "id": "t2",
+                "text": "How often do you listen to songs in English? (Why?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q4-t2.mp3",
+                  "seconds": 4.8
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Does anyone in your family speak English? (Why?/Why not?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q4-t3.mp3",
+                  "seconds": 5.7
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Which other languages would you most like to learn in the future? (Why?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q4-t4.mp3",
+                  "seconds": 6.2
+                }
+              },
+              {
+                "id": "t5",
+                "text": "Is it more important to learn to speak or to learn to write in another language? (Why?/Why not?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t1-s-q4-t5.mp3",
+                  "seconds": 7.6
+                }
+              }
+            ],
+            "maxSeconds": 40,
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "Test 1 完整试卷+答案解析.pdf",
+    "pdfPages": [
+      19,
+      20,
+      21,
+      22
+    ],
+    "bookPages": [
+      80,
+      81,
+      82,
+      83
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

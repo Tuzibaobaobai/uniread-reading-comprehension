@@ -115,3 +115,24 @@ test('#96 writing: genre layouts — email header band, the announcement box ins
   await expect(page.locator('.task-stimulus .rt-note-heading')).toHaveText('Sport and exercise');
   await expect(page.locator('.task-line strong').first()).toHaveText('article');
 });
+
+test('PET 校园版真题 2 and 3: four tests each, grouped by test, all papers open', async ({ page }) => {
+  for (const pl of ['pet2', 'pet3']) {
+    await page.goto(`/#/p/${pl}`);
+    await expect(page.locator('.item-row-title')).toHaveCount(16);
+    await expect(page.locator('.item-row-title').nth(15)).toHaveText(`PET真题${pl.slice(-1)}-第4套-口语`);
+  }
+  await practice(page, 'pet3-t4-r');
+  await tab(page, /题目/);
+  await expect(page.locator('.question-card')).toBeVisible();
+});
+
+test('#101 a Part whose recording is missing says so and can still be answered', async ({ page }) => {
+  await practice(page, 'pet2-t1-l');
+  await tab(page, /材料/);
+  await expect(page.getByText('本部分录音暂缺，正在补充中；可以先看题。')).toHaveCount(2);
+  await tab(page, /题目/);
+  await page.getByRole('button', { name: /第 8 题/ }).click();
+  await page.locator('.option').first().click();
+  await expect(page.locator('.option.is-selected')).toHaveCount(1);
+});

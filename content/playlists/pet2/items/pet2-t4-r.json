@@ -1,0 +1,2330 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "pet2-t4-r",
+  "playlistId": "pet2",
+  "order": 13,
+  "test": 4,
+  "paper": "reading",
+  "title": "PET真题2-第4套-阅读",
+  "displayName": "PET真题2-第4套-阅读",
+  "taskType": {
+    "code": "exam_reading",
+    "labelZh": "阅读"
+  },
+  "meta": {
+    "exam": "B1 Preliminary for Schools",
+    "durationMinutes": 45,
+    "totalMarks": 32
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/pet2/pet2-t4-r-1.jpg",
+        "alt": "Text message to Konrad: Do you remember me telling you yesterday about a film I’d read great reviews of? Well, I wondered if you wanted to come over and we can see if it’s any good. Jakob",
+        "w": 346,
+        "h": 553
+      },
+      {
+        "id": "img2",
+        "src": "assets/pet2/pet2-t4-r-2.jpg",
+        "alt": "Sign: For all issues with college computers, contact the IT assistants – or see Reception staff, who can call them for help.",
+        "w": 640,
+        "h": 236
+      },
+      {
+        "id": "img3",
+        "src": "assets/pet2/pet2-t4-r-3.jpg",
+        "alt": "Notice: Do you enjoy writing? Special event at school library, 6 p.m. 7th June. Come and read one of your stories aloud, and receive helpful tips from well-known author Jane Smith. All welcome!",
+        "w": 502,
+        "h": 486
+      },
+      {
+        "id": "img4",
+        "src": "assets/pet2/pet2-t4-r-4.jpg",
+        "alt": "Notice: Park Sports Competition, Saturday. Sign up at café. Free sunhat and water for everyone. Further details: parksports.com",
+        "w": 564,
+        "h": 207
+      },
+      {
+        "id": "img5",
+        "src": "assets/pet2/pet2-t4-r-5.jpg",
+        "alt": "Text message to Fiona: You said you’d meet me at 6.30 p.m. Has something happened? The bus leaves in 5 minutes – we’ll miss the film if you don’t get here soon. Jess",
+        "w": 382,
+        "h": 619
+      },
+      {
+        "id": "imgp1",
+        "src": "assets/pet2/pet2-t4-r-p1.jpg",
+        "alt": "Photo of Kate and Natalie",
+        "w": 295,
+        "h": 287
+      },
+      {
+        "id": "imgp2",
+        "src": "assets/pet2/pet2-t4-r-p2.jpg",
+        "alt": "Photo of Tom and his mum",
+        "w": 295,
+        "h": 287
+      },
+      {
+        "id": "imgp3",
+        "src": "assets/pet2/pet2-t4-r-p3.jpg",
+        "alt": "Photo of Jack and his dad",
+        "w": 295,
+        "h": 287
+      },
+      {
+        "id": "imgp4",
+        "src": "assets/pet2/pet2-t4-r-p4.jpg",
+        "alt": "Photo of Sophie and Janine",
+        "w": 295,
+        "h": 287
+      },
+      {
+        "id": "imgp5",
+        "src": "assets/pet2/pet2-t4-r-p5.jpg",
+        "alt": "Photo of Maria and Ben",
+        "w": 295,
+        "h": 287
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "For each question, choose the correct answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is Jakob doing?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "telling Konrad about a film he saw recently"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "inviting Konrad to watch a film with him"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "reminding Konrad that they arranged to see a film"
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ]
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does the sign say?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Phone a member of staff for instructions on how to use the college computers."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "IT assistants at Reception can fix the college computers."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Support is provided for any college computer problem."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ]
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What can students do at this event?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "improve their story writing skills"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "listen to a story read by a famous writer"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "advise each other on story writing"
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i3",
+              "type": "imageRef",
+              "image": "img3"
+            }
+          ]
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does the notice say?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "People taking part must register online."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Everyone will have the chance to win a prize."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Competitors will not be charged for water on the day."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i4",
+              "type": "imageRef",
+              "image": "img4"
+            }
+          ]
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Why has Jess sent the message?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to explain to Fiona the reason for a delay"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to check whether Fiona is still coming"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "to suggest a different time to meet Fiona"
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i5",
+              "type": "imageRef",
+              "image": "img5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "For each question, choose the correct answer.",
+      "intro": [
+        {
+          "t": "text",
+          "v": "The people below all want to find a café they can go to. On the opposite page there are eight descriptions of cafés. Decide which café would be the most suitable for the people below."
+        }
+      ],
+      "material": [
+        {
+          "id": "h1",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Cafés"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "n1",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "A"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Tempo"
+              },
+              {
+                "t": "text",
+                "v": " is in an old library building, and serves different dishes every week! The café isn’t big, but its plain white walls and windows looking onto the narrow street make it light inside. It’s on a popular route for runners, so watch them going past while you enjoy your meal."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n2",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "B"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Marsden’s"
+              },
+              {
+                "t": "text",
+                "v": " is in a new building by the river, so you can watch the colourful little boats sailing past as you have a meal. It’s perfect for a peaceful break during a busy day. Marsden’s always serves traditional meat and fish dishes, and fantastic cakes and ice creams. People travel for miles to try them!"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n3",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "C"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Violet’s"
+              },
+              {
+                "t": "text",
+                "v": " is in an 18th-century house with a garden that’s even large enough for a game of badminton! It’s always lively and busy. Regular customers love it because they know they’ll always find the same wonderful dishes there, and great desserts – such as cakes and ice creams, all at low prices!"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n4",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "D"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Impey’s"
+              },
+              {
+                "t": "text",
+                "v": " has large tables perfect for big groups of customers, both inside and in its garden. And even if you come here frequently, you’ll still find new dishes on offer each week! Impey’s is always busy, and has a great atmosphere – as well as fantastic artworks on its walls!"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n5",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "E"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "As "
+              },
+              {
+                "t": "strong",
+                "v": "Butterfly"
+              },
+              {
+                "t": "text",
+                "v": " is by the main cricket ground, it attracts local players who eat there in big groups after matches – it has lots of space inside. The unusual bright colours and huge art posters give it a cheerful atmosphere – great for meeting friends. The food’s good, too, although it can be a bit expensive."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n6",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "F"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "The modern "
+              },
+              {
+                "t": "strong",
+                "v": "Royale"
+              },
+              {
+                "t": "text",
+                "v": " café serves a range of tasty meals, including meat-free dishes. Surprisingly few people know about it, so you can stay in the peace of the little café and garden as long as you wish. Sunny yellow walls and fantastic art posters make it the happiest place in town!"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n7",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "G"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Sands Café"
+              },
+              {
+                "t": "text",
+                "v": " usually attracts lots of people calling in after watching a game at the stadium nearby, because of its convenient location and lively atmosphere – and its delicious dishes, none of which cost a lot. You may even see famous players trying the fantastic hot meals!"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n8",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "H"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "strong",
+                "v": "Jerry’s"
+              },
+              {
+                "t": "text",
+                "v": " is in one of the oldest streets in town, in what was once the town hall. Inside, you’ll find lovely cream-coloured walls, comfortable sofas – and a great selection of books to entertain you as you eat their tasty sandwiches! The café also displays work by local painters and photographers."
+              }
+            ]
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Kate and Natalie want a small place that isn’t usually crowded, where they can sit and chat and have a vegetarian lunch. They’d like a café decorated in a bright, cheerful way."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Tempo"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Marsden’s"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Violet’s"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Impey’s"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Butterfly"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Royale"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Sands Café"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jerry’s"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp1"
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Tom and his mum want to go to a quiet café for lunch. Tom’s mum would like a nice view to enjoy while they’re eating, and Tom wants to go somewhere that’s famous for its desserts."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Tempo"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Marsden’s"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Violet’s"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Impey’s"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Butterfly"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Royale"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Sands Café"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jerry’s"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp2"
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Jack and his dad both love sport. They’d like a café that’s popular with sports fans, and where they can get great cooked food at a reasonable price."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Tempo"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Marsden’s"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Violet’s"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Impey’s"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Butterfly"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Royale"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Sands Café"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jerry’s"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp3"
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Sophie and Janine are doing art projects, and want a café where they can see some art and also find something to read while they’re having a snack. They’d like somewhere in a historic building."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Tempo"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Marsden’s"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Violet’s"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Impey’s"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Butterfly"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Royale"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Sands Café"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jerry’s"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp4"
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Maria and Ben often meet all their friends after school. They want a lively café with space for them to all sit outside together, and where the menu changes regularly."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Tempo"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Marsden’s"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Violet’s"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Impey’s"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Butterfly"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Royale"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Sands Café"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jerry’s"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp5"
+        }
+      ],
+      "view": "match"
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h2",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Young birdwatcher"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p1",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "em",
+              "v": "Fifteen-year-old Jana Green writes about her hobby of birdwatching."
+            }
+          ]
+        },
+        {
+          "id": "p2",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "I live in a house surrounded by beautiful countryside in Scotland. I’ve always loved nature and wild animals, and six years ago, I started a new hobby – birdwatching! I went to some mountains in northern Scotland with my family, where we saw lots of birds in their natural environment. I spent hours watching them with my parents, who showed me how to tell the difference between species and how to find the best places to see them. It was amazing, and after returning home, I joined a local young birdwatchers’ club."
+            }
+          ]
+        },
+        {
+          "id": "p3",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "My goal is to see 200 different bird species, and I’ve almost achieved that because on family holidays abroad I’ve had the opportunity to see birds from other countries, too. We always look for places where there are group birdwatching activities, so I can add new birds to my list! I’ve been to Egypt, and last summer we went to South America, where I thought I’d have a good chance to see my 200th species. I wasn’t too disappointed when it didn’t happen, though, as I’ve learned that you have to be patient with this hobby."
+            }
+          ]
+        },
+        {
+          "id": "p4",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "I posted a video online about this challenge, and many teenagers enjoyed it and commented that it looked like a fascinating hobby. When my teachers saw it, they asked me to give a presentation about birdwatching to the school. I didn’t feel nervous until just before they introduced me and I walked onto the stage. I knew I’d remember what to say and had some notes to help me, but the whole school and all my friends were watching me! I only relaxed when it was over and the teachers said I’d prepared well and they’d really enjoyed it. I might even do another one next year!"
+            }
+          ]
+        },
+        {
+          "id": "p5",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "I’m lucky to live in the countryside. I understand why many teenagers in cities might not think of becoming birdwatchers, but there are actually plenty of birds to see, especially in places which have lots of green areas. I also think that birdwatching clubs should try to get more young people interested in this hobby. Everyone needs to connect with nature, whatever their age, and it doesn’t have to cost much money."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How did Jana first become interested in birdwatching?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "She found that she was good at recognising different bird species."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "She was taught some birdwatching skills by her parents."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "She met some young people with a similar interest in birds."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "She moved to Scotland and discovered that she loved nature."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "attitude"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does Jana say about her aim to see 200 bird species?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "She accepts that it might take longer than she had hoped."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "She is annoyed because she has not yet achieved this goal."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "She is certain she will soon see even more birds."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "She regrets that she has missed opportunities to see new birds."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "attitude"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How did Jana feel about giving her presentation?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "proud that the teachers had asked her to do it"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "worried that she might forget the information"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "anxious because the audience was so large"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "confident that nothing could go wrong"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does Jana say about birdwatching in cities?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Some cities plan to open birdwatching clubs for young people."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "There are more opportunities for birdwatching than people realise."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Cities should have more parks in order to attract birds."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "It is hard to see a variety of bird species around cities."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What would Jana’s parents say about Jana’s hobby?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jana really enjoyed her birdwatching hobby when she was at her club, so it’s a pity that she has given it up."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jana usually prefers us to go birdwatching on our own while we’re on holiday."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jana gave a good presentation on birdwatching at her school, and has already given a second one."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jana’s experience and love of birdwatching is encouraging other young people to become interested in this hobby."
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "Five sentences have been removed from the text below. For each question, choose the correct answer. There are three extra sentences which you do not need to use.",
+      "material": [
+        {
+          "id": "h3",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Lost Irish beach returns after 33 years"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p6",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Achill Island, off the coast of Ireland, is a popular tourist destination. It has beautiful mountains and clean beaches. The island was suddenly in the news in 1984 because of something that happened near the village of Dooagh. "
+            },
+            {
+              "t": "blank",
+              "id": "b16",
+              "number": 16
+            },
+            {
+              "t": "text",
+              "v": " They discovered that their beach had disappeared during the night, leaving behind just rocks. For years after that, only small amounts of sand returned to the once-beautiful shore, and fewer and fewer tourists went there. "
+            },
+            {
+              "t": "blank",
+              "id": "b17",
+              "number": 17
+            },
+            {
+              "t": "text",
+              "v": " The effect of this was felt by everyone in the small community."
+            }
+          ]
+        },
+        {
+          "id": "p7",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Then, in 2017, something incredible happened. People couldn’t believe their eyes when, one morning, they found that their beach had returned, and the rocks were once again covered in soft golden sand! "
+            },
+            {
+              "t": "blank",
+              "id": "b18",
+              "number": 18
+            },
+            {
+              "t": "text",
+              "v": " They said that the amount of sand under the sea near the coast had slowly increased. Then, during a period of strong winds and powerful waves, most of it was carried to the shore."
+            }
+          ]
+        },
+        {
+          "id": "p8",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "The people of the island were of course delighted to have their beach back, and for some time, it attracted hundreds of visitors. "
+            },
+            {
+              "t": "blank",
+              "id": "b19",
+              "number": 19
+            },
+            {
+              "t": "text",
+              "v": " Business owners in the area were also hopeful that the beach would encourage surfers to return to the region, making it a popular holiday destination again. "
+            },
+            {
+              "t": "blank",
+              "id": "b20",
+              "number": 20
+            },
+            {
+              "t": "text",
+              "v": " No one was sure whether it was absolutely safe."
+            }
+          ]
+        },
+        {
+          "id": "p9",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Later, a special type of seaweed – a plant that grows in the sea – appeared on the beach. It is traditionally used to help crops grow, so its return was particularly good news. The local people are hopeful that now the sand is finally here to stay."
+            }
+          ]
+        }
+      ],
+      "bank": [
+        {
+          "id": "A",
+          "content": [
+            {
+              "t": "text",
+              "v": "They were able to experience these amazing events."
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "content": [
+            {
+              "t": "text",
+              "v": "At first, however, people were advised to avoid going into the sea."
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "content": [
+            {
+              "t": "text",
+              "v": "Losing so many visitors meant that many hotels and restaurants had to close."
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "content": [
+            {
+              "t": "text",
+              "v": "But a most surprising thing happened that night."
+            }
+          ]
+        },
+        {
+          "id": "E",
+          "content": [
+            {
+              "t": "text",
+              "v": "Scientists from an Irish university provided a possible explanation."
+            }
+          ]
+        },
+        {
+          "id": "F",
+          "content": [
+            {
+              "t": "text",
+              "v": "Despite these benefits to plants and animals, a few people were disappointed."
+            }
+          ]
+        },
+        {
+          "id": "G",
+          "content": [
+            {
+              "t": "text",
+              "v": "One morning, the people living there had a nasty shock."
+            }
+          ]
+        },
+        {
+          "id": "H",
+          "content": [
+            {
+              "t": "text",
+              "v": "Tourists wanted to see the power of nature for themselves."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b16"
+            ]
+          }
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b17"
+            ]
+          }
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b18"
+            ]
+          }
+        },
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b19"
+            ]
+          }
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b20"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "part": 5,
+      "label": "Part 5",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h4",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "A popular song"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p10",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "em",
+              "v": "Yesterday"
+            },
+            {
+              "t": "text",
+              "v": ", a song by the British group The Beatles, is one of the world’s most popular English-language songs. Originally "
+            },
+            {
+              "t": "blank",
+              "id": "b21",
+              "number": 21
+            },
+            {
+              "t": "text",
+              "v": " by The Beatles in 1965, a huge range of artists have created over 2,000 other "
+            },
+            {
+              "t": "blank",
+              "id": "b22",
+              "number": 22
+            },
+            {
+              "t": "text",
+              "v": " of the song since it was written. In 2000, customers of an international music video channel "
+            },
+            {
+              "t": "blank",
+              "id": "b23",
+              "number": 23
+            },
+            {
+              "t": "text",
+              "v": " to choose the best pop song of all time, and "
+            },
+            {
+              "t": "em",
+              "v": "Yesterday"
+            },
+            {
+              "t": "text",
+              "v": " won."
+            }
+          ]
+        },
+        {
+          "id": "p11",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "According to the writer of the song, Paul McCartney, the tune for the whole song came to him in a dream. When he woke up, he immediately played it on a piano to "
+            },
+            {
+              "t": "blank",
+              "id": "b24",
+              "number": 24
+            },
+            {
+              "t": "text",
+              "v": " forgetting it."
+            }
+          ]
+        },
+        {
+          "id": "p12",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "McCartney found writing words for the song more challenging than writing the music. When he first played it to the other "
+            },
+            {
+              "t": "blank",
+              "id": "b25",
+              "number": 25
+            },
+            {
+              "t": "text",
+              "v": " of the band, he still hadn’t written any words. So he sang ‘Scrambled eggs’ instead of ‘Yesterday’. Over 50 years later, "
+            },
+            {
+              "t": "em",
+              "v": "Yesterday"
+            },
+            {
+              "t": "text",
+              "v": " has "
+            },
+            {
+              "t": "blank",
+              "id": "b26",
+              "number": 26
+            },
+            {
+              "t": "text",
+              "v": " up being one of the world’s most popular songs!"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b21",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "designed"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "invented"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "recorded"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "copied"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b22",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "varieties"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "forms"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "types"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "versions"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b23",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "voted"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "picked"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "supported"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "approved"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b24",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "fail"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "prevent"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "miss"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "avoid"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b25",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "assistants"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "partners"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "members"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "colleagues"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b26",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "come"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "ended"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "set"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "turned"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "part": 6,
+      "label": "Part 6",
+      "instruction": "For each question, write the correct answer. Write one word for each gap.",
+      "material": [
+        {
+          "id": "h5",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Match report: National Schools Tournament"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p13",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "em",
+              "v": "by William Jacobs, football captain"
+            }
+          ]
+        },
+        {
+          "id": "p14",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Last Saturday, our school football team took part in the National Schools Tournament. It was a long day – we got to school very early as the bus "
+            },
+            {
+              "t": "blank",
+              "id": "b27",
+              "number": 27
+            },
+            {
+              "t": "text",
+              "v": " would take us to the tournament had to leave by 7 a.m. "
+            },
+            {
+              "t": "blank",
+              "id": "b28",
+              "number": 28
+            },
+            {
+              "t": "text",
+              "v": " an hour’s drive we arrived at the City Stadium, where the competition was taking "
+            },
+            {
+              "t": "blank",
+              "id": "b29",
+              "number": 29
+            },
+            {
+              "t": "text",
+              "v": " . Playing in such "
+            },
+            {
+              "t": "blank",
+              "id": "b30",
+              "number": 30
+            },
+            {
+              "t": "text",
+              "v": " famous stadium was an experience we will never forget."
+            }
+          ]
+        },
+        {
+          "id": "p15",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "We played against some of the top teams from around the country, and we came first! This was amazing because the other teams were much stronger this year "
+            },
+            {
+              "t": "blank",
+              "id": "b31",
+              "number": 31
+            },
+            {
+              "t": "text",
+              "v": " they were last year."
+            }
+          ]
+        },
+        {
+          "id": "p16",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "We were given our prize, a beautiful silver cup, and then we went on a tour around the stadium. We all agreed that it "
+            },
+            {
+              "t": "blank",
+              "id": "b32",
+              "number": 32
+            },
+            {
+              "t": "text",
+              "v": " been an incredible day, and we hope to be able to return next year!"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b27"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b28"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b29"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b30"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b31"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b32"
+            ],
+            "maxWords": 1
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "Test 4 完整试卷+答案解析.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "bookPages": [
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,2294 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "pet2-t1-r",
+  "playlistId": "pet2",
+  "order": 1,
+  "test": 1,
+  "paper": "reading",
+  "title": "PET真题2-第1套-阅读",
+  "displayName": "PET真题2-第1套-阅读",
+  "taskType": {
+    "code": "exam_reading",
+    "labelZh": "阅读"
+  },
+  "meta": {
+    "exam": "B1 Preliminary for Schools",
+    "durationMinutes": 45,
+    "totalMarks": 32
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/pet2/pet2-t1-r-1.jpg",
+        "alt": "Note: Mum, I’m next door at Amelia’s. We decided to do some practice for the school concert there – it will be quite noisy, but her parents are out. I’ll be back in time for dinner. Katy",
+        "w": 372,
+        "h": 378
+      },
+      {
+        "id": "img2",
+        "src": "assets/pet2/pet2-t1-r-2.jpg",
+        "alt": "Text message to Jenny: I’ve got an idea for the music project – can we get together soon? I didn’t forget about that website you mentioned. It looks really useful. Let me know, Sue",
+        "w": 369,
+        "h": 606
+      },
+      {
+        "id": "img3",
+        "src": "assets/pet2/pet2-t1-r-3.jpg",
+        "alt": "Email. From: Cycling club coach. To: Members. The 10 km and 20 km races are at 9 a.m. tomorrow. If you’re not sure which distance to race, see me. We’re expecting wet weather, so be prepared – bring suitable kit.",
+        "w": 492,
+        "h": 487
+      },
+      {
+        "id": "img4",
+        "src": "assets/pet2/pet2-t1-r-4.jpg",
+        "alt": "Text message to Jack: What time are you getting to Tom’s party tonight? Is your mum driving you there? I might be a bit late, so tell him I’ll be there as soon as I can. Melanie",
+        "w": 369,
+        "h": 611
+      },
+      {
+        "id": "img5",
+        "src": "assets/pet2/pet2-t1-r-5.jpg",
+        "alt": "Email. From: Mr Thompson. To: Drama club members. I’d like us to have a new logo for our drama club, and I’m offering a T-shirt for the best design! Email me your ideas, and then you can all vote for the best one!",
+        "w": 492,
+        "h": 480
+      },
+      {
+        "id": "imgp1",
+        "src": "assets/pet2/pet2-t1-r-p1.jpg",
+        "alt": "Photo of Philippe",
+        "w": 240,
+        "h": 264
+      },
+      {
+        "id": "imgp2",
+        "src": "assets/pet2/pet2-t1-r-p2.jpg",
+        "alt": "Photo of Asha",
+        "w": 240,
+        "h": 264
+      },
+      {
+        "id": "imgp3",
+        "src": "assets/pet2/pet2-t1-r-p3.jpg",
+        "alt": "Photo of Chanming",
+        "w": 240,
+        "h": 264
+      },
+      {
+        "id": "imgp4",
+        "src": "assets/pet2/pet2-t1-r-p4.jpg",
+        "alt": "Photo of Gabriella",
+        "w": 240,
+        "h": 264
+      },
+      {
+        "id": "imgp5",
+        "src": "assets/pet2/pet2-t1-r-p5.jpg",
+        "alt": "Photo of Kuba",
+        "w": 240,
+        "h": 264
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "For each question, choose the correct answer.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does the note say?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Katy and Amelia have gone to school to practise for the concert."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "There’s too much noise at Amelia’s house to practise there."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Amelia and Katy can practise at Amelia’s house without disturbing anyone."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ]
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Sue is texting to"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "remind Jenny to find some information for the music project."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "suggest they should meet to talk about the music project."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "recommend a website that will be good for the project."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ]
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What is the coach doing?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "telling members to prepare for the cycling to be cancelled due to bad weather"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "warning members that he expects them to be on time for the cycling races"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "offering to give members advice on the best cycling race for them to enter"
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i3",
+              "type": "imageRef",
+              "image": "img3"
+            }
+          ]
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Melanie wants Jack to"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "let her know what time something begins."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "pass on a message to someone."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "give her a lift somewhere."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i4",
+              "type": "imageRef",
+              "image": "img4"
+            }
+          ]
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 1,
+          "skills": [
+            "inference"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "There’s a competition for drama club members to create a new logo."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The winning drama club logo will be chosen by Mr Thompson."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The drama club members have decided they need a new logo."
+                  }
+                ]
+              }
+            ]
+          },
+          "material": [
+            {
+              "id": "i5",
+              "type": "imageRef",
+              "image": "img5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "For each question, choose the correct answer.",
+      "intro": [
+        {
+          "t": "text",
+          "v": "The people below all want to visit wildlife parks. On the opposite page there are eight descriptions of wildlife parks. Decide which wildlife park would be the most suitable for the people below."
+        }
+      ],
+      "material": [
+        {
+          "id": "h1",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Eight great wildlife parks to visit"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "n1",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "A "
+            },
+            {
+              "t": "text",
+              "v": "Hallmouth Wildlife Park"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "Hallmouth’s famous for its large open areas full of monkeys, giraffes and kangaroos! There’s also a special play area for younger visitors. Listen to guides and other experts explaining what they do at the park – stay in touch with them by joining their weekly online chat on the park’s website!"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n2",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "B "
+            },
+            {
+              "t": "text",
+              "v": "Greenway Wildlife Park"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "At Greenway, you can go around some parts of the park on a horse or a camel! Visitors can also learn what monkeys eat, and even give them their lunch. The animals here are all from Africa and Europe. Cheaper tickets are available for groups of ten or more, and the park is just ten minutes from the train station."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n3",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "C "
+            },
+            {
+              "t": "text",
+              "v": "Rainforest Fun"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "The main attraction is a huge glass building containing plants from a rainforest, where animals and birds move around freely. Although there isn’t really enough to entertain young children or adults for a whole day, it’s still an interesting experience. Don’t miss the sharks in the building next door, and the larger animals in the rest of the park!"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n4",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "D "
+            },
+            {
+              "t": "text",
+              "v": "Jumblehouse Wildlife Park"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "At Jumblehouse, you’ll see many species from around the world, including elephants and giraffes. The shop sells some great books, with details about everything you’ll see at the wildlife park. There’s so much to do here, you might need two days, so why not book a room at our hotel?"
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n5",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "E "
+            },
+            {
+              "t": "text",
+              "v": "Naturatastic"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "Driving up to Naturatastic, you’ll see the beautiful 18th-century house and, beside it, the elephants and zebras. There are plenty of staff to show you around and tell you about their work. If you’re lucky, you may also see some of the large fish in the lake."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n6",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "F "
+            },
+            {
+              "t": "text",
+              "v": "Kingston Wildlife Park"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "Just a short walk from the railway station, Kingston’s a great place to watch wildlife from around the world, including sharks and many other sea creatures. Every hour, join other visitors in the Kingston Building to hear experts giving information about the amazing wildlife in the park. They can also answer any questions you may have."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n7",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "G "
+            },
+            {
+              "t": "text",
+              "v": "Clifftop Wildlife Park"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "With creatures from every continent, Clifftop is the biggest wildlife park in the area. It’s great for younger visitors – staff will allow them to hold many of the small friendly animals. They take groups around the rest of the park too, and tell them about all the animals. The nearby hotel is great value."
+              }
+            ]
+          ]
+        },
+        {
+          "id": "n8",
+          "type": "note",
+          "title": [
+            {
+              "t": "strong",
+              "v": "H "
+            },
+            {
+              "t": "text",
+              "v": "Bridwell Cross Wildlife Park"
+            }
+          ],
+          "content": [
+            [
+              {
+                "t": "text",
+                "v": "The perfect place for learning about animals – there are daily talks about many of the species here. The small farm, where you can feed the sheep and goats, also has rabbits that visitors can pick up. There’s a wide range of books about animals available in the shop."
+              }
+            ]
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Philippe’s family would like to see fish as well as land animals, and listen to talks about the animals. They want to travel there by train."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Hallmouth Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Greenway Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Rainforest Fun"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jumblehouse Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Naturatastic"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kingston Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Clifftop Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Bridwell Cross Wildlife Park"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp1"
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Asha wants a wildlife park that gives discounts for visiting with lots of friends, and where visitors can have rides on some of the animals. She’d like to feed some animals, too."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Hallmouth Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Greenway Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Rainforest Fun"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jumblehouse Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Naturatastic"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kingston Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Clifftop Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Bridwell Cross Wildlife Park"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp2"
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Chanming’s family want a wildlife park with activities for Chanming’s five-year-old brother. Chanming wants to know what it’s like to work at the park, and be able to ask staff questions after his visit, too."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Hallmouth Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Greenway Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Rainforest Fun"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jumblehouse Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Naturatastic"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kingston Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Clifftop Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Bridwell Cross Wildlife Park"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp3"
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Gabriella and her family want to see animals from all over the world, and be able to touch some of them. They’d like to have a guided tour while they’re there."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Hallmouth Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Greenway Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Rainforest Fun"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jumblehouse Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Naturatastic"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kingston Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Clifftop Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Bridwell Cross Wildlife Park"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp4"
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Kuba and his family want to stay overnight at the wildlife park. They’d like to be able to see some large animals and take home information on all of the animals there."
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Hallmouth Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Greenway Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Rainforest Fun"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Jumblehouse Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "E",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Naturatastic"
+                  }
+                ]
+              },
+              {
+                "id": "F",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Kingston Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "G",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Clifftop Wildlife Park"
+                  }
+                ]
+              },
+              {
+                "id": "H",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Bridwell Cross Wildlife Park"
+                  }
+                ]
+              }
+            ]
+          },
+          "image": "imgp5"
+        }
+      ],
+      "view": "match"
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "p1",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "I’m Tom. I’m 15 years old, and three years ago my family and I moved into a castle on a small island! It all started when my father was invited to be the castle’s manager. He works for an organisation that looks after historical buildings and keeps them open to the public. He was pleased, as he felt he wouldn’t be offered such a great chance again, and the rest of us knew this was true, but it was a while before we agreed he should take the job. We were just focused on what life on the island would be like – we knew the castle probably wouldn’t be as comfortable as our cosy home just across the water, and there was no school."
+            }
+          ]
+        },
+        {
+          "id": "p2",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Once we’d moved, though, we quickly got used to island life. The castle isn’t particularly beautiful, but our apartment in it is comfortable. The island feels very sociable in summer as it attracts lots of visitors, and there are often parties on the beach. During the winter, we only see the other families who live on the island, and there aren’t as many teenagers among them as I’d hoped. The adults all support each other, though, and help with repairs on the island, which often involves lots of hard work."
+            }
+          ]
+        },
+        {
+          "id": "p3",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "The biggest change for me was travelling by boat every day, back to my old school. I was looking forward to going on stormy days, when there are huge waves – but the ferries don’t run then! And I’ve discovered that if I miss the bus to the harbour after school, I also miss the last ferry home, which is worrying. So when schoolmates come home to stay with me, I’m always telling them to hurry up!"
+            }
+          ]
+        },
+        {
+          "id": "p4",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "We do get the most fantastic views. Visitors like watching the sun go down over the sea, but I love to see the sun come up. Some days, though, it’s so foggy that you can’t see a thing, then within minutes it’s brilliant sunshine again – it still seems incredible when that happens, even after living here all this time. Of course, we do get awful storms, and I wonder sometimes if the castle’s strong enough to avoid getting damaged. But then I remind myself it’s been here for centuries – and it’s still standing!"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "When Tom’s father was offered the job at the castle, his family"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "were delighted that he was going to be promoted."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "needed time to decide whether it was a good idea."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "didn’t mind leaving their family home."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "didn’t realise what an unusual opportunity it was for him."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 1,
+          "skills": [
+            "detail"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What does Tom say about living on the island in the second paragraph?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He’s disappointed there are so few people his age."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He’s enjoying helping others when they need it."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He’s less keen on the castle now than before they moved."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He’s used to meeting new people all through the year."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 1,
+          "skills": [
+            "attitude"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Tom feels that travelling to and from school by boat"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "is the most exciting part of his day."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "means he can’t invite friends back after school."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "is still enjoyable even when the weather is bad."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "makes him stressed about getting home."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 1,
+          "skills": [
+            "attitude"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How does Tom feel about the views from the castle?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He’s especially impressed by the evening sunsets."
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He’s sad when he sometimes can’t see very far."
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He’s amazed at how the weather changes so quickly."
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "He’s worried when he sees storms damaging the castle."
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 1,
+          "skills": [
+            "main_idea"
+          ],
+          "interaction": {
+            "kind": "choice",
+            "variant": "standard",
+            "maxChoices": 1,
+            "prompt": [
+              {
+                "t": "text",
+                "v": "What would be a suitable title for this article?"
+              }
+            ],
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "How we prepared for life in a castle"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Living on an island – the good and the not so good!"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "A dream that finally came true"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Do you want an easier life? Then move to an island!"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "Five sentences have been removed from the text below. For each question, choose the correct answer. There are three extra sentences which you do not need to use.",
+      "material": [
+        {
+          "id": "h2",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Jamie Marshall – teenage magician!"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p5",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Doing magic tricks is not something that only older people enjoy. I’ve just been in a competition for teenage magicians – and lots of people my age took part. But the best thing was – I won! I did a trick involving taking a ring from someone in the audience. "
+            },
+            {
+              "t": "blank",
+              "id": "b16",
+              "number": 16
+            },
+            {
+              "t": "text",
+              "v": " Both the audience and the judges were really impressed by that unusual way of ending the trick."
+            }
+          ]
+        },
+        {
+          "id": "p6",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "My interest in magic started with a child’s magic set that I got for my birthday a few years ago. I began practising a lot, doing tricks whenever I had a spare moment. "
+            },
+            {
+              "t": "blank",
+              "id": "b17",
+              "number": 17
+            },
+            {
+              "t": "text",
+              "v": " But that never happened, and I went on to develop lots of new tricks."
+            }
+          ]
+        },
+        {
+          "id": "p7",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "My grandad loves magic, too. He was always doing things like producing coins from behind my ear – his way of giving me pocket money! "
+            },
+            {
+              "t": "blank",
+              "id": "b18",
+              "number": 18
+            },
+            {
+              "t": "text",
+              "v": " So he never showed me any of his secrets and I just had to find out for myself!"
+            }
+          ]
+        },
+        {
+          "id": "p8",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "I also loved performing tricks for friends at school. And as I got better, I started performing at events like family weddings and parties. At first, I thought I’d be really nervous, but in fact, I’ve always been completely relaxed when I’m performing. "
+            },
+            {
+              "t": "blank",
+              "id": "b19",
+              "number": 19
+            }
+          ]
+        },
+        {
+          "id": "p9",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "What made the biggest difference to my routine, however, was taking up drama classes when I was 15. That really helped a lot. It would be great if I could work in the world of magic when I get older – and even become a famous magician! I’m not really sure what my future will hold, though. I might go into acting instead. "
+            },
+            {
+              "t": "blank",
+              "id": "b20",
+              "number": 20
+            },
+            {
+              "t": "text",
+              "v": " That would be cool! But whatever I end up doing, I know I’m going to really enjoy it!"
+            }
+          ]
+        }
+      ],
+      "bank": [
+        {
+          "id": "A",
+          "content": [
+            {
+              "t": "text",
+              "v": "And I don’t think I’d be so confident now without their help."
+            }
+          ]
+        },
+        {
+          "id": "B",
+          "content": [
+            {
+              "t": "text",
+              "v": "My parents probably thought I’d get bored with it after a while."
+            }
+          ]
+        },
+        {
+          "id": "C",
+          "content": [
+            {
+              "t": "text",
+              "v": "Actually, I’d love to be able to do both."
+            }
+          ]
+        },
+        {
+          "id": "D",
+          "content": [
+            {
+              "t": "text",
+              "v": "I still needed to do some more work on that, though."
+            }
+          ]
+        },
+        {
+          "id": "E",
+          "content": [
+            {
+              "t": "text",
+              "v": "It’s surprising really, as I used to be quite shy!"
+            }
+          ]
+        },
+        {
+          "id": "F",
+          "content": [
+            {
+              "t": "text",
+              "v": "The next time they saw it, it was inside a melon that I’d cut open."
+            }
+          ]
+        },
+        {
+          "id": "G",
+          "content": [
+            {
+              "t": "text",
+              "v": "It made me start thinking about all sorts of possibilities."
+            }
+          ]
+        },
+        {
+          "id": "H",
+          "content": [
+            {
+              "t": "text",
+              "v": "But of course, people who do magic tricks never tell you how they’re done."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b16"
+            ]
+          }
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b17"
+            ]
+          }
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b18"
+            ]
+          }
+        },
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b19"
+            ]
+          }
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 1,
+          "skills": [
+            "structure"
+          ],
+          "interaction": {
+            "kind": "gapMatch",
+            "blankIds": [
+              "b20"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "part": 5,
+      "label": "Part 5",
+      "instruction": "For each question, choose the correct answer.",
+      "material": [
+        {
+          "id": "h3",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Jane Goodall"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p10",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Jane Goodall is well known for her research into animals called chimpanzees. From early childhood, she "
+            },
+            {
+              "t": "blank",
+              "id": "b21",
+              "number": 21
+            },
+            {
+              "t": "text",
+              "v": " of going to see them in their natural environment in Africa. In order to "
+            },
+            {
+              "t": "blank",
+              "id": "b22",
+              "number": 22
+            },
+            {
+              "t": "text",
+              "v": " the journey, she did a variety of part-time jobs. When she was 23, she had enough money to visit a friend in Kenya. During her time there, Jane fell in love with the country. She was "
+            },
+            {
+              "t": "blank",
+              "id": "b23",
+              "number": 23
+            },
+            {
+              "t": "text",
+              "v": " a job studying chimpanzees in a national park. At the time, she had no special training for working with animals. She was surprised to find that this "
+            },
+            {
+              "t": "blank",
+              "id": "b24",
+              "number": 24
+            },
+            {
+              "t": "text",
+              "v": " helped her, as she had to "
+            },
+            {
+              "t": "blank",
+              "id": "b25",
+              "number": 25
+            },
+            {
+              "t": "text",
+              "v": " her own way of watching and recording the chimpanzees’ actions."
+            }
+          ]
+        },
+        {
+          "id": "p11",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "She discovered many new things about the animals, like the fact that they ate meat. Before that, scientists thought they only ate plants, but Jane "
+            },
+            {
+              "t": "blank",
+              "id": "b26",
+              "number": 26
+            },
+            {
+              "t": "text",
+              "v": " that this was not true."
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b21",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "imagined"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "dreamed"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "hoped"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "wished"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b22",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "afford"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "pay"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "spend"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "earn"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b23",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "applied"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "provided"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "offered"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "accepted"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b24",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "completely"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "specially"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "properly"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "actually"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b25",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "develop"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "reach"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "control"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "gain"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 1,
+          "skills": [
+            "vocab_in_context"
+          ],
+          "interaction": {
+            "kind": "inlineChoice",
+            "blankId": "b26",
+            "options": [
+              {
+                "id": "A",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "persuaded"
+                  }
+                ]
+              },
+              {
+                "id": "B",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "agreed"
+                  }
+                ]
+              },
+              {
+                "id": "C",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "intended"
+                  }
+                ]
+              },
+              {
+                "id": "D",
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "proved"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "part": 6,
+      "label": "Part 6",
+      "instruction": "For each question, write the correct answer. Write one word for each gap.",
+      "material": [
+        {
+          "id": "h4",
+          "type": "heading",
+          "content": [
+            {
+              "t": "text",
+              "v": "Science-fiction film"
+            }
+          ],
+          "level": 2
+        },
+        {
+          "id": "p12",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Hi Sam,"
+            }
+          ]
+        },
+        {
+          "id": "p13",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Have you seen the new science-fiction film, "
+            },
+            {
+              "t": "em",
+              "v": "Rocket"
+            },
+            {
+              "t": "text",
+              "v": "? I was really interested in seeing it because it was based "
+            },
+            {
+              "t": "blank",
+              "id": "b27",
+              "number": 27
+            },
+            {
+              "t": "text",
+              "v": " the book called "
+            },
+            {
+              "t": "em",
+              "v": "Spacemen"
+            },
+            {
+              "t": "text",
+              "v": ", which is "
+            },
+            {
+              "t": "blank",
+              "id": "b28",
+              "number": 28
+            },
+            {
+              "t": "text",
+              "v": " of my favourite novels. To be honest, I always find "
+            },
+            {
+              "t": "blank",
+              "id": "b29",
+              "number": 29
+            },
+            {
+              "t": "text",
+              "v": " difficult when something that I’ve read and enjoyed is turned into a film, because it’s never exactly the same as I imagined! But "
+            },
+            {
+              "t": "blank",
+              "id": "b30",
+              "number": 30
+            },
+            {
+              "t": "text",
+              "v": " time I really wasn’t disappointed – the acting was great, and the main characters were very similar to how the author described them in the novel."
+            }
+          ]
+        },
+        {
+          "id": "p14",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "blank",
+              "id": "b31",
+              "number": 31
+            },
+            {
+              "t": "text",
+              "v": " you haven’t seen it yet, why don’t you come round to my house and watch it online "
+            },
+            {
+              "t": "blank",
+              "id": "b32",
+              "number": 32
+            },
+            {
+              "t": "text",
+              "v": " me? I know you love science fiction, so it would be great to hear what you think of the film!"
+            }
+          ]
+        },
+        {
+          "id": "p15",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Let me know!"
+            }
+          ]
+        },
+        {
+          "id": "p16",
+          "type": "paragraph",
+          "content": [
+            {
+              "t": "text",
+              "v": "Carys"
+            }
+          ]
+        }
+      ],
+      "questions": [
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b27"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b28"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b29"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b30"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b31"
+            ],
+            "maxWords": 1
+          }
+        },
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 1,
+          "skills": [
+            "grammar"
+          ],
+          "interaction": {
+            "kind": "textEntry",
+            "blankIds": [
+              "b32"
+            ],
+            "maxWords": 1
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "Test 1 完整试卷+答案解析.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "bookPages": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

@@ -54,9 +54,13 @@ export async function findLeaks(publicDir: string, keyGlob = 'content/playlists/
       .forEach((needle) => needles.push({ needle, key: f }));
   }
   const leaks: string[] = [];
+  const idOf = (file: string) => /\/(?:items|keys)\/([^/]+)\.json$/.exec(file)?.[1];
   for await (const f of glob(`${publicDir}/**/*.{js,mjs,html,json,css,txt,map}`)) {
     const text = await readFile(f, 'utf8');
-    for (const n of needles) if (text.includes(n.needle)) leaks.push(`${f} contains text from ${n.key}: “${n.needle}”`);
+    // another item's public file can share an ordinary phrase with a short answer ("tell the difference
+    // between"): a key is checked against its own item and every shared file (bundle, catalog), not other items
+    const item = idOf(f);
+    for (const n of needles) if ((!item || item === idOf(n.key)) && text.includes(n.needle)) leaks.push(`${f} contains text from ${n.key}: “${n.needle}”`);
   }
   return leaks;
 }

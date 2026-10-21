@@ -16,4 +16,16 @@ describe('private material check', () => {
     expect(leaks.length).toBeGreaterThan(0);
     expect(leaks[0]).toContain('leak.js');
   });
+
+  it('checks a key against its own item file, not against other items that share an ordinary phrase', async () => {
+    const dir = await mkdtemp(join(tmpdir(), 'rc-pub-'));
+    const key = (await import('../content/playlists/ci-g7/keys/ci-g7-w01-mon.json')).default as { answers: Record<string, { explanationZh: string }> };
+    const text = JSON.stringify({ v: key.answers.q1.explanationZh });
+    await mkdir(join(dir, 'playlists/x/items'), { recursive: true });
+    await writeFile(join(dir, 'playlists/x/items/other-item.json'), text);
+    expect(await findLeaks(dir)).toEqual([]);
+    await mkdir(join(dir, 'playlists/ci-g7/items'), { recursive: true });
+    await writeFile(join(dir, 'playlists/ci-g7/items/ci-g7-w01-mon.json'), text);
+    expect((await findLeaks(dir))[0]).toContain('ci-g7-w01-mon.json');
+  });
 });

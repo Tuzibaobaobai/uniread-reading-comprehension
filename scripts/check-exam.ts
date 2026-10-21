@@ -15,7 +15,15 @@ import { normalizeText } from '../src/lib/grading.ts';
  * per playlist: where the answer-book OCR is, and for each paper the headings that open its answer list
  * (consecutive lines) and the heading that ends it
  */
-const BOOKS: Record<string, { ocr: (t: string) => string; papers: { paper: string; from: RegExp[]; to: RegExp; count: number }[] }> = {
+const BOOKS: Record<
+  string,
+  {
+    ocr: (t: string) => string;
+    papers: { paper: string; from: RegExp[]; to: RegExp; count: number }[];
+    /** photographed spreads: drop the neighbouring page's text that bleeds in at the edges */
+    bleed?: boolean;
+  }
+> = {
   ket1: {
     ocr: (t) => `t${t}-key`,
     papers: [
@@ -32,8 +40,21 @@ const BOOKS: Record<string, { ocr: (t: string) => string; papers: { paper: strin
     ],
   },
 };
+// PET 校园版真题 2 has the same per-test PDF layout as book 1
+BOOKS.pet2 = BOOKS.pet1;
+// PET 校园版真题 3 (Cambridge 2025 edition): a separate "参考答案&音频文稿" PDF per test, photographed spreads
+BOOKS.pet3 = {
+  ocr: (t) => `t${t}-key`,
+  bleed: true,
+  papers: [
+    { paper: 'r', from: [/^Reading$/], to: /^Writing$/, count: 32 },
+    { paper: 'l', from: [/^Listening$/], to: /^Transcript$/, count: 25 },
+  ],
+};
 
-const [test, pl = 'ket1'] = process.argv.slice(2);
+const args = process.argv.slice(2);
+const printOnly = args.includes('--print'); // show the parsed answer-book answers and stop (no keys needed)
+const [test, pl = 'ket1'] = args.filter((a) => a !== '--print');
 if (!test || !BOOKS[pl]) {
   console.error(`usage: npx tsx scripts/check-exam.ts <test> [${Object.keys(BOOKS).join('|')}]`);
   process.exit(1);
@@ -41,11 +62,21 @@ if (!test || !BOOKS[pl]) {
 const ROOT = join(import.meta.dirname, '..');
 const ocrDir = join(ROOT, '.work/text', pl, BOOKS[pl].ocr(test));
 
+/** one page's OCR lines; with bleed, only the page's own text (by the lines' x position) */
+function pageLines(text: string): string[] {
+  const rows = text
+    .split('\n')
+    .filter(Boolean)
+    .map((l) => ({ x: Number(l.split(' ')[1]), text: l.split(' ').slice(3).join(' ') }));
+  if (!BOOKS[pl].bleed) return rows.map((r) => r.text);
+  // the neighbour's cut-off lines start at the very left edge (x ≈ 0) or near the right edge (x > 0.88)
+  return rows.filter((r) => r.x >= 0.03 && r.x < 0.88).map((r) => r.text);
+}
+
 /** OCR lines in reading order, Cyrillic look-alikes mapped back to Latin */
 const lines = readdirSync(ocrDir)
   .sort()
-  .flatMap((f) => readFileSync(join(ocrDir, f), 'utf8').split('\n'))
-  .map((l) => l.split(' ').slice(3).join(' '))
+  .flatMap((f) => pageLines(readFileSync(join(ocrDir, f), 'utf8')))
   .map((l) => l.replace(/[АВСЕНЗ]/g, (c) => ({ А: 'A', В: 'B', С: 'C', Е: 'E', Н: 'H', З: '3' })[c]!));
 
 /**
@@ -59,7 +90,7 @@ function answers(from: RegExp[], to: RegExp, count: number): Map<number, string>
   const tokens = lines
     .slice(start + 1, end)
     // drop Part headings, running heads ("Test 1 answer key and transcript") and page numbers
-    .filter((l) => !/^Part \d|answer key|^\d{2,3}$/.test(l))
+    .filter((l) => !/^Part \d|answer key|^\d{2,3}$|^(Answer key|with extra|explanations in|Resource Bank)$/.test(l))
     .join(' ')
     .replace(/\b(\d{1,2})([A-H])\b/g, '$1 $2') // "5B 6A"
     .split(/\s+/)
@@ -94,6 +125,10 @@ function variants(printed: string): string[] {
 let problems = 0;
 for (const { paper, from, to, count } of BOOKS[pl].papers) {
   const printed = answers(from, to, count);
+  if (printOnly) {
+    console.log(`${paper}: ${[...printed].map(([n, a]) => `${n} ${a}`).join(' · ')}`);
+    continue;
+  }
   const lost = [...Array(count).keys()].map((i) => i + 1).filter((n) => !printed.get(n));
   if (lost.length) (problems++, console.log(`${paper}: answers ${lost.join(', ')} not found in the OCR — check the answer-book page image by hand`));
   const key = JSON.parse(readFileSync(join(ROOT, 'content/playlists', pl, 'keys', `${pl}-t${test}-${paper}.json`), 'utf8')) as ItemKeyT;

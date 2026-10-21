@@ -1,0 +1,331 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "pet2-t1-w",
+  "playlistId": "pet2",
+  "order": 2,
+  "test": 1,
+  "paper": "writing",
+  "title": "PET真题2-第1套-写作",
+  "displayName": "PET真题2-第1套-写作",
+  "taskType": {
+    "code": "exam_writing",
+    "labelZh": "写作"
+  },
+  "meta": {
+    "exam": "B1 Preliminary for Schools",
+    "durationMinutes": 45,
+    "totalMarks": 40
+  },
+  "article": {
+    "images": [],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "You **must** answer this question. Write your answer in about **100 words** on the answer sheet.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 20,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Read this email from your English-speaking friend Alex and the notes you have made."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write your "
+              },
+              {
+                "t": "strong",
+                "v": "email"
+              },
+              {
+                "t": "text",
+                "v": " to Alex using "
+              },
+              {
+                "t": "strong",
+                "v": "all the notes"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 100
+          },
+          "material": [
+            {
+              "id": "n1",
+              "type": "note",
+              "style": "email",
+              "title": [
+                {
+                  "t": "strong",
+                  "v": "EMAIL"
+                }
+              ],
+              "header": [
+                [
+                  {
+                    "t": "strong",
+                    "v": "From: "
+                  },
+                  {
+                    "t": "text",
+                    "v": "Alex"
+                  }
+                ],
+                [
+                  {
+                    "t": "strong",
+                    "v": "Subject: "
+                  },
+                  {
+                    "t": "text",
+                    "v": "Running"
+                  }
+                ]
+              ],
+              "content": [
+                [
+                  {
+                    "t": "text",
+                    "v": "Hey,"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "I’m glad you can come to my house to go running with me and my older sister next weekend."
+                  },
+                  {
+                    "t": "callout",
+                    "v": "Me too!"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "There’s a big park near my house and we usually go there to run for about 5 km. Is 5 km a good distance for you?"
+                  },
+                  {
+                    "t": "callout",
+                    "v": "Tell Alex"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "My sister and I had planned to pick you up, but her car broke down yesterday. I hope it won’t be a problem for you to get to my house."
+                  },
+                  {
+                    "t": "callout",
+                    "v": "Don’t worry because …"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "We’ll probably get hungry. My mum wants to know what food she can make for us to eat."
+                  },
+                  {
+                    "t": "callout",
+                    "v": "Suggest …"
+                  },
+                  {
+                    "t": "text",
+                    "v": " Any ideas?"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "See you soon,"
+                  }
+                ]
+              ],
+              "signature": [
+                [
+                  {
+                    "t": "text",
+                    "v": "Alex"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Choose **one** of these questions. Write your answer in about **100 words** on the answer sheet.",
+      "choose": 1,
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 20,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "You see this announcement on an English-language website for young people."
+              }
+            ],
+            "stimulus": [
+              {
+                "id": "n2",
+                "type": "note",
+                "style": "notice",
+                "title": [
+                  {
+                    "t": "strong",
+                    "v": "Articles wanted!"
+                  }
+                ],
+                "heading": [
+                  {
+                    "t": "text",
+                    "v": "Learning outside school"
+                  }
+                ],
+                "content": [
+                  [
+                    {
+                      "t": "text",
+                      "v": "What kinds of things can young people learn when they’re not at school?"
+                    }
+                  ],
+                  [
+                    {
+                      "t": "text",
+                      "v": "How can these things help young people when they’re at school?"
+                    }
+                  ],
+                  [
+                    {
+                      "t": "text",
+                      "v": "The best article answering these questions will win a prize!"
+                    }
+                  ]
+                ]
+              }
+            ],
+            "task": [
+              {
+                "t": "text",
+                "v": "Write your "
+              },
+              {
+                "t": "strong",
+                "v": "article"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 100
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 20,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Your English teacher has asked you to write a story."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Your story must begin with this sentence."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "em",
+                "v": "I came out of the shop and I saw my friends walking towards me."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write your "
+              },
+              {
+                "t": "strong",
+                "v": "story"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 100
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "Test 1 完整试卷+答案解析.pdf",
+    "pdfPages": [
+      11,
+      12
+    ],
+    "bookPages": [
+      18,
+      19
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

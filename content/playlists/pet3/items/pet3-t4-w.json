@@ -1,0 +1,327 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "pet3-t4-w",
+  "playlistId": "pet3",
+  "order": 14,
+  "test": 4,
+  "paper": "writing",
+  "title": "PET真题3-第4套-写作",
+  "displayName": "PET真题3-第4套-写作",
+  "taskType": {
+    "code": "exam_writing",
+    "labelZh": "写作"
+  },
+  "meta": {
+    "exam": "B1 Preliminary for Schools",
+    "durationMinutes": 45,
+    "totalMarks": 40
+  },
+  "article": {
+    "images": [],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "You **must** answer this question. Write your answer in about **100 words** on the answer sheet.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 20,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Read this email from Sam Taylor, the organiser of a writing competition for a magazine, and the notes you have made."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write your "
+              },
+              {
+                "t": "strong",
+                "v": "email"
+              },
+              {
+                "t": "text",
+                "v": " to Sam Taylor using "
+              },
+              {
+                "t": "strong",
+                "v": "all the notes"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 100
+          },
+          "material": [
+            {
+              "id": "n1",
+              "type": "note",
+              "style": "email",
+              "title": [
+                {
+                  "t": "strong",
+                  "v": "EMAIL"
+                }
+              ],
+              "header": [
+                [
+                  {
+                    "t": "strong",
+                    "v": "From: "
+                  },
+                  {
+                    "t": "text",
+                    "v": "Sam Taylor"
+                  }
+                ],
+                [
+                  {
+                    "t": "strong",
+                    "v": "Subject: "
+                  },
+                  {
+                    "t": "text",
+                    "v": "Competition"
+                  }
+                ]
+              ],
+              "content": [
+                [
+                  {
+                    "t": "text",
+                    "v": "Hello,"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "I’m delighted to tell you that you’ve won our story-writing competition!"
+                  },
+                  {
+                    "t": "callout",
+                    "v": "Great!"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "As a prize, you and your family can choose to go to a seaside resort for a week, or stay in a city-centre hotel for a week. Which would you prefer?"
+                  },
+                  {
+                    "t": "callout",
+                    "v": "Explain"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "We’d like to publish your story in our magazine next month. Are you happy for us to do that?"
+                  },
+                  {
+                    "t": "callout",
+                    "v": "Tell Sam"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "We’re organising a dinner for people who did well in the competition. It’s on the 21st of next month. Can you come?"
+                  },
+                  {
+                    "t": "callout",
+                    "v": "Yes, but…"
+                  }
+                ]
+              ],
+              "signature": [
+                [
+                  {
+                    "t": "text",
+                    "v": "Best wishes,"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "Sam"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Choose **one** of these questions. Write your answer in about **100 words** on the answer sheet.",
+      "choose": 1,
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 20,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "You see this announcement in an English-language magazine for young people."
+              }
+            ],
+            "stimulus": [
+              {
+                "id": "n2",
+                "type": "note",
+                "style": "notice",
+                "title": [
+                  {
+                    "t": "strong",
+                    "v": "Articles wanted!"
+                  }
+                ],
+                "heading": [
+                  {
+                    "t": "text",
+                    "v": "Wild animals"
+                  }
+                ],
+                "content": [
+                  [
+                    {
+                      "t": "text",
+                      "v": "Is there a wild animal that you are particularly interested in? Why?"
+                    }
+                  ],
+                  [
+                    {
+                      "t": "text",
+                      "v": "What do you think are the best ways of protecting wild animals and the places where they live?"
+                    }
+                  ],
+                  [
+                    {
+                      "t": "text",
+                      "v": "The best articles answering these questions will appear in the magazine."
+                    }
+                  ]
+                ]
+              }
+            ],
+            "task": [
+              {
+                "t": "text",
+                "v": "Write your "
+              },
+              {
+                "t": "strong",
+                "v": "article"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 100
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 20,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Your English teacher has asked you to write a story."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Your story must begin with this sentence."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "em",
+                "v": "I saw that the new student was looking a bit worried, and I knew exactly how to help."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write your "
+              },
+              {
+                "t": "strong",
+                "v": "story"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 100
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "PET3 - Test 4 完整试卷（含口语图片）.pdf",
+    "pdfPages": [
+      11,
+      12
+    ],
+    "bookPages": [
+      72,
+      73
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

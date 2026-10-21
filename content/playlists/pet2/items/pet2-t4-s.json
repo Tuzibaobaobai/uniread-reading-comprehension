@@ -1,0 +1,390 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "pet2-t4-s",
+  "playlistId": "pet2",
+  "order": 16,
+  "test": 4,
+  "paper": "speaking",
+  "title": "PET真题2-第4套-口语",
+  "displayName": "PET真题2-第4套-口语",
+  "taskType": {
+    "code": "exam_speaking",
+    "labelZh": "口语"
+  },
+  "meta": {
+    "exam": "B1 Preliminary for Schools",
+    "durationMinutes": 14,
+    "totalMarks": 80
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/pet2/pet2-t4-s-1.jpg",
+        "alt": "Task 4A – Art class: a group of teenagers in white school shirts and aprons are standing and sitting round a big wooden table in an art room, making things with paper and other materials. A male teacher in an orange apron and a tie is standing behind them and watching. There is an orange bucket on the table, colourful masks are hanging from the ceiling and there are big windows on the left.",
+        "w": 1200,
+        "h": 815
+      },
+      {
+        "id": "img2",
+        "src": "assets/pet2/pet2-t4-s-2.jpg",
+        "alt": "Task 4C – Prizes for a volleyball competition. In the middle: a volleyball team of six young people in tracksuits. Around them: a silver cup, T-shirts with a volleyball on them, some money (ten-euro notes), a toy monkey in a volleyball T-shirt and cap, a box of chocolates, water bottles with a volleyball logo, and a bunch of flowers.",
+        "w": 1200,
+        "h": 1330
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "Answer the examiner's questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 20,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about yourself and your everyday life."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "What’s your name?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q1-t1.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t2",
+                "text": "How old are you?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q1-t2.mp3",
+                  "seconds": 2
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Where do you live?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q1-t3.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Who do you live with?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q1-t4.mp3",
+                  "seconds": 2.1
+                }
+              },
+              {
+                "id": "t5",
+                "text": "What subject do you find the easiest at school? (Why?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q1-t5.mp3",
+                  "seconds": 5
+                }
+              },
+              {
+                "id": "t6",
+                "text": "What kind of music do you listen to?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q1-t6.mp3",
+                  "seconds": 3
+                }
+              },
+              {
+                "id": "t7",
+                "text": "What type of animals do you like?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q1-t7.mp3",
+                  "seconds": 2.8
+                }
+              },
+              {
+                "id": "t8",
+                "text": "Do you like shopping? (Why?/Why not?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q1-t8.mp3",
+                  "seconds": 4.2
+                }
+              },
+              {
+                "id": "t9",
+                "text": "How often do you take photos? (Why?/Why not?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q1-t9.mp3",
+                  "seconds": 5.2
+                }
+              },
+              {
+                "id": "t10",
+                "text": "Tell us about the kind of films you like.",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q1-t10.mp3",
+                  "seconds": 3.4
+                }
+              },
+              {
+                "id": "t11",
+                "text": "Where do you like to meet your friends?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q1-t11.mp3",
+                  "seconds": 2.8
+                }
+              },
+              {
+                "id": "t12",
+                "text": "Do you enjoy playing games on phones and computers?",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q1-t12.mp3",
+                  "seconds": 4.2
+                }
+              }
+            ],
+            "maxSeconds": 30,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Talk about your photograph on your own.",
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 20,
+          "skills": [],
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the photograph of people in an art class and talk about it on your own for about one minute."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Now I’d like you to talk on your own about something. I’m going to give you a photograph and I’d like you to talk about it. Here is your photograph. It shows people in an art class. Please tell us what you can see in the photograph.",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q2-t1.mp3",
+                  "seconds": 17.5
+                }
+              }
+            ],
+            "maxSeconds": 75,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "Talk together with your partner about the situation.",
+      "questions": [
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 20,
+          "skills": [],
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Talk with your partner about the different prizes a sports club could give the winning team of a volleyball competition, and decide which the winning team would like best."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Now, in this part of the test you’re going to talk about something together for about two minutes. I’m going to describe a situation to you. A sports club is going to have a volleyball competition. The sports club wants to give the winning team a prize. Here are some different prizes the sports club could give. Talk together about the different prizes and say which the winning team would like best. All right? Now, talk together.",
+                "role": "examiner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q3-t1.mp3",
+                  "seconds": 31
+                }
+              },
+              {
+                "id": "t2",
+                "text": "Shall I start? I think a cup is a great prize, because the team can keep it at the club for years. What do you think?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q3-t2.mp3",
+                  "seconds": 7.4
+                }
+              },
+              {
+                "id": "t3",
+                "text": "That’s true. What about the T-shirts? Everyone in the team gets one, and they can wear them when they play. Do you agree?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q3-t3.mp3",
+                  "seconds": 8.2
+                }
+              },
+              {
+                "id": "t4",
+                "text": "I’m not sure about the money. It isn’t very special, and it’s hard to share. What’s your opinion?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q3-t4.mp3",
+                  "seconds": 6.6
+                }
+              },
+              {
+                "id": "t5",
+                "text": "Chocolates or flowers are nice, but they don’t last very long. Which one do you prefer?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q3-t5.mp3",
+                  "seconds": 5.5
+                }
+              },
+              {
+                "id": "t6",
+                "text": "The water bottles are useful for training, but the toy monkey is fun too. What do you think about them?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q3-t6.mp3",
+                  "seconds": 6
+                }
+              },
+              {
+                "id": "t7",
+                "text": "So, which prize do you think the team would like best? I think the T-shirts, because everyone can have one.",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q3-t7.mp3",
+                  "seconds": 7
+                }
+              }
+            ],
+            "maxSeconds": 45,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "Answer the examiner's questions about the topic of Part 3.",
+      "questions": [
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 20,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about sport and keeping fit."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Have you ever played volleyball? (Why?/Why not?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q4-t1.mp3",
+                  "seconds": 4.8
+                }
+              },
+              {
+                "id": "t2",
+                "text": "Which sports do you enjoy watching on TV? (Why?/Why not?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q4-t2.mp3",
+                  "seconds": 6
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Is there a new sport you would like to try? (Why?/Why not?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q4-t3.mp3",
+                  "seconds": 5.5
+                }
+              },
+              {
+                "id": "t4",
+                "text": "What do you think is the best way to keep fit? (Why?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q4-t4.mp3",
+                  "seconds": 4.5
+                }
+              },
+              {
+                "id": "t5",
+                "text": "Is it important for school students to do sport every day? (Why?/Why not?)",
+                "audio": {
+                  "src": "assets/pet2/pet2-t4-s-q4-t5.mp3",
+                  "seconds": 6.4
+                }
+              }
+            ],
+            "maxSeconds": 40,
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "Test 4 完整试卷+答案解析.pdf",
+    "pdfPages": [
+      19,
+      20,
+      21,
+      22
+    ],
+    "bookPages": [
+      92,
+      93,
+      94,
+      95
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

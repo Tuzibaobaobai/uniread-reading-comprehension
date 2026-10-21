@@ -2,7 +2,7 @@
 // Audio is a delivered asset, not source: content/assets/**/*.m4a is gitignored and handed to UniRead as
 // rc-media-<playlist>.zip (scripts/make-handoff-release.mjs). Re-run this to regenerate it from articles/.
 // usage: node scripts/audio.mjs <srcDir> <outDir> <prefix>
-//   finds every "Test N Part K.mp3" under srcDir (any depth) → <outDir>/<prefix>-t<N>-p<K>.m4a
+//   finds every "Test N Part K.mp3" (or "Test.N.Part.K.mp3") under srcDir (any depth) → <outDir>/<prefix>-t<N>-p<K>.m4a
 //   writes <outDir>/<prefix>-audio.json: { "t1-p1": seconds, … }
 import { execFileSync } from 'node:child_process';
 import { readdirSync, statSync, mkdirSync, writeFileSync } from 'node:fs';
@@ -17,7 +17,7 @@ const walk = (d) => readdirSync(d).flatMap((n) => (statSync(join(d, n)).isDirect
 mkdirSync(out, { recursive: true });
 const durations = {};
 for (const f of walk(src)) {
-  const m = /Test (\d+) Part (\d+)\.mp3$/.exec(f);
+  const m = /Test[ .](\d+)[ .]Part[ .](\d+)\.mp3$/.exec(f);
   if (!m) continue;
   const key = `t${m[1]}-p${m[2]}`;
   if (key in durations) continue;

@@ -1,0 +1,370 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "pet1-t3-w",
+  "playlistId": "pet1",
+  "order": 10,
+  "test": 3,
+  "paper": "writing",
+  "title": "PET真题1-第3套-写作",
+  "displayName": "PET真题1-第3套-写作",
+  "taskType": {
+    "code": "exam_writing",
+    "labelZh": "写作"
+  },
+  "meta": {
+    "exam": "B1 Preliminary for Schools",
+    "durationMinutes": 45,
+    "totalMarks": 40
+  },
+  "article": {
+    "images": [],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "You **must** answer this question. Write your answer in about **100 words** on the answer sheet.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 20,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Read this email from your English-speaking friend Alex and the notes you have made."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write your "
+              },
+              {
+                "t": "strong",
+                "v": "email"
+              },
+              {
+                "t": "text",
+                "v": " to Alex using "
+              },
+              {
+                "t": "strong",
+                "v": "all the notes"
+              },
+              {
+                "t": "text",
+                "v": "."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write your answer in "
+              },
+              {
+                "t": "strong",
+                "v": "about 100 words"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 100
+          },
+          "material": [
+            {
+              "id": "n1",
+              "type": "note",
+              "style": "email",
+              "title": [
+                {
+                  "t": "strong",
+                  "v": "EMAIL"
+                }
+              ],
+              "header": [
+                [
+                  {
+                    "t": "strong",
+                    "v": "From: "
+                  },
+                  {
+                    "t": "text",
+                    "v": "Alex"
+                  }
+                ],
+                [
+                  {
+                    "t": "strong",
+                    "v": "Subject: "
+                  },
+                  {
+                    "t": "text",
+                    "v": "Next weekend’s party"
+                  }
+                ]
+              ],
+              "content": [
+                [
+                  {
+                    "t": "text",
+                    "v": "Hi"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "I’m so glad you can come to my party next weekend. I’m really excited about it!"
+                  },
+                  {
+                    "t": "callout",
+                    "v": "Me too!"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "My parents are going to provide drinks for everybody, but I’m asking everyone to bring some food with them to the party. Can you bring a chocolate cake?"
+                  },
+                  {
+                    "t": "callout",
+                    "v": "No, but …"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "I think it would be fun if everyone could dress in special clothes for the party, like an animal or a famous person. What do you think?"
+                  },
+                  {
+                    "t": "callout",
+                    "v": "Tell Alex"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "Also, I’ll organise some games for us to play at the party. What’s a good game"
+                  },
+                  {
+                    "t": "callout",
+                    "v": "Suggest …"
+                  },
+                  {
+                    "t": "text",
+                    "v": " that we can all play together?"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "See you next weekend."
+                  }
+                ]
+              ],
+              "signature": [
+                [
+                  {
+                    "t": "text",
+                    "v": "Alex"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Choose **one** of these questions. Write your answer in about **100 words** on the answer sheet.",
+      "choose": 1,
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 20,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "You see this announcement in an English-language magazine."
+              }
+            ],
+            "stimulus": [
+              {
+                "id": "n2",
+                "type": "note",
+                "style": "notice",
+                "title": [
+                  {
+                    "t": "strong",
+                    "v": "Articles wanted!"
+                  }
+                ],
+                "content": [
+                  [
+                    {
+                      "t": "text",
+                      "v": "Tell us about a place that you really like in the area where you live."
+                    }
+                  ],
+                  [
+                    {
+                      "t": "text",
+                      "v": "Why do you like it? When do you go there? Is this place popular with other people too?"
+                    }
+                  ],
+                  [
+                    {
+                      "t": "text",
+                      "v": "We’ll publish the most interesting article answering these questions from each country!"
+                    }
+                  ]
+                ]
+              }
+            ],
+            "task": [
+              {
+                "t": "text",
+                "v": "Write your "
+              },
+              {
+                "t": "strong",
+                "v": "article"
+              },
+              {
+                "t": "text",
+                "v": "."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write your answer in "
+              },
+              {
+                "t": "strong",
+                "v": "about 100 words"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 100
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 20,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Your English teacher has asked you to write a story."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Your story must begin with this sentence."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "em",
+                "v": "Everybody clapped when I walked onto the stage."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write your "
+              },
+              {
+                "t": "strong",
+                "v": "story"
+              },
+              {
+                "t": "text",
+                "v": "."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write your answer in "
+              },
+              {
+                "t": "strong",
+                "v": "about 100 words"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 100
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "Test 3 完整试卷+答案解析.pdf",
+    "pdfPages": [
+      11,
+      12
+    ],
+    "bookPages": [
+      54,
+      55
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

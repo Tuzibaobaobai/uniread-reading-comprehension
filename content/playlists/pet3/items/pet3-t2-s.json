@@ -1,0 +1,390 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "pet3-t2-s",
+  "playlistId": "pet3",
+  "order": 8,
+  "test": 2,
+  "paper": "speaking",
+  "title": "PET真题3-第2套-口语",
+  "displayName": "PET真题3-第2套-口语",
+  "taskType": {
+    "code": "exam_speaking",
+    "labelZh": "口语"
+  },
+  "meta": {
+    "exam": "B1 Preliminary for Schools",
+    "durationMinutes": 14,
+    "totalMarks": 80
+  },
+  "article": {
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/pet3/pet3-t2-s-1.jpg",
+        "alt": "Task 2A – Doing homework: a teenage boy in a white T-shirt and a girl with long fair hair are sitting together at a table in a kitchen, writing in an exercise book and smiling. On the table there are a laptop, a pot of pens, a pencil case and some books.",
+        "w": 1077,
+        "h": 687
+      },
+      {
+        "id": "img2",
+        "src": "assets/pet3/pet3-t2-s-2.jpg",
+        "alt": "Task 2C – Present for grandparents. In the middle: a brother and sister carrying bags arrive at their grandparents’ stone house in the countryside, and the grandparents are waiting at the door. Around them: a box of chocolates, a photo in a frame, a sun hat and a pair of gardening gloves, a small fruit tree in a pot, a book with vegetables on the cover and a tray of young flower plants.",
+        "w": 1200,
+        "h": 1074
+      }
+    ],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "Answer the examiner’s questions.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 20,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about yourself and your everyday life."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "What’s your name?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q1-t1.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t2",
+                "text": "How old are you?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q1-t2.mp3",
+                  "seconds": 2
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Where do you live?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q1-t3.mp3",
+                  "seconds": 1.9
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Who do you live with?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q1-t4.mp3",
+                  "seconds": 2.1
+                }
+              },
+              {
+                "id": "t5",
+                "text": "How often do you use a mobile phone? Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q1-t5.mp3",
+                  "seconds": 4.6
+                }
+              },
+              {
+                "id": "t6",
+                "text": "What is your favourite time of day? Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q1-t6.mp3",
+                  "seconds": 4
+                }
+              },
+              {
+                "id": "t7",
+                "text": "Tell us about something you’d like to do in the future. Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q1-t7.mp3",
+                  "seconds": 4.9
+                }
+              },
+              {
+                "id": "t8",
+                "text": "What type of music do you like listening to? Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q1-t8.mp3",
+                  "seconds": 4.8
+                }
+              },
+              {
+                "id": "t9",
+                "text": "Do you enjoy shopping? Why? / Why not?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q1-t9.mp3",
+                  "seconds": 4.4
+                }
+              },
+              {
+                "id": "t10",
+                "text": "Tell us about something you’d like to study in the future. Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q1-t10.mp3",
+                  "seconds": 5
+                }
+              },
+              {
+                "id": "t11",
+                "text": "What type of programmes do you like watching on television? Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q1-t11.mp3",
+                  "seconds": 5.3
+                }
+              },
+              {
+                "id": "t12",
+                "text": "What kind of things do you like reading? Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q1-t12.mp3",
+                  "seconds": 4
+                }
+              }
+            ],
+            "maxSeconds": 30,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Talk about your photograph on your own.",
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 20,
+          "skills": [],
+          "material": [
+            {
+              "id": "i1",
+              "type": "imageRef",
+              "image": "img1"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Look at the photograph of people doing homework and talk about it on your own for about one minute."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Now I’d like you to talk on your own about something. I’m going to give you a photograph and I’d like you to talk about it. Here is your photograph. It shows people doing homework. Please tell us what you can see in the photograph.",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q2-t1.mp3",
+                  "seconds": 17.1
+                }
+              }
+            ],
+            "maxSeconds": 75,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "part": 3,
+      "label": "Part 3",
+      "instruction": "Talk together with your partner about the situation.",
+      "questions": [
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 20,
+          "skills": [],
+          "material": [
+            {
+              "id": "i2",
+              "type": "imageRef",
+              "image": "img2"
+            }
+          ],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Talk with your partner about the presents a brother and sister could take to their grandparents in the countryside, and decide which would be best."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Now, in this part of the test you’re going to talk about something together for about two minutes. I’m going to describe a situation to you. A brother and sister are going to stay with their grandparents in the summer holidays and want to take a present for them. Their grandparents live in the countryside and enjoy growing flowers and vegetables. Here are some presents they could take. Talk together about the different presents they could take and say which would be best. All right? Now, talk together.",
+                "role": "examiner",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q3-t1.mp3",
+                  "seconds": 35.3
+                }
+              },
+              {
+                "id": "t2",
+                "text": "Shall I start? I think the young flower plants are a good idea, because the grandparents love growing flowers. What do you think?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q3-t2.mp3",
+                  "seconds": 8.4
+                }
+              },
+              {
+                "id": "t3",
+                "text": "What about the sun hat and the gloves? They could wear them in the garden every day. Do you agree?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q3-t3.mp3",
+                  "seconds": 6.4
+                }
+              },
+              {
+                "id": "t4",
+                "text": "I’m not sure about the chocolates. They’re nice, but they’re not very special. What’s your opinion?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q3-t4.mp3",
+                  "seconds": 6.4
+                }
+              },
+              {
+                "id": "t5",
+                "text": "The photo in the frame is lovely too. They could put it in the living room and remember the visit. Do you like that idea?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q3-t5.mp3",
+                  "seconds": 7.6
+                }
+              },
+              {
+                "id": "t6",
+                "text": "And what about the little tree and the book about vegetables? Are they good presents, do you think?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q3-t6.mp3",
+                  "seconds": 5.9
+                }
+              },
+              {
+                "id": "t7",
+                "text": "So, which present do you think would be best? I think the hat and gloves, because they’re useful. Shall we choose that?",
+                "role": "partner",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q3-t7.mp3",
+                  "seconds": 7.5
+                }
+              }
+            ],
+            "maxSeconds": 45,
+            "scoring": "judge"
+          }
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "part": 4,
+      "label": "Part 4",
+      "instruction": "Answer the examiner’s questions about the topic of Part 3.",
+      "questions": [
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 20,
+          "skills": [],
+          "interaction": {
+            "kind": "speaking",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Answer the examiner’s questions about nature and the countryside."
+              }
+            ],
+            "turns": [
+              {
+                "id": "t1",
+                "text": "Do you learn about plants and animals at school? (Is it interesting?)",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q4-t1.mp3",
+                  "seconds": 5.5
+                }
+              },
+              {
+                "id": "t2",
+                "text": "What do you like doing in the countryside? Why?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q4-t2.mp3",
+                  "seconds": 4.4
+                }
+              },
+              {
+                "id": "t3",
+                "text": "Do you enjoy watching TV programmes about nature? Why? / Why not?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q4-t3.mp3",
+                  "seconds": 6.2
+                }
+              },
+              {
+                "id": "t4",
+                "text": "Is living in the countryside better than living in a city? Why? / Why not?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q4-t4.mp3",
+                  "seconds": 6.7
+                }
+              },
+              {
+                "id": "t5",
+                "text": "Is it important to spend time in the countryside? Why? / Why not?",
+                "audio": {
+                  "src": "assets/pet3/pet3-t2-s-q4-t5.mp3",
+                  "seconds": 5.9
+                }
+              }
+            ],
+            "maxSeconds": 40,
+            "scoring": "judge"
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "PET3 - Test 2 口语问题参考.pdf",
+    "pdfPages": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "bookPages": [
+      84,
+      85,
+      86,
+      87
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

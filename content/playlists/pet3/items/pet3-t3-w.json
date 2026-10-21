@@ -1,0 +1,331 @@
+{
+  "schemaVersion": "1.0",
+  "format": "exam",
+  "id": "pet3-t3-w",
+  "playlistId": "pet3",
+  "order": 10,
+  "test": 3,
+  "paper": "writing",
+  "title": "PET真题3-第3套-写作",
+  "displayName": "PET真题3-第3套-写作",
+  "taskType": {
+    "code": "exam_writing",
+    "labelZh": "写作"
+  },
+  "meta": {
+    "exam": "B1 Preliminary for Schools",
+    "durationMinutes": 45,
+    "totalMarks": 40
+  },
+  "article": {
+    "images": [],
+    "blocks": [],
+    "vocabulary": []
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "part": 1,
+      "label": "Part 1",
+      "instruction": "You **must** answer this question. Write your answer in about **100 words** on the answer sheet.",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 20,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Read this email from your English teacher, Mr Burton, and the notes you have made."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write your "
+              },
+              {
+                "t": "strong",
+                "v": "email"
+              },
+              {
+                "t": "text",
+                "v": " to Mr Burton using "
+              },
+              {
+                "t": "strong",
+                "v": "all the notes"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 100
+          },
+          "material": [
+            {
+              "id": "n1",
+              "type": "note",
+              "style": "email",
+              "title": [
+                {
+                  "t": "strong",
+                  "v": "EMAIL"
+                }
+              ],
+              "header": [
+                [
+                  {
+                    "t": "strong",
+                    "v": "From: "
+                  },
+                  {
+                    "t": "text",
+                    "v": "Mr Burton"
+                  }
+                ],
+                [
+                  {
+                    "t": "strong",
+                    "v": "Subject: "
+                  },
+                  {
+                    "t": "text",
+                    "v": "Healthy Living Day"
+                  }
+                ]
+              ],
+              "content": [
+                [
+                  {
+                    "t": "text",
+                    "v": "Dear Student"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "Next month, our school’s having a Healthy Living Day."
+                  },
+                  {
+                    "t": "callout",
+                    "v": "Good idea!"
+                  },
+                  {
+                    "t": "text",
+                    "v": " All the students will do activities about having a healthy life."
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "I’d like our class to make a video in English, either about healthy food or about sport and exercise. Which would be better?"
+                  },
+                  {
+                    "t": "callout",
+                    "v": "Explain"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "For the video, students will need to do things like find information or use the video camera. We’ll need at least one presenter, too. How can you help?"
+                  },
+                  {
+                    "t": "callout",
+                    "v": "Tell Mr Burton"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "I’m having a meeting about Healthy Living Day after school this Tuesday. Can you come?"
+                  },
+                  {
+                    "t": "callout",
+                    "v": "Sorry, but…"
+                  }
+                ]
+              ],
+              "signature": [
+                [
+                  {
+                    "t": "text",
+                    "v": "Best wishes"
+                  }
+                ],
+                [
+                  {
+                    "t": "text",
+                    "v": "Daniel Burton"
+                  }
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "part": 2,
+      "label": "Part 2",
+      "instruction": "Choose **one** of these questions. Write your answer in about **100 words** on the answer sheet.",
+      "choose": 1,
+      "questions": [
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 20,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "You see this announcement in an English-language magazine for young people."
+              }
+            ],
+            "stimulus": [
+              {
+                "id": "n2",
+                "type": "note",
+                "style": "notice",
+                "title": [
+                  {
+                    "t": "strong",
+                    "v": "Articles wanted!"
+                  }
+                ],
+                "heading": [
+                  {
+                    "t": "text",
+                    "v": "Education in the future"
+                  }
+                ],
+                "content": [
+                  [
+                    {
+                      "t": "text",
+                      "v": "How different will education be in the future? For example, will students go to a school to study, or will they do online lessons at home?"
+                    }
+                  ],
+                  [
+                    {
+                      "t": "text",
+                      "v": "Will students study the same subjects as they do now? Why?"
+                    }
+                  ],
+                  [
+                    {
+                      "t": "text",
+                      "v": "We’ll publish the best articles answering these questions."
+                    }
+                  ]
+                ]
+              }
+            ],
+            "task": [
+              {
+                "t": "text",
+                "v": "Write your "
+              },
+              {
+                "t": "strong",
+                "v": "article"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 100
+          }
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 20,
+          "skills": [
+            "opinion"
+          ],
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Your English teacher has asked you to write a story."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Your story must begin with this sentence."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "em",
+                "v": "As Marc got out of the car, he started to feel both excited and nervous."
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "br"
+              },
+              {
+                "t": "text",
+                "v": "Write your "
+              },
+              {
+                "t": "strong",
+                "v": "story"
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ],
+            "scoring": "judge",
+            "minWords": 100
+          }
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "PET3 - Test 3 完整试卷（含口语图片）.pdf",
+    "pdfPages": [
+      11,
+      12
+    ],
+    "bookPages": [
+      54,
+      55
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}
