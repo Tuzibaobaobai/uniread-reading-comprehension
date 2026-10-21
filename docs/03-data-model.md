@@ -119,6 +119,7 @@ xAPI 映射：actor = learnerId；verb = `answered`（每题）/ `completed`（�
 ### PET 增量（2026-10）
 - `paper` 增加 `reading`、`writing`（id 后缀 `r`、`w`）；`meta.exam` 决定 Cambridge 换算表（`A2 Key…` → A2，`B1 Preliminary…` → B1）；catalog 的真题合集带 `exam`。
 - 行内节点 `callout`（写作输入邮件的手写批注）；section `choose`（N 选 M 作答，只计所选题）；speaking turn `role`（`examiner` / `partner`，AI 搭档）。
+- 版式增量（GitHub #90 #91 #96）：`note.style`（`email` = 抬头栏 + `header` 字段行 From / To / Subject；`notice` = 标题栏 + 居中 `heading` 与居中正文，用于征稿启事、广告）；`extendedText.stimulus`（写作题干里按原体裁排版的材料，显示在 prompt 之后）与 `task`（材料之后的写作指令）；paragraph `image`、question `image`（人物照片，引用 `article.images` 的 id）；section `intro`（印在题目前的导语，显示在题目区而不是左栏）。
 - `rubricType` 增加 `cambridge_b1_writing`（content / communicative_achievement / organisation / language）、`cambridge_b1_speaking`（grammar_vocabulary / discourse_management / interactive_communication / global）。
 
 ## 版本

@@ -81,6 +81,27 @@
         "alt": "Picture 3: The boy and the girl smile as they look at an open bag full of coins.",
         "w": 429,
         "h": 330
+      },
+      {
+        "id": "imgp1",
+        "src": "assets/ket1/ket1-t3-rw-p1.jpg",
+        "alt": "Photo of Joshua",
+        "w": 240,
+        "h": 318
+      },
+      {
+        "id": "imgp2",
+        "src": "assets/ket1/ket1-t3-rw-p2.jpg",
+        "alt": "Photo of Dan",
+        "w": 240,
+        "h": 319
+      },
+      {
+        "id": "imgp3",
+        "src": "assets/ket1/ket1-t3-rw-p3.jpg",
+        "alt": "Photo of Chris",
+        "w": 240,
+        "h": 287
       }
     ],
     "blocks": [],
@@ -456,7 +477,8 @@
               "t": "text",
               "v": "Mrs Philips was my science teacher when I joined my school and she still is, so I don’t know what the other teachers are like. But I think Mrs Philips is amazing. Her lessons always seem to go really fast – she gives us so much great stuff to do. Even when we think something is too hard for us, she says she knows we can all do it, and she’s usually right! She also shows us drawings, photos and websites to explain how things work, which I love."
             }
-          ]
+          ],
+          "image": "imgp1"
         },
         {
           "id": "h3",
@@ -477,7 +499,8 @@
               "t": "text",
               "v": "I have a fantastic science teacher called Mrs Rhodes. She loves her subject – especially plants. She is able to draw wonderful pictures of them on the board, which helps us understand them. She never seems to get tired or bored when she’s teaching. She takes time to get to know each student in the class so that she can help them better. I think she’s the reason I want to be a science teacher one day."
             }
-          ]
+          ],
+          "image": "imgp2"
         },
         {
           "id": "h4",
@@ -498,7 +521,8 @@
               "t": "text",
               "v": "In just one year, Mrs James has become my favourite teacher. Until I joined her class, I was very bad at science, but she explained things so well that I soon understood them better. My marks went up almost immediately. She’s always happy to spend extra time with us at the end of lessons if we’re having problems. But it isn’t just teaching that makes her great. She’s also interested in our lives and gives advice on how to be a better person."
             }
-          ]
+          ],
+          "image": "imgp3"
         }
       ],
       "questions": [
@@ -1722,7 +1746,8 @@
             {
               "id": "n2",
               "type": "note",
-              "content": [
+              "style": "email",
+              "header": [
                 [
                   {
                     "t": "strong",
@@ -1738,7 +1763,9 @@
                     "t": "strong",
                     "v": "To: "
                   }
-                ],
+                ]
+              ],
+              "content": [
                 [
                   {
                     "t": "text",

@@ -24,22 +24,23 @@ Rules for transcribing one PET test = **4 items** (Reading, Writing, Listening, 
 | Part | how |
 |---|---|
 | 1 notices (Q1–5) | as KET R&W Part 1: question `material` = the notice image (alt = its text); `choice` A–C |
-| 2 people ↔ texts (Q6–10) | section `material` = the 8 short texts as `note` blocks (`title` = "A Mouse House" etc.); each question: `choice`, `prompt` = the person's description (+ name), options `A`–`H`, option content = the text's title |
+| 2 people ↔ texts (Q6–10) | `"view":"match"`. Section `intro` = the printed lead-in ("The young people below…") — it goes with the questions, not in `material` (#90). Section `material` = the 8 short texts as `note` blocks (`title` = "A Mouse House" etc.); each question: `choice`, `prompt` = the person's description (+ name), `image` = the person's photo (crop from the page into `assets/pet1/pet1-t<N>-r-p<K>.jpg`, register in `article.images`, alt "Photo of <name>", #91), options `A`–`H`, option content = the text's title |
 | 3 long text (Q11–15) | section material = text; `choice` A–D |
 | 4 gapped text (Q16–20) | section material = text with blanks `b16`…; section `bank` = the 8 sentences A–H; each question `gapMatch` `{"blankIds":["b16"]}` |
 | 5 multiple-choice cloze (Q21–26) | as KET Part 4: `inlineChoice`, options A–D |
 | 6 open cloze (Q27–32) | as KET Part 5: `textEntry` `maxWords: 1`; accept every printed alternative |
 
 ## Writing (2 tasks counted, 20 points each)
-- **Part 1 (Q1, compulsory)**: `extendedText` `{"prompt":[the task text],"scoring":"judge","minWords":100}`, points 20. Question `material` = the input email as a `note` block. The handwritten notes printed beside the email are inline callouts placed right after the words they point at: `{"t":"callout","v":"Great!"}`.
-- **Part 2 (Q2 article, Q3 story — choose one)**: one section with `"choose": 1` and two `extendedText` questions (Q2, Q3), each points 20, `minWords: 100`. The article task's prompt includes the magazine notice text; the story task's prompt includes the given first sentence.
+- Keep every printed genre layout (#96): the input email is a `note` with `"style":"email"` (`title` "EMAIL", `header` = the From / To / Subject lines, `content` = the body, `signature`); an announcement / advert is a `note` with `"style":"notice"` (`title` = the bar text, `heading` = the big centred title, one `content` line per printed line).
+- **Part 1 (Q1, compulsory)**: `extendedText` `{"prompt":[the task text],"scoring":"judge","minWords":100}`, points 20. Question `material` = the input email as a `note` block (style email). The handwritten notes printed beside the email are inline callouts placed right after the words they point at: `{"t":"callout","v":"Great!"}`.
+- **Part 2 (Q2 article, Q3 story — choose one)**: one section with `"choose": 1` and two `extendedText` questions (Q2, Q3), each points 20, `minWords: 100`. The article task: `prompt` = the sentence before the box ("You see this announcement…"), `stimulus` = the box as a `note` with style notice, `task` = "Write your **article**." (+ the word guidance). The story task's prompt includes the given first sentence (`em`) and "Write your **story**.".
 - Keys: as KET writing, but `"rubricType":"cambridge_b1_writing"` and **four** criteria, weight 5 each:
   `content` 内容 · `communicative_achievement` 交际效果 · `organisation` 条理性 · `language` 语言 (Part 1 `content` descZh lists the 4 notes to answer). `anchors` = Sample answers A and B with their printed total (/20) and condensed 点评.
 
 ## Listening (25 × 1 point)
 - Every section `"audio":{"src":"assets/pet1/pet1-t<N>-p<K>.m4a","seconds":…}`; transcripts per section in the key (`transcripts`), as KET.
 - Part 1 (Q1–7): picture options, as KET Listening Part 1 (crop each picture `assets/pet1/pet1-t<N>-l-q<Q>-<A|B|C>.jpg`).
-- Part 2 (Q8–13), Part 4 (Q20–25): `choice` A–C (prompt includes the context sentence).
+- Part 2 (Q8–13), Part 4 (Q20–25): `choice` A–C (prompt includes the context sentence). Part 4 (one long interview) gets `"view":"all"` — all questions on one page, options stacked; Part 2 (separate short conversations) stays one question per page (#86).
 - Part 3 (Q14–19): note completion — section material with blanks `b14`…, `textEntry`; accept printed alternatives (`(school) hall` → `school hall`, `hall`; `11.30 / half past eleven` → also `11:30`).
 
 ## Speaking (4 Parts × 20 points — the Cambridge scale is computed from the criteria bands)

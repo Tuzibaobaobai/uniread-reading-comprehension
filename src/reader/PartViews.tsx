@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import type { InlineT, QuestionT } from '@schema';
 import { Rich, plainText } from '@/components/Rich';
-import { Check, Cross } from '@/components/Icons';
+import { Check, Cross, Locate } from '@/components/Icons';
+import { staticContent } from '@/lib/content';
 import { OptionList, QuestionPrompt, type InteractionProps } from './interactions';
 
 /*
@@ -52,6 +53,11 @@ function Explanations({ props, qs }: { props: InteractionProps; qs: QuestionT[] 
               {q.number}. {ok ? <Check /> : <Cross />} {correctOf(q.id)?.join('')}
             </b>{' '}
             {k?.explanationZh}
+            {k?.evidence?.[0] && props.onLocate && (
+              <button className="chip part-explain-locate" onClick={() => props.onLocate!(k.evidence![0].block, k.evidence![0].quote)}>
+                <Locate /> 定位原文
+              </button>
+            )}
           </li>
         );
       })}
@@ -130,7 +136,16 @@ export function SectionAllView(props: InteractionProps) {
             selected={answerOf(q.id)}
             correct={correctOf(q.id)}
             locked={!!review}
-            explain={review ? { text: review.key.answers[q.id]?.explanationZh } : undefined}
+            explain={
+              review
+                ? {
+                    text: review.key.answers[q.id]?.explanationZh,
+                    block: review.key.answers[q.id]?.evidence?.[0]?.block,
+                    quote: review.key.answers[q.id]?.evidence?.[0]?.quote,
+                    onLocate: props.onLocate,
+                  }
+                : undefined
+            }
             onSelect={(id) => pick(q.id, id)}
           />
         </section>
@@ -177,8 +192,11 @@ export function MatchBoardView(props: InteractionProps) {
             const ans = answerOf(q.id);
             const right = correctOf(q.id);
             const ok = review ? right?.includes(ans ?? '') : null;
+            const photo = q.image ? props.item.article.images.find((i) => i.id === q.image) : undefined;
             return (
-              <li key={q.id} className={`match-row ${ok === true ? 'is-correct' : ok === false ? 'is-wrong' : ''}`}>
+              <li key={q.id} className={`match-row ${photo ? 'has-photo' : ''} ${ok === true ? 'is-correct' : ok === false ? 'is-wrong' : ''}`}>
+                {/* each person's printed photo: a visual anchor while checking back against the texts (#91) */}
+                {photo && <img className="match-row-photo" src={staticContent.assetUrl(photo.src)} alt={photo.alt} width={photo.w} height={photo.h} />}
                 <p className="match-row-text">
                   <span className="q-num">{q.number}.</span> <Rich nodes={promptOf(q)} />
                 </p>

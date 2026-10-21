@@ -76,13 +76,14 @@
             {
               "id": "n1",
               "type": "note",
+              "style": "email",
               "title": [
                 {
                   "t": "strong",
                   "v": "EMAIL"
                 }
               ],
-              "content": [
+              "header": [
                 [
                   {
                     "t": "strong",
@@ -112,7 +113,9 @@
                     "t": "text",
                     "v": "School talent show"
                   }
-                ],
+                ]
+              ],
+              "content": [
                 [
                   {
                     "t": "text",
@@ -214,54 +217,65 @@
               {
                 "t": "text",
                 "v": "You see this announcement on an English-language website."
-              },
+              }
+            ],
+            "stimulus": [
               {
-                "t": "br"
-              },
+                "id": "n2",
+                "type": "note",
+                "style": "notice",
+                "title": [
+                  {
+                    "t": "strong",
+                    "v": "Articles wanted!"
+                  }
+                ],
+                "heading": [
+                  {
+                    "t": "text",
+                    "v": "Sport and exercise"
+                  }
+                ],
+                "content": [
+                  [
+                    {
+                      "t": "text",
+                      "v": "Are there enough sports activities for young people to do in your area?"
+                    }
+                  ],
+                  [
+                    {
+                      "t": "text",
+                      "v": "Do you think it’s important for young people to do sport and exercise?"
+                    }
+                  ],
+                  [
+                    {
+                      "t": "text",
+                      "v": "Why?"
+                    }
+                  ],
+                  [
+                    {
+                      "t": "text",
+                      "v": "Write an article answering these questions and we’ll publish the best ones."
+                    }
+                  ]
+                ]
+              }
+            ],
+            "task": [
               {
-                "t": "br"
+                "t": "text",
+                "v": "Write your "
               },
               {
                 "t": "strong",
-                "v": "Articles wanted!"
-              },
-              {
-                "t": "br"
-              },
-              {
-                "t": "strong",
-                "v": "Sport and exercise"
-              },
-              {
-                "t": "br"
+                "v": "article"
               },
               {
                 "t": "text",
-                "v": "Are there enough sports activities for young people to do in your area?"
-              },
-              {
-                "t": "br"
-              },
-              {
-                "t": "text",
-                "v": "Do you think it’s important for young people to do sport and exercise? Why?"
-              },
-              {
-                "t": "br"
-              },
-              {
-                "t": "text",
-                "v": "Write an article answering these questions and we’ll publish the best ones."
-              },
-              {
-                "t": "br"
-              },
-              {
-                "t": "br"
-              },
-              {
-                "t": "text",
-                "v": "Write your article."
+                "v": "."
               },
               {
                 "t": "br"
@@ -322,7 +336,15 @@
               },
               {
                 "t": "text",
-                "v": "Write your story."
+                "v": "Write your "
+              },
+              {
+                "t": "strong",
+                "v": "story"
+              },
+              {
+                "t": "text",
+                "v": "."
               },
               {
                 "t": "br"

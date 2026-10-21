@@ -82,7 +82,9 @@ function blockText(b: BlockT): string {
     case 'dialogue':
       return b.turns.map((t) => `${t.speaker}: ${inlineText(t.content)}`).join('\n');
     case 'note':
-      return [inlineText(b.title), ...b.content.map((c) => inlineText(c))].filter(Boolean).join('\n');
+      return [inlineText(b.title), inlineText(b.heading), ...(b.header ?? []).map((c) => inlineText(c)), ...b.content.map((c) => inlineText(c))]
+        .filter(Boolean)
+        .join('\n');
     case 'table':
       return b.rows.map((r) => r.map((c) => inlineText(c.content)).join(' | ')).join('\n');
     default:
@@ -137,7 +139,13 @@ export function buildJudgeRequest(item: ItemT, q: QuestionT, key: ExtendedKey, r
   const questionText =
     it.kind === 'speaking'
       ? `${inlineText(it.prompt)}\n${it.turns.map((t) => `- ${t.text}`).join('\n')}`
-      : `${inlineText(it.prompt)}${it.minWords ? `\n(Write ${it.minWords} words or more.)` : ''}`;
+      : [
+          inlineText(it.prompt),
+          ...(it.kind === 'extendedText' ? [...(it.stimulus ?? []).map(blockText), inlineText(it.task)] : []),
+          it.minWords ? `(Write ${it.minWords} words or more.)` : '',
+        ]
+          .filter(Boolean)
+          .join('\n');
   const material = q.material
     ?.map((b) => (b.type === 'imageRef' ? `[Picture: ${item.article.images.find((i) => i.id === b.image)?.alt ?? ''}]` : blockText(b)))
     .filter(Boolean)

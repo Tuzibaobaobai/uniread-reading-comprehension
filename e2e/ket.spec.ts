@@ -227,6 +227,23 @@ test('#86 listening Part 3: all five questions on one page', async ({ page }) =>
   await tab(page, /题目/);
   await page.getByRole('button', { name: /第 11–15 题/ }).click();
   await expect(page.locator('.part-stack-q')).toHaveCount(5);
+  // options stacked vertically as printed; Part 4 (separate short recordings) stays one question per page
+  const [a, b2] = await page.locator('.part-stack-q').first().locator('.option').evaluateAll((els) => els.map((e) => e.getBoundingClientRect().top));
+  expect(b2).toBeGreaterThan(a);
+  await expect(page.getByRole('button', { name: /第 16 题/ })).toHaveCount(1);
+});
+
+test('#91 #96 reading Part 2 portraits beside the texts; Part 6 email keeps its header band', async ({ page }) => {
+  await page.goto('/#/p/ket1/ket1-t3-rw');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await tab(page, /题目/);
+  await page.getByRole('button', { name: /第 7–13 题/ }).click();
+  await tab(page, /材料/);
+  await expect(page.locator('.rt-portrait')).toHaveCount(3);
+  await tab(page, /题目/);
+  await page.getByRole('button', { name: /第 31 题/ }).click();
+  await tab(page, /材料/);
+  await expect(page.locator('.rt-note.is-email .rt-note-field-label')).toHaveText(['From:', 'To:']);
 });
 
 test('#87 listening Part 5: two-column board, example option out, each option once', async ({ page }) => {

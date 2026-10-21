@@ -85,7 +85,16 @@ export const TableCell = z
   .strict();
 
 export const Block = z.discriminatedUnion('type', [
-  z.object({ ...blockBase, type: z.literal('paragraph'), content: Rich, indent: z.boolean().optional() }).strict(),
+  z
+    .object({
+      ...blockBase,
+      type: z.literal('paragraph'),
+      content: Rich,
+      indent: z.boolean().optional(),
+      /** image id (article.images) printed beside the paragraph, e.g. the writer's portrait in KET Reading Part 2 (#91) */
+      image: z.string().optional(),
+    })
+    .strict(),
   z.object({ ...blockBase, type: z.literal('heading'), content: Rich, level: z.number().int().min(2).max(4).optional() }).strict(),
   z
     .object({ ...blockBase, type: z.literal('list'), ordered: z.boolean().optional(), items: z.array(Rich) })
@@ -107,6 +116,15 @@ export const Block = z.discriminatedUnion('type', [
       title: Rich.optional(),
       content: z.array(Rich),
       signature: z.array(Rich).optional(),
+      /**
+       * printed genre layout (#96): email = header band with From / To / Subject fields (`header`); notice = title
+       * bar, centred `heading` and centred lines (an announcement / advert). Absent = plain box.
+       */
+      style: z.enum(['email', 'notice']).optional(),
+      /** email: the header fields, one line each ("**From:** Chris") */
+      header: z.array(Rich).optional(),
+      /** notice: the large centred heading under the title bar */
+      heading: Rich.optional(),
     })
     .strict(),
   z
@@ -247,6 +265,10 @@ export const ExtendedText = z
     scoring: z.enum(['judge', 'self', 'none']),
     /** writing tasks: minimum word count printed in the task (live word counter) */
     minWords: z.number().int().positive().optional(),
+    /** writing tasks: the printed text the task is based on, kept in its genre layout (an announcement…), after the prompt (#96) */
+    stimulus: z.array(Block).optional(),
+    /** writing tasks: the instruction printed after the stimulus ("Write your **article**.") */
+    task: Rich.optional(),
   })
   .strict();
 
@@ -326,6 +348,8 @@ export const Question = z
     interaction: Interaction,
     /** exam items: material shown in the left pane while this question is current (e.g. a KET Part 1 notice) */
     material: z.array(Block).optional(),
+    /** image id (article.images) printed beside the question, e.g. each person's photo in PET Reading Part 2 (#91) */
+    image: z.string().optional(),
   })
   .strict();
 export type QuestionT = z.infer<typeof Question>;
@@ -345,6 +369,8 @@ export const Section = z
     part: z.number().int().positive().optional(),
     /** exam items: the Part's texts shown in the left pane (passage, notes form with blanks…) */
     material: z.array(Block).optional(),
+    /** exam items: the lead-in printed before the questions, shown above them in the question pane (PET Reading Part 2, #90) */
+    intro: Rich.optional(),
     /** exam items: the Part's recording; the file already contains both plays */
     audio: z.object({ src: z.string(), seconds: z.number().int().positive() }).strict().optional(),
     /** the learner answers this many of the section's questions (PET Writing Part 2: 1 of 2); only those count */

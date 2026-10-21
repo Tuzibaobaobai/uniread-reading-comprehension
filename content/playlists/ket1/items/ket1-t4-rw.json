@@ -81,6 +81,27 @@
         "alt": "Picture 3: The two girls are on stage singing together with the singer.",
         "w": 433,
         "h": 328
+      },
+      {
+        "id": "imgp1",
+        "src": "assets/ket1/ket1-t4-rw-p1.jpg",
+        "alt": "Photo of Rhodri",
+        "w": 240,
+        "h": 324
+      },
+      {
+        "id": "imgp2",
+        "src": "assets/ket1/ket1-t4-rw-p2.jpg",
+        "alt": "Photo of Patrick",
+        "w": 240,
+        "h": 303
+      },
+      {
+        "id": "imgp3",
+        "src": "assets/ket1/ket1-t4-rw-p3.jpg",
+        "alt": "Photo of Josh",
+        "w": 240,
+        "h": 323
       }
     ],
     "blocks": [],
@@ -446,7 +467,8 @@
               "t": "text",
               "v": "I had a great time in Rome with my family. It was my first holiday outside my own country and I couldn’t wait to go. I found out all I could about Rome from the library and on the internet. Knowing about the history made seeing all the old buildings, like the Colosseum, much more interesting. We were able to do lots of sightseeing because the taxis and buses and the metro were cheap and fast."
             }
-          ]
+          ],
+          "image": "imgp1"
         },
         {
           "id": "h3",
@@ -467,7 +489,8 @@
               "t": "text",
               "v": "It was really hot when I arrived at Rome airport with my parents last summer. I loved walking around famous places like the Trevi Fountain, but all the cars and buses in the city sometimes made walking difficult. I really loved the food. The Italians have a special kind of ice cream called ‘gelato’ which is wonderful, but the best thing I had was a pizza at a local market. I also got some great things to take back for my friends."
             }
-          ]
+          ],
+          "image": "imgp2"
         },
         {
           "id": "h4",
@@ -488,7 +511,8 @@
               "t": "text",
               "v": "It was so hot when my dad and I went to Rome last year that we usually waited until after the sun went down to explore the city on foot. During the day we went to museums, shops and restaurants. The pasta there is amazing, and I had some Italian ice cream, called ‘gelato’, for the first time. That was the thing I liked most. After a few days in Rome, we decided to take a train into the countryside for a day. It was nice to see all the small villages and farms."
             }
-          ]
+          ],
+          "image": "imgp3"
         }
       ],
       "questions": [
@@ -1700,7 +1724,8 @@
             {
               "id": "n2",
               "type": "note",
-              "content": [
+              "style": "email",
+              "header": [
                 [
                   {
                     "t": "strong",
@@ -1716,7 +1741,9 @@
                     "t": "strong",
                     "v": "To: "
                   }
-                ],
+                ]
+              ],
+              "content": [
                 [
                   {
                     "t": "text",

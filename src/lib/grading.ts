@@ -36,7 +36,11 @@ export function questionBlankIds(q: QuestionT): string[] {
 export function allBlocks(item: ItemT): BlockT[] {
   return [
     ...item.article.blocks,
-    ...item.sections.flatMap((s) => [...(s.stimulus ?? []), ...(s.material ?? []), ...s.questions.flatMap((q) => q.material ?? [])]),
+    ...item.sections.flatMap((s) => [
+      ...(s.stimulus ?? []),
+      ...(s.material ?? []),
+      ...s.questions.flatMap((q) => [...(q.material ?? []), ...(q.interaction.kind === 'extendedText' ? (q.interaction.stimulus ?? []) : [])]),
+    ]),
   ];
 }
 
@@ -62,6 +66,8 @@ export function collectBlankHints(item: ItemT): Map<string, string> {
           break;
         case 'note':
           visit(b.title);
+          visit(b.heading);
+          b.header?.forEach(visit);
           b.content.forEach(visit);
           b.signature?.forEach(visit);
           break;

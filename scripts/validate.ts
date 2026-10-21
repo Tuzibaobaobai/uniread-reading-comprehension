@@ -32,6 +32,8 @@ function walkInline(item: ItemT, fn: (n: InlineT, where: string) => void) {
           return b.turns.forEach((t) => visit(t.content, w));
         case 'note':
           visit(b.title, w);
+          visit(b.heading, w);
+          b.header?.forEach((c) => visit(c, w));
           b.content.forEach((c) => visit(c, w));
           return b.signature?.forEach((c) => visit(c, w));
         case 'table':
@@ -45,11 +47,16 @@ function walkInline(item: ItemT, fn: (n: InlineT, where: string) => void) {
     if (s.material) visitBlocks(s.material, `${s.id}/material`);
     s.questions.forEach((q) => q.material && visitBlocks(q.material, `${q.id}/material`));
     s.bank?.forEach((e) => visit(e.content, `${s.id}/bank`));
+    visit(s.intro, `${s.id}/intro`);
     s.questions.forEach((q) => {
       const it = q.interaction;
       if ('prompt' in it) visit(it.prompt, q.id);
       if ('options' in it) it.options.forEach((o) => visit(o.content, q.id));
-      if (it.kind === 'extendedText') visit(it.scaffold, q.id);
+      if (it.kind === 'extendedText') {
+        visit(it.scaffold, q.id);
+        visit(it.task, q.id);
+        if (it.stimulus) visitBlocks(it.stimulus, `${q.id}/stimulus`);
+      }
     });
   });
 }
@@ -216,6 +223,8 @@ function checkItem(item: ItemT, key: ItemKeyT, playlistDir: string) {
     if (!existsSync(join(ROOT, img.src))) err(`image file missing: ${img.src}`);
   });
   blocks.forEach((b) => b.type === 'imageRef' && !imageIds.has(b.image) && err(`imageRef ${b.image} unknown`));
+  blocks.forEach((b) => b.type === 'paragraph' && b.image && !imageIds.has(b.image) && err(`${b.id} image ${b.image} unknown`));
+  allQuestions(item).forEach((q) => q.image && !imageIds.has(q.image) && err(`${q.id} image ${q.image} unknown`));
   allQuestions(item).forEach((q) => {
     const it = q.interaction;
     const imgs = [...('options' in it ? it.options.map((o) => o.image) : []), ...(it.kind === 'match' ? it.right.map((r) => r.image) : [])];

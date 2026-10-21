@@ -1,5 +1,5 @@
 import { forwardRef, useLayoutEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
-import type { ArticleItemT, BlockT, ItemT } from '@schema';
+import type { ArticleItemT, BlockT, InlineT, ItemT } from '@schema';
 import { Rich, type BlankNode } from '@/components/Rich';
 import { staticContent } from '@/lib/content';
 import { highlightSupported, paint, sentenceRange } from './evidence';
@@ -127,24 +127,55 @@ export function Figure({ img }: { img?: ItemT['article']['images'][number] }) {
   );
 }
 
+type ImageT = ItemT['article']['images'][number];
+
+/** "**From:** Chris" → label + value boxes of an email header (#96) */
+function NoteField({ line, renderBlank }: { line: InlineT[]; renderBlank: (n: BlankNode) => ReactNode }) {
+  const [first, ...rest] = line;
+  const labelled = first?.t === 'strong';
+  return (
+    <div className="rt-note-field">
+      {labelled && <span className="rt-note-field-label">{first.v.trim()}</span>}
+      <span className="rt-note-field-value">
+        <Rich nodes={labelled ? rest : line} blank={renderBlank} />
+      </span>
+    </div>
+  );
+}
+
 export function Block({
   block: b,
   renderBlank,
   evidence = false,
+  imageOf,
 }: {
   block: BlockT;
   renderBlank: (n: BlankNode) => ReactNode;
   evidence?: boolean;
+  /** resolves a paragraph's portrait (exam papers) */
+  imageOf?: (id: string) => ImageT | undefined;
 }) {
   const cls = evidence ? 'is-evidence' : undefined;
   const attrs = { 'data-block': b.id, className: cls };
   switch (b.type) {
-    case 'paragraph':
+    case 'paragraph': {
+      const portrait = b.image ? imageOf?.(b.image) : undefined;
+      if (portrait)
+        // a writer's photo beside their text (KET Reading Part 2, #91)
+        return (
+          <div {...attrs} className={['rt-portrait-row', cls].filter(Boolean).join(' ')}>
+            <img className="rt-portrait" src={staticContent.assetUrl(portrait.src)} alt={portrait.alt} width={portrait.w} height={portrait.h} />
+            <p className="rt-p">
+              <Rich nodes={b.content} blank={renderBlank} />
+            </p>
+          </div>
+        );
       return (
         <p {...attrs} className={['rt-p', cls].filter(Boolean).join(' ')}>
           <Rich nodes={b.content} blank={renderBlank} />
         </p>
       );
+    }
     case 'heading':
       return (
         <h3 {...attrs} className={['rt-h', cls].filter(Boolean).join(' ')}>
@@ -179,10 +210,22 @@ export function Block({
       );
     case 'note':
       return (
-        <div {...attrs} className={['rt-note', cls].filter(Boolean).join(' ')}>
+        <div {...attrs} className={['rt-note', b.style && `is-${b.style}`, cls].filter(Boolean).join(' ')}>
           {b.title && (
             <p className="rt-note-title">
               <Rich nodes={b.title} blank={renderBlank} />
+            </p>
+          )}
+          {b.header && b.header.length > 0 && (
+            <div className="rt-note-header">
+              {b.header.map((line, i) => (
+                <NoteField key={i} line={line} renderBlank={renderBlank} />
+              ))}
+            </div>
+          )}
+          {b.heading && (
+            <p className="rt-note-heading">
+              <Rich nodes={b.heading} blank={renderBlank} />
             </p>
           )}
           {b.content.map((c, i) => (

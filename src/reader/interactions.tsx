@@ -618,6 +618,19 @@ export function ExtendedTextView(props: InteractionProps & { selfAssessed?: bool
       <QuestionPrompt number={fq.q.number}>
         <Rich nodes={it.prompt} />
       </QuestionPrompt>
+      {/* the printed text in its genre layout, then the closing instruction (#96) */}
+      {it.stimulus && (
+        <div className="task-stimulus">
+          {it.stimulus.map((b) => (
+            <Block key={b.id} block={b} renderBlank={() => null} />
+          ))}
+        </div>
+      )}
+      {it.task && (
+        <p className="task-line">
+          <Rich nodes={it.task} />
+        </p>
+      )}
       {it.scaffold && (
         <p className="context-line">
           <Rich nodes={it.scaffold} blank={() => <span className="context-blank"><span className="blank-num">{'\u00a0'}</span></span>} />
@@ -825,7 +838,13 @@ export function ChooseTaskView(props: InteractionProps & { selfAssessed?: boolea
     setPicked(id);
     setConfirmTo(null);
   };
-  const label = (q: (typeof tasks)[number]) => (q.interaction.kind === 'extendedText' ? q.interaction.prompt : []);
+  // card summary: the prompt plus the stimulus' title (e.g. "Articles wanted! Sport and exercise")
+  const label = (q: (typeof tasks)[number]) => {
+    const it = q.interaction;
+    if (it.kind !== 'extendedText') return '';
+    const titles = (it.stimulus ?? []).flatMap((b) => (b.type === 'note' ? [b.title, b.heading] : [])).filter(Boolean);
+    return [plainText(it.prompt), ...titles.map((t) => plainText(t!))].join(' ');
+  };
 
   return (
     <>
@@ -846,7 +865,7 @@ export function ChooseTaskView(props: InteractionProps & { selfAssessed?: boolea
                 Question {q.number}
                 {review && !isSel && <span className="task-card-tag">未选</span>}
               </span>
-              <span className="task-card-text">{plainText(label(q)).slice(0, 160)}</span>
+              <span className="task-card-text">{label(q).slice(0, 160)}</span>
             </button>
           );
         })}

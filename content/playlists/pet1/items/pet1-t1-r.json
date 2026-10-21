@@ -53,6 +53,41 @@
         "alt": "OUTDOOR COURTS. All players need T-shirts, shorts, sun hats and proper tennis shoes, apart from under-10s, who may wear their gym shoes. No entry for students wearing the wrong shoes.",
         "w": 552,
         "h": 553
+      },
+      {
+        "id": "imgp1",
+        "src": "assets/pet1/pet1-t1-r-p1.jpg",
+        "alt": "Photo of Maiko",
+        "w": 240,
+        "h": 312
+      },
+      {
+        "id": "imgp2",
+        "src": "assets/pet1/pet1-t1-r-p2.jpg",
+        "alt": "Photo of Marta and her younger sister",
+        "w": 240,
+        "h": 252
+      },
+      {
+        "id": "imgp3",
+        "src": "assets/pet1/pet1-t1-r-p3.jpg",
+        "alt": "Photo of Eliana",
+        "w": 240,
+        "h": 315
+      },
+      {
+        "id": "imgp4",
+        "src": "assets/pet1/pet1-t1-r-p4.jpg",
+        "alt": "Photo of Henri",
+        "w": 240,
+        "h": 307
+      },
+      {
+        "id": "imgp5",
+        "src": "assets/pet1/pet1-t1-r-p5.jpg",
+        "alt": "Photo of Jose",
+        "w": 240,
+        "h": 306
       }
     ],
     "blocks": [],
@@ -327,17 +362,13 @@
       "part": 2,
       "label": "Part 2",
       "instruction": "For each question, choose the correct answer.",
-      "material": [
+      "intro": [
         {
-          "id": "p1",
-          "type": "paragraph",
-          "content": [
-            {
-              "t": "text",
-              "v": "The young people below are interested in joining a dance or drama group. On the opposite page there are descriptions of eight dance and drama groups. Decide which group would be the most suitable for the people below."
-            }
-          ]
-        },
+          "t": "text",
+          "v": "The young people below are interested in joining a dance or drama group. On the opposite page there are descriptions of eight dance and drama groups. Decide which group would be the most suitable for the people below."
+        }
+      ],
+      "material": [
         {
           "id": "h1",
           "type": "heading",
@@ -618,7 +649,8 @@
                 ]
               }
             ]
-          }
+          },
+          "image": "imgp1"
         },
         {
           "id": "q7",
@@ -711,7 +743,8 @@
                 ]
               }
             ]
-          }
+          },
+          "image": "imgp2"
         },
         {
           "id": "q8",
@@ -804,7 +837,8 @@
                 ]
               }
             ]
-          }
+          },
+          "image": "imgp3"
         },
         {
           "id": "q9",
@@ -897,7 +931,8 @@
                 ]
               }
             ]
-          }
+          },
+          "image": "imgp4"
         },
         {
           "id": "q10",
@@ -990,7 +1025,8 @@
                 ]
               }
             ]
-          }
+          },
+          "image": "imgp5"
         }
       ],
       "view": "match"

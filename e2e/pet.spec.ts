@@ -79,3 +79,34 @@ test('#82 reading Part 2: all five people on one page, letters A–H, each lette
   await tab(page, /材料/);
   await expect(page.locator('.rt-note')).toHaveCount(8);
 });
+
+test('#90 #91 #92 reading Part 2: lead-in above the questions, photos, every question\'s evidence after submitting', async ({ page }) => {
+  await practice(page, 'pet1-t1-r');
+  await tab(page, /题目/);
+  await page.getByRole('button', { name: /第 6–10 题/ }).click();
+  await expect(page.locator('.section-intro')).toContainText('The young people below');
+  await expect(page.locator('.match-row-photo')).toHaveCount(5);
+  await tab(page, /材料/);
+  await expect(page.locator('.exam-pane')).not.toContainText('The young people below');
+  await tab(page, /题目/);
+  await page.locator('.question-dot').last().click();
+  await page.getByRole('button', { name: '提交' }).click();
+  await page.getByRole('button', { name: '仍然提交' }).click();
+  await page.getByRole('button', { name: '查看答案与解析' }).click();
+  await page.getByRole('button', { name: /第 6–10 题/ }).click();
+  await expect(page.locator('.part-explain-locate')).toHaveCount(5);
+  const ranges = await page.evaluate(() => (CSS as unknown as { highlights?: Map<string, { size: number }> }).highlights?.get('evidence')?.size ?? -1);
+  if (ranges >= 0 && !narrow(page)) expect(ranges).toBeGreaterThan(1);
+});
+
+test('#96 writing: genre layouts — email header band, the announcement box inside the article task', async ({ page }) => {
+  await practice(page, 'pet1-t1-w');
+  await tab(page, /材料/);
+  await expect(page.locator('.rt-note.is-email .rt-note-field-label')).toHaveText(['From:', 'To:', 'Subject:']);
+  await tab(page, /题目/);
+  await page.getByRole('button', { name: '下一题' }).click();
+  await page.locator('.task-card').nth(0).click();
+  await expect(page.locator('.task-stimulus .rt-note.is-notice .rt-note-title')).toHaveText('Articles wanted!');
+  await expect(page.locator('.task-stimulus .rt-note-heading')).toHaveText('Sport and exercise');
+  await expect(page.locator('.task-line strong').first()).toHaveText('article');
+});

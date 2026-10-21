@@ -135,7 +135,7 @@ function inlinesOf(b: BlockT): InlineT[][] {
     case 'dialogue':
       return b.turns.map((t) => [{ t: 'text', v: `${t.speaker}: ` } as InlineT, ...t.content]);
     case 'note':
-      return [...(b.title ? [b.title] : []), ...b.content, ...(b.signature ?? [])];
+      return [...(b.title ? [b.title] : []), ...(b.heading ? [b.heading] : []), ...(b.header ?? []), ...b.content, ...(b.signature ?? [])];
     case 'table':
       return b.rows.flatMap((r) => r.map((c) => c.content));
     default:

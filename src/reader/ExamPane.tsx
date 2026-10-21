@@ -41,7 +41,7 @@ export const ExamPane = forwardRef<HTMLDivElement, Props>(function ExamPane(prop
       b.type === 'imageRef' ? (
         <Figure key={b.id} img={image(b.image)} />
       ) : (
-        <Block key={b.id} block={b} renderBlank={renderBlank} evidence={fallback.has(b.id)} />
+        <Block key={b.id} block={b} renderBlank={renderBlank} evidence={fallback.has(b.id)} imageOf={image} />
       ),
     );
   const qMaterial = fq?.q.material;

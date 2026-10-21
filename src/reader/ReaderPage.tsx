@@ -9,7 +9,7 @@ import { Check, Cross, Locate } from '@/components/Icons';
 import arrowLeft from '@/assets/icons/arrow-left.svg';
 import correctIcon from '@/assets/icons/correct.svg';
 import wrongIcon from '@/assets/icons/wrong.svg';
-import { plainText, type BlankNode } from '@/components/Rich';
+import { Rich, plainText, type BlankNode } from '@/components/Rich';
 import { ArticlePane } from './ArticlePane';
 import { ExamPane } from './ExamPane';
 import { ExamReport, ExamTimer, ModeDialog, SwitchModeDialog, type ModeReason } from './ExamChrome';
@@ -349,7 +349,11 @@ function Reader({ item }: { item: ItemT }) {
 
   const pos = visible.indexOf(index);
   const isLast = pos === visible.length - 1;
-  const evidence = useMemo(() => (review ? evidenceOf(review.key, current?.q.id) : []), [review?.key, current?.q.id]); // eslint-disable-line react-hooks/exhaustive-deps
+  // a Part answered on one page highlights every question's evidence, not just the first one's (#92)
+  const evidence = useMemo(
+    () => (review ? (current?.group ? current.section.questions : current ? [current.q] : []).flatMap((q) => evidenceOf(review.key, q.id)) : []),
+    [review?.key, current?.q.id], // eslint-disable-line react-hooks/exhaustive-deps
+  );
 
   return (
     <div className={`reader-body tab-${tab} ${soloQuestions ? 'no-left' : ''}`}>
@@ -414,6 +418,12 @@ function Reader({ item }: { item: ItemT }) {
                   <p className="section-instruction">
                     {current.section.label && <b>{current.section.label}. </b>}
                     <Emph text={current.section.instruction} />
+                  </p>
+                )}
+                {current.section.intro && (
+                  // the Part's printed lead-in belongs with the questions, not the texts (#90)
+                  <p className="section-intro">
+                    <Rich nodes={current.section.intro} />
                   </p>
                 )}
                 <QuestionBody
