@@ -134,3 +134,18 @@ test('#12 underlined phrases are one continuous line', async ({ page }) => {
   await expect(u).toHaveText('beat swords into plowshares');
   await expect(u).toHaveCSS('text-decoration-skip-ink', 'none');
 });
+
+test('#98 a rubric that already starts with 要点 is not labelled twice', async ({ page }) => {
+  await page.goto('/#/p/ci-xsc3/ci-xsc3-w01-fri');
+  await showQuestions(page);
+  await page.locator('.question-dot').last().click();
+  await page.getByRole('button', { name: '提交' }).click();
+  await page.getByRole('button', { name: '仍然提交' }).click();
+  await page.locator('.question-dot').first().click();
+  await expect(page.locator('.explain-text').first()).toBeVisible();
+  for (const dot of await page.locator('.question-dot').all()) {
+    await dot.click();
+    await expect(page.locator('.question-card')).not.toContainText('要点：要点');
+    await expect(page.locator('.question-card')).not.toContainText('官方答案');
+  }
+});

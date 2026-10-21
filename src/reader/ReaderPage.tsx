@@ -670,7 +670,8 @@ function Explanation({
         <span className="explain-label">{isSample ? '参考答案' : '正确答案'}</span>
         {answerText}
       </p>
-      {'rubricZh' in k && k.rubricZh && <p className="explain-text">要点：{k.rubricZh}</p>}
+      {/* many rubrics already begin with 要点： / 要点1： (#98) — add the label only when it is missing */}
+      {'rubricZh' in k && k.rubricZh && <p className="explain-text">{/^要点/.test(k.rubricZh) ? k.rubricZh : `要点：${k.rubricZh}`}</p>}
       {k.explanationZh && <p className="explain-text">{k.explanationZh}</p>}
       {k.tipsZh && <p className="explain-text explain-tip">语言点：{k.tipsZh}</p>}
       {k.evidence?.[0] && (
