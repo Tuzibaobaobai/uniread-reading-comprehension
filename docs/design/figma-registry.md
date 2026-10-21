@@ -17,6 +17,7 @@
 | UIkit-Read · player | [11728-110946](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=11728-110946)（页 [15476-159261](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=15476-159261)） | 听力录音播放器：进度行 + 后退 / 播放·暂停 / 前进（btn-play 3221-7266、btn-pause 3221-7268、btn-before） | `src/reader/AudioPlayer.tsx`、`app.css` `.player*` | 已实现，待验收；考试模式锁定状态 Figma 中尚无，按 btn-play Disabled 实现 |
 | UIkit-Speak · 句卡 Focus | [8872-81973](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=8872-81973)（页 [15450-159260](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=15450-159260)） | 口语：考官问题卡 + 听题 / 回答（录音、✓ 结束、识别中）/ 回放 | `src/reader/Speaking.tsx`、`app.css` `.speak-*` | 已实现，待验收 |
 | 整段跟读评分 | [15504-104872](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=15504-104872) | 口语评分结果（按词着色需发音评测，暂未使用） | — | 已登记 |
+| 模式切换 select | [19215-125964](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=19215-125964)（页面 [19215-125693](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=19215-125693)） | 真题阅读页顶栏右上角：当前模式（练习 / 考试）+ 考试倒计时 + 下拉箭头；点开菜单切换模式（#102） | `src/reader/ExamChrome.tsx` `ModeSelect`、`app.css` `.mode-select*` | 已实现，待验收；展开后的菜单 Figma 中尚无，待补组件 |
 | Quiz · 结果卡 | [15450-159259](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=15450-159259) | 通过 / 未通过结果卡、View Answers / Try Again | 成绩报告暂用 `.dialog` 实现 | 待按结果卡对齐 |
 | 拼写 / 字母块 | [15092-99049](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=15092-99049) | 填空输入、对错反馈 | 沿用现有填空样式 | 已登记 |
 | Header · Read/Speak/Quiz + 设置 | [7762-32671](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=7762-32671) | 顶栏模式切换、字号 / 播放速度设置 | 本项目暂不使用 | 已登记 |
@@ -25,7 +26,7 @@
 
 待提供：Playlists 列表页（缩略图卡片）、结果卡、对话框（未答提醒）、输入框（填空）、词库芯片（选词填空）、连线、Tokens/Variables 页。
 
-真题（KET/PET）待补组件（暂用现有 token 实现）：写作题干体裁版式（邮件抬头栏 + From/To/Subject 字段框、征稿启事标题栏，#96）、人物照片（阅读 Part 2 文旁 / 题旁，#91）、PET 写作邮件批注标签（callout）、写作二选一任务卡、口语 AI 搭档角色标签；看图选择题图片选项卡片、题目级材料区（告示）、示例题样式、写作区（字数统计 / 要点清单 / 多图题干）、写作与口语评分结果（Cambridge 维度分）、听力原文面板、练习 / 考试模式选择、考试倒计时与警告、标记题目、交卷确认、成绩报告、Playlist 按“第 N 套”分组。
+真题（KET/PET）待补组件（暂用现有 token 实现）：写作题干体裁版式（邮件抬头栏 + From/To/Subject 字段框、征稿启事标题栏，#96）、人物照片（阅读 Part 2 文旁 / 题旁，#91）、PET 写作邮件批注标签（callout）、写作二选一任务卡、口语 AI 搭档角色标签；看图选择题图片选项卡片、题目级材料区（告示）、示例题样式、写作区（字数统计 / 要点清单 / 多图题干）、写作与口语评分结果（Cambridge 维度分）、听力原文面板、练习 / 考试模式选择对话框、模式切换菜单展开态、考试倒计时警告态、标记题目、交卷确认、成绩报告、Playlist 按“第 N 套”分组。
 
 ## Token 映射规则
 

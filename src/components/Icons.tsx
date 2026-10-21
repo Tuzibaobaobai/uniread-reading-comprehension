@@ -6,6 +6,12 @@ export const BackArrow = () => (
     <path d="M16 9H2M9 2L2 9L9 16" />
   </svg>
 );
+/** Figma arrow-down-01-sharp (select, 19215-125964): 24 × 24, stroke 1.5 */
+export const ChevronDown = () => (
+  <svg className="chevron-down" viewBox="0 0 24 24" aria-hidden {...s} strokeWidth={1.5}>
+    <path d="M5.25 9.1l5.3 5.3c.33.33.5.5.7.5s.37-.17.7-.5l5.3-5.3" />
+  </svg>
+);
 export const ArrowLeft = () => (
   <svg viewBox="0 0 24 24" aria-hidden {...s}>
     <path d="M19 12H5M11 6l-6 6 6 6" />

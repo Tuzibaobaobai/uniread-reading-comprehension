@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useNavigate, useParams } from 'react-router-dom';
 import { isExam, type AttemptT, type ItemKeyT, type ItemT } from '@schema';
 import { staticContent } from '@/lib/content';
@@ -11,7 +12,7 @@ import wrongIcon from '@/assets/icons/wrong.svg';
 import { Rich, plainText, type BlankNode } from '@/components/Rich';
 import { ArticlePane } from './ArticlePane';
 import { ExamPane } from './ExamPane';
-import { ExamReport, ExamTimer, ModeDialog, SwitchModeDialog, type ModeReason } from './ExamChrome';
+import { ExamReport, ExamTimer, ModeDialog, ModeSelect, SwitchModeDialog, type ModeReason } from './ExamChrome';
 import { examEndsAt } from '@/lib/exam-status';
 import { SpeakingView } from './Speaking';
 import { MatchBoardView, SectionAllView } from './PartViews';
@@ -39,6 +40,8 @@ export function ReaderPage() {
   const navigate = useNavigate();
   const [item, setItem] = useState<ItemT | null>(null);
   const [error, setError] = useState<string | null>(null);
+  // header slot for the reader's own controls (exam mode select, #102)
+  const [headSlot, setHeadSlot] = useState<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setItem(null);
@@ -52,16 +55,17 @@ export function ReaderPage() {
           <BackArrow />
         </button>
         <OverflowTip className="reader-head-title">{item?.title ?? ''}</OverflowTip>
+        <div className="reader-head-actions" ref={setHeadSlot} />
       </header>
       {error && <p className="error">加载失败：{error}</p>}
-      {item && <Reader key={item.id} item={item} />}
+      {item && <Reader key={item.id} item={item} headSlot={headSlot} />}
     </div>
   );
 }
 
 type Tab = 'article' | 'questions';
 
-function Reader({ item }: { item: ItemT }) {
+function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | null }) {
   const navigate = useNavigate();
   const flat = useMemo(() => flatten(item), [item]);
   const owners = useMemo(() => blankOwners(flat), [flat]);
@@ -391,15 +395,21 @@ function Reader({ item }: { item: ItemT }) {
 
       <section className="reader-right">
         <div className="question-card">
-          {exam && (attempt.mode || submitted) && !modeDialog && (
+          {headSlot &&
+            exam &&
+            attempt.mode &&
+            !submitted &&
+            !modeDialog &&
+            createPortal(
+              <ModeSelect
+                mode={attempt.mode}
+                timer={examMode ? <ExamTimer endsAt={endsAt} onTimeUp={() => void submit()} /> : undefined}
+                onSwitch={() => setSwitchOpen(true)}
+              />,
+              headSlot,
+            )}
+          {exam && ((examMode && current) || (submitted && result)) && !modeDialog && (
             <div className="exam-bar">
-              {examMode && <ExamTimer endsAt={endsAt} onTimeUp={() => void submit()} />}
-              {!submitted && attempt.mode === 'practice' && <span className="exam-mode-tag">练习模式</span>}
-              {!submitted && attempt.mode && (
-                <button className="chip" onClick={() => setSwitchOpen(true)}>
-                  {attempt.mode === 'exam' ? '切换到练习模式' : '切换到考试模式'}
-                </button>
-              )}
               {examMode && current && (
                 <button
                   className={`chip flag-toggle ${attempt.flagged?.includes(current.q.id) ? 'is-on' : ''}`}

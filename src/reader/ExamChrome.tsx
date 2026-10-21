@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { Check, ChevronDown } from '@/components/Icons';
 import type { ExamItemT } from '@schema';
 import { SCALES, examKey, examReport, grade, type ExamKey, type Skill } from '@/lib/cambridge';
 import type { Result } from '@/lib/grading';
@@ -51,6 +52,57 @@ export function ModeDialog({
           </button>
         </div>
       </div>
+    </div>
+  );
+}
+
+const MODE_ZH = { practice: '练习模式', exam: '考试模式' } as const;
+
+/**
+ * reader header, top right (#102, Figma 模式切换 19215-125693 → select 19215-125964): the current mode, the exam
+ * countdown, and a tap-only menu to switch (rarely used, so it sits away from the answering area). Choosing the
+ * other mode asks first (SwitchModeDialog). The open menu is not in Figma yet (待补组件).
+ */
+export function ModeSelect({ mode, timer, onSwitch }: { mode: 'practice' | 'exam'; timer?: ReactNode; onSwitch: () => void }) {
+  const [open, setOpen] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const outside = (e: PointerEvent) => root.current?.contains(e.target as Node) || setOpen(false);
+    const esc = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    document.addEventListener('pointerdown', outside);
+    document.addEventListener('keydown', esc);
+    return () => {
+      document.removeEventListener('pointerdown', outside);
+      document.removeEventListener('keydown', esc);
+    };
+  }, [open]);
+  return (
+    <div className="mode-select" ref={root}>
+      <button className="mode-select-button" aria-haspopup="menu" aria-expanded={open} aria-label={`当前${MODE_ZH[mode]}，切换模式`} onClick={() => setOpen((o) => !o)}>
+        <b>{MODE_ZH[mode]}</b>
+        {timer}
+        <ChevronDown />
+      </button>
+      {open && (
+        <div className="mode-select-menu" role="menu" aria-label="作答模式">
+          {(['practice', 'exam'] as const).map((m) => (
+            <button
+              key={m}
+              role="menuitemradio"
+              aria-checked={m === mode}
+              className={`mode-select-item ${m === mode ? 'is-current' : ''}`}
+              onClick={() => {
+                setOpen(false);
+                if (m !== mode) onSwitch();
+              }}
+            >
+              {MODE_ZH[m]}
+              {m === mode && <Check />}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

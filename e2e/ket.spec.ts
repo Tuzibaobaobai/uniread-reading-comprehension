@@ -7,6 +7,11 @@ const tab = async (page: Page, name: RegExp) => {
   // pages without left-pane material show no tabs (#78)
   if (narrow(page) && (await page.locator('.reader-body.no-left').count()) === 0) await page.getByRole('tab', { name }).click();
 };
+/** #102: the mode switch is a menu in the header's top right */
+const switchMode = async (page: Page, to: '练习模式' | '考试模式') => {
+  await page.locator('.mode-select-button').click();
+  await page.getByRole('menuitemradio', { name: to }).click();
+};
 
 test('playlist groups the papers by test', async ({ page }) => {
   await page.goto('/#/p/ket1');
@@ -86,15 +91,18 @@ test('#66 switch from practice to exam mode and back', async ({ page }) => {
   await page.getByRole('button', { name: /练习模式/ }).click();
   await tab(page, /题目/);
   await page.locator('.option').first().click();
-  await page.getByRole('button', { name: '切换到考试模式' }).click();
+  await switchMode(page, '考试模式');
   await expect(page.getByRole('dialog')).toContainText('当前已作答的 1 题会被清空');
   await page.getByRole('button', { name: '开始考试' }).click();
-  await expect(page.locator('.exam-timer')).toBeVisible();
+  await expect(page.locator('.reader-head .mode-select-button')).toContainText('考试模式');
+  await expect(page.locator('.reader-head .exam-timer')).toBeVisible();
   await expect(page.locator('.option.is-selected')).toHaveCount(0);
   await page.locator('.option').nth(1).click();
-  await page.getByRole('button', { name: '切换到练习模式' }).click();
+  await switchMode(page, '练习模式');
   await page.getByRole('button', { name: '切换到练习', exact: true }).click();
   await expect(page.locator('.exam-timer')).toHaveCount(0);
+  await expect(page.locator('.mode-select-button')).toHaveText('练习模式');
+  await expect(page.locator('.question-card .exam-bar')).toHaveCount(0); // no mode bar in the card any more
   await expect(page.locator('.option.is-selected')).toHaveCount(1); // answers kept
 });
 
@@ -194,7 +202,7 @@ test('#77 #78 speaking: full-width Part 1, and a switch to exam mode starts with
   await expect(page.locator('.reader-body.no-left')).toHaveCount(1);
   await expect(page.locator('.reader-left')).toBeHidden();
   await expect(page.locator('.reader-right')).toBeVisible();
-  await page.getByRole('button', { name: '切换到考试模式' }).click();
+  await switchMode(page, '考试模式');
   await page.getByRole('button', { name: '开始考试' }).click();
   await expect(page.getByRole('button', { name: '回答' })).toBeVisible();
   await expect(page.getByRole('button', { name: '重录' })).toHaveCount(0);
@@ -270,7 +278,7 @@ test('#88 #89 speaking: exam mode hides the text; Part 2 is a discussion with th
   await page.getByRole('button', { name: /Part 2 第/ }).first().click();
   await page.getByRole('button', { name: '下一题' }).click();
   await expect(page.locator('.speak-role.is-partner')).toHaveText('搭档 Alex');
-  await page.getByRole('button', { name: '切换到练习模式' }).click();
+  await switchMode(page, '练习模式');
   await page.getByRole('button', { name: '切换到练习', exact: true }).click();
   await expect(page.locator('.speak-line')).not.toHaveText(/考试模式/);
 });
