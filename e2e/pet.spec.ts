@@ -95,8 +95,13 @@ test('#90 #91 #92 reading Part 2: lead-in above the questions, photos, every que
   await page.getByRole('button', { name: '查看答案与解析' }).click();
   await page.getByRole('button', { name: /第 6–10 题/ }).click();
   await expect(page.locator('.part-explain-locate')).toHaveCount(5);
-  const ranges = await page.evaluate(() => (CSS as unknown as { highlights?: Map<string, { size: number }> }).highlights?.get('evidence')?.size ?? -1);
-  if (ranges >= 0 && !narrow(page)) expect(ranges).toBeGreaterThan(1);
+  // #100: nothing is highlighted until one question's 定位原文 is tapped, then only that question's evidence
+  const ranges = () => page.evaluate(() => (CSS as unknown as { highlights?: Map<string, { size: number }> }).highlights?.get('evidence')?.size ?? -1);
+  if ((await ranges()) < 0) return; // no CSS Custom Highlight API
+  expect(await ranges()).toBe(0);
+  await page.locator('.part-explain-locate').nth(2).click();
+  await expect.poll(ranges).toBe(1);
+  await expect.poll(() => page.evaluate(() => [...(CSS as unknown as { highlights: Map<string, Set<Range>> }).highlights.get('evidence')!][0].toString())).toContain('One-to-one');
 });
 
 test('#96 writing: genre layouts — email header band, the announcement box inside the article task', async ({ page }) => {

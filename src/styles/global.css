@@ -80,7 +80,11 @@ img { display: block; max-width: 100%; }
   border: none; border-radius: var(--radius-full);
   background: var(--bg-card); box-shadow: var(--shadow-btn);
 }
-.back-button img { width: var(--icon-m); height: var(--icon-m); }
+.back-button { color: var(--back-icon-color); }
+.back-icon { width: var(--back-icon); height: var(--back-icon); }
+@media (hover: hover) and (pointer: fine) {
+  .back-button:hover { color: var(--back-icon-hover); }
+}
 
 /* Figma Quiz-pagination → button */
 .pill-button {

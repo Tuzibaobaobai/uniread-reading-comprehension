@@ -1,9 +1,9 @@
 import type React from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { staticContent } from '@/lib/content';
+import { BackArrow } from '@/components/Icons';
 import { localAttempts } from '@/lib/storage';
 import { useAsync } from '@/lib/useAsync';
-import arrowLeft from '@/assets/icons/arrow-left.svg';
 import starIcon from '@/assets/icons/star.svg';
 import { Thumb } from '@/components/Thumb';
 import { DAY_NAME, PAPER_EN, formatMinutes } from '@/lib/labels';
@@ -33,7 +33,7 @@ export function PlaylistPage() {
         <>
           <aside className="playlist-intro">
             <button className="back-button playlist-back" onClick={() => navigate('/')} aria-label="返回">
-              <img src={arrowLeft} alt="" />
+              <BackArrow />
             </button>
             <div className="playlist-intro-panel" style={{ '--cover': `url("${staticContent.assetUrl(pl.cover)}")` } as React.CSSProperties}>
             <img className="playlist-intro-cover" src={staticContent.assetUrl(pl.banner ?? pl.cover)} alt="" />

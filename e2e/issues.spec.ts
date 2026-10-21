@@ -149,3 +149,16 @@ test('#98 a rubric that already starts with 要点 is not labelled twice', async
     await expect(page.locator('.question-card')).not.toContainText('官方答案');
   }
 });
+
+test('#93 a word first printed in the title is highlighted where it first appears in the text', async ({ page }) => {
+  await page.goto('/#/p/ci-g3/ci-g3-w01-wed');
+  await expect(page.locator('.article-body [data-block="p1"] .rt-vocab').first()).toHaveText('pet');
+});
+
+test('#99 back buttons use the Figma SVG icon', async ({ page }) => {
+  for (const path of ['/#/p/ci-g3', '/#/p/ci-g3/ci-g3-w01-wed']) {
+    await page.goto(path);
+    await expect(page.locator('.back-button svg.back-icon')).toHaveCount(1);
+    await expect(page.locator('.back-button img')).toHaveCount(0);
+  }
+});

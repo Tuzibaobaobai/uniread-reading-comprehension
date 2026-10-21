@@ -92,7 +92,12 @@
         "content": [
           {
             "t": "text",
-            "v": "Keep silent"
+            "v": "Keep "
+          },
+          {
+            "t": "vocab",
+            "v": "silent",
+            "ref": "v-silent"
           }
         ]
       },
@@ -184,8 +189,13 @@
         "level": 3,
         "content": [
           {
+            "t": "vocab",
+            "v": "Cheer",
+            "ref": "v-cheer"
+          },
+          {
             "t": "text",
-            "v": "Cheer correctly"
+            "v": " correctly"
           }
         ]
       },
@@ -247,7 +257,12 @@
           },
           {
             "t": "text",
-            "v": " your camera’s flash"
+            "v": " your camera’s "
+          },
+          {
+            "t": "vocab",
+            "v": "flash",
+            "ref": "v-flash"
           }
         ]
       },

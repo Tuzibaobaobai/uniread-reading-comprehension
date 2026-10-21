@@ -5,8 +5,7 @@ import { staticContent } from '@/lib/content';
 import { localAttempts, newAttempt } from '@/lib/storage';
 import { isScored, type Result } from '@/lib/grading';
 import { applyJudgement, fallbackToSelf } from '@/lib/judge';
-import { Check, Cross, Locate } from '@/components/Icons';
-import arrowLeft from '@/assets/icons/arrow-left.svg';
+import { BackArrow, Check, Cross, Locate } from '@/components/Icons';
 import correctIcon from '@/assets/icons/correct.svg';
 import wrongIcon from '@/assets/icons/wrong.svg';
 import { Rich, plainText, type BlankNode } from '@/components/Rich';
@@ -50,7 +49,7 @@ export function ReaderPage() {
     <div className="reader">
       <header className="reader-head">
         <button className="back-button" onClick={() => navigate(`/p/${playlistId}`)} aria-label="返回合集">
-          <img src={arrowLeft} alt="" />
+          <BackArrow />
         </button>
         <OverflowTip className="reader-head-title">{item?.title ?? ''}</OverflowTip>
       </header>
@@ -269,9 +268,13 @@ function Reader({ item }: { item: ItemT }) {
     });
   };
 
+  /** one-page Parts: the evidence of the question whose 定位原文 was tapped (#100) */
+  const [picked, setPicked] = useState<{ block: string; quote: string } | null>(null);
+
   /** scroll to the evidence sentence and flash it (falls back to the whole block) */
   const locate = (blockId: string, quote?: string) => {
     setTab('article');
+    if (flat[index]?.group) setPicked({ block: blockId, quote: quote ?? '' });
     requestAnimationFrame(() => {
       const el = articleRef.current?.querySelector<HTMLElement>(`[data-block="${blockId}"]`);
       if (!el) return;
@@ -349,10 +352,12 @@ function Reader({ item }: { item: ItemT }) {
 
   const pos = visible.indexOf(index);
   const isLast = pos === visible.length - 1;
-  // a Part answered on one page highlights every question's evidence, not just the first one's (#92)
+  // a Part answered on one page highlights nothing until one question's 定位原文 is tapped, then only that
+  // question's evidence (#92 #100); a single question highlights its own evidence
+  useEffect(() => setPicked(null), [current?.q.id]);
   const evidence = useMemo(
-    () => (review ? (current?.group ? current.section.questions : current ? [current.q] : []).flatMap((q) => evidenceOf(review.key, q.id)) : []),
-    [review?.key, current?.q.id], // eslint-disable-line react-hooks/exhaustive-deps
+    () => (!review || !current ? [] : current.group ? (picked ? [picked] : []) : evidenceOf(review.key, current.q.id)),
+    [review?.key, current?.q.id, picked], // eslint-disable-line react-hooks/exhaustive-deps
   );
 
   return (
