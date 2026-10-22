@@ -1,6 +1,6 @@
 ---
 name: ui-style-kit
-description: 界面样式的参考实现，包括 1000px vw 封顶、全屏壳、默认字体与字号、区域禁止选中，以及 OverflowTip / FittyText。由目标仓库的常驻说明指向。缺少 PostCSS、视口、全屏壳、forbidden-select 或这两个文字组件时读取。项目已声明字体或字号时不要覆盖。不要凭记忆重写测量逻辑。
+description: 界面样式的参考实现，包括 1000px vw 封顶、全屏壳、默认字体与字号、区域禁止选中，以及 OverflowTip / FittyText / Loading。由目标仓库的常驻说明指向。缺少 PostCSS、视口、全屏壳、forbidden-select、这两个文字组件或 Loading 时读取。项目已声明字体或字号时不要覆盖。不要凭记忆重写测量逻辑。
 disable-model-invocation: true
 ---
 
@@ -26,7 +26,7 @@ disable-model-invocation: true
 4. 接入项目没有另行声明字体时，把 [fonts/](fonts) 按相同子目录复制到 `public/font/`（含许可文件）。`global-shell.css` 里的 `@font-face` 使用 `/font/...`。项目已有自己的字体声明时跳过，不要覆盖。
 5. 把 [global-shell.css](global-shell.css) 合并进全局样式（如 `App.scss` / `index.css`）。接到现有 `body` / `#root` 上，不要另起一套根节点，也不要覆盖业务样式。`data-native-immersive` 只在目标项目有原生沉浸式全屏时保留。
 6. 把 [sass/forbidden.scss](sass/forbidden.scss) 复制到目标项目 `src/sass/forbidden.scss`。
-7. 把 `components/OverflowTip/`、`components/FittyText/` 原样复制到目标项目的组件目录（建议 `src/components/`）。不要改测量、二分和弹出条件。
+7. 把 `components/OverflowTip/`、`components/FittyText/`、`components/Loading/` 原样复制到目标项目的组件目录（建议 `src/components/`）。不要改测量、二分和弹出条件。项目已使用 antd 时，Loading 用 `Loading.antd.tsx` 并删掉 `index.tsx` 里的 CSS 转圈。
 8. 按下面的选型使用。业务样式继续写 `px`，构建时转成 `vw`。
 
 ## 主策略
@@ -105,6 +105,21 @@ disable-model-invocation: true
 
 字号相关属性写在 `className` 上，作为上限。组件用二分查找写入内联 `font-size`。最小字号 1px，没有业务下限。
 
+## 页面加载：Loading
+
+与父应用（UniRead）的 Loading 表现一致：`position: fixed` 全屏遮罩，`rgba(255, 255, 255, 0.4)`，`z-index: 1000`，拦截点击；居中是 antd `<Spin size="large" />` 的样子（32px 方框四个圆点、45° 起始 1.2s 匀速旋转、各点 1s 明暗交替）。
+
+```tsx
+import Loading from '@/components/Loading';
+
+{!data && !error && <Loading />}
+```
+
+- `index.tsx` 不依赖 antd，用 CSS 还原 Spin；颜色取 `--loading-color`，没有则取 `--accent`。已使用 antd 的项目直接用 `Loading.antd.tsx`（附件原版）。
+- `active={false}` 时不渲染。父应用里它跟随 KeepAlive 是否可见（`useKeepAliveActive()`），有 KeepAlive 的项目把该值传进来。
+- 只用于“整页数据还没回来”。按钮里的小状态（如录音识别中）继续用设计稿图标，不要换成遮罩。
+- `prefers-reduced-motion: reduce` 下停止旋转，保留圆点明暗变化。
+
 ## 样式写法
 
 与三份常驻说明中的「样式写法」相同。写组件时遵守，不要只在做响应式时才用。
@@ -135,3 +150,4 @@ disable-model-invocation: true
 | [sass/forbidden.scss](sass/forbidden.scss)                  | 复制到 `src/sass/`，区域禁止选中 |
 | [components/OverflowTip/](components/OverflowTip/index.tsx) | 截断后展示全文                   |
 | [components/FittyText/](components/FittyText/index.tsx)     | 缩小字号以完整展示               |
+| [components/Loading/](components/Loading/index.tsx)         | 页面级加载遮罩（与父应用一致）   |

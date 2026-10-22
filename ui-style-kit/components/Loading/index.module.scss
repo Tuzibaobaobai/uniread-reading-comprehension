@@ -1,0 +1,54 @@
+/* 与父应用 Loading/index.module.scss 一致的遮罩 */
+.loadingMask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 0.4);
+  pointer-events: auto;
+}
+
+/* antd v5 Spin size="large"：dotSizeLG 32px，单点 (32 − 4/2) / 2 = 15px，scale(0.75)，主色 */
+.spinDot {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  transform: rotate(45deg);
+  animation: loadingRotate 1.2s infinite linear;
+}
+.spinDot i {
+  position: absolute;
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background: var(--loading-color, var(--accent, #1677ff));
+  transform: scale(0.75);
+  transform-origin: 50% 50%;
+  opacity: 0.3;
+  animation: loadingDotMove 1s infinite linear alternate;
+}
+.spinDot i:nth-child(1) { top: 0; left: 0; }
+.spinDot i:nth-child(2) { top: 0; right: 0; animation-delay: 0.4s; }
+.spinDot i:nth-child(3) { right: 0; bottom: 0; animation-delay: 0.8s; }
+.spinDot i:nth-child(4) { bottom: 0; left: 0; animation-delay: 1.2s; }
+
+@keyframes loadingDotMove {
+  to { opacity: 1; }
+}
+@keyframes loadingRotate {
+  to { transform: rotate(405deg); }
+}
+
+/* 减少动态效果：停止旋转，只保留圆点明暗变化 */
+@media (prefers-reduced-motion: reduce) {
+  .spinDot { animation: none; }
+}

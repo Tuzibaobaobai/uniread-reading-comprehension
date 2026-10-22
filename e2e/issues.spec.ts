@@ -162,3 +162,14 @@ test('#99 back buttons use the Figma SVG icon', async ({ page }) => {
     await expect(page.locator('.back-button img')).toHaveCount(0);
   }
 });
+
+test('#107 a page waiting for its data shows the shared Loading mask, then removes it', async ({ page }) => {
+  await page.route('**/playlists/ket1/items/ket1-t1-rw.json', async (r) => {
+    await new Promise((x) => setTimeout(x, 1200));
+    await r.continue();
+  });
+  await page.goto('/#/p/ket1/ket1-t1-rw');
+  await expect(page.locator('[role=status][aria-busy=true]')).toBeVisible();
+  await expect(page.locator('[role=status][aria-busy=true]')).toHaveCount(0, { timeout: 5000 });
+  await expect(page.getByRole('button', { name: /练习模式/ })).toBeVisible();
+});

@@ -2,6 +2,7 @@ import type React from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { staticContent } from '@/lib/content';
 import { BackArrow } from '@/components/Icons';
+import Loading from '@/components/Loading';
 import { localAttempts } from '@/lib/storage';
 import { useAsync } from '@/lib/useAsync';
 import starIcon from '@/assets/icons/star.svg';
@@ -28,6 +29,7 @@ export function PlaylistPage() {
   return (
     <main className="page playlist-page">
       {error && <p className="error">加载失败：{error.message}</p>}
+      {!catalog && !error && <Loading />}
       {catalog && !pl && <p className="error">找不到该合集</p>}
       {pl && (
         <>

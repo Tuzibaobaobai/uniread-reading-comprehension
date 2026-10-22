@@ -7,6 +7,7 @@ import { localAttempts, newAttempt } from '@/lib/storage';
 import { isScored, type Result } from '@/lib/grading';
 import { applyJudgement, fallbackToSelf } from '@/lib/judge';
 import { BackArrow, Check, Cross, Locate } from '@/components/Icons';
+import Loading from '@/components/Loading';
 import correctIcon from '@/assets/icons/correct.svg';
 import wrongIcon from '@/assets/icons/wrong.svg';
 import { Rich, plainText, type BlankNode } from '@/components/Rich';
@@ -58,6 +59,7 @@ export function ReaderPage() {
         <div className="reader-head-actions" ref={setHeadSlot} />
       </header>
       {error && <p className="error">加载失败：{error}</p>}
+      {!item && !error && <Loading />}
       {item && <Reader key={item.id} item={item} headSlot={headSlot} />}
     </div>
   );

@@ -3,6 +3,7 @@ import { staticContent } from '@/lib/content';
 import { useAsync } from '@/lib/useAsync';
 import { Book, Link as LinkIcon, Pencil, Question } from '@/components/Icons';
 import OverflowTip from '@/components/OverflowTip';
+import Loading from '@/components/Loading';
 
 export function PlaylistsPage() {
   const { data, error } = useAsync(() => staticContent.getCatalog(), []);
@@ -10,6 +11,7 @@ export function PlaylistsPage() {
     <main className="page">
       <h1 className="page-title">时文阅读</h1>
       {error && <p className="error">加载失败：{error.message}</p>}
+      {!data && !error && <Loading />}
       <div className="playlist-grid">
         {data?.playlists.map((p) => (
           <Link key={p.id} to={`/p/${p.id}`} className="playlist-card">
