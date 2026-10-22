@@ -25,7 +25,7 @@ test('en-US: playlists and playlist pages', async ({ page }) => {
 
   await page.goto('/#/p/ket1');
   await expect(page.locator('.week-label').first()).toContainText('Test 1');
-  await expect(page.locator('.test-score').first()).toHaveText('Result: finish all four papers');
+  await expect(page.locator('.test-score').first()).toHaveText('Result: complete all papers');
 });
 
 test('en-US: exam paper mode dialog and header mode select', async ({ page }) => {

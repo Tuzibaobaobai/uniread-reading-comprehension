@@ -710,6 +710,10 @@ body:has(.playlist-page) { background: var(--bg-card); }
 .part-grid-cell.is-selected { background: var(--bg-selected); }
 .part-grid-cell.is-correct { background: var(--success-soft); }
 .part-grid-cell.is-wrong { background: var(--danger-soft); }
+/* the radio itself follows the option rows: selected = accent, correct = success, wrong = danger (#82) */
+.part-grid-cell.is-selected .option-radio { border-color: var(--accent); color: var(--accent); }
+.part-grid-cell.is-correct .option-radio { border-color: var(--success); color: var(--success); }
+.part-grid-cell.is-wrong .option-radio { border-color: var(--danger); color: var(--danger); }
 .part-explain { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 10px; font-size: var(--fs-m); line-height: var(--lh-m); }
 .part-explain li { padding: 10px 14px; border-radius: var(--radius-s); background: var(--bg-subtle); }
 .part-explain li.is-correct { background: var(--success-soft); }

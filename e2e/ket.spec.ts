@@ -296,3 +296,23 @@ test('KET 校园版真题 2 and 3: four tests each, all papers open; emails keep
   await tab(page, /材料/);
   await expect(page.locator('.rt-note.is-email .rt-note-field-label').first()).toHaveText('From:');
 });
+
+test('#109 listening papers last the official 30 minutes', async ({ page }) => {
+  await page.goto('/#/p/ket1');
+  await expect(page.locator('.item-row').nth(1)).toContainText('30 min');
+  await page.goto('/#/p/pet1/pet1-t1-l');
+  await expect(page.getByRole('dialog')).toContainText('30 分钟');
+});
+
+test('#82 every KET Reading Part 2 is one grid; the selected radio uses the accent colour', async ({ page }) => {
+  await page.goto('/#/p/ket3/ket3-t2-rw');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await tab(page, /题目/);
+  await page.getByRole('button', { name: /第 7–13 题/ }).click();
+  await expect(page.locator('.part-grid tbody tr')).toHaveCount(7);
+  await page.locator('.part-grid-cell').first().click();
+  const accent = await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--accent').trim());
+  const dot = await page.locator('.part-grid-cell.is-selected .option-radio').evaluate((e) => getComputedStyle(e).color);
+  const probe = await page.evaluate((c) => { const d = document.createElement('i'); d.style.color = c; document.body.append(d); const v = getComputedStyle(d).color; d.remove(); return v; }, accent);
+  expect(dot).toBe(probe);
+});
