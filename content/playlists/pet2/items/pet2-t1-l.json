@@ -728,7 +728,11 @@
             ]
           }
         }
-      ]
+      ],
+      "audio": {
+        "src": "assets/pet2/pet2-t1-p2.m4a",
+        "seconds": 584
+      }
     },
     {
       "id": "s3",
@@ -1247,7 +1251,11 @@
           }
         }
       ],
-      "view": "all"
+      "view": "all",
+      "audio": {
+        "src": "assets/pet2/pet2-t1-p4.m4a",
+        "seconds": 769
+      }
     }
   ],
   "source": {
@@ -1272,17 +1280,5 @@
   "status": {
     "content": "transcribed",
     "version": "1.0.0"
-  },
-  "errata": [
-    {
-      "original": "（缺少听力 Part 2 录音）",
-      "corrected": "待补充",
-      "note": "GitHub #101"
-    },
-    {
-      "original": "（缺少听力 Part 4 录音）",
-      "corrected": "待补充",
-      "note": "GitHub #101"
-    }
-  ]
+  }
 }

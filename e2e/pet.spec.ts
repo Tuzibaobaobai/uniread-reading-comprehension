@@ -127,12 +127,12 @@ test('PET 校园版真题 2 and 3: four tests each, grouped by test, all papers 
   await expect(page.locator('.question-card')).toBeVisible();
 });
 
-test('#101 a Part whose recording is missing says so and can still be answered', async ({ page }) => {
-  await practice(page, 'pet2-t1-l');
-  await tab(page, /材料/);
-  await expect(page.getByText('本部分录音暂缺，正在补充中；可以先看题。')).toHaveCount(2);
-  await tab(page, /题目/);
-  await page.getByRole('button', { name: /第 8 题/ }).click();
-  await page.locator('.option').first().click();
-  await expect(page.locator('.option.is-selected')).toHaveCount(1);
+test('#101 the three recordings supplied later are in: every Part of PET 2 Tests 1 and 4 has its player', async ({ page }) => {
+  for (const id of ['pet2-t1-l', 'pet2-t4-l']) {
+    await practice(page, id);
+    await tab(page, /材料/);
+    await expect(page.locator('.part-audio')).toHaveCount(4);
+    await expect(page.getByText('本部分录音暂缺')).toHaveCount(0);
+    await expect(page.locator('.part-audio .player')).toHaveCount(4);
+  }
 });
