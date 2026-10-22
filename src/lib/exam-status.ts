@@ -3,8 +3,9 @@
  * Pure: takes the saved attempt and the paper's official duration.
  */
 import type { AttemptT, ExamItemT } from '@schema';
-import { paperReports, type ExamKey, type Skill, type SkillReport } from './cambridge';
+import { paperReports, type ExamKey, type SkillReport } from './cambridge';
 import type { Result } from './grading';
+import { t as i18nT, type TFunction } from '@/i18n';
 
 export type ExamStatus =
   | { kind: 'new' }
@@ -47,23 +48,26 @@ export function examStatus(
   return Object.keys(attempt.responses).length ? { kind: 'practicing' } : { kind: 'new' };
 }
 
-const SKILL_ZH: Record<Skill, string> = { reading: '阅读', writing: '写作', listening: '听力', speaking: '口语' };
-
-/** playlist row label (#69: raw score and scaled score shown separately) */
-export function examStatusLabel(s: ExamStatus): string | null {
+/** playlist row label (#69: raw score and scaled score shown separately); `t` defaults to the current language */
+export function examStatusLabel(s: ExamStatus, t: TFunction = i18nT): string | null {
   switch (s.kind) {
     case 'new':
       return null;
     case 'practicing':
-      return '练习中';
+      return t('examStatus.practicing');
     case 'examining':
-      return '考试中';
+      return t('examStatus.examining');
     case 'timedOut':
-      return '考试超时';
+      return t('examStatus.timedOut');
     case 'done':
-      if (s.pending) return `原始分 ${s.raw}/${s.max} · 换算分评分中`;
+      if (s.pending) return t('examStatus.donePending', { raw: s.raw, max: s.max });
       // Reading & Writing reports two skills: 换算分 阅读 125 / 写作 130
-      if (s.reports.length > 1) return `原始分 ${s.raw}/${s.max} · 换算分 ${s.reports.map((x) => `${SKILL_ZH[x.skill]} ${x.scale ?? '<82'}`).join(' / ')}`;
-      return `原始分 ${s.raw}/${s.max} · 换算分 ${s.reports[0]?.scale ?? '<82'}`;
+      if (s.reports.length > 1)
+        return t('examStatus.done', {
+          raw: s.raw,
+          max: s.max,
+          scale: s.reports.map((x) => t('examStatus.skillScale', { skill: t(`skill.${x.skill}`), scale: x.scale ?? '<82' })).join(' / '),
+        });
+      return t('examStatus.done', { raw: s.raw, max: s.max, scale: s.reports[0]?.scale ?? '<82' });
   }
 }

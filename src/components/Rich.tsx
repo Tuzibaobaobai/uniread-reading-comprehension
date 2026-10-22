@@ -1,10 +1,12 @@
 import { Fragment, type ReactNode } from 'react';
 import type { InlineT } from '@schema';
+import { useTranslation } from 'react-i18next';
 
 export type BlankNode = Extract<InlineT, { t: 'blank' }>;
 
 /** render an Inline[] run; blanks are delegated so each screen decides how they look */
 export function Rich({ nodes, blank }: { nodes?: InlineT[]; blank?: (n: BlankNode) => ReactNode }) {
+  const { t } = useTranslation();
   if (!nodes) return null;
   return (
     <>
@@ -42,7 +44,7 @@ export function Rich({ nodes, blank }: { nodes?: InlineT[]; blank?: (n: BlankNod
           case 'callout':
             // handwritten note on a printed text (PET Writing Part 1); 待补组件 — no Figma design yet
             return (
-              <span key={i} className="rt-callout" role="note" aria-label={`批注：${n.v}`}>
+              <span key={i} className="rt-callout" role="note" aria-label={t('reader.callout', { text: n.v })}>
                 {n.v}
               </span>
             );

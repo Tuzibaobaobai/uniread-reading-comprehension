@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ChevronLeft, ChevronRight } from '@/components/Icons';
 
 /**
@@ -7,6 +8,7 @@ import { ChevronLeft, ChevronRight } from '@/components/Icons';
  * vertical mouse wheel scroll it sideways, and keeps the current question centred.
  */
 export function QuestionStrip({ current, count, children }: { current: number; count: number; children: ReactNode }) {
+  const { t } = useTranslation();
   const ref = useRef<HTMLDivElement>(null);
   const [hidden, setHidden] = useState({ left: 0, right: 0 });
 
@@ -61,7 +63,7 @@ export function QuestionStrip({ current, count, children }: { current: number; c
   return (
     <div className={`question-strip ${hidden.left ? 'has-left' : ''} ${hidden.right ? 'has-right' : ''}`}>
       {hidden.left > 0 && (
-        <button className="strip-more strip-more-left" onClick={() => page(-1)} aria-label={`向前查看，前面还有 ${hidden.left} 题`}>
+        <button className="strip-more strip-more-left" onClick={() => page(-1)} aria-label={t('reader.stripBack', { count: hidden.left })}>
           <ChevronLeft />
           <span className="strip-more-count" aria-hidden>+{hidden.left}</span>
         </button>
@@ -70,7 +72,7 @@ export function QuestionStrip({ current, count, children }: { current: number; c
         {children}
       </div>
       {hidden.right > 0 && (
-        <button className="strip-more strip-more-right" onClick={() => page(1)} aria-label={`向后查看，后面还有 ${hidden.right} 题`}>
+        <button className="strip-more strip-more-right" onClick={() => page(1)} aria-label={t('reader.stripForward', { count: hidden.right })}>
           <span className="strip-more-count" aria-hidden>+{hidden.right}</span>
           <ChevronRight />
         </button>

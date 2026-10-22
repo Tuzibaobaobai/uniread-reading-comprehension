@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import { createPortal } from 'react-dom';
+import { useTranslation } from 'react-i18next';
 import styles from './index.module.css';
 
 /**
@@ -11,10 +12,12 @@ import styles from './index.module.css';
  * - 用在“整页数据还没回来”的地方；按钮内的小转圈（如识别中）不要换成它。
  * - 渲染到 document.body，盖住整页并拦截点击；`active={false}` 时不渲染（对应父应用 KeepAlive 页面不可见）。
  */
-const Loading: FC<{ active?: boolean; label?: string }> = ({ active = true, label = '加载中' }) => {
+/** `label`: accessible name; defaults to the translated `common.loading` (加载中) */
+const Loading: FC<{ active?: boolean; label?: string }> = ({ active = true, label }) => {
+  const { t } = useTranslation();
   if (!active || typeof document === 'undefined') return null;
   return createPortal(
-    <div className={styles.loadingMask} role="status" aria-busy="true" aria-live="polite" aria-label={label}>
+    <div className={styles.loadingMask} role="status" aria-busy="true" aria-live="polite" aria-label={label ?? t('common.loading')}>
       <span className={styles.spinDot} aria-hidden="true">
         <i />
         <i />

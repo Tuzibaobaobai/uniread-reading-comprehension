@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { isExam, type AttemptT, type ItemKeyT, type ItemT } from '@schema';
 import { staticContent } from '@/lib/content';
 import { localAttempts, newAttempt } from '@/lib/storage';
@@ -39,6 +40,7 @@ import OverflowTip from '@/components/OverflowTip';
 export function ReaderPage() {
   const { playlistId = '', itemId = '' } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [item, setItem] = useState<ItemT | null>(null);
   const [error, setError] = useState<string | null>(null);
   // header slot for the reader's own controls (exam mode select, #102)
@@ -52,13 +54,13 @@ export function ReaderPage() {
   return (
     <div className="reader">
       <header className="reader-head">
-        <button className="back-button" onClick={() => navigate(`/p/${playlistId}`)} aria-label="返回合集">
+        <button className="back-button" onClick={() => navigate(`/p/${playlistId}`)} aria-label={t('reader.backToPlaylist')}>
           <BackArrow />
         </button>
         <OverflowTip className="reader-head-title">{item?.title ?? ''}</OverflowTip>
         <div className="reader-head-actions" ref={setHeadSlot} />
       </header>
-      {error && <p className="error">加载失败：{error}</p>}
+      {error && <p className="error">{t('common.loadFailed', { message: error })}</p>}
       {!item && !error && <Loading />}
       {item && <Reader key={item.id} item={item} headSlot={headSlot} />}
     </div>
@@ -69,6 +71,7 @@ type Tab = 'article' | 'questions';
 
 function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | null }) {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const flat = useMemo(() => flatten(item), [item]);
   const owners = useMemo(() => blankOwners(flat), [flat]);
 
@@ -81,7 +84,8 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
   const articleRef = useRef<HTMLDivElement>(null);
   const sessionStart = useRef(Date.now());
   const flashTimer = useRef<number>();
-  const [submitError, setSubmitError] = useState<string | null>(null);
+  /** grading request failed: the server's HTTP status, or none for a network error */
+  const [submitError, setSubmitError] = useState<{ status?: number } | null>(null);
   const exam = isExam(item) ? item : null;
   const [reportOpen, setReportOpen] = useState(false);
   const endsAt = exam ? examEndsAt(attempt, exam.meta.durationMinutes) : 0;
@@ -140,11 +144,7 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
       graded = await staticContent.grade(item, responses);
     } catch (e) {
       // fetch rejects (TypeError) only when the request never reached a server
-      setSubmitError(
-        (e as { status?: number }).status
-          ? `判分服务暂时不可用（${(e as { status: number }).status}），你的答案已保存，请稍后再提交。`
-          : '网络连接失败，你的答案已保存，请检查网络后再提交。',
-      );
+      setSubmitError({ status: (e as { status?: number }).status });
       return;
     }
     setKey(graded.key);
@@ -328,7 +328,7 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
           go(qi);
           setTab('questions');
         }}
-        aria-label={`第 ${n.number ?? ''} 空${text ? `：${text}` : '，未作答'}`}
+        aria-label={`${t('interaction.blankN', { n: n.number ?? '' })}${text ? t('reader.blankText', { text }) : t('interaction.slotEmpty')}`}
       >
         {text && <span className="blank-chip-num">{n.number}</span>}
         {showFirstLetter(n.hint?.firstLetter, text) && <span className="blank-chip-hint">{n.hint!.firstLetter}</span>}
@@ -370,10 +370,10 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
     <div className={`reader-body tab-${tab} ${soloQuestions ? 'no-left' : ''}`}>
       <div className="reader-tabs" role="tablist">
         <button role="tab" aria-selected={tab === 'article'} className={tab === 'article' ? 'is-active' : ''} onClick={() => setTab('article')}>
-          {exam ? '材料' : '文章'}
+          {exam ? t('reader.tabMaterial') : t('reader.tabArticle')}
         </button>
         <button role="tab" aria-selected={tab === 'questions'} className={tab === 'questions' ? 'is-active' : ''} onClick={() => setTab('questions')}>
-          题目 {submitted ? '' : `${flat.length - unanswered.length}/${flat.length}`}
+          {t('reader.tabQuestions', { progress: submitted ? '' : `${flat.length - unanswered.length}/${flat.length}` })}
         </button>
       </div>
 
@@ -418,12 +418,12 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
                   aria-pressed={!!attempt.flagged?.includes(current.q.id)}
                   onClick={() => toggleFlag(current.q.id)}
                 >
-                  {attempt.flagged?.includes(current.q.id) ? '已标记' : '标记本题'}
+                  {attempt.flagged?.includes(current.q.id) ? t('reader.flagged') : t('reader.flag')}
                 </button>
               )}
               {submitted && result && (
                 <button className="chip" onClick={() => setReportOpen(true)}>
-                  成绩报告
+                  {t('exam.report.title')}
                 </button>
               )}
             </div>
@@ -466,12 +466,12 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
 
           {submitError && (
             <p className="submit-error" role="alert">
-              {submitError}
+              {submitError.status ? t('reader.gradeUnavailable', { status: submitError.status }) : t('reader.networkError')}
             </p>
           )}
-          <nav className="question-nav" aria-label="题目导航">
+          <nav className="question-nav" aria-label={t('reader.nav')}>
             <button className="pill-button" disabled={pos <= 0} onClick={() => go(visible[pos - 1])}>
-              上一题
+              {t('reader.prev')}
             </button>
             <QuestionStrip current={index} count={visible.length}>
               {visible.map((i) => {
@@ -495,7 +495,11 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
                     // exam papers: the first number of each Part carries the Part's label (GitHub #72)
                     data-part={exam && f.firstInSection ? `P${f.section.part ?? ''}` : undefined}
                     onClick={() => go(i)}
-                    aria-label={`${exam && f.section.part ? `Part ${f.section.part} ` : ''}第 ${f.display}${f.displayTo && f.displayTo !== f.display ? `–${f.displayTo}` : ''} 题${state === 'is-correct' ? '，正确' : state === 'is-wrong' ? '，错误' : state === 'is-answered' ? '，已作答' : ''}`}
+                    aria-label={t('reader.dotLabel', {
+                      part: exam && f.section.part ? t('reader.partPrefix', { part: f.section.part }) : '',
+                      n: `${f.display}${f.displayTo && f.displayTo !== f.display ? `–${f.displayTo}` : ''}`,
+                      state: state === 'is-correct' ? t('reader.dotCorrect') : state === 'is-wrong' ? t('reader.dotWrong') : state === 'is-answered' ? t('reader.dotAnswered') : '',
+                    })}
                     aria-current={i === index}
                   >
                     {state === 'is-correct' || state === 'is-wrong' ? (
@@ -516,11 +520,11 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
             {submitted ? (
               isLast ? (
                 <button className="pill-button" onClick={retry}>
-                  重新作答
+                  {t('reader.retry')}
                 </button>
               ) : (
                 <button className="pill-button" onClick={() => go(visible[pos + 1])}>
-                  下一题
+                  {t('reader.next')}
                 </button>
               )
             ) : isLast ? (
@@ -528,11 +532,11 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
                 className={`pill-button primary ${unanswered.length ? 'is-dim' : ''}`}
                 onClick={() => (unanswered.length ? setConfirmOpen(true) : submit())}
               >
-                提交
+                {t('reader.submit')}
               </button>
             ) : (
               <button className="pill-button" onClick={() => go(visible[pos + 1])}>
-                下一题
+                {t('reader.next')}
               </button>
             )}
           </nav>
@@ -547,14 +551,14 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
       {confirmOpen && (
         <div className="dialog-backdrop" role="presentation" onClick={() => setConfirmOpen(false)}>
           <div className="dialog" role="dialog" aria-modal aria-labelledby="dlg-title" onClick={(e) => e.stopPropagation()}>
-            <h2 id="dlg-title">还有 {unanswered.length} 题没有作答</h2>
-            <p>点击题号返回作答：</p>
+            <h2 id="dlg-title">{t('reader.unansweredTitle', { count: unanswered.length })}</h2>
+            <p>{t('reader.unansweredHint')}</p>
             <div className="dialog-dots">
               {unanswered.map((f) => (
                 <button
                   key={f.q.id}
                   className="question-dot"
-                  aria-label={`第 ${f.display} 题`}
+                  aria-label={t('reader.questionN', { n: f.display })}
                   onClick={() => {
                     setConfirmOpen(false);
                     go(f.index);
@@ -567,10 +571,10 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
             </div>
             <div className="dialog-actions">
               <button className="pill-button" onClick={submit}>
-                仍然提交
+                {t('reader.submitAnyway')}
               </button>
               <button className="pill-button primary" autoFocus onClick={() => setConfirmOpen(false)}>
-                继续作答
+                {t('reader.keepAnswering')}
               </button>
             </div>
           </div>
@@ -632,6 +636,7 @@ function Explanation({
   onLocate: (block: string, quote?: string) => void;
   result: Result;
 }) {
+  const { t } = useTranslation();
   const k = keyData.answers[fq.q.id];
   if (!k) return null;
   const r = result.byQuestion.find((b) => b.q === fq.q.id);
@@ -644,23 +649,23 @@ function Explanation({
           const e = fq.section.bank?.find((b) => b.id === id);
           return e ? `${id}. ${plainText(e.content)}` : id;
         })
-        .join('；');
+        .join(t('reader.answerSep'));
     } else if ('options' in it) {
       answerText = k.correct
         .map((id) => {
           const o = it.options.find((x) => x.id === id);
           return it.kind === 'choice' && it.variant === 'trueFalse' ? (id === 'T' ? 'True' : 'False') : o ? `${id}. ${plainText(o.content)}` : id;
         })
-        .join('；');
+        .join(t('reader.answerSep'));
     }
   } else if ('slots' in k) {
     answerText = Object.values(k.slots)
       .map((s) => s.accept.join(' / '))
-      .join('；');
+      .join(t('reader.answerSep'));
   } else if ('pairs' in k) {
     answerText = Object.entries(k.pairs)
       .map(([l, rr]) => `${l}–${rr}`)
-      .join('，');
+      .join(t('reader.pairSep'));
   } else if ('sampleAnswer' in k) {
     answerText = k.sampleAnswer;
   } else if (('sequence' in k || 'sequences' in k) && it.kind === 'order') {
@@ -673,27 +678,27 @@ function Explanation({
       <div className="explain-head">
         {r?.correct === true && (
           <>
-            <Check /> 回答正确
+            <Check /> {t('reader.correct')}
           </>
         )}
         {r?.correct === false && (
           <>
-            <Cross /> {r.points > 0 ? `部分正确（${Math.round(r.points * 100) / 100}/${r.maxPoints}）` : '回答错误'}
+            <Cross /> {r.points > 0 ? t('reader.partlyCorrect', { points: Math.round(r.points * 100) / 100, max: r.maxPoints }) : t('reader.wrong')}
           </>
         )}
-        {r?.correct === null && <>参考答案</>}
+        {r?.correct === null && <>{t('reader.sampleAnswer')}</>}
       </div>
       <p className="explain-answer">
-        <span className="explain-label">{isSample ? '参考答案' : '正确答案'}</span>
+        <span className="explain-label">{isSample ? t('reader.sampleAnswer') : t('reader.correctAnswer')}</span>
         {answerText}
       </p>
       {/* many rubrics already begin with 要点： / 要点1： (#98) — add the label only when it is missing */}
-      {'rubricZh' in k && k.rubricZh && <p className="explain-text">{/^要点/.test(k.rubricZh) ? k.rubricZh : `要点：${k.rubricZh}`}</p>}
+      {'rubricZh' in k && k.rubricZh && <p className="explain-text">{/^要点/.test(k.rubricZh) ? k.rubricZh : t('reader.keyPoints', { text: k.rubricZh })}</p>}
       {k.explanationZh && <p className="explain-text">{k.explanationZh}</p>}
-      {k.tipsZh && <p className="explain-text explain-tip">语言点：{k.tipsZh}</p>}
+      {k.tipsZh && <p className="explain-text explain-tip">{t('reader.tips', { text: k.tipsZh })}</p>}
       {k.evidence?.[0] && (
         <button className="chip" onClick={() => onLocate(k.evidence![0].block, k.evidence![0].quote)}>
-          <Locate /> 定位原文
+          <Locate /> {t('reader.locate')}
         </button>
       )}
     </div>

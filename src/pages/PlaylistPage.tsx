@@ -11,10 +11,12 @@ import { DAY_NAME, PAPER_EN, formatMinutes } from '@/lib/labels';
 import OverflowTip from '@/components/OverflowTip';
 import { examStatus, examStatusLabel, type ExamStatus } from '@/lib/exam-status';
 import { examKey, grade, overallScale, type ExamKey, type Skill, type SkillReport } from '@/lib/cambridge';
+import { useTranslation } from 'react-i18next';
 
 export function PlaylistPage() {
   const { playlistId = '' } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { data: catalog, error } = useAsync(() => staticContent.getCatalog(), []);
   const pl = catalog?.playlists.find((p) => p.id === playlistId);
 
@@ -28,20 +30,20 @@ export function PlaylistPage() {
 
   return (
     <main className="page playlist-page">
-      {error && <p className="error">加载失败：{error.message}</p>}
+      {error && <p className="error">{t('common.loadFailed', { message: error.message })}</p>}
       {!catalog && !error && <Loading />}
-      {catalog && !pl && <p className="error">找不到该合集</p>}
+      {catalog && !pl && <p className="error">{t('playlist.notFound')}</p>}
       {pl && (
         <>
           <aside className="playlist-intro">
-            <button className="back-button playlist-back" onClick={() => navigate('/')} aria-label="返回">
+            <button className="back-button playlist-back" onClick={() => navigate('/')} aria-label={t('common.back')}>
               <BackArrow />
             </button>
             <div className="playlist-intro-panel" style={{ '--cover': `url("${staticContent.assetUrl(pl.cover)}")` } as React.CSSProperties}>
             <img className="playlist-intro-cover" src={staticContent.assetUrl(pl.banner ?? pl.cover)} alt="" />
             <h1 className="playlist-intro-title">{pl.title}</h1>
             <div className="playlist-intro-stats">
-              <span>{pl.totalWords.toLocaleString()} 单词</span>
+              <span>{t('playlist.words', { count: pl.totalWords, words: pl.totalWords.toLocaleString() })}</span>
               {exam ? (
                 <span>{pl.gradeBand}</span>
               ) : (
@@ -52,23 +54,23 @@ export function PlaylistPage() {
             </div>
             <p className="playlist-intro-desc">{pl.description}</p>
             <button className="playlist-fav">
-              <img src={starIcon} alt="" /> 收藏
+              <img src={starIcon} alt="" /> {t('playlist.favourite')}
             </button>
             </div>
           </aside>
           <section className="playlist-items">
-            <h2 className="playlist-items-head">合集（{pl.itemCount}）</h2>
+            <h2 className="playlist-items-head">{t('playlist.itemsHead', { n: pl.itemCount })}</h2>
             {[...groups].map(([group, items]) => (
               <div key={group} className="week-group">
                 <h3 className="week-label">
-                  {exam ? `第 ${group} 套` : `Week ${group}`}
+                  {exam ? t('playlist.test', { n: group }) : t('playlist.week', { n: group })}
                   {exam && <TestScore items={items} exam={examKey(pl.exam)} />}
                 </h3>
                 {items.map((it) => {
                   const att = localAttempts.get(it.id);
                   const done = att?.status === 'submitted' && att.result;
                   const progress = done ? 1 : att ? Math.min(Object.keys(att.responses).length / it.questionCount, 1) : 0;
-                  const status = it.paper ? examStatusLabel(examStatus(att, it.paper, it.suggestedMinutes, Date.now(), examKey(pl.exam))) : null;
+                  const status = it.paper ? examStatusLabel(examStatus(att, it.paper, it.suggestedMinutes, Date.now(), examKey(pl.exam)), t) : null;
                   return (
                     <Link key={it.id} to={`/p/${pl.id}/${it.id}`} className="item-row">
                       <span className="item-row-num">{it.order}</span>
@@ -76,7 +78,7 @@ export function PlaylistPage() {
                         className="item-row-thumb"
                         src={it.thumbnail}
                         title={it.title}
-                        kicker={it.paper ? `Test ${it.test} · ${PAPER_EN[it.paper]}` : `Week ${it.week} · ${DAY_NAME[it.day!]}`}
+                        kicker={it.paper ? t('playlist.kickerTest', { n: it.test, paper: PAPER_EN[it.paper] }) : t('playlist.kickerWeek', { n: it.week, day: DAY_NAME[it.day!] })}
                         accent={pl.accent}
                       />
                       <span className="item-row-text">
@@ -84,11 +86,11 @@ export function PlaylistPage() {
                         <span className="item-row-meta">
                           {[
                             it.taskType.labelZh,
-                            it.wordCount ? `${it.wordCount} 单词` : null,
+                            it.wordCount ? t('playlist.words', { count: it.wordCount, words: it.wordCount }) : null,
                             it.difficulty !== undefined ? `L${it.difficulty}` : null,
-                            `${it.questionCount} 题`,
-                            formatMinutes(it.suggestedMinutes),
-                            it.paper ? status : done ? `得分 ${att.result!.score}/${att.result!.maxScore}` : att ? '进行中' : null,
+                            t('playlist.questions', { count: it.questionCount }),
+                            formatMinutes(it.suggestedMinutes, t),
+                            it.paper ? status : done ? t('playlist.score', { score: att.result!.score, max: att.result!.maxScore }) : att ? t('playlist.inProgress') : null,
                           ]
                             .filter(Boolean)
                             .join(' · ')}
@@ -96,7 +98,7 @@ export function PlaylistPage() {
                         <span
                           className="item-row-progress"
                           role="progressbar"
-                          aria-label="完成进度"
+                          aria-label={t('playlist.progress')}
                           aria-valuenow={Math.round(progress * 100)}
                           aria-valuemin={0}
                           aria-valuemax={100}
@@ -121,6 +123,7 @@ export function PlaylistPage() {
  * once Reading, Writing, Listening and Speaking are all submitted and scored
  */
 function TestScore({ items, exam }: { items: { id: string; paper?: string; suggestedMinutes: number }[]; exam: ExamKey }) {
+  const { t } = useTranslation();
   const skills: Partial<Record<Skill, SkillReport>> = {};
   let done = 0;
   items.forEach((it) => {
@@ -136,9 +139,9 @@ function TestScore({ items, exam }: { items: { id: string; paper?: string; sugge
   return (
     <span
       className={`test-score ${overall !== null ? 'is-final' : ''}`}
-      title={`四项 Cambridge English Scale 分数的平均（估算）；已完成 ${done}/4 项`}
+      title={t('playlist.testScoreTitle', { done })}
     >
-      {overall !== null ? `成绩：${overall} · ${grade(overall, exam)}` : '成绩：待完成所有考试'}
+      {overall !== null ? t('playlist.testScore', { score: overall, grade: grade(overall, exam, t) }) : t('playlist.testScorePending')}
     </span>
   );
 }

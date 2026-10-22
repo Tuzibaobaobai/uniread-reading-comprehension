@@ -26,16 +26,6 @@ type RubricType = NonNullable<ExtendedKey['rubricType']>;
 type CambridgeRubric = Extract<RubricType, `cambridge_${string}`>;
 export const isCambridge = (t: RubricType | undefined): t is CambridgeRubric => !!t && t.startsWith('cambridge_');
 
-/** shown with every Cambridge-rubric score (the UI must say the score follows Cambridge's scales) */
-export const CAMBRIDGE_NOTE_ZH: Record<CambridgeRubric, string> = {
-  cambridge_b1_writing:
-    '评分遵照 Cambridge English B1 Preliminary 官方写作评分标准（内容 / 交际效果 / 条理性 / 语言，各 0–5 分），由 AI 评估，仅供参考。',
-  cambridge_b1_speaking:
-    '评分遵照 Cambridge English B1 Preliminary 官方口语评分标准（语法与词汇 / 话语组织 / 互动交流 / 整体表现，各 0–5 分），由 AI 根据录音转写评估，仅供参考；发音需语音评测，暂未评估。',
-  cambridge_a2_writing: '评分遵照 Cambridge English A2 Key 官方写作评分标准（内容 / 条理性 / 语言，各 0–5 分），由 AI 评估，仅供参考。',
-  cambridge_a2_speaking:
-    '评分遵照 Cambridge English A2 Key 官方口语评分标准（语法与词汇 / 互动交流 / 整体表现，各 0–5 分），由 AI 根据录音转写评估，仅供参考；发音需语音评测，暂未评估。',
-};
 /** below this the verdict is provisional and queued for teacher review */
 export const REVIEW_CONFIDENCE = 0.7;
 

@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { InlineT, ItemKeyT, ItemT } from '@schema';
 import { Rich, plainText, type BlankNode } from '@/components/Rich';
 import { Check, Cross, Locate } from '@/components/Icons';
 import tipIcon from '@/assets/icons/tip.svg';
 import { questionBlankIds, type Result } from '@/lib/grading';
-import { CAMBRIDGE_NOTE_ZH, isCambridge } from '@/lib/judge';
+import { isCambridge } from '@/lib/judge';
 import { Block } from './ArticlePane';
 import { blankContext, blankCorrect, correctBlankText, showFirstLetter, type FlatQuestion, type Responses } from './model';
 import { staticContent } from '@/lib/content';
@@ -65,6 +66,7 @@ export function OptionList({
   ariaLabels?: Record<string, string>;
   explain?: { text?: string; block?: string; quote?: string; onLocate?: (blockId: string, quote?: string) => void };
 }) {
+  const { t } = useTranslation();
   return (
     <div className={`options ${options.length > 0 && options.every((o) => o.image) ? 'has-images' : ''}`} role="radiogroup" aria-readonly={locked || undefined}>
       {options.map((o) => {
@@ -80,7 +82,7 @@ export function OptionList({
             <span className="option-text">
               {showLetter && <span className="option-letter">{o.id}. </span>}
               {o.image ? (
-                <img className="option-image" src={staticContent.assetUrl(o.image)} alt={o.content.map((n) => ('v' in n ? n.v : '')).join('') || `选项 ${o.id}`} />
+                <img className="option-image" src={staticContent.assetUrl(o.image)} alt={o.content.map((n) => ('v' in n ? n.v : '')).join('') || t('interaction.optionAlt', { id: o.id })} />
               ) : (
                 <Rich nodes={o.content} />
               )}
@@ -112,7 +114,7 @@ export function OptionList({
                   {explain.text && <p className="option-explain-text">{explain.text}</p>}
                   {explain.block && explain.onLocate && (
                     <button className="chip" onClick={() => explain.onLocate!(explain.block!, explain.quote)}>
-                      <Locate /> 定位原文
+                      <Locate /> {t('reader.locate')}
                     </button>
                   )}
                 </div>
@@ -137,6 +139,7 @@ const TF_OPTIONS: { id: string; content: InlineT[] }[] = [
 ];
 
 export function ChoiceView(props: InteractionProps) {
+  const { t } = useTranslation();
   const { fq, responses, review } = props;
   const it = fq.q.interaction;
   if (it.kind !== 'choice') return null;
@@ -156,7 +159,7 @@ export function ChoiceView(props: InteractionProps) {
           correct={correct}
           locked={!!review}
           showLetter={false}
-          ariaLabels={{ T: 'T 正确 True', F: 'F 错误 False' }}
+          ariaLabels={{ T: t('interaction.tfTrue'), F: t('interaction.tfFalse') }}
           explain={choiceExplain(props)}
           onSelect={(id) => setOne(props, [id])}
         />
@@ -188,6 +191,7 @@ export const hasImageOptions = (q: InteractionProps['fq']['q']) =>
 /* ---------------------------------------------------------- inlineChoice */
 
 export function InlineChoiceView(props: InteractionProps) {
+  const { t } = useTranslation();
   const { fq, responses, review, item } = props;
   const it = fq.q.interaction;
   if (it.kind !== 'inlineChoice') return null;
@@ -201,7 +205,7 @@ export function InlineChoiceView(props: InteractionProps) {
         {it.prompt ? (
           <Rich nodes={it.prompt} blank={(n) => <ContextBlank n={n} active={n.id === it.blankId} text={undefined} />} />
         ) : isExamItem(item) ? null : (
-          <>第 {fq.q.number} 空</>
+          <>{t('interaction.blankN', { n: fq.q.number })}</>
         )}
       </QuestionPrompt>
       {!it.prompt && context && (
@@ -236,6 +240,7 @@ function ContextBlank({ n, active, text }: { n: BlankNode; active: boolean; text
 /* -------------------------------------------------------------- gapMatch */
 
 export function GapMatchView(props: InteractionProps) {
+  const { t } = useTranslation();
   const { fq, flat, responses, setResponses, review, item } = props;
   const it = fq.q.interaction;
   const blanks = questionBlankIds(fq.q);
@@ -297,7 +302,7 @@ export function GapMatchView(props: InteractionProps) {
         className={`gap-slot ${active === n.id && !review ? 'is-active' : ''} ${ok === true ? 'is-correct' : ok === false ? 'is-wrong' : ''}`}
         onClick={() => (active === n.id && entryId ? clear(n.id) : setActive(n.id))}
         disabled={!!review}
-        aria-label={`空格 ${n.number ?? ''}${entryId ? `，已选 ${entryId}` : '，未作答'}`}
+        aria-label={`${t('interaction.slot', { n: n.number ?? '' })}${entryId ? t('interaction.slotChosen', { id: entryId }) : t('interaction.slotEmpty')}`}
       >
         {entry ? (
           <b className="blank-fill">{entry.id}</b>
@@ -317,14 +322,14 @@ export function GapMatchView(props: InteractionProps) {
   return (
     <>
       <QuestionPrompt number={fq.q.number}>
-        {it.prompt ? <Rich nodes={it.prompt} blank={renderBlank} /> : isExamItem(item) ? null : <>第 {fq.q.number} 空</>}
+        {it.prompt ? <Rich nodes={it.prompt} blank={renderBlank} /> : isExamItem(item) ? null : <>{t('interaction.blankN', { n: fq.q.number })}</>}
       </QuestionPrompt>
       {!it.prompt && context && (
         <p className={`context-line ${isExamItem(item) ? 'exam-context' : ''}`}>
           <Rich nodes={context} blank={renderBlank} />
         </p>
       )}
-      <p className="hint-line">{review ? '' : blanks.length > 1 ? '先点选空格，再点下面的选项填入；再次点击已填空格可清除。' : '点选下面的选项填入空格；再次点击空格可清除。'}</p>
+      <p className="hint-line">{review ? '' : blanks.length > 1 ? t('interaction.gapHintMulti') : t('interaction.gapHintSingle')}</p>
       <div className={`bank ${bank.some((b) => plainText(b.content).split(' ').length > 4) ? 'bank-sentences' : ''}`}>
         {bank.map((b) => {
           const use = usage.get(b.id);
@@ -341,7 +346,7 @@ export function GapMatchView(props: InteractionProps) {
               <span className="bank-text">
                 <Rich nodes={b.content} />
               </span>
-              {use && !usedHere && <span className="bank-used">第{use.number}题</span>}
+              {use && !usedHere && <span className="bank-used">{t('interaction.bankUsed', { n: use.number })}</span>}
             </button>
           );
         })}
@@ -369,6 +374,7 @@ function BlankInput({
   locked: boolean;
   autoFocus?: boolean;
 }) {
+  const { t } = useTranslation();
   return (
     <span className={`blank-input ${ok === true ? 'is-correct' : ok === false ? 'is-wrong' : ''}`}>
       {n.hint?.firstLetter && <span className="blank-input-prefix">{n.hint.firstLetter}</span>}
@@ -382,7 +388,7 @@ function BlankInput({
         autoComplete="off"
         spellCheck={false}
         enterKeyHint="next"
-        aria-label={`空格 ${n.number ?? ''}${n.hint?.firstLetter ? `，首字母 ${n.hint.firstLetter}` : ''}`}
+        aria-label={`${t('interaction.slot', { n: n.number ?? '' })}${n.hint?.firstLetter ? t('interaction.firstLetter', { letter: n.hint.firstLetter }) : ''}`}
         placeholder={n.number !== undefined ? String(n.number) : undefined}
         size={Math.max(6, value.length + 1)}
       />
@@ -393,6 +399,7 @@ function BlankInput({
 }
 
 export function TextEntryView(props: InteractionProps) {
+  const { t } = useTranslation();
   const { fq, responses, review, item, flat, owners } = props;
   const it = fq.q.interaction;
   if (it.kind !== 'textEntry') return null;
@@ -429,7 +436,7 @@ export function TextEntryView(props: InteractionProps) {
   return (
     <>
       <QuestionPrompt number={fq.q.number}>
-        {it.prompt ? <Rich nodes={it.prompt} blank={renderBlank} /> : isExamItem(item) ? null : <>第 {fq.q.number} 空</>}
+        {it.prompt ? <Rich nodes={it.prompt} blank={renderBlank} /> : isExamItem(item) ? null : <>{t('interaction.blankN', { n: fq.q.number })}</>}
       </QuestionPrompt>
       {!it.prompt && stimulus && (
         <div className="stimulus">
@@ -451,7 +458,7 @@ export function TextEntryView(props: InteractionProps) {
           })}
         </div>
       )}
-      {it.maxWords && !isExamItem(item) && <p className="hint-line">每空不超过 {it.maxWords} 个词</p>}
+      {it.maxWords && !isExamItem(item) && <p className="hint-line">{t('interaction.maxWords', { count: it.maxWords })}</p>}
     </>
   );
 }
@@ -462,6 +469,7 @@ export function TextEntryView(props: InteractionProps) {
 const PAIR_COLORS = [1, 2, 3, 4, 5, 6, 7].map((n) => `var(--pair-${n})`);
 
 export function MatchView(props: InteractionProps) {
+  const { t } = useTranslation();
   const { fq, responses, review } = props;
   const it = fq.q.interaction;
   const [selLeft, setSelLeft] = useState<string | null>(null);
@@ -485,8 +493,8 @@ export function MatchView(props: InteractionProps) {
 
   return (
     <>
-      <QuestionPrompt number={fq.q.number}>{it.prompt ? <Rich nodes={it.prompt} /> : <>连线：先点左边，再点右边</>}</QuestionPrompt>
-      <p className="hint-line">{review ? '' : `已配对 ${Object.keys(pairs).length} / ${it.left.length}；点已配对的左项可重新选择。`}</p>
+      <QuestionPrompt number={fq.q.number}>{it.prompt ? <Rich nodes={it.prompt} /> : <>{t('interaction.matchPrompt')}</>}</QuestionPrompt>
+      <p className="hint-line">{review ? '' : t('interaction.matchProgress', { done: Object.keys(pairs).length, total: it.left.length })}</p>
       <div className="match">
         <div className="match-col">
           {it.left.map((l) => {
@@ -553,6 +561,7 @@ export function orderSentence(items: { id: string; content: InlineT[] }[], ids: 
 
 /** 连词成句: tap chunks to append them to the answer line; tap a placed chunk to send it back (no drag) */
 export function OrderView(props: InteractionProps) {
+  const { t } = useTranslation();
   const { fq, responses, review } = props;
   const it = fq.q.interaction;
   if (it.kind !== 'order') return null;
@@ -563,10 +572,10 @@ export function OrderView(props: InteractionProps) {
   const label = (id: string) => it.items.find((i) => i.id === id);
   return (
     <>
-      <QuestionPrompt number={fq.q.number}>{it.prompt ? <Rich nodes={it.prompt} /> : <>连词成句</>}</QuestionPrompt>
-      {!review && <p className="hint-line">按顺序点词块组成句子；点已放入的词块可撤回。</p>}
-      <div className={`order-line ${r?.correct === true ? 'is-correct' : r?.correct === false ? 'is-wrong' : ''}`} aria-label="你的句子">
-        {placed.length === 0 && <span className="order-placeholder">点下方词块开始组句</span>}
+      <QuestionPrompt number={fq.q.number}>{it.prompt ? <Rich nodes={it.prompt} /> : <>{t('interaction.orderPrompt')}</>}</QuestionPrompt>
+      {!review && <p className="hint-line">{t('interaction.orderHint')}</p>}
+      <div className={`order-line ${r?.correct === true ? 'is-correct' : r?.correct === false ? 'is-wrong' : ''}`} aria-label={t('interaction.orderLine')}>
+        {placed.length === 0 && <span className="order-placeholder">{t('interaction.orderPlaceholder')}</span>}
         {placed.map((id, i) => {
           const item = label(id);
           if (!item) return null;
@@ -587,7 +596,7 @@ export function OrderView(props: InteractionProps) {
           ))}
           {placed.length > 0 && (
             <button className="chip" onClick={() => set([])}>
-              清空
+              {t('interaction.clear')}
             </button>
           )}
         </div>
@@ -601,6 +610,7 @@ const capitalise = (t: string) => (t ? t[0].toUpperCase() + t.slice(1) : t);
 /* ---------------------------------------------------------- extendedText */
 
 export function ExtendedTextView(props: InteractionProps & { selfAssessed?: boolean; onSelfAssess: (v: boolean) => void }) {
+  const { t } = useTranslation();
   const { fq, responses, review } = props;
   const it = fq.q.interaction;
   const ta = useRef<HTMLTextAreaElement>(null);
@@ -641,7 +651,7 @@ export function ExtendedTextView(props: InteractionProps & { selfAssessed?: bool
         className="long-answer"
         value={value}
         readOnly={!!review}
-        placeholder="在这里写下你的答案…"
+        placeholder={t('interaction.answerPlaceholder')}
         rows={it.minWords ? 6 : 3}
         autoCapitalize="sentences"
         onChange={(e) => setOne(props, e.target.value || undefined)}
@@ -650,12 +660,12 @@ export function ExtendedTextView(props: InteractionProps & { selfAssessed?: bool
       {review && <JudgeVerdict {...props} />}
       {review && rowOf(props)?.scoredBy === 'self' && (
         <div className="self-assess">
-          <span>对照参考答案，你答对了吗？</span>
+          <span>{t('interaction.selfAssessQuestion')}</span>
           <button className={`chip ${props.selfAssessed === true ? 'is-correct' : ''}`} onClick={() => props.onSelfAssess(true)}>
-            <Check /> 答对了
+            <Check /> {t('interaction.selfRight')}
           </button>
           <button className={`chip ${props.selfAssessed === false ? 'is-wrong' : ''}`} onClick={() => props.onSelfAssess(false)}>
-            还需努力
+            {t('interaction.selfWrong')}
           </button>
         </div>
       )}
@@ -669,35 +679,24 @@ export const countWords = (text: string) => (text.match(/[A-Za-z0-9]+(?:['’-][
 
 /** writing tasks: live word count against the task's minimum (Cambridge shows a live counter too) */
 function WordCount({ text, min }: { text: string; min: number }) {
+  const { t } = useTranslation();
   const n = countWords(text);
   return (
     <p className={`word-count ${n >= min ? 'is-enough' : ''}`} aria-live="polite">
-      已写 {n} 词 · 至少 {min} 词
+      {t('interaction.wordCount', { count: n, min })}
     </p>
   );
 }
 
-const CRITERIA_ZH: Record<string, string> = {
-  content: '内容',
-  organisation: '条理性',
-  language: '语言',
-  grammar_vocabulary: '语法与词汇',
-  interactive_communication: '互动交流',
-  global: '整体表现',
-  communicative_achievement: '交际效果',
-  discourse_management: '话语组织',
-};
-
-const MET_LABEL = { yes: '已答到', partial: '部分答到', no: '未答到' } as const;
-
 /** LLM judge verdict (docs/09): score, key points, feedback, language fixes; provisional when sent to review */
 export function JudgeVerdict(props: InteractionProps) {
+  const { t } = useTranslation();
   const row = rowOf(props);
   if (!row) return null;
   if (row.scoredBy === 'pending') {
     return (
       <div className="judge is-pending" role="status">
-        正在批改…
+        {t('judge.marking')}
       </div>
     );
   }
@@ -709,22 +708,22 @@ export function JudgeVerdict(props: InteractionProps) {
   const rubric = k && 'sampleAnswer' in k ? k.rubricType : undefined;
   if (isCambridge(rubric)) {
     return (
-      <section className={`judge ${full ? 'is-full' : j.score > 0 ? 'is-partial' : 'is-zero'}`} aria-label="AI 评分">
+      <section className={`judge ${full ? 'is-full' : j.score > 0 ? 'is-partial' : 'is-zero'}`} aria-label={t('judge.scoreLabel')}>
         <div className="judge-head">
           <span className="judge-score">
             {j.score}
             <span className="judge-max"> / {j.maxPoints}</span>
           </span>
-          <span className="judge-tag">Cambridge 标准 · AI 评分</span>
-          {j.needsReview && <span className="judge-tag is-review">待老师确认</span>}
+          <span className="judge-tag">{t('judge.cambridgeTag')}</span>
+          {j.needsReview && <span className="judge-tag is-review">{t('judge.needsReview')}</span>}
         </div>
-        <p className="judge-standard">{CAMBRIDGE_NOTE_ZH[rubric]}</p>
+        <p className="judge-standard">{t(`judge.note.${rubric}`)}</p>
         <ul className="criteria">
           {points.map((p) => {
             const band = j.keyPoints.find((x) => x.id === p.id)?.band ?? 0;
             return (
               <li key={p.id} className="criteria-row">
-                <span className="criteria-name">{CRITERIA_ZH[p.id] ?? p.id}</span>
+                <span className="criteria-name">{t(`judge.criteria.${p.id}`, { defaultValue: p.id })}</span>
                 <span className="criteria-bar" aria-hidden>
                   <span style={{ width: `${(band / p.weight) * 100}%` }} />
                 </span>
@@ -736,9 +735,9 @@ export function JudgeVerdict(props: InteractionProps) {
           })}
           {(rubric === 'cambridge_a2_speaking' || rubric === 'cambridge_b1_speaking') && (
             <li className="criteria-row is-muted">
-              <span className="criteria-name">发音</span>
+              <span className="criteria-name">{t('judge.pronunciation')}</span>
               <span className="criteria-bar" aria-hidden />
-              <span className="criteria-band">未评估</span>
+              <span className="criteria-band">{t('judge.notAssessed')}</span>
             </li>
           )}
         </ul>
@@ -748,7 +747,7 @@ export function JudgeVerdict(props: InteractionProps) {
             {j.languageIssues.map((l, i) => (
               <li key={i}>
                 <s>{l.text}</s> → <b>{l.fix}</b>
-                {l.noteZh && <span className="judge-language-note">（{l.noteZh}）</span>}
+                {l.noteZh && <span className="judge-language-note">{t('judge.issueNote', { note: l.noteZh })}</span>}
               </li>
             ))}
           </ul>
@@ -757,14 +756,14 @@ export function JudgeVerdict(props: InteractionProps) {
     );
   }
   return (
-    <section className={`judge ${full ? 'is-full' : j.score > 0 ? 'is-partial' : 'is-zero'}`} aria-label="AI 批改">
+    <section className={`judge ${full ? 'is-full' : j.score > 0 ? 'is-partial' : 'is-zero'}`} aria-label={t('judge.markLabel')}>
       <div className="judge-head">
         <span className="judge-score">
           {j.score}
           <span className="judge-max"> / {j.maxPoints}</span>
         </span>
-        <span className="judge-tag">AI 批改</span>
-        {j.needsReview && <span className="judge-tag is-review">待老师确认</span>}
+        <span className="judge-tag">{t('judge.markLabel')}</span>
+        {j.needsReview && <span className="judge-tag is-review">{t('judge.needsReview')}</span>}
       </div>
       {points.length > 0 && (
         <ul className="judge-points">
@@ -772,7 +771,7 @@ export function JudgeVerdict(props: InteractionProps) {
             const met = j.keyPoints.find((x) => x.id === p.id)?.met ?? 'no';
             return (
               <li key={p.id} className={`judge-point is-${met}`}>
-                <span className="judge-point-mark" aria-label={MET_LABEL[met]}>
+                <span className="judge-point-mark" aria-label={t(`judge.met.${met}`)}>
                   {met === 'yes' ? <Check /> : met === 'partial' ? '½' : <Cross />}
                 </span>
                 {p.descZh}
@@ -787,7 +786,7 @@ export function JudgeVerdict(props: InteractionProps) {
           {j.languageIssues.map((l, i) => (
             <li key={i}>
               <s>{l.text}</s> → <b>{l.fix}</b>
-              {l.noteZh && <span className="judge-language-note">（{l.noteZh}）</span>}
+              {l.noteZh && <span className="judge-language-note">{t('judge.issueNote', { note: l.noteZh })}</span>}
             </li>
           ))}
         </ul>
@@ -815,6 +814,7 @@ export function QuestionPrompt({ number, children }: { number: number; children:
  * clears the other text; only the chosen task is scored. 待补组件 — no Figma design yet.
  */
 export function ChooseTaskView(props: InteractionProps & { selfAssessed?: boolean; onSelfAssess: (v: boolean) => void }) {
+  const { t } = useTranslation();
   const { fq, responses, review } = props;
   const tasks = fq.section.questions;
   const answered = tasks.find((q) => typeof responses[q.id] === 'string' && (responses[q.id] as string).trim() !== '');
@@ -848,8 +848,8 @@ export function ChooseTaskView(props: InteractionProps & { selfAssessed?: boolea
 
   return (
     <>
-      <p className="hint-line">{review ? '' : `从下面 ${tasks.length} 题中选择 1 题作答，只评分你选择的那一题。`}</p>
-      <div className="task-cards" role="radiogroup" aria-label="选择一题作答">
+      <p className="hint-line">{review ? '' : t('interaction.chooseHint', { count: tasks.length })}</p>
+      <div className="task-cards" role="radiogroup" aria-label={t('interaction.chooseLabel')}>
         {tasks.map((q) => {
           const isSel = q.id === selected;
           return (
@@ -862,8 +862,8 @@ export function ChooseTaskView(props: InteractionProps & { selfAssessed?: boolea
               onClick={() => choose(q.id)}
             >
               <span className="task-card-head">
-                Question {q.number}
-                {review && !isSel && <span className="task-card-tag">未选</span>}
+                {t('interaction.taskCard', { n: q.number })}
+                {review && !isSel && <span className="task-card-tag">{t('interaction.unchosen')}</span>}
               </span>
               <span className="task-card-text">{label(q).slice(0, 160)}</span>
             </button>
@@ -871,13 +871,13 @@ export function ChooseTaskView(props: InteractionProps & { selfAssessed?: boolea
         })}
       </div>
       {confirmTo && (
-        <div className="task-switch" role="alertdialog" aria-label="切换题目">
-          <span>切换后，已经写的内容会被清空。确定切换吗？</span>
+        <div className="task-switch" role="alertdialog" aria-label={t('interaction.switchLabel')}>
+          <span>{t('interaction.switchConfirm')}</span>
           <button className="chip" onClick={() => setConfirmTo(null)}>
-            取消
+            {t('common.cancel')}
           </button>
           <button className="chip is-on" onClick={() => switchTo(confirmTo)}>
-            切换并清空
+            {t('interaction.switchAndClear')}
           </button>
         </div>
       )}

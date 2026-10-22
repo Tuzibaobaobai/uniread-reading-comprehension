@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { staticContent } from '@/lib/content';
 import playIcon from '@/assets/icons/audio-play.svg';
 import pauseIcon from '@/assets/icons/audio-pause.svg';
@@ -24,6 +25,7 @@ export function AudioPlayer({
   active: boolean;
   onPlay: () => void;
 }) {
+  const { t } = useTranslation();
   const audio = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
   const [time, setTime] = useState(0);
@@ -61,13 +63,13 @@ export function AudioPlayer({
       />
       <Progress time={time} duration={duration} onSeek={(t) => audio.current && (audio.current.currentTime = t)} />
       <div className="player-actions">
-        <button className="player-btn is-square" onClick={() => skip(-SKIP)} aria-label={`后退 ${SKIP} 秒`}>
+        <button className="player-btn is-square" onClick={() => skip(-SKIP)} aria-label={t('audio.back', { s: SKIP })}>
           <img src={previousIcon} alt="" width={32} height={32} />
         </button>
-        <button className="player-btn" onClick={toggle} aria-label={playing ? '暂停' : '播放'}>
+        <button className="player-btn" onClick={toggle} aria-label={playing ? t('audio.pause') : t('audio.play')}>
           <img src={playing ? pauseIcon : playIcon} alt="" width={44} height={44} />
         </button>
-        <button className="player-btn is-square is-forward" onClick={() => skip(SKIP)} aria-label={`前进 ${SKIP} 秒`}>
+        <button className="player-btn is-square is-forward" onClick={() => skip(SKIP)} aria-label={t('audio.forward', { s: SKIP })}>
           <img src={previousIcon} alt="" width={32} height={32} />
         </button>
       </div>
@@ -77,6 +79,7 @@ export function AudioPlayer({
 
 /** time · track · duration; the track seeks unless onSeek is absent (exam mode) */
 export function Progress({ time, duration, onSeek }: { time: number; duration: number; onSeek?: (t: number) => void }) {
+  const { t } = useTranslation();
   return (
     <div className="player-progress">
       <span className="player-time">{fmtTime(time)}</span>
@@ -88,7 +91,7 @@ export function Progress({ time, duration, onSeek }: { time: number; duration: n
         step={1}
         value={Math.round(time)}
         disabled={!onSeek}
-        aria-label="播放进度"
+        aria-label={t('audio.progress')}
         style={{ '--progress': `${(time / Math.max(1, duration)) * 100}%` } as React.CSSProperties}
         onChange={(e) => onSeek?.(Number(e.target.value))}
       />

@@ -11,9 +11,11 @@
  */
 import type { ExamItemT, ItemT, JudgementT } from '@schema';
 import type { Result } from './grading';
+import { t as i18nT, type TFunction } from '@/i18n';
 
 export type Skill = 'reading' | 'writing' | 'listening' | 'speaking';
 export type ExamKey = 'a2' | 'b1';
+export type GradeBand = [min: number, grade: 'A' | 'B' | 'C' | null, cefr: string];
 
 interface ExamScale {
   name: string;
@@ -21,9 +23,9 @@ interface ExamScale {
   /** lowest reported score */
   floor: number;
   skills: Record<Skill, { max: number; anchors: [raw: number, scale: number][] }>;
-  /** result bands, highest first */
-  grades: [min: number, label: string][];
-  /** label below the lowest band */
+  /** result bands, highest first: Cambridge grade letter (none for the band below Grade C) and CEFR level */
+  grades: GradeBand[];
+  /** CEFR level below the lowest band ("below A1") */
   below: string;
 }
 
@@ -39,12 +41,12 @@ export const SCALES: Record<ExamKey, ExamScale> = {
       speaking: { max: 45, anchors: [[10, 82], [18, 100], [27, 120], [41, 140]] },
     },
     grades: [
-      [140, 'Grade A（B1）'],
-      [133, 'Grade B（A2）'],
-      [120, 'Grade C（A2）'],
-      [100, 'A1'],
+      [140, 'A', 'B1'],
+      [133, 'B', 'A2'],
+      [120, 'C', 'A2'],
+      [100, null, 'A1'],
     ],
-    below: '低于 A1',
+    below: 'A1',
   },
   b1: {
     name: 'B1 Preliminary / B1 Preliminary for Schools',
@@ -57,12 +59,12 @@ export const SCALES: Record<ExamKey, ExamScale> = {
       speaking: { max: 30, anchors: [[7, 102], [12, 120], [18, 140], [27, 160]] },
     },
     grades: [
-      [160, 'Grade A（B2）'],
-      [153, 'Grade B（B1）'],
-      [140, 'Grade C（B1）'],
-      [120, 'A2'],
+      [160, 'A', 'B2'],
+      [153, 'B', 'B1'],
+      [140, 'C', 'B1'],
+      [120, null, 'A2'],
     ],
-    below: '低于 A2',
+    below: 'A2',
   },
 };
 
@@ -89,11 +91,18 @@ export function toScale(skill: Skill, raw: number, exam: ExamKey = 'a2'): number
 /** A2 Key result bands — also listed in the conversion-table dialog */
 export const GRADE_BANDS = SCALES.a2.grades;
 
+/** a result band's label: "Grade A（B1）", or just the CEFR level for the band below Grade C */
+export const gradeLabel = ([, g, cefr]: GradeBand, t: TFunction = i18nT): string => (g ? t('exam.grade.band', { grade: g, cefr }) : cefr);
+
+/** label for the scores below the lowest band ("低于 A1") */
+export const belowLabel = (exam: ExamKey, t: TFunction = i18nT): string => t('exam.grade.below', { cefr: SCALES[exam].below });
+
 /** result band on the Cambridge English Scale */
-export function grade(scale: number | null, exam: ExamKey = 'a2'): string {
+export function grade(scale: number | null, exam: ExamKey = 'a2', t: TFunction = i18nT): string {
   const s = SCALES[exam];
-  if (scale === null) return `低于 ${s.floor}（不报告）`;
-  return s.grades.find(([min]) => scale >= min)?.[1] ?? s.below;
+  if (scale === null) return t('exam.grade.notReported', { floor: s.floor });
+  const band = s.grades.find(([min]) => scale >= min);
+  return band ? gradeLabel(band, t) : belowLabel(exam, t);
 }
 
 export interface SkillReport {

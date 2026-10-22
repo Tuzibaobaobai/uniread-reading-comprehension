@@ -1,5 +1,6 @@
 import { forwardRef, useLayoutEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
 import type { ArticleItemT, BlockT, InlineT, ItemT } from '@schema';
+import { useTranslation } from 'react-i18next';
 import { Rich, type BlankNode } from '@/components/Rich';
 import { staticContent } from '@/lib/content';
 import { highlightSupported, paint, sentenceRange } from './evidence';
@@ -46,16 +47,17 @@ export function mergeRefs<T>(local: { current: T | null }, ref: ((el: T | null) 
 /** left pane: title → info box → images → body → Words & Expressions (static content) */
 export const ArticlePane = forwardRef<HTMLDivElement, Props>(function ArticlePane({ item, renderBlank, evidence }, ref) {
   const m = item.meta;
+  const { t } = useTranslation();
   const rootRef = useRef<HTMLDivElement | null>(null);
   const fallback = useEvidencePaint(rootRef, evidence);
   const setRef = mergeRefs(rootRef, ref);
   const info: [string, string | number | undefined][] = [
-    ['语篇类型', m.genre],
-    ['词数', m.wordCount],
-    ['难度', `${m.difficulty} 级`],
-    ['建议用时', `${m.suggestedMinutes} 分钟`],
-    ['主题语境', m.themeContext],
-    ['内容要求', m.contentRequirement],
+    [t('reader.info.genre'), m.genre],
+    [t('reader.info.wordCount'), m.wordCount],
+    [t('reader.info.difficulty'), t('reader.info.level', { n: m.difficulty })],
+    [t('reader.info.suggestedTime'), t('reader.info.minutes', { count: m.suggestedMinutes })],
+    [t('reader.info.theme'), m.themeContext],
+    [t('reader.info.requirement'), m.contentRequirement],
   ];
   return (
     <div className="article-pane">
@@ -74,7 +76,7 @@ export const ArticlePane = forwardRef<HTMLDivElement, Props>(function ArticlePan
               </div>
             ))}
           <div className="info-box-row info-box-intro">
-            <dt>导读</dt>
+            <dt>{t('reader.info.intro')}</dt>
             <dd>{m.intro}</dd>
           </div>
         </dl>

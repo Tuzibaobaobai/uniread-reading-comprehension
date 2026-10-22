@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Rich } from '@/components/Rich';
 import { staticContent } from '@/lib/content';
 import listenIcon from '@/assets/icons/speak-listen.svg';
@@ -51,6 +52,7 @@ function speakWithDevice(text: string) {
  */
 export function SpeakingView(props: InteractionProps) {
   const { fq, responses, review, item } = props;
+  const { t } = useTranslation();
   const it = fq.q.interaction;
   const answers = (responses[fq.q.id] && typeof responses[fq.q.id] === 'object' && !Array.isArray(responses[fq.q.id])
     ? responses[fq.q.id]
@@ -59,6 +61,7 @@ export function SpeakingView(props: InteractionProps) {
   const [state, setState] = useState<TurnState>('idle');
   const [left, setLeft] = useState(0);
   const [clips, setClips] = useState<Record<string, string>>({});
+  /** i18n key of the current error (rendered in the current language) */
   const [error, setError] = useState<string | null>(null);
   const rec = useRef<MediaRecorder | null>(null);
   const timer = useRef<number>();
@@ -90,7 +93,7 @@ export function SpeakingView(props: InteractionProps) {
     try {
       stream = await navigator.mediaDevices.getUserMedia({ audio: true });
     } catch {
-      setError('无法使用麦克风：请在浏览器设置中允许本页面使用麦克风。');
+      setError('speaking.errorMic');
       return;
     }
     const mime = recorderMime();
@@ -107,7 +110,7 @@ export function SpeakingView(props: InteractionProps) {
         const text = await staticContent.speak!({ itemId: item.id, questionId: fq.q.id, turnId, audio: blob });
         if (!text.trim()) {
           setState('error');
-          setError('没有识别到说话声，请靠近麦克风再录一次。');
+          setError('speaking.errorSilent');
           return;
         }
         save(turnId, text.trim());
@@ -115,7 +118,7 @@ export function SpeakingView(props: InteractionProps) {
         setActive(null);
       } catch {
         setState('error');
-        setError('语音识别暂时不可用，你的录音还在，可以稍后点“重录”再试。');
+        setError('speaking.errorAsr');
       }
     };
     rec.current = r;
@@ -138,84 +141,84 @@ export function SpeakingView(props: InteractionProps) {
       <QuestionPrompt number={fq.display}>
         <Rich nodes={it.prompt} />
       </QuestionPrompt>
-      {!review && !supported && <p className="hint-line">当前浏览器不支持录音，请使用最新版 Safari 或 Chrome。</p>}
+      {!review && !supported && <p className="hint-line">{t('speaking.unsupported')}</p>}
       {!review && supported && (
         <p className="hint-line">
           {fq.turn !== undefined && it.turns[fq.turn]?.role === 'partner'
-            ? `点“听搭档”听搭档说话，再点“回答”回应 TA，说完点 ✓ 结束（最长 ${it.maxSeconds} 秒）。`
-            : `点“听题”听考官提问，再点“回答”录音，说完点 ✓ 结束（最长 ${it.maxSeconds} 秒）。`}
+            ? t('speaking.hintPartner', { seconds: it.maxSeconds })
+            : t('speaking.hintExaminer', { seconds: it.maxSeconds })}
         </p>
       )}
       <ol className="speak-turns">
-        {it.turns.map((t, i) => {
+        {it.turns.map((turn, i) => {
           // one page per examiner question (GitHub #74); the whole Part is still scored together
           if (fq.turn !== undefined && fq.turn !== i) return null;
-          const isActive = active === t.id;
-          const said = answers[t.id];
+          const isActive = active === turn.id;
+          const said = answers[turn.id];
           return (
-            <li key={t.id} className={`speak-card ${isActive ? 'is-active' : ''} ${said ? 'is-done' : ''}`}>
+            <li key={turn.id} className={`speak-card ${isActive ? 'is-active' : ''} ${said ? 'is-done' : ''}`}>
               <p className="speak-count">
                 {i + 1}/{it.turns.length}
                 {/* PET Part 3: the AI partner speaks, the learner replies (待补组件) */}
-                <span className={`speak-role ${t.role === 'partner' ? 'is-partner' : ''}`}>{t.role === 'partner' ? '搭档 Alex' : '考官'}</span>
+                <span className={`speak-role ${turn.role === 'partner' ? 'is-partner' : ''}`}>{turn.role === 'partner' ? t('speaking.partner') : t('speaking.examiner')}</span>
               </p>
               {/* exam mode: the question is only heard, as in the real test (#88); practice mode and review show it */}
               {props.examMode && !review ? (
-                <p className="speak-line is-hidden">{t.role === 'partner' ? '（考试模式：请听搭档说话）' : '（考试模式：请听考官提问）'}</p>
+                <p className="speak-line is-hidden">{turn.role === 'partner' ? t('speaking.hiddenPartner') : t('speaking.hiddenExaminer')}</p>
               ) : (
-                <p className="speak-line">{t.text}</p>
+                <p className="speak-line">{turn.text}</p>
               )}
               {said && (
                 <p className="speak-said">
-                  <span className="speak-said-label">你的回答（语音识别）</span>
+                  <span className="speak-said-label">{t('speaking.yourAnswer')}</span>
                   {said}
                 </p>
               )}
-              {isActive && state === 'error' && error && <p className="speak-error">{error}</p>}
+              {isActive && state === 'error' && error && <p className="speak-error">{t(error)}</p>}
               <div className="speak-actions">
-                <button className="speak-btn" onClick={() => speak(t)} disabled={busy}>
+                <button className="speak-btn" onClick={() => speak(turn)} disabled={busy}>
                   <span className="speak-btn-icon">
                     <img src={listenIcon} alt="" width={40} height={40} />
                   </span>
-                  {t.role === 'partner' ? '听搭档' : '听题'}
+                  {turn.role === 'partner' ? t('speaking.listenPartner') : t('speaking.listen')}
                 </button>
                 {!review &&
                   (isActive && state === 'recording' ? (
-                    <button className="speak-btn is-recording" onClick={stop} aria-label="结束录音">
+                    <button className="speak-btn is-recording" onClick={stop} aria-label={t('speaking.stop')}>
                       <span className="speak-btn-icon is-submit">
                         <img src={submitIcon} alt="" width={40} height={40} />
                       </span>
-                      录音中 {left}s
+                      {t('speaking.recording', { s: left })}
                     </button>
                   ) : isActive && state === 'transcribing' ? (
                     <span className="speak-btn" role="status">
                       <span className="speak-btn-icon is-loading">
                         <img src={loadingIcon} alt="" width={40} height={40} />
                       </span>
-                      识别中…
+                      {t('speaking.transcribing')}
                     </span>
                   ) : (
-                    <button className="speak-btn" onClick={() => void start(t.id)} disabled={!supported || busy}>
+                    <button className="speak-btn" onClick={() => void start(turn.id)} disabled={!supported || busy}>
                       <span className="speak-btn-icon">
-                        <img src={said || clips[t.id] ? respeakIcon : micIcon} alt="" width={40} height={40} />
+                        <img src={said || clips[turn.id] ? respeakIcon : micIcon} alt="" width={40} height={40} />
                       </span>
-                      {said || clips[t.id] ? '重录' : '回答'}
+                      {said || clips[turn.id] ? t('speaking.rerecord') : t('speaking.answer')}
                     </button>
                   ))}
-                <button className="speak-btn" disabled={!clips[t.id] || busy} onClick={() => void new Audio(clips[t.id]).play()}>
+                <button className="speak-btn" disabled={!clips[turn.id] || busy} onClick={() => void new Audio(clips[turn.id]).play()}>
                   <span className="speak-btn-icon">
                     <img src={playbackIcon} alt="" width={40} height={40} />
                   </span>
-                  回放
+                  {t('speaking.playback')}
                 </button>
               </div>
             </li>
           );
         })}
       </ol>
-      {error && state !== 'error' && <p className="speak-error">{error}</p>}
+      {error && state !== 'error' && <p className="speak-error">{t(error)}</p>}
       {review && (fq.turn === undefined || fq.turn === it.turns.length - 1) && <JudgeVerdict {...props} />}
-      {review && fq.turn !== undefined && fq.turn < it.turns.length - 1 && <p className="hint-line">本部分的评分显示在最后一题（第 {fq.display + it.turns.length - 1 - fq.turn} 页）。</p>}
+      {review && fq.turn !== undefined && fq.turn < it.turns.length - 1 && <p className="hint-line">{t('speaking.scoreOnLast', { page: fq.display + it.turns.length - 1 - fq.turn })}</p>}
     </>
   );
 }

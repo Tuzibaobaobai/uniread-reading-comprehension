@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { InlineT, QuestionT } from '@schema';
 import { Rich, plainText } from '@/components/Rich';
 import { Check, Cross, Locate } from '@/components/Icons';
@@ -41,6 +42,7 @@ function useAnswers(props: InteractionProps) {
 /** after submitting: each question's explanation (Chinese), in order */
 function Explanations({ props, qs }: { props: InteractionProps; qs: QuestionT[] }) {
   const { correctOf, answerOf } = useAnswers(props);
+  const { t } = useTranslation();
   if (!props.review) return null;
   return (
     <ul className="part-explain">
@@ -55,7 +57,7 @@ function Explanations({ props, qs }: { props: InteractionProps; qs: QuestionT[] 
             {k?.explanationZh}
             {k?.evidence?.[0] && props.onLocate && (
               <button className="chip part-explain-locate" onClick={() => props.onLocate!(k.evidence![0].block, k.evidence![0].quote)}>
-                <Locate /> 定位原文
+                <Locate /> {t('reader.locate')}
               </button>
             )}
           </li>
@@ -73,6 +75,7 @@ function Explanations({ props, qs }: { props: InteractionProps; qs: QuestionT[] 
 export function SectionAllView(props: InteractionProps) {
   const qs = props.fq.section.questions;
   const { pick, answerOf, correctOf } = useAnswers(props);
+  const { t } = useTranslation();
   const review = props.review;
 
   if (sameOptions(qs)) {
@@ -106,7 +109,7 @@ export function SectionAllView(props: InteractionProps) {
                         className={`part-grid-cell ${state}`}
                         role="radio"
                         aria-checked={sel}
-                        aria-label={`第 ${q.number} 题：${o.id} ${plainText(o.content)}`}
+                        aria-label={t('reader.questionOption', { n: q.number, option: `${o.id} ${plainText(o.content)}` })}
                         disabled={!!review}
                         onClick={() => pick(q.id, sel ? undefined : o.id)}
                       >
@@ -127,7 +130,7 @@ export function SectionAllView(props: InteractionProps) {
   return (
     <div className="part-stack">
       {qs.map((q) => (
-        <section key={q.id} className="part-stack-q" aria-label={`第 ${q.number} 题`}>
+        <section key={q.id} className="part-stack-q" aria-label={t('reader.questionN', { n: q.number })}>
           <QuestionPrompt number={q.number}>
             <Rich nodes={promptOf(q)} />
           </QuestionPrompt>
@@ -164,6 +167,7 @@ export function MatchBoardView(props: InteractionProps) {
   const qs = section.questions;
   const opts = optionsOf(qs[0]);
   const { pick, answerOf, correctOf } = useAnswers(props);
+  const { t } = useTranslation();
   const review = props.review;
   const firstOpen = qs.find((q) => !answerOf(q.id))?.id ?? qs[0].id;
   const [active, setActive] = useState<string | null>(review ? null : firstOpen);
@@ -186,7 +190,7 @@ export function MatchBoardView(props: InteractionProps) {
   if (long)
     return (
       <>
-        {!review && <p className="hint-line">为每个人选一个字母；每个字母只能用一次，再点一次可取消。</p>}
+        {!review && <p className="hint-line">{t('interaction.matchRowsHint')}</p>}
         <ol className="match-rows">
           {qs.map((q) => {
             const ans = answerOf(q.id);
@@ -200,7 +204,7 @@ export function MatchBoardView(props: InteractionProps) {
                 <p className="match-row-text">
                   <span className="q-num">{q.number}.</span> <Rich nodes={promptOf(q)} />
                 </p>
-                <div className="match-row-letters" role="radiogroup" aria-label={`第 ${q.number} 题`}>
+                <div className="match-row-letters" role="radiogroup" aria-label={t('reader.questionN', { n: q.number })}>
                   {opts.map((o) => {
                     const owner = ownerOf(o.id);
                     const mine = ans === o.id;
@@ -210,7 +214,7 @@ export function MatchBoardView(props: InteractionProps) {
                         key={o.id}
                         role="radio"
                         aria-checked={mine}
-                        aria-label={`${o.id} ${plainText(o.content)}${owner && !mine ? `（第 ${owner.number} 题已选）` : ''}`}
+                        aria-label={`${o.id} ${plainText(o.content)}${owner && !mine ? t('interaction.takenBy', { n: owner.number }) : ''}`}
                         className={`match-row-letter ${mine ? 'is-on' : ''} ${owner && !mine ? 'is-used' : ''} ${isRight ? 'is-correct' : review && mine ? 'is-wrong' : ''}`}
                         disabled={!!review || o.id === example?.answer}
                         onClick={() => {
@@ -235,7 +239,7 @@ export function MatchBoardView(props: InteractionProps) {
 
   return (
     <>
-      {!review && <p className="hint-line">先点左边的人，再点右边的选项；每个选项只能用一次，再点一次可取消。</p>}
+      {!review && <p className="hint-line">{t('interaction.matchBoardHint')}</p>}
       <div className="match-board">
         {section.columns && (
           <>
@@ -243,9 +247,9 @@ export function MatchBoardView(props: InteractionProps) {
             <p className="match-board-head">{section.columns.right}</p>
           </>
         )}
-        <ol className="match-board-people" aria-label="题目">
+        <ol className="match-board-people" aria-label={t('interaction.questions')}>
           {example && (
-            <li className="match-board-person is-example" aria-label={`例题：${example.prompt} — ${example.answer}`}>
+            <li className="match-board-person is-example" aria-label={t('interaction.exampleLabel', { prompt: example.prompt, answer: example.answer })}>
               <span className="q-num">0</span>
               <span className="match-board-text">{example.prompt}</span>
               <span className="match-board-badge">{example.answer}</span>
@@ -274,7 +278,7 @@ export function MatchBoardView(props: InteractionProps) {
             );
           })}
         </ol>
-        <div className="match-board-options" role="group" aria-label="选项">
+        <div className="match-board-options" role="group" aria-label={t('interaction.options')}>
           {opts.map((o) => {
             const isExample = o.id === example?.answer;
             const owner = ownerOf(o.id);
@@ -283,14 +287,14 @@ export function MatchBoardView(props: InteractionProps) {
                 key={o.id}
                 className={`match-board-option ${isExample ? 'is-example' : ''} ${owner ? 'is-used' : ''} ${owner && owner.id === active ? 'is-here' : ''}`}
                 disabled={!!review || isExample || !active}
-                aria-label={`${o.id} ${plainText(o.content)}${isExample ? '（例题已用）' : owner ? `（第 ${owner.number} 题已选）` : ''}`}
+                aria-label={`${o.id} ${plainText(o.content)}${isExample ? t('interaction.exampleUsed') : owner ? t('interaction.takenBy', { n: owner.number }) : ''}`}
                 onClick={() => choose(o.id)}
               >
                 <span className="match-board-letter">{o.id}</span>
                 <span className="match-board-text">
                   <Rich nodes={o.content} />
                 </span>
-                {isExample ? <span className="match-board-used">例</span> : owner && <span className="match-board-used">{owner.number}</span>}
+                {isExample ? <span className="match-board-used">{t('interaction.exampleMark')}</span> : owner && <span className="match-board-used">{owner.number}</span>}
               </button>
             );
           })}

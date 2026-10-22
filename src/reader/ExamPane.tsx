@@ -1,4 +1,5 @@
 import { forwardRef, useEffect, useRef, useState, type ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { BlockT, ExamItemT, SectionT } from '@schema';
 import type { BlankNode } from '@/components/Rich';
 import { staticContent } from '@/lib/content';
@@ -32,6 +33,7 @@ interface Props {
  */
 export const ExamPane = forwardRef<HTMLDivElement, Props>(function ExamPane(props, ref) {
   const { item, fq, renderBlank, evidence } = props;
+  const { t } = useTranslation();
   const rootRef = useRef<HTMLDivElement | null>(null);
   const section = fq?.section;
   const fallback = useEvidencePaint(rootRef, evidence, [section?.id, fq?.q.id]);
@@ -55,7 +57,7 @@ export const ExamPane = forwardRef<HTMLDivElement, Props>(function ExamPane(prop
       {s.material && s.material.length > 0 && <div className="article-body">{blocks(s.material)}</div>}
       {props.transcripts?.[s.id] && props.transcripts[s.id].length > 0 && (
         <details className="transcript" open>
-          <summary>听力原文</summary>
+          <summary>{t('reader.transcript')}</summary>
           <div className="article-body">{blocks(props.transcripts[s.id])}</div>
         </details>
       )}
@@ -75,7 +77,7 @@ export const ExamPane = forwardRef<HTMLDivElement, Props>(function ExamPane(prop
                 <Emph text={section.instruction} />
               </p>
               {materialOf(section, true)}
-              {!qMaterial?.length && !section.material?.length && <p className="exam-empty">本部分没有阅读材料，请直接在右侧作答。</p>}
+              {!qMaterial?.length && !section.material?.length && <p className="exam-empty">{t('reader.noMaterial')}</p>}
             </article>
           )
         )}
@@ -83,9 +85,6 @@ export const ExamPane = forwardRef<HTMLDivElement, Props>(function ExamPane(prop
     </div>
   );
 });
-
-const EXAM_NOTE = '考试模式：录音只能播放一次（已含两遍），开始后不能暂停或拖动。';
-const PRACTICE_NOTE = '练习模式：可以播放、暂停和拖动；一段播放完后，需要手动播放下一段。';
 
 /**
  * Listening: one module per Part. Practice — each module has its own controls, one Part plays at a time, nothing
@@ -100,6 +99,7 @@ function ListeningStack({
   onPlayed,
   materialOf,
 }: Props & { current?: string; materialOf: (s: SectionT, withQuestion: boolean) => ReactNode }) {
+  const { t } = useTranslation();
   const parts = item.sections.filter((s) => s.audio);
   const [active, setActive] = useState<string | null>(null);
   const seq = useExamSequence(parts, locked, played, onPlayed);
@@ -126,13 +126,13 @@ function ListeningStack({
           >
             <h2 className="part-audio-title">
               {s.label ?? `Part ${s.part}`}
-              {isPlaying && <span className="part-audio-badge">{locked ? '正在播放' : '播放中'}</span>}
+              {isPlaying && <span className="part-audio-badge">{locked ? t('audio.nowPlaying') : t('audio.playing')}</span>}
             </h2>
             <p className="exam-instruction">
               <Emph text={s.instruction} />
             </p>
-            <p className="player-note">{locked ? EXAM_NOTE : PRACTICE_NOTE}</p>
-            {!s.audio && <p className="part-audio-state">本部分录音暂缺，正在补充中；可以先看题。</p>}
+            <p className="player-note">{locked ? t('audio.examNote') : t('audio.practiceNote')}</p>
+            {!s.audio && <p className="part-audio-state">{t('audio.missing')}</p>}
             {s.audio &&
               (locked ? (
                 seq.controls(s)
@@ -149,6 +149,7 @@ function ListeningStack({
 
 /** exam mode: one audio element plays the Parts in order (a tap starts it; later Parts follow automatically) */
 function useExamSequence(parts: SectionT[], locked: boolean, played: Set<string>, onPlayed: (id: string) => void) {
+  const { t } = useTranslation();
   const audio = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState<string | null>(null);
   const [time, setTime] = useState(0);
@@ -189,15 +190,15 @@ function useExamSequence(parts: SectionT[], locked: boolean, played: Set<string>
 
   const controls = (s: SectionT) => {
     if (playing === s.id) return <div className="player is-locked"><Progress time={time} duration={s.audio!.seconds} /></div>;
-    if (played.has(s.id)) return <p className="part-audio-state">本部分录音已播放完毕。</p>;
+    if (played.has(s.id)) return <p className="part-audio-state">{t('audio.finished')}</p>;
     if (!playing && next?.id === s.id)
       return (
         <button className="part-audio-start" onClick={() => play(s)}>
           <img src={playIcon} alt="" width={32} height={32} />
-          {s.id === parts[0]?.id ? '开始播放听力' : `从 ${s.label ?? `Part ${s.part}`} 继续播放`}
+          {s.id === parts[0]?.id ? t('audio.start') : t('audio.continueFrom', { part: s.label ?? `Part ${s.part}` })}
         </button>
       );
-    return <p className="part-audio-state">等待播放（按考试顺序）</p>;
+    return <p className="part-audio-state">{t('audio.waiting')}</p>;
   };
   return { audio: element, playing, controls };
 }
