@@ -1116,6 +1116,10 @@
         "prompt": "Alex",
         "answer": "A"
       },
+      "columns": {
+        "left": "Friends",
+        "right": "Jobs"
+      },
       "questions": [
         {
           "id": "q21",
@@ -1607,5 +1611,12 @@
   "status": {
     "content": "transcribed",
     "version": "1.0.0"
-  }
+  },
+  "errata": [
+    {
+      "original": "Transcript Part 5: \"And what about, Jane?\"",
+      "corrected": "\"And what about Jane?\"",
+      "note": "经人工复核（GitHub #104）确认更正"
+    }
+  ]
 }

@@ -382,6 +382,8 @@ export const Section = z
     view: z.enum(['all', 'match']).optional(),
     /** the printed example of a match Part ("0 Jack — B"): shown first, its option is used up */
     example: z.object({ prompt: z.string(), answer: z.string() }).strict().optional(),
+    /** a match Part's printed column headings ("People" | "Things to bring", KET Listening Part 5, #104) */
+    columns: z.object({ left: z.string(), right: z.string() }).strict().optional(),
     questions: z.array(Question).min(1),
   })
   .strict();

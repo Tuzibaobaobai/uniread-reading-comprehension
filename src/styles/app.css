@@ -743,7 +743,15 @@ body:has(.playlist-page) { background: var(--bg-card); }
 .match-row-letter.is-wrong { background: var(--danger); border-color: var(--danger); color: var(--text-on-accent); }
 .match-row-owner { position: absolute; top: -6px; right: -6px; min-width: 18px; height: 18px; border-radius: var(--radius-full); background: var(--accent-soft); color: var(--accent-strong); font-size: var(--fs-xs); line-height: 18px; }
 .match-board { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
-@container (max-width: 640px) { .match-board { grid-template-columns: 1fr; } }
+.match-board-head { margin: 0 0 -8px; font-weight: var(--fw-bold); color: var(--text-strong); font-size: var(--fs-m); line-height: var(--lh-m); }
+@container (max-width: 640px) {
+  .match-board { grid-template-columns: 1fr; }
+  /* stacked: each printed heading stays above its own column (#104) */
+  .match-board > .match-board-head:nth-of-type(1) { order: 1; }
+  .match-board > .match-board-people { order: 2; }
+  .match-board > .match-board-head:nth-of-type(2) { order: 3; }
+  .match-board > .match-board-options { order: 4; }
+}
 .match-board-people { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .match-board-person, .match-board-option {
   width: 100%; min-height: var(--tap); display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px;

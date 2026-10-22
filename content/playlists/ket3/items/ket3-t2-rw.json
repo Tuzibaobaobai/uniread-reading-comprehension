@@ -825,7 +825,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Who says than one exhibition was more popular than the others?"
+                "v": "Who says that one exhibition was more popular than the others?"
               }
             ],
             "options": [
@@ -1919,5 +1919,12 @@
   "status": {
     "content": "transcribed",
     "version": "1.0.0"
-  }
+  },
+  "errata": [
+    {
+      "original": "Who says than one exhibition was more popular than the others?",
+      "corrected": "Who says that one exhibition was more popular than the others?",
+      "note": "经人工复核（GitHub #104）确认更正"
+    }
+  ]
 }

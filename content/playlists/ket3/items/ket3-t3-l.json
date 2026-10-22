@@ -1108,6 +1108,10 @@
         "prompt": "Alice",
         "answer": "G"
       },
+      "columns": {
+        "left": "People",
+        "right": "What will … do?"
+      },
       "questions": [
         {
           "id": "q21",
@@ -1599,5 +1603,12 @@
   "status": {
     "content": "transcribed",
     "version": "1.0.0"
-  }
+  },
+  "errata": [
+    {
+      "original": "Listening Part 5 column headings: Places | Opinions",
+      "corrected": "People | What will … do?",
+      "note": "经人工复核（GitHub #104）确认更正"
+    }
+  ]
 }

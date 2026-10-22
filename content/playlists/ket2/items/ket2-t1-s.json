@@ -235,10 +235,10 @@
               },
               {
                 "id": "t7",
-                "text": "So, which of these sports do you like best?",
+                "text": "So, which of these things do you like best?",
                 "audio": {
                   "src": "assets/ket2/ket2-t1-s-q2-t7.mp3",
-                  "seconds": 4.3
+                  "seconds": 4.2
                 }
               },
               {
@@ -283,5 +283,12 @@
   "status": {
     "content": "transcribed",
     "version": "1.0.0"
-  }
+  },
+  "errata": [
+    {
+      "original": "which of these sports do you like best?",
+      "corrected": "which of these things do you like best?",
+      "note": "经人工复核（GitHub #104）确认更正"
+    }
+  ]
 }

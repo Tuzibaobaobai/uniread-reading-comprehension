@@ -237,6 +237,12 @@ export function MatchBoardView(props: InteractionProps) {
     <>
       {!review && <p className="hint-line">先点左边的人，再点右边的选项；每个选项只能用一次，再点一次可取消。</p>}
       <div className="match-board">
+        {section.columns && (
+          <>
+            <p className="match-board-head">{section.columns.left}</p>
+            <p className="match-board-head">{section.columns.right}</p>
+          </>
+        )}
         <ol className="match-board-people" aria-label="题目">
           {example && (
             <li className="match-board-person is-example" aria-label={`例题：${example.prompt} — ${example.answer}`}>
