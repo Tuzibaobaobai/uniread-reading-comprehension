@@ -173,3 +173,10 @@ test('#107 a page waiting for its data shows the shared Loading mask, then remov
   await expect(page.locator('[role=status][aria-busy=true]')).toHaveCount(0, { timeout: 5000 });
   await expect(page.getByRole('button', { name: /练习模式/ })).toBeVisible();
 });
+
+test('#108 every 时文阅读 item uses the Week-Day card as its cover, not the article picture', async ({ page }) => {
+  await page.goto('/#/p/ci-g7');
+  await expect(page.locator('.item-row').first()).toBeVisible();
+  await expect(page.locator('.item-row-thumb.text-thumb')).toHaveCount(await page.locator('.item-row').count());
+  await expect(page.locator('img.item-row-thumb')).toHaveCount(0);
+});

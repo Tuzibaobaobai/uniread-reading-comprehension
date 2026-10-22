@@ -76,7 +76,6 @@ export function PlaylistPage() {
                       <span className="item-row-num">{it.order}</span>
                       <Thumb
                         className="item-row-thumb"
-                        src={it.thumbnail}
                         title={it.title}
                         kicker={it.paper ? t('playlist.kickerTest', { n: it.test, paper: PAPER_EN[it.paper] }) : t('playlist.kickerWeek', { n: it.week, day: DAY_NAME[it.day!] })}
                         accent={pl.accent}
