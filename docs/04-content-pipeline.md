@@ -125,7 +125,7 @@ PDF 是扫描件（无文字层、无答案页），内容靠 **页面图片 →
 - 原书错别字（如 “Time Tem Glasses”）：正文照录修正后的文字，在 `errata` 记录 `{original, corrected, note}`
 - 题目跨页、文章跨页：合并为同一个 item，`source.pdfPages` 列全
 
-## 7. UniRead 交付规约（[docs/14](14-agent-production-rules.md) v0.6）
+## 7. UniRead 交付规约（[docs/14](14-agent-production-rules.md) v0.10）
 
 每次生产或补齐都要满足以下要求，与上面的转录规范同时执行。
 
