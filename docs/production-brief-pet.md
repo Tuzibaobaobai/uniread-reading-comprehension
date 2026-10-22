@@ -26,7 +26,7 @@ Books (playlist `<pl>`, book number `<B>`): **pet1** = 校园版真题 1, **pet2
 |---|---|---|---|---|---|---|
 | Reading | `<pl>-t<N>-r` | `PET真题<B>-第<N>套-阅读` | 4(N−1)+1 | `exam_reading` 阅读 | 45 | 32 |
 | Writing | `<pl>-t<N>-w` | `PET真题<B>-第<N>套-写作` | 4(N−1)+2 | `exam_writing` 写作 | 45 | 40 |
-| Listening | `<pl>-t<N>-l` | `PET真题<B>-第<N>套-听力` | 4(N−1)+3 | `exam_listening` 听力 | 36 | 25 |
+| Listening | `<pl>-t<N>-l` | `PET真题<B>-第<N>套-听力` | 4(N−1)+3 | `exam_listening` 听力 | 30 | 25 |
 | Speaking | `<pl>-t<N>-s` | `PET真题<B>-第<N>套-口语` | 4(N−1)+4 | `exam_speaking` 口语 | 14 | 80 |
 
 `meta.exam` = `"B1 Preliminary for Schools"`. `paper`: `reading` / `writing` / `listening` / `speaking`. One section per Part (`part`, `label: "Part N"`, printed instruction). Question numbers as printed (each paper starts at 1), `id` = `q<number>`.

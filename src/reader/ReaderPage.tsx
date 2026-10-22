@@ -98,6 +98,9 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
     return null;
   });
   const [switchOpen, setSwitchOpen] = useState(false);
+  // listening exam: the recording is the clock — when time is up while it still plays, hand in when it ends (#109)
+  const [examAudioPlaying, setExamAudioPlaying] = useState(false);
+  const [submitAfterAudio, setSubmitAfterAudio] = useState(false);
 
   const submitted = attempt.status === 'submitted' && !!attempt.result;
   const result = attempt.result as Result | null;
@@ -161,6 +164,10 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
     if (exam) setReportOpen(true);
     void runJudge(submitted);
   };
+  useEffect(() => {
+    if (submitAfterAudio && !examAudioPlaying && attempt.mode === 'exam' && attempt.status !== 'submitted') void submit();
+  }, [submitAfterAudio, examAudioPlaying]); // eslint-disable-line react-hooks/exhaustive-deps
+
 
   /**
    * exam papers: start in practice or timed exam mode. An exam always starts from a clean sheet and the clock
@@ -169,6 +176,7 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
   const startMode = (mode: 'practice' | 'exam') => {
     setModeDialog(null);
     setSwitchOpen(false);
+    setSubmitAfterAudio(false);
     sessionStart.current = Date.now();
     const fresh = mode === 'exam' || attempt.status === 'submitted';
     const base = fresh ? newAttempt(item.id, item.status.version) : attempt;
@@ -389,6 +397,7 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
             locked={examMode}
             played={played}
             onPlayed={markPlayed}
+            onPlayingChange={setExamAudioPlaying}
           />
         ) : (
           !isExam(item) && <ArticlePane ref={articleRef} item={item} renderBlank={renderBlank} evidence={evidence} />
@@ -405,7 +414,15 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
             createPortal(
               <ModeSelect
                 mode={attempt.mode}
-                timer={examMode ? <ExamTimer endsAt={endsAt} onTimeUp={() => void submit()} /> : undefined}
+                timer={
+                  examMode ? (
+                    <ExamTimer
+                      endsAt={endsAt}
+                      waitingForAudio={submitAfterAudio}
+                      onTimeUp={() => (examAudioPlaying ? setSubmitAfterAudio(true) : void submit())}
+                    />
+                  ) : undefined
+                }
                 onSwitch={() => setSwitchOpen(true)}
               />,
               headSlot,

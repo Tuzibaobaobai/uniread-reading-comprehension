@@ -24,7 +24,7 @@ Books (playlist `<pl>`, book number `<B>`): **ket1** = 校园版真题 1, **ket2
 | paper | id | title / displayName | order | taskType | meta.durationMinutes | totalMarks |
 |---|---|---|---|---|---|---|
 | Reading & Writing | `<pl>-t<N>-rw` | `KET真题<B>-第<N>套-阅读与写作` | 3(N−1)+1 | `exam_reading_writing` 阅读与写作 | 60 | 60 |
-| Listening | `<pl>-t<N>-l` | `KET真题<B>-第<N>套-听力` | 3(N−1)+2 | `exam_listening` 听力 | 35 | 25 |
+| Listening | `<pl>-t<N>-l` | `KET真题<B>-第<N>套-听力` | 3(N−1)+2 | `exam_listening` 听力 | 30 | 25 |
 | Speaking | `<pl>-t<N>-s` | `KET真题<B>-第<N>套-口语` | 3(N−1)+3 | `exam_speaking` 口语 | 10 | 30 |
 
 ```json

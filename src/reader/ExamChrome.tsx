@@ -218,7 +218,7 @@ const clock = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60))
  * countdown for exam mode (Cambridge digital exam: minutes until the last 5, then minutes and seconds;
  * warning at 5 minutes, alert at 1 minute); calls onTimeUp once at 0
  */
-export function ExamTimer({ endsAt, onTimeUp }: { endsAt: number; onTimeUp: () => void }) {
+export function ExamTimer({ endsAt, onTimeUp, waitingForAudio = false }: { endsAt: number; onTimeUp: () => void; waitingForAudio?: boolean }) {
   const { t } = useTranslation();
   const [now, setNow] = useState(Date.now());
   const left = Math.max(0, Math.round((endsAt - now) / 1000));
@@ -230,6 +230,13 @@ export function ExamTimer({ endsAt, onTimeUp }: { endsAt: number; onTimeUp: () =
     if (left === 0) onTimeUp();
   }, [left === 0]); // eslint-disable-line react-hooks/exhaustive-deps
   const level = left <= 60 ? 'is-alert' : left <= 300 ? 'is-warn' : '';
+  // listening: time is up but the exam recording is still playing — hand in when it ends (#109)
+  if (left === 0 && waitingForAudio)
+    return (
+      <span className="exam-timer is-alert" role="timer" aria-live="polite">
+        {t('exam.timer.afterRecording')}
+      </span>
+    );
   return (
     <span className={`exam-timer ${level}`} role="timer" aria-live={left <= 300 ? 'polite' : 'off'} aria-label={t('exam.timer.label', { time: clock(left) })}>
       {t('exam.timer.left', { time: left > 300 ? t('exam.timer.minutes', { count: Math.ceil(left / 60) }) : clock(left) })}

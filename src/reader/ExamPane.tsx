@@ -21,6 +21,8 @@ interface Props {
   locked: boolean;
   played: Set<string>;
   onPlayed: (sectionId: string) => void;
+  /** exam mode: whether the exam recording is playing (time-up waits for it to end, #109) */
+  onPlayingChange?: (playing: boolean) => void;
 }
 
 /**
@@ -97,12 +99,17 @@ function ListeningStack({
   locked,
   played,
   onPlayed,
+  onPlayingChange,
   materialOf,
 }: Props & { current?: string; materialOf: (s: SectionT, withQuestion: boolean) => ReactNode }) {
   const { t } = useTranslation();
   const parts = item.sections.filter((s) => s.audio);
   const [active, setActive] = useState<string | null>(null);
   const seq = useExamSequence(parts, locked, played, onPlayed);
+  // the exam recording counts as running while a Part plays or, once started, while later Parts still wait to be
+  // played (e.g. the browser blocked the automatic continue and the Part's start button is shown)
+  const recordingPending = locked && (!!seq.playing || (played.size > 0 && parts.some((p) => !played.has(p.id))));
+  useEffect(() => onPlayingChange?.(recordingPending), [recordingPending]); // eslint-disable-line react-hooks/exhaustive-deps
   const moduleRefs = useRef(new Map<string, HTMLElement>());
 
   // bring the current question's Part into view when the learner moves to another Part
