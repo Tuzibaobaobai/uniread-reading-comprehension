@@ -25,4 +25,4 @@ UniRead reading-comprehension app. Start with docs/00-overview.md.
 - Verify every change locally (dev server, build, test, e2e). Never `git push` or deploy to Vercel without the user's explicit confirmation.
 
 ## Commands
-npm run dev · npm run validate · npm run build:index · npm test · npm run build · npm run e2e · npm run deploy (Vercel prebuilt + judge function; only after the user confirms)
+npm run dev · npm run validate · npm run build:index · npm test · npm run build · npm run e2e · npm run deploy (main → production; Vercel prebuilt + API functions; only after the user confirms) · npm run deploy:dev (develop → Vercel project uniread-reading-comprehension-dev for reviewing the next milestone; only after the user confirms)

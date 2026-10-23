@@ -12,7 +12,8 @@
     "test": "vitest run",
     "e2e": "playwright test",
     "build:index": "tsx scripts/build-index.ts",
-    "deploy": "vercel build --prod && node scripts/vercel-functions.mjs && vercel deploy --prebuilt --prod"
+    "deploy": "vercel build --prod && node scripts/vercel-functions.mjs && vercel deploy --prebuilt --prod",
+    "deploy:dev": "node scripts/deploy-dev.mjs"
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.20",
