@@ -10,7 +10,7 @@
  */
 import { createHash } from 'node:crypto';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
-import { isExam, type InlineT, type ItemKeyT, type ItemT, type PlaylistT, type QuestionT } from '../schema/index.ts';
+import { isExam, type InlineT, type ItemKeyT, type ItemT, type PlaylistT, type QuestionT, type VocabDayItemT } from '../schema/index.ts';
 import { materialIdOf, resourceIdOf, resourceTitle } from './selection-json.ts';
 
 const root = new URL('../content/', import.meta.url);
@@ -28,6 +28,8 @@ const KIND_ZH: Record<QuestionT['interaction']['kind'], string> = {
   extendedText: '开放问答',
   order: '连词成句',
   speaking: '口语录音（AI 评分）',
+  wordProfile: '音标写词、词性、中文',
+  wordFamily: '词形拓展（相关词 + 中文）',
 };
 const PLATFORM: Record<string, string> = {
   choice: '可适配（single-selection）',
@@ -37,6 +39,8 @@ const PLATFORM: Record<string, string> = {
   match: '待平台适配（含一对多）',
   order: '待平台适配',
   extendedText: '待平台适配（含 LLM 评分）',
+  wordProfile: '待平台适配（词汇天天练新题型，#110）',
+  wordFamily: '待平台适配（词汇天天练新题型，#110）',
 };
 
 const ids = process.argv.slice(2).length
@@ -72,6 +76,14 @@ for (const pl of ids) {
   out.push('| Item | 原书页（PDF／书页） | 难度（原书“难度 N 级”） | 词数 | 建议用时 | hasVideo | 图片资产 | 缩略图策略 |');
   out.push('| --- | --- | --- | --- | --- | --- | --- | --- |');
   for (const it of items) {
+    // 词汇天天练 (#110): no article; the day's lexicon entries are its material
+    if ('format' in it && (it as unknown as VocabDayItemT).format === 'vocab-day') {
+      const d = it as unknown as VocabDayItemT;
+      out.push(
+        `| \`${d.id}\` | ${d.source.pdfPages.join(',')}／${d.source.bookPages.join(',')} | 无难度级（中考考纲词汇） | ${d.entryIds.length} 个词条 | ${d.meta.suggestedMinutes} 分钟（制作方估算） | 否 | 词条音频 \`assets/lexicons/${d.lexicon}/<entryId>.mp3\`（TTS 生成） | 平台占位（RC 以标题生成文字卡） |`,
+      );
+      continue;
+    }
     if (isExam(it)) {
       const audio = it.sections.flatMap((s) => (s.audio ? [`\`${s.audio.src}\``] : [])).join('<br>') || '无';
       out.push(

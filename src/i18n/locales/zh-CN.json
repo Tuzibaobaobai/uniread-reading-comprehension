@@ -16,7 +16,9 @@
     "examMeta_other": "共{{count}}份试卷 · {{band}}",
     "articleMeta_one": "共{{count}}篇 · L{{range}}",
     "articleMeta_other": "共{{count}}篇 · L{{range}}",
-    "questionTypes": "题型"
+    "questionTypes": "题型",
+    "vocabMeta_one": "共{{count}}天 · {{band}}",
+    "vocabMeta_other": "共{{count}}天 · {{band}}"
   },
   "playlist": {
     "notFound": "找不到该合集",
@@ -35,7 +37,11 @@
     "progress": "完成进度",
     "testScoreTitle": "四项 Cambridge English Scale 分数的平均（估算）；已完成 {{done}}/4 项",
     "testScore": "成绩：{{score}} · {{grade}}",
-    "testScorePending": "成绩：待完成所有考试"
+    "testScorePending": "成绩：待完成所有考试",
+    "entries_one": "{{count}} 个词条",
+    "entries_other": "{{count}} 个词条",
+    "vocabDays": "每日练习",
+    "kickerDay": "Day {{n}}"
   },
   "reader": {
     "backToPlaylist": "返回合集",
@@ -296,5 +302,82 @@
     "switchLabel": "切换题目",
     "switchConfirm": "切换后，已经写的内容会被清空。确定切换吗？",
     "switchAndClear": "切换并清空"
+  },
+  "vocab": {
+    "tabs": "学习模式",
+    "tabVocab": "Vocabulary",
+    "tabQuiz": "Quiz",
+    "list": {
+      "count_one": "共 {{count}} 个词条",
+      "count_other": "共 {{count}} 个词条",
+      "tally": "认识 {{known}} · 不认识 {{unknown}}",
+      "cover": "遮住释义",
+      "reveal": "看释义",
+      "known": "认识",
+      "unknown": "不认识"
+    },
+    "entry": {
+      "star": "重点词",
+      "play": "朗读 {{word}}",
+      "level": "三级",
+      "tip": "名师点拨",
+      "phrases": "常用词组",
+      "family": "词形拓展",
+      "synonyms": "近义",
+      "antonyms": "反义",
+      "proverbs": "谚语",
+      "more": "展开：{{list}}",
+      "less": "收起",
+      "playExample": "朗读例句 {{n}}"
+    },
+    "voice": {
+      "start": "语音输入",
+      "stop": "停止录音",
+      "denied": "无法使用麦克风，请在浏览器设置中允许",
+      "empty": "没有听清，请再说一次",
+      "failed": "语音识别暂时不可用，请直接输入"
+    },
+    "hint": {
+      "ask": "提示",
+      "askFor": "{{label}}：提示（答对得一半分）",
+      "tiles": "提示字母，按顺序点选",
+      "undo": "撤销",
+      "used": "已提示",
+      "failed": "提示暂时不可用",
+      "half": "用了提示，得一半分"
+    },
+    "quiz": {
+      "sectionProgress": "已完成 {{done}}/{{total}}",
+      "sectionDot": "第{{label}}大题，已完成 {{done}}/{{total}}",
+      "bank": "可选词组（点一下标记已用）",
+      "kept": "上次已答对",
+      "word": "第 {{n}} 题：单词",
+      "pos": "第 {{n}} 题：词性",
+      "zh": "第 {{n}} 题：中文释义",
+      "familyWord": "第 {{n}} 题：{{pos}} 单词",
+      "familyZh": "第 {{n}} 题：{{pos}} 中文释义",
+      "translate": "第 {{n}} 题：英文译文",
+      "unanswered_one": "还有 {{count}} 题没有答完",
+      "unanswered_other": "还有 {{count}} 题没有答完",
+      "phWord": "英文单词",
+      "phZh": "中文释义",
+      "phTranslate": "写出英文译文"
+    },
+    "result": {
+      "passed": "恭喜，通过了！",
+      "failed": "这次没有通过，再练一次吧",
+      "score": "得分 {{score}} / {{total}}（{{percent}}%，及格线 {{pass}}%）",
+      "pending": "中译英评分中…",
+      "view": "查看答案",
+      "viewHint": "逐题看正确答案、解析和词条",
+      "retryWrong": "只练错题",
+      "retryWrongHint": "重做 {{count}} 道没全对的题，答对的保留",
+      "retryAll": "全部重做",
+      "retryAllHint": "清空答案，从头再做",
+      "back": "返回成绩",
+      "references": "参考译文",
+      "points": "{{points}}/{{max}} 分",
+      "openEntry": "查看词条"
+    }
   }
 }

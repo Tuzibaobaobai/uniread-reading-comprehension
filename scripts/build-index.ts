@@ -4,7 +4,7 @@
  */
 import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { Catalog, Item, Playlist, SCHEMA_VERSION, isExam, type CatalogT, type ExamItemT, type ItemT } from '../schema/index.ts';
+import { AnyItem, Catalog, Playlist, SCHEMA_VERSION, isExam, isVocabDay, type AnyItemT, type CatalogT, type ExamItemT, type ItemT, type VocabDayItemT } from '../schema/index.ts';
 import { allQuestions } from '../src/lib/grading.ts';
 import { passageText } from '../src/lib/judge.ts';
 
@@ -20,13 +20,21 @@ for (const pl of readdirSync(join(ROOT, 'playlists')).sort()) {
   if (!existsSync(pPath)) continue;
   const playlist = Playlist.parse(readJson(pPath));
   const itemDir = join(ROOT, 'playlists', pl, 'items');
-  const items: ItemT[] = (existsSync(itemDir) ? readdirSync(itemDir) : [])
+  const all: AnyItemT[] = (existsSync(itemDir) ? readdirSync(itemDir) : [])
     .filter((f) => f.endsWith('.json'))
-    .map((f) => Item.parse(readJson(join(itemDir, f))))
+    .map((f) => AnyItem.parse(readJson(join(itemDir, f))))
     .sort((a, b) => a.order - b.order);
 
-  playlist.itemIds = items.map((i) => i.id);
+  playlist.itemIds = all.map((i) => i.id);
   writeFileSync(pPath, JSON.stringify(playlist, null, 2) + '\n');
+
+  // 词汇天天练 (#110): one item per day
+  const days = all.filter(isVocabDay);
+  if (days.length) {
+    catalog.playlists.push(vocabSummary(playlist, days));
+    continue;
+  }
+  const items = all as ItemT[];
 
   const diffs = items.flatMap((i) => (isExam(i) ? [] : [i.meta.difficulty]));
   const exam = items.length > 0 && items.every(isExam);
@@ -75,6 +83,38 @@ for (const pl of readdirSync(join(ROOT, 'playlists')).sort()) {
           },
     ),
   });
+}
+
+function vocabSummary(playlist: ReturnType<typeof Playlist.parse>, days: VocabDayItemT[]): CatalogT['playlists'][number] {
+  const words = (d: VocabDayItemT) => d.entryIds.length;
+  return {
+    id: playlist.id,
+    format: 'vocab',
+    title: playlist.title,
+    shortTitle: playlist.shortTitle,
+    cover: playlist.cover,
+    ...(playlist.banner ? { banner: playlist.banner } : {}),
+    accent: playlist.accent,
+    gradeBand: playlist.gradeBand,
+    description: playlist.description,
+    itemCount: days.length,
+    // the entries learnt (words + phrases), shown where other playlists show their word count
+    totalWords: days.reduce((s, d) => s + words(d), 0),
+    difficultyRange: [0, 0],
+    taskTypes: ['vocab_day'],
+    items: days.map((d) => ({
+      id: d.id,
+      order: d.order,
+      dayNumber: d.day,
+      entryCount: words(d),
+      title: d.title,
+      displayName: d.displayName,
+      taskType: d.taskType,
+      wordCount: 0,
+      suggestedMinutes: d.meta.suggestedMinutes,
+      questionCount: allQuestions(d).length,
+    })),
+  };
 }
 
 // 时文阅读 playlists by grade (G3 … G9), then exam papers (KET, PET …) — not by folder name

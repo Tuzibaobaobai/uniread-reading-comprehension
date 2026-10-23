@@ -16,7 +16,9 @@
     "examMeta_other": "{{count}} papers · {{band}}",
     "articleMeta_one": "{{count}} article · L{{range}}",
     "articleMeta_other": "{{count}} articles · L{{range}}",
-    "questionTypes": "Question types"
+    "questionTypes": "Question types",
+    "vocabMeta_one": "{{count}} day · {{band}}",
+    "vocabMeta_other": "{{count}} days · {{band}}"
   },
   "playlist": {
     "notFound": "Playlist not found",
@@ -35,7 +37,11 @@
     "progress": "Progress",
     "testScoreTitle": "Average of the four skills' Cambridge English Scale scores (estimate); {{done}}/4 skills done",
     "testScore": "Result: {{score}} · {{grade}}",
-    "testScorePending": "Result: complete all papers"
+    "testScorePending": "Result: complete all papers",
+    "entries_one": "{{count}} entry",
+    "entries_other": "{{count}} entries",
+    "vocabDays": "Daily practice",
+    "kickerDay": "Day {{n}}"
   },
   "reader": {
     "backToPlaylist": "Back to playlist",
@@ -296,5 +302,82 @@
     "switchLabel": "Switch question",
     "switchConfirm": "Switching clears what you have written. Switch anyway?",
     "switchAndClear": "Switch and clear"
+  },
+  "vocab": {
+    "tabs": "Mode",
+    "tabVocab": "Vocabulary",
+    "tabQuiz": "Quiz",
+    "list": {
+      "count_one": "{{count}} entry",
+      "count_other": "{{count}} entries",
+      "tally": "Known {{known}} · Not yet {{unknown}}",
+      "cover": "Hide meanings",
+      "reveal": "Show meaning",
+      "known": "I know it",
+      "unknown": "Not yet"
+    },
+    "entry": {
+      "star": "Key word",
+      "play": "Play {{word}}",
+      "level": "Level 3",
+      "tip": "Teacher's tip",
+      "phrases": "Phrases",
+      "family": "Word family",
+      "synonyms": "Synonyms",
+      "antonyms": "Antonyms",
+      "proverbs": "Proverbs",
+      "more": "More: {{list}}",
+      "less": "Less",
+      "playExample": "Play example {{n}}"
+    },
+    "voice": {
+      "start": "Voice input",
+      "stop": "Stop recording",
+      "denied": "Microphone not available — allow it in the browser settings",
+      "empty": "Didn't catch that — please say it again",
+      "failed": "Speech recognition is unavailable — please type"
+    },
+    "hint": {
+      "ask": "Hint",
+      "askFor": "{{label}}: hint (half marks if correct)",
+      "tiles": "Hint letters — tap them in order",
+      "undo": "Undo",
+      "used": "Hint used",
+      "failed": "Hint unavailable",
+      "half": "hint used, half marks"
+    },
+    "quiz": {
+      "sectionProgress": "{{done}}/{{total}} done",
+      "sectionDot": "Part {{label}}, {{done}}/{{total}} done",
+      "bank": "Phrases (tap to mark as used)",
+      "kept": "Correct last time",
+      "word": "Question {{n}}: word",
+      "pos": "Question {{n}}: part of speech",
+      "zh": "Question {{n}}: Chinese meaning",
+      "familyWord": "Question {{n}}: {{pos}} word",
+      "familyZh": "Question {{n}}: {{pos}} Chinese meaning",
+      "translate": "Question {{n}}: English translation",
+      "unanswered_one": "{{count}} question is not finished",
+      "unanswered_other": "{{count}} questions are not finished",
+      "phWord": "English word",
+      "phZh": "Chinese meaning",
+      "phTranslate": "Write the English translation"
+    },
+    "result": {
+      "passed": "Congratulations! You've passed!",
+      "failed": "Not passed this time — try again",
+      "score": "Score {{score}} / {{total}} ({{percent}}%, pass mark {{pass}}%)",
+      "pending": "Marking translations…",
+      "view": "View Answers",
+      "viewHint": "Answers, explanations and entries for each question",
+      "retryWrong": "Retry mistakes",
+      "retryWrongHint": "Redo the {{count}} questions not fully right; correct ones are kept",
+      "retryAll": "Start over",
+      "retryAllHint": "Clear all answers and start again",
+      "back": "Back to result",
+      "references": "Reference translation",
+      "points": "{{points}}/{{max}} pts",
+      "openEntry": "Open entry"
+    }
   }
 }

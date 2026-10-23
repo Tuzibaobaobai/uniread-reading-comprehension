@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { isExam, type AttemptT, type ItemKeyT, type ItemT } from '@schema';
+import { isExam, isVocabDay, type AnyItemT, type AttemptT, type ItemKeyT, type ItemT } from '@schema';
 import { staticContent } from '@/lib/content';
 import { localAttempts, newAttempt } from '@/lib/storage';
 import { isScored, type Result } from '@/lib/grading';
@@ -36,12 +36,13 @@ import {
 } from './interactions';
 import { blankCorrect, blankOwners, blankText, correctBlankText, evidenceOf, flatten, pageAnswered, showFirstLetter, type Responses } from './model';
 import OverflowTip from '@/components/OverflowTip';
+import { VocabDayPage } from '@/vocab/VocabDayPage';
 
 export function ReaderPage() {
   const { playlistId = '', itemId = '' } = useParams();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const [item, setItem] = useState<ItemT | null>(null);
+  const [item, setItem] = useState<AnyItemT | null>(null);
   const [error, setError] = useState<string | null>(null);
   // header slot for the reader's own controls (exam mode select, #102)
   const [headSlot, setHeadSlot] = useState<HTMLDivElement | null>(null);
@@ -62,7 +63,12 @@ export function ReaderPage() {
       </header>
       {error && <p className="error">{t('common.loadFailed', { message: error })}</p>}
       {!item && !error && <Loading />}
-      {item && <Reader key={item.id} item={item} headSlot={headSlot} />}
+      {item &&
+        (isVocabDay(item) ? (
+          <VocabDayPage key={item.id} item={item} headSlot={headSlot} />
+        ) : (
+          <Reader key={item.id} item={item} headSlot={headSlot} />
+        ))}
     </div>
   );
 }

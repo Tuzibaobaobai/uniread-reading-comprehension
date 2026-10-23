@@ -2,7 +2,7 @@
  * POST /api/rc/speak {itemId, questionId, turnId, audio (base64), mime} → {text}
  * Speech-to-text for one recorded answer in a speaking task (KET 口语). Only transcribes: the whole
  * exchange is scored afterwards by /api/rc/judge with the Cambridge speaking scale.
- * API key: SILICONFLOW_API_KEY (same as the judge); model ASR_MODEL (default FunAudioLLM/SenseVoiceSmall).
+ * API key: SILICONFLOW_API_KEY (same as the judge); model ASR_MODEL (default Qwen/Qwen3-ASR-1.7B: no errors, ~0.2 s in the #110 test; SenseVoice 1–4 %, ~2 s).
  */
 import { allQuestions } from '../src/lib/grading';
 import { HttpError, jsonPost, loadItem } from './http';
@@ -41,7 +41,7 @@ export function asrFromEnv(env: Record<string, string | undefined> = process.env
   return siliconFlowAsr({
     baseUrl: env.JUDGE_BASE_URL ?? 'https://api.siliconflow.cn/v1',
     apiKey: env.SILICONFLOW_API_KEY,
-    model: env.ASR_MODEL ?? 'FunAudioLLM/SenseVoiceSmall',
+    model: env.ASR_MODEL ?? 'Qwen/Qwen3-ASR-1.7B',
   });
 }
 

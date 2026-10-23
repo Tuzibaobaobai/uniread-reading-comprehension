@@ -14,6 +14,8 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 const TYPES = {
   KET: { level: 'A2 Key for Schools', zh: '剑桥 KET 青少版', accent: '#1E6E82', accentLight: '#8FD6E3' },
   PET: { level: 'B1 Preliminary for Schools', zh: '剑桥 PET 青少版', accent: '#8C2F39', accentLight: '#F2B8BE' },
+  // 词汇天天练 (#110): same layout, a word instead of the exam name
+  ZKV: { level: 'Shanghai Zhongkao 2026', zh: '上海中考', accent: '#2F6B4F', accentLight: '#A8DDBF', big: 'Vocab', title: '考纲词汇', css: '.exam { font-size: 300px; letter-spacing: -8px; top: 190px; }' },
 };
 /** one entry per playlist: the series subtitle and what the book contains */
 const COVERS = {
@@ -23,6 +25,7 @@ const COVERS = {
   pet1: { type: 'PET', series: '校园版真题 1', detail: '4 套 · 阅读 · 写作 · 听力 · 口语' },
   pet2: { type: 'PET', series: '校园版真题 2', detail: '4 套 · 阅读 · 写作 · 听力 · 口语' },
   pet3: { type: 'PET', series: '校园版真题 3', detail: '4 套 · 阅读 · 写作 · 听力 · 口语' },
+  zkv: { type: 'ZKV', series: '考纲词汇天天练', detail: '用法手册词条 · 70 天练习' },
 };
 
 const font = (pkg, file) => pathToFileURL(resolve('node_modules/@fontsource', pkg, file)).href;
@@ -64,12 +67,13 @@ const html = ({ type, series, detail }, variant = 'cover') => {
   .band { position: absolute; left: 0; right: 0; bottom: 0; height: 200px; background: ${t.accent}; padding: 34px 72px 0 112px; }
   .series { font-family: 'Noto Sans SC'; font-weight: 900; font-size: 84px; line-height: 1.1; }
   .detail { margin-top: 10px; font-family: 'Noto Sans SC'; font-weight: 700; font-size: 34px; color: rgba(255,255,255,.85); }
+${t.css ?? ''}
 ${variant === 'banner' ? BANNER_CSS : ''}
 </style></head><body><div class="cover">
   <div class="rule"></div>
   <div class="top"><span>${t.level}</span><span class="zh">${t.zh}</span></div>
-  <div class="exam">${type}</div>
-  <div class="title">官方真题</div>
+  <div class="exam">${t.big ?? type}</div>
+  <div class="title">${t.title ?? '官方真题'}</div>
   <div class="band"><div class="series">${series}</div><div class="detail">${detail}</div></div>
 </div></body></html>`;
 };
@@ -90,8 +94,10 @@ for (const id of ids) {
   writeFileSync(tmp, html(COVERS[id], variant));
   await page.goto(pathToFileURL(tmp).href, { waitUntil: 'networkidle' });
   await page.evaluate(() => document.fonts.ready);
-  const missing = await page.evaluate(() =>
-    [['900 100px "Source Sans 3"', 'KET'], ['900 100px "Noto Sans SC"', '官方真题']].filter(([f, s]) => !document.fonts.check(f, s)).map(([f]) => f),
+  const t = TYPES[COVERS[id].type];
+  const missing = await page.evaluate(
+    (checks) => checks.filter(([f, s]) => !document.fonts.check(f, s)).map(([f]) => f),
+    [['900 100px "Source Sans 3"', t.big ?? 'KET'], ['900 100px "Noto Sans SC"', t.title ?? '官方真题']],
   );
   if (missing.length) throw new Error(`fonts not loaded: ${missing.join(', ')}`);
   await page.locator('.cover').screenshot({ path: `content/assets/${id}/${variant}.jpg`, type: 'jpeg', quality: 90 });

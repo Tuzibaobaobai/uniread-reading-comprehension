@@ -1,16 +1,19 @@
 // Generate the examiner's lines of speaking papers as audio with Volcano Engine TTS (HTTP V1, non-streaming).
 //   node scripts/tts.mjs <playlist> [--voice en_female_amanda_mars_bigtts] [--partner-voice en_male_adam_mars_bigtts] [--speed 1.0] [--force]
+//   node scripts/tts.mjs --lexicon <lexicon> [--voice …] [--force]   词汇天天练 (#110): every entry's headword and examples →
+//     content/assets/lexicons/<lx>/<entryId>.mp3 and <entryId>-x<N>.mp3, set as entry.audio
 // Credentials: VOLC_TTS_APPID / VOLC_TTS_TOKEN in .env.local (never committed). Writes
 // content/assets/<pl>/<itemId>-<qid>-<turnId>.mp3 (gitignored, shipped in rc-media-<pl>.zip) and sets
 // turn.audio {src, seconds} in the items. Existing files are kept unless --force (re-generation costs characters).
 // Docs: https://docs.volcengine.com/docs/DoubaoVoice/HTTPone-timecompositenon-streaminginterface-V1notrecommended
-import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { randomUUID } from 'node:crypto';
 import { join } from 'node:path';
 
 const args = process.argv.slice(2);
-const pl = args.find((a) => !a.startsWith('--'));
+const lexicon = args.includes('--lexicon') ? args[args.indexOf('--lexicon') + 1] : null;
+const pl = lexicon ?? args.find((a) => !a.startsWith('--'));
 const opt = (name, fallback) => (args.includes(`--${name}`) ? args[args.indexOf(`--${name}`) + 1] : fallback);
 const voice = opt('voice', 'en_female_amanda_mars_bigtts'); // US English, calm and formal (teacher-examiner)
 const partnerVoice = opt('partner-voice', 'en_male_adam_mars_bigtts'); // US English male: the AI partner in PET Part 3
@@ -58,9 +61,44 @@ async function synthesize(text, voiceType) {
   }
 }
 
-const dir = join('content/playlists', pl, 'items');
 let made = 0;
 let chars = 0;
+const seconds = (file) => Math.round(Number(/estimated duration: ([\d.]+)/.exec(execFileSync('afinfo', [file], { encoding: 'utf8' }))[1]) * 10) / 10;
+
+if (lexicon) {
+  /** said as words: sb. / sth. / one's are reading abbreviations */
+  const spoken = (t) => t.replace(/\bsb\./g, 'somebody').replace(/\bsth\./g, 'something').replace(/\s+/g, ' ').trim();
+  const dirL = join('content/lexicons', lexicon, 'entries');
+  mkdirSync(join('content/assets/lexicons', lexicon), { recursive: true });
+  const clip = async (src, text) => {
+    const file = join('content', src);
+    if (force || !existsSync(file)) {
+      writeFileSync(file, await synthesize(spoken(text), voice));
+      made++;
+      chars += text.length;
+    }
+    return { src, seconds: seconds(file) };
+  };
+  for (const f of readdirSync(dirL).filter((f) => f.endsWith('.json')).sort()) {
+    const path = join(dirL, f);
+    const entry = JSON.parse(readFileSync(path, 'utf8'));
+    const base = `assets/lexicons/${lexicon}/${entry.id}`;
+    const audio = { word: await clip(`${base}.mp3`, entry.headword) };
+    if (entry.examples.length) {
+      audio.examples = [];
+      for (const [i, x] of entry.examples.entries()) audio.examples.push(await clip(`${base}-x${i + 1}.mp3`, x.en.map((n) => n.v ?? '').join('')));
+    }
+    if (JSON.stringify(entry.audio) !== JSON.stringify(audio)) {
+      // keep the field order of the schema: audio before errata / source
+      const { errata, source, status, ...rest } = entry;
+      writeFileSync(path, JSON.stringify({ ...rest, audio, ...(errata ? { errata } : {}), source, status }, null, 2) + '\n');
+    }
+  }
+  console.log(`${made} clip(s) synthesised (${chars} characters, ${voice}, speed ${speed}); entries updated`);
+  process.exit(0);
+}
+
+const dir = join('content/playlists', pl, 'items');
 for (const f of readdirSync(dir).filter((f) => f.endsWith('.json')).sort()) {
   const path = join(dir, f);
   const raw = readFileSync(path, 'utf8');
@@ -77,9 +115,9 @@ for (const f of readdirSync(dir).filter((f) => f.endsWith('.json')).sort()) {
           made++;
           chars += t.text.length;
         }
-        const seconds = Math.round(Number(/estimated duration: ([\d.]+)/.exec(execFileSync('afinfo', [file], { encoding: 'utf8' }))[1]) * 10) / 10;
-        if (t.audio?.src !== src || t.audio?.seconds !== seconds) {
-          t.audio = { src, seconds };
+        const secs = seconds(file);
+        if (t.audio?.src !== src || t.audio?.seconds !== secs) {
+          t.audio = { src, seconds: secs };
           changed = true;
         }
       }

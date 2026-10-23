@@ -11,6 +11,7 @@ import '@fontsource/noto-sans-sc/500.css';
 import '@fontsource/noto-sans-sc/700.css';
 import './styles/global.css';
 import './styles/app.css';
+import './styles/vocab.css';
 import { PlaylistsPage } from './pages/PlaylistsPage';
 import { PlaylistPage } from './pages/PlaylistPage';
 import { ReaderPage } from './reader/ReaderPage';

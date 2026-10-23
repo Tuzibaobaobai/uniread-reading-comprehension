@@ -4,6 +4,8 @@
 //   POST /api/rc/grade  server/grade.ts   — objective grading + key after submit
 //   POST /api/rc/judge  server/judge.ts   — LLM judge (SILICONFLOW_API_KEY)
 //   POST /api/rc/speak  server/speak.ts   — speech-to-text for speaking answers (SILICONFLOW_API_KEY)
+//   POST /api/rc/hint   server/hint.ts    — 词汇天天练 hint tiles from the key
+//   POST /api/rc/transcribe server/transcribe.ts — 词汇天天练 voice input (SILICONFLOW_API_KEY)
 import { build } from 'esbuild';
 import { cp, glob, mkdir, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
@@ -17,7 +19,7 @@ for await (const leaked of glob('.vercel/output/static/playlists/*/keys')) {
   process.exit(1);
 }
 
-for (const name of ['grade', 'judge', 'speak']) {
+for (const name of ['grade', 'judge', 'speak', 'hint', 'transcribe']) {
   const out = `.vercel/output/functions/api/rc/${name}.func`;
   await rm(out, { recursive: true, force: true });
   await mkdir(out, { recursive: true });
@@ -34,7 +36,7 @@ for (const name of ['grade', 'judge', 'speak']) {
   await cp('content/playlists', `${out}/content/playlists`, { recursive: true });
   await writeFile(
     `${out}/.vc-config.json`,
-    JSON.stringify({ runtime: 'nodejs22.x', handler: 'index.mjs', launcherType: 'Nodejs', maxDuration: name === 'grade' ? 10 : name === 'judge' ? 60 : 30 }, null, 2),
+    JSON.stringify({ runtime: 'nodejs22.x', handler: 'index.mjs', launcherType: 'Nodejs', maxDuration: name === 'hint' ? 10 : name === 'grade' ? 20 : name === 'judge' ? 60 : 30 }, null, 2),
   );
   console.log(`${name} function → ${out}`);
 }

@@ -137,7 +137,7 @@
 ## 8. Cambridge 评分标准模式（KET / PET 写作与口语）
 - Key 的 `rubricType` 为 `cambridge_a2_writing` / `cambridge_a2_speaking` 时，提示改用 `cambridge-a2-v1`：Cambridge A2 Key 官方评分量表（写作：Content / Organisation / Language；口语：Grammar & Vocabulary / Interactive Communication / Global Achievement，各 0–5，5/3/1 档描述）。答案册中带分数的官方范文作为 anchors。
 - 模型对每个维度返回 `band`；得分 = 各维度 band 之和，代码校验并以 band 为准（模型自报总分不一致时降低置信度）。
-- 口语：录音由 `/api/rc/speak`（SiliconFlow 语音识别，`ASR_MODEL` 默认 `FunAudioLLM/SenseVoiceSmall`）转写，整段问答一起评分；只凭转写无法评估发音，界面显示“发音：未评估”，Cambridge 分数估算按其余三项折算。
+- 口语：录音由 `/api/rc/speak`（SiliconFlow 语音识别，`ASR_MODEL` 默认 `Qwen/Qwen3-ASR-1.7B`）转写，整段问答一起评分；只凭转写无法评估发音，界面显示“发音：未评估”，Cambridge 分数估算按其余三项折算。
 - 评分结果界面固定显示“评分遵照 Cambridge English A2 Key 官方评分标准……由 AI 评估，仅供参考”（文案见 `CAMBRIDGE_NOTE_ZH`）。
 
 ## 9. B1 Preliminary（PET）

@@ -1,0 +1,1010 @@
+{
+  "schemaVersion": "1.0",
+  "format": "vocab-day",
+  "id": "zkv-d01",
+  "playlistId": "zkv",
+  "order": 1,
+  "day": 1,
+  "unit": "words",
+  "title": "第1天 ability – against",
+  "displayName": "第1天 ability – against",
+  "taskType": {
+    "code": "vocab_day",
+    "labelZh": "词汇天天练"
+  },
+  "wordRange": {
+    "from": "e-ability",
+    "to": "e-against"
+  },
+  "lexicon": "zkv",
+  "entryIds": [
+    "e-ability",
+    "e-able",
+    "e-about",
+    "e-above",
+    "e-abroad",
+    "e-accept",
+    "e-accident",
+    "e-accurate",
+    "e-ache",
+    "e-achieve",
+    "e-across",
+    "e-act",
+    "e-active",
+    "e-activity",
+    "e-actor",
+    "e-actress",
+    "e-actually",
+    "e-add",
+    "e-addition",
+    "e-address",
+    "e-adult",
+    "e-advantage",
+    "e-adventure",
+    "e-advertisement",
+    "e-advice",
+    "e-advise",
+    "e-affect",
+    "e-afford",
+    "e-afraid",
+    "e-africa",
+    "e-after",
+    "e-afternoon",
+    "e-again",
+    "e-against"
+  ],
+  "meta": {
+    "totalPoints": 100,
+    "suggestedMinutes": 25,
+    "passPercent": 60
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "一",
+      "instruction": "根据所给音标写出英语单词、词性及中文释义",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈæksɪdənt/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-accident"
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/əˈbrɔːd/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-abroad"
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/əˈdres/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-address"
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ədˈvɜːtɪsmənt/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-advertisement"
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/əˈfɔːd/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-afford"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "二",
+      "instruction": "根据所给中文写出英语单词",
+      "questions": [
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "接受；同意 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b6",
+                "number": 6
+              }
+            ]
+          },
+          "entryRef": "e-accept"
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "达到；获得 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b7",
+                "number": 7
+              }
+            ]
+          },
+          "entryRef": "e-achieve"
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "疼；痛 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b8",
+                "number": 8
+              }
+            ]
+          },
+          "entryRef": "e-ache"
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "影响；使感染 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b9",
+                "number": 9
+              }
+            ]
+          },
+          "entryRef": "e-affect"
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "准确的 adj. "
+              },
+              {
+                "t": "blank",
+                "id": "b10",
+                "number": 10
+              }
+            ]
+          },
+          "entryRef": "e-accurate"
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "害怕的；担心的；畏惧的 adj. "
+              },
+              {
+                "t": "blank",
+                "id": "b11",
+                "number": 11
+              }
+            ]
+          },
+          "entryRef": "e-afraid"
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "再一次；再，又 adv. "
+              },
+              {
+                "t": "blank",
+                "id": "b12",
+                "number": 12
+              }
+            ]
+          },
+          "entryRef": "e-again"
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "成年人 n. 成年人 adj. "
+              },
+              {
+                "t": "blank",
+                "id": "b13",
+                "number": 13
+              }
+            ]
+          },
+          "entryRef": "e-adult"
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "在……上面 prep. （水平）超过，更多，更大 adv. "
+              },
+              {
+                "t": "blank",
+                "id": "b14",
+                "number": 14
+              }
+            ]
+          },
+          "entryRef": "e-above"
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "添加，增加 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b15",
+                "number": 15
+              }
+            ]
+          },
+          "entryRef": "e-add"
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "在……之后；在……后面 prep. 在后；后来 adv. 在……以后 conj. "
+              },
+              {
+                "t": "blank",
+                "id": "b16",
+                "number": 16
+              }
+            ]
+          },
+          "entryRef": "e-after"
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "下午 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b17",
+                "number": 17
+              }
+            ]
+          },
+          "entryRef": "e-afternoon"
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "非洲 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b18",
+                "number": 18
+              }
+            ]
+          },
+          "entryRef": "e-africa"
+        },
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "冒险；冒险经历；冒险精神 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b19",
+                "number": 19
+              }
+            ]
+          },
+          "entryRef": "e-adventure"
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "有利条件；优势；优点 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b20",
+                "number": 20
+              }
+            ]
+          },
+          "entryRef": "e-advantage"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "三",
+      "instruction": "根据所给单词和词性，写出相关的单词和中文释义",
+      "questions": [
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 4,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "enable",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "adj."
+              },
+              {
+                "id": "f2",
+                "pos": "n."
+              }
+            ]
+          },
+          "entryRef": "e-ability"
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 4,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "action",
+              "pos": "n."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "adj."
+              },
+              {
+                "id": "f2",
+                "pos": "v./n."
+              },
+              {
+                "id": "f3",
+                "pos": "n."
+              },
+              {
+                "id": "f4",
+                "pos": "n."
+              },
+              {
+                "id": "f5",
+                "pos": "n."
+              }
+            ]
+          },
+          "entryRef": "e-act"
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 4,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "actual",
+              "pos": "adj."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "adv."
+              }
+            ]
+          },
+          "entryRef": "e-actually"
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 4,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "advice",
+              "pos": "n."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "v."
+              }
+            ]
+          },
+          "entryRef": "e-advice"
+        },
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 4,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "add",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "n."
+              }
+            ]
+          },
+          "entryRef": "e-add"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "label": "四",
+      "instruction": "用括号中所给单词的适当形式完成下列句子，每空格限填一词",
+      "questions": [
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Can you swim "
+              },
+              {
+                "t": "blank",
+                "id": "b26",
+                "number": 26,
+                "hint": {
+                  "baseWord": "cross"
+                }
+              },
+              {
+                "t": "text",
+                "v": " the river?"
+              }
+            ]
+          },
+          "entryRef": "e-across"
+        },
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "A seat belt can help protect passengers in many car "
+              },
+              {
+                "t": "blank",
+                "id": "b27",
+                "number": 27,
+                "hint": {
+                  "baseWord": "accident"
+                }
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          },
+          "entryRef": "e-accident"
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Only teamwork will "
+              },
+              {
+                "t": "blank",
+                "id": "b28",
+                "number": 28,
+                "hint": {
+                  "baseWord": "able"
+                }
+              },
+              {
+                "t": "text",
+                "v": " us to get the job done on time."
+              }
+            ]
+          },
+          "entryRef": "e-ability"
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Nowadays too many boys want to become "
+              },
+              {
+                "t": "blank",
+                "id": "b29",
+                "number": 29,
+                "hint": {
+                  "baseWord": "act"
+                }
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          },
+          "entryRef": "e-actor"
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I have natural "
+              },
+              {
+                "t": "blank",
+                "id": "b30",
+                "number": 30,
+                "hint": {
+                  "baseWord": "able"
+                }
+              },
+              {
+                "t": "text",
+                "v": " as a footballer."
+              }
+            ]
+          },
+          "entryRef": "e-ability"
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "label": "五",
+      "instruction": "在句子的空格内填入适当的词，使其内容通顺。每空格限填一词，首字母已给",
+      "questions": [
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The manager thought the old lady was right, but he didn’t take her "
+              },
+              {
+                "t": "blank",
+                "id": "b31",
+                "number": 31,
+                "hint": {
+                  "firstLetter": "a"
+                }
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          },
+          "entryRef": "e-advice"
+        },
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "He will never "
+              },
+              {
+                "t": "blank",
+                "id": "b32",
+                "number": 32,
+                "hint": {
+                  "firstLetter": "a"
+                }
+              },
+              {
+                "t": "text",
+                "v": " anything if he doesn’t work hard."
+              }
+            ]
+          },
+          "entryRef": "e-achieve"
+        },
+        {
+          "id": "q33",
+          "number": 33,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "It takes "
+              },
+              {
+                "t": "blank",
+                "id": "b33",
+                "number": 33,
+                "hint": {
+                  "firstLetter": "a"
+                }
+              },
+              {
+                "t": "text",
+                "v": " half an hour to finish this work."
+              }
+            ]
+          },
+          "entryRef": "e-about"
+        },
+        {
+          "id": "q34",
+          "number": 34,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "blank",
+                "id": "b34",
+                "number": 34,
+                "hint": {
+                  "firstLetter": "A"
+                }
+              },
+              {
+                "t": "text",
+                "v": " 20 years of marriage, Jane divorced her husband."
+              }
+            ]
+          },
+          "entryRef": "e-after"
+        },
+        {
+          "id": "q35",
+          "number": 35,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The rain beat "
+              },
+              {
+                "t": "blank",
+                "id": "b35",
+                "number": 35,
+                "hint": {
+                  "firstLetter": "a"
+                }
+              },
+              {
+                "t": "text",
+                "v": " the windows."
+              }
+            ]
+          },
+          "entryRef": "e-against"
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "label": "六",
+      "instruction": "中译英",
+      "questions": [
+        {
+          "id": "q36",
+          "number": 36,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "三思而后行。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "act"
+          },
+          "entryRef": "e-act"
+        },
+        {
+          "id": "q37",
+          "number": 37,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "把参考书抛在一边，否则你将无法独立思考。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "able"
+          },
+          "entryRef": "e-able"
+        },
+        {
+          "id": "q38",
+          "number": 38,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "有句谚语：有利就有弊。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "advantage"
+          },
+          "entryRef": "e-advantage"
+        },
+        {
+          "id": "q39",
+          "number": 39,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "苏（Sue）有能力在商业上取得成功。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "ability"
+          },
+          "entryRef": "e-ability"
+        },
+        {
+          "id": "q40",
+          "number": 40,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "如果你努力，你的抱负是可以实现的。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "achieve"
+          },
+          "entryRef": "e-achieve"
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
+    "pdfPages": [
+      7
+    ],
+    "bookPages": [
+      1,
+      2
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

@@ -23,6 +23,11 @@
 | Header · Read/Speak/Quiz + 设置 | [7762-32671](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=7762-32671) | 顶栏模式切换、字号 / 播放速度设置 | 本项目暂不使用 | 已登记 |
 | Dictionary | [15476-159262](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=15476-159262) | 查词面板 | 本项目暂不使用 | 已登记 |
 | Vocabulary | [12074-89149](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=12074-89149) | 词卡轮播 | 本项目暂不使用 | 已登记 |
+| Header · Read/Speak/Quiz（词汇天天练） | [7762-32671](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=7762-32671) | 词汇天天练顶栏 Vocabulary / Quiz 标签（当前标签深色胶囊，虚线分隔） | `src/vocab/VocabDayPage.tsx`、`vocab.css` `.mode-tab*` | 已实现，待验收（#110） |
+| Quiz 完成结果 | [15643-204521](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=15643-204521) | 词汇天天练提交后：通过 / 未通过、正确率、各大题对错、查看答案 / 再练一次 | `src/vocab/VocabDayPage.tsx` `ResultView`、`vocab.css` `.vq-result*` | 已实现，待验收（#110）；「只练错题 / 全部重做」两个入口 Figma 中只有 Try Again，待补 |
+| 生词卡片 | [15643-204524](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=15643-204524) | 复盘「查看词条」弹层 | `src/vocab/VocabList.tsx` `EntryCard`、`vocab.css` `.entry-dialog` | 已实现，待验收；内容按手册词条（无图片），待补 |
+| 词典词条列表 | — | Vocabulary 标签：词头、音标、标记、义项、例句、折叠区、名师点拨、遮住释义 / 认识·不认识 | `src/vocab/VocabList.tsx`、`vocab.css` `.entry*`、`.switch*` | 待补组件，暂用 tokens 实现 |
+| 词汇填写行 | [15092-99049](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0/UniRead?node-id=15092-99049) | Quiz 行式输入：单词 / 词性选项 / 中文释义、提示字母块、语音输入按钮、复盘答案 | `src/vocab/VocabQuiz.tsx`、`HintTiles.tsx`、`VoiceInput.tsx`、`vocab.css` `.vq-*`、`.hint-*`、`.voice-*` | 待补组件，暂用 tokens 实现 |
 
 待提供：Playlists 列表页（缩略图卡片）、结果卡、对话框（未答提醒）、输入框（填空）、词库芯片（选词填空）、连线、Tokens/Variables 页。
 

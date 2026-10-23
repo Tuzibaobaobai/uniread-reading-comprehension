@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { InlineT, ItemKeyT, ItemT } from '@schema';
+import type { InlineT, ItemKeyT, ItemT, JudgementT } from '@schema';
 import { Rich, plainText, type BlankNode } from '@/components/Rich';
 import { Check, Cross, Locate } from '@/components/Icons';
 import tipIcon from '@/assets/icons/tip.svg';
@@ -755,6 +755,13 @@ export function JudgeVerdict(props: InteractionProps) {
       </section>
     );
   }
+  return <JudgeMarks j={j} points={points} />;
+}
+
+/** an LLM judgement on its key points (reading answers, 中译英 #110) */
+export function JudgeMarks({ j, points }: { j: JudgementT; points: { id: string; descZh: string }[] }) {
+  const { t } = useTranslation();
+  const full = j.score >= j.maxPoints;
   return (
     <section className={`judge ${full ? 'is-full' : j.score > 0 ? 'is-partial' : 'is-zero'}`} aria-label={t('judge.markLabel')}>
       <div className="judge-head">

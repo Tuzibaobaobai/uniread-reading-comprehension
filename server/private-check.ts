@@ -30,8 +30,25 @@ export function privateNeedles(key: ItemKeyT): string[] {
 /** all text of an item's passage — answers quoted verbatim from the public article are not leaks */
 async function passageText(keyFile: string): Promise<string> {
   try {
-    const item = JSON.parse(await readFile(keyFile.replace('/keys/', '/items/'), 'utf8')) as { article?: unknown; format?: string };
+    const item = JSON.parse(await readFile(keyFile.replace('/keys/', '/items/'), 'utf8')) as {
+      article?: unknown;
+      format?: string;
+      lexicon?: string;
+      entryIds?: string[];
+    };
     const out: string[] = [];
+    // 词汇天天练 (#110): the day's handbook entries are public (Vocabulary tab) — 中译英 answers are often their examples
+    if (item.format === 'vocab-day') {
+      const strings = (o: unknown): string[] =>
+        typeof o === 'string' ? [o] : Array.isArray(o) ? o.flatMap(strings) : o && typeof o === 'object' ? Object.values(o).flatMap(strings) : [];
+      const root = keyFile.slice(0, keyFile.indexOf('/playlists/'));
+      for (const id of item.entryIds ?? []) {
+        const entry: unknown = JSON.parse(await readFile(`${root}/lexicons/${item.lexicon}/entries/${id}.json`, 'utf8'));
+        const ex = (entry as { examples?: { en: { v?: string }[] }[] }).examples ?? [];
+        out.push(...strings(entry), ...ex.map((x) => x.en.map((n) => n.v ?? '').join('')));
+      }
+      return out.join(' ');
+    }
     const walk = (o: unknown) => {
       if (Array.isArray(o)) o.forEach(walk);
       else if (o && typeof o === 'object') Object.entries(o).forEach(([k, v]) => (k === 'v' && typeof v === 'string' ? out.push(v) : walk(v)));

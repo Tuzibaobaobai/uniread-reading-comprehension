@@ -6,7 +6,7 @@
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { ArticleItem, ExamItem, ItemKey, Playlist, isExam, type BlockT, type InlineT, type ItemT, type ItemKeyT } from '../schema/index.ts';
+import { ArticleItem, ExamItem, ItemKey, LexiconEntry, Playlist, VocabDayItem, isExam, type BlockT, type InlineT, type ItemT, type ItemKeyT, type LexiconEntryT, type VocabDayItemT } from '../schema/index.ts';
 import { allBlocks, allQuestions, questionBlankIds } from '../src/lib/grading.ts';
 
 const ROOT = join(import.meta.dirname, '..', 'content');
@@ -269,6 +269,83 @@ function checkItem(item: ItemT, key: ItemKeyT, playlistDir: string) {
   if (item.id !== expectedId) err(`id should be ${expectedId}`);
 }
 
+/* ------------------------------------------- 词汇天天练 (#110): lexicons + vocab-day items */
+
+const lexicons = new Map<string, Map<string, LexiconEntryT>>();
+function lexicon(name: string): Map<string, LexiconEntryT> {
+  if (lexicons.has(name)) return lexicons.get(name)!;
+  const out = new Map<string, LexiconEntryT>();
+  const dir = join(ROOT, 'lexicons', name, 'entries');
+  for (const f of existsSync(dir) ? readdirSync(dir).filter((x) => x.endsWith('.json')) : []) {
+    const res = LexiconEntry.safeParse(readJson(join(dir, f)));
+    const where = `lexicons/${name}/entries/${f}`;
+    if (!res.success) {
+      errors.push(`${where}: ${res.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join('; ')}`);
+      continue;
+    }
+    const e = res.data;
+    if (`${e.id}.json` !== f) errors.push(`${where}: id ${e.id} ≠ file name`);
+    if (e.lexicon !== name) errors.push(`${where}: lexicon ${e.lexicon} ≠ folder ${name}`);
+    const underlined = (r: InlineT[]) => r.some((n) => n.t === 'underline');
+    if (e.examples.length && !e.examples.some((x) => underlined(x.en))) warnings.push(`${where}: no example underlines the headword`);
+    if (e.kind === 'word' && !e.ipa?.length) warnings.push(`${where}: word without IPA`);
+    out.set(e.id, e);
+  }
+  const numbers = [...out.values()].map((e) => `${e.kind}:${e.number}`);
+  numbers.filter((n, i) => numbers.indexOf(n) !== i).forEach((n) => errors.push(`lexicons/${name}: duplicate entry number ${n}`));
+  lexicons.set(name, out);
+  return out;
+}
+
+function checkVocabDay(item: VocabDayItemT, key: ItemKeyT) {
+  const id = item.id;
+  const err = (m: string) => errors.push(`${id}: ${m}`);
+  const warn = (m: string) => warnings.push(`${id}: ${m}`);
+  if (id !== `${item.playlistId}-d${String(item.day).padStart(2, '0')}`) err(`id should be ${item.playlistId}-d${String(item.day).padStart(2, '0')}`);
+  const lx = lexicon(item.lexicon);
+  if (!lx.size) err(`lexicon ${item.lexicon} has no entries`);
+  item.entryIds.forEach((e) => lx.has(e) || err(`entry ${e} not in lexicon ${item.lexicon}`));
+  if (item.entryIds[0] !== item.wordRange.from) err(`wordRange.from ${item.wordRange.from} ≠ first entry ${item.entryIds[0]}`);
+  if (item.entryIds.at(-1) !== item.wordRange.to) err(`wordRange.to ${item.wordRange.to} ≠ last entry ${item.entryIds.at(-1)}`);
+  const entries = item.entryIds.map((e) => lx.get(e)).filter((e): e is LexiconEntryT => !!e);
+  const kind = item.unit === 'words' ? 'word' : 'phrase';
+  entries.forEach((e) => e.kind !== kind && err(`entry ${e.id} is a ${e.kind}, day unit is ${item.unit}`));
+  for (let i = 1; i < entries.length; i++) if (entries[i].number !== entries[i - 1].number + 1) warn(`entries ${entries[i - 1].id} → ${entries[i].id} skip handbook numbers`);
+
+  const qs = item.sections.flatMap((x) => x.questions);
+  const qids = new Set<string>();
+  qs.forEach((q, i) => {
+    if (qids.has(q.id)) err(`duplicate question id ${q.id}`);
+    qids.add(q.id);
+    if (q.number !== i + 1) err(`${q.id} number ${q.number} should be ${i + 1}`);
+    if (q.entryRef && !lx.has(q.entryRef)) err(`${q.id} entryRef ${q.entryRef} not in lexicon`);
+    const k = key.answers[q.id];
+    if (!k) return err(`${q.id} has no key`);
+    const it = q.interaction;
+    if (it.kind === 'wordProfile' && !('word' in k && 'pos' in k)) err(`${q.id}: wordProfile needs a word/pos/zh key`);
+    if (it.kind === 'wordProfile' && 'pos' in k) k.pos.forEach((p) => it.posOptions.includes(p) || err(`${q.id}: key pos ${p} not in posOptions`));
+    if (it.kind === 'wordFamily') {
+      if (!('forms' in k)) err(`${q.id}: wordFamily needs a forms key`);
+      else it.slots.forEach((sl) => k.forms[sl.id] || err(`${q.id}: no key for slot ${sl.id}`));
+    }
+    if (it.kind === 'textEntry') {
+      const blanks = questionBlankIds(q);
+      if (!blanks.length) err(`${q.id}: textEntry without blanks`);
+      if (!('slots' in k)) err(`${q.id}: textEntry needs a slots key`);
+      else blanks.forEach((b) => k.slots[b] || err(`${q.id}: no key for blank ${b}`));
+    }
+    if (it.kind === 'extendedText') {
+      if (!('sampleAnswer' in k)) err(`${q.id}: translation needs a sampleAnswer key`);
+      else if (k.rubricType !== 'translation' || !k.references?.length) err(`${q.id}: translation key needs rubricType "translation" and references`);
+      if (!it.requiredWord) warn(`${q.id}: translation without requiredWord`);
+    }
+    if (!['wordProfile', 'wordFamily', 'textEntry', 'extendedText'].includes(it.kind)) err(`${q.id}: ${it.kind} is not a 词汇天天练 question type`);
+  });
+  Object.keys(key.answers).forEach((qid) => qids.has(qid) || err(`key has unknown question ${qid}`));
+  const total = qs.reduce((t, q) => t + (q.points ?? 1), 0);
+  if (Math.abs(total - item.meta.totalPoints) > 0.01) err(`question points add up to ${total}, meta.totalPoints is ${item.meta.totalPoints}`);
+}
+
 for (const pl of readdirSync(join(ROOT, 'playlists'))) {
   const dir = join(ROOT, 'playlists', pl);
   const pPath = join(dir, 'playlist.json');
@@ -283,6 +360,21 @@ for (const pl of readdirSync(join(ROOT, 'playlists'))) {
     const id = f.replace(/\.json$/, '');
     if (only.size && !only.has(id)) continue;
     const raw = readJson(join(dir, 'items', f));
+    if (raw?.format === 'vocab-day') {
+      const vRes = VocabDayItem.safeParse(raw);
+      const kPath = join(dir, 'keys', f);
+      const kRes = existsSync(kPath) ? ItemKey.safeParse(readJson(kPath)) : null;
+      if (!vRes.success) errors.push(`${id}: item schema: ${vRes.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join('; ')}`);
+      if (!kRes) errors.push(`${id}: key file missing`);
+      else if (!kRes.success) errors.push(`${id}: key schema: ${kRes.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join('; ')}`);
+      if (vRes.success && kRes?.success) {
+        if (vRes.data.playlistId !== pl) errors.push(`${id}: playlistId ${vRes.data.playlistId} ≠ folder ${pl}`);
+        if (!pRes.data.itemIds.includes(id)) warnings.push(`${id}: not listed in ${pl}/playlist.json itemIds`);
+        checkVocabDay(vRes.data, kRes.data);
+      }
+      checked++;
+      continue;
+    }
     // parse by format so schema errors name the right fields (a union only reports "invalid input")
     const iRes = (raw?.format === 'exam' ? ExamItem : ArticleItem).safeParse(raw);
     const kPath = join(dir, 'keys', f);

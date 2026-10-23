@@ -6,7 +6,7 @@
  * Keys never reach the model caller from the browser: the client only sends {itemId, questionId, response}.
  */
 import { z } from 'zod';
-import type { AnswerKeyT, BlockT, InlineT, ItemT, JudgementT, QuestionT } from '@schema';
+import type { AnswerKeyT, BlockT, InlineT, ItemT, JudgementT, QuestionT, VocabDayItemT } from '@schema';
 import { allBlocks, totals, type Result } from './grading';
 
 // type-only schema imports: this module is also loaded by vite.config.ts (server middleware) without the @schema alias
@@ -117,7 +117,7 @@ export function speakingTranscript(q: QuestionT, response: string): string {
   return said.map(([who, line, a]) => `${who}: ${line}\nCandidate: ${a || '(no answer)'}`).join('\n');
 }
 
-export function buildJudgeRequest(item: ItemT, q: QuestionT, key: ExtendedKey, response: string, gradeBand = ''): JudgeRequest {
+export function buildJudgeRequest(item: ItemT | VocabDayItemT, q: QuestionT, key: ExtendedKey, response: string, gradeBand = ''): JudgeRequest {
   const it = q.interaction;
   if (it.kind !== 'extendedText' && it.kind !== 'speaking') throw new Error(`${q.id} is not judged`);
   const maxPoints = q.points ?? 1;
@@ -133,11 +133,12 @@ export function buildJudgeRequest(item: ItemT, q: QuestionT, key: ExtendedKey, r
           inlineText(it.prompt),
           ...(it.kind === 'extendedText' ? [...(it.stimulus ?? []).map(blockText), inlineText(it.task)] : []),
           it.minWords ? `(Write ${it.minWords} words or more.)` : '',
+          it.kind === 'extendedText' && it.requiredWord ? `Translate into English. The translation must use: ${it.requiredWord}` : '',
         ]
           .filter(Boolean)
           .join('\n');
   const material = q.material
-    ?.map((b) => (b.type === 'imageRef' ? `[Picture: ${item.article.images.find((i) => i.id === b.image)?.alt ?? ''}]` : blockText(b)))
+    ?.map((b) => (b.type === 'imageRef' ? `[Picture: ${('article' in item ? item.article.images.find((i) => i.id === b.image)?.alt : '') ?? ''}]` : blockText(b)))
     .filter(Boolean)
     .join('\n');
   return {
@@ -146,21 +147,26 @@ export function buildJudgeRequest(item: ItemT, q: QuestionT, key: ExtendedKey, r
     questionId: q.id,
     gradeBand,
     // exam tasks: the task's own material (pictures' descriptions, a note to reply to) — not the whole paper
-    passage: { title: item.title, text: isExam(item) ? (material ?? '') : passageText(item) },
+    passage: { title: item.title, text: !('article' in item) || isExam(item) ? (material ?? '') : passageText(item) },
     question: { text: questionText, scaffold: it.kind === 'extendedText' && it.scaffold ? inlineText(it.scaffold) : undefined },
     rubric: {
       type: key.rubricType ?? 'content',
       maxPoints,
-      referenceAnswer: key.sampleAnswer,
+      // 中译英 (#110): every printed reference translation counts as a model answer
+      referenceAnswer: key.rubricType === 'translation' && key.references?.length ? key.references.join(' / ') : key.sampleAnswer,
       keyPoints,
       match: key.match ?? 'all',
-      notesZh: key.rubricZh,
+      notesZh: key.rubricZh ?? (key.rubricType === 'translation' ? TRANSLATION_NOTE : undefined),
       anchors: key.anchors ?? [],
     },
     response: text,
     preFlags: flags,
   };
 }
+
+/** 中译英 (#110): the language point is about accuracy, unlike reading answers where small errors are forgiven */
+const TRANSLATION_NOTE =
+  '中译英：学生把中文句子译成英文。与任一参考译文意思一致即可，其他意思准确、语法正确的译法同样给分。language 要点要求语法、拼写正确并用了指定词（可用其正确的变化形式）：没用指定词或有一处小错，该要点给一半；错误影响意思则不给分。';
 
 /* ------------------------------------------------------------- prompt */
 

@@ -21,7 +21,9 @@ export function PlaylistsPage() {
             <div className="playlist-card-body">
               <OverflowTip className="playlist-card-title">{p.title}</OverflowTip>
               <div className="playlist-card-meta">
-                {p.format === 'exam' ? (
+                {p.format === 'vocab' ? (
+                  <>{t('playlists.vocabMeta', { count: p.itemCount, band: p.gradeBand })}</>
+                ) : p.format === 'exam' ? (
                   // exam papers (KET/PET 真题): papers and the CEFR level, no 时文阅读 difficulty
                   <>{t('playlists.examMeta', { count: p.itemCount, band: p.gradeBand })}</>
                 ) : (

@@ -2,7 +2,7 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import type { ItemKeyT, ItemT, PlaylistT } from '@schema';
+import type { ItemKeyT, ItemT, PlaylistT, VocabDayItemT } from '@schema';
 
 export class HttpError extends Error {
   constructor(
@@ -16,11 +16,19 @@ export class HttpError extends Error {
 /** content/ next to the function (Vercel bundles it in) or at the project root (dev) */
 export const contentRoot = () => join(process.cwd(), 'content');
 
-const ID = /^[a-z0-9]+(-[a-z0-9]+)*-w\d{2}-(mon|tue|wed|thu|fri)$|^[a-z0-9]+-t\d+-(rw|r|w|l|s)$/;
-/** item id → playlist folder: <pl>-wNN-<day> (时文阅读) or <pl>-t<N>-<paper> (exam papers) */
-export const playlistOf = (itemId: string) => itemId.replace(/-w\d{2}-(mon|tue|wed|thu|fri)$|-t\d+-(rw|r|w|l|s)$/, '');
+const ID = /^[a-z0-9]+(-[a-z0-9]+)*-w\d{2}-(mon|tue|wed|thu|fri)$|^[a-z0-9]+-t\d+-(rw|r|w|l|s)$|^[a-z0-9]+-d\d{2}$/;
+/** item id → playlist folder: <pl>-wNN-<day> (时文阅读), <pl>-t<N>-<paper> (exam papers) or <pl>-dNN (词汇天天练) */
+export const playlistOf = (itemId: string) => itemId.replace(/-w\d{2}-(mon|tue|wed|thu|fri)$|-t\d+-(rw|r|w|l|s)$|-d\d{2}$/, '');
 
-export async function loadItem(itemId: unknown, root = contentRoot()): Promise<{ item: ItemT; key: ItemKeyT; playlist: PlaylistT }> {
+export async function loadItem(itemId: unknown, root?: string): Promise<{ item: ItemT; key: ItemKeyT; playlist: PlaylistT }>;
+export async function loadItem(
+  itemId: unknown,
+  root: string | undefined,
+  any: true,
+): Promise<{ item: ItemT | VocabDayItemT; key: ItemKeyT; playlist: PlaylistT }>;
+/** `any`: also return 词汇天天练 days (callers that don't handle them get a 404 for those ids) */
+export async function loadItem(itemId: unknown, root: string = contentRoot(), any = false) {
+  if (!any && typeof itemId === 'string' && /-d\d{2}$/.test(itemId)) throw new HttpError(404, 'unknown item');
   if (typeof itemId !== 'string' || !ID.test(itemId)) throw new HttpError(400, 'bad itemId');
   const pl = playlistOf(itemId);
   const read = async <T>(p: string) => JSON.parse(await readFile(join(root, 'playlists', pl, p), 'utf8')) as T;

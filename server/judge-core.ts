@@ -130,7 +130,7 @@ const cache = new Map<string, JudgementT>();
 
 export async function judgeCall(call: JudgeCall, opts: { contentRoot?: string; llm: Llm | null }): Promise<JudgementT> {
   if (!call || typeof call.questionId !== 'string') throw new HttpError(400, 'bad request');
-  const { item, key, playlist } = await loadItem(call.itemId, opts.contentRoot);
+  const { item, key, playlist } = await loadItem(call.itemId, opts.contentRoot, true);
   const q = allQuestions(item).find((x) => x.id === call.questionId);
   const k = key.answers[call.questionId];
   const judged = q?.interaction.kind === 'extendedText' || q?.interaction.kind === 'speaking';

@@ -5,6 +5,8 @@ import { glob } from 'node:fs/promises';
 import grade from './server/grade';
 import judge from './server/judge';
 import speak from './server/speak';
+import hint from './server/hint';
+import transcribe from './server/transcribe';
 import { findLeaks } from './server/private-check';
 
 /**
@@ -16,6 +18,8 @@ function api(): Plugin {
     mw.use('/api/rc/grade', (req, res) => void grade(req, res));
     mw.use('/api/rc/judge', (req, res) => void judge(req, res));
     mw.use('/api/rc/speak', (req, res) => void speak(req, res));
+    mw.use('/api/rc/hint', (req, res) => void hint(req, res));
+    mw.use('/api/rc/transcribe', (req, res) => void transcribe(req, res));
     mw.use((req, res, next) => (/^\/playlists\/[^/]+\/keys\//.test(req.url ?? '') ? ((res.statusCode = 404), res.end()) : next()));
   };
   return {

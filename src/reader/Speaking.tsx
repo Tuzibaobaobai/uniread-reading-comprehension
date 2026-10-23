@@ -13,7 +13,7 @@ import { JudgeVerdict, QuestionPrompt, type InteractionProps } from './interacti
 type TurnState = 'idle' | 'recording' | 'transcribing' | 'error';
 
 /** a MediaRecorder type the browser supports (Safari: mp4, Chrome/Firefox: webm/opus) */
-function recorderMime(): string | undefined {
+export function recorderMime(): string | undefined {
   if (typeof MediaRecorder === 'undefined') return undefined;
   return ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/ogg;codecs=opus'].find((m) => MediaRecorder.isTypeSupported(m));
 }
@@ -33,7 +33,7 @@ function speak(turn: { text: string; audio?: { src: string } }) {
 }
 
 /** fallback: the browser's speech synthesis (British English voice when the device has one) */
-function speakWithDevice(text: string) {
+export function speakWithDevice(text: string) {
   if (typeof speechSynthesis === 'undefined') return;
   speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);

@@ -22,9 +22,11 @@ export function PlaylistPage() {
 
   // 时文阅读: grouped by week; exam papers (KET/PET 真题): grouped by test (第 N 套)
   const exam = pl?.format === 'exam';
+  // 词汇天天练 (#110): one list of days
+  const vocab = pl?.format === 'vocab';
   const groups = new Map<number, NonNullable<typeof pl>['items']>();
   pl?.items.forEach((i) => {
-    const g = (exam ? i.test : i.week) ?? 0;
+    const g = (vocab ? 0 : exam ? i.test : i.week) ?? 0;
     groups.set(g, [...(groups.get(g) ?? []), i]);
   });
 
@@ -43,8 +45,12 @@ export function PlaylistPage() {
             <img className="playlist-intro-cover" src={staticContent.assetUrl(pl.banner ?? pl.cover)} alt="" />
             <h1 className="playlist-intro-title">{pl.title}</h1>
             <div className="playlist-intro-stats">
-              <span>{t('playlist.words', { count: pl.totalWords, words: pl.totalWords.toLocaleString() })}</span>
-              {exam ? (
+              <span>
+                {vocab
+                  ? t('playlist.entries', { count: pl.totalWords })
+                  : t('playlist.words', { count: pl.totalWords, words: pl.totalWords.toLocaleString() })}
+              </span>
+              {exam || vocab ? (
                 <span>{pl.gradeBand}</span>
               ) : (
                 <span>
@@ -63,7 +69,7 @@ export function PlaylistPage() {
             {[...groups].map(([group, items]) => (
               <div key={group} className="week-group">
                 <h3 className="week-label">
-                  {exam ? t('playlist.test', { n: group }) : t('playlist.week', { n: group })}
+                  {vocab ? t('playlist.vocabDays') : exam ? t('playlist.test', { n: group }) : t('playlist.week', { n: group })}
                   {exam && <TestScore items={items} exam={examKey(pl.exam)} />}
                 </h3>
                 {items.map((it) => {
@@ -77,7 +83,13 @@ export function PlaylistPage() {
                       <Thumb
                         className="item-row-thumb"
                         title={it.title}
-                        kicker={it.paper ? t('playlist.kickerTest', { n: it.test, paper: PAPER_EN[it.paper] }) : t('playlist.kickerWeek', { n: it.week, day: DAY_NAME[it.day!] })}
+                        kicker={
+                          it.dayNumber !== undefined
+                            ? t('playlist.kickerDay', { n: it.dayNumber })
+                            : it.paper
+                              ? t('playlist.kickerTest', { n: it.test, paper: PAPER_EN[it.paper] })
+                              : t('playlist.kickerWeek', { n: it.week, day: DAY_NAME[it.day!] })
+                        }
                         accent={pl.accent}
                       />
                       <span className="item-row-text">
@@ -85,6 +97,7 @@ export function PlaylistPage() {
                         <span className="item-row-meta">
                           {[
                             it.taskType.labelZh,
+                            it.entryCount ? t('playlist.entries', { count: it.entryCount }) : null,
                             it.wordCount ? t('playlist.words', { count: it.wordCount, words: it.wordCount }) : null,
                             it.difficulty !== undefined ? `L${it.difficulty}` : null,
                             t('playlist.questions', { count: it.questionCount }),

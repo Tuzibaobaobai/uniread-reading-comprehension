@@ -16,7 +16,11 @@ export const PlaylistId = z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/);
 export const ArticleItemId = z.string().regex(/^[a-z0-9-]+-w\d{2}-(mon|tue|wed|thu|fri)$/);
 /** exam paper (KET/PET 真题): <playlist>-t<test>-<rw|r|w|l|s> — KET: one Reading & Writing paper; PET: separate r / w */
 export const ExamItemId = z.string().regex(/^[a-z0-9]+-t\d+-(rw|r|w|l|s)$/);
-export const ItemId = z.union([ArticleItemId, ExamItemId]);
+/** 中考词汇天天练 day (#110): <playlist>-dNN */
+export const VocabDayItemId = z.string().regex(/^[a-z0-9]+-d\d{2}$/);
+export const ItemId = z.union([ArticleItemId, ExamItemId, VocabDayItemId]);
+/** shared lexicon entry (handbook word or phrase): e-<lower-case headword, spaces and punctuation as "-"> */
+export const LexiconEntryId = z.string().regex(/^e-[a-z0-9]+(-[a-z0-9]+)*$/);
 export const Day = z.enum(['mon', 'tue', 'wed', 'thu', 'fri']);
 
 /* ------------------------------------------------------------- inline */
@@ -269,6 +273,29 @@ export const ExtendedText = z
     stimulus: z.array(Block).optional(),
     /** writing tasks: the instruction printed after the stimulus ("Write your **article**.") */
     task: Rich.optional(),
+    /** 中译英 (#110): the word / phrase the translation must use, printed in brackets after the sentence */
+    requiredWord: z.string().optional(),
+  })
+  .strict();
+
+/** 词汇天天练 一 (#110): given the IPA, write the word, choose its part of speech and write its Chinese meaning */
+export const WordProfile = z
+  .object({
+    kind: z.literal('wordProfile'),
+    /** the printed IPA, e.g. "/ˈæksɪdənt/" */
+    prompt: Rich,
+    /** part-of-speech choices shown as chips ("n.", "v.", "adj." …) */
+    posOptions: z.array(z.string()).min(2),
+  })
+  .strict();
+
+/** 词汇天天练 三 (#110): given a word and its part of speech, write the related form for each printed part of speech + its meaning */
+export const WordFamily = z
+  .object({
+    kind: z.literal('wordFamily'),
+    base: z.object({ word: z.string(), pos: z.string() }).strict(),
+    /** one slot per printed answer line; the slot's part of speech is printed */
+    slots: z.array(z.object({ id: z.string().regex(/^f\d+$/), pos: z.string() }).strict()).min(1),
   })
   .strict();
 
@@ -322,6 +349,8 @@ export const Interaction = z.discriminatedUnion('kind', [
   ExtendedText,
   Order,
   Speaking,
+  WordProfile,
+  WordFamily,
 ]);
 export type InteractionT = z.infer<typeof Interaction>;
 
@@ -350,6 +379,8 @@ export const Question = z
     material: z.array(Block).optional(),
     /** image id (article.images) printed beside the question, e.g. each person's photo in PET Reading Part 2 (#91) */
     image: z.string().optional(),
+    /** 词汇天天练 (#110): the lexicon entry this question practises — wrong answers link to it */
+    entryRef: LexiconEntryId.optional(),
   })
   .strict();
 export type QuestionT = z.infer<typeof Question>;
@@ -384,6 +415,8 @@ export const Section = z
     example: z.object({ prompt: z.string(), answer: z.string() }).strict().optional(),
     /** a match Part's printed column headings ("People" | "Things to bring", KET Listening Part 5, #104) */
     columns: z.object({ left: z.string(), right: z.string() }).strict().optional(),
+    /** 词组日 二 (#110): the printed box of Chinese phrases to translate into the blanks (one is a distractor); reference only */
+    promptBank: z.array(z.string()).optional(),
     questions: z.array(Question).min(1),
   })
   .strict();
@@ -407,6 +440,7 @@ export const TaskTypeCode = z.enum([
   'exam_writing', // 真题 · 写作
   'exam_listening', // 真题 · 听力
   'exam_speaking', // 真题 · 口语
+  'vocab_day', // 词汇天天练（Vocabulary + Quiz）
 ]);
 
 export const Errata = z
@@ -483,9 +517,100 @@ export const ExamItem = z
   .strict();
 export type ExamItemT = z.infer<typeof ExamItem>;
 
+/**
+ * Shared lexicon entry (#110, 中考考纲词汇用法手册): one handbook word or phrase, read in the Vocabulary tab and linked from
+ * wrong answers. Public content; stored once in content/lexicons/<lexicon>/entries/<id>.json and referenced by days.
+ */
+export const LexiconEntry = z
+  .object({
+    schemaVersion: z.literal(SCHEMA_VERSION),
+    id: LexiconEntryId,
+    lexicon: PlaylistId,
+    /** handbook number (▶ 25.) — the alphabetical order of the book */
+    number: z.number().int().positive(),
+    kind: z.enum(['word', 'phrase']),
+    headword: z.string(),
+    ipa: z.array(z.string()).optional(),
+    /** * before the headword: a key exam word */
+    star: z.boolean().optional(),
+    /** ▶: also a 课标三级词汇 */
+    levelMark: z.boolean().optional(),
+    /** textbook units where it appears, e.g. "G7上U3" */
+    textbook: z.array(z.string()).optional(),
+    /** printed note after the headword, e.g. "（复 abilities）" */
+    inflections: z.string().optional(),
+    senses: z.array(z.object({ pos: z.string().optional(), zh: z.string() }).strict()).min(1),
+    /** example sentences: English (headword underlined as printed) + Chinese */
+    examples: z.array(z.object({ en: Rich, zh: z.string() }).strict()),
+    phrases: z.array(z.object({ en: z.string(), zh: z.string() }).strict()).optional(),
+    wordFamily: z.array(z.object({ word: z.string(), pos: z.string().optional(), zh: z.string() }).strict()).optional(),
+    synonyms: z.array(z.string()).optional(),
+    antonyms: z.array(z.string()).optional(),
+    proverbs: z.array(z.object({ en: z.string(), zh: z.string() }).strict()).optional(),
+    /** 名师点拨 box */
+    tip: z.array(Block).optional(),
+    /** generated audio: the headword and each example, in order */
+    audio: z
+      .object({ word: z.object({ src: z.string(), seconds: z.number() }).strict().optional(), examples: z.array(z.object({ src: z.string(), seconds: z.number() }).strict()).optional() })
+      .strict()
+      .optional(),
+    errata: z.array(Errata).optional(),
+    source: z.object({ pdf: z.string(), pdfPages: z.array(z.number().int()), bookPages: z.array(z.number().int()) }).strict(),
+    status: z.object({ content: z.enum(['transcribed', 'reviewed']), version: z.string() }).strict(),
+  })
+  .strict();
+export type LexiconEntryT = z.infer<typeof LexiconEntry>;
+
+/**
+ * 词汇天天练 day (#110): Vocabulary tab = the lexicon entries of the day's range, Quiz tab = the day's exercises
+ * (word days: six sections; phrase days: three).
+ */
+export const VocabDayItem = z
+  .object({
+    schemaVersion: z.literal(SCHEMA_VERSION),
+    format: z.literal('vocab-day'),
+    id: VocabDayItemId,
+    playlistId: PlaylistId,
+    order: z.number().int().positive(),
+    /** 第 N 天 */
+    day: z.number().int().positive(),
+    /** word days practise 考纲单词, phrase days 考纲词组 */
+    unit: z.enum(['words', 'phrases']),
+    title: z.string(),
+    displayName: z.string(),
+    taskType: z.object({ code: TaskTypeCode, labelZh: z.string() }).strict(),
+    /** printed range "从 ability 到 against": first and last lexicon entry */
+    wordRange: z.object({ from: LexiconEntryId, to: LexiconEntryId }).strict(),
+    /** the lexicon the entries come from, and the entries of the range in book order (checked against wordRange) */
+    lexicon: PlaylistId,
+    entryIds: z.array(LexiconEntryId).min(1),
+    meta: z
+      .object({
+        totalPoints: z.number().int().positive(),
+        suggestedMinutes: z.number().int().positive(),
+        /** pass mark in percent shown on the result screen */
+        passPercent: z.number().int().min(1).max(100),
+      })
+      .strict(),
+    sections: z.array(Section).min(1),
+    errata: z.array(Errata).optional(),
+    source: z
+      .object({ pdf: z.string(), pdfPages: z.array(z.number().int()), bookPages: z.array(z.number().int()) })
+      .strict(),
+    status: z
+      .object({ content: z.enum(['transcribed', 'reviewed']), version: z.string() })
+      .strict(),
+  })
+  .strict();
+export type VocabDayItemT = z.infer<typeof VocabDayItem>;
+
 export const Item = z.union([ArticleItem, ExamItem]);
 export type ItemT = z.infer<typeof Item>;
 export const isExam = (item: ItemT): item is ExamItemT => 'format' in item && item.format === 'exam';
+/** every item format incl. 词汇天天练 days, which have no article (#110); code paths built for articles keep using Item */
+export const AnyItem = z.union([ArticleItem, ExamItem, VocabDayItem]);
+export type AnyItemT = z.infer<typeof AnyItem>;
+export const isVocabDay = (item: AnyItemT): item is VocabDayItemT => 'format' in item && item.format === 'vocab-day';
 
 /* --------------------------------------------------------------- keys */
 
@@ -532,6 +657,22 @@ export const AnswerKey = z.union([
   z.object({ ...answerCommon, sequence: z.array(z.string()) }).strict(),
   /** … or several accepted sequences (e.g. an adverbial that can move) */
   z.object({ ...answerCommon, sequences: z.array(z.array(z.string())).min(1) }).strict(),
+  /** wordProfile (#110): accepted spellings, parts of speech and Chinese meanings (any one meaning is enough) */
+  z
+    .object({
+      ...answerCommon,
+      word: z.array(z.string()).min(1),
+      pos: z.array(z.string()).min(1),
+      zh: z.array(z.string()).min(1),
+    })
+    .strict(),
+  /** wordFamily (#110): per slot id, accepted spellings and Chinese meanings */
+  z
+    .object({
+      ...answerCommon,
+      forms: z.record(z.object({ word: z.array(z.string()).min(1), zh: z.array(z.string()).min(1) }).strict()),
+    })
+    .strict(),
   /** extendedText */
   z
     .object({
@@ -546,8 +687,19 @@ export const AnswerKey = z.union([
        * criteria (weight = top band, 5), each judged on a 0–5 band; the UI states that Cambridge's scales were used.
        */
       rubricType: z
-        .enum(['content', 'opinion', 'cambridge_a2_writing', 'cambridge_a2_speaking', 'cambridge_b1_writing', 'cambridge_b1_speaking'])
+        .enum([
+          'content',
+          'opinion',
+          'cambridge_a2_writing',
+          'cambridge_a2_speaking',
+          'cambridge_b1_writing',
+          'cambridge_b1_speaking',
+          // 中译英 (#110): meaning + grammar + spelling against the references; must use the item's requiredWord
+          'translation',
+        ])
         .optional(),
+      /** 中译英 (#110): every printed reference translation ("A = B" in the book gives two) */
+      references: z.array(z.string()).optional(),
       /** 得分要点 — what a full-mark answer must convey; weights sum to the question's points */
       keyPoints: z.array(JudgeKeyPoint).optional(),
       /** all = every key point needed for full marks; any = any one key point (“答出其一即可”) */
@@ -610,6 +762,9 @@ export const ItemSummary = z
     /** exam papers only: 第 N 套 + paper */
     test: z.number().int().optional(),
     paper: ExamPaper.optional(),
+    /** 词汇天天练 only: 第 N 天 and how many lexicon entries the day covers */
+    dayNumber: z.number().int().optional(),
+    entryCount: z.number().int().optional(),
     title: z.string(),
     displayName: z.string(),
     taskType: z.object({ code: TaskTypeCode, labelZh: z.string() }).strict(),
@@ -630,7 +785,8 @@ export const Catalog = z
         .object({
           id: PlaylistId,
           /** exam = 真题 playlist (items grouped by test); absent = 时文阅读 */
-          format: z.literal('exam').optional(),
+          /** vocab = 词汇天天练 (items are days) */
+          format: z.enum(['exam', 'vocab']).optional(),
           /** exam playlists: the exam, e.g. "A2 Key for Schools" — picks the Cambridge English Scale table */
           exam: z.string().optional(),
           title: z.string(),
@@ -706,6 +862,14 @@ export const Attempt = z
     flagged: z.array(z.string()).optional(),
     /** exam mode: sections whose recording has been played (it can be played once) */
     played: z.array(z.string()).optional(),
+    /** 词汇天天练 (#110): answer parts solved with the letter-tile hint ("q3:word", "q7:b7") — they score half */
+    hinted: z.array(z.string()).optional(),
+    /** 词汇天天练: parts answered by voice input ("q21:text") — shown as such in the review */
+    voiced: z.array(z.string()).optional(),
+    /** 词汇天天练 Vocabulary tab self-check: lexicon entry id → 认识 (true) / 不认识 (false) */
+    known: z.record(z.boolean()).optional(),
+    /** 词汇天天练「只练错题」: questions answered right last time, carried over read-only */
+    kept: z.array(z.string()).optional(),
     responses: z.record(ResponseValue),
     result: z
       .object({

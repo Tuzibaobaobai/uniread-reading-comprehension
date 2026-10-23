@@ -124,6 +124,18 @@ xAPI 映射：actor = learnerId；verb = `answered`（每题）/ `completed`（�
 - 版式增量（GitHub #90 #91 #96）：`note.style`（`email` = 抬头栏 + `header` 字段行 From / To / Subject；`notice` = 标题栏 + 居中 `heading` 与居中正文，用于征稿启事、广告）；`extendedText.stimulus`（写作题干里按原体裁排版的材料，显示在 prompt 之后）与 `task`（材料之后的写作指令）；paragraph `image`、question `image`（人物照片，引用 `article.images` 的 id）；section `intro`（印在题目前的导语，显示在题目区而不是左栏）。
 - `rubricType` 增加 `cambridge_b1_writing`（content / communicative_achievement / organisation / language）、`cambridge_b1_speaking`（grammar_vocabulary / discourse_management / interactive_communication / global）。
 
+## 词汇天天练（`format: "vocab-day"`，GitHub #110）
+
+2026-10 起新增，**纯增量**，规范见 [docs/16](16-vocab-day-format.md)。`Item` 不变（`ArticleItem | ExamItem`）；新增 `AnyItem = Item | VocabDayItem`，只有加载条目的入口（`getItem`、服务端 `loadItem(…, true)`、`build-index`）用它，`isVocabDay()` 分派。
+
+- 词条 `LexiconEntry`：共享词库 `content/lexicons/<lx>/entries/<id>.json`，id = `e-` + 词头（`e-ability`、`e-help-sb-with-sth`）。公开内容（Vocabulary 标签直接展示），字段：`number`、`kind`（`word` / `phrase`）、`headword`、`ipa[]`、`star`、`levelMark`、`textbook[]`、`inflections`、`senses[{pos, zh}]`、`examples[{en: Inline[]（词头 underline）, zh}]`、`phrases`、`wordFamily`、`synonyms`、`antonyms`、`proverbs`、`tip`（Block[]）、`audio {word, examples[]}`（`scripts/tts.mjs --lexicon`）、`source`。
+- `VocabDayItem`：id `<pl>-dNN`、`day`、`unit`（`words` / `phrases`）、`lexicon`、`entryIds[]`、`wordRange {from, to}`、`meta {totalPoints, suggestedMinutes, passPercent}`、`sections`（一个大题一页）。每题 `entryRef` 指向词条（复盘「查看词条」）；section `promptBank`（词组日二的中文词组表）。
+- 新交互：`wordProfile {prompt: 音标, posOptions}`，作答 `{word, pos, zh}`，key `{word[], pos[], zh[]}`（三部分各占 1/3）；`wordFamily {base {word, pos}, slots[{id, pos}]}`，作答 `{"f1.word", "f1.zh", …}`，key `{forms {f1: {word[], zh[]}}}`（同词性的空可互换）。`extendedText.requiredWord`（中译英指定词）；key `rubricType: "translation"` + `references[]`。
+- 判分：中文释义 `zhMatches`（拆义项、去标点 / 括号 / 「的」，括号视为可选或替换字，包含即对），规则不认的由服务端一次模型复核（`server/meaning.ts`，结果作为 `zhOk` 传入 `gradeItem`）；`hinted` 中的部分答对得一半分。
+- 接口：`/api/rc/hint`（从 key 生成打乱的字母 / 单词块）、`/api/rc/transcribe`（只对中文释义、中译英开放；ASR 与口语共用）。
+- Attempt：`hinted`（`"q1:word"`、`"q6:b6"`）、`voiced`（语音作答的部分）、`known`（Vocabulary 自测 认识 / 不认识）、`kept`（「只练错题」时保留的上次答对的题，只读）。
+- Catalog：词汇合集 `format: "vocab"`，ItemSummary 用 `dayNumber` / `entryCount`；`totalWords` 为词条数。
+
 ## 版本
 - `schemaVersion`：数据结构版本（破坏性变更才升级）
 - `item.status.version`：内容版本（semver），修订文字或答案时递增；Attempt 记录 `itemVersion`
