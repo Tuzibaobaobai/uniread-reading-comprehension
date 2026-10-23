@@ -60,7 +60,8 @@ export function openAiCompatibleLlm(opts: { baseUrl: string; apiKey: string; mod
         ...(jsonMode ? { response_format: { type: 'json_object' } } : {}),
         // Cambridge marking (KET writing/speaking): no reasoning trace — 4–5 s instead of 10–35 s, same bands in tests
         // (SiliconFlow hybrid models); a provider that rejects the flag gets the plain request below
-        ...(jsonMode && req.promptVersion.startsWith('cambridge-') ? { enable_thinking: false } : {}),
+        // 中译英 (#125): one short sentence against reference translations — the same, without the long reasoning wait
+        ...(jsonMode && (req.promptVersion.startsWith('cambridge-') || req.rubric.type === 'translation') ? { enable_thinking: false } : {}),
         messages: [
           { role: 'system', content: system },
           { role: 'user', content: user },

@@ -73,7 +73,7 @@
 /* Quiz tab */
 .quiz-pane .question-card { flex: 1; }
 .vq-progress { margin-left: 12px; font-weight: var(--fw-bold); color: var(--accent-strong); }
-.vq-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.vq-rows { list-style: none; margin: 0; padding: 0; display: grid; }
 .vq-row { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--divider); }
 .vq-row:last-child { border-bottom: none; }
 .vq-num { padding-top: 10px; font-weight: var(--fw-bold); color: var(--text-secondary); font-variant-numeric: tabular-nums; }
@@ -193,3 +193,34 @@
 .vocab-legend-item { display: inline-flex; align-items: center; gap: 6px; }
 .vocab-legend .entry-tag { padding: 0 6px; }
 .vocab-legend .entry-star { font-weight: var(--fw-bold); }
+
+/* #124: one Part per page reads like the KET / PET one-page Parts (.part-grid): body text at --fs-l, compact rows with a
+   thin divider, regular-weight numbers "6." in line with the text */
+.vocab-quiz .vq-row { grid-template-columns: 36px minmax(0, 1fr); gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.vocab-quiz .vq-row:last-child { border-bottom: none; }
+.vocab-quiz .vq-num { padding-top: 0; font-size: var(--fs-l); line-height: var(--lh-l); font-weight: var(--fw-regular); color: var(--text-primary); }
+.vocab-quiz .vq-sentence, .vocab-quiz .vq-zh-sentence { font-size: var(--fs-l); line-height: var(--lh-l); }
+.vocab-quiz .vq-sentence .blank-input input { padding: 2px 0; }
+.vocab-quiz .vq-ipa, .vocab-quiz .vq-base { padding-top: 0; font-size: var(--fs-l); line-height: var(--lh-l); }
+.vocab-quiz .vq-profile, .vocab-quiz .vq-family { grid-template-columns: 140px minmax(0, 1fr); }
+.vocab-quiz .vq-profile-fields { gap: 6px; }
+.vocab-quiz .vq-slots { gap: 4px 16px; }
+.vocab-quiz .vq-line input { padding: 2px 0; }
+.vocab-quiz .vq-pos-chip { font-size: var(--fs-s); }
+.vocab-quiz .vq-textarea { margin-top: 6px; padding: 8px 12px; font-size: var(--fs-l); line-height: var(--lh-l); }
+.vocab-quiz .vq-body { gap: 8px; }
+.vocab-quiz .vq-review { padding: 10px 14px; gap: 6px; }
+.vocab-quiz .vq-answer { font-size: var(--fs-m); }
+.vocab-quiz .vq-bank { margin: -8px 0 12px; padding: 10px; gap: 6px; }
+.vocab-quiz .vq-bank-item { font-size: var(--fs-m); }
+
+/* #123: the pager has the KET / PET size — the compact one their half-width question card gets (app.css @container
+   ≤ 900px); this card is wider, so the same values are set here. Narrower cards still get the ≤ 560px rules. */
+@container (min-width: 561px) {
+  .vocab-quiz .question-nav { padding: 20px 24px; gap: 8px; }
+  .vocab-quiz .question-nav .pill-button { width: auto; height: 56px; padding: 0 20px; font-size: var(--fs-l); }
+  .vocab-quiz .question-dot { width: 56px; height: 56px; }
+  .vocab-quiz .question-dot-num { font-size: var(--fs-2xl); line-height: var(--lh-2xl); }
+  .vocab-quiz .question-dot-mark { width: 16px; height: 6px; }
+  .vocab-quiz .question-dot-icon { width: 32px; height: 32px; }
+}

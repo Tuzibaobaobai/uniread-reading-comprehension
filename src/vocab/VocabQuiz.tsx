@@ -188,7 +188,7 @@ function Row({ q, state }: { q: QuestionT; state: QuizState }) {
   else if (it.kind === 'extendedText') body = <TranslationRow q={q} state={state} locked={kept} />;
   return (
     <li className={`vq-row ${res?.correct === true ? 'is-correct' : res?.correct === false ? 'is-wrong' : ''} ${kept ? 'is-kept' : ''}`} data-q={q.id}>
-      <span className="vq-num">{q.number}</span>
+      <span className="vq-num">{q.number}.</span>
       <div className="vq-body">
         {body}
         {kept && <span className="vq-kept">{t('vocab.quiz.kept')}</span>}
@@ -408,6 +408,7 @@ function Review({ q, k, result, state }: { q: QuestionT; k: AnswerKeyT; result?:
         </p>
       )}
       {result?.scoredBy === 'judge' && result.judgement && <JudgeMarks j={result.judgement} points={points} />}
+      {result?.scoredBy === 'self' && <p className="vq-explain">{t('vocab.result.judgeUnavailable')}</p>}
       {k.explanationZh && <p className="vq-explain">{k.explanationZh}</p>}
       {q.entryRef && (
         <button type="button" className="chip" onClick={() => state.onOpenEntry(q.entryRef!)}>

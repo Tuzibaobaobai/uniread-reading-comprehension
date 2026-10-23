@@ -64,24 +64,24 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
     if (submitted && !key) staticContent.getKey(item, attempt.responses, { hinted: attempt.hinted }).then(setKey, () => undefined);
   }, [submitted, key, item]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  /** 中译英 by the LLM judge against the reference translations; each verdict shows as soon as it arrives (#125) */
   const runJudge = async (a: AttemptT) => {
     const pending = (a.result?.byQuestion ?? []).filter((b) => b.scoredBy === 'pending').map((b) => b.q);
-    if (!pending.length) return;
-    const verdicts = await Promise.all(
+    const apply = (qid: string, j: Parameters<typeof applyJudgement>[2] | null) =>
+      update((prev) => {
+        if (prev.attemptId !== a.attemptId || !prev.result) return prev;
+        const r = prev.result as Result;
+        return { ...prev, result: j ? applyJudgement(r, qid, j) : fallbackToSelf(r, [qid]) };
+      });
+    await Promise.all(
       pending.map((qid) =>
         staticContent.judge
           ? staticContent.judge
               .judge({ itemId: item.id, itemVersion: item.status.version, questionId: qid, response: String(a.responses[qid] ?? '') })
-              .then((j) => ({ qid, j }), () => ({ qid, j: null }))
-          : Promise.resolve({ qid, j: null }),
+              .then((j) => apply(qid, j), () => apply(qid, null))
+          : apply(qid, null),
       ),
     );
-    update((prev) => {
-      if (prev.attemptId !== a.attemptId || !prev.result) return prev;
-      let r = prev.result as Result;
-      verdicts.forEach(({ qid, j }) => (r = j ? applyJudgement(r, qid, j) : r));
-      return { ...prev, result: fallbackToSelf(r, verdicts.filter((v) => !v.j).map((v) => v.qid)) };
-    });
   };
   useEffect(() => {
     if (submitted && attempt.result?.byQuestion.some((b) => b.scoredBy === 'pending')) void runJudge(attempt);
