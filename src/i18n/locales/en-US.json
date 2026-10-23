@@ -330,25 +330,9 @@
       "less": "Less",
       "playExample": "Play example {{n}}"
     },
-    "voice": {
-      "start": "Voice input",
-      "stop": "Stop recording",
-      "denied": "Microphone not available — allow it in the browser settings",
-      "empty": "Didn't catch that — please say it again",
-      "failed": "Speech recognition is unavailable — please type"
-    },
-    "hint": {
-      "ask": "Hint",
-      "askFor": "{{label}}: hint (half marks if correct)",
-      "tiles": "Hint letters — tap them in order",
-      "undo": "Undo",
-      "used": "Hint used",
-      "failed": "Hint unavailable",
-      "half": "hint used, half marks"
-    },
     "quiz": {
       "sectionProgress": "{{done}}/{{total}} done",
-      "sectionDot": "Part {{label}}, {{done}}/{{total}} done",
+      "sectionDot": "{{part}}, questions {{range}}, {{done}}/{{total}} done",
       "bank": "Phrases (tap to mark as used)",
       "kept": "Correct last time",
       "word": "Question {{n}}: word",
@@ -361,7 +345,8 @@
       "unanswered_other": "{{count}} questions are not finished",
       "phWord": "English word",
       "phZh": "Chinese meaning",
-      "phTranslate": "Write the English translation"
+      "phTranslate": "Write the English translation",
+      "posLabel": "Part of speech:"
     },
     "result": {
       "passed": "Congratulations! You've passed!",
@@ -377,7 +362,13 @@
       "back": "Back to result",
       "references": "Reference translation",
       "points": "{{points}}/{{max}} pts",
-      "openEntry": "Open entry"
+      "openEntry": "Open entry",
+      "hintHalf": "hint used, half marks"
+    },
+    "legend": {
+      "level": "Level 3 word of the national English curriculum",
+      "textbook": "Shanghai (Oxford) textbook grade, term and unit where it appears (G6下U1 = Grade 6, second term, Unit 1)",
+      "star": "High-frequency word in exam papers"
     }
   }
 }

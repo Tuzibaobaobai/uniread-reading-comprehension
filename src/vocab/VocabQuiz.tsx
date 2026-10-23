@@ -2,15 +2,12 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { AnswerKeyT, InlineT, ItemKeyT, QuestionT, VocabDayItemT } from '@schema';
 import { Rich, type BlankNode } from '@/components/Rich';
-import { staticContent } from '@/lib/content';
 import { isAnswered, type Result } from '@/lib/grading';
 import { Check, Cross } from '@/components/Icons';
-import { JudgeMarks } from '@/reader/interactions';
+import { BlankInput, JudgeMarks } from '@/reader/interactions';
 import { QuestionStrip } from '@/reader/QuestionStrip';
 import correctIcon from '@/assets/icons/correct.svg';
 import wrongIcon from '@/assets/icons/wrong.svg';
-import { HintTiles } from './HintTiles';
-import { VoiceInput } from './VoiceInput';
 import { centreOnFocus } from './useVisualViewport';
 
 type Rec = Record<string, string>;
@@ -20,9 +17,8 @@ export interface QuizState {
   item: VocabDayItemT;
   responses: VocabResponses;
   setResponse: (qid: string, value: Rec | string) => void;
+  /** answer parts solved with a hint (none since #115; kept for attempts saved earlier) */
   hinted: Set<string>;
-  onHinted: (part: string) => void;
-  onVoiced: (part: string) => void;
   /** questions carried over from the last attempt (「只练错题」): shown answered and read-only */
   kept: Set<string>;
   review: { key: ItemKeyT; result: Result } | null;
@@ -31,7 +27,7 @@ export interface QuizState {
 
 /** Enter in a field moves to the next one on the page (Tab works as usual) */
 function focusNext(from: HTMLElement) {
-  const fields = Array.from(document.querySelectorAll<HTMLElement>('[data-vq-field]:not([disabled])'));
+  const fields = Array.from(document.querySelectorAll<HTMLElement>('[data-vq-field]:not([readonly])'));
   const next = fields[fields.indexOf(from) + 1];
   if (next) next.focus();
   else from.blur();
@@ -42,8 +38,18 @@ const onEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
     focusNext(e.currentTarget);
   }
 };
+/** attributes every quiz input shares: Enter → next field, keep the field clear of the on-screen keyboard */
+const fieldAttrs = { 'data-vq-field': '', onKeyDown: onEnter, onFocus: centreOnFocus };
 
 const record = (v: Rec | string | undefined): Rec => (v && typeof v === 'object' ? v : {});
+
+/** a 大题 is shown as "Part N" with the range of its question numbers, like the one-page Parts of KET / PET (#114) */
+export const partLabel = (i: number) => `Part ${i + 1}`;
+const range = (s: VocabDayItemT['sections'][number]) => {
+  const first = s.questions[0]?.number;
+  const last = s.questions[s.questions.length - 1]?.number;
+  return first === last ? `${first}` : `${first}–${last}`;
+};
 
 /** the page = one 大题 */
 export function VocabQuiz({
@@ -80,7 +86,7 @@ export function VocabQuiz({
     <div className="question-card vocab-quiz">
       <div className="question-scroll thin-scroll" ref={scroller}>
         <p className="section-instruction">
-          <b>{section.label}. </b>
+          <b>{partLabel(page)}. </b>
           {section.instruction}
           {!review && (
             <span className="vq-progress">
@@ -105,16 +111,17 @@ export function VocabQuiz({
             return (
               <button
                 key={s.id}
-                className={`question-dot ${i === page ? 'is-current' : ''} ${st}`}
+                className={`question-dot part-start ${i === page ? 'is-current' : ''} ${st}`}
+                data-part={`P${i + 1}`}
                 onClick={() => setPage(i)}
                 aria-current={i === page}
-                aria-label={t('vocab.quiz.sectionDot', { label: s.label, done: done(s), total: s.questions.length })}
+                aria-label={t('vocab.quiz.sectionDot', { part: partLabel(i), range: range(s), done: done(s), total: s.questions.length })}
               >
                 {st === 'is-correct' || st === 'is-wrong' ? (
                   <img className="question-dot-icon" src={st === 'is-correct' ? correctIcon : wrongIcon} alt="" />
                 ) : (
                   <>
-                    <span className="question-dot-num">{s.label}</span>
+                    <span className="question-dot-num is-range">{range(s)}</span>
                     {!review && <span className="question-dot-mark" aria-hidden />}
                   </>
                 )}
@@ -193,133 +200,42 @@ function Row({ q, state }: { q: QuestionT; state: QuizState }) {
 
 /* ------------------------------------------------------------------ fields */
 
-function useHint(state: QuizState, q: QuestionT, part: string) {
-  const [tiles, setTiles] = useState<string[] | null>(null);
-  const [failed, setFailed] = useState(false);
-  const ask = async () => {
-    setFailed(false);
-    try {
-      const x = await staticContent.hint!({ itemId: state.item.id, questionId: q.id, part });
-      setTiles(x);
-      state.onHinted(`${q.id}:${part}`);
-    } catch {
-      setFailed(true);
-    }
-  };
-  return { tiles, ask, failed, used: state.hinted.has(`${q.id}:${part}`) };
-}
-
-function EnField({
-  q,
-  part,
-  state,
+/**
+ * a standalone answer line (word / Chinese meaning) in the same underlined blank style as the sentence blanks and the
+ * KET / PET text entry (#121 #122)
+ */
+function LineField({
   value,
   onChange,
   locked,
-  prefix,
   label,
-  ok,
-  wide,
   placeholder,
-}: {
-  q: QuestionT;
-  part: string;
-  state: QuizState;
-  value: string;
-  onChange: (v: string) => void;
-  locked: boolean;
-  prefix?: string;
-  label: string;
-  ok?: boolean | null;
-  wide?: boolean;
-  placeholder?: string;
-}) {
-  const { t } = useTranslation();
-  const hint = useHint(state, q, part);
-  const readOnly = locked || !!state.review;
-  return (
-    <span className={`vq-field-wrap ${wide ? 'is-wide' : ''}`}>
-      <span className={`vq-field ${ok === true ? 'is-correct' : ok === false ? 'is-wrong' : ''}`}>
-        {prefix && <span className="vq-prefix">{prefix}</span>}
-        <input
-          data-vq-field
-          className="vq-input"
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          onKeyDown={onEnter}
-          onFocus={centreOnFocus}
-          disabled={readOnly}
-          aria-label={label}
-          placeholder={placeholder}
-          lang="en"
-          inputMode="text"
-          enterKeyHint="next"
-          autoCapitalize="none"
-          autoCorrect="off"
-          autoComplete="off"
-          spellCheck={false}
-        />
-        {hint.used && <span className="vq-hinted">{t('vocab.hint.used')}</span>}
-        {!readOnly && staticContent.hint && !hint.tiles && (
-          <button type="button" className="vq-hint-btn" onClick={() => void hint.ask()} aria-label={t('vocab.hint.askFor', { label })}>
-            {t('vocab.hint.ask')}
-          </button>
-        )}
-      </span>
-      {hint.failed && <span className="voice-error">{t('vocab.hint.failed')}</span>}
-      {!readOnly && hint.tiles && <HintTiles tiles={hint.tiles} onChange={onChange} />}
-    </span>
-  );
-}
-
-function ZhField({
-  q,
-  part,
-  state,
-  value,
-  onChange,
-  locked,
-  label,
   ok,
+  lang,
 }: {
-  q: QuestionT;
-  part: string;
-  state: QuizState;
   value: string;
   onChange: (v: string) => void;
   locked: boolean;
   label: string;
+  placeholder: string;
   ok?: boolean | null;
+  lang: 'en' | 'zh-CN';
 }) {
-  const { t } = useTranslation();
-  const readOnly = locked || !!state.review;
+  const en = lang === 'en';
   return (
-    <span className={`vq-field is-zh ${ok === true ? 'is-correct' : ok === false ? 'is-wrong' : ''}`}>
+    <span className={`blank-input vq-line ${en ? '' : 'is-zh'} ${ok === true ? 'is-correct' : ok === false ? 'is-wrong' : ''}`}>
       <input
-        data-vq-field
-        className="vq-input"
+        {...fieldAttrs}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        onKeyDown={onEnter}
-        onFocus={centreOnFocus}
-        disabled={readOnly}
+        readOnly={locked}
         aria-label={label}
-        placeholder={t('vocab.quiz.phZh')}
-        lang="zh-CN"
+        placeholder={placeholder}
+        lang={lang}
         enterKeyHint="next"
         autoComplete="off"
+        {...(en ? { autoCapitalize: 'none', autoCorrect: 'off', spellCheck: false } : {})}
       />
-      {!readOnly && (
-        <VoiceInput
-          itemId={state.item.id}
-          questionId={q.id}
-          part={part}
-          onText={(text) => {
-            onChange(text.replace(/[。.！!？?]+$/u, ''));
-            state.onVoiced(`${q.id}:${part}`);
-          }}
-        />
-      )}
     </span>
   );
 }
@@ -337,74 +253,95 @@ function PosChips({ options, value, onChange, disabled, label, ok }: { options: 
   );
 }
 
+/** 一: IPA | word + meaning on one line, 词性 chips below, the label in line with the word (#117) */
 function WordProfileRow({ q, state, locked }: { q: QuestionT; state: QuizState; locked: boolean }) {
   const { t } = useTranslation();
   if (q.interaction.kind !== 'wordProfile') return null;
   const r = record(state.responses[q.id]);
   const parts = state.review?.result.byQuestion.find((b) => b.q === q.id)?.parts;
+  const ro = locked || !!state.review;
   const set = (k: string, v: string) => state.setResponse(q.id, { ...r, [k]: v });
   return (
     <div className="vq-profile">
       <span className="vq-ipa">
         <Rich nodes={q.interaction.prompt} />
       </span>
-      <EnField q={q} part="word" state={state} value={r.word ?? ''} onChange={(v) => set('word', v)} locked={locked} label={t('vocab.quiz.word', { n: q.number })} ok={parts?.word} placeholder={t('vocab.quiz.phWord')} />
-      <PosChips options={q.interaction.posOptions} value={r.pos ?? ''} onChange={(v) => set('pos', v)} disabled={locked || !!state.review} label={t('vocab.quiz.pos', { n: q.number })} ok={parts?.pos} />
-      <ZhField q={q} part="zh" state={state} value={r.zh ?? ''} onChange={(v) => set('zh', v)} locked={locked} label={t('vocab.quiz.zh', { n: q.number })} ok={parts?.zh} />
+      <div className="vq-profile-fields">
+        <div className="vq-line-row">
+          <LineField value={r.word ?? ''} onChange={(v) => set('word', v)} locked={ro} label={t('vocab.quiz.word', { n: q.number })} placeholder={t('vocab.quiz.phWord')} ok={parts?.word} lang="en" />
+          <LineField value={r.zh ?? ''} onChange={(v) => set('zh', v)} locked={ro} label={t('vocab.quiz.zh', { n: q.number })} placeholder={t('vocab.quiz.phZh')} ok={parts?.zh} lang="zh-CN" />
+        </div>
+        <div className="vq-pos-row">
+          <span className="vq-pos-label">{t('vocab.quiz.posLabel')}</span>
+          <PosChips options={q.interaction.posOptions} value={r.pos ?? ''} onChange={(v) => set('pos', v)} disabled={ro} label={t('vocab.quiz.pos', { n: q.number })} ok={parts?.pos} />
+        </div>
+      </div>
     </div>
   );
 }
 
+/** 三: the given word (no part of speech) | one line per form: part of speech, word, meaning — aligned in columns (#120) */
 function WordFamilyRow({ q, state, locked }: { q: QuestionT; state: QuizState; locked: boolean }) {
   const { t } = useTranslation();
   const it = q.interaction;
   if (it.kind !== 'wordFamily') return null;
   const r = record(state.responses[q.id]);
   const parts = state.review?.result.byQuestion.find((b) => b.q === q.id)?.parts;
+  const ro = locked || !!state.review;
   const set = (k: string, v: string) => state.setResponse(q.id, { ...r, [k]: v });
   return (
     <div className="vq-family">
-      <span className="vq-base">
-        <b lang="en">{it.base.word}</b> {it.base.pos}
-      </span>
-      {it.slots.map((s) => (
-        <span key={s.id} className="vq-slot">
-          <span className="vq-slot-pos">{s.pos}</span>
-          <EnField q={q} part={`${s.id}.word`} state={state} value={r[`${s.id}.word`] ?? ''} onChange={(v) => set(`${s.id}.word`, v)} locked={locked} label={t('vocab.quiz.familyWord', { n: q.number, pos: s.pos })} ok={parts?.[`${s.id}.word`]} placeholder={t('vocab.quiz.phWord')} />
-          <ZhField q={q} part={`${s.id}.zh`} state={state} value={r[`${s.id}.zh`] ?? ''} onChange={(v) => set(`${s.id}.zh`, v)} locked={locked} label={t('vocab.quiz.familyZh', { n: q.number, pos: s.pos })} ok={parts?.[`${s.id}.zh`]} />
-        </span>
-      ))}
+      <b className="vq-base" lang="en">
+        {it.base.word}
+      </b>
+      <div className="vq-slots">
+        {it.slots.map((s) => (
+          <div key={s.id} className="vq-slot">
+            <span className="vq-slot-pos">{s.pos}</span>
+            <LineField value={r[`${s.id}.word`] ?? ''} onChange={(v) => set(`${s.id}.word`, v)} locked={ro} label={t('vocab.quiz.familyWord', { n: q.number, pos: s.pos })} placeholder={t('vocab.quiz.phWord')} ok={parts?.[`${s.id}.word`]} lang="en" />
+            <LineField value={r[`${s.id}.zh`] ?? ''} onChange={(v) => set(`${s.id}.zh`, v)} locked={ro} label={t('vocab.quiz.familyZh', { n: q.number, pos: s.pos })} placeholder={t('vocab.quiz.phZh')} ok={parts?.[`${s.id}.zh`]} lang="zh-CN" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
+/**
+ * sentences with blanks (二 四 五, 词组日一 二) — the KET / PET blank (#121 #122): underline, question number as
+ * placeholder, printed first letter before it, the word to change in brackets after it. A Chinese prompt that ends in
+ * its blank (二, 词组日一) has the blank at the right, like the answer lines in the book (#118).
+ */
 function TextEntryRow({ q, state, locked }: { q: QuestionT; state: QuizState; locked: boolean }) {
-  const { t } = useTranslation();
   if (q.interaction.kind !== 'textEntry') return null;
   const r = record(state.responses[q.id]);
-  const parts = state.review?.result.byQuestion.find((b) => b.q === q.id)?.parts;
-  const prompt = q.interaction.prompt ?? [];
-  const phrase = state.item.unit === 'phrases';
+  const prompt = (q.interaction.prompt ?? []) as InlineT[];
+  const result = state.review?.result.byQuestion.find((b) => b.q === q.id);
   const blank = (n: BlankNode) => (
-    <span className="vq-blank" key={n.id}>
-      <EnField
-        q={q}
-        part={n.id}
-        state={state}
-        value={r[n.id] ?? ''}
-        onChange={(v) => state.setResponse(q.id, { ...r, [n.id]: v })}
-        locked={locked}
-        prefix={n.hint?.firstLetter}
-        label={t('interaction.blankN', { n: n.number ?? q.number })}
-        ok={parts?.[n.id]}
-        wide={phrase}
-      />
-      {n.hint?.baseWord && <span className="vq-base-word">({n.hint.baseWord})</span>}
-    </span>
+    <BlankInput
+      key={n.id}
+      n={n}
+      value={r[n.id] ?? ''}
+      onChange={(v) => state.setResponse(q.id, { ...r, [n.id]: v })}
+      ok={state.review ? (result?.parts?.[n.id] ?? null) : null}
+      locked={locked || !!state.review}
+      inputAttrs={fieldAttrs}
+    />
   );
+  const last = prompt[prompt.length - 1];
+  if (last?.t === 'blank' && prompt.length > 1) {
+    return (
+      <p className="vq-sentence is-answer-right">
+        <span className="vq-prompt">
+          <Rich nodes={prompt.slice(0, -1)} />
+        </span>
+        <span className="vq-answer-cell">{blank(last)}</span>
+      </p>
+    );
+  }
   return (
     <p className="vq-sentence">
-      <Rich nodes={prompt as InlineT[]} blank={blank} />
+      <Rich nodes={prompt} blank={blank} />
     </p>
   );
 }
@@ -414,41 +351,27 @@ function TranslationRow({ q, state, locked }: { q: QuestionT; state: QuizState; 
   const it = q.interaction;
   if (it.kind !== 'extendedText') return null;
   const value = typeof state.responses[q.id] === 'string' ? (state.responses[q.id] as string) : '';
-  const readOnly = locked || !!state.review;
   return (
     <div className="vq-translate">
       <p className="vq-zh-sentence">
         <Rich nodes={it.prompt} />
         {it.requiredWord && <span className="vq-required" lang="en">（{it.requiredWord}）</span>}
       </p>
-      <span className="vq-field is-text">
-        <textarea
-          data-vq-field
-          className="vq-textarea"
-          value={value}
-          onChange={(e) => state.setResponse(q.id, e.target.value)}
-          onFocus={centreOnFocus}
-          disabled={readOnly}
-          rows={2}
-          lang="en"
-          aria-label={t('vocab.quiz.translate', { n: q.number })}
-          placeholder={t('vocab.quiz.phTranslate')}
-          autoCapitalize="sentences"
-          autoCorrect="off"
-          spellCheck={false}
-        />
-        {!readOnly && (
-          <VoiceInput
-            itemId={state.item.id}
-            questionId={q.id}
-            part="text"
-            onText={(text) => {
-              state.setResponse(q.id, value ? `${value} ${text}` : text);
-              state.onVoiced(`${q.id}:text`);
-            }}
-          />
-        )}
-      </span>
+      <textarea
+        data-vq-field
+        className="long-answer vq-textarea"
+        value={value}
+        onChange={(e) => state.setResponse(q.id, e.target.value)}
+        onFocus={centreOnFocus}
+        readOnly={locked || !!state.review}
+        rows={2}
+        lang="en"
+        aria-label={t('vocab.quiz.translate', { n: q.number })}
+        placeholder={t('vocab.quiz.phTranslate')}
+        autoCapitalize="sentences"
+        autoCorrect="off"
+        spellCheck={false}
+      />
     </div>
   );
 }
@@ -475,7 +398,7 @@ function Review({ q, k, result, state }: { q: QuestionT; k: AnswerKeyT; result?:
         {result && result.scoredBy !== 'pending' && result.scoredBy !== 'self' && result.scoredBy !== 'none' && (
           <span className="vq-points">
             {result.correct ? <Check /> : <Cross />} {t('vocab.result.points', { points: Math.round(result.points * 100) / 100, max: result.maxPoints })}
-            {hintedHere && ` · ${t('vocab.hint.half')}`}
+            {hintedHere && ` · ${t('vocab.result.hintHalf')}`}
           </span>
         )}
       </p>

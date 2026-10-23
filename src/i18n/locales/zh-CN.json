@@ -330,25 +330,9 @@
       "less": "收起",
       "playExample": "朗读例句 {{n}}"
     },
-    "voice": {
-      "start": "语音输入",
-      "stop": "停止录音",
-      "denied": "无法使用麦克风，请在浏览器设置中允许",
-      "empty": "没有听清，请再说一次",
-      "failed": "语音识别暂时不可用，请直接输入"
-    },
-    "hint": {
-      "ask": "提示",
-      "askFor": "{{label}}：提示（答对得一半分）",
-      "tiles": "提示字母，按顺序点选",
-      "undo": "撤销",
-      "used": "已提示",
-      "failed": "提示暂时不可用",
-      "half": "用了提示，得一半分"
-    },
     "quiz": {
       "sectionProgress": "已完成 {{done}}/{{total}}",
-      "sectionDot": "第{{label}}大题，已完成 {{done}}/{{total}}",
+      "sectionDot": "{{part}}，第 {{range}} 题，已完成 {{done}}/{{total}}",
       "bank": "可选词组（点一下标记已用）",
       "kept": "上次已答对",
       "word": "第 {{n}} 题：单词",
@@ -361,7 +345,8 @@
       "unanswered_other": "还有 {{count}} 题没有答完",
       "phWord": "英文单词",
       "phZh": "中文释义",
-      "phTranslate": "写出英文译文"
+      "phTranslate": "写出英文译文",
+      "posLabel": "词性："
     },
     "result": {
       "passed": "恭喜，通过了！",
@@ -377,7 +362,13 @@
       "back": "返回成绩",
       "references": "参考译文",
       "points": "{{points}}/{{max}} 分",
-      "openEntry": "查看词条"
+      "openEntry": "查看词条",
+      "hintHalf": "用了提示，得一半分"
+    },
+    "legend": {
+      "level": "英语课程标准三级词汇",
+      "textbook": "在沪教版教材中出现的年级、学期和单元（G6下U1 = 六年级第二学期 Unit 1）",
+      "star": "各类试卷中多次出现的高频词汇"
     }
   }
 }

@@ -13,7 +13,7 @@ import { JudgeVerdict, QuestionPrompt, type InteractionProps } from './interacti
 type TurnState = 'idle' | 'recording' | 'transcribing' | 'error';
 
 /** a MediaRecorder type the browser supports (Safari: mp4, Chrome/Firefox: webm/opus) */
-export function recorderMime(): string | undefined {
+function recorderMime(): string | undefined {
   if (typeof MediaRecorder === 'undefined') return undefined;
   return ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/ogg;codecs=opus'].find((m) => MediaRecorder.isTypeSupported(m));
 }

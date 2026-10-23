@@ -11,14 +11,14 @@ import Loading from '@/components/Loading';
 import correctIcon from '@/assets/icons/correct.svg';
 import wrongIcon from '@/assets/icons/wrong.svg';
 import { EntryCard, VocabList } from './VocabList';
-import { VocabQuiz, type QuizState, type VocabResponses } from './VocabQuiz';
+import { VocabQuiz, partLabel, type QuizState, type VocabResponses } from './VocabQuiz';
 import { useVisualViewport } from './useVisualViewport';
 
 type Tab = 'vocab' | 'quiz';
 
 /**
  * 词汇天天练 day (#110, docs/16): Vocabulary (the day's handbook entries) | Quiz (the day's exercises, one 大题 a page,
- * graded on the server; hints score half; Chinese meanings and 中译英 accept voice input).
+ * graded on the server; typed answers only — hints and voice input were taken out for now, #115 #116).
  */
 export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot: HTMLDivElement | null }) {
   const { t } = useTranslation();
@@ -147,8 +147,6 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
     responses,
     setResponse: (qid, value) => update((a) => (a.status === 'submitted' ? a : { ...a, responses: { ...a.responses, [qid]: value } })),
     hinted,
-    onHinted: (part) => update((a) => (a.hinted?.includes(part) ? a : { ...a, hinted: [...(a.hinted ?? []), part] })),
-    onVoiced: (part) => update((a) => (a.voiced?.includes(part) ? a : { ...a, voiced: [...(a.voiced ?? []), part] })),
     kept,
     review: view === 'review' ? review : null,
     onOpenEntry: setEntryOpen,
@@ -273,7 +271,7 @@ function ResultView({
         {pending && <span className="vq-result-pending"> {t('vocab.result.pending')}</span>}
       </p>
       <ul className="vq-result-sections">
-        {item.sections.map((s) => {
+        {item.sections.map((s, i) => {
           const rows = result.byQuestion.filter((b) => s.questions.some((q) => q.id === b.q));
           const got = rows.reduce((n, r) => n + r.points, 0);
           const max = rows.reduce((n, r) => n + r.maxPoints, 0);
@@ -281,7 +279,7 @@ function ResultView({
           return (
             <li key={s.id}>
               <img src={ok ? correctIcon : wrongIcon} alt={ok ? t('reader.dotCorrect') : t('reader.dotWrong')} />
-              <span className="vq-result-label">{s.label}</span>
+              <span className="vq-result-label">{partLabel(i)}</span>
               <span className="vq-result-points">
                 {Math.round(got * 10) / 10}/{max}
               </span>

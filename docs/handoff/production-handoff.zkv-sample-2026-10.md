@@ -43,7 +43,7 @@
 - **解析来源**：原书没有解析，`explanationZh` 全部为制作方撰写，key 标 `explanationSource: "generated"`。
 - **审核状态**：全部 key `reviewStatus: pending`；Agent 复核不等于人工复核。
 - **原书疑似错误（按原样保留，待人工确认）**：
-  1. 第 1 天 二.8：题面「成年人 adj.」，手册为「成年的」。
+  1. ~~第 1 天 二.8：题面「成年人 adj.」~~ — 撤回：原书印「成年人的 adj.」，是我们转写漏字（OCR 漏「的」），已改正（`zkv-d01` v1.0.1，#118 截图发现）。
   2. 第 1 天书末答案 六.2：「think yourself」，手册例句为「think by yourself」（key `rubricZh` 已注明，两种都接受）。
   3. 第 1 天书末答案 三.3：actually 释义印作「实际地…」，手册为「实际上…」（两者都接受）。
   4. 手册 in charge of 名师点拨：「布郎先生」应为「布朗」。

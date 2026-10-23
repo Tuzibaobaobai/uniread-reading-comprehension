@@ -1,11 +1,7 @@
-// 词汇天天练 (#110, docs/16): Vocabulary | Quiz tabs, cover-meanings self-check, one 大题 per page, Enter to the next
-// field, hint tiles (half marks), voice input only for Chinese meanings / 中译英, submit → result → review → entry,
-// 只练错题.
+// 词汇天天练 (#110, docs/16): Vocabulary | Quiz tabs, cover-meanings self-check, one Part per page, Enter to the next
+// field, typed answers only (#115 #116), submit → result → review → entry, 只练错题.
 import { expect, test, type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
-
-// a fake microphone for the voice-input test (the speech recognition itself is stubbed)
-test.use({ launchOptions: { args: ['--use-fake-ui-for-media-stream', '--use-fake-device-for-media-stream'] }, permissions: ['microphone'] });
 
 const ITEM = 'zkv-d01';
 const key = JSON.parse(readFileSync(`content/playlists/zkv/keys/${ITEM}.json`, 'utf8')) as {
@@ -29,9 +25,13 @@ function rightAnswers(skip: string[]) {
         r[`${f}.zh`] = v.zh[0];
       });
       responses[q.id] = r;
-    } else if ('slots' in k)
-      responses[q.id] = Object.fromEntries(Object.entries(k.slots as Record<string, { accept: string[] }>).map(([b, s]) => [b, s.accept[0]]));
-    else responses[q.id] = k.sampleAnswer;
+    } else if ('slots' in k) {
+      // a printed first letter is not typed again
+      const first = (b: string) => new RegExp(`"id":"${b}"[^}]*"firstLetter":"(\\w)"`).exec(JSON.stringify(q))?.[1] ?? '';
+      responses[q.id] = Object.fromEntries(
+        Object.entries(k.slots as Record<string, { accept: string[] }>).map(([b, s]) => [b, s.accept[0].slice(first(b).length)]),
+      );
+    } else responses[q.id] = k.sampleAnswer;
   }
   return responses;
 }
@@ -79,6 +79,14 @@ test('Vocabulary tab: entries, cover meanings, 认识 / 不认识', async ({ pag
   await expect(page.locator('.entry').first()).toContainText('enable');
   await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-vocab.png` });
 
+  // #113: what 三级 / G6下U1 / * mean
+  await expect(page.locator('.vocab-legend')).toContainText('英语课程标准三级词汇');
+  await expect(page.locator('.vocab-legend')).toContainText('高频词汇');
+  // #112: the tabs sit in the middle of the header
+  const head = (await page.locator('.reader-head').boundingBox())!;
+  const tabs = (await page.locator('.mode-tabs').boundingBox())!;
+  expect(Math.abs(tabs.x + tabs.width / 2 - (head.x + head.width / 2))).toBeLessThan(2);
+
   await page.getByRole('switch', { name: '遮住释义' }).click();
   await expect(page.locator('.entry-senses')).toHaveCount(0);
   await page.locator('.entry').first().getByRole('button', { name: '认识', exact: true }).click();
@@ -89,55 +97,65 @@ test('Vocabulary tab: entries, cover meanings, 认识 / 不认识', async ({ pag
   await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-vocab-cover.png` });
 });
 
-test('Quiz: pages, Enter, voice only on meanings / translations, hint at half marks, result, review, entry, retry mistakes', async ({ page }, info) => {
+test('Quiz: Part pages, typed answers only, Enter, result, review, entry, retry mistakes', async ({ page }, info) => {
   await mockJudge(page);
   await seed(page, rightAnswers(['q1', 'q2']));
   await page.goto(`/#/p/zkv/${ITEM}`);
   await expect(page.getByRole('tab', { name: /Quiz/ })).toHaveAttribute('aria-selected', 'true'); // an attempt in progress opens the quiz
-  await expect(page.locator('.section-instruction')).toContainText('根据所给音标写出英语单词、词性及中文释义');
-
-  // voice input: one per Chinese meaning on page 一, none for spelling (二), one per translation (六)
+  await expect(page.locator('.section-instruction')).toContainText('Part 1. 根据所给音标写出英语单词、词性及中文释义');
+  // pager: one Part per page, labelled P1… with its question numbers, like the one-page Parts of KET / PET (#114)
+  await expect(page.locator('.question-dot')).toHaveCount(6);
+  await expect(page.locator('.question-dot').nth(1)).toHaveAttribute('data-part', 'P2');
+  await expect(page.locator('.question-dot').nth(1)).toContainText('6–20');
+  // no hints, no voice input (#115 #116)
   await expect(page.locator('.vq-row')).toHaveCount(5);
-  await expect(page.locator('.voice-btn')).toHaveCount(5);
-  await page.getByRole('button', { name: /第二大题/ }).click();
-  await expect(page.locator('.vq-row')).toHaveCount(15);
-  await expect(page.locator('.voice-btn')).toHaveCount(0);
-  await page.getByRole('button', { name: /第六大题/ }).click();
-  await expect(page.locator('.voice-btn')).toHaveCount(5);
-  await page.getByRole('button', { name: /第一大题/ }).click();
+  await expect(page.getByRole('button', { name: /提示|语音/ })).toHaveCount(0);
 
-  // q1 with the hint: tap the letters of "accident" in order
+  // q1: word and meaning on one line, 词性 below (#117); Enter goes from the word to the meaning
   const word1 = page.getByRole('textbox', { name: '第 1 题：单词' });
-  await page.getByRole('button', { name: /第 1 题：单词：提示/ }).click();
-  const tiles = page.locator('.vq-row').first().locator('.hint-tile');
-  await expect(tiles).toHaveCount(8);
-  for (const ch of 'accident') await tiles.filter({ hasText: new RegExp(`^${ch}$`) }).and(page.locator(':enabled')).first().click();
-  await expect(word1).toHaveValue('accident');
-  await expect(page.locator('.vq-row').first().locator('.vq-hinted')).toHaveText('已提示');
-  await page.getByRole('radiogroup', { name: '第 1 题：词性' }).getByRole('radio', { name: 'n.', exact: true }).click();
-  // Enter goes to the next field
-  await word1.focus();
+  await word1.fill('accident');
   await word1.press('Enter');
   await expect(page.getByRole('textbox', { name: '第 1 题：中文释义' })).toBeFocused();
   await page.keyboard.type('事故');
+  await page.getByRole('radiogroup', { name: '第 1 题：词性' }).getByRole('radio', { name: 'n.', exact: true }).click();
+  const box = async (name: string) => (await page.getByRole('textbox', { name }).boundingBox())!;
+  expect(Math.abs((await box('第 1 题：单词')).y - (await box('第 1 题：中文释义')).y)).toBeLessThan(2);
+  const label = (await page.locator('.vq-row').first().locator('.vq-pos-label').boundingBox())!;
+  expect(Math.abs(label.x - (await box('第 1 题：单词')).x)).toBeLessThan(4);
   // q2: a misspelt word
   await page.getByRole('textbox', { name: '第 2 题：单词' }).fill('abord');
   await page.getByRole('radiogroup', { name: '第 2 题：词性' }).getByRole('radio', { name: 'adv.', exact: true }).click();
   await page.getByRole('textbox', { name: '第 2 题：中文释义' }).fill('在国外');
   await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-quiz-1.png` });
 
-  await page.getByRole('button', { name: /第六大题/ }).click();
+  // Part 2: the answer lines on the right (#118); Part 4 / 5: the KET / PET blank with (word) / first letter (#121 #122)
+  await page.getByRole('button', { name: /^Part 2/ }).click();
+  const lines = page.locator('.vq-answer-cell .blank-input');
+  await expect(lines).toHaveCount(15);
+  const right = await Promise.all([0, 5, 10].map(async (i) => (await lines.nth(i).boundingBox())!.x + (await lines.nth(i).boundingBox())!.width));
+  expect(Math.max(...right) - Math.min(...right)).toBeLessThan(2);
+  await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-quiz-2.png` });
+  await page.getByRole('button', { name: /^Part 3/ }).click();
+  await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-quiz-3.png` });
+  await page.getByRole('button', { name: /^Part 4/ }).click();
+  await expect(page.locator('.vq-row').first().locator('.blank-input-base')).toHaveText('(cross)');
+  await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-quiz-4.png` });
+  await page.getByRole('button', { name: /^Part 5/ }).click();
+  await expect(page.locator('.vq-row').first().locator('.blank-input-prefix')).toHaveText('a');
+  await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-quiz-5.png` });
+
+  await page.getByRole('button', { name: /^Part 6/ }).click();
   await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-quiz-6.png` });
   await page.getByRole('button', { name: '提交' }).click();
 
-  // q1 earns 2 × (½ + 1 + 1) / 3, q2 2 × 2/3, the rest full marks (translations: mocked judge)
+  // q2 earns 2 × 2/3, the rest full marks (translations: mocked judge)
   await expect(page.locator('.vq-result-title')).toHaveText('恭喜，通过了！');
-  await expect(page.locator('.vq-result-score')).toContainText('得分 99 / 100');
+  await expect(page.locator('.vq-result-score')).toContainText('得分 99.3 / 100');
+  await expect(page.locator('.vq-result-label').first()).toHaveText('Part 1');
   await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-result.png` });
 
   await page.getByRole('button', { name: /查看答案/ }).click();
-  const row1 = page.locator('.vq-row').first();
-  await expect(row1).toContainText('用了提示，得一半分');
+  await expect(page.locator('.vq-row').first()).toHaveClass(/is-correct/);
   await expect(page.locator('.vq-row').nth(1)).toHaveClass(/is-wrong/);
   await expect(page.locator('.vq-row').nth(1).locator('.vq-answer')).toContainText('abroad');
   await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-review.png` });
@@ -146,30 +164,11 @@ test('Quiz: pages, Enter, voice only on meanings / translations, hint at half ma
   await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-entry.png` });
   await page.getByRole('button', { name: '关闭' }).click();
 
-  await page.getByRole('button', { name: /第六大题/ }).click();
+  await page.getByRole('button', { name: /^Part 6/ }).click();
   await expect(page.locator('.judge-score').first()).toContainText('4');
   await page.getByRole('button', { name: '返回成绩' }).click();
   await page.getByRole('button', { name: /只练错题/ }).click();
   await expect(page.locator('.vq-row.is-kept')).toHaveCount(4);
-  await expect(page.getByRole('textbox', { name: '第 2 题：单词' })).toBeEnabled();
-  await expect(page.getByRole('textbox', { name: '第 1 题：单词' })).toBeDisabled();
-});
-
-test.describe('voice input', () => {
-  test('a Chinese meaning by voice (speech recognition stubbed)', async ({ page }) => {
-    let part = '';
-    await page.route('**/api/rc/transcribe', async (route) => {
-      part = (route.request().postDataJSON() as { part: string }).part;
-      await route.fulfill({ json: { text: '事故。' } });
-    });
-    await seed(page, {});
-    await page.goto(`/#/p/zkv/${ITEM}`);
-    await page.getByRole('tab', { name: /Quiz/ }).click();
-    const mic = page.locator('.vq-row').first().getByRole('button', { name: '语音输入' });
-    await mic.click();
-    await page.waitForTimeout(600);
-    await page.locator('.vq-row').first().getByRole('button', { name: '停止录音' }).click();
-    await expect(page.getByRole('textbox', { name: '第 1 题：中文释义' })).toHaveValue('事故');
-    expect(part).toBe('zh');
-  });
+  await expect(page.getByRole('textbox', { name: '第 2 题：单词' })).toBeEditable();
+  await expect(page.getByRole('textbox', { name: '第 1 题：单词' })).not.toBeEditable();
 });

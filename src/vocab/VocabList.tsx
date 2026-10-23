@@ -55,6 +55,7 @@ export function VocabList({
             <span />
           </span>
         </button>
+        <Legend entries={entries} />
       </div>
       <ol className="vocab-entries">
         {entries.map((e) => (
@@ -62,6 +63,27 @@ export function VocabList({
         ))}
       </ol>
     </div>
+  );
+}
+
+/** what the marks beside a headword mean (#113) — only the marks that occur in this day's entries */
+function Legend({ entries }: { entries: LexiconEntryT[] }) {
+  const { t } = useTranslation();
+  const marks = [
+    entries.some((e) => e.levelMark) && { tag: t('vocab.entry.level'), text: t('vocab.legend.level') },
+    entries.some((e) => e.textbook?.length) && { tag: entries.find((e) => e.textbook?.length)!.textbook![0], text: t('vocab.legend.textbook') },
+    entries.some((e) => e.star) && { tag: '*', text: t('vocab.legend.star'), star: true },
+  ].filter((x): x is { tag: string; text: string; star?: boolean } => !!x);
+  if (!marks.length) return null;
+  return (
+    <p className="vocab-legend">
+      {marks.map((m) => (
+        <span key={m.text} className="vocab-legend-item">
+          <span className={m.star ? 'entry-star' : 'entry-tag'}>{m.tag}</span>
+          {m.text}
+        </span>
+      ))}
+    </p>
   );
 }
 

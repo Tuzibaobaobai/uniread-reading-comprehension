@@ -78,43 +78,34 @@
 .vq-row:last-child { border-bottom: none; }
 .vq-num { padding-top: 10px; font-weight: var(--fw-bold); color: var(--text-secondary); font-variant-numeric: tabular-nums; }
 .vq-body { min-width: 0; display: grid; gap: 10px; }
-.vq-profile, .vq-family { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
-.vq-ipa { min-width: 140px; font-size: var(--fs-l); color: var(--text-primary); }
-.vq-base { min-width: 140px; font-size: var(--fs-l); }
-.vq-slot { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; }
-.vq-slot-pos { color: var(--text-secondary); font-style: italic; min-width: 36px; }
+/* 一 (#117): IPA | [word] [meaning] / 词性： chips — the label starts where the word line starts */
+.vq-profile { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 8px 16px; align-items: start; }
+.vq-ipa { padding-top: 6px; font-size: var(--fs-l); color: var(--text-primary); }
+.vq-profile-fields { display: grid; gap: 10px; justify-items: start; }
+.vq-line-row { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.vq-pos-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; }
+.vq-pos-label { color: var(--text-secondary); font-size: var(--fs-m); }
+
+/* 三 (#120): number | given word | one line per form (part of speech, word, meaning) in aligned columns */
+.vq-family { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 8px 16px; align-items: start; }
+.vq-base { padding-top: 6px; font-size: var(--fs-l); color: var(--text-primary); }
+.vq-slots { display: grid; grid-template-columns: 48px auto auto; justify-content: start; align-items: center; gap: 8px 16px; }
+.vq-slot { display: contents; }
+.vq-slot-pos { color: var(--text-secondary); font-style: italic; }
+
+/* answer lines: the KET / PET underlined blank (.blank-input) — standalone fields get a fixed width (#121 #122) */
+.vq-line { margin: 0; }
+.vq-line input { width: 200px; min-width: 0; text-align: left; }
+.vq-line.is-zh input { width: 280px; font-weight: var(--fw-medium); }
+.vq-line input::placeholder { text-align: left; font-weight: var(--fw-regular); }
 .vq-sentence, .vq-zh-sentence { margin: 0; font-size: var(--fs-question); line-height: 2.2; color: var(--text-primary); }
-.vq-blank { display: inline-flex; align-items: center; gap: 4px; vertical-align: middle; }
-.vq-base-word { color: var(--text-secondary); }
+/* 二 / 词组日一 (#118): the Chinese prompt on the left, its answer line on the right, as in the book */
+.vq-sentence.is-answer-right { display: flex; align-items: baseline; gap: 16px; }
+.vq-sentence.is-answer-right .vq-prompt { flex: 1; min-width: 0; }
+.vq-answer-cell { flex: none; }
+.vq-answer-cell .blank-input { margin: 0; }
+.vq-answer-cell .blank-input input { width: 220px; }
 .vq-required { color: var(--accent-strong); font-weight: var(--fw-bold); }
-
-.vq-field-wrap { display: inline-flex; flex-direction: column; gap: 6px; }
-.vq-field {
-  display: inline-flex; align-items: center; gap: 4px;
-  min-height: var(--tap); padding: 0 4px 0 12px;
-  border: 1px solid var(--border-strong); border-radius: var(--radius-s); background: var(--bg-card);
-}
-.vq-field:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
-.vq-field.is-correct { border-color: var(--success); background: var(--success-soft); }
-.vq-field.is-wrong { border-color: var(--danger); background: var(--danger-soft); }
-.vq-prefix { font-size: var(--fs-l); font-weight: var(--fw-bold); color: var(--text-primary); }
-.vq-input { width: 150px; min-width: 0; min-height: 40px; border: none; outline: none; background: transparent; font: inherit; font-size: var(--fs-l); color: var(--text-primary); }
-.vq-field-wrap.is-wide .vq-input { width: 240px; }
-.vq-field.is-zh .vq-input { width: 180px; }
-.vq-input:disabled, .vq-textarea:disabled { color: var(--text-primary); -webkit-text-fill-color: var(--text-primary); opacity: 1; }
-.vq-field.is-text { display: flex; align-items: flex-start; padding: 6px 4px 6px 12px; }
-.vq-textarea { flex: 1; min-width: 0; resize: vertical; border: none; outline: none; background: transparent; font: inherit; font-size: var(--fs-l); line-height: var(--lh-l); color: var(--text-primary); }
-.vq-hinted { padding: 2px 6px; border-radius: var(--radius-chip); background: var(--exam-warn-soft); color: var(--exam-warn); font-size: var(--fs-xs); white-space: nowrap; }
-.vq-hint-btn { min-height: 40px; padding: 0 10px; border: none; border-radius: var(--radius-s); background: var(--bg-subtle); color: var(--accent-strong); font-size: var(--fs-s); font-weight: var(--fw-bold); }
-.hint-tiles { display: flex; flex-wrap: wrap; gap: 6px; }
-.hint-tile, .hint-undo {
-  min-width: var(--tap); min-height: var(--tap); padding: 0 12px;
-  border: 1px solid var(--border-strong); border-radius: var(--radius-s); background: var(--bg-card);
-  font-size: var(--fs-l); font-weight: var(--fw-bold); color: var(--text-primary);
-}
-.hint-tile:disabled { opacity: var(--disabled-opacity); }
-.hint-undo { font-size: var(--fs-s); color: var(--text-secondary); }
-
 .vq-pos { display: inline-flex; flex-wrap: wrap; gap: 6px; padding: 2px; border-radius: var(--radius-s); }
 .vq-pos.is-wrong { background: var(--danger-soft); }
 .vq-pos.is-correct { background: var(--success-soft); }
@@ -125,13 +116,8 @@
 }
 .vq-pos-chip.is-on { border-color: var(--accent); background: var(--accent-soft); color: var(--accent-strong); font-weight: var(--fw-bold); }
 .vq-pos-chip:disabled:not(.is-on) { opacity: var(--disabled-opacity); }
+.vq-textarea { margin-top: 8px; min-height: 0; }
 
-.voice-input { display: inline-flex; align-items: center; gap: 6px; }
-.voice-btn { width: var(--tap); height: var(--tap); flex: none; border: none; border-radius: var(--radius-full); background: var(--grey-3); display: grid; place-items: center; }
-.voice-btn img { width: var(--icon-m); height: var(--icon-m); }
-.voice-btn.is-recording { background: var(--success); }
-.voice-btn .is-spinning { animation: spin 1s linear infinite; }
-.voice-error { color: var(--danger); font-size: var(--fs-s); }
 
 .vq-bank { display: flex; flex-wrap: wrap; gap: 8px; margin: -8px 0 20px; padding: 14px; border: 1px solid var(--border-strong); border-radius: var(--radius-s); }
 .vq-bank-item { min-height: var(--tap); padding: 0 14px; border: none; border-radius: var(--radius-full); background: var(--bg-subtle); font-size: var(--fs-m); color: var(--text-primary); }
@@ -186,11 +172,10 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .switch, .switch span { transition: none; }
-  .voice-btn .is-spinning { animation: none; }
 }
 /* the Question icon draws its "?" in white: dark on the current (dark) tab */
 .mode-tab.is-active svg path { stroke: var(--text-primary) !important; }
-.vq-input::placeholder, .vq-textarea::placeholder { color: var(--text-tertiary); font-size: var(--fs-m); }
+.vq-textarea::placeholder { color: var(--text-tertiary); font-size: var(--fs-m); }
 /* the dialog's own paragraph margins / colour must not reach the entry */
 .entry-dialog .entry p { color: inherit; margin-bottom: 0; }
 .entry-dialog .entry .entry-senses { margin: 12px 0 0 44px; color: var(--text-body); }
@@ -198,3 +183,13 @@
 @media (max-width: 1023px) { .entry-dialog .entry .entry-senses { margin-left: 0; } }
 .entry-play.is-small { display: inline-grid; vertical-align: middle; margin-left: 6px; }
 .entry-play.is-small img { width: 14px; height: 14px; }
+/* #112: Vocabulary / Quiz centred in the header, as in Figma Header (9414-48120); the title keeps to the left half */
+.reader-head:has(.mode-tabs) { position: relative; }
+.reader-head:has(.mode-tabs) .reader-head-title { max-width: calc(50% - 220px); }
+.reader-head .mode-tabs { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+
+/* #113: what the marks mean, one small line under the entry count */
+.vocab-legend { flex-basis: 100%; margin: 0; display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: var(--fs-s); line-height: var(--lh-s); color: var(--text-secondary); }
+.vocab-legend-item { display: inline-flex; align-items: center; gap: 6px; }
+.vocab-legend .entry-tag { padding: 0 6px; }
+.vocab-legend .entry-star { font-weight: var(--fw-bold); }

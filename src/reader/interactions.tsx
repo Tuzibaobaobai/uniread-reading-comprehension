@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type InputHTMLAttributes, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { InlineT, ItemKeyT, ItemT, JudgementT } from '@schema';
 import { Rich, plainText, type BlankNode } from '@/components/Rich';
@@ -357,7 +357,7 @@ export function GapMatchView(props: InteractionProps) {
 
 /* ------------------------------------------------------------- textEntry */
 
-function BlankInput({
+export function BlankInput({
   n,
   value,
   onChange,
@@ -365,6 +365,7 @@ function BlankInput({
   correctText,
   locked,
   autoFocus,
+  inputAttrs,
 }: {
   n: BlankNode;
   value: string;
@@ -373,6 +374,8 @@ function BlankInput({
   correctText?: string;
   locked: boolean;
   autoFocus?: boolean;
+  /** extra attributes for the input (词汇天天练: Enter moves to the next blank, #121 #122) */
+  inputAttrs?: InputHTMLAttributes<HTMLInputElement> & Record<`data-${string}`, string>;
 }) {
   const { t } = useTranslation();
   return (
@@ -391,6 +394,7 @@ function BlankInput({
         aria-label={`${t('interaction.slot', { n: n.number ?? '' })}${n.hint?.firstLetter ? t('interaction.firstLetter', { letter: n.hint.firstLetter }) : ''}`}
         placeholder={n.number !== undefined ? String(n.number) : undefined}
         size={Math.max(6, value.length + 1)}
+        {...inputAttrs}
       />
       {n.hint?.baseWord && <span className="blank-input-base">({n.hint.baseWord})</span>}
       {ok === false && correctText && <span className="blank-input-answer">{correctText}</span>}
