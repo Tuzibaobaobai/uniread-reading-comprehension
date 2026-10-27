@@ -48,7 +48,8 @@ export function PlaylistPage() {
                 <span>{pl.gradeBand}</span>
               ) : (
                 <span>
-                  L{pl.difficultyRange[0]}~L{pl.difficultyRange[1]}
+                  L{pl.difficultyRange[0]}
+                  {pl.difficultyRange[1] !== pl.difficultyRange[0] && `~L${pl.difficultyRange[1]}`}
                 </span>
               )}
             </div>

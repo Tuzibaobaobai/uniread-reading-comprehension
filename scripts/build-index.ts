@@ -28,7 +28,10 @@ for (const pl of readdirSync(join(ROOT, 'playlists')).sort()) {
   playlist.itemIds = items.map((i) => i.id);
   writeFileSync(pPath, JSON.stringify(playlist, null, 2) + '\n');
 
-  const diffs = items.flatMap((i) => (isExam(i) ? [] : [i.meta.difficulty]));
+  // 时文阅读 difficulty labels follow the series' target grade (G3 → L3 … 中考 G9 → L9, #119);
+  // meta.difficulty keeps the book's own 难度 N 级 for the info box
+  const level = Number(/^G(\d)$/.exec(playlist.gradeBand)?.[1]) || undefined;
+  const diffs = items.flatMap((i) => (isExam(i) ? [] : [level ?? i.meta.difficulty]));
   const exam = items.length > 0 && items.every(isExam);
   catalog.playlists.push({
     id: playlist.id,
@@ -68,7 +71,7 @@ for (const pl of readdirSync(join(ROOT, 'playlists')).sort()) {
             displayName: i.displayName,
             taskType: i.taskType,
             wordCount: i.meta.wordCount,
-            difficulty: i.meta.difficulty,
+            difficulty: level ?? i.meta.difficulty,
             suggestedMinutes: i.meta.suggestedMinutes,
             questionCount: allQuestions(i).length,
             thumbnail: i.thumbnail,

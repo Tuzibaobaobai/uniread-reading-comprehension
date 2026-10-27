@@ -378,6 +378,8 @@ body:has(.playlist-page) { background: var(--bg-card); }
 .blank-input-answer { color: var(--success-text); font-weight: var(--fw-bold); font-size: var(--fs-m); }
 .stimulus { margin-bottom: 16px; font-size: var(--fs-l); line-height: var(--lh-l); }
 .stimulus .rt-table { font-size: var(--fs-m); }
+.stimulus.is-box { padding: 12px 16px; border: 1px solid var(--border); border-radius: var(--radius-row); }
+.stimulus.is-box p { margin: 0; word-spacing: 0.5em; }
 
 /* match (Figma: pending) */
 .match { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }

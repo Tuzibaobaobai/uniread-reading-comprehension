@@ -115,6 +115,7 @@ xAPI 映射：actor = learnerId；verb = `answered`（每题）/ `completed`（�
 - Key：`rubricType` 增加 `cambridge_a2_writing` / `cambridge_a2_speaking`（keyPoints = 评分维度，weight 5，按 0–5 档给分）；`transcripts {sectionId: Block[]}` 为听力原文，与答案一样只在提交后由服务端返回。
 - Attempt：`mode`（`practice` / `exam`）、`flagged`（考试模式标记的题）、`played`（考试模式已播放的录音）。Judgement 的 keyPoint 可带 `band`。
 - Catalog：真题 playlist 带 `format: "exam"`，ItemSummary 用 `test` / `paper` 代替 `week` / `day`，没有 `difficulty`；真题 playlist 排在时文阅读之后。
+- Catalog 的时文阅读 `difficulty` / `difficultyRange` 是合集目标年级（`gradeBand` G3…G9 → L3…L9，GitHub #119），由 build:index 生成；item `meta.difficulty` 仍是原书“难度 N 级”，只在信息框显示。
 
 ### PET 增量（2026-10）
 - `paper` 增加 `reading`、`writing`（id 后缀 `r`、`w`）；`meta.exam` 决定 Cambridge 换算表（`A2 Key…` → A2，`B1 Preliminary…` → B1）；catalog 的真题合集带 `exam`。

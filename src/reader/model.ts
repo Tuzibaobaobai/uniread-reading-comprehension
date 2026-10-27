@@ -2,6 +2,7 @@
 import type { BlockT, InlineT, ItemKeyT, ItemT, QuestionT, SectionT } from '@schema';
 import { allBlocks, isAnswered, questionBlankIds, type ResponseValue, type Result } from '@/lib/grading';
 import { plainText } from '@/components/Rich';
+import { isCambridge } from '@/lib/judge';
 
 export type Responses = Record<string, ResponseValue>;
 
@@ -114,6 +115,12 @@ export function correctBlankText(fq: FlatQuestion, blankId: string, key: ItemKey
   }
   if ('slots' in k) return k.slots[blankId]?.accept[0];
   return undefined;
+}
+
+/** Cambridge writing / speaking: marked with a score only, never right or wrong (#128) */
+export function scoreOnly(key: ItemKeyT | undefined, qid: string): boolean {
+  const k = key?.answers[qid];
+  return !!k && 'sampleAnswer' in k && isCambridge(k.rubricType);
 }
 
 /** is this blank correct in the graded result (null = unknown) */

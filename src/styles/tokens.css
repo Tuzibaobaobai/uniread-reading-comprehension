@@ -85,8 +85,9 @@
   --shadow-button: var(--shadow-btn);
 
   /* ---- Figma: font/primary-font-family + Font system */
+  /* RC Emoticon = black-and-white emoticon glyphs only (emoticons.css, #127) */
   /* Source Sans 3 = the Latin design inside Noto Sans SC; listed first so Latin quotes/apostrophes stay proportional */
-  --font-sans: 'Source Sans 3', 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, sans-serif;
+  --font-sans: 'RC Emoticon', 'Source Sans 3', 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, sans-serif;
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-bold: 700;

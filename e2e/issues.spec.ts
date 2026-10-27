@@ -180,3 +180,31 @@ test('#108 every 时文阅读 item uses the Week-Day card as its cover, not the 
   await expect(page.locator('.item-row-thumb.text-thumb')).toHaveCount(await page.locator('.item-row').count());
   await expect(page.locator('img.item-row-thumb')).toHaveCount(0);
 });
+
+test('#119 时文阅读 difficulty labels follow the series grade (8年级 → L8, 中考 → L9)', async ({ page }) => {
+  await page.goto('/#/p/ci-g8');
+  await expect(page.locator('.playlist-intro-stats')).toContainText('L8');
+  await expect(page.locator('.playlist-intro-stats')).not.toContainText('~');
+  await page.goto('/#/');
+  await expect(page.locator('.playlist-card', { hasText: '中考' }).locator('.playlist-card-meta')).toContainText('L9');
+});
+
+test('#126 a glossed word is printed once; the word box shows above each 选词填空 sentence', async ({ page }) => {
+  await page.goto('/#/p/ci-g8/ci-g8-w05-fri');
+  await expect(page.locator('.article-body')).toContainText('will cause a hammer ( 音槌 ) to strike');
+  await expect(page.locator('.article-body')).not.toContainText('hammer hammer');
+  await showQuestions(page);
+  await page.locator('.question-dot').nth(6).click();
+  await expect(page.locator('.stimulus.is-box')).toContainText('inventor');
+});
+
+test('#127 table-fill item shows the book table and black-and-white emoticons', async ({ page }) => {
+  await page.goto('/#/p/ci-g8/ci-g8-w18-thu');
+  await showQuestions(page);
+  const table = page.locator('.stimulus .rt-table');
+  await expect(table).toContainText('How did the person feel?');
+  await expect(table).toContainText('After the meal');
+  await expect(page.locator('.option-text').first()).toContainText('🙂');
+  expect(await page.evaluate(() => getComputedStyle(document.body).fontFamily)).toContain('RC Emoticon');
+  expect(await page.evaluate(async () => (await document.fonts.load('16px "RC Emoticon"', '☹')).length)).toBeGreaterThan(0);
+});

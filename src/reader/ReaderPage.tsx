@@ -12,7 +12,7 @@ import Loading from '@/components/Loading';
 import correctIcon from '@/assets/icons/correct.svg';
 import wrongIcon from '@/assets/icons/wrong.svg';
 import { Rich, plainText, type BlankNode } from '@/components/Rich';
-import { ArticlePane } from './ArticlePane';
+import { ArticlePane, Block } from './ArticlePane';
 import { ExamPane } from './ExamPane';
 import { ExamReport, ExamTimer, ModeDialog, ModeSelect, SwitchModeDialog, type ModeReason } from './ExamChrome';
 import { examEndsAt } from '@/lib/exam-status';
@@ -34,7 +34,7 @@ import {
   hasImageOptions,
   type InteractionProps,
 } from './interactions';
-import { blankCorrect, blankOwners, blankText, correctBlankText, evidenceOf, flatten, pageAnswered, showFirstLetter, type Responses } from './model';
+import { blankCorrect, blankOwners, blankText, correctBlankText, evidenceOf, flatten, pageAnswered, scoreOnly, showFirstLetter, type Responses } from './model';
 import OverflowTip from '@/components/OverflowTip';
 
 export function ReaderPage() {
@@ -460,6 +460,14 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
                     <Rich nodes={current.section.intro} />
                   </p>
                 )}
+                {current.section.stimulus && (current.q.interaction.kind === 'choice' || current.q.interaction.kind === 'extendedText') && (
+                  // a table the questions refer to (表格填空 with ticks and written cells, #127); typed blanks render it themselves
+                  <div className="stimulus">
+                    {current.section.stimulus.map((b) => (
+                      <Block key={b.id} block={b} renderBlank={() => null} />
+                    ))}
+                  </div>
+                )}
                 <QuestionBody
                   // a new attempt (重新作答, practice ↔ exam) starts every interaction fresh — e.g. no recordings kept (#77)
                   key={attempt.attemptId}
@@ -494,7 +502,11 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
               {visible.map((i) => {
                 const f = flat[i];
                 // a group page (a whole Part on one page) is correct only when all its questions are
-                const rows = (f.group ? f.section.questions : [f.q]).map((q) => review?.result.byQuestion.find((b) => b.q === q.id));
+                // score-only tasks (Cambridge writing / speaking, #128) show their number, not ✓ / ✗
+                const rows = (f.group ? f.section.questions : [f.q]).map((q) => {
+                  const b = review?.result.byQuestion.find((x) => x.q === q.id);
+                  return b && scoreOnly(review?.key, q.id) ? { ...b, correct: null } : b;
+                });
                 const r = rows.length === 1 ? rows[0] : { correct: rows.some((x) => x?.correct === false) ? false : rows.every((x) => x?.correct === true) ? true : null };
                 const state = review
                   ? r?.correct === true
@@ -656,7 +668,9 @@ function Explanation({
   const { t } = useTranslation();
   const k = keyData.answers[fq.q.id];
   if (!k) return null;
-  const r = result.byQuestion.find((b) => b.q === fq.q.id);
+  const row = result.byQuestion.find((b) => b.q === fq.q.id);
+  const scored = row?.scoredBy === 'judge' && scoreOnly(keyData, fq.q.id);
+  const r = row && scored ? { ...row, correct: null } : row;
   const it = fq.q.interaction;
   let answerText = '';
   if ('correct' in k) {
@@ -703,7 +717,7 @@ function Explanation({
             <Cross /> {r.points > 0 ? t('reader.partlyCorrect', { points: Math.round(r.points * 100) / 100, max: r.maxPoints }) : t('reader.wrong')}
           </>
         )}
-        {r?.correct === null && <>{t('reader.sampleAnswer')}</>}
+        {r?.correct === null && <>{scored ? t('reader.scored', { points: r.points, max: r.maxPoints }) : t('reader.sampleAnswer')}</>}
       </div>
       <p className="explain-answer">
         <span className="explain-label">{isSample ? t('reader.sampleAnswer') : t('reader.correctAnswer')}</span>

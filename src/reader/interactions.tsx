@@ -435,6 +435,14 @@ export function TextEntryView(props: InteractionProps) {
   const stimulus = fq.section.stimulus;
   return (
     <>
+      {it.prompt && stimulus && (
+        // the section's word box ("given items from the box") above each sentence (#126)
+        <div className="stimulus is-box">
+          {stimulus.map((b) => (
+            <Block key={b.id} block={b} renderBlank={renderBlank} />
+          ))}
+        </div>
+      )}
       <QuestionPrompt number={fq.q.number}>
         {it.prompt ? <Rich nodes={it.prompt} blank={renderBlank} /> : isExamItem(item) ? null : <>{t('interaction.blankN', { n: fq.q.number })}</>}
       </QuestionPrompt>
