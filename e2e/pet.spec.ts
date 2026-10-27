@@ -137,7 +137,7 @@ test('#101 the three recordings supplied later are in: every Part of PET 2 Tests
   }
 });
 
-test('#128 writing is marked with a score only: 18/20 shows its number in the pager, no ✗', async ({ page }) => {
+test('#128 writing is marked with a score only: the pager shows 18/20, no ✗', async ({ page }) => {
   await page.route('**/api/rc/judge', (route) =>
     route.fulfill({
       json: {
@@ -160,6 +160,7 @@ test('#128 writing is marked with a score only: 18/20 shows its number in the pa
   await expect(page.locator('.judge-score').first()).toContainText('18');
   await expect(page.locator('.question-dot.is-wrong')).toHaveCount(0);
   await expect(page.locator('.question-dot.is-correct')).toHaveCount(0);
-  await expect(page.locator('.question-dot.is-neutral').first()).toContainText('1');
+  // #128 comment: a judged Part shows score / full marks in the pager
+  await expect(page.locator('.question-dot .is-score')).toHaveText(['18/20', '18/20']);
   await expect(page.locator('.explain .explain-head').first()).toHaveText('得分 18 / 20');
 });

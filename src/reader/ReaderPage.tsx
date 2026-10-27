@@ -493,22 +493,34 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
             <QuestionStrip current={index} count={visible.length}>
               {visible.map((i) => {
                 const f = flat[i];
-                // a group page (a whole Part on one page) is correct only when all its questions are
-                // score-only tasks (Cambridge writing / speaking, #128) show their number, not ✓ / ✗
-                const rows = (f.group ? f.section.questions : [f.q]).map((q) => {
-                  const b = review?.result.byQuestion.find((x) => x.q === q.id);
-                  return b && scoreOnly(review?.key, q.id) ? { ...b, correct: null } : b;
-                });
-                const r = rows.length === 1 ? rows[0] : { correct: rows.some((x) => x?.correct === false) ? false : rows.every((x) => x?.correct === true) ? true : null };
-                // a table page mixes ticks and judged writing: it keeps its P label; each cell shows its own result
+                // after submitting (#128): a page with judged answers (writing, speaking, a table with written cells)
+                // shows score / full marks, e.g. 15/20; a Part of objective questions on one page shows right / total,
+                // e.g. 3/5; a single objective question keeps the ✓ / ✗ icon
+                const pageQs = f.group ? f.section.questions : f.choose ? f.section.questions : [f.q];
+                const all = pageQs.map((q) => review?.result.byQuestion.find((b) => b.q === q.id)).filter((b) => b !== undefined);
+                const rows = f.choose ? all.filter((b) => b.scoredBy !== 'none') : all;
+                const judged = pageQs.some((q) => !isScored(q));
+                const lastTurn = f.turn === undefined || f.q.interaction.kind !== 'speaking' || f.turn === f.q.interaction.turns.length - 1;
+                const sum = (ns: number[]) => Math.round(ns.reduce((a, b) => a + b, 0) * 100) / 100;
+                const score =
+                  !review || !rows.length
+                    ? undefined
+                    : judged
+                      ? lastTurn && rows.every((b) => b.scoredBy === 'judge' || b.scoredBy === 'auto' || b.scoredBy === undefined)
+                        ? `${sum(rows.map((b) => b.points))}/${sum(rows.map((b) => b.maxPoints))}`
+                        : undefined
+                      : rows.length > 1
+                        ? `${rows.filter((b) => b.correct === true).length}/${rows.length}`
+                        : undefined;
+                const single = rows.length === 1 && !judged ? rows[0] : undefined;
                 const state = review
-                  ? tablePage(f)
-                    ? 'is-neutral'
-                    : r?.correct === true
-                    ? 'is-correct'
-                    : r?.correct === false
-                      ? 'is-wrong'
-                      : 'is-neutral'
+                  ? score
+                    ? 'is-score'
+                    : single?.correct === true
+                      ? 'is-correct'
+                      : single?.correct === false
+                        ? 'is-wrong'
+                        : 'is-neutral'
                   : pageAnswered(f, responses)
                     ? 'is-answered'
                     : '';
@@ -522,11 +534,13 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
                     aria-label={t('reader.dotLabel', {
                       part: exam && f.section.part ? t('reader.partPrefix', { part: f.section.part }) : '',
                       n: `${f.display}${f.displayTo && f.displayTo !== f.display ? `–${f.displayTo}` : ''}`,
-                      state: state === 'is-correct' ? t('reader.dotCorrect') : state === 'is-wrong' ? t('reader.dotWrong') : state === 'is-answered' ? t('reader.dotAnswered') : '',
+                      state: score ? t('reader.dotScore', { score }) : state === 'is-correct' ? t('reader.dotCorrect') : state === 'is-wrong' ? t('reader.dotWrong') : state === 'is-answered' ? t('reader.dotAnswered') : '',
                     })}
                     aria-current={i === index}
                   >
-                    {state === 'is-correct' || state === 'is-wrong' ? (
+                    {score ? (
+                      <span className="question-dot-num is-score">{score}</span>
+                    ) : state === 'is-correct' || state === 'is-wrong' ? (
                       <img className="question-dot-icon" src={state === 'is-correct' ? correctIcon : wrongIcon} alt="" />
                     ) : (
                       <>

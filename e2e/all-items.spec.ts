@@ -17,7 +17,8 @@ test('every item renders', async ({ page }, info) => {
         await page.getByRole('button', { name: /练习模式/ }).click();
         await expect(page.locator('.exam-part-kicker'), it.id).toHaveText(it.title);
       } else await expect(page.locator('.article-title'), it.id).toHaveText(it.title);
-      await expect(page.locator('.q-prompt').first(), it.id).toBeVisible();
+      // a table answered on one page (#127) has cells instead of a numbered prompt
+      await expect(page.locator('.q-prompt, .section-table').first(), it.id).toBeVisible();
       await expect(page.locator('.question-dot').first(), it.id).toBeVisible();
     }
   }

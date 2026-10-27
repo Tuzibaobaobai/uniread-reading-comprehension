@@ -739,6 +739,7 @@ body:has(.playlist-page) { background: var(--bg-card); }
 
 /* exam Parts on one page (#82 #86 #87, 待补组件) */
 .question-dot-num.is-range { font-size: var(--fs-m); line-height: var(--lh-m); white-space: nowrap; }
+.question-dot-num.is-score { font-size: var(--fs-m); line-height: var(--lh-m); white-space: nowrap; color: var(--text-primary); }
 .part-stack { display: grid; gap: 32px; }
 .part-stack-q .q-prompt { margin-bottom: 12px; }
 .part-grid { width: 100%; border-collapse: collapse; font-size: var(--fs-l); line-height: var(--lh-l); }
