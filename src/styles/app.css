@@ -408,6 +408,11 @@ body:has(.playlist-page) { background: var(--bg-card); }
   .cell-select-item:hover { background: var(--bg-hover); }
 }
 .cell-text { display: block; }
+.cell-text .cell-num svg { width: 14px; height: 14px; vertical-align: -2px; }
+.cell-text.is-correct .cell-num { color: var(--success-text); }
+.cell-text.is-correct .cell-text-input { border-color: var(--success); background: var(--success-soft); }
+.cell-text.is-wrong .cell-num { color: var(--danger); }
+.cell-text.is-wrong .cell-text-input { border-color: var(--danger); background: var(--danger-soft); }
 .cell-text-input {
   display: block; width: 100%; min-height: var(--tap); padding: 6px 8px; resize: vertical;
   border: 1px solid var(--border); border-radius: var(--radius-row); background: var(--bg-card);

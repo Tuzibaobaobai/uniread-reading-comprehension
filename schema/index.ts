@@ -526,7 +526,7 @@ export const JudgeAnchor = z
   .strict();
 
 export const AnswerKey = z.union([
-  /** choice / inlineChoice → [optionId]; gapMatch → bank ids aligned with the question's blanks */
+  /** choice / inlineChoice → [optionId] (several ids = accepted alternatives); gapMatch → bank ids aligned with the question's blanks */
   z.object({ ...answerCommon, correct: z.array(z.string()).min(1) }).strict(),
   /** textEntry: one entry per blank id */
   z.object({ ...answerCommon, slots: z.record(SlotKey) }).strict(),

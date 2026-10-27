@@ -198,12 +198,25 @@ test('#126 a glossed word is printed once; the word box shows above each 选词�
   await expect(page.locator('.stimulus.is-box')).toContainText('inventor');
 });
 
-test('#127 table-fill: the book table on one page — face dropdowns, text boxes, one P1 page, no ①②', async ({ page }) => {
+test('#127 table-fill: the book table on one page — face dropdowns, text boxes marked ✓ / ✗ by the AI, P1 → right/total', async ({ page }) => {
+  // mocked judge: cell 2 right, every other written cell wrong
+  await page.route('**/api/rc/judge', async (route) => {
+    const { questionId } = route.request().postDataJSON() as { questionId: string };
+    const ok = questionId === 'q2';
+    await route.fulfill({
+      json: {
+        score: ok ? 1 : 0, maxPoints: 1, keyPoints: [{ id: 'k1', met: ok ? 'yes' : 'no' }], languageIssues: [],
+        feedbackZh: ok ? '抄对了线索。' : '再到原文找一找。', confidence: 0.9, flags: [], needsReview: false,
+        model: 'mock', promptVersion: 'mock', judgedAt: new Date().toISOString(),
+      },
+    });
+  });
   await page.goto('/#/p/ci-g8/ci-g8-w18-thu');
   await showQuestions(page);
   const table = page.locator('.section-table .rt-table');
   await expect(table).toContainText('How did the person feel?');
-  await expect(table).not.toContainText('①');
+  await expect(table.locator('td', { hasText: '①' })).toHaveCount(2);
+  await expect(table.locator('td', { hasText: '②' })).toHaveCount(2);
   await expect(page.locator('.cell-select-button')).toHaveCount(8);
   await expect(page.locator('.cell-text-input')).toHaveCount(16);
   await expect(page.locator('.question-dot')).toHaveCount(1);
@@ -213,13 +226,20 @@ test('#127 table-fill: the book table on one page — face dropdowns, text boxes
   await expect(page.locator('.cell-select-item')).toHaveText(['🙂', '☹', '😐']);
   await page.locator('.cell-select-item').first().click();
   await expect(page.locator('.cell-select-button').first()).toContainText('🙂');
+  // Nick before the meal: ☹ and 😐 are both accepted
+  await page.locator('.cell-select-button').nth(1).click();
+  await page.locator('.cell-select-item').nth(2).click();
   await page.locator('.cell-text-input').first().fill('For years, I had wanted to eat at the restaurant.');
+  await page.locator('.cell-text-input').nth(1).fill('A boring place');
   expect(await page.evaluate(() => getComputedStyle(document.body).fontFamily)).toContain('RC Emoticon');
   expect(await page.evaluate(async () => (await document.fonts.load('16px "RC Emoticon"', '☹')).length)).toBeGreaterThan(0);
-  await page.route('**/api/rc/judge', (route) => route.fulfill({ status: 404, body: 'not found' }));
   await page.getByRole('button', { name: '提交' }).click();
   const confirm = page.getByRole('button', { name: '仍然提交' });
   if (await confirm.isVisible().catch(() => false)) await confirm.click();
   await expect(page.locator('.part-explain li')).toHaveCount(24);
-  await expect(page.locator('.cell-select-button').first()).toHaveClass(/is-correct/);
+  await expect(page.locator('.cell-select-button').nth(0)).toHaveClass(/is-correct/);
+  await expect(page.locator('.cell-select-button').nth(1)).toHaveClass(/is-correct/);
+  await expect(page.locator('.cell-text').nth(0)).toHaveClass(/is-correct/);
+  await expect(page.locator('.cell-text').nth(1)).toHaveClass(/is-wrong/);
+  await expect(page.locator('.question-dot .is-score')).toHaveText('3/24');
 });

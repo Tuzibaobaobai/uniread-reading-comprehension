@@ -28,6 +28,13 @@ describe('gradeQuestion', () => {
     expect(gradeQuestion(choice, { correct: ['B'] }, undefined, hints).points).toBe(0);
   });
 
+  it('one-pick questions: several listed answers are alternatives (#127)', () => {
+    const face = q('q4', { kind: 'inlineChoice', blankId: 'b4', options: opts });
+    expect(gradeQuestion(face, { correct: ['B', 'C'] }, ['C'], hints).correct).toBe(true);
+    expect(gradeQuestion(face, { correct: ['B', 'C'] }, ['B'], hints).correct).toBe(true);
+    expect(gradeQuestion(face, { correct: ['B', 'C'] }, ['A'], hints).correct).toBe(false);
+  });
+
   it('gapMatch with two blanks gives partial credit', () => {
     const gm = q('q2', {
       kind: 'gapMatch',

@@ -485,6 +485,10 @@
               {
                 "content": [
                   {
+                    "t": "text",
+                    "v": "① "
+                  },
+                  {
                     "t": "blank",
                     "id": "b14",
                     "number": 14
@@ -493,6 +497,10 @@
               },
               {
                 "content": [
+                  {
+                    "t": "text",
+                    "v": "① "
+                  },
                   {
                     "t": "blank",
                     "id": "b15",
@@ -514,6 +522,10 @@
               {
                 "content": [
                   {
+                    "t": "text",
+                    "v": "② "
+                  },
+                  {
                     "t": "blank",
                     "id": "b17",
                     "number": 17
@@ -522,6 +534,10 @@
               },
               {
                 "content": [
+                  {
+                    "t": "text",
+                    "v": "② "
+                  },
                   {
                     "t": "blank",
                     "id": "b18",
@@ -973,7 +989,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "At the meal · Nick: How did the person feel? Tick the right emoticon."
+                "v": "At the meal · Nick ①: How did the person feel? Tick the right emoticon."
               }
             ],
             "options": [
@@ -1019,7 +1035,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "At the meal · Nick: Why did the person feel that way? Copy the clues from the article."
+                "v": "At the meal · Nick ①: Why did the person feel that way? Copy the clues from the article."
               }
             ],
             "scoring": "judge",
@@ -1038,7 +1054,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "At the meal · Nick: What did the restaurant mean to the person? Answer in your own words."
+                "v": "At the meal · Nick ①: What did the restaurant mean to the person? Answer in your own words."
               }
             ],
             "scoring": "judge",
@@ -1058,7 +1074,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "At the meal · Nick: How did the person feel? Tick the right emoticon."
+                "v": "At the meal · Nick ②: How did the person feel? Tick the right emoticon."
               }
             ],
             "options": [
@@ -1104,7 +1120,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "At the meal · Nick: Why did the person feel that way? Copy the clues from the article."
+                "v": "At the meal · Nick ②: Why did the person feel that way? Copy the clues from the article."
               }
             ],
             "scoring": "judge",
@@ -1123,7 +1139,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "At the meal · Nick: What did the restaurant mean to the person? Answer in your own words."
+                "v": "At the meal · Nick ②: What did the restaurant mean to the person? Answer in your own words."
               }
             ],
             "scoring": "judge",

@@ -124,7 +124,9 @@ export function gradeQuestion(
 
   if ('correct' in key) {
     const given = Array.isArray(response) ? response : [];
-    const ok = given.length === key.correct.length && key.correct.every((c) => given.includes(c));
+    // one pick (choice / inlineChoice): several listed ids are alternatives — any of them is right (#127: ☹ or 😐)
+    const single = q.interaction.kind === 'choice' || q.interaction.kind === 'inlineChoice';
+    const ok = single ? given.length === 1 && key.correct.includes(given[0]) : given.length === key.correct.length && key.correct.every((c) => given.includes(c));
     return { ...base, correct: ok, points: ok ? maxPoints : 0 };
   }
 

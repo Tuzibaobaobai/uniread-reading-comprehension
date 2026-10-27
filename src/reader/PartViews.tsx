@@ -421,9 +421,14 @@ export function SectionTableView(props: InteractionProps) {
         />
       );
     }
+    // written cells are marked right / wrong by the AI judge against the reference answer (#127)
+    const row = review?.result.byQuestion.find((b) => b.q === q.id);
+    const ok = row?.scoredBy === 'judge' ? row.correct : null;
     return (
-      <span key={n.id} className="cell-text">
-        <span className="cell-num">{q.number}</span>
+      <span key={n.id} className={`cell-text ${ok === true ? 'is-correct' : ok === false ? 'is-wrong' : ''}`}>
+        <span className="cell-num">
+          {q.number} {ok === true ? <Check /> : ok === false ? <Cross /> : null}
+        </span>
         <textarea
           className="cell-text-input"
           value={typeof r === 'string' ? r : ''}
@@ -448,7 +453,7 @@ export function SectionTableView(props: InteractionProps) {
   );
 }
 
-/** after submitting: one line per cell — ✓ / ✗ or the judge's score, the answer, the explanation */
+/** after submitting: one line per cell — ✓ / ✗ (written cells: the AI judge's verdict), the answer, the explanation */
 function TableExplanations({ props }: { props: InteractionProps }) {
   const { t } = useTranslation();
   const review = props.review!;
@@ -464,11 +469,10 @@ function TableExplanations({ props }: { props: InteractionProps }) {
           head = row?.correct ? <Check /> : <Cross />;
           answer = k.correct.map((id) => plainText(it.options.find((o) => o.id === id)?.content ?? [])).join(' ');
         } else if (k && 'sampleAnswer' in k) {
-          head =
-            row?.scoredBy === 'pending' ? t('judge.marking') : row?.scoredBy === 'judge' ? t('reader.scored', { points: row.points, max: row.maxPoints }) : null;
+          head = row?.scoredBy === 'pending' ? t('judge.marking') : row?.scoredBy === 'judge' ? row.correct ? <Check /> : <Cross /> : null;
           answer = k.sampleAnswer;
         }
-        const cls = row?.scoredBy === 'pending' || row?.correct === null ? '' : row?.correct ? 'is-correct' : row && row.points > 0 ? '' : 'is-wrong';
+        const cls = row?.scoredBy === 'pending' || row?.correct === null || row?.correct === undefined ? '' : row.correct ? 'is-correct' : 'is-wrong';
         const j = row?.judgement;
         return (
           <li key={q.id} className={cls}>

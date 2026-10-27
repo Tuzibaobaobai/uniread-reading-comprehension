@@ -505,7 +505,12 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
                 const score =
                   !review || !rows.length
                     ? undefined
-                    : judged
+                    : tablePage(f)
+                      ? // a table is marked cell by cell, ticks and written cells alike (#127): right / total once all are marked
+                        rows.every((b) => b.scoredBy !== 'pending' && b.correct !== null)
+                        ? `${rows.filter((b) => b.correct === true).length}/${rows.length}`
+                        : undefined
+                      : judged
                       ? lastTurn && rows.every((b) => b.scoredBy === 'judge' || b.scoredBy === 'auto' || b.scoredBy === undefined)
                         ? `${sum(rows.map((b) => b.points))}/${sum(rows.map((b) => b.maxPoints))}`
                         : undefined
