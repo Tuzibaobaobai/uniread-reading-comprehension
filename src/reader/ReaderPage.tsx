@@ -539,7 +539,7 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
                     aria-label={t('reader.dotLabel', {
                       part: exam && f.section.part ? t('reader.partPrefix', { part: f.section.part }) : '',
                       n: `${f.display}${f.displayTo && f.displayTo !== f.display ? `–${f.displayTo}` : ''}`,
-                      state: score ? t('reader.dotScore', { score }) : state === 'is-correct' ? t('reader.dotCorrect') : state === 'is-wrong' ? t('reader.dotWrong') : state === 'is-answered' ? t('reader.dotAnswered') : '',
+                      state: score ? t(judged && !tablePage(f) ? 'reader.dotScore' : 'reader.dotRight', { score }) : state === 'is-correct' ? t('reader.dotCorrect') : state === 'is-wrong' ? t('reader.dotWrong') : state === 'is-answered' ? t('reader.dotAnswered') : '',
                     })}
                     aria-current={i === index}
                   >
