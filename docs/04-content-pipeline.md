@@ -66,7 +66,7 @@ PDF 是扫描件（无文字层、无答案页），内容靠 **页面图片 →
 | 题目句子里的选词填空（每周精读） | 同上，但 blank 放在 question 的 `prompt` 里（不写 blankIds）；**一题多空保持一题**，key 的 `correct` 按空格顺序排列，如 `["B","E"]` |
 | 短文填空 / 表格填空 / 句子补全（打字） | `textEntry`；文中/表中空格用 `blankIds`；题目句中空格放 `prompt`，一题可多空 |
 | 表格填空的表格 | 放在 section 的 `stimulus`（`table` block），表格里的空用 blank 节点；每空一个 textEntry 题（`blankIds:["b1"]`） |
-| 表格里要勾选 / 写句子的表格填空（如勾表情、抄线索） | 每格一道 choice / extendedText 题；整张表照原书放在 section 的 `stimulus`，格子里写题号 `(n)`，不用 blank（GitHub #127）。表情用 🙂 ☹ 😐，界面以黑白字体显示 |
+| 表格里要勾选 / 写句子的表格填空（如勾表情、抄线索） | section `view: "table"`，整张表照原书放在 `stimulus`（不加原书没有的 ①② 等标记）；每个作答格放一个 blank：勾选格 = `inlineChoice`（`blankId`，选项即可选的表情，界面是下拉框），书写格 = `extendedText`（`blankId`，judge 评分）。整张表一页，题号条显示为 P1（GitHub #127）。表情用 🙂 ☹ 😐，界面以黑白字体显示 |
 | 选词填空的词框（题目自带句子，textEntry） | 词框放在 section 的 `stimulus`（paragraph），每题页面在句子上方显示 |
 | 连线 | 一个 `match` 题，`left` id 用 `1..n`，`right` id 用 `A..`；整题一个题号，`points` = 左项数 |
 | **一对多连线 / 归类**（左边是 2–3 个类别，右边是带编号的句子，每句只属于一个类别） | 每个右边句子一道 `choice` 题（题号 = 书上编号，`prompt` = 句子），选项 = 左边类别（`A`、`B`…，各题相同）；section `instruction` 照抄原书连线指令；每题单独写 `explanationZh` 和 `evidence`（指向文中最小的对应句子，第一条用于“定位原文”）。交接文档注明原书题型为一对多连线 |

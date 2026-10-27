@@ -103,6 +103,13 @@ function checkItem(item: ItemT, key: ItemKeyT, playlistDir: string) {
   for (const s of item.sections) {
     const hasGap = s.questions.some((q) => q.interaction.kind === 'gapMatch');
     if (hasGap && !s.bank?.length) err(`${s.id} has gapMatch questions but no bank`);
+    if (s.view === 'table') {
+      // #127: every question answers in a cell of the section's table
+      if (!s.stimulus?.some((b) => b.type === 'table')) err(`${s.id} view "table" needs a table in stimulus`);
+      for (const q of s.questions)
+        if (!questionBlankIds(q).length || (q.interaction.kind !== 'inlineChoice' && q.interaction.kind !== 'extendedText'))
+          err(`${s.id} view "table": ${q.id} must be an inlineChoice or extendedText with a blank in the table`);
+    }
     if (s.bank) {
       const ids = s.bank.map((b) => b.id);
       if (new Set(ids).size !== ids.length) err(`${s.id} bank has duplicate ids`);
@@ -161,6 +168,7 @@ function checkItem(item: ItemT, key: ItemKeyT, playlistDir: string) {
         }
         case 'extendedText':
         case 'speaking': {
+          questionBlankIds(q).forEach((b) => own(b, q.id));
           if (!('sampleAnswer' in k)) {
             err(`${q.id} key must have "sampleAnswer"`);
             break;

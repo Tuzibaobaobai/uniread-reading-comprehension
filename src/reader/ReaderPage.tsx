@@ -12,12 +12,12 @@ import Loading from '@/components/Loading';
 import correctIcon from '@/assets/icons/correct.svg';
 import wrongIcon from '@/assets/icons/wrong.svg';
 import { Rich, plainText, type BlankNode } from '@/components/Rich';
-import { ArticlePane, Block } from './ArticlePane';
+import { ArticlePane } from './ArticlePane';
 import { ExamPane } from './ExamPane';
 import { ExamReport, ExamTimer, ModeDialog, ModeSelect, SwitchModeDialog, type ModeReason } from './ExamChrome';
 import { examEndsAt } from '@/lib/exam-status';
 import { SpeakingView } from './Speaking';
-import { MatchBoardView, SectionAllView } from './PartViews';
+import { MatchBoardView, SectionAllView, SectionTableView } from './PartViews';
 import { QuestionStrip } from './QuestionStrip';
 import { paint, sentenceRange } from './evidence';
 import {
@@ -460,14 +460,6 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
                     <Rich nodes={current.section.intro} />
                   </p>
                 )}
-                {current.section.stimulus && (current.q.interaction.kind === 'choice' || current.q.interaction.kind === 'extendedText') && (
-                  // a table the questions refer to (表格填空 with ticks and written cells, #127); typed blanks render it themselves
-                  <div className="stimulus">
-                    {current.section.stimulus.map((b) => (
-                      <Block key={b.id} block={b} renderBlank={() => null} />
-                    ))}
-                  </div>
-                )}
                 <QuestionBody
                   // a new attempt (重新作答, practice ↔ exam) starts every interaction fresh — e.g. no recordings kept (#77)
                   key={attempt.attemptId}
@@ -508,8 +500,11 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
                   return b && scoreOnly(review?.key, q.id) ? { ...b, correct: null } : b;
                 });
                 const r = rows.length === 1 ? rows[0] : { correct: rows.some((x) => x?.correct === false) ? false : rows.every((x) => x?.correct === true) ? true : null };
+                // a table page mixes ticks and judged writing: it keeps its P label; each cell shows its own result
                 const state = review
-                  ? r?.correct === true
+                  ? tablePage(f)
+                    ? 'is-neutral'
+                    : r?.correct === true
                     ? 'is-correct'
                     : r?.correct === false
                       ? 'is-wrong'
@@ -535,9 +530,13 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
                       <img className="question-dot-icon" src={state === 'is-correct' ? correctIcon : wrongIcon} alt="" />
                     ) : (
                       <>
-                        <span className={`question-dot-num ${f.displayTo ? 'is-range' : ''}`}>
-                          {f.display}
-                          {f.displayTo && f.displayTo !== f.display ? `–${f.displayTo}` : ''}
+                        <span className={`question-dot-num ${f.displayTo && !tablePage(f) ? 'is-range' : ''}`}>
+                          {tablePage(f) ?? (
+                            <>
+                              {f.display}
+                              {f.displayTo && f.displayTo !== f.display ? `–${f.displayTo}` : ''}
+                            </>
+                          )}
                         </span>
                         {!review && <span className="question-dot-mark" aria-hidden />}
                       </>
@@ -616,6 +615,10 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
 /** kinds whose explanation is shown inside the correct option (Figma Option-text-item, correct-expanded) */
 const EMBEDDED_EXPLAIN = new Set(['choice', 'inlineChoice']);
 
+/** a table answered on one page (section.view "table", #127) is one Part in the pager: P1, P2 … */
+const tablePage = (f: ReturnType<typeof flatten>[number]) =>
+  f.group && f.section.view === 'table' ? `P${f.section.part ?? f.section.id.slice(1)}` : undefined;
+
 function QuestionBody({
   props,
   selfAssessed,
@@ -626,7 +629,8 @@ function QuestionBody({
   onSelfAssess: (v: boolean) => void;
 }) {
   if (props.fq.choose) return <ChooseTaskView {...props} selfAssessed={selfAssessed} onSelfAssess={onSelfAssess} />;
-  if (props.fq.group) return props.fq.section.view === 'match' ? <MatchBoardView {...props} /> : <SectionAllView {...props} />;
+  if (props.fq.group)
+    return props.fq.section.view === 'match' ? <MatchBoardView {...props} /> : props.fq.section.view === 'table' ? <SectionTableView {...props} /> : <SectionAllView {...props} />;
   switch (props.fq.q.interaction.kind) {
     case 'choice':
       return <ChoiceView {...props} />;

@@ -198,13 +198,28 @@ test('#126 a glossed word is printed once; the word box shows above each 选词�
   await expect(page.locator('.stimulus.is-box')).toContainText('inventor');
 });
 
-test('#127 table-fill item shows the book table and black-and-white emoticons', async ({ page }) => {
+test('#127 table-fill: the book table on one page — face dropdowns, text boxes, one P1 page, no ①②', async ({ page }) => {
   await page.goto('/#/p/ci-g8/ci-g8-w18-thu');
   await showQuestions(page);
-  const table = page.locator('.stimulus .rt-table');
+  const table = page.locator('.section-table .rt-table');
   await expect(table).toContainText('How did the person feel?');
-  await expect(table).toContainText('After the meal');
-  await expect(page.locator('.option-text').first()).toContainText('🙂');
+  await expect(table).not.toContainText('①');
+  await expect(page.locator('.cell-select-button')).toHaveCount(8);
+  await expect(page.locator('.cell-text-input')).toHaveCount(16);
+  await expect(page.locator('.question-dot')).toHaveCount(1);
+  await expect(page.locator('.question-dot')).toContainText('P1');
+  await expect(page.locator('select')).toHaveCount(0);
+  await page.locator('.cell-select-button').first().click();
+  await expect(page.locator('.cell-select-item')).toHaveText(['🙂', '☹', '😐']);
+  await page.locator('.cell-select-item').first().click();
+  await expect(page.locator('.cell-select-button').first()).toContainText('🙂');
+  await page.locator('.cell-text-input').first().fill('For years, I had wanted to eat at the restaurant.');
   expect(await page.evaluate(() => getComputedStyle(document.body).fontFamily)).toContain('RC Emoticon');
   expect(await page.evaluate(async () => (await document.fonts.load('16px "RC Emoticon"', '☹')).length)).toBeGreaterThan(0);
+  await page.route('**/api/rc/judge', (route) => route.fulfill({ status: 404, body: 'not found' }));
+  await page.getByRole('button', { name: '提交' }).click();
+  const confirm = page.getByRole('button', { name: '仍然提交' });
+  if (await confirm.isVisible().catch(() => false)) await confirm.click();
+  await expect(page.locator('.part-explain li')).toHaveCount(24);
+  await expect(page.locator('.cell-select-button').first()).toHaveClass(/is-correct/);
 });

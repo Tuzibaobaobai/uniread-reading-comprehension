@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { InlineT, QuestionT } from '@schema';
-import { Rich, plainText } from '@/components/Rich';
-import { Check, Cross, Locate } from '@/components/Icons';
+import { Rich, plainText, type BlankNode } from '@/components/Rich';
+import { Check, ChevronDown, Cross, Locate } from '@/components/Icons';
 import { staticContent } from '@/lib/content';
+import { Block } from './ArticlePane';
 import { OptionList, QuestionPrompt, type InteractionProps } from './interactions';
 
 /*
@@ -302,5 +303,191 @@ export function MatchBoardView(props: InteractionProps) {
       </div>
       <Explanations props={props} qs={qs} />
     </>
+  );
+}
+
+/* ------------------------------------------------------------------ table */
+
+/** a dropdown in a table cell (the emoticons of a 表格填空, #127) — tap to open, tap an option; no native <select> */
+function CellSelect({
+  n,
+  options,
+  value,
+  correct,
+  locked,
+  onPick,
+}: {
+  n: number;
+  options: Opt[];
+  value?: string;
+  correct?: string[];
+  locked: boolean;
+  onPick: (id: string) => void;
+}) {
+  const { t } = useTranslation();
+  const [open, setOpen] = useState(false);
+  const root = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const outside = (e: PointerEvent) => root.current?.contains(e.target as Node) || setOpen(false);
+    const esc = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    document.addEventListener('pointerdown', outside);
+    document.addEventListener('keydown', esc);
+    return () => {
+      document.removeEventListener('pointerdown', outside);
+      document.removeEventListener('keydown', esc);
+    };
+  }, [open]);
+  const chosen = options.find((o) => o.id === value);
+  const ok = locked && correct ? correct.includes(value ?? '') : null;
+  const right = locked && correct && !ok ? options.find((o) => correct.includes(o.id)) : undefined;
+  return (
+    <span className="cell-select" ref={root}>
+      <button
+        className={`cell-select-button ${chosen ? 'is-filled' : ''} ${ok === true ? 'is-correct' : ok === false ? 'is-wrong' : ''}`}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-label={t('interaction.cellSelect', { n, value: chosen ? plainText(chosen.content) : t('interaction.cellEmpty') })}
+        disabled={locked}
+        onClick={() => setOpen((o) => !o)}
+      >
+        <span className="cell-num">{n}</span>
+        <span className="cell-select-value">{chosen ? <Rich nodes={chosen.content} /> : null}</span>
+        {!locked && <ChevronDown />}
+      </button>
+      {right && (
+        <span className="cell-select-correct" aria-label={t('reader.correctAnswer')}>
+          <Rich nodes={right.content} />
+        </span>
+      )}
+      {open && (
+        <span className="cell-select-menu" role="listbox" aria-label={t('reader.questionN', { n })}>
+          {options.map((o) => (
+            <button
+              key={o.id}
+              role="option"
+              aria-selected={o.id === value}
+              className={`cell-select-item ${o.id === value ? 'is-current' : ''}`}
+              onClick={() => {
+                setOpen(false);
+                onPick(o.id);
+              }}
+            >
+              <Rich nodes={o.content} />
+            </button>
+          ))}
+        </span>
+      )}
+    </span>
+  );
+}
+
+/**
+ * view "table" (#127): the section's table as printed, every question answered in its own cell — inlineChoice
+ * blanks are dropdowns, extendedText blanks are text boxes. One page in the pager; explanations follow the table.
+ */
+export function SectionTableView(props: InteractionProps) {
+  const { t } = useTranslation();
+  const { section } = props.fq;
+  const review = props.review;
+  const byBlank = new Map(section.questions.flatMap((q) => {
+    const it = q.interaction;
+    const b = it.kind === 'inlineChoice' ? it.blankId : it.kind === 'extendedText' ? it.blankId : undefined;
+    return b ? [[b, q] as const] : [];
+  }));
+  const set = (qid: string, v: string[] | string | undefined) =>
+    props.setResponses((prev) => {
+      const next = { ...prev };
+      if (v === undefined || v === '') delete next[qid];
+      else next[qid] = v;
+      return next;
+    });
+  const renderBlank = (n: BlankNode) => {
+    const q = byBlank.get(n.id);
+    if (!q) return null;
+    const it = q.interaction;
+    const r = props.responses[q.id];
+    if (it.kind === 'inlineChoice') {
+      const k = review?.key.answers[q.id];
+      return (
+        <CellSelect
+          key={n.id}
+          n={q.number}
+          options={it.options}
+          value={Array.isArray(r) ? r[0] : undefined}
+          correct={k && 'correct' in k ? k.correct : undefined}
+          locked={!!review}
+          onPick={(id) => set(q.id, [id])}
+        />
+      );
+    }
+    return (
+      <span key={n.id} className="cell-text">
+        <span className="cell-num">{q.number}</span>
+        <textarea
+          className="cell-text-input"
+          value={typeof r === 'string' ? r : ''}
+          readOnly={!!review}
+          rows={3}
+          aria-label={t('reader.questionN', { n: q.number })}
+          autoCapitalize="sentences"
+          onChange={(e) => set(q.id, e.target.value)}
+        />
+      </span>
+    );
+  };
+  return (
+    <>
+      <div className="stimulus section-table">
+        {(section.stimulus ?? []).map((b) => (
+          <Block key={b.id} block={b} renderBlank={renderBlank} />
+        ))}
+      </div>
+      {review && <TableExplanations props={props} />}
+    </>
+  );
+}
+
+/** after submitting: one line per cell — ✓ / ✗ or the judge's score, the answer, the explanation */
+function TableExplanations({ props }: { props: InteractionProps }) {
+  const { t } = useTranslation();
+  const review = props.review!;
+  return (
+    <ul className="part-explain">
+      {props.fq.section.questions.map((q) => {
+        const k = review.key.answers[q.id];
+        const row = review.result.byQuestion.find((b) => b.q === q.id);
+        const it = q.interaction;
+        let head: ReactNode = null;
+        let answer = '';
+        if (it.kind === 'inlineChoice' && k && 'correct' in k) {
+          head = row?.correct ? <Check /> : <Cross />;
+          answer = k.correct.map((id) => plainText(it.options.find((o) => o.id === id)?.content ?? [])).join(' ');
+        } else if (k && 'sampleAnswer' in k) {
+          head =
+            row?.scoredBy === 'pending' ? t('judge.marking') : row?.scoredBy === 'judge' ? t('reader.scored', { points: row.points, max: row.maxPoints }) : null;
+          answer = k.sampleAnswer;
+        }
+        const cls = row?.scoredBy === 'pending' || row?.correct === null ? '' : row?.correct ? 'is-correct' : row && row.points > 0 ? '' : 'is-wrong';
+        const j = row?.judgement;
+        return (
+          <li key={q.id} className={cls}>
+            <b>
+              {q.number}. {head}
+            </b>{' '}
+            <span className="part-explain-q">{plainText(it.kind === 'inlineChoice' ? (it.prompt ?? []) : it.kind === 'extendedText' ? it.prompt : [])}</span>
+            <br />
+            <span className="explain-label">{it.kind === 'inlineChoice' ? t('reader.correctAnswer') : t('reader.sampleAnswer')}</span> {answer}
+            {j?.feedbackZh && <span className="part-explain-feedback">{j.feedbackZh}</span>}
+            {k?.explanationZh && <> {k.explanationZh}</>}
+            {k?.evidence?.[0] && props.onLocate && (
+              <button className="chip part-explain-locate" onClick={() => props.onLocate!(k.evidence![0].block, k.evidence![0].quote)}>
+                <Locate /> {t('reader.locate')}
+              </button>
+            )}
+          </li>
+        );
+      })}
+    </ul>
   );
 }

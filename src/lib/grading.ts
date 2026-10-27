@@ -27,6 +27,7 @@ export function normalizeText(s: string, caseSensitive = false): string {
 export function questionBlankIds(q: QuestionT): string[] {
   const it = q.interaction;
   if (it.kind === 'inlineChoice') return [it.blankId];
+  if (it.kind === 'extendedText') return it.blankId ? [it.blankId] : [];
   if (it.kind !== 'textEntry' && it.kind !== 'gapMatch') return [];
   if (it.blankIds?.length) return it.blankIds;
   return (it.prompt ?? []).filter((n): n is Extract<InlineT, { t: 'blank' }> => n.t === 'blank').map((n) => n.id);

@@ -139,7 +139,7 @@ test('picture options: images render and can be chosen', async ({ page }) => {
 });
 
 test('question strip: many questions show "more" buttons with counts and page sideways', async ({ page }) => {
-  await page.goto('/#/p/ci-g8/ci-g8-w18-thu');
+  await page.goto('/#/p/ci-zk/ci-zk-w03-fri'); // 18 questions (ci-g8-w18-thu's 24 became one table page, #127)
   await showQuestions(page);
   const right = page.locator('.strip-more-right');
   await expect(right).toBeVisible();
