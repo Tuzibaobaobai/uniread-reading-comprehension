@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
+import type { TFunction } from 'i18next';
 import type { AnswerKeyT, InlineT, ItemKeyT, QuestionT, VocabDayItemT } from '@schema';
 import { Rich, type BlankNode } from '@/components/Rich';
 import { isAnswered, type Result } from '@/lib/grading';
@@ -44,7 +45,7 @@ const fieldAttrs = { 'data-vq-field': '', onKeyDown: onEnter, onFocus: centreOnF
 const record = (v: Rec | string | undefined): Rec => (v && typeof v === 'object' ? v : {});
 
 /** a 大题 is shown as "Part N" with the range of its question numbers, like the one-page Parts of KET / PET (#114) */
-export const partLabel = (i: number) => `Part ${i + 1}`;
+export const partLabel = (t: TFunction, i: number) => t('vocab.quiz.part', { n: i + 1 });
 const range = (s: VocabDayItemT['sections'][number]) => {
   const first = s.questions[0]?.number;
   const last = s.questions[s.questions.length - 1]?.number;
@@ -86,7 +87,7 @@ export function VocabQuiz({
     <div className="question-card vocab-quiz">
       <div className="question-scroll thin-scroll" ref={scroller}>
         <p className="section-instruction">
-          <b>{partLabel(page)}. </b>
+          <b>{partLabel(t, page)}. </b>
           {section.instruction}
           {!review && (
             <span className="vq-progress">
@@ -115,7 +116,7 @@ export function VocabQuiz({
                 data-part={`P${i + 1}`}
                 onClick={() => setPage(i)}
                 aria-current={i === page}
-                aria-label={t('vocab.quiz.sectionDot', { part: partLabel(i), range: range(s), done: done(s), total: s.questions.length })}
+                aria-label={t('vocab.quiz.sectionDot', { part: partLabel(t, i), range: range(s), done: done(s), total: s.questions.length })}
               >
                 {st === 'is-correct' || st === 'is-wrong' ? (
                   <img className="question-dot-icon" src={st === 'is-correct' ? correctIcon : wrongIcon} alt="" />

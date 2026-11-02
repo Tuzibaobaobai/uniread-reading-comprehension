@@ -20,7 +20,7 @@ Transcribe one **day** of 《2026 年上海市初中英语考纲词汇天天练�
 ## Day item — `content/playlists/zkv/items/zkv-dNN.json`
 ```jsonc
 { "schemaVersion":"1.0", "format":"vocab-day", "id":"zkv-d01", "playlistId":"zkv", "order":1, "day":1, "unit":"words",
-  "title":"第1天 ability – against", "displayName":"第1天 ability – against",
+  "title":"ability – against", "displayName":"ability – against",  /* word range only: 第N天 / Day N is UI text (docs/uniread-spec/i18n.md) */
   "taskType":{"code":"vocab_day","labelZh":"词汇天天练"},
   "wordRange":{"from":"e-ability","to":"e-against"}, "lexicon":"zkv", "entryIds":["e-ability", …, "e-against"],
   "meta":{"totalPoints":100,"suggestedMinutes":25,"passPercent":60},

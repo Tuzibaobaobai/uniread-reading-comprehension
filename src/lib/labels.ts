@@ -11,6 +11,15 @@ export const PAPER_EN = { reading_writing: 'Reading & Writing', reading: 'Readin
 export const dayLabel = (d: Day, t: TFunction = i18nT) => t(`day.${d}`);
 export const paperLabel = (p: Paper, t: TFunction = i18nT) => t(`paper.${p}`);
 
+/**
+ * an item's task type (七选五, 阅读单选…): the Chinese UI shows the label printed in the content (books name the same type
+ * differently); English shows the i18n `taskType.<code>` name (docs/uniread-spec/i18n.md), the content label if a code
+ * has none yet
+ */
+export function taskTypeLabel(tt: { code: string; labelZh: string }, lng: string, t: TFunction = i18nT) {
+  return lng === 'zh-CN' ? tt.labelZh : t(`taskType.${tt.code}`, { defaultValue: tt.labelZh });
+}
+
 export function formatMinutes(min: number, t: TFunction = i18nT) {
   return t('common.minutes', { count: min });
 }

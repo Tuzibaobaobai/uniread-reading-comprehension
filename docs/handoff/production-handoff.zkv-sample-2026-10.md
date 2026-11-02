@@ -28,6 +28,12 @@
 ### 2026-11-02 更新（#111 #131）
 
 - 题目 ID 不变；没有新增、改动或退役的题目（`zkv-d01` 题面未改，只改 Key）。
+
+### 2026-11-02 更新二（UniRead i18n 规范，#106）
+
+- 题目 ID 不变。`title` / `displayName` 只保留当天词条范围（`ability – against`、`help sb. with sth. – in time`），「第N天 / Day N」改由界面按语言加上（`vocab.dayTitle`）；`zkv-d01` v1.0.2、`zkv-d63` v1.0.1。`npm run validate` 现拒绝这两个字段里出现中文或 Day N。
+- 词汇天天练全部界面文案有 zh-CN / en-US 两套完整版本，可由宿主 `applyExamLocale` 切换：中文界面标签页为「速览 | 学习 | 测验」，英文为「Scan | Study | Quiz」；大题名「Part N」也改走 `t()`。en-US 端到端检查见 `e2e/i18n.spec.ts`。
+- 数据加载期间使用统一 Loading（`e2e/issues.spec.ts` #107）。规范原文见 `docs/uniread-spec/`，生产要求见 docs/14 §13。
 - #111 经人工确认（第 2–4 条按建议改，第 5 条保留，第 1 条已在 #118 撤回）：
   - `zkv-d01` q37 参考译文 think yourself → think by yourself（书末答案漏 by），另加 think for yourself；
   - `zkv-d01` q23 actually 的释义按手册统一为「实际上…」显示在前，书末答案的「实际地…」照样给分；

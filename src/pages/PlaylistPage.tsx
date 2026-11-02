@@ -7,7 +7,7 @@ import { localAttempts } from '@/lib/storage';
 import { useAsync } from '@/lib/useAsync';
 import starIcon from '@/assets/icons/star.svg';
 import { Thumb } from '@/components/Thumb';
-import { DAY_NAME, PAPER_EN, formatMinutes } from '@/lib/labels';
+import { DAY_NAME, PAPER_EN, formatMinutes, taskTypeLabel } from '@/lib/labels';
 import OverflowTip from '@/components/OverflowTip';
 import { examStatus, examStatusLabel, type ExamStatus } from '@/lib/exam-status';
 import { examKey, grade, overallScale, type ExamKey, type Skill, type SkillReport } from '@/lib/cambridge';
@@ -16,7 +16,7 @@ import { useTranslation } from 'react-i18next';
 export function PlaylistPage() {
   const { playlistId = '' } = useParams();
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { data: catalog, error } = useAsync(() => staticContent.getCatalog(), []);
   const pl = catalog?.playlists.find((p) => p.id === playlistId);
 
@@ -93,10 +93,12 @@ export function PlaylistPage() {
                         accent={pl.accent}
                       />
                       <span className="item-row-text">
-                        <OverflowTip className="item-row-title">{it.title}</OverflowTip>
+                        <OverflowTip className="item-row-title">
+                          {it.dayNumber !== undefined ? t('vocab.dayTitle', { n: it.dayNumber, range: it.title }) : it.title}
+                        </OverflowTip>
                         <span className="item-row-meta">
                           {[
-                            it.taskType.labelZh,
+                            taskTypeLabel(it.taskType, i18n.language, t),
                             it.entryCount ? t('playlist.entries', { count: it.entryCount }) : null,
                             it.wordCount ? t('playlist.words', { count: it.wordCount, words: it.wordCount }) : null,
                             it.difficulty !== undefined ? `L${it.difficulty}` : null,

@@ -17,9 +17,9 @@ test('every item renders', async ({ page }, info) => {
       if (p.format === 'vocab') {
         // 词汇天天练 (#133): Scan's first word, the day's entries in Study, then the first page of the quiz
         await expect(page.locator('.scan-word'), it.id).toBeVisible();
-        await page.getByRole('tab', { name: /Study/ }).click();
+        await page.getByRole('tab', { name: /学习/ }).click();
         await expect(page.locator('.entry').first(), it.id).toBeVisible();
-        await page.getByRole('tab', { name: /Quiz/ }).click();
+        await page.getByRole('tab', { name: /测验/ }).click();
         await expect(page.locator('.vq-row').first(), it.id).toBeVisible();
         await expect(page.locator('.question-dot').first(), it.id).toBeVisible();
         continue;

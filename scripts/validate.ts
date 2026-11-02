@@ -313,6 +313,9 @@ function checkVocabDay(item: VocabDayItemT, key: ItemKeyT) {
   const id = item.id;
   const err = (m: string) => errors.push(`${id}: ${m}`);
   const warn = (m: string) => warnings.push(`${id}: ${m}`);
+  // the title is content (the day's word range); 第N天 / Day N is UI text the page adds in the reader's language (docs/uniread-spec/i18n.md)
+  for (const k of ['title', 'displayName'] as const)
+    if (/[\u4e00-\u9fff]|^day\s*\d/i.test(item[k])) err(`${k} "${item[k]}" must hold only the word range — 第N天 / Day N comes from the UI (i18n)`);
   // <pl>-dNN (中考, 70 days) or <pl>-dNNN (高考, 125 days) — the width is fixed per playlist when it is first produced
   const m = /^(.*)-d(\d{2,3})$/.exec(id);
   if (!m || m[1] !== item.playlistId || Number(m[2]) !== item.day) err(`id should be ${item.playlistId}-d<day ${item.day}, zero-padded>`);

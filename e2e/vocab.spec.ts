@@ -67,12 +67,14 @@ test('playlist lists the days', async ({ page }) => {
   await page.goto('/#/p/zkv');
   await expect(page.locator('.item-row')).toHaveCount(2);
   await expect(page.locator('.item-row-meta').first()).toContainText('34 个词条');
+  await expect(page.locator('.item-row-title').first()).toHaveText('第1天 ability – against');
 });
 
 test('Scan → Study (#133): one word a page, 认识 / 不认识, Study coloured and folded by the marks', async ({ page }, info) => {
   await page.goto(`/#/p/zkv/${ITEM}`);
-  await expect(page.getByRole('tab')).toHaveText([/Scan/, /Study/, /Quiz/]);
-  await expect(page.getByRole('tab', { name: /Scan/ })).toHaveAttribute('aria-selected', 'true');
+  await expect(page.getByRole('tab')).toHaveText([/速览/, /学习/, /测验/]);
+  await expect(page.getByRole('tab', { name: /速览/ })).toHaveAttribute('aria-selected', 'true');
+  await expect(page.locator('.reader-head-title')).toHaveText('第1天 ability – against');
   // #112: the tabs sit in the middle of the header
   const head = (await page.locator('.reader-head').boundingBox())!;
   const tabs = (await page.locator('.mode-tabs').boundingBox())!;
@@ -90,10 +92,10 @@ test('Scan → Study (#133): one word a page, 认识 / 不认识, Study coloured
   await expect(page.locator('.scan-count')).toHaveText('3/34');
 
   // Study: 1st green + folded, 2nd red + open, 3rd (not marked) red + open
-  await page.getByRole('tab', { name: /Study/ }).click();
+  await page.getByRole('tab', { name: /学习/ }).click();
   await expect(page.locator('.entry')).toHaveCount(34);
   await expect(page.locator('.vocab-tally')).toContainText('认识 1 · 不认识 33');
-  await expect(page.locator('.vocab-tally')).toContainText('32 个词还没在 Scan 中标注');
+  await expect(page.locator('.vocab-tally')).toContainText('32 个词还没在速览中标注');
   const [first, second, third] = [0, 1, 2].map((i) => page.locator('.entry').nth(i));
   await expect(first).toHaveClass(/is-known/);
   await expect(first.locator('.entry-senses')).toHaveCount(0);
@@ -125,31 +127,31 @@ test('Scan → Study (#133): one word a page, 认识 / 不认识, Study coloured
   await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-study.png` });
 
   // change a mark in Scan → Study follows
-  await page.getByRole('tab', { name: /Scan/ }).click();
+  await page.getByRole('tab', { name: /速览/ }).click();
   await expect(page.locator('.scan-count')).toHaveText('3/34');
   await page.getByRole('button', { name: '上一个词' }).click();
   await page.getByRole('button', { name: '上一个词' }).click();
   await expect(page.getByRole('button', { name: '认识', exact: true })).toHaveAttribute('aria-pressed', 'true');
   await page.getByRole('button', { name: '不认识' }).click();
-  await page.getByRole('tab', { name: /Study/ }).click();
+  await page.getByRole('tab', { name: /学习/ }).click();
   await expect(page.locator('.entry').first()).toHaveClass(/is-unknown/);
   await expect(page.locator('.entry').first().locator('.entry-senses')).toBeVisible();
 
   // marking every word ends on the summary; reopening the day goes straight to Study
-  await page.getByRole('tab', { name: /Scan/ }).click();
+  await page.getByRole('tab', { name: /速览/ }).click();
   for (let i = 1; i < 34; i++) await page.getByRole('button', { name: '认识', exact: true }).click();
   await expect(page.locator('.scan-done-title')).toHaveText('今天的 34 个词都标注好了');
   await expect(page.locator('.scan-done-tally')).toHaveText('认识 33 · 不认识 1');
   await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-scan-done.png` });
   await page.reload();
-  await expect(page.getByRole('tab', { name: /Study/ })).toHaveAttribute('aria-selected', 'true');
+  await expect(page.getByRole('tab', { name: /学习/ })).toHaveAttribute('aria-selected', 'true');
 });
 
 test('Quiz: Part pages, typed answers only, Enter, result, review, entry, retry mistakes', async ({ page }, info) => {
   await mockJudge(page);
   await seed(page, rightAnswers(['q1', 'q2']));
   await page.goto(`/#/p/zkv/${ITEM}`);
-  await expect(page.getByRole('tab', { name: /Quiz/ })).toHaveAttribute('aria-selected', 'true'); // an attempt in progress opens the quiz
+  await expect(page.getByRole('tab', { name: /测验/ })).toHaveAttribute('aria-selected', 'true'); // an attempt in progress opens the quiz
   await expect(page.locator('.section-instruction')).toContainText('Part 1. 根据所给音标写出英语单词、词性及中文释义');
   // pager: one Part per page, labelled P1… with its question numbers, like the one-page Parts of KET / PET (#114)
   await expect(page.locator('.question-dot')).toHaveCount(6);

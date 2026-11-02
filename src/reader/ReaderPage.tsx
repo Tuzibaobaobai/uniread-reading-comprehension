@@ -58,7 +58,9 @@ export function ReaderPage() {
         <button className="back-button" onClick={() => navigate(`/p/${playlistId}`)} aria-label={t('reader.backToPlaylist')}>
           <BackArrow />
         </button>
-        <OverflowTip className="reader-head-title">{item?.title ?? ''}</OverflowTip>
+        <OverflowTip className="reader-head-title">
+          {item && isVocabDay(item) ? t('vocab.dayTitle', { n: item.day, range: item.title }) : (item?.title ?? '')}
+        </OverflowTip>
         <div className="reader-head-actions" ref={setHeadSlot} />
       </header>
       {error && <p className="error">{t('common.loadFailed', { message: error })}</p>}

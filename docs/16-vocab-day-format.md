@@ -49,7 +49,7 @@
 ```jsonc
 {
   "format": "vocab-day", "id": "zkv-d01", "playlistId": "zkv", "order": 1, "day": 1,
-  "title": "第1天 ability – against",
+  "title": "ability – against",              // 只写当天词条范围；「第1天 / Day 1」由界面按语言加（uniread-spec/i18n）
   "wordRange": { "from": "e-ability", "to": "e-against" },   // Vocabulary 标签按此取词条
   "sections": [ /* 一–六大题，见下表 */ ],
   "meta": { "totalPoints": 100, "suggestedMinutes": 25 }
@@ -91,7 +91,7 @@
 
 ### 3.1 进入一天：三步（#133）
 
-顶部标签「**Scan** | **Study** | **Quiz**」：先扫一遍标出认识 / 不认识，再有针对性地学，最后测。打开一天时落在学生停下的那一步：Quiz 已有作答 → Quiz；当天词都标过 → Study；否则 Scan（从第一个没标的词开始）。从 Quiz 的错题可以跳回对应词条。
+顶部标签「**Scan** | **Study** | **Quiz**」（中文界面「速览 | 学习 | 测验」；按钮「认识 / 不认识」对应 Know / Don't know）：先扫一遍标出认识 / 不认识，再有针对性地学，最后测。全部界面文案按 [UniRead i18n 规范](uniread-spec/i18n.md) 有中英两套完整版本，由宿主切换（下文用英文名指称三个步骤）。打开一天时落在学生停下的那一步：Quiz 已有作答 → Quiz；当天词都标过 → Study；否则 Scan（从第一个没标的词开始）。从 Quiz 的错题可以跳回对应词条。
 
 ### 3.1a Scan 标签
 

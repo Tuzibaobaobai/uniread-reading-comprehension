@@ -1,3 +1,5 @@
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import zhCN from './locales/zh-CN.json';
 import enUS from './locales/en-US.json';
@@ -50,5 +52,49 @@ describe('applyExamLocale', () => {
     await applyExamLocale('en-US');
     expect(i18n.t('reader.unansweredTitle', { count: 1 })).toBe('1 question not answered');
     expect(i18n.t('reader.unansweredTitle', { count: 3 })).toBe('3 questions not answered');
+  });
+});
+
+/**
+ * #106 self-check (docs/uniread-spec/i18n.md §6): no Chinese UI text hard-coded in components — every label goes through t().
+ * Comments are ignored; ALLOWED lists the places where Chinese is content logic, not UI text.
+ */
+describe('no hard-coded Chinese UI text (#106)', () => {
+  const ALLOWED = [/\/\^要点\//]; // ReaderPage: a content field (rubricZh) that already starts with 要点
+  const walk = (d: string): string[] =>
+    readdirSync(d, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(join(d, e.name)) : e.name.endsWith('.tsx') && !e.name.includes('.test.') ? [join(d, e.name)] : []));
+  it('every .tsx under src/', () => {
+    const hits: string[] = [];
+    for (const f of walk('src')) {
+      const code = readFileSync(f, 'utf8')
+        .replace(/\/\*[\s\S]*?\*\//g, '')
+        .split('\n')
+        .map((l) => l.replace(/(^|[^:'"`])\/\/.*$/, '$1'));
+      code.forEach((l, i) => {
+        const line = ALLOWED.reduce((x, re) => x.replace(re, ''), l);
+        if (/[\u4e00-\u9fff]/.test(line)) hits.push(`${f}:${i + 1}: ${l.trim()}`);
+      });
+    }
+    expect(hits).toEqual([]);
+  });
+});
+
+describe('task types (#106)', () => {
+  it('every taskType code in content has a name in both locales', () => {
+    const codes = new Set<string>();
+    for (const pl of readdirSync('content/playlists')) {
+      const dir = join('content/playlists', pl, 'items');
+      try {
+        for (const f of readdirSync(dir)) {
+          const tt = (JSON.parse(readFileSync(join(dir, f), 'utf8')) as { taskType?: { code: string } }).taskType;
+          if (tt) codes.add(tt.code);
+        }
+      } catch {
+        /* a playlist folder without items */
+      }
+    }
+    const zh = (zhCN as unknown as { taskType: Record<string, string> }).taskType;
+    const en = (enUS as unknown as { taskType: Record<string, string> }).taskType;
+    expect([...codes].filter((c) => !zh[c] || !en[c])).toEqual([]);
   });
 });

@@ -1,6 +1,6 @@
 # 本次生产交接
 
-> 配套规约：`14-agent-production-rules.md`，版本0.10（2026-10-22）。两个文件可以独立分发，不需要同时收到AGENTS.md或CLAUDE.md。本文是人／Codex／Claude Code可读附录，不是平台API JSON，当前平台工具不自动解析此Markdown。
+> 配套规约：`14-agent-production-rules.md`，版本0.11（2026-11-02）。两个文件可以独立分发，不需要同时收到AGENTS.md或CLAUDE.md。本文是人／Codex／Claude Code可读附录，不是平台API JSON，当前平台工具不自动解析此Markdown。
 
 ## 收到此模板后
 
@@ -157,6 +157,7 @@ RC当前校验不要求`id=q{number}`。例如在原`q1`、`q2`之间插入新�
 - CSS／tokens、字体文件／字重、图片／图标依赖：待填。
 - 原布局、响应式断点与需保留的交互清单：待填。
 - 来源页面可复现场景、视口／断点、字体就绪条件及截图／操作证据：待填写。
+- UniRead平台规范（规约第13节，`docs/uniread-spec/`实际版本：待填）：zh-CN／en-US界面文案完整、无混用、经`applyExamLocale`切换的检查结果：待填；整页加载使用统一Loading的检查结果：待填。
 - RC参考截图命令：`REFERENCE=1 npx playwright test e2e/reference.spec.ts`；实际版本／范围／结果：待填写；作答前`.work/reference/public/<视口>/`可公开，含答案复盘`.work/reference/private/<视口>/`仅受控验收，均与内容同tag／commit。
 - 同内容／视口／字体／回答与位置下，来源→产物→平台容器对照：待接入方验证 / 附平台实际证据；生产方不冒填平台通过。
 - 差异、未支持交互与负责补齐方：待填。必须原样还原；有差异写未完成，不能用功能已通标记验收。

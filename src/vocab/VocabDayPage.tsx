@@ -299,7 +299,7 @@ function ResultView({
           return (
             <li key={s.id}>
               <img src={ok ? correctIcon : wrongIcon} alt={ok ? t('reader.dotCorrect') : t('reader.dotWrong')} />
-              <span className="vq-result-label">{partLabel(i)}</span>
+              <span className="vq-result-label">{partLabel(t, i)}</span>
               <span className="vq-result-points">
                 {Math.round(got * 10) / 10}/{Math.round(max * 10) / 10}
               </span>

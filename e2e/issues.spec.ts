@@ -174,6 +174,17 @@ test('#107 a page waiting for its data shows the shared Loading mask, then remov
   await expect(page.getByRole('button', { name: /练习模式/ })).toBeVisible();
 });
 
+test('#107 词汇天天练 waits for its entries behind the same Loading mask', async ({ page }) => {
+  await page.route('**/lexicons/zkv/entries/e-ability.json', async (r) => {
+    await new Promise((x) => setTimeout(x, 1200));
+    await r.continue();
+  });
+  await page.goto('/#/p/zkv/zkv-d01');
+  await expect(page.locator('[role=status][aria-busy=true]')).toBeVisible();
+  await expect(page.locator('[role=status][aria-busy=true]')).toHaveCount(0, { timeout: 5000 });
+  await expect(page.locator('.scan-word')).toHaveText('ability');
+});
+
 test('#108 every 时文阅读 item uses the Week-Day card as its cover, not the article picture', async ({ page }) => {
   await page.goto('/#/p/ci-g7');
   await expect(page.locator('.item-row').first()).toBeVisible();
