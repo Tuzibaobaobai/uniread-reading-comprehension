@@ -25,12 +25,23 @@
 
 - 本次类型：首次生产；无历史 ID、无退役 ID。
 
+### 2026-11-02 更新（#111 #131）
+
+- 题目 ID 不变；没有新增、改动或退役的题目（`zkv-d01` 题面未改，只改 Key）。
+- #111 经人工确认（第 2–4 条按建议改，第 5 条保留，第 1 条已在 #118 撤回）：
+  - `zkv-d01` q37 参考译文 think yourself → think by yourself（书末答案漏 by），另加 think for yourself；
+  - `zkv-d01` q23 actually 的释义按手册统一为「实际上…」显示在前，书末答案的「实际地…」照样给分；
+  - `e-in-charge-of` 名师点拨「布郎」→「布朗」，词条 v1.0.1，记入 `errata`；
+  - `e-after` 近义词 not until：保留。
+  - Key 仍为 `reviewStatus: pending`。
+- #131 发音标准：词头和例句里的该词一律按原书音标发音（docs/16 §3.2）。生成 `content/lexicons/zkv/pronunciations.json`（34 个单词词条，全部与 CMU 词典对上，无须人工处理），按此用 SSML `<phoneme>` 重新合成 79 段（34 个词头 + 45 个含该词的例句，8,434 字符），其余 63 段不变；修正 adult（例句原读 /əˈdʌlt/）和 affect（原读错）。79 段都用 ASR 回听过，内容完整。音频仍为 142 段，`rc-media-zkv.zip` 需重新打包。
+
 ## 资产与依赖
 
 | 使用位置 | 路径 | 来源 | 交付 |
 | --- | --- | --- | --- |
 | 合集封面 / 横幅 | `assets/zkv/cover.jpg`、`banner.jpg` | `scripts/make-cover.mjs zkv`（与 KET/PET 同一模板，新增 ZKV 类型） | 是 |
-| 词头与例句朗读 | `assets/lexicons/zkv/<entryId>.mp3`、`<entryId>-x<N>.mp3` | 火山引擎 TTS（Amanda），`node scripts/tts.mjs --lexicon zkv`；65 个词条共 142 段（4,906 字符）；不进 git，随 `rc-media-zkv.zip` 交付 | 142 / 142 |
+| 词头与例句朗读 | `assets/lexicons/zkv/<entryId>.mp3`、`<entryId>-x<N>.mp3` | 火山引擎 TTS（Amanda），`node scripts/tts.mjs --lexicon zkv`；65 个词条共 142 段（4,906 字符；2026-11-02 按 #131 重做 79 段）；不进 git，随 `rc-media-zkv.zip` 交付 | 142 / 142 |
 | 题目图片 | — | 纯文字，无图片 | 不适用 |
 
 - 服务：判分 `/api/rc/grade`（中文释义规则匹配 + 一次模型复核）、`/api/rc/judge`（中译英）、`/api/rc/hint`（提示字母块）、`/api/rc/transcribe`（语音输入，Qwen3-ASR-1.7B）。需要 `SILICONFLOW_API_KEY`；未配置时中文释义只按规则判、中译英回落为自评、语音按钮报不可用。

@@ -3,7 +3,7 @@
  * grading and keys come from the API (/api/rc/grade, /api/rc/judge) so answers are never published (docs/06).
  */
 import { httpJudge, type JudgeProvider } from './judge';
-import type { AnyItemT, CatalogT, ItemKeyT, LexiconEntryT, PlaylistT } from '@schema';
+import type { AnyItemT, CatalogT, ItemKeyT, LexiconEntryT, LexiconT, PlaylistT } from '@schema';
 import type { ResponseValue, Result } from './grading';
 
 export interface ContentProvider {
@@ -12,6 +12,8 @@ export interface ContentProvider {
   getItem(id: string): Promise<AnyItemT>;
   /** shared lexicon entry (词汇天天练 Vocabulary tab, #110) */
   getEntry(lexicon: string, id: string): Promise<LexiconEntryT>;
+  /** a word list's title and marks legend */
+  getLexicon(lexicon: string): Promise<LexiconT>;
   /** grade a submission; the key is only revealed after submitting */
   grade(
     item: { id: string },
@@ -56,8 +58,9 @@ export const staticContent: ContentProvider = {
   getCatalog: () => cached<CatalogT>('catalog.json'),
   getPlaylist: (id) => cached<PlaylistT>(`playlists/${id}/playlist.json`),
   // <pl>-wNN-<day> (时文阅读), <pl>-t<N>-<paper> (exam papers) or <pl>-dNN (词汇天天练)
-  getItem: (id) => cached<AnyItemT>(`playlists/${id.replace(/-w\d{2}-\w{3}$|-t\d+-(rw|r|w|l|s)$|-d\d{2}$/, '')}/items/${id}.json`),
+  getItem: (id) => cached<AnyItemT>(`playlists/${id.replace(/-w\d{2}-\w{3}$|-t\d+-(rw|r|w|l|s)$|-d\d{2,3}$/, '')}/items/${id}.json`),
   getEntry: (lexicon, id) => cached<LexiconEntryT>(`lexicons/${lexicon}/entries/${id}.json`),
+  getLexicon: (lexicon) => cached<LexiconT>(`lexicons/${lexicon}/lexicon.json`),
   async grade(item, responses, opts = {}) {
     const res = await fetch(`${base}api/rc/grade`, {
       method: 'POST',

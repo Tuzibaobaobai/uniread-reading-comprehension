@@ -17,7 +17,7 @@ export const ArticleItemId = z.string().regex(/^[a-z0-9-]+-w\d{2}-(mon|tue|wed|t
 /** exam paper (KET/PET 真题): <playlist>-t<test>-<rw|r|w|l|s> — KET: one Reading & Writing paper; PET: separate r / w */
 export const ExamItemId = z.string().regex(/^[a-z0-9]+-t\d+-(rw|r|w|l|s)$/);
 /** 中考词汇天天练 day (#110): <playlist>-dNN */
-export const VocabDayItemId = z.string().regex(/^[a-z0-9]+-d\d{2}$/);
+export const VocabDayItemId = z.string().regex(/^[a-z0-9]+-d\d{2,3}$/);
 export const ItemId = z.union([ArticleItemId, ExamItemId, VocabDayItemId]);
 /** shared lexicon entry (handbook word or phrase): e-<lower-case headword, spaces and punctuation as "-"> */
 export const LexiconEntryId = z.string().regex(/^e-[a-z0-9]+(-[a-z0-9]+)*$/);
@@ -533,8 +533,10 @@ export const LexiconEntry = z
     ipa: z.array(z.string()).optional(),
     /** * before the headword: a key exam word */
     star: z.boolean().optional(),
-    /** ▶: also a 课标三级词汇 */
+    /** ▶ (中考) / circled 初 (高考): a lower-level curriculum word — what it means is in lexicon.json `marks` */
     levelMark: z.boolean().optional(),
+    /** ▲ (高考): added by the Shanghai exam authority */
+    supplement: z.boolean().optional(),
     /** textbook units where it appears, e.g. "G7上U3" */
     textbook: z.array(z.string()).optional(),
     /** printed note after the headword, e.g. "（复 abilities）" */
@@ -549,6 +551,8 @@ export const LexiconEntry = z
     proverbs: z.array(z.object({ en: z.string(), zh: z.string() }).strict()).optional(),
     /** 名师点拨 box */
     tip: z.array(Block).optional(),
+    /** 辨析 (高考): similar words compared — the words as printed ("able, capable") and the explanation with examples */
+    compare: z.array(z.object({ words: z.string(), blocks: z.array(Block).min(1) }).strict()).optional(),
     /** generated audio: the headword and each example, in order */
     audio: z
       .object({ word: z.object({ src: z.string(), seconds: z.number() }).strict().optional(), examples: z.array(z.object({ src: z.string(), seconds: z.number() }).strict()).optional() })
@@ -560,6 +564,24 @@ export const LexiconEntry = z
   })
   .strict();
 export type LexiconEntryT = z.infer<typeof LexiconEntry>;
+
+/**
+ * One word list (content/lexicons/<lexicon>/lexicon.json): the handbook it comes from and what its marks mean — the same
+ * mark means different things in different books (* = 试卷高频词 in 中考, = 《高考英语词汇手册》词 in 高考), so the legend is data.
+ */
+export const Lexicon = z
+  .object({
+    schemaVersion: z.literal(SCHEMA_VERSION),
+    id: PlaylistId,
+    title: z.string(),
+    source: z.object({ pdf: z.string() }).strict(),
+    /** legend, in display order: `symbol` is shown as printed (*, ▲) or as the tag text (三级, 初中) */
+    marks: z
+      .array(z.object({ key: z.enum(['star', 'supplement', 'levelMark', 'textbook']), symbol: z.string(), description: z.string() }).strict())
+      .default([]),
+  })
+  .strict();
+export type LexiconT = z.infer<typeof Lexicon>;
 
 /**
  * 词汇天天练 day (#110): Vocabulary tab = the lexicon entries of the day's range, Quiz tab = the day's exercises

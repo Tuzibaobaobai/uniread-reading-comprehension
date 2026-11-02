@@ -305,16 +305,29 @@
   },
   "vocab": {
     "tabs": "Mode",
-    "tabVocab": "Vocabulary",
+    "tabScan": "Scan",
+    "tabStudy": "Study",
     "tabQuiz": "Quiz",
+    "scan": {
+      "know": "Know",
+      "dontKnow": "Don't know",
+      "pager": "Word pager",
+      "prev": "Previous word",
+      "next": "Next word",
+      "position": "Word {{n}} of {{total}}",
+      "doneTitle": "All {{count}} words for today are marked",
+      "study": "Go to Study",
+      "restart": "Go through again",
+      "resume": "Keep marking",
+      "partTitle_one": "{{count}} word not marked yet",
+      "partTitle_other": "{{count}} words not marked yet"
+    },
     "list": {
       "count_one": "{{count}} entry",
       "count_other": "{{count}} entries",
       "tally": "Known {{known}} · Not yet {{unknown}}",
-      "cover": "Hide meanings",
-      "reveal": "Show meaning",
-      "known": "I know it",
-      "unknown": "Not yet"
+      "unmarked_one": "{{count}} word not marked in Scan, shown as Don't know",
+      "unmarked_other": "{{count}} words not marked in Scan, shown as Don't know"
     },
     "entry": {
       "star": "Key word",
@@ -328,7 +341,12 @@
       "proverbs": "Proverbs",
       "more": "More: {{list}}",
       "less": "Less",
-      "playExample": "Play example {{n}}"
+      "playExample": "Play example {{n}}",
+      "compare": "Compare",
+      "expand": "Expand",
+      "collapse": "Collapse",
+      "expandWord": "Expand {{word}}",
+      "collapseWord": "Collapse {{word}}"
     },
     "quiz": {
       "sectionProgress": "{{done}}/{{total}} done",
@@ -365,11 +383,6 @@
       "openEntry": "Open entry",
       "hintHalf": "hint used, half marks",
       "judgeUnavailable": "AI marking is unavailable right now — compare your answer with the reference translation."
-    },
-    "legend": {
-      "level": "Level 3 word of the national English curriculum",
-      "textbook": "Shanghai (Oxford) textbook grade, term and unit where it appears (G6下U1 = Grade 6, second term, Unit 1)",
-      "star": "High-frequency word in exam papers"
     }
   }
 }

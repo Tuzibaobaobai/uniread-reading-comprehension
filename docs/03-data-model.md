@@ -133,8 +133,10 @@ xAPI 映射：actor = learnerId；verb = `answered`（每题）/ `completed`（�
 - 新交互：`wordProfile {prompt: 音标, posOptions}`，作答 `{word, pos, zh}`，key `{word[], pos[], zh[]}`（三部分各占 1/3）；`wordFamily {base {word, pos}, slots[{id, pos}]}`，作答 `{"f1.word", "f1.zh", …}`，key `{forms {f1: {word[], zh[]}}}`（同词性的空可互换）。`extendedText.requiredWord`（中译英指定词）；key `rubricType: "translation"` + `references[]`。
 - 判分：中文释义 `zhMatches`（拆义项、去标点 / 括号 / 「的」，括号视为可选或替换字，包含即对），规则不认的由服务端一次模型复核（`server/meaning.ts`，结果作为 `zhOk` 传入 `gradeItem`）；`hinted` 中的部分答对得一半分。
 - 接口：`/api/rc/hint`（从 key 生成打乱的字母 / 单词块）、`/api/rc/transcribe`（只对中文释义、中译英开放；ASR 与口语共用）。
-- Attempt：`hinted`（`"q1:word"`、`"q6:b6"`）、`voiced`（语音作答的部分）、`known`（Vocabulary 自测 认识 / 不认识）、`kept`（「只练错题」时保留的上次答对的题，只读）。
+- Attempt：`hinted`（`"q1:word"`、`"q6:b6"`）、`voiced`（语音作答的部分）、`known`（Scan 标注 认识 / 不认识，决定 Study 的颜色和展开，#133）、`kept`（「只练错题」时保留的上次答对的题，只读）。
 - Catalog：词汇合集 `format: "vocab"`，ItemSummary 用 `dayNumber` / `entryCount`；`totalWords` 为词条数。
+- 词库说明 `Lexicon`：`content/lexicons/<lx>/lexicon.json` = 手册名、出处、标记图例 `marks[{key: star|supplement|levelMark|textbook, symbol, description}]`。同一个标记在不同的书里含义不同（中考 * = 试卷高频词；高考 * = 《高考英语词汇手册》词），所以图例是数据，Vocabulary 标签按它显示，不写在界面文案里。
+- 高考增量（`gkv`）：词条 `supplement`（▲ 考试院补充词）、`compare[{words, blocks}]`（辨析）；item id 三位数 `gkv-d001`（125 天），中考保持两位 `zkv-d01`——位数在合集首次生产时定下，之后不变。
 
 ## 版本
 - `schemaVersion`：数据结构版本（破坏性变更才升级）

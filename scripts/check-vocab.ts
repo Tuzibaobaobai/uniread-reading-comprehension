@@ -3,7 +3,7 @@
  *   npx tsx scripts/check-vocab.ts <itemId…>        e.g. zkv-d01 zkv-d63
  * The answer pages mix two columns and several days, so this does not align question by question: it checks that every
  * English answer in the key (words, forms, blanks, the first reference translation) is printed on the key's
- * officialRef pages (OCR in .work/text/<pl>/daily/p###.txt). A miss is a likely typo or a wrong answer — check the page image.
+ * officialRef pages (OCR in .work/text/<pl>/daily/ or answers/p###.txt). A miss is a likely typo or a wrong answer — check the page image.
  */
 import { existsSync, readFileSync } from 'node:fs';
 import type { ItemKeyT } from '../schema/index.ts';
@@ -16,13 +16,16 @@ const squash = (s: string) =>
     .replace(/[^a-z0-9']+/g, ' ')
     .trim();
 
+/** where each book's answer pages were OCR'd: 中考 answers are at the back of the daily book, 高考 has an answer book */
+const ANSWER_OCR: Record<string, string> = { zkv: 'daily', gkv: 'answers' };
+
 let problems = 0;
 for (const id of process.argv.slice(2)) {
-  const pl = id.replace(/-d\d{2}$/, '');
+  const pl = id.replace(/-d\d{2,3}$/, '');
   const key = JSON.parse(readFileSync(`content/playlists/${pl}/keys/${id}.json`, 'utf8')) as ItemKeyT;
   const pages = key.officialRef?.pages ?? [];
   const text = ` ${pages
-    .map((p) => `.work/text/${pl}/daily/p${String(p).padStart(3, '0')}.txt`)
+    .map((p) => `.work/text/${pl}/${ANSWER_OCR[pl] ?? 'daily'}/p${String(p).padStart(3, '0')}.txt`)
     .filter((f) => existsSync(f))
     .map((f) => readFileSync(f, 'utf8').split('\n').map((l) => l.replace(/^[\d.]+ [\d.]+ [\d.]+ /, '')).join(' '))
     .map(squash)

@@ -71,3 +71,10 @@ export const ChevronRight = () => (
     <path d="M9 5l7 7-7 7" />
   </svg>
 );
+/** 词汇天天练 Scan tab (#133): a stack of word cards */
+export const Cards = () => (
+  <svg viewBox="0 0 24 24" aria-hidden>
+    <rect x="3" y="6" width="14" height="16" rx="3" fill="currentColor" />
+    <path d="M8 3.5h10a2.5 2.5 0 0 1 2.5 2.5v12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+);

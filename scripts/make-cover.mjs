@@ -16,6 +16,7 @@ const TYPES = {
   PET: { level: 'B1 Preliminary for Schools', zh: '剑桥 PET 青少版', accent: '#8C2F39', accentLight: '#F2B8BE' },
   // 词汇天天练 (#110): same layout, a word instead of the exam name
   ZKV: { level: 'Shanghai Zhongkao 2026', zh: '上海中考', accent: '#2F6B4F', accentLight: '#A8DDBF', big: 'Vocab', title: '考纲词汇', css: '.exam { font-size: 300px; letter-spacing: -8px; top: 190px; }' },
+  GKV: { level: 'Shanghai Gaokao 2027', zh: '上海高考', accent: '#2B4C7E', accentLight: '#A9C4EE', big: 'Vocab', title: '考纲词汇', css: '.exam { font-size: 300px; letter-spacing: -8px; top: 190px; }' },
 };
 /** one entry per playlist: the series subtitle and what the book contains */
 const COVERS = {
@@ -26,6 +27,7 @@ const COVERS = {
   pet2: { type: 'PET', series: '校园版真题 2', detail: '4 套 · 阅读 · 写作 · 听力 · 口语' },
   pet3: { type: 'PET', series: '校园版真题 3', detail: '4 套 · 阅读 · 写作 · 听力 · 口语' },
   zkv: { type: 'ZKV', series: '考纲词汇天天练', detail: '用法手册词条 · 70 天练习' },
+  gkv: { type: 'GKV', series: '考纲词汇天天练', detail: '用法手册词条 · 125 天练习' },
 };
 
 const font = (pkg, file) => pathToFileURL(resolve('node_modules/@fontsource', pkg, file)).href;

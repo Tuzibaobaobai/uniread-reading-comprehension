@@ -397,7 +397,7 @@ function Review({ q, k, result, state }: { q: QuestionT; k: AnswerKeyT; result?:
         <span lang="en">{answerText(q, k)}</span>
         {result && result.scoredBy !== 'pending' && result.scoredBy !== 'self' && result.scoredBy !== 'none' && (
           <span className="vq-points">
-            {result.correct ? <Check /> : <Cross />} {t('vocab.result.points', { points: Math.round(result.points * 100) / 100, max: result.maxPoints })}
+            {result.correct ? <Check /> : <Cross />} {t('vocab.result.points', { points: Math.round(result.points * 100) / 100, max: Math.round(result.maxPoints * 100) / 100 })}
             {hintedHere && ` · ${t('vocab.result.hintHalf')}`}
           </span>
         )}

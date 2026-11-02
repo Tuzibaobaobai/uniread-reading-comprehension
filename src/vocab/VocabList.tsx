@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { LexiconEntryT } from '@schema';
+import type { LexiconEntryT, LexiconT } from '@schema';
 import { Rich, plainText } from '@/components/Rich';
 import { staticContent } from '@/lib/content';
 import { speakWithDevice } from '@/reader/Speaking';
 import { Block } from '@/reader/ArticlePane';
+import { ChevronDown } from '@/components/Icons';
 import playIcon from '@/assets/icons/audio-play.svg';
 
 let player: HTMLAudioElement | null = null;
@@ -23,64 +24,61 @@ export function say(text: string, audio?: { src: string }) {
 const canSpeak = () => typeof speechSynthesis !== 'undefined';
 
 /**
- * 词汇天天练 Vocabulary tab (#110): the day's handbook entries as printed — headword, IPA, marks, senses, examples,
- * 常用词组 / 词形拓展 / 近反义 / 谚语 (folded) and 名师点拨. 「遮住释义」 hides the meanings for a 认识 / 不认识 self-check
- * (not scored; kept with the attempt).
+ * 词汇天天练 step 2 · Study (#110, #133): the day's handbook entries as printed — headword, IPA, marks, senses, examples,
+ * 常用词组 / 词形拓展 / 近反义 / 谚语 (folded) and 名师点拨. The Scan marks colour each headword: 认识 green and folded,
+ * 不认识 red and open; a word not marked in Scan counts as 不认识. Either can be opened or folded by hand.
  */
 export function VocabList({
   entries,
+  marks = [],
   known,
-  onKnown,
 }: {
   entries: LexiconEntryT[];
+  /** the word list's legend (lexicon.json) */
+  marks?: LexiconT['marks'];
+  /** the Scan marks (attempt.known) */
   known: Record<string, boolean>;
-  onKnown: (id: string, v: boolean | null) => void;
 }) {
   const { t } = useTranslation();
-  const [cover, setCover] = useState(false);
   const knownCount = entries.filter((e) => known[e.id] === true).length;
-  const unknownCount = entries.filter((e) => known[e.id] === false).length;
+  const unmarked = entries.filter((e) => known[e.id] === undefined).length;
   return (
     <div className="vocab-list">
       <div className="vocab-toolbar">
         <span className="vocab-count">{t('vocab.list.count', { count: entries.length })}</span>
-        {cover && (
-          <span className="vocab-tally" role="status">
-            {t('vocab.list.tally', { known: knownCount, unknown: unknownCount })}
-          </span>
-        )}
-        <button type="button" role="switch" aria-checked={cover} className={`switch-row ${cover ? 'is-on' : ''}`} onClick={() => setCover(!cover)}>
-          {t('vocab.list.cover')}
-          <span className="switch" aria-hidden>
-            <span />
-          </span>
-        </button>
-        <Legend entries={entries} />
+        <span className="vocab-tally" role="status">
+          {t('vocab.list.tally', { known: knownCount, unknown: entries.length - knownCount })}
+          {unmarked > 0 && ` · ${t('vocab.list.unmarked', { count: unmarked })}`}
+        </span>
+        <Legend entries={entries} marks={marks} />
       </div>
       <ol className="vocab-entries">
         {entries.map((e) => (
-          <EntryCard key={e.id} entry={e} cover={cover} known={known[e.id]} onKnown={(v) => onKnown(e.id, v)} />
+          <EntryCard key={e.id} entry={e} marks={marks} known={known[e.id] ?? false} />
         ))}
       </ol>
     </div>
   );
 }
 
-/** what the marks beside a headword mean (#113) — only the marks that occur in this day's entries */
-function Legend({ entries }: { entries: LexiconEntryT[] }) {
-  const { t } = useTranslation();
-  const marks = [
-    entries.some((e) => e.levelMark) && { tag: t('vocab.entry.level'), text: t('vocab.legend.level') },
-    entries.some((e) => e.textbook?.length) && { tag: entries.find((e) => e.textbook?.length)!.textbook![0], text: t('vocab.legend.textbook') },
-    entries.some((e) => e.star) && { tag: '*', text: t('vocab.legend.star'), star: true },
-  ].filter((x): x is { tag: string; text: string; star?: boolean } => !!x);
-  if (!marks.length) return null;
+/** the mark keys an entry carries */
+const marksOf = (e: LexiconEntryT) =>
+  new Set([e.star && 'star', e.supplement && 'supplement', e.levelMark && 'levelMark', e.textbook?.length && 'textbook'].filter(Boolean) as string[]);
+
+/**
+ * what the marks beside a headword mean (#113) — from the word list's lexicon.json (the same mark means different things
+ * in different books), only the marks that occur in this day's entries
+ */
+function Legend({ entries, marks }: { entries: LexiconEntryT[]; marks: LexiconT['marks'] }) {
+  const used = new Set(entries.flatMap((e) => [...marksOf(e)]));
+  const shown = marks.filter((m) => used.has(m.key));
+  if (!shown.length) return null;
   return (
     <p className="vocab-legend">
-      {marks.map((m) => (
-        <span key={m.text} className="vocab-legend-item">
-          <span className={m.star ? 'entry-star' : 'entry-tag'}>{m.tag}</span>
-          {m.text}
+      {shown.map((m) => (
+        <span key={m.key} className="vocab-legend-item">
+          <span className={m.key === 'star' || m.key === 'supplement' ? 'entry-star' : 'entry-tag'}>{m.symbol}</span>
+          {m.description}
         </span>
       ))}
     </p>
@@ -89,21 +87,24 @@ function Legend({ entries }: { entries: LexiconEntryT[] }) {
 
 export function EntryCard({
   entry: e,
-  cover = false,
+  marks = [],
   known,
-  onKnown,
   as: Tag = 'li',
 }: {
   entry: LexiconEntryT;
-  cover?: boolean;
+  marks?: LexiconT['marks'];
+  /** Study (#133): the Scan mark — 认识 folds the entry, 不认识 opens it; undefined (the entry popover) = always open */
   known?: boolean;
-  onKnown?: (v: boolean | null) => void;
   as?: 'li' | 'div';
 }) {
   const { t } = useTranslation();
-  const [shown, setShown] = useState(false);
+  const [open, setOpen] = useState(known !== true);
   const [more, setMore] = useState(false);
-  const hidden = cover && !shown;
+  const [tipOpen, setTipOpen] = useState(false);
+  // a mark changed in Scan resets the entry to that mark's default
+  useEffect(() => setOpen(known !== true), [known]);
+  const folded = known !== undefined && !open;
+  const mark = (key: string) => marks.find((m) => m.key === key);
   const extras = [
     e.phrases?.length && { label: t('vocab.entry.phrases'), rows: e.phrases.map((p) => [p.en, p.zh]) },
     e.wordFamily?.length && { label: t('vocab.entry.family'), rows: e.wordFamily.map((w) => [`${w.word}${w.pos ? ` ${w.pos}` : ''}`, w.zh]) },
@@ -112,12 +113,22 @@ export function EntryCard({
     e.proverbs?.length && { label: t('vocab.entry.proverbs'), rows: e.proverbs.map((p) => [p.en, p.zh]) },
   ].filter((x): x is { label: string; rows: string[][] } => !!x);
   return (
-    <Tag className={`entry ${known === true ? 'is-known' : known === false ? 'is-unknown' : ''}`} id={`entry-${e.id}`} data-entry={e.id}>
+    <Tag className={`entry ${known === true ? 'is-known' : known === false ? 'is-unknown' : ''} ${folded ? 'is-folded' : ''}`} id={`entry-${e.id}`} data-entry={e.id}>
       <div className="entry-head">
         <span className="entry-num">{e.number}</span>
         <h3 className="entry-word">
-          {e.star && <span className="entry-star" aria-label={t('vocab.entry.star')}>*</span>}
+          {e.supplement && (
+            <span className="entry-star" title={mark('supplement')?.description} aria-label={mark('supplement')?.description}>
+              {mark('supplement')?.symbol ?? '▲'}
+            </span>
+          )}
+          {e.star && (
+            <span className="entry-star" title={mark('star')?.description} aria-label={mark('star')?.description ?? t('vocab.entry.star')}>
+              *
+            </span>
+          )}
           {e.headword}
+          {known !== undefined && <span className="sr-only"> ({known ? t('vocab.scan.know') : t('vocab.scan.dontKnow')})</span>}
         </h3>
         {(e.audio?.word || canSpeak()) && (
           <button type="button" className="entry-play" onClick={() => say(e.headword, e.audio?.word)} aria-label={t('vocab.entry.play', { word: e.headword })}>
@@ -129,29 +140,32 @@ export function EntryCard({
             /{p}/
           </span>
         ))}
-        {e.levelMark && <span className="entry-tag">{t('vocab.entry.level')}</span>}
+        {e.levelMark && (
+          <span className="entry-tag" title={mark('levelMark')?.description}>
+            {mark('levelMark')?.symbol ?? t('vocab.entry.level')}
+          </span>
+        )}
         {e.textbook?.map((x) => (
           <span key={x} className="entry-tag">
             {x}
           </span>
         ))}
-      </div>
-      {hidden ? (
-        <div className="entry-cover">
-          <button type="button" className="entry-reveal" onClick={() => setShown(true)}>
-            {t('vocab.list.reveal')}
+        {known !== undefined && (
+          <button
+            type="button"
+            className="entry-fold"
+            aria-expanded={open}
+            aria-controls={`entry-body-${e.id}`}
+            aria-label={t(open ? 'vocab.entry.collapseWord' : 'vocab.entry.expandWord', { word: e.headword })}
+            onClick={() => setOpen(!open)}
+          >
+            {open ? t('vocab.entry.collapse') : t('vocab.entry.expand')}
+            <ChevronDown />
           </button>
-          <div className="entry-check">
-            <button type="button" className={`chip ${known === true ? 'is-correct' : ''}`} aria-pressed={known === true} onClick={() => onKnown?.(known === true ? null : true)}>
-              {t('vocab.list.known')}
-            </button>
-            <button type="button" className={`chip ${known === false ? 'is-wrong' : ''}`} aria-pressed={known === false} onClick={() => onKnown?.(known === false ? null : false)}>
-              {t('vocab.list.unknown')}
-            </button>
-          </div>
-        </div>
-      ) : (
-        <>
+        )}
+      </div>
+      {!folded && (
+        <div className="entry-body" id={`entry-body-${e.id}`}>
           <p className="entry-senses">
             {e.senses.map((s, i) => (
               <span key={i} className="entry-sense">
@@ -184,17 +198,21 @@ export function EntryCard({
             </ul>
           )}
           {e.tip && (
-            <div className="entry-tip">
-              <b>{t('vocab.entry.tip')}</b>
-              {e.tip.map((b, i) => (
-                <Block key={i} block={b} renderBlank={() => null} />
-              ))}
+            // 名师点拨: folded by default (#134)
+            <div className={`entry-tip ${tipOpen ? 'is-open' : ''}`}>
+              <button type="button" className="entry-tip-toggle" aria-expanded={tipOpen} onClick={() => setTipOpen(!tipOpen)}>
+                {t('vocab.entry.tip')}
+                <ChevronDown />
+              </button>
+              {tipOpen && e.tip.map((b, i) => <Block key={i} block={b} renderBlank={() => null} />)}
             </div>
           )}
-          {extras.length > 0 && (
+          {(extras.length > 0 || !!e.compare?.length) && (
             <>
               <button type="button" className="entry-more" aria-expanded={more} onClick={() => setMore(!more)}>
-                {more ? t('vocab.entry.less') : t('vocab.entry.more', { list: extras.map((x) => x.label).join(' · ') })}
+                {more
+                  ? t('vocab.entry.less')
+                  : t('vocab.entry.more', { list: [...extras.map((x) => x.label), ...(e.compare?.length ? [t('vocab.entry.compare')] : [])].join(' · ') })}
               </button>
               {more &&
                 extras.map((x) => (
@@ -208,19 +226,21 @@ export function EntryCard({
                     ))}
                   </dl>
                 ))}
+              {more &&
+                e.compare?.map((c, i) => (
+                  // 辨析 (高考): similar words compared, with examples
+                  <div key={i} className="entry-compare">
+                    <b>
+                      {t('vocab.entry.compare')} <span lang="en">{c.words}</span>
+                    </b>
+                    {c.blocks.map((b, j) => (
+                      <Block key={j} block={b} renderBlank={() => null} />
+                    ))}
+                  </div>
+                ))}
             </>
           )}
-          {cover && shown && (
-            <div className="entry-check">
-              <button type="button" className={`chip ${known === true ? 'is-correct' : ''}`} aria-pressed={known === true} onClick={() => onKnown?.(known === true ? null : true)}>
-                {t('vocab.list.known')}
-              </button>
-              <button type="button" className={`chip ${known === false ? 'is-wrong' : ''}`} aria-pressed={known === false} onClick={() => onKnown?.(known === false ? null : false)}>
-                {t('vocab.list.unknown')}
-              </button>
-            </div>
-          )}
-        </>
+        </div>
       )}
     </Tag>
   );

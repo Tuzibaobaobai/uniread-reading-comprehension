@@ -1,4 +1,4 @@
-// 词汇天天练 (#110, docs/16): Vocabulary | Quiz tabs, cover-meanings self-check, one Part per page, Enter to the next
+// 词汇天天练 (#110, docs/16): Scan | Study | Quiz tabs (#133), one Part per page, Enter to the next
 // field, typed answers only (#115 #116), submit → result → review → entry, 只练错题.
 import { expect, test, type Page } from '@playwright/test';
 import { readFileSync } from 'node:fs';
@@ -69,32 +69,80 @@ test('playlist lists the days', async ({ page }) => {
   await expect(page.locator('.item-row-meta').first()).toContainText('34 个词条');
 });
 
-test('Vocabulary tab: entries, cover meanings, 认识 / 不认识', async ({ page }, info) => {
+test('Scan → Study (#133): one word a page, 认识 / 不认识, Study coloured and folded by the marks', async ({ page }, info) => {
   await page.goto(`/#/p/zkv/${ITEM}`);
-  await expect(page.getByRole('tab', { name: /Vocabulary/ })).toHaveAttribute('aria-selected', 'true');
-  await expect(page.locator('.entry')).toHaveCount(34);
-  await expect(page.locator('.entry').first()).toContainText('能力，才能，本领');
-  await page.getByRole('button', { name: /展开/ }).first().click();
-  await expect(page.locator('.entry').first().locator('.entry-extra')).toHaveCount(2);
-  await expect(page.locator('.entry').first()).toContainText('enable');
-  await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-vocab.png` });
-
-  // #113: what 三级 / G6下U1 / * mean
-  await expect(page.locator('.vocab-legend')).toContainText('英语课程标准三级词汇');
-  await expect(page.locator('.vocab-legend')).toContainText('高频词汇');
+  await expect(page.getByRole('tab')).toHaveText([/Scan/, /Study/, /Quiz/]);
+  await expect(page.getByRole('tab', { name: /Scan/ })).toHaveAttribute('aria-selected', 'true');
   // #112: the tabs sit in the middle of the header
   const head = (await page.locator('.reader-head').boundingBox())!;
   const tabs = (await page.locator('.mode-tabs').boundingBox())!;
   expect(Math.abs(tabs.x + tabs.width / 2 - (head.x + head.width / 2))).toBeLessThan(2);
 
-  await page.getByRole('switch', { name: '遮住释义' }).click();
-  await expect(page.locator('.entry-senses')).toHaveCount(0);
-  await page.locator('.entry').first().getByRole('button', { name: '认识', exact: true }).click();
-  await page.locator('.entry').nth(1).getByRole('button', { name: '不认识' }).click();
-  await expect(page.locator('.vocab-tally')).toHaveText('认识 1 · 不认识 1');
-  await page.locator('.entry').nth(2).getByRole('button', { name: '看释义' }).click();
-  await expect(page.locator('.entry').nth(2).locator('.entry-senses')).toContainText('大约');
-  await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-vocab-cover.png` });
+  // Scan: headword + IPA only, n/total
+  await expect(page.locator('.scan-word')).toHaveText('ability');
+  await expect(page.locator('.scan-ipa')).toContainText('/');
+  await expect(page.locator('.scan-count')).toHaveText('1/34');
+  await expect(page.locator('.vocab-scan')).not.toContainText('能力');
+  await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-scan.png` });
+  await page.getByRole('button', { name: '认识', exact: true }).click();
+  await expect(page.locator('.scan-count')).toHaveText('2/34');
+  await page.getByRole('button', { name: '不认识' }).click();
+  await expect(page.locator('.scan-count')).toHaveText('3/34');
+
+  // Study: 1st green + folded, 2nd red + open, 3rd (not marked) red + open
+  await page.getByRole('tab', { name: /Study/ }).click();
+  await expect(page.locator('.entry')).toHaveCount(34);
+  await expect(page.locator('.vocab-tally')).toContainText('认识 1 · 不认识 33');
+  await expect(page.locator('.vocab-tally')).toContainText('32 个词还没在 Scan 中标注');
+  const [first, second, third] = [0, 1, 2].map((i) => page.locator('.entry').nth(i));
+  await expect(first).toHaveClass(/is-known/);
+  await expect(first.locator('.entry-senses')).toHaveCount(0);
+  await expect(second).toHaveClass(/is-unknown/);
+  await expect(second.locator('.entry-senses')).toBeVisible();
+  await expect(third).toHaveClass(/is-unknown/);
+  const green = await first.locator('.entry-word').evaluate((el) => getComputedStyle(el).color);
+  const red = await second.locator('.entry-word').evaluate((el) => getComputedStyle(el).color);
+  expect(green).not.toBe(red);
+  // fold / unfold by hand
+  await first.getByRole('button', { name: '展开 ability' }).click();
+  await expect(first.locator('.entry-senses')).toContainText('能力，才能，本领');
+  await second.getByRole('button', { name: /^收起/ }).click();
+  await expect(second.locator('.entry-senses')).toHaveCount(0);
+  await first.getByRole('button', { name: /展开：/ }).click();
+  await expect(first.locator('.entry-extra')).toHaveCount(2);
+  await expect(first).toContainText('enable');
+  // #134: 名师点拨 folded until asked for
+  const above = page.locator('.entry[data-entry="e-above"]');
+  await expect(above.locator('.entry-tip p')).toHaveCount(0);
+  await above.getByRole('button', { name: '名师点拨' }).click();
+  await expect(above.locator('.entry-tip p').first()).toBeVisible();
+  // #131: the example's play button looks like the headword's
+  const icon = async (sel: string) => (await above.locator(sel).first().boundingBox())!.width;
+  expect(await icon('.entry-play.is-small img')).toBe(await icon('.entry-head .entry-play img'));
+  // #113: what 三级 / G6下U1 / * mean
+  await expect(page.locator('.vocab-legend')).toContainText('英语课程标准三级词汇');
+  await expect(page.locator('.vocab-legend')).toContainText('高频词汇');
+  await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-study.png` });
+
+  // change a mark in Scan → Study follows
+  await page.getByRole('tab', { name: /Scan/ }).click();
+  await expect(page.locator('.scan-count')).toHaveText('3/34');
+  await page.getByRole('button', { name: '上一个词' }).click();
+  await page.getByRole('button', { name: '上一个词' }).click();
+  await expect(page.getByRole('button', { name: '认识', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await page.getByRole('button', { name: '不认识' }).click();
+  await page.getByRole('tab', { name: /Study/ }).click();
+  await expect(page.locator('.entry').first()).toHaveClass(/is-unknown/);
+  await expect(page.locator('.entry').first().locator('.entry-senses')).toBeVisible();
+
+  // marking every word ends on the summary; reopening the day goes straight to Study
+  await page.getByRole('tab', { name: /Scan/ }).click();
+  for (let i = 1; i < 34; i++) await page.getByRole('button', { name: '认识', exact: true }).click();
+  await expect(page.locator('.scan-done-title')).toHaveText('今天的 34 个词都标注好了');
+  await expect(page.locator('.scan-done-tally')).toHaveText('认识 33 · 不认识 1');
+  await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-scan-done.png` });
+  await page.reload();
+  await expect(page.getByRole('tab', { name: /Study/ })).toHaveAttribute('aria-selected', 'true');
 });
 
 test('Quiz: Part pages, typed answers only, Enter, result, review, entry, retry mistakes', async ({ page }, info) => {
@@ -160,7 +208,7 @@ test('Quiz: Part pages, typed answers only, Enter, result, review, entry, retry 
   await expect(page.locator('.vq-row').nth(1).locator('.vq-answer')).toContainText('abroad');
   await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-review.png` });
   await page.locator('.vq-row').nth(1).getByRole('button', { name: '查看词条' }).click();
-  await expect(page.getByRole('dialog', { name: 'abroad' })).toContainText('在国外');
+  await expect(page.getByRole('dialog', { name: 'abroad' })).toContainText('到（在）国外');
   await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-entry.png` });
   await page.getByRole('button', { name: '关闭' }).click();
 

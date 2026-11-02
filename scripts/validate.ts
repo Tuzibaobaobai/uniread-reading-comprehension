@@ -6,7 +6,7 @@
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { ArticleItem, ExamItem, ItemKey, LexiconEntry, Playlist, VocabDayItem, isExam, type BlockT, type InlineT, type ItemT, type ItemKeyT, type LexiconEntryT, type VocabDayItemT } from '../schema/index.ts';
+import { ArticleItem, ExamItem, ItemKey, Lexicon, LexiconEntry, Playlist, VocabDayItem, isExam, type BlockT, type InlineT, type ItemT, type ItemKeyT, type LexiconEntryT, type VocabDayItemT } from '../schema/index.ts';
 import { allBlocks, allQuestions, questionBlankIds } from '../src/lib/grading.ts';
 
 const ROOT = join(import.meta.dirname, '..', 'content');
@@ -291,6 +291,18 @@ function lexicon(name: string): Map<string, LexiconEntryT> {
     if (e.kind === 'word' && !e.ipa?.length) warnings.push(`${where}: word without IPA`);
     out.set(e.id, e);
   }
+  // lexicon.json: what this book's marks mean (shown as the legend in the Vocabulary tab)
+  const metaPath = join(ROOT, 'lexicons', name, 'lexicon.json');
+  if (!existsSync(metaPath)) warnings.push(`lexicons/${name}: no lexicon.json (marks legend)`);
+  else {
+    const meta = Lexicon.safeParse(readJson(metaPath));
+    if (!meta.success) errors.push(`lexicons/${name}/lexicon.json: ${meta.error.issues.map((i) => `${i.path.join('.')}: ${i.message}`).join('; ')}`);
+    else {
+      const legend = new Set(meta.data.marks.map((k) => k.key));
+      const used = new Set([...out.values()].flatMap((e) => [e.star && 'star', e.supplement && 'supplement', e.levelMark && 'levelMark', e.textbook?.length && 'textbook'].filter(Boolean) as string[]));
+      used.forEach((k) => !legend.has(k as never) && warnings.push(`lexicons/${name}: entries use the ${k} mark but lexicon.json does not explain it`));
+    }
+  }
   const numbers = [...out.values()].map((e) => `${e.kind}:${e.number}`);
   numbers.filter((n, i) => numbers.indexOf(n) !== i).forEach((n) => errors.push(`lexicons/${name}: duplicate entry number ${n}`));
   lexicons.set(name, out);
@@ -301,7 +313,9 @@ function checkVocabDay(item: VocabDayItemT, key: ItemKeyT) {
   const id = item.id;
   const err = (m: string) => errors.push(`${id}: ${m}`);
   const warn = (m: string) => warnings.push(`${id}: ${m}`);
-  if (id !== `${item.playlistId}-d${String(item.day).padStart(2, '0')}`) err(`id should be ${item.playlistId}-d${String(item.day).padStart(2, '0')}`);
+  // <pl>-dNN (中考, 70 days) or <pl>-dNNN (高考, 125 days) — the width is fixed per playlist when it is first produced
+  const m = /^(.*)-d(\d{2,3})$/.exec(id);
+  if (!m || m[1] !== item.playlistId || Number(m[2]) !== item.day) err(`id should be ${item.playlistId}-d<day ${item.day}, zero-padded>`);
   const lx = lexicon(item.lexicon);
   if (!lx.size) err(`lexicon ${item.lexicon} has no entries`);
   item.entryIds.forEach((e) => lx.has(e) || err(`entry ${e} not in lexicon ${item.lexicon}`));

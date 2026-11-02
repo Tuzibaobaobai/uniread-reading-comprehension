@@ -1,4 +1,4 @@
-/* 词汇天天练 (#110, docs/16) — Vocabulary | Quiz. Tabs follow Figma Header · Read/Speak/Quiz (7762-32671), the result
+/* 词汇天天练 (#110, docs/16) — Scan | Study | Quiz (#133). Tabs follow Figma Header · Read/Speak/Quiz (7762-32671), the result
    screen Figma Quiz 完成结果 (15643-204521), the entry popover the vocabulary card (15643-204524); the rest is 待补组件
    (docs/design/figma-registry.md) built from tokens only. */
 
@@ -40,8 +40,16 @@
 .vocab-entries { list-style: none; margin: 0; padding: 0; }
 .entry { padding: 24px 0; border-bottom: 1px solid var(--divider); }
 .entry:last-child { border-bottom: none; }
-.entry.is-known { box-shadow: inset 4px 0 0 var(--success); padding-left: 16px; }
-.entry.is-unknown { box-shadow: inset 4px 0 0 var(--danger); padding-left: 16px; }
+.entry.is-known .entry-word { color: var(--success); }
+.entry.is-unknown .entry-word { color: var(--danger); }
+/* Study (#133): 认识 entries fold to the head line; the toggle sits at its end */
+.entry-fold {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 4px; min-height: var(--tap); padding: 0 4px 0 12px;
+  border: none; background: none; color: var(--accent-strong); font-size: var(--fs-m); font-weight: var(--fw-bold);
+}
+.entry-fold svg { width: var(--icon-m); height: var(--icon-m); transition: transform .2s; }
+.entry-fold[aria-expanded='true'] svg { transform: rotate(180deg); }
+@media (prefers-reduced-motion: reduce) { .entry-fold svg { transition: none; } }
 .entry-head { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px; }
 .entry-num { min-width: 32px; font-size: var(--fs-s); color: var(--text-tertiary); font-variant-numeric: tabular-nums; }
 .entry-word { margin: 0; font-size: var(--fs-3xl); line-height: var(--lh-3xl); font-weight: var(--fw-bold); color: var(--text-primary); }
@@ -59,16 +67,54 @@
 .entry-zh { font-size: var(--fs-m); line-height: var(--lh-m); color: var(--text-secondary); white-space: pre-line; }
 .entry-tip { margin: 14px 0 0 44px; padding: 12px 16px; border-radius: var(--radius-s); background: var(--bg-subtle); box-shadow: inset 3px 0 0 var(--accent); font-size: var(--fs-m); line-height: var(--lh-m); }
 .entry-tip p { margin: 4px 0 0; }
+.entry-tip:not(.is-open) { padding-top: 0; padding-bottom: 0; }
+.entry-tip-toggle {
+  display: inline-flex; align-items: center; gap: 4px; min-height: var(--tap); padding: 0;
+  border: none; background: none; font-size: var(--fs-m); font-weight: var(--fw-bold); color: var(--text-strong);
+}
+.entry-tip-toggle svg { width: var(--icon-m); height: var(--icon-m); transition: transform .2s; }
+.entry-tip-toggle[aria-expanded='true'] svg { transform: rotate(180deg); }
+@media (prefers-reduced-motion: reduce) { .entry-tip-toggle svg { transition: none; } }
 .entry-more { margin: 12px 0 0 44px; min-height: var(--tap); border: none; background: none; padding: 0; color: var(--accent-strong); font-weight: var(--fw-bold); font-size: var(--fs-m); }
 .entry-extra { margin: 8px 0 0 44px; display: grid; gap: 4px; }
 .entry-extra dt { font-weight: var(--fw-bold); color: var(--text-secondary); font-size: var(--fs-s); }
 .entry-extra dd { margin: 0; display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: var(--fs-m); }
 .entry-extra-zh { color: var(--text-secondary); }
-.entry-cover { margin: 12px 0 0 44px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
-.entry-reveal { min-height: var(--tap); padding: 0 20px; border: 1px dashed var(--border-strong); border-radius: var(--radius-s); background: var(--bg-subtle); color: var(--text-secondary); font-size: var(--fs-m); }
-.entry-check { display: flex; gap: 8px; margin-left: 44px; margin-top: 12px; }
-.entry-cover .entry-check { margin: 0; }
-.entry-check .chip { min-height: var(--tap); }
+
+/* Scan (#133): one word a page in the middle of the card, 认识 / 不认识 below, n/total at the bottom */
+.scan-pane { overflow: hidden; }
+.vocab-scan {
+  flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center;
+  background: var(--bg-card); border-radius: var(--radius-xl); padding: var(--quiz-pad);
+}
+.scan-stage { flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; }
+.scan-word { margin: 0; font-size: var(--fs-display); font-weight: var(--fw-bold); color: var(--text-primary); overflow-wrap: anywhere; }
+.scan-ipa { margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 16px; font-size: var(--fs-4xl); color: var(--text-secondary); }
+.scan-actions { display: flex; gap: 16px; width: 100%; max-width: 480px; }
+.scan-btn {
+  flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 64px;
+  border: 2px solid var(--border-strong); border-radius: var(--radius-full); background: var(--bg-card);
+  font-size: var(--fs-2xl); font-weight: var(--fw-bold); color: var(--text-strong);
+}
+.scan-btn svg { width: var(--icon-m); height: var(--icon-m); }
+.scan-btn.is-know { border-color: var(--success); color: var(--success-text); }
+.scan-btn.is-unknown { border-color: var(--danger); color: var(--danger); }
+.scan-btn.is-know.is-on { background: var(--success-soft); }
+.scan-btn.is-unknown.is-on { background: var(--danger-soft); }
+@media (hover: hover) and (pointer: fine) {
+  .scan-btn.is-know:hover { background: var(--success-soft); }
+  .scan-btn.is-unknown:hover { background: var(--danger-soft); }
+}
+.scan-pager { display: flex; align-items: center; gap: 16px; margin-top: 24px; }
+.scan-nav { width: var(--tap); height: var(--tap); display: grid; place-items: center; border: none; border-radius: var(--radius-full); background: var(--bg-subtle); color: var(--text-strong); }
+.scan-nav svg { width: var(--icon-m); height: var(--icon-m); }
+.scan-nav:disabled { opacity: var(--disabled-opacity); }
+.scan-count { min-width: 64px; text-align: center; font-size: var(--fs-l); font-weight: var(--fw-bold); color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+.scan-done { gap: 16px; }
+.scan-done-title { margin: 0; font-size: var(--fs-4xl); line-height: var(--lh-4xl); font-weight: var(--fw-bold); color: var(--text-primary); }
+.scan-done-tally { margin: 0; font-size: var(--fs-l); color: var(--text-secondary); }
+.scan-done-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 8px; }
+.scan-done-actions .pill-button { min-height: 56px; padding: 0 28px; }
 
 /* Quiz tab */
 .quiz-pane .question-card { flex: 1; }
@@ -181,8 +227,7 @@
 .entry-dialog .entry .entry-senses { margin: 12px 0 0 44px; color: var(--text-body); }
 .entry-dialog .entry .entry-zh { color: var(--text-secondary); }
 @media (max-width: 1023px) { .entry-dialog .entry .entry-senses { margin-left: 0; } }
-.entry-play.is-small { display: inline-grid; vertical-align: middle; margin-left: 6px; }
-.entry-play.is-small img { width: 14px; height: 14px; }
+.entry-play.is-small { display: inline-grid; /* same button and icon as the headword's (#131) */ vertical-align: middle; margin-left: 6px; }
 /* #112: Vocabulary / Quiz centred in the header, as in Figma Header (9414-48120); the title keeps to the left half */
 .reader-head:has(.mode-tabs) { position: relative; }
 .reader-head:has(.mode-tabs) .reader-head-title { max-width: calc(50% - 220px); }
@@ -224,3 +269,8 @@
   .vocab-quiz .question-dot-mark { width: 16px; height: 6px; }
   .vocab-quiz .question-dot-icon { width: 32px; height: 32px; }
 }
+/* 辨析 (高考): similar words compared */
+.entry-compare { margin: 10px 0 0 44px; padding: 12px 16px; border-radius: var(--radius-s); background: var(--bg-subtle); font-size: var(--fs-m); line-height: var(--lh-m); }
+.entry-compare p { margin: 4px 0 0; }
+.entry-dialog .entry-compare p { color: inherit; }
+@media (max-width: 1023px) { .entry-compare { margin-left: 0; } }

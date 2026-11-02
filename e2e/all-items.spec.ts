@@ -15,7 +15,9 @@ test('every item renders', async ({ page }, info) => {
     for (const it of p.items) {
       await page.goto(`/#/p/${p.id}/${it.id}`);
       if (p.format === 'vocab') {
-        // 词汇天天练: the day's entries, then the first page of the quiz
+        // 词汇天天练 (#133): Scan's first word, the day's entries in Study, then the first page of the quiz
+        await expect(page.locator('.scan-word'), it.id).toBeVisible();
+        await page.getByRole('tab', { name: /Study/ }).click();
         await expect(page.locator('.entry').first(), it.id).toBeVisible();
         await page.getByRole('tab', { name: /Quiz/ }).click();
         await expect(page.locator('.vq-row').first(), it.id).toBeVisible();

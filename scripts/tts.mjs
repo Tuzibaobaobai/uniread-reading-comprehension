@@ -1,7 +1,10 @@
 // Generate the examiner's lines of speaking papers as audio with Volcano Engine TTS (HTTP V1, non-streaming).
 //   node scripts/tts.mjs <playlist> [--voice en_female_amanda_mars_bigtts] [--partner-voice en_male_adam_mars_bigtts] [--speed 1.0] [--force]
 //   node scripts/tts.mjs --lexicon <lexicon> [--voice …] [--force]   词汇天天练 (#110): every entry's headword and examples →
-//     content/assets/lexicons/<lx>/<entryId>.mp3 and <entryId>-x<N>.mp3, set as entry.audio
+//     content/assets/lexicons/<lx>/<entryId>.mp3 and <entryId>-x<N>.mp3, set as entry.audio. Standard (#131): a word is
+//     said as the book's IPA prints it — the headword and its forms in the examples go to the voice as SSML
+//     <phoneme alphabet="cmu"> from content/lexicons/<lx>/pronunciations.json (scripts/lexicon-pron.mjs; run it first).
+//     A clip is made again whenever what is sent for it changes (.work/tts/<lx>.json remembers what each clip was made from).
 // Credentials: VOLC_TTS_APPID / VOLC_TTS_TOKEN in .env.local (never committed). Writes
 // content/assets/<pl>/<itemId>-<qid>-<turnId>.mp3 (gitignored, shipped in rc-media-<pl>.zip) and sets
 // turn.audio {src, seconds} in the items. Existing files are kept unless --force (re-generation costs characters).
@@ -37,7 +40,7 @@ if (!appid || !token) {
   process.exit(1);
 }
 
-async function synthesize(text, voiceType) {
+async function synthesize(text, voiceType, ssml = false) {
   for (let attempt = 1; ; attempt++) {
     const res = await fetch('https://openspeech.bytedance.com/api/v1/tts', {
       method: 'POST',
@@ -47,7 +50,7 @@ async function synthesize(text, voiceType) {
         app: { appid, token: 'uniread-rc', cluster: 'volcano_tts' },
         user: { uid: 'uniread-rc' },
         audio: { voice_type: voiceType, encoding: 'mp3', bitrate: 64, speed_ratio: speed, explicit_language: 'en' },
-        request: { reqid: randomUUID(), text, operation: 'query' },
+        request: { reqid: randomUUID(), text, operation: 'query', ...(ssml ? { text_type: 'ssml' } : {}) },
       }),
     });
     const body = await res.json().catch(() => ({}));
@@ -68,25 +71,53 @@ const seconds = (file) => Math.round(Number(/estimated duration: ([\d.]+)/.exec(
 if (lexicon) {
   /** said as words: sb. / sth. / one's are reading abbreviations */
   const spoken = (t) => t.replace(/\bsb\./g, 'somebody').replace(/\bsth\./g, 'something').replace(/\s+/g, ' ').trim();
+  const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const dirL = join('content/lexicons', lexicon, 'entries');
+  const pronFile = join('content/lexicons', lexicon, 'pronunciations.json');
+  if (!existsSync(pronFile)) {
+    console.error(`${pronFile} missing: run node scripts/lexicon-pron.mjs ${lexicon} first (#131)`);
+    process.exit(1);
+  }
+  const prons = JSON.parse(readFileSync(pronFile, 'utf8')).entries;
+  const manifestFile = join('.work/tts', `${lexicon}.json`);
+  const manifest = existsSync(manifestFile) ? JSON.parse(readFileSync(manifestFile, 'utf8')) : {};
   mkdirSync(join('content/assets/lexicons', lexicon), { recursive: true });
-  const clip = async (src, text) => {
+  /** the text sent for a clip: plain, or SSML with the entry's words pinned to their printed pronunciation */
+  const input = (text, forms) => {
+    let pinned = false;
+    const out = spoken(text)
+      .split(/([A-Za-z]+(?:'[A-Za-z]+)?)/)
+      .map((part, i) => {
+        const ph = i % 2 ? forms?.[part.toLowerCase()] : undefined;
+        if (!ph) return esc(part);
+        pinned = true;
+        return `<phoneme alphabet="cmu" ph="${ph}">${esc(part)}</phoneme>`;
+      })
+      .join('');
+    return pinned ? { text: `<speak>${out}</speak>`, ssml: true } : { text: spoken(text), ssml: false };
+  };
+  const clip = async (src, text, forms) => {
     const file = join('content', src);
-    if (force || !existsSync(file)) {
-      writeFileSync(file, await synthesize(spoken(text), voice));
+    const sent = input(text, forms);
+    // clips made before #131 have no manifest line: they were made from the plain text
+    if (force || !existsSync(file) || (manifest[src] ?? spoken(text)) !== sent.text) {
+      writeFileSync(file, await synthesize(sent.text, voice, sent.ssml));
       made++;
-      chars += text.length;
+      chars += sent.text.length;
     }
+    manifest[src] = sent.text;
     return { src, seconds: seconds(file) };
   };
   for (const f of readdirSync(dirL).filter((f) => f.endsWith('.json')).sort()) {
     const path = join(dirL, f);
     const entry = JSON.parse(readFileSync(path, 'utf8'));
     const base = `assets/lexicons/${lexicon}/${entry.id}`;
-    const audio = { word: await clip(`${base}.mp3`, entry.headword) };
+    const p = prons[entry.id];
+    const audio = { word: await clip(`${base}.mp3`, entry.headword, p && { [entry.headword.toLowerCase()]: p.cmu }) };
     if (entry.examples.length) {
       audio.examples = [];
-      for (const [i, x] of entry.examples.entries()) audio.examples.push(await clip(`${base}-x${i + 1}.mp3`, x.en.map((n) => n.v ?? '').join('')));
+      for (const [i, x] of entry.examples.entries())
+        audio.examples.push(await clip(`${base}-x${i + 1}.mp3`, x.en.map((n) => n.v ?? '').join(''), p?.examples === false ? undefined : p?.forms));
     }
     if (JSON.stringify(entry.audio) !== JSON.stringify(audio)) {
       // keep the field order of the schema: audio before errata / source
@@ -94,6 +125,8 @@ if (lexicon) {
       writeFileSync(path, JSON.stringify({ ...rest, audio, ...(errata ? { errata } : {}), source, status }, null, 2) + '\n');
     }
   }
+  mkdirSync('.work/tts', { recursive: true });
+  writeFileSync(manifestFile, JSON.stringify(manifest, null, 2) + '\n');
   console.log(`${made} clip(s) synthesised (${chars} characters, ${voice}, speed ${speed}); entries updated`);
   process.exit(0);
 }

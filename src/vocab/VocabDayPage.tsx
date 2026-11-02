@@ -1,24 +1,26 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
-import type { AttemptT, ItemKeyT, LexiconEntryT, VocabDayItemT } from '@schema';
+import type { AttemptT, ItemKeyT, LexiconEntryT, LexiconT, VocabDayItemT } from '@schema';
 import { staticContent } from '@/lib/content';
 import { localAttempts, newAttempt } from '@/lib/storage';
 import { allQuestions, isAnswered, type Result } from '@/lib/grading';
 import { applyJudgement, fallbackToSelf } from '@/lib/judge';
-import { Book, Question } from '@/components/Icons';
+import { Book, Cards, Question } from '@/components/Icons';
 import Loading from '@/components/Loading';
 import correctIcon from '@/assets/icons/correct.svg';
 import wrongIcon from '@/assets/icons/wrong.svg';
 import { EntryCard, VocabList } from './VocabList';
+import { VocabScan } from './VocabScan';
 import { VocabQuiz, partLabel, type QuizState, type VocabResponses } from './VocabQuiz';
 import { useVisualViewport } from './useVisualViewport';
 
-type Tab = 'vocab' | 'quiz';
+type Tab = 'scan' | 'study' | 'quiz';
 
 /**
- * 词汇天天练 day (#110, docs/16): Vocabulary (the day's handbook entries) | Quiz (the day's exercises, one 大题 a page,
- * graded on the server; typed answers only — hints and voice input were taken out for now, #115 #116).
+ * 词汇天天练 day (#110, docs/16), three steps (#133): Scan (one word a page, 认识 / 不认识) | Study (the day's handbook
+ * entries, coloured and folded by the Scan marks) | Quiz (the day's exercises, one 大题 a page, graded on the server; typed
+ * answers only — hints and voice input were taken out for now, #115 #116).
  */
 export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot: HTMLDivElement | null }) {
   const { t } = useTranslation();
@@ -27,7 +29,19 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
   const [loadError, setLoadError] = useState('');
   const [attempt, setAttempt] = useState<AttemptT>(() => localAttempts.get(item.id) ?? newAttempt(item.id, item.status.version));
   const submitted = attempt.status === 'submitted' && !!attempt.result;
-  const [tab, setTab] = useState<Tab>(() => (attempt.status === 'submitted' || Object.keys(attempt.responses).length ? 'quiz' : 'vocab'));
+  // where the learner left off: a quiz under way → Quiz; every word marked → Study; else Scan
+  const [tab, setTab] = useState<Tab>(() =>
+    attempt.status === 'submitted' || Object.keys(attempt.responses).length
+      ? 'quiz'
+      : item.entryIds.every((id) => attempt.known?.[id] !== undefined)
+        ? 'study'
+        : 'scan',
+  );
+  // Scan: the first word not marked yet (all marked → the summary)
+  const [scanIndex, setScanIndex] = useState(() => {
+    const i = item.entryIds.findIndex((id) => attempt.known?.[id] === undefined);
+    return i < 0 ? item.entryIds.length : i;
+  });
   const [view, setView] = useState<'quiz' | 'result' | 'review'>(() => (submitted ? 'result' : 'quiz'));
   const [page, setPage] = useState(0);
   const [key, setKey] = useState<ItemKeyT | null>(null);
@@ -37,8 +51,11 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
   const [entryOpen, setEntryOpen] = useState<string | null>(null);
   const sessionStart = useRef(Date.now());
 
+  const [marks, setMarks] = useState<LexiconT['marks']>([]);
   useEffect(() => {
     Promise.all(item.entryIds.map((id) => staticContent.getEntry(item.lexicon, id))).then(setEntries, (e: Error) => setLoadError(e.message));
+    // the legend is optional: without lexicon.json the entries still show
+    staticContent.getLexicon(item.lexicon).then((l) => setMarks(l.marks), () => setMarks([]));
   }, [item]);
 
   const persist = useCallback((a: AttemptT) => {
@@ -152,15 +169,21 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
     onOpenEntry: setEntryOpen,
   };
 
+  const tabDefs: { id: Tab; icon: JSX.Element; label: string }[] = [
+    { id: 'scan', icon: <Cards />, label: t('vocab.tabScan') },
+    { id: 'study', icon: <Book />, label: t('vocab.tabStudy') },
+    { id: 'quiz', icon: <Question />, label: t('vocab.tabQuiz') },
+  ];
   const tabs = (
     <div className="mode-tabs" role="tablist" aria-label={t('vocab.tabs')}>
-      <button role="tab" aria-selected={tab === 'vocab'} className={`mode-tab ${tab === 'vocab' ? 'is-active' : ''}`} onClick={() => setTab('vocab')}>
-        <Book /> {t('vocab.tabVocab')}
-      </button>
-      <span className="mode-tab-sep" aria-hidden />
-      <button role="tab" aria-selected={tab === 'quiz'} className={`mode-tab ${tab === 'quiz' ? 'is-active' : ''}`} onClick={() => setTab('quiz')}>
-        <Question /> {t('vocab.tabQuiz')}
-      </button>
+      {tabDefs.map((d, i) => (
+        <Fragment key={d.id}>
+          {i > 0 && <span className="mode-tab-sep" aria-hidden />}
+          <button role="tab" aria-selected={tab === d.id} className={`mode-tab ${tab === d.id ? 'is-active' : ''}`} onClick={() => setTab(d.id)}>
+            {d.icon} {d.label}
+          </button>
+        </Fragment>
+      ))}
     </div>
   );
 
@@ -170,24 +193,21 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
   return (
     <div className={`vocab-day tab-${tab}`}>
       {headSlot ? createPortal(tabs, headSlot) : tabs}
-      {tab === 'vocab' && (
-        <section className="vocab-pane app-scroll thin-scroll">
+      {tab !== 'quiz' && (
+        <section className={`vocab-pane ${tab === 'study' ? 'app-scroll thin-scroll' : 'scan-pane'}`}>
           {loadError && <p className="error">{t('common.loadFailed', { message: loadError })}</p>}
           {!entries && !loadError && <Loading />}
-          {entries && (
-            <VocabList
+          {entries && tab === 'scan' && (
+            <VocabScan
               entries={entries}
               known={attempt.known ?? {}}
-              onKnown={(id, v) =>
-                update((a) => {
-                  const known = { ...a.known };
-                  if (v === null) delete known[id];
-                  else known[id] = v;
-                  return { ...a, known };
-                })
-              }
+              index={scanIndex}
+              setIndex={setScanIndex}
+              onKnown={(id, v) => update((a) => ({ ...a, known: { ...a.known, [id]: v } }))}
+              onStudy={() => setTab('study')}
             />
           )}
+          {entries && tab === 'study' && <VocabList entries={entries} marks={marks} known={attempt.known ?? {}} />}
         </section>
       )}
       {tab === 'quiz' && (
@@ -235,7 +255,7 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
             <button className="dialog-close" onClick={() => setEntryOpen(null)} aria-label={t('common.close')}>
               ×
             </button>
-            <EntryCard entry={open} as="div" />
+            <EntryCard entry={open} marks={marks} as="div" />
           </div>
         </div>
       )}
@@ -281,7 +301,7 @@ function ResultView({
               <img src={ok ? correctIcon : wrongIcon} alt={ok ? t('reader.dotCorrect') : t('reader.dotWrong')} />
               <span className="vq-result-label">{partLabel(i)}</span>
               <span className="vq-result-points">
-                {Math.round(got * 10) / 10}/{max}
+                {Math.round(got * 10) / 10}/{Math.round(max * 10) / 10}
               </span>
             </li>
           );
