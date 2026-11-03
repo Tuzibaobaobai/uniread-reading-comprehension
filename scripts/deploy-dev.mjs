@@ -14,4 +14,5 @@ const env = { ...process.env, VERCEL_ORG_ID: 'team_jUuY3kHkTlVIQwIjjKbGdw6E', VE
 const run = (cmd, args) => execFileSync(cmd, args, { stdio: 'inherit', env });
 run('vercel', ['build', '--prod']);
 run('node', ['scripts/vercel-functions.mjs']);
-run('vercel', ['deploy', '--prebuilt', '--prod']);
+// 词汇天天练 audio takes the output past Vercel's 15,000-file upload limit: upload it as one archive
+run('vercel', ['deploy', '--prebuilt', '--prod', '--archive=tgz']);
