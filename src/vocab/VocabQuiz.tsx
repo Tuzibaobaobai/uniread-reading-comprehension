@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { TFunction } from 'i18next';
-import type { AnswerKeyT, InlineT, ItemKeyT, QuestionT, VocabDayItemT } from '@schema';
+import type { AnswerKeyT, BlockT, InlineT, ItemKeyT, QuestionT, VocabDayItemT } from '@schema';
 import { Rich, type BlankNode } from '@/components/Rich';
 import { isAnswered, type Result } from '@/lib/grading';
 import { Check, Cross } from '@/components/Icons';
 import { BlankInput, JudgeMarks } from '@/reader/interactions';
 import { QuestionStrip } from '@/reader/QuestionStrip';
+import { Block } from '@/reader/ArticlePane';
 import correctIcon from '@/assets/icons/correct.svg';
 import wrongIcon from '@/assets/icons/wrong.svg';
 import { centreOnFocus } from './useVisualViewport';
@@ -96,10 +97,14 @@ export function VocabQuiz({
           )}
         </p>
         {section.promptBank && <PromptBank items={section.promptBank} />}
+        {section.stimulus && <TableStimulus blocks={section.stimulus} questions={section.questions} state={state} />}
         <ol className="vq-rows">
-          {section.questions.map((q) => (
-            <Row key={q.id} q={q} state={state} />
-          ))}
+          {section.questions
+            // a question answered inside the table has no row of its own; in review its row shows the answer
+            .filter((q) => review || !inTable(q))
+            .map((q) => (
+              <Row key={q.id} q={q} state={state} />
+            ))}
         </ol>
       </div>
       <nav className="question-nav" aria-label={t('reader.nav')}>
@@ -150,6 +155,41 @@ export function VocabQuiz({
           </button>
         )}
       </nav>
+    </div>
+  );
+}
+
+/** a textEntry whose blanks are in the section's table, not in a prompt of its own (第69–70天) */
+const inTable = (q: QuestionT) => q.interaction.kind === 'textEntry' && !q.interaction.prompt?.length && !!q.interaction.blankIds?.length;
+
+/**
+ * 第69–70天: a table printed with answer lines (人称代词, 基数词 / 序数词, 不规则动词) — the table as printed, a typed blank in
+ * each answer cell; each blank belongs to the question that lists it in blankIds (as 表格填空)
+ */
+function TableStimulus({ blocks, questions, state }: { blocks: BlockT[]; questions: QuestionT[]; state: QuizState }) {
+  const owner = (id: string) => questions.find((q) => q.interaction.kind === 'textEntry' && q.interaction.blankIds?.includes(id));
+  const renderBlank = (n: BlankNode) => {
+    const q = owner(n.id);
+    if (!q) return null;
+    const r = record(state.responses[q.id]);
+    const result = state.review?.result.byQuestion.find((b) => b.q === q.id);
+    return (
+      <BlankInput
+        key={n.id}
+        n={n}
+        value={r[n.id] ?? ''}
+        onChange={(v) => state.setResponse(q.id, { ...record(state.responses[q.id]), [n.id]: v })}
+        ok={state.review ? (result?.parts?.[n.id] ?? null) : null}
+        locked={(state.kept.has(q.id) && !state.review) || !!state.review}
+        inputAttrs={fieldAttrs}
+      />
+    );
+  };
+  return (
+    <div className="vq-table stimulus">
+      {blocks.map((b) => (
+        <Block key={b.id} block={b} renderBlank={renderBlank} />
+      ))}
     </div>
   );
 }

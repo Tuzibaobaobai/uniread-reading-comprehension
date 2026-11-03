@@ -1,0 +1,1070 @@
+{
+  "schemaVersion": "1.0",
+  "format": "vocab-day",
+  "id": "zkv-d45",
+  "playlistId": "zkv",
+  "order": 45,
+  "day": 45,
+  "unit": "words",
+  "title": "seafood – shall",
+  "displayName": "seafood – shall",
+  "taskType": {
+    "code": "vocab_day",
+    "labelZh": "词汇天天练"
+  },
+  "wordRange": {
+    "from": "e-seafood",
+    "to": "e-shall"
+  },
+  "lexicon": "zkv",
+  "entryIds": [
+    "e-seafood",
+    "e-search",
+    "e-seaside",
+    "e-season",
+    "e-seat",
+    "e-second",
+    "e-secondary",
+    "e-secret",
+    "e-secretary",
+    "e-section",
+    "e-see",
+    "e-seed",
+    "e-seem",
+    "e-seldom",
+    "e-select",
+    "e-sell",
+    "e-send",
+    "e-senior",
+    "e-sense",
+    "e-sentence",
+    "e-september",
+    "e-serious",
+    "e-seriously",
+    "e-serve",
+    "e-service",
+    "e-set",
+    "e-settle",
+    "e-several",
+    "e-shake",
+    "e-shall"
+  ],
+  "meta": {
+    "totalPoints": 100,
+    "suggestedMinutes": 25,
+    "passPercent": 60
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "一",
+      "instruction": "根据所给音标写出英语单词、词性及中文释义",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈsevrəl/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-several"
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈsiːniə(r)/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-senior"
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈseldəm/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-seldom"
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈsiːfuːd/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-seafood"
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈsekrətri/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-secretary"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "二",
+      "instruction": "根据所给中文写出英语单词",
+      "questions": [
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "搜寻；搜查；搜索；查找 v. & n. "
+              },
+              {
+                "t": "blank",
+                "id": "b6",
+                "number": 6
+              }
+            ]
+          },
+          "entryRef": "e-search"
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "种子 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b7",
+                "number": 7
+              }
+            ]
+          },
+          "entryRef": "e-seed"
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "安家，定居；解决 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b8",
+                "number": 8
+              }
+            ]
+          },
+          "entryRef": "e-settle"
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "句子 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b9",
+                "number": 9
+              }
+            ]
+          },
+          "entryRef": "e-sentence"
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "感觉；意识；感官 n. 感觉到；意识到 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b10",
+                "number": 10
+              }
+            ]
+          },
+          "entryRef": "e-sense"
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "似乎，好像；看来 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b11",
+                "number": 11
+              }
+            ]
+          },
+          "entryRef": "e-seem"
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "（表示将来）将要；会；（用来征求意见）……好吗？ aux. v. "
+              },
+              {
+                "t": "blank",
+                "id": "b12",
+                "number": 12
+              }
+            ]
+          },
+          "entryRef": "e-shall"
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "海滨 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b13",
+                "number": 13
+              }
+            ]
+          },
+          "entryRef": "e-seaside"
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "部分；部门；栏目 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b14",
+                "number": 14
+              }
+            ]
+          },
+          "entryRef": "e-section"
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "九月 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b15",
+                "number": 15
+              }
+            ]
+          },
+          "entryRef": "e-september"
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "座位 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b16",
+                "number": 16
+              }
+            ]
+          },
+          "entryRef": "e-seat"
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "中等的；第二的 adj. "
+              },
+              {
+                "t": "blank",
+                "id": "b17",
+                "number": 17
+              }
+            ]
+          },
+          "entryRef": "e-secondary"
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "招待（顾客等）；为……服务 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b18",
+                "number": 18
+              }
+            ]
+          },
+          "entryRef": "e-serve"
+        },
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "季；季节 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b19",
+                "number": 19
+              }
+            ]
+          },
+          "entryRef": "e-season"
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "握（手）；摇（头）；使震动 v.（动词原形、过去式和过去分词） "
+              },
+              {
+                "t": "blank",
+                "id": "b20a",
+                "number": 20
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b20b"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b20c"
+              }
+            ]
+          },
+          "entryRef": "e-shake"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "三",
+      "instruction": "根据所给单词和词性，写出相关的单词和中文释义",
+      "questions": [
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 2.5,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "sale",
+              "pos": "n."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "v."
+              }
+            ]
+          },
+          "entryRef": "e-sell"
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 2.5,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "two",
+              "pos": "num."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "n."
+              },
+              {
+                "id": "f2",
+                "pos": "adj."
+              },
+              {
+                "id": "f3",
+                "pos": "adv."
+              }
+            ]
+          },
+          "entryRef": "e-second"
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 2.5,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "selection",
+              "pos": "n."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "v."
+              }
+            ]
+          },
+          "entryRef": "e-select"
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 2.5,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "serve",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "n."
+              }
+            ]
+          },
+          "entryRef": "e-service"
+        },
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 2.5,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "set",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "过去式和过去分词"
+              }
+            ]
+          },
+          "entryRef": "e-set"
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 2.5,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "send",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "过去式和过去分词"
+              }
+            ]
+          },
+          "entryRef": "e-send"
+        },
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 2.5,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "sell",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "过去式和过去分词"
+              }
+            ]
+          },
+          "entryRef": "e-sell"
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 2.5,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "see",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "过去式和过去分词"
+              }
+            ]
+          },
+          "entryRef": "e-see"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "label": "四",
+      "instruction": "用括号中所给单词的适当形式完成下列句子，每空格限填一词",
+      "questions": [
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The elevator is out of "
+              },
+              {
+                "t": "blank",
+                "id": "b29",
+                "number": 29,
+                "hint": {
+                  "baseWord": "serve"
+                }
+              },
+              {
+                "t": "text",
+                "v": " right now, so we have to walk upstairs."
+              }
+            ]
+          },
+          "entryRef": "e-service"
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Several people were "
+              },
+              {
+                "t": "blank",
+                "id": "b30",
+                "number": 30,
+                "hint": {
+                  "baseWord": "serious"
+                }
+              },
+              {
+                "t": "text",
+                "v": " hurt in that car accident last month."
+              }
+            ]
+          },
+          "entryRef": "e-seriously"
+        },
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The company had no way but to "
+              },
+              {
+                "t": "blank",
+                "id": "b31",
+                "number": 31,
+                "hint": {
+                  "baseWord": "sale"
+                }
+              },
+              {
+                "t": "text",
+                "v": " its products in a lower price."
+              }
+            ]
+          },
+          "entryRef": "e-sell"
+        },
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "There goes a saying, “Fire is a good "
+              },
+              {
+                "t": "blank",
+                "id": "b32",
+                "number": 32,
+                "hint": {
+                  "baseWord": "service"
+                }
+              },
+              {
+                "t": "text",
+                "v": ", but a bad master.”"
+              }
+            ]
+          },
+          "entryRef": "e-serve"
+        },
+        {
+          "id": "q33",
+          "number": 33,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The guards make sure the school gate is "
+              },
+              {
+                "t": "blank",
+                "id": "b33",
+                "number": 33,
+                "hint": {
+                  "baseWord": "secure"
+                }
+              },
+              {
+                "t": "text",
+                "v": " locked after midnight every day."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "label": "五",
+      "instruction": "在句子的空格内填入适当的词，使其内容通顺。每空格限填一词，首字母已给",
+      "questions": [
+        {
+          "id": "q34",
+          "number": 34,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I don’t like western food. I "
+              },
+              {
+                "t": "blank",
+                "id": "b34",
+                "number": 34,
+                "hint": {
+                  "firstLetter": "s"
+                }
+              },
+              {
+                "t": "text",
+                "v": " eat it unless I go to McDonald’s with my daughter."
+              }
+            ]
+          },
+          "entryRef": "e-seldom"
+        },
+        {
+          "id": "q35",
+          "number": 35,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "He is ten years "
+              },
+              {
+                "t": "blank",
+                "id": "b35",
+                "number": 35,
+                "hint": {
+                  "firstLetter": "s"
+                }
+              },
+              {
+                "t": "text",
+                "v": " to me."
+              }
+            ]
+          },
+          "entryRef": "e-senior"
+        },
+        {
+          "id": "q36",
+          "number": 36,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Speak "
+              },
+              {
+                "t": "blank",
+                "id": "b36",
+                "number": 36,
+                "hint": {
+                  "firstLetter": "s"
+                }
+              },
+              {
+                "t": "text",
+                "v": " to her about it."
+              }
+            ]
+          },
+          "entryRef": "e-seriously"
+        },
+        {
+          "id": "q37",
+          "number": 37,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Is there any railway "
+              },
+              {
+                "t": "blank",
+                "id": "b37",
+                "number": 37,
+                "hint": {
+                  "firstLetter": "s"
+                }
+              },
+              {
+                "t": "text",
+                "v": " here on Sundays?"
+              }
+            ]
+          },
+          "entryRef": "e-service"
+        },
+        {
+          "id": "q38",
+          "number": 38,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "She "
+              },
+              {
+                "t": "blank",
+                "id": "b38",
+                "number": 38,
+                "hint": {
+                  "firstLetter": "s"
+                }
+              },
+              {
+                "t": "text",
+                "v": " a new world record for the high jump."
+              }
+            ]
+          },
+          "entryRef": "e-set"
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "label": "六",
+      "instruction": "中译英",
+      "questions": [
+        {
+          "id": "q39",
+          "number": 39,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "常言道：百闻不如一见。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "see"
+          },
+          "entryRef": "e-see"
+        },
+        {
+          "id": "q40",
+          "number": 40,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "顾客对这家餐厅的服务感到满意。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "service"
+          },
+          "entryRef": "e-service"
+        },
+        {
+          "id": "q41",
+          "number": 41,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "那个婴儿好像是睡着了。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "seem"
+          },
+          "entryRef": "e-seem"
+        },
+        {
+          "id": "q42",
+          "number": 42,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "许多河流和湖泊受到严重污染。必须采取一些措施来阻止污染。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "seriously"
+          },
+          "entryRef": "e-seriously"
+        },
+        {
+          "id": "q43",
+          "number": 43,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "回答问题时请说完整的句子。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "sentence"
+          },
+          "entryRef": "e-sentence"
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
+    "pdfPages": [
+      51
+    ],
+    "bookPages": [
+      89,
+      90
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,1092 @@
+{
+  "schemaVersion": "1.0",
+  "format": "vocab-day",
+  "id": "zkv-d24",
+  "playlistId": "zkv",
+  "order": 24,
+  "day": 24,
+  "unit": "words",
+  "title": "hate – hole",
+  "displayName": "hate – hole",
+  "taskType": {
+    "code": "vocab_day",
+    "labelZh": "词汇天天练"
+  },
+  "wordRange": {
+    "from": "e-hate",
+    "to": "e-hole"
+  },
+  "lexicon": "zkv",
+  "entryIds": [
+    "e-hate",
+    "e-have",
+    "e-head",
+    "e-headache",
+    "e-headline",
+    "e-headmaster",
+    "e-health",
+    "e-healthy",
+    "e-hear",
+    "e-heart",
+    "e-heat",
+    "e-heavily",
+    "e-heavy",
+    "e-height",
+    "e-hello",
+    "e-help",
+    "e-helpful",
+    "e-helpless",
+    "e-here",
+    "e-hero",
+    "e-hesitate",
+    "e-hide",
+    "e-high",
+    "e-hill",
+    "e-historical",
+    "e-history",
+    "e-hit",
+    "e-hobby",
+    "e-hold",
+    "e-hole"
+  ],
+  "meta": {
+    "totalPoints": 100,
+    "suggestedMinutes": 25,
+    "passPercent": 60
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "一",
+      "instruction": "根据所给音标写出英语单词、词性及中文释义",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈhɒbi/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-hobby"
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈhedeɪk/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-headache"
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈhɪstri/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-history"
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈhezɪteɪt/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-hesitate"
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈhɪərəʊ/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-hero"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "二",
+      "instruction": "根据所给中文写出英语单词",
+      "questions": [
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "〈英〉中小学校长 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b6",
+                "number": 6
+              }
+            ]
+          },
+          "entryRef": "e-headmaster"
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "这里；在这里；向这里 adv. "
+              },
+              {
+                "t": "blank",
+                "id": "b7",
+                "number": 7
+              }
+            ]
+          },
+          "entryRef": "e-here"
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "拿；抱；握住；举行；进行；保持；容纳；使……保持在某位置 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b8",
+                "number": 8
+              }
+            ]
+          },
+          "entryRef": "e-hold"
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "小山 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b9",
+                "number": 9
+              }
+            ]
+          },
+          "entryRef": "e-hill"
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "洞，坑 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b10",
+                "number": 10
+              }
+            ]
+          },
+          "entryRef": "e-hole"
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "头；头脑；首脑 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b11",
+                "number": 11
+              }
+            ]
+          },
+          "entryRef": "e-head"
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "（报刊的）大字标题 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b12",
+                "number": 12
+              }
+            ]
+          },
+          "entryRef": "e-headline"
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "打；撞；击中；碰撞；达到（某水平） v. "
+              },
+              {
+                "t": "blank",
+                "id": "b13",
+                "number": 13
+              }
+            ]
+          },
+          "entryRef": "e-hit"
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "不喜欢；恨；讨厌；憎恶 v. & n. "
+              },
+              {
+                "t": "blank",
+                "id": "b14",
+                "number": 14
+              }
+            ]
+          },
+          "entryRef": "e-hate"
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "喂；你好 int. "
+              },
+              {
+                "t": "blank",
+                "id": "b15",
+                "number": 15
+              }
+            ]
+          },
+          "entryRef": "e-hello"
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "心；心脏；内心 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b16",
+                "number": 16
+              }
+            ]
+          },
+          "entryRef": "e-heart"
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "重的 adj. "
+              },
+              {
+                "t": "blank",
+                "id": "b17",
+                "number": 17
+              }
+            ]
+          },
+          "entryRef": "e-heavy"
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "有；吃；喝；进行 v. （动词原形、过去式和过去分词） "
+              },
+              {
+                "t": "blank",
+                "id": "b18a",
+                "number": 18
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b18b"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b18c"
+              }
+            ]
+          },
+          "entryRef": "e-have"
+        },
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "把……藏起来，隐藏 v. （动词原形、过去式和过去分词） "
+              },
+              {
+                "t": "blank",
+                "id": "b19a",
+                "number": 19
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b19b"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b19c"
+              }
+            ]
+          },
+          "entryRef": "e-hide"
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "听见；听说；得知 v. （动词原形、过去式和过去分词） "
+              },
+              {
+                "t": "blank",
+                "id": "b20a",
+                "number": 20
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b20b"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b20c"
+              }
+            ]
+          },
+          "entryRef": "e-hear"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "三",
+      "instruction": "根据所给单词和词性，写出相关的单词和中文释义",
+      "questions": [
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 2.857142857142857,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "history",
+              "pos": "n."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "adj."
+              }
+            ]
+          },
+          "entryRef": "e-historical"
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 2.857142857142857,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "hold",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "过去式"
+              },
+              {
+                "id": "f2",
+                "pos": "过去分词"
+              }
+            ]
+          },
+          "entryRef": "e-hold"
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 2.857142857142857,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "unhealthy",
+              "pos": "adj."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "n."
+              },
+              {
+                "id": "f2",
+                "pos": "adj."
+              }
+            ]
+          },
+          "entryRef": "e-health"
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 2.857142857142857,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "heat",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "n."
+              }
+            ]
+          },
+          "entryRef": "e-heat"
+        },
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 2.857142857142857,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "heavy",
+              "pos": "adj."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "adv."
+              }
+            ]
+          },
+          "entryRef": "e-heavily"
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 2.857142857142857,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "high",
+              "pos": "adj."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "n."
+              }
+            ]
+          },
+          "entryRef": "e-height"
+        },
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 2.857142857142857,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "helpfully",
+              "pos": "adv."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "v. & n."
+              },
+              {
+                "id": "f2",
+                "pos": "adj."
+              },
+              {
+                "id": "f3",
+                "pos": "adj."
+              }
+            ]
+          },
+          "entryRef": "e-help"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "label": "四",
+      "instruction": "用括号中所给单词的适当形式完成下列句子，每空格限填一词",
+      "questions": [
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The old man was lying on the floor without anybody around, feeling "
+              },
+              {
+                "t": "blank",
+                "id": "b28",
+                "number": 28,
+                "hint": {
+                  "baseWord": "help"
+                }
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          },
+          "entryRef": "e-helpless"
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Two women doctors will give us a lecture on "
+              },
+              {
+                "t": "blank",
+                "id": "b29",
+                "number": 29,
+                "hint": {
+                  "baseWord": "health"
+                }
+              },
+              {
+                "t": "text",
+                "v": " diet tomorrow."
+              }
+            ]
+          },
+          "entryRef": "e-healthy"
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I like eating hamburger and chocolate, but they are "
+              },
+              {
+                "t": "blank",
+                "id": "b30",
+                "number": 30,
+                "hint": {
+                  "baseWord": "healthy"
+                }
+              },
+              {
+                "t": "text",
+                "v": " food."
+              }
+            ]
+          },
+          "entryRef": "e-health"
+        },
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I feel quite comfortable at home when it is raining "
+              },
+              {
+                "t": "blank",
+                "id": "b31",
+                "number": 31,
+                "hint": {
+                  "baseWord": "heavy"
+                }
+              },
+              {
+                "t": "text",
+                "v": " outside."
+              }
+            ]
+          },
+          "entryRef": "e-heavily"
+        },
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The 5-year-old girl is of average "
+              },
+              {
+                "t": "blank",
+                "id": "b32",
+                "number": 32,
+                "hint": {
+                  "baseWord": "high"
+                }
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          },
+          "entryRef": "e-height"
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "label": "五",
+      "instruction": "在句子的空格内填入适当的词，使其内容通顺。每空格限填一词，首字母已给",
+      "questions": [
+        {
+          "id": "q33",
+          "number": 33,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The stove "
+              },
+              {
+                "t": "blank",
+                "id": "b33",
+                "number": 33,
+                "hint": {
+                  "firstLetter": "h"
+                }
+              },
+              {
+                "t": "text",
+                "v": " the room."
+              }
+            ]
+          },
+          "entryRef": "e-heat"
+        },
+        {
+          "id": "q34",
+          "number": 34,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "We "
+              },
+              {
+                "t": "blank",
+                "id": "b34",
+                "number": 34,
+                "hint": {
+                  "firstLetter": "h"
+                }
+              },
+              {
+                "t": "text",
+                "v": " two people arguing when we walked past that area."
+              }
+            ]
+          },
+          "entryRef": "e-hear"
+        },
+        {
+          "id": "q35",
+          "number": 35,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The gentleman lost temper for the first time and shut the door "
+              },
+              {
+                "t": "blank",
+                "id": "b35",
+                "number": 35,
+                "hint": {
+                  "firstLetter": "h"
+                }
+              },
+              {
+                "t": "text",
+                "v": " when he left."
+              }
+            ]
+          },
+          "entryRef": "e-heavily"
+        },
+        {
+          "id": "q36",
+          "number": 36,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Though they are really great, they have never thought of themselves as "
+              },
+              {
+                "t": "blank",
+                "id": "b36",
+                "number": 36,
+                "hint": {
+                  "firstLetter": "h"
+                }
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          },
+          "entryRef": "e-hero"
+        },
+        {
+          "id": "q37",
+          "number": 37,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "This hall can "
+              },
+              {
+                "t": "blank",
+                "id": "b37",
+                "number": 37,
+                "hint": {
+                  "firstLetter": "h"
+                }
+              },
+              {
+                "t": "text",
+                "v": " more than one hundred people."
+              }
+            ]
+          },
+          "entryRef": "e-hold"
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "label": "六",
+      "instruction": "中译英",
+      "questions": [
+        {
+          "id": "q38",
+          "number": 38,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "世界上对勇气的最大考验是忍受失败而不丧失信心。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "heart"
+          },
+          "entryRef": "e-heart"
+        },
+        {
+          "id": "q39",
+          "number": 39,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "健康饮食和每天运动能使我们保持健康。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "healthy"
+          },
+          "entryRef": "e-healthy"
+        },
+        {
+          "id": "q40",
+          "number": 40,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "我出生在这里，我对这个小镇的街道相当熟悉。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "here"
+          },
+          "entryRef": "e-here"
+        },
+        {
+          "id": "q41",
+          "number": 41,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "教师利用自己的学识帮助孩子们成长为智慧青少年。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "help"
+          },
+          "entryRef": "e-help"
+        },
+        {
+          "id": "q42",
+          "number": 42,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "虽然他们的确很了不起，但他们从没有自认为是英雄。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "hero"
+          },
+          "entryRef": "e-hero"
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
+    "pdfPages": [
+      30
+    ],
+    "bookPages": [
+      47,
+      48
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

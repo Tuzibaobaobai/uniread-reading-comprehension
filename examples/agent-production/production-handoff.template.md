@@ -1,6 +1,6 @@
 # 本次生产交接
 
-> 配套规约：`14-agent-production-rules.md`，版本0.11（2026-11-02）。两个文件可以独立分发，不需要同时收到AGENTS.md或CLAUDE.md。本文是人／Codex／Claude Code可读附录，不是平台API JSON，当前平台工具不自动解析此Markdown。
+> 配套规约：`14-agent-production-rules.md`，版本0.12（2026-11-03）。两个文件可以独立分发，不需要同时收到AGENTS.md或CLAUDE.md。本文是人／Codex／Claude Code可读附录，不是平台API JSON，当前平台工具不自动解析此Markdown。
 
 ## 收到此模板后
 
@@ -127,6 +127,26 @@ RC当前校验不要求`id=q{number}`。例如在原`q1`、`q2`之间插入新�
 - 构建／启动／检查命令、运行时与包管理器版本、入口、依赖声明与锁文件：待填写
 - 路由／原型存储／HTTP／录音／ASR／模型等调用位置、用途、替换注意项：待填写；不用实现平台内部组件或SDK，不交付真实凭据
 - 不提供签名URL、Token、本机绝对资产路径或自写OSS对象键
+
+## 生产阶段资产上传（适用时填写；规约第14节，`uniread-spec/asset-oss`）
+
+不采用生产阶段上传时写“不适用，按第5节由接入方上传”。状态只用`PREPARED`／`UPLOADED_VERIFIED`／`DELIVERY_VERIFIED`／`INCOMPLETE`，不写“已发布”。不填写真实endpoint、bucket、凭证或签名URL。
+
+- 本次内容范围：待填写
+- sourceId／contentReleaseId／sourceCommit／内容快照摘要（`asset-snapshot.<contentReleaseId>.sha256`）：待填写
+- RC固定releaseId／selection文件及SHA-256／资源fingerprint算法与核对依据：待填写（工具`scripts/lib/asset-identity.ts`；与BE跨仓样例核对：已核对／待核对）
+- BE事后补充的registrationSHA256与计划验真结果：未生成 / 待填写
+- 资产协议／key规则／上传工具版本：`be-asset-upload-plan-1`／`be-exam-existing-v1`／待填写
+- 计划位置及manifestSHA256：待填写
+- 共享字体包版本、许可证及托管方式：不适用 / 待填写
+- 存储profile／storageTargetId（bucket不写真实值，只写“见私有回执”）：待填写
+- 上传范围：引用数、来源文件数、去重对象数、字节总量：待填写
+- 新增上传数／已存在并验真复用数／失败数：待填写
+- 回执位置（受控交付）及状态：待填写
+- 实际读取验证的环境、路径、覆盖项及结果：未执行 / 待填写
+- 内容、私有Key与素材版本是否对应：待核对
+- 保留本地的内嵌图片数（`localOnly`）、能力缺口（`capabilityGaps`）与错误（`errors`）：待填写
+- BE协议支持、登记／发布状态及剩余缺口：待填写
 
 ## 来源、版权和私有答案
 

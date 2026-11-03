@@ -1,0 +1,1050 @@
+{
+  "schemaVersion": "1.0",
+  "format": "vocab-day",
+  "id": "zkv-d37",
+  "playlistId": "zkv",
+  "order": 37,
+  "day": 37,
+  "unit": "words",
+  "title": "parent – phone",
+  "displayName": "parent – phone",
+  "taskType": {
+    "code": "vocab_day",
+    "labelZh": "词汇天天练"
+  },
+  "wordRange": {
+    "from": "e-parent",
+    "to": "e-phone"
+  },
+  "lexicon": "zkv",
+  "entryIds": [
+    "e-parent",
+    "e-paris",
+    "e-park",
+    "e-part",
+    "e-partner",
+    "e-party",
+    "e-pass",
+    "e-passage",
+    "e-passenger",
+    "e-passport",
+    "e-past",
+    "e-patient",
+    "e-pay",
+    "e-p-e",
+    "e-peace",
+    "e-pear",
+    "e-pearl",
+    "e-pen",
+    "e-pencil",
+    "e-people",
+    "e-per",
+    "e-percent",
+    "e-perfect",
+    "e-performance",
+    "e-perhaps",
+    "e-person",
+    "e-personal",
+    "e-pet",
+    "e-phone"
+  ],
+  "meta": {
+    "totalPoints": 100,
+    "suggestedMinutes": 25,
+    "passPercent": 60
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "一",
+      "instruction": "根据所给音标写出英语单词、词性及中文释义",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/fəʊn/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-phone"
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/piːs/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-peace"
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈpæsɪndʒə(r)/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-passenger"
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/peə(r)/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-pear"
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈpiːpl/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-people"
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/pəˈhæps/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-perhaps"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "二",
+      "instruction": "根据所给中文写出英语单词",
+      "questions": [
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "宠物 n. 抚摸；（爱抚地）摩挲 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b7",
+                "number": 7
+              }
+            ]
+          },
+          "entryRef": "e-pet"
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "父（母），（复数）双亲 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b8",
+                "number": 8
+              }
+            ]
+          },
+          "entryRef": "e-parent"
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "珍珠 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b9",
+                "number": 9
+              }
+            ]
+          },
+          "entryRef": "e-pearl"
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "体育 "
+              },
+              {
+                "t": "blank",
+                "id": "b10",
+                "number": 10
+              }
+            ]
+          },
+          "entryRef": "e-p-e"
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "百分比；百分之…… n., adj. & adv. "
+              },
+              {
+                "t": "blank",
+                "id": "b11",
+                "number": 11
+              }
+            ]
+          },
+          "entryRef": "e-percent"
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "钢笔；笔 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b12",
+                "number": 12
+              }
+            ]
+          },
+          "entryRef": "e-pen"
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "铅笔 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b13",
+                "number": 13
+              }
+            ]
+          },
+          "entryRef": "e-pencil"
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "每，每一 prep. "
+              },
+              {
+                "t": "blank",
+                "id": "b14",
+                "number": 14
+              }
+            ]
+          },
+          "entryRef": "e-per"
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "付钱，给……报酬（与某些名词结合使用，表示将要做或付出某事物）v.（动词原形、过去式和过去分词）工资 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b15a",
+                "number": 15
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b15b"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b15c"
+              }
+            ]
+          },
+          "entryRef": "e-pay"
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "（文章等的）一节，一段；通道 "
+              },
+              {
+                "t": "blank",
+                "id": "b16",
+                "number": 16
+              }
+            ]
+          },
+          "entryRef": "e-passage"
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "（法国首都）巴黎 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b17",
+                "number": 17
+              }
+            ]
+          },
+          "entryRef": "e-paris"
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "聚会，晚会；政党，党派 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b18",
+                "number": 18
+              }
+            ]
+          },
+          "entryRef": "e-party"
+        },
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "公园 n. 停放（车辆等） v. "
+              },
+              {
+                "t": "blank",
+                "id": "b19",
+                "number": 19
+              }
+            ]
+          },
+          "entryRef": "e-park"
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "传，递；经过，路过；通过 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b20",
+                "number": 20
+              }
+            ]
+          },
+          "entryRef": "e-pass"
+        },
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "搭档；同伴 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b21",
+                "number": 21
+              }
+            ]
+          },
+          "entryRef": "e-partner"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "三",
+      "instruction": "根据所给单词和词性，写出相关的单词和中文释义",
+      "questions": [
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 3.6,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "pass",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "n."
+              },
+              {
+                "id": "f2",
+                "pos": "prep."
+              },
+              {
+                "id": "f3",
+                "pos": "n."
+              },
+              {
+                "id": "f4",
+                "pos": "adj."
+              }
+            ]
+          },
+          "entryRef": "e-past"
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 3.6,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "patience",
+              "pos": "n."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "adj."
+              },
+              {
+                "id": "f2",
+                "pos": "n."
+              }
+            ]
+          },
+          "entryRef": "e-patient"
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 3.6,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "perfectly",
+              "pos": "adv."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "adj."
+              }
+            ]
+          },
+          "entryRef": "e-perfect"
+        },
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 3.6,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "perform",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "n."
+              }
+            ]
+          },
+          "entryRef": "e-performance"
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 3.6,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "personally",
+              "pos": "adv."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "n."
+              },
+              {
+                "id": "f2",
+                "pos": "adj."
+              }
+            ]
+          },
+          "entryRef": "e-person"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "label": "四",
+      "instruction": "用括号中所给单词的适当形式完成下列句子，每空格限填一词",
+      "questions": [
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "First prize will go to the best "
+              },
+              {
+                "t": "blank",
+                "id": "b27",
+                "number": 27,
+                "hint": {
+                  "baseWord": "perform"
+                }
+              },
+              {
+                "t": "text",
+                "v": " this evening."
+              }
+            ]
+          },
+          "entryRef": "e-performance"
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "It’s all a matter of "
+              },
+              {
+                "t": "blank",
+                "id": "b28",
+                "number": 28,
+                "hint": {
+                  "baseWord": "person"
+                }
+              },
+              {
+                "t": "text",
+                "v": " taste."
+              }
+            ]
+          },
+          "entryRef": "e-personal"
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Jeremy is a kind of "
+              },
+              {
+                "t": "blank",
+                "id": "b29",
+                "number": 29,
+                "hint": {
+                  "baseWord": "personal"
+                }
+              },
+              {
+                "t": "text",
+                "v": " who knows everything."
+              }
+            ]
+          },
+          "entryRef": "e-person"
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "He’s a very "
+              },
+              {
+                "t": "blank",
+                "id": "b30",
+                "number": 30,
+                "hint": {
+                  "baseWord": "patience"
+                }
+              },
+              {
+                "t": "text",
+                "v": " man."
+              }
+            ]
+          },
+          "entryRef": "e-patient"
+        },
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The students were celebrating the Art Festival when I "
+              },
+              {
+                "t": "blank",
+                "id": "b31",
+                "number": 31,
+                "hint": {
+                  "baseWord": "past"
+                }
+              },
+              {
+                "t": "text",
+                "v": " by their school."
+              }
+            ]
+          },
+          "entryRef": "e-pass"
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "label": "五",
+      "instruction": "在句子的空格内填入适当的词，使其内容通顺。每空格限填一词，首字母已给",
+      "questions": [
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The new regulations have been attacked by opposition "
+              },
+              {
+                "t": "blank",
+                "id": "b32",
+                "number": 32,
+                "hint": {
+                  "firstLetter": "p"
+                }
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          },
+          "entryRef": "e-party"
+        },
+        {
+          "id": "q33",
+          "number": 33,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The police forced a "
+              },
+              {
+                "t": "blank",
+                "id": "b33",
+                "number": 33,
+                "hint": {
+                  "firstLetter": "p"
+                }
+              },
+              {
+                "t": "text",
+                "v": " through the crowd."
+              }
+            ]
+          },
+          "entryRef": "e-passage"
+        },
+        {
+          "id": "q34",
+          "number": 34,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The earlier the treatment is given, the better the "
+              },
+              {
+                "t": "blank",
+                "id": "b34",
+                "number": 34,
+                "hint": {
+                  "firstLetter": "p"
+                }
+              },
+              {
+                "t": "text",
+                "v": " chances have."
+              }
+            ]
+          },
+          "entryRef": "e-patient"
+        },
+        {
+          "id": "q35",
+          "number": 35,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The workers’ demand for a twenty percent "
+              },
+              {
+                "t": "blank",
+                "id": "b35",
+                "number": 35,
+                "hint": {
+                  "firstLetter": "p"
+                }
+              },
+              {
+                "t": "text",
+                "v": " rise."
+              }
+            ]
+          },
+          "entryRef": "e-pay"
+        },
+        {
+          "id": "q36",
+          "number": 36,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The "
+              },
+              {
+                "t": "blank",
+                "id": "b36",
+                "number": 36,
+                "hint": {
+                  "firstLetter": "p"
+                }
+              },
+              {
+                "t": "text",
+                "v": " of Class A students is much better than that of Class B students."
+              }
+            ]
+          },
+          "entryRef": "e-performance"
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "label": "六",
+      "instruction": "中译英",
+      "questions": [
+        {
+          "id": "q37",
+          "number": 37,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "课外活动是学校生活中不可缺少的一环。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "part"
+          },
+          "entryRef": "e-part"
+        },
+        {
+          "id": "q38",
+          "number": 38,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "为了不污染环境，我们使用纸盒子。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "paper"
+          },
+          "entryRef": "e-paper"
+        },
+        {
+          "id": "q39",
+          "number": 39,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "没有人要和那些不诚实的人交朋友。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "person"
+          },
+          "entryRef": "e-person"
+        },
+        {
+          "id": "q40",
+          "number": 40,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "他在一张纸上写了一个数字。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "paper"
+          },
+          "entryRef": "e-paper"
+        },
+        {
+          "id": "q41",
+          "number": 41,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "据报道，在这次大地震中死亡人数已超过 2,000 人。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "people"
+          },
+          "entryRef": "e-people"
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
+    "pdfPages": [
+      43
+    ],
+    "bookPages": [
+      73,
+      74
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

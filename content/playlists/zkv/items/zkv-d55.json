@@ -1,0 +1,1045 @@
+{
+  "schemaVersion": "1.0",
+  "format": "vocab-day",
+  "id": "zkv-d55",
+  "playlistId": "zkv",
+  "order": 55,
+  "day": 55,
+  "unit": "words",
+  "title": "volleyball – welcome",
+  "displayName": "volleyball – welcome",
+  "taskType": {
+    "code": "vocab_day",
+    "labelZh": "词汇天天练"
+  },
+  "wordRange": {
+    "from": "e-volleyball",
+    "to": "e-welcome"
+  },
+  "lexicon": "zkv",
+  "entryIds": [
+    "e-volleyball",
+    "e-volunteer",
+    "e-wait",
+    "e-waiter",
+    "e-waitress",
+    "e-wake",
+    "e-walk",
+    "e-wall",
+    "e-want",
+    "e-war",
+    "e-warm",
+    "e-warn",
+    "e-wash",
+    "e-waste",
+    "e-watch",
+    "e-water",
+    "e-wave",
+    "e-way",
+    "e-weak",
+    "e-wealth",
+    "e-wear",
+    "e-weather",
+    "e-web",
+    "e-website",
+    "e-wednesday",
+    "e-week",
+    "e-weekday",
+    "e-weekend",
+    "e-weigh",
+    "e-weight",
+    "e-welcome"
+  ],
+  "meta": {
+    "totalPoints": 100,
+    "suggestedMinutes": 25,
+    "passPercent": 60
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "一",
+      "instruction": "根据所给音标写出英语单词、词性及中文释义",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/wɔːk/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-walk"
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/wɒʃ/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-wash"
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈwebsaɪt/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-website"
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈvɒlɪbɔːl/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-volleyball"
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/wɒnt/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-want"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "二",
+      "instruction": "根据所给中文写出英语单词",
+      "questions": [
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "暖和的；热情的 adj. "
+              },
+              {
+                "t": "blank",
+                "id": "b6",
+                "number": 6
+              }
+            ]
+          },
+          "entryRef": "e-warm"
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "周末 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b7",
+                "number": 7
+              }
+            ]
+          },
+          "entryRef": "e-weekend"
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "星期 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b8",
+                "number": 8
+              }
+            ]
+          },
+          "entryRef": "e-week"
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "战争 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b9",
+                "number": 9
+              }
+            ]
+          },
+          "entryRef": "e-war"
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "周工作日（星期一到星期五的任何一天） n. "
+              },
+              {
+                "t": "blank",
+                "id": "b10",
+                "number": 10
+              }
+            ]
+          },
+          "entryRef": "e-weekday"
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "警告；告诫 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b11",
+                "number": 11
+              }
+            ]
+          },
+          "entryRef": "e-warn"
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "天气 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b12",
+                "number": 12
+              }
+            ]
+          },
+          "entryRef": "e-weather"
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "重量；分量 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b13",
+                "number": 13
+              }
+            ]
+          },
+          "entryRef": "e-weight"
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "弱的，差的；淡的；虚弱的，无力的 adj. "
+              },
+              {
+                "t": "blank",
+                "id": "b14",
+                "number": 14
+              }
+            ]
+          },
+          "entryRef": "e-weak"
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "路；路线；路途；方法，手段 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b15",
+                "number": 15
+              }
+            ]
+          },
+          "entryRef": "e-way"
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "波，波浪，海浪 n. 挥手，招手；挥动 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b16",
+                "number": 16
+              }
+            ]
+          },
+          "entryRef": "e-wave"
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "水 n. 给……浇水 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b17",
+                "number": 17
+              }
+            ]
+          },
+          "entryRef": "e-water"
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "称……的重量；重；权衡 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b18",
+                "number": 18
+              }
+            ]
+          },
+          "entryRef": "e-weigh"
+        },
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "志愿者，义务工作者 n. 自愿（做）；自愿提供 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b19",
+                "number": 19
+              }
+            ]
+          },
+          "entryRef": "e-volunteer"
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "网；网状物 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b20",
+                "number": 20
+              }
+            ]
+          },
+          "entryRef": "e-web"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "三",
+      "instruction": "根据所给单词和词性，写出相关的单词和中文释义",
+      "questions": [
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 3.3333333333333335,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "wait",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "n."
+              },
+              {
+                "id": "f2",
+                "pos": "n."
+              }
+            ]
+          },
+          "entryRef": "e-wait"
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 3.3333333333333335,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "wealthy",
+              "pos": "adj."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "n."
+              }
+            ]
+          },
+          "entryRef": "e-wealth"
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 3.3333333333333335,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "unwelcome",
+              "pos": "adj."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "n."
+              },
+              {
+                "id": "f2",
+                "pos": "adj."
+              },
+              {
+                "id": "f3",
+                "pos": "v."
+              },
+              {
+                "id": "f4",
+                "pos": "int."
+              }
+            ]
+          },
+          "entryRef": "e-welcome"
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 3.3333333333333335,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "waste",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "n."
+              }
+            ]
+          },
+          "entryRef": "e-waste"
+        },
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 3.3333333333333335,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "wake",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "过去式"
+              },
+              {
+                "id": "f2",
+                "pos": "过去分词"
+              }
+            ]
+          },
+          "entryRef": "e-wake"
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 3.3333333333333335,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "wear",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "过去式"
+              },
+              {
+                "id": "f2",
+                "pos": "过去分词"
+              }
+            ]
+          },
+          "entryRef": "e-wear"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "label": "四",
+      "instruction": "用括号中所给单词的适当形式完成下列句子，每空格限填一词",
+      "questions": [
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "His uncle is a "
+              },
+              {
+                "t": "blank",
+                "id": "b27",
+                "number": 27,
+                "hint": {
+                  "baseWord": "wait"
+                }
+              },
+              {
+                "t": "text",
+                "v": ". He works in a big restaurant."
+              }
+            ]
+          },
+          "entryRef": "e-waiter"
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Their sleeping bags were "
+              },
+              {
+                "t": "blank",
+                "id": "b28",
+                "number": 28,
+                "hint": {
+                  "baseWord": "warmly"
+                }
+              },
+              {
+                "t": "text",
+                "v": " and comfortable."
+              }
+            ]
+          },
+          "entryRef": "e-warm"
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "A pretty "
+              },
+              {
+                "t": "blank",
+                "id": "b29",
+                "number": 29,
+                "hint": {
+                  "baseWord": "waiter"
+                }
+              },
+              {
+                "t": "text",
+                "v": " put a glass of water in front of him."
+              }
+            ]
+          },
+          "entryRef": "e-waitress"
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "These new books and magazines on that bookshelf belong to "
+              },
+              {
+                "t": "blank",
+                "id": "b30",
+                "number": 30,
+                "hint": {
+                  "baseWord": "we"
+                }
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "How can Lisa lose "
+              },
+              {
+                "t": "blank",
+                "id": "b31",
+                "number": 31,
+                "hint": {
+                  "baseWord": "weigh"
+                }
+              },
+              {
+                "t": "text",
+                "v": " so successfully in such a short time?"
+              }
+            ]
+          },
+          "entryRef": "e-weight"
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "label": "五",
+      "instruction": "在句子的空格内填入适当的词，使其内容通顺。每空格限填一词，首字母已给",
+      "questions": [
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Many people "
+              },
+              {
+                "t": "blank",
+                "id": "b32a",
+                "number": 32,
+                "hint": {
+                  "firstLetter": "v"
+                }
+              },
+              {
+                "t": "text",
+                "v": " to work on the farms. We need a great number of "
+              },
+              {
+                "t": "blank",
+                "id": "b32b",
+                "number": 32,
+                "hint": {
+                  "firstLetter": "v"
+                }
+              },
+              {
+                "t": "text",
+                "v": " here during the spring festival."
+              }
+            ]
+          },
+          "entryRef": "e-volunteer"
+        },
+        {
+          "id": "q33",
+          "number": 33,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "As we all know, it’s not polite to keep others "
+              },
+              {
+                "t": "blank",
+                "id": "b33",
+                "number": 33,
+                "hint": {
+                  "firstLetter": "w"
+                }
+              },
+              {
+                "t": "text",
+                "v": " for a long time."
+              }
+            ]
+          },
+          "entryRef": "e-wait"
+        },
+        {
+          "id": "q34",
+          "number": 34,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "He gave me a "
+              },
+              {
+                "t": "blank",
+                "id": "b34",
+                "number": 34,
+                "hint": {
+                  "firstLetter": "w"
+                }
+              },
+              {
+                "t": "text",
+                "v": " of the hand to say goodbye."
+              }
+            ]
+          },
+          "entryRef": "e-wave"
+        },
+        {
+          "id": "q35",
+          "number": 35,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "This is a "
+              },
+              {
+                "t": "blank",
+                "id": "b35",
+                "number": 35,
+                "hint": {
+                  "firstLetter": "w"
+                }
+              },
+              {
+                "t": "text",
+                "v": " of relaxing myself."
+              }
+            ]
+          },
+          "entryRef": "e-way"
+        },
+        {
+          "id": "q36",
+          "number": 36,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Members who are no longer "
+              },
+              {
+                "t": "blank",
+                "id": "b36",
+                "number": 36,
+                "hint": {
+                  "firstLetter": "w"
+                }
+              },
+              {
+                "t": "text",
+                "v": " can easily be frozen out."
+              }
+            ]
+          },
+          "entryRef": "e-welcome"
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "label": "六",
+      "instruction": "中译英",
+      "questions": [
+        {
+          "id": "q37",
+          "number": 37,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "不到长城非好汉。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "wall"
+          },
+          "entryRef": "e-wall"
+        },
+        {
+          "id": "q38",
+          "number": 38,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "众所周知，健康是真正的财富。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "wealth"
+          },
+          "entryRef": "e-wealth"
+        },
+        {
+          "id": "q39",
+          "number": 39,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "会议已推迟到下星期三下午。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "Wednesday"
+          },
+          "entryRef": "e-wednesday"
+        },
+        {
+          "id": "q40",
+          "number": 40,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "弗兰克（Frank）在水下屏住呼吸，在游泳池里寻找他的戒指。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "water"
+          },
+          "entryRef": "e-water"
+        },
+        {
+          "id": "q41",
+          "number": 41,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "网吧禁止18岁以下的人入内或让任何人看有害的东西。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "watch"
+          },
+          "entryRef": "e-watch"
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
+    "pdfPages": [
+      61
+    ],
+    "bookPages": [
+      109,
+      110
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

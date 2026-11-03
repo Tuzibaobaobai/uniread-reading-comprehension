@@ -1,0 +1,1107 @@
+{
+  "schemaVersion": "1.0",
+  "format": "vocab-day",
+  "id": "zkv-d11",
+  "playlistId": "zkv",
+  "order": 11,
+  "day": 11,
+  "unit": "words",
+  "title": "coin – contest",
+  "displayName": "coin – contest",
+  "taskType": {
+    "code": "vocab_day",
+    "labelZh": "词汇天天练"
+  },
+  "wordRange": {
+    "from": "e-coin",
+    "to": "e-contest"
+  },
+  "lexicon": "zkv",
+  "entryIds": [
+    "e-coin",
+    "e-cold",
+    "e-collect",
+    "e-collection",
+    "e-college",
+    "e-colour",
+    "e-come",
+    "e-comfortable",
+    "e-common",
+    "e-communicate",
+    "e-community",
+    "e-company",
+    "e-compare",
+    "e-competition",
+    "e-complain",
+    "e-complete",
+    "e-completely",
+    "e-computer",
+    "e-concert",
+    "e-conclusion",
+    "e-conference",
+    "e-confidence",
+    "e-confident",
+    "e-confuse",
+    "e-congratulation",
+    "e-connect",
+    "e-consider",
+    "e-consist",
+    "e-contact",
+    "e-contest"
+  ],
+  "meta": {
+    "totalPoints": 100,
+    "suggestedMinutes": 25,
+    "passPercent": 60
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "一",
+      "instruction": "根据所给音标写出英语单词、词性及中文释义",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/kəˈlekt/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-collect"
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈkɒlɪdʒ/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-college"
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈkɒmən/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-common"
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˌkɒmpəˈtɪʃn/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-competition"
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈkɒnsət/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-concert"
+        },
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈkɒnfərəns/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-conference"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "二",
+      "instruction": "根据所给中文写出英语单词",
+      "questions": [
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "电脑 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b7",
+                "number": 7
+              }
+            ]
+          },
+          "entryRef": "e-computer"
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "接触；联系 n. 与……来往，联系 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b8",
+                "number": 8
+              }
+            ]
+          },
+          "entryRef": "e-contact"
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "冷的；寒冷的 adj. 寒冷；感冒，伤风 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b9",
+                "number": 9
+              }
+            ]
+          },
+          "entryRef": "e-cold"
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "包含；组成，构成 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b10",
+                "number": 10
+              }
+            ]
+          },
+          "entryRef": "e-consist"
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "自信的；有自信心的 adj. "
+              },
+              {
+                "t": "blank",
+                "id": "b11",
+                "number": 11
+              }
+            ]
+          },
+          "entryRef": "e-confident"
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "硬币 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b12",
+                "number": 12
+              }
+            ]
+          },
+          "entryRef": "e-coin"
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "竞赛；比赛 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b13",
+                "number": 13
+              }
+            ]
+          },
+          "entryRef": "e-contest"
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "（正式的）会议，讨论会 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b14",
+                "number": 14
+              }
+            ]
+          },
+          "entryRef": "e-conference"
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "完成的；完整的，完全的 adj. 完成，结束 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b15",
+                "number": 15
+              }
+            ]
+          },
+          "entryRef": "e-complete"
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "考虑 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b16",
+                "number": 16
+              }
+            ]
+          },
+          "entryRef": "e-consider"
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "社区；社会 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b17",
+                "number": 17
+              }
+            ]
+          },
+          "entryRef": "e-community"
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "连接；把……联系起来 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b18",
+                "number": 18
+              }
+            ]
+          },
+          "entryRef": "e-connect"
+        },
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "来，来到 v. （动词原形、过去式和过去分词） "
+              },
+              {
+                "t": "blank",
+                "id": "b19a",
+                "number": 19
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b19b"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b19c"
+              }
+            ]
+          },
+          "entryRef": "e-come"
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "公司；陪伴；做伴 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b20",
+                "number": 20
+              }
+            ]
+          },
+          "entryRef": "e-company"
+        },
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "比较，对照 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b21",
+                "number": 21
+              }
+            ]
+          },
+          "entryRef": "e-compare"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "三",
+      "instruction": "根据所给单词和词性，写出相关的单词和中文释义",
+      "questions": [
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 2,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "collect",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "n."
+              }
+            ]
+          },
+          "entryRef": "e-collection"
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 2,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "comfort",
+              "pos": "n."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "adj."
+              }
+            ]
+          },
+          "entryRef": "e-comfortable"
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 2,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "colour/color",
+              "pos": "n."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "v."
+              }
+            ]
+          },
+          "entryRef": "e-colour"
+        },
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 2,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "communication",
+              "pos": "n."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "v."
+              }
+            ]
+          },
+          "entryRef": "e-communicate"
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 2,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "complaint",
+              "pos": "n."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "v."
+              }
+            ]
+          },
+          "entryRef": "e-complain"
+        },
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 2,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "complete",
+              "pos": "v. & adj."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "adv."
+              }
+            ]
+          },
+          "entryRef": "e-completely"
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 2,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "conclude",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "n."
+              }
+            ]
+          },
+          "entryRef": "e-conclusion"
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 2,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "congratulate",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "n."
+              }
+            ]
+          },
+          "entryRef": "e-congratulation"
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 2,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "confused",
+              "pos": "adj."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "v."
+              }
+            ]
+          },
+          "entryRef": "e-confuse"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "label": "四",
+      "instruction": "用括号中所给单词的适当形式完成下列句子，每空格限填一词",
+      "questions": [
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Mr. Carter showed us his "
+              },
+              {
+                "t": "blank",
+                "id": "b31",
+                "number": 31,
+                "hint": {
+                  "baseWord": "collect"
+                }
+              },
+              {
+                "t": "text",
+                "v": " of stamps."
+              }
+            ]
+          },
+          "entryRef": "e-collection"
+        },
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "If the activities in our school are more "
+              },
+              {
+                "t": "blank",
+                "id": "b32",
+                "number": 32,
+                "hint": {
+                  "baseWord": "colour"
+                }
+              },
+              {
+                "t": "text",
+                "v": ", more students will enter for them."
+              }
+            ]
+          },
+          "entryRef": "e-colour"
+        },
+        {
+          "id": "q33",
+          "number": 33,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "They have come up with some "
+              },
+              {
+                "t": "blank",
+                "id": "b33",
+                "number": 33,
+                "hint": {
+                  "baseWord": "create"
+                }
+              },
+              {
+                "t": "text",
+                "v": " ideas to make the event fun and memorable."
+              }
+            ]
+          },
+          "entryRef": "e-creative"
+        },
+        {
+          "id": "q34",
+          "number": 34,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Linda is a "
+              },
+              {
+                "t": "blank",
+                "id": "b34",
+                "number": 34,
+                "hint": {
+                  "baseWord": "confidence"
+                }
+              },
+              {
+                "t": "text",
+                "v": " leader in our group. She is always active in dealing with problems."
+              }
+            ]
+          },
+          "entryRef": "e-confident"
+        },
+        {
+          "id": "q35",
+          "number": 35,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "After a six-month research, each group came to a similar "
+              },
+              {
+                "t": "blank",
+                "id": "b35",
+                "number": 35,
+                "hint": {
+                  "baseWord": "conclude"
+                }
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          },
+          "entryRef": "e-conclusion"
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "label": "五",
+      "instruction": "在句子的空格内填入适当的词，使其内容通顺。每空格限填一词，首字母已给",
+      "questions": [
+        {
+          "id": "q36",
+          "number": 36,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Think it over. Don’t jump to "
+              },
+              {
+                "t": "blank",
+                "id": "b36",
+                "number": 36,
+                "hint": {
+                  "firstLetter": "c"
+                }
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          },
+          "entryRef": "e-conclusion"
+        },
+        {
+          "id": "q37",
+          "number": 37,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "They seemed very "
+              },
+              {
+                "t": "blank",
+                "id": "b37",
+                "number": 37,
+                "hint": {
+                  "firstLetter": "c"
+                }
+              },
+              {
+                "t": "text",
+                "v": " about what was going on."
+              }
+            ]
+          },
+          "entryRef": "e-confuse"
+        },
+        {
+          "id": "q38",
+          "number": 38,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The serious fire "
+              },
+              {
+                "t": "blank",
+                "id": "b38",
+                "number": 38,
+                "hint": {
+                  "firstLetter": "c"
+                }
+              },
+              {
+                "t": "text",
+                "v": " destroyed the whole building last November."
+              }
+            ]
+          },
+          "entryRef": "e-completely"
+        },
+        {
+          "id": "q39",
+          "number": 39,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Is this word in "
+              },
+              {
+                "t": "blank",
+                "id": "b39",
+                "number": 39,
+                "hint": {
+                  "firstLetter": "c"
+                }
+              },
+              {
+                "t": "text",
+                "v": " use?"
+              }
+            ]
+          },
+          "entryRef": "e-common"
+        },
+        {
+          "id": "q40",
+          "number": 40,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I feel quite "
+              },
+              {
+                "t": "blank",
+                "id": "b40",
+                "number": 40,
+                "hint": {
+                  "firstLetter": "c"
+                }
+              },
+              {
+                "t": "text",
+                "v": " that I will pass the Chinese exam this time."
+              }
+            ]
+          },
+          "entryRef": "e-confident"
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "label": "六",
+      "instruction": "中译英",
+      "questions": [
+        {
+          "id": "q41",
+          "number": 41,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "这两栋楼的一部分由一条走廊连接起来。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "connect"
+          },
+          "entryRef": "e-connect"
+        },
+        {
+          "id": "q42",
+          "number": 42,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "现代技术的发展使人们的生活更舒适。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "comfortable"
+          },
+          "entryRef": "e-comfortable"
+        },
+        {
+          "id": "q43",
+          "number": 43,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "上海博物馆收藏了大量的国内外艺术品。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "collection"
+          },
+          "entryRef": "e-collection"
+        },
+        {
+          "id": "q44",
+          "number": 44,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "在困境中绝不放弃，美好的日子总会到来。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "come"
+          },
+          "entryRef": "e-come"
+        },
+        {
+          "id": "q45",
+          "number": 45,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "这个外国游客只能说一点中国话，却成功地与我们进行了沟通。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "communicate"
+          },
+          "entryRef": "e-communicate"
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
+    "pdfPages": [
+      17
+    ],
+    "bookPages": [
+      21,
+      22
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

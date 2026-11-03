@@ -274,3 +274,9 @@
 .entry-compare p { margin: 4px 0 0; }
 .entry-dialog .entry-compare p { color: inherit; }
 @media (max-width: 1023px) { .entry-compare { margin-left: 0; } }
+/* 第69–70天 (tables): the printed table with a typed blank in each answer cell */
+.vq-table { margin: 8px 0 16px; overflow-x: auto; }
+.vq-table .rt-table th { white-space: nowrap; }
+.vq-table .rt-table th, .vq-table .rt-table td { padding: 8px; vertical-align: middle; }
+.vq-table .blank-input { display: flex; margin: 0; }
+.vq-table .blank-input input { width: 100%; min-width: 56px; }

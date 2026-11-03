@@ -1,0 +1,1109 @@
+{
+  "schemaVersion": "1.0",
+  "format": "vocab-day",
+  "id": "zkv-d19",
+  "playlistId": "zkv",
+  "order": 19,
+  "day": 19,
+  "unit": "words",
+  "title": "farm – finish",
+  "displayName": "farm – finish",
+  "taskType": {
+    "code": "vocab_day",
+    "labelZh": "词汇天天练"
+  },
+  "wordRange": {
+    "from": "e-farm",
+    "to": "e-finish"
+  },
+  "lexicon": "zkv",
+  "entryIds": [
+    "e-farm",
+    "e-farmer",
+    "e-fashion",
+    "e-fast",
+    "e-fasten",
+    "e-fat",
+    "e-father",
+    "e-favour",
+    "e-favourite",
+    "e-fear",
+    "e-february",
+    "e-feed",
+    "e-feel",
+    "e-female",
+    "e-fence",
+    "e-ferry",
+    "e-festival",
+    "e-fever",
+    "e-few",
+    "e-field",
+    "e-fight",
+    "e-figure",
+    "e-fill",
+    "e-film",
+    "e-final",
+    "e-finally",
+    "e-find",
+    "e-fine",
+    "e-finger",
+    "e-finish"
+  ],
+  "meta": {
+    "totalPoints": 100,
+    "suggestedMinutes": 25,
+    "passPercent": 60
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "一",
+      "instruction": "根据所给音标写出英语单词、词性及中文释义",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈfaɪnəli/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-finally"
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/fɑːst/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-fast"
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈfɪŋgə(r)/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-finger"
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/fiːld/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-field"
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/fens/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-fence"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "二",
+      "instruction": "根据所给中文写出英语单词",
+      "questions": [
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "晴朗的；美好的；（身体）健康的 adj. "
+              },
+              {
+                "t": "blank",
+                "id": "b6",
+                "number": 6
+              }
+            ]
+          },
+          "entryRef": "e-fine"
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "发烧，发热 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b7",
+                "number": 7
+              }
+            ]
+          },
+          "entryRef": "e-fever"
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "电影，影片；胶卷 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b8",
+                "number": 8
+              }
+            ]
+          },
+          "entryRef": "e-film"
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "女的；女性的；雌性的 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b9",
+                "number": 9
+              }
+            ]
+          },
+          "entryRef": "e-female"
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "时尚 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b10",
+                "number": 10
+              }
+            ]
+          },
+          "entryRef": "e-fashion"
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "害怕，恐惧；担忧 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b11",
+                "number": 11
+              }
+            ]
+          },
+          "entryRef": "e-fear"
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "二月 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b12",
+                "number": 12
+              }
+            ]
+          },
+          "entryRef": "e-february"
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "节日 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b13",
+                "number": 13
+              }
+            ]
+          },
+          "entryRef": "e-festival"
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "（人的）体形；外形；数字 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b14",
+                "number": 14
+              }
+            ]
+          },
+          "entryRef": "e-figure"
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "渡船 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b15",
+                "number": 15
+              }
+            ]
+          },
+          "entryRef": "e-ferry"
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "父亲 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b16",
+                "number": 16
+              }
+            ]
+          },
+          "entryRef": "e-father"
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "结束；做完 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b17",
+                "number": 17
+              }
+            ]
+          },
+          "entryRef": "e-finish"
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "系；扎 v. "
+              },
+              {
+                "t": "blank",
+                "id": "b18",
+                "number": 18
+              }
+            ]
+          },
+          "entryRef": "e-fasten"
+        },
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "感觉，觉得；摸，触 v. & link. v.（动词原形、过去式和过去分词） "
+              },
+              {
+                "t": "blank",
+                "id": "b19a",
+                "number": 19
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b19b"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b19c"
+              }
+            ]
+          },
+          "entryRef": "e-feel"
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "喂养；饲养；给（人或动物）食物 v.（动词原形、过去式和过去分词） "
+              },
+              {
+                "t": "blank",
+                "id": "b20a",
+                "number": 20
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b20b"
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b20c"
+              }
+            ]
+          },
+          "entryRef": "e-feed"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "三",
+      "instruction": "根据所给单词和词性，写出相关的单词和中文释义",
+      "questions": [
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 2.5,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "farm",
+              "pos": "n."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "n."
+              }
+            ]
+          },
+          "entryRef": "e-farmer"
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 2.5,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "favour/favor",
+              "pos": "n."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "adj."
+              },
+              {
+                "id": "f2",
+                "pos": "n."
+              }
+            ]
+          },
+          "entryRef": "e-favourite"
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 2.5,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "feeling",
+              "pos": "n."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "v. & link"
+              }
+            ]
+          },
+          "entryRef": "e-feel"
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 2.5,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "full",
+              "pos": "adj."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "v."
+              }
+            ]
+          },
+          "entryRef": "e-fill"
+        },
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 2.5,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "finally",
+              "pos": "adv."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "adj."
+              }
+            ]
+          },
+          "entryRef": "e-final"
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 2.5,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "few",
+              "pos": "adj."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "比较级"
+              },
+              {
+                "id": "f2",
+                "pos": "最高级"
+              }
+            ]
+          },
+          "entryRef": "e-few"
+        },
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 2.5,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "find",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "过去式和过去分词"
+              }
+            ]
+          },
+          "entryRef": "e-find"
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 2.5,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "fight",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "过去式和过去分词"
+              }
+            ]
+          },
+          "entryRef": "e-fight"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "label": "四",
+      "instruction": "用括号中所给单词的适当形式完成下列句子，每空格限填一词",
+      "questions": [
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "After two hours’ discussion, they "
+              },
+              {
+                "t": "blank",
+                "id": "b29",
+                "number": 29,
+                "hint": {
+                  "baseWord": "final"
+                }
+              },
+              {
+                "t": "text",
+                "v": " reached an agreement."
+              }
+            ]
+          },
+          "entryRef": "e-finally"
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "This is the "
+              },
+              {
+                "t": "blank",
+                "id": "b30",
+                "number": 30,
+                "hint": {
+                  "baseWord": "five"
+                }
+              },
+              {
+                "t": "text",
+                "v": " time for me to teach you the grammar rules."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The "
+              },
+              {
+                "t": "blank",
+                "id": "b31",
+                "number": 31,
+                "hint": {
+                  "baseWord": "farm"
+                }
+              },
+              {
+                "t": "text",
+                "v": " looked sadly at the flooded field and he became sadder and sadder."
+              }
+            ]
+          },
+          "entryRef": "e-farmer"
+        },
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I guess the gentleman with a pair of glasses must be in his early "
+              },
+              {
+                "t": "blank",
+                "id": "b32",
+                "number": 32,
+                "hint": {
+                  "baseWord": "fifty"
+                }
+              },
+              {
+                "t": "text",
+                "v": " now."
+              }
+            ]
+          }
+        },
+        {
+          "id": "q33",
+          "number": 33,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Fishing is one of my "
+              },
+              {
+                "t": "blank",
+                "id": "b33",
+                "number": 33,
+                "hint": {
+                  "baseWord": "favour"
+                }
+              },
+              {
+                "t": "text",
+                "v": " outdoor activities."
+              }
+            ]
+          },
+          "entryRef": "e-favourite"
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "label": "五",
+      "instruction": "在句子的空格内填入适当的词，使其内容通顺。每空格限填一词，首字母已给",
+      "questions": [
+        {
+          "id": "q34",
+          "number": 34,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "It’ll be "
+              },
+              {
+                "t": "blank",
+                "id": "b34",
+                "number": 34,
+                "hint": {
+                  "firstLetter": "f"
+                }
+              },
+              {
+                "t": "text",
+                "v": " discussed at the class meeting."
+              }
+            ]
+          },
+          "entryRef": "e-far"
+        },
+        {
+          "id": "q35",
+          "number": 35,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "I caught a "
+              },
+              {
+                "t": "blank",
+                "id": "b35",
+                "number": 35,
+                "hint": {
+                  "firstLetter": "f"
+                }
+              },
+              {
+                "t": "text",
+                "v": " train so as to get home earlier."
+              }
+            ]
+          },
+          "entryRef": "e-fast"
+        },
+        {
+          "id": "q36",
+          "number": 36,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "If I take a lot of "
+              },
+              {
+                "t": "blank",
+                "id": "b36a",
+                "number": 36,
+                "hint": {
+                  "firstLetter": "f"
+                }
+              },
+              {
+                "t": "text",
+                "v": ", I’m sure to become "
+              },
+              {
+                "t": "blank",
+                "id": "b36b",
+                "number": 36,
+                "hint": {
+                  "firstLetter": "f"
+                }
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          },
+          "entryRef": "e-fat"
+        },
+        {
+          "id": "q37",
+          "number": 37,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "He likes all the toys but this one is his "
+              },
+              {
+                "t": "blank",
+                "id": "b37",
+                "number": 37,
+                "hint": {
+                  "firstLetter": "f"
+                }
+              },
+              {
+                "t": "text",
+                "v": "."
+              }
+            ]
+          },
+          "entryRef": "e-favourite"
+        },
+        {
+          "id": "q38",
+          "number": 38,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "He is a man of "
+              },
+              {
+                "t": "blank",
+                "id": "b38a",
+                "number": 38,
+                "hint": {
+                  "firstLetter": "f"
+                }
+              },
+              {
+                "t": "text",
+                "v": " words, "
+              },
+              {
+                "t": "blank",
+                "id": "b38b",
+                "number": 38,
+                "hint": {
+                  "firstLetter": "f"
+                }
+              },
+              {
+                "t": "text",
+                "v": " of us have his address."
+              }
+            ]
+          },
+          "entryRef": "e-few"
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "label": "六",
+      "instruction": "中译英",
+      "questions": [
+        {
+          "id": "q39",
+          "number": 39,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "无风不起浪。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "fire"
+          },
+          "entryRef": "e-fire"
+        },
+        {
+          "id": "q40",
+          "number": 40,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "钓鱼是我最喜欢的户外活动。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "favourite"
+          },
+          "entryRef": "e-favourite"
+        },
+        {
+          "id": "q41",
+          "number": 41,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "如果你不节食，你会变得越来越胖。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "fat"
+          },
+          "entryRef": "e-fat"
+        },
+        {
+          "id": "q42",
+          "number": 42,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "侦探想知道琼斯（Jones）先生在房间里找到了什么。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "find"
+          },
+          "entryRef": "e-find"
+        },
+        {
+          "id": "q43",
+          "number": 43,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "有那么多来自不同领域的杰出人物在一起工作。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "field"
+          },
+          "entryRef": "e-field"
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
+    "pdfPages": [
+      25
+    ],
+    "bookPages": [
+      37,
+      38
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,1025 @@
+{
+  "schemaVersion": "1.0",
+  "format": "vocab-day",
+  "id": "zkv-d56",
+  "playlistId": "zkv",
+  "order": 56,
+  "day": 56,
+  "unit": "words",
+  "title": "well – winter",
+  "displayName": "well – winter",
+  "taskType": {
+    "code": "vocab_day",
+    "labelZh": "词汇天天练"
+  },
+  "wordRange": {
+    "from": "e-well",
+    "to": "e-winter"
+  },
+  "lexicon": "zkv",
+  "entryIds": [
+    "e-well",
+    "e-west",
+    "e-western",
+    "e-wet",
+    "e-what",
+    "e-when",
+    "e-where",
+    "e-whether",
+    "e-which",
+    "e-while",
+    "e-white",
+    "e-who",
+    "e-whole",
+    "e-whom",
+    "e-whose",
+    "e-why",
+    "e-wide",
+    "e-widely",
+    "e-widen",
+    "e-wife",
+    "e-wild",
+    "e-will",
+    "e-win",
+    "e-wind",
+    "e-window",
+    "e-windy",
+    "e-wine",
+    "e-wing",
+    "e-winner",
+    "e-winter"
+  ],
+  "meta": {
+    "totalPoints": 100,
+    "suggestedMinutes": 25,
+    "passPercent": 60
+  },
+  "sections": [
+    {
+      "id": "s1",
+      "label": "一",
+      "instruction": "根据所给音标写出英语单词、词性及中文释义",
+      "questions": [
+        {
+          "id": "q1",
+          "number": 1,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈwɪndəʊ/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-window"
+        },
+        {
+          "id": "q2",
+          "number": 2,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/wet/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-wet"
+        },
+        {
+          "id": "q3",
+          "number": 3,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/ˈwɪnə(r)/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-winner"
+        },
+        {
+          "id": "q4",
+          "number": 4,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/waɪn/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-wine"
+        },
+        {
+          "id": "q5",
+          "number": 5,
+          "points": 2,
+          "interaction": {
+            "kind": "wordProfile",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "/waɪt/"
+              }
+            ],
+            "posOptions": [
+              "n.",
+              "v.",
+              "adj.",
+              "adv.",
+              "prep.",
+              "conj.",
+              "pron.",
+              "num."
+            ]
+          },
+          "entryRef": "e-white"
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "二",
+      "instruction": "根据所给中文写出英语单词",
+      "questions": [
+        {
+          "id": "q6",
+          "number": 6,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "谁（who的宾格）pron. "
+              },
+              {
+                "t": "blank",
+                "id": "b6",
+                "number": 6
+              }
+            ]
+          },
+          "entryRef": "e-whom"
+        },
+        {
+          "id": "q7",
+          "number": 7,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "谁的 pron. "
+              },
+              {
+                "t": "blank",
+                "id": "b7",
+                "number": 7
+              }
+            ]
+          },
+          "entryRef": "e-whose"
+        },
+        {
+          "id": "q8",
+          "number": 8,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "谁 pron. "
+              },
+              {
+                "t": "blank",
+                "id": "b8",
+                "number": 8
+              }
+            ]
+          },
+          "entryRef": "e-who"
+        },
+        {
+          "id": "q9",
+          "number": 9,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "在……的时候；正当……时；（对比两件事物）然而 conj. 一会儿；一段时间 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b9",
+                "number": 9
+              }
+            ]
+          },
+          "entryRef": "e-while"
+        },
+        {
+          "id": "q10",
+          "number": 10,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "（表示疑问）什么；（表示建议）怎么样 pron. （表示感叹）多么；（表示疑问）什么 adv. （引导宾语从句）conj. "
+              },
+              {
+                "t": "blank",
+                "id": "b10",
+                "number": 10
+              }
+            ]
+          },
+          "entryRef": "e-what"
+        },
+        {
+          "id": "q11",
+          "number": 11,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "在哪里 adv. "
+              },
+              {
+                "t": "blank",
+                "id": "b11",
+                "number": 11
+              }
+            ]
+          },
+          "entryRef": "e-where"
+        },
+        {
+          "id": "q12",
+          "number": 12,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "是否 conj. "
+              },
+              {
+                "t": "blank",
+                "id": "b12",
+                "number": 12
+              }
+            ]
+          },
+          "entryRef": "e-whether"
+        },
+        {
+          "id": "q13",
+          "number": 13,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "那（哪）一个（些）adj. & pron. "
+              },
+              {
+                "t": "blank",
+                "id": "b13",
+                "number": 13
+              }
+            ]
+          },
+          "entryRef": "e-which"
+        },
+        {
+          "id": "q14",
+          "number": 14,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "为什么 adv. "
+              },
+              {
+                "t": "blank",
+                "id": "b14",
+                "number": 14
+              }
+            ]
+          },
+          "entryRef": "e-why"
+        },
+        {
+          "id": "q15",
+          "number": 15,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "整个的；完全的 adj. "
+              },
+              {
+                "t": "blank",
+                "id": "b15",
+                "number": 15
+              }
+            ]
+          },
+          "entryRef": "e-whole"
+        },
+        {
+          "id": "q16",
+          "number": 16,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "冬天，冬季 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b16",
+                "number": 16
+              }
+            ]
+          },
+          "entryRef": "e-winter"
+        },
+        {
+          "id": "q17",
+          "number": 17,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "机翼；翅膀 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b17",
+                "number": 17
+              }
+            ]
+          },
+          "entryRef": "e-wing"
+        },
+        {
+          "id": "q18",
+          "number": 18,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "（表示将来）将，会；（表示同意、允诺）愿意；（表示提问）是否愿意；……好吗？aux. v. 意志 n. "
+              },
+              {
+                "t": "blank",
+                "id": "b18",
+                "number": 18
+              }
+            ]
+          },
+          "entryRef": "e-will"
+        },
+        {
+          "id": "q19",
+          "number": 19,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "健康的 adj. 好；令人满意地；安全地 adv. 井 n. （表示同意、惊讶等）好，好吧；那么 int. "
+              },
+              {
+                "t": "blank",
+                "id": "b19",
+                "number": 19
+              }
+            ]
+          },
+          "entryRef": "e-well"
+        },
+        {
+          "id": "q20",
+          "number": 20,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "西部；西方 n. 西方的；向西的 adj. "
+              },
+              {
+                "t": "blank",
+                "id": "b20",
+                "number": 20
+              }
+            ]
+          },
+          "entryRef": "e-west"
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "三",
+      "instruction": "根据所给单词和词性，写出相关的单词和中文释义",
+      "questions": [
+        {
+          "id": "q21",
+          "number": 21,
+          "points": 3.3333333333333335,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "width",
+              "pos": "n."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "adj."
+              },
+              {
+                "id": "f2",
+                "pos": "adv."
+              },
+              {
+                "id": "f3",
+                "pos": "v."
+              }
+            ]
+          },
+          "entryRef": "e-wide"
+        },
+        {
+          "id": "q22",
+          "number": 22,
+          "points": 3.3333333333333335,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "wildly",
+              "pos": "adv."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "adj."
+              }
+            ]
+          },
+          "entryRef": "e-wild"
+        },
+        {
+          "id": "q23",
+          "number": 23,
+          "points": 3.3333333333333335,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "win",
+              "pos": "v."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "过去式和过去分词"
+              },
+              {
+                "id": "f2",
+                "pos": "n."
+              }
+            ]
+          },
+          "entryRef": "e-win"
+        },
+        {
+          "id": "q24",
+          "number": 24,
+          "points": 3.3333333333333335,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "wind",
+              "pos": "n."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "adj."
+              }
+            ]
+          },
+          "entryRef": "e-windy"
+        },
+        {
+          "id": "q25",
+          "number": 25,
+          "points": 3.3333333333333335,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "west",
+              "pos": "n."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "adj."
+              },
+              {
+                "id": "f2",
+                "pos": "adj."
+              }
+            ]
+          },
+          "entryRef": "e-west"
+        },
+        {
+          "id": "q26",
+          "number": 26,
+          "points": 3.3333333333333335,
+          "interaction": {
+            "kind": "wordFamily",
+            "base": {
+              "word": "wife",
+              "pos": "n."
+            },
+            "slots": [
+              {
+                "id": "f1",
+                "pos": "名词复数"
+              }
+            ]
+          },
+          "entryRef": "e-wife"
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "label": "四",
+      "instruction": "用括号中所给单词的适当形式完成下列句子，每空格限填一词",
+      "questions": [
+        {
+          "id": "q27",
+          "number": 27,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Facial recognition (人脸识别) technology is "
+              },
+              {
+                "t": "blank",
+                "id": "b27",
+                "number": 27,
+                "hint": {
+                  "baseWord": "wide"
+                }
+              },
+              {
+                "t": "text",
+                "v": " used for Internet payment."
+              }
+            ]
+          },
+          "entryRef": "e-widely"
+        },
+        {
+          "id": "q28",
+          "number": 28,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The town government has decided to "
+              },
+              {
+                "t": "blank",
+                "id": "b28",
+                "number": 28,
+                "hint": {
+                  "baseWord": "widely"
+                }
+              },
+              {
+                "t": "text",
+                "v": " this main street."
+              }
+            ]
+          },
+          "entryRef": "e-widen"
+        },
+        {
+          "id": "q29",
+          "number": 29,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Some of the men took their "
+              },
+              {
+                "t": "blank",
+                "id": "b29",
+                "number": 29,
+                "hint": {
+                  "baseWord": "wife"
+                }
+              },
+              {
+                "t": "text",
+                "v": " to the party."
+              }
+            ]
+          },
+          "entryRef": "e-wife"
+        },
+        {
+          "id": "q30",
+          "number": 30,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Wu Liangyong is one of the "
+              },
+              {
+                "t": "blank",
+                "id": "b30",
+                "number": 30,
+                "hint": {
+                  "baseWord": "win"
+                }
+              },
+              {
+                "t": "text",
+                "v": " to get China’s Top Science Award this year."
+              }
+            ]
+          },
+          "entryRef": "e-winner"
+        },
+        {
+          "id": "q31",
+          "number": 31,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "On "
+              },
+              {
+                "t": "blank",
+                "id": "b31",
+                "number": 31,
+                "hint": {
+                  "baseWord": "wind"
+                }
+              },
+              {
+                "t": "text",
+                "v": " days, leaves fall on the ground and the road looks beautiful."
+              }
+            ]
+          },
+          "entryRef": "e-windy"
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "label": "五",
+      "instruction": "在句子的空格内填入适当的词，使其内容通顺。每空格限填一词，首字母已给",
+      "questions": [
+        {
+          "id": "q32",
+          "number": 32,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The cake is decorated with "
+              },
+              {
+                "t": "blank",
+                "id": "b32",
+                "number": 32,
+                "hint": {
+                  "firstLetter": "w"
+                }
+              },
+              {
+                "t": "text",
+                "v": " hazelnuts."
+              }
+            ]
+          },
+          "entryRef": "e-whole"
+        },
+        {
+          "id": "q33",
+          "number": 33,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "The river "
+              },
+              {
+                "t": "blank",
+                "id": "b33",
+                "number": 33,
+                "hint": {
+                  "firstLetter": "w"
+                }
+              },
+              {
+                "t": "text",
+                "v": " as it reaches the sea."
+              }
+            ]
+          },
+          "entryRef": "e-widen"
+        },
+        {
+          "id": "q34",
+          "number": 34,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "An encyclopedia is a "
+              },
+              {
+                "t": "blank",
+                "id": "b34",
+                "number": 34,
+                "hint": {
+                  "firstLetter": "w"
+                }
+              },
+              {
+                "t": "text",
+                "v": " of knowledge."
+              }
+            ]
+          },
+          "entryRef": "e-well"
+        },
+        {
+          "id": "q35",
+          "number": 35,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "Susan is terribly sorry for "
+              },
+              {
+                "t": "blank",
+                "id": "b35",
+                "number": 35,
+                "hint": {
+                  "firstLetter": "w"
+                }
+              },
+              {
+                "t": "text",
+                "v": " she has done."
+              }
+            ]
+          },
+          "entryRef": "e-what"
+        },
+        {
+          "id": "q36",
+          "number": 36,
+          "points": 2,
+          "interaction": {
+            "kind": "textEntry",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "She has the "
+              },
+              {
+                "t": "blank",
+                "id": "b36",
+                "number": 36,
+                "hint": {
+                  "firstLetter": "w"
+                }
+              },
+              {
+                "t": "text",
+                "v": " to succeed."
+              }
+            ]
+          },
+          "entryRef": "e-will"
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "label": "六",
+      "instruction": "中译英",
+      "questions": [
+        {
+          "id": "q37",
+          "number": 37,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "有志者，事竟成。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "will"
+          },
+          "entryRef": "e-will"
+        },
+        {
+          "id": "q38",
+          "number": 38,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "在有风的日子，冲浪是多么有趣啊！"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "windy"
+          },
+          "entryRef": "e-windy"
+        },
+        {
+          "id": "q39",
+          "number": 39,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "我们应该保护野生动物。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "wild"
+          },
+          "entryRef": "e-wild"
+        },
+        {
+          "id": "q40",
+          "number": 40,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "你能否告诉我他们什么时候出发？"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "when"
+          },
+          "entryRef": "e-when"
+        },
+        {
+          "id": "q41",
+          "number": 41,
+          "points": 4,
+          "interaction": {
+            "kind": "extendedText",
+            "prompt": [
+              {
+                "t": "text",
+                "v": "随着中国的发展，汉语已成为一种国际语言，在世界各地被广泛使用。"
+              }
+            ],
+            "scoring": "judge",
+            "requiredWord": "widely"
+          },
+          "entryRef": "e-widely"
+        }
+      ]
+    }
+  ],
+  "source": {
+    "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
+    "pdfPages": [
+      62
+    ],
+    "bookPages": [
+      111,
+      112
+    ]
+  },
+  "status": {
+    "content": "transcribed",
+    "version": "1.0.0"
+  }
+}

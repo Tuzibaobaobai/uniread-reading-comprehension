@@ -8,7 +8,7 @@ const catalog = JSON.parse(readFileSync('content/catalog.json', 'utf8')) as {
 
 test('every item renders', async ({ page }, info) => {
   test.skip(info.project.name !== 'desktop', 'desktop only');
-  test.setTimeout(240_000);
+  test.setTimeout(900_000); // ~750 items incl. 195 vocab days (three tabs each)
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
   for (const p of catalog.playlists) {
@@ -20,7 +20,8 @@ test('every item renders', async ({ page }, info) => {
         await page.getByRole('tab', { name: /学习/ }).click();
         await expect(page.locator('.entry').first(), it.id).toBeVisible();
         await page.getByRole('tab', { name: /测验/ }).click();
-        await expect(page.locator('.vq-row').first(), it.id).toBeVisible();
+        // a row per question, or the printed table with its answer cells (中考 days 69–70)
+        await expect(page.locator('.vq-row, .vq-table input').first(), it.id).toBeVisible();
         await expect(page.locator('.question-dot').first(), it.id).toBeVisible();
         continue;
       }

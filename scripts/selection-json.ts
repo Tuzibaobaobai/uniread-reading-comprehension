@@ -25,12 +25,16 @@ const KIND_ZH: Record<string, string> = {
   match: '连线',
   extendedText: '回答问题',
   order: '连词成句',
+  speaking: '口语',
 };
 
 /** independent 大题 display name; never replaces the article title */
 export function resourceTitle(item: ItemT, sectionIndex: number): string {
   const s = item.sections[sectionIndex];
-  const kinds = [...new Set(s.questions.map((q) => (q.interaction.kind === 'choice' && q.interaction.variant === 'trueFalse' ? '判断正误' : KIND_ZH[q.interaction.kind])))].join('／');
+  const listening = 'paper' in item && (item as { paper?: string }).paper === 'listening';
+  const kindZh = (q: (typeof s.questions)[number]) =>
+    q.interaction.kind === 'choice' && q.interaction.variant === 'trueFalse' ? '判断正误' : q.interaction.kind === 'choice' && listening ? '听力选择' : KIND_ZH[q.interaction.kind];
+  const kinds = [...new Set(s.questions.map(kindZh))].join('／');
   const label = s.label ? `${s.label}. ` : item.sections.length > 1 ? `${sectionIndex + 1}. ` : '';
   // 词汇天天练 (#110): the printed heading names the task better than the interaction kinds
   if ('format' in item && (item as { format?: string }).format === 'vocab-day') return `${item.title} · ${label}${s.instruction}`;

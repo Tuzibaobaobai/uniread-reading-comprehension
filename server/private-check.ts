@@ -73,6 +73,9 @@ export async function findLeaks(publicDir: string, keyGlob = 'content/playlists/
   const leaks: string[] = [];
   const idOf = (file: string) => /\/(?:items|keys)\/([^/]+)\.json$/.exec(file)?.[1];
   for await (const f of glob(`${publicDir}/**/*.{js,mjs,html,json,css,txt,map}`)) {
+    // lexicon entries are the handbook as printed (public book text): a 中译英 reference answer of one day is often
+    // the example sentence of an entry in another day's range, and short exam phrases recur in examples
+    if (/\/lexicons\/[^/]+\/entries\//.test(f)) continue;
     const text = await readFile(f, 'utf8');
     // another item's public file can share an ordinary phrase with a short answer ("tell the difference
     // between"): a key is checked against its own item and every shared file (bundle, catalog), not other items

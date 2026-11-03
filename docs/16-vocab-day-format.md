@@ -73,6 +73,13 @@
 | 二 选择适当的词组译成英文填空，每个词组只能填一次（20） | 句子 + 方框里的中文词组表（含 1 个干扰项） | 英文词组（按句子变形） | `textEntry` + section `bank`（中文提示表，已用的标记为已用，不点选） | 复用 + 增量 |
 | 三 中译英（30） | 中文 + （指定词组） | 句子 | `extendedText`（`requiredWord`） | 同单词日六 |
 
+**表格日（第 69–70 天）**：原书印的是带空格的表格（人称代词 / 物主代词 / 反身代词表、基数词与序数词表、不规则动词表），另有国家名称一大题（普通 `textEntry`）。
+- 表格放在 section 的 `stimulus`（`table` 块），每个答案格是一个 `blank`；每行（代词表为每格）是一道 `textEntry`，`blankIds` 列出它在表格里的空，不另设 `prompt`。作答时只显示表格，复盘时表格下面逐题列出答案和解析。
+- 印成空白、原书答案也空着的格（can / may / shall / will 的过去分词）不设空。
+- `entryIds` 是表格里在手册中有词条的词，按手册编号排列；`wordRange` 取其首尾。表格日不是一段连续的词条，`validate` 不报编号跳号。标题取表格中的首词和末词（`I – forget`、`freeze – will`）。
+- 第 70 天 91 个动词平分原书的 100%（每题 100/91 分）。
+- 生成脚本：`.work/batch/tables/gen.py`（本地，不交付）。
+
 - Key（`content/playlists/zkv/keys/`）：一、三的中文释义给出**全部可接受义项**（取自书末答案 + 手册义项）；二、四、五给出全部可接受拼写；六给出全部参考译文（书中「A = B」拆为多条）。
 - 每题记录 `entryRef`（对应词条），用于错题解析。
 - 新增 kind 与字段全部为**增量**：`SCHEMA_VERSION` 不变；新增 `format: "vocab-day"`、`lexicon` 词库类型。
@@ -196,8 +203,10 @@
 
 同一类型的第二本书：《2027年上海市高考英语词汇用法手册》+ 配套综合练习（125 天）。制作规范 [production-brief-gkv.md](production-brief-gkv.md)。
 - 每天固定四个大题：一 单词默写（30%）、二 词组默写（30%）、三 首字母填空（20%）、四 句子翻译（20%）——全部是已有交互（`textEntry`、`extendedText` + `requiredWord`），无新题型。分值按原书百分比均分到每题（一：30 ÷ 34，不取整；显示时四舍五入）。
-- 音频按 3.2 节的发音标准（#131）生成。已生成 `content/lexicons/gkv/pronunciations.json`（音频尚未生成）；印了两个音标的 abuse、addict、adult 三条，例句用哪个发音要人工指定。
+- 音频按 3.2 节的发音标准（#131）生成：`content/lexicons/gkv/pronunciations.json` → `node scripts/tts.mjs --lexicon gkv`（`--jobs` 并发，默认 4）。印了两个音标的词条，词头用第一个，例句交给声音，需要时人工指定（`manual: true`）。
 - 词条比中考多「辨析」（`compare`）和 ▲ 补充词（`supplement`）；三种标记的含义写在 `content/lexicons/gkv/lexicon.json`，与中考不同。
 - item id 三位数（`gkv-d001`）。
 - 第一批样例：第 1 天（a – ache，词条 1–34）+ 第 2 天（achieve – advanced，词条 35–68）。
-
+- 全部 125 天于 2026-11-03 批量生产完成（中考第 2–70 天同批），见 [docs/handoff/production-handoff.zkv-gkv-full-2026-11.md](handoff/production-handoff.zkv-gkv-full-2026-11.md)。
+- 手册第二部分的词组不属于任何一天（综合练习只按第一部分单词分天），本期不生产。
+- 少数词条落在两天的印刷范围之间（中考 departure；高考 specialised、stability）：词条已录入词库，但不属于任何一天，学习页不显示，待人工决定是否并入相邻一天。

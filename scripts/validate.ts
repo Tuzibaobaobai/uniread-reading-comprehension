@@ -327,7 +327,9 @@ function checkVocabDay(item: VocabDayItemT, key: ItemKeyT) {
   const entries = item.entryIds.map((e) => lx.get(e)).filter((e): e is LexiconEntryT => !!e);
   const kind = item.unit === 'words' ? 'word' : 'phrase';
   entries.forEach((e) => e.kind !== kind && err(`entry ${e.id} is a ${e.kind}, day unit is ${item.unit}`));
-  for (let i = 1; i < entries.length; i++) if (entries[i].number !== entries[i - 1].number + 1) warn(`entries ${entries[i - 1].id} → ${entries[i].id} skip handbook numbers`);
+  // 第69–70天 (tables): the entries are the table words found in the handbook, not a range
+  const tableDay = item.sections.some((x) => x.stimulus?.some((b) => b.type === 'table'));
+  if (!tableDay) for (let i = 1; i < entries.length; i++) if (entries[i].number !== entries[i - 1].number + 1) warn(`entries ${entries[i - 1].id} → ${entries[i].id} skip handbook numbers`);
 
   const qs = item.sections.flatMap((x) => x.questions);
   const qids = new Set<string>();

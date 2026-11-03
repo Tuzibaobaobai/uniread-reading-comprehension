@@ -65,9 +65,12 @@ const mockJudge = (page: Page) =>
 
 test('playlist lists the days', async ({ page }) => {
   await page.goto('/#/p/zkv');
-  await expect(page.locator('.item-row')).toHaveCount(2);
+  await expect(page.locator('.item-row')).toHaveCount(70);
   await expect(page.locator('.item-row-meta').first()).toContainText('34 个词条');
   await expect(page.locator('.item-row-title').first()).toHaveText('第1天 ability – against');
+  await expect(page.locator('.item-row-title').last()).toHaveText('第70天 freeze – will');
+  await page.goto('/#/p/gkv');
+  await expect(page.locator('.item-row')).toHaveCount(125);
 });
 
 test('Scan → Study (#133): one word a page, 认识 / 不认识, Study coloured and folded by the marks', async ({ page }, info) => {
@@ -221,4 +224,34 @@ test('Quiz: Part pages, typed answers only, Enter, result, review, entry, retry 
   await expect(page.locator('.vq-row.is-kept')).toHaveCount(4);
   await expect(page.getByRole('textbox', { name: '第 2 题：单词' })).toBeEditable();
   await expect(page.getByRole('textbox', { name: '第 1 题：单词' })).not.toBeEditable();
+});
+
+test('Quiz table days (第69–70天): the printed table with a blank in each answer cell', async ({ page }, info) => {
+  await page.goto('/#/p/zkv/zkv-d69');
+  await page.getByRole('tab', { name: /测验/ }).click();
+  const table = page.locator('.vq-table .rt-table').first();
+  await expect(table.locator('th').first()).toHaveText('主格');
+  const cells = table.locator('input');
+  await expect(cells).toHaveCount(32);
+  // a table question has no row of its own while answering
+  await expect(page.locator('.vq-row')).toHaveCount(0);
+  await cells.nth(0).fill('me');
+  await cells.nth(1).fill('your');
+  await expect(page.locator('.vq-progress').first()).toContainText('2/32');
+  await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-table.png` });
+  await page.getByRole('button', { name: /^Part 4/ }).click();
+  await expect(page.locator('.vq-table .rt-table input')).toHaveCount(32); // 16 verbs × past / past participle
+  await page.getByRole('button', { name: '提交' }).click();
+  const confirm = page.getByRole('dialog').getByRole('button', { name: /提交/ });
+  if (await confirm.count()) await confirm.click();
+  await expect(page.locator('.vq-result-score')).toContainText('得分 1 / 100');
+  await page.getByRole('button', { name: /查看答案/ }).click();
+  await expect(page.locator('.vq-row').first()).toHaveClass(/is-correct/);
+  await expect(page.locator('.vq-row').nth(1).locator('.vq-answer')).toContainText('you');
+
+  await page.goto('/#/p/zkv/zkv-d70');
+  await page.getByRole('tab', { name: /测验/ }).click();
+  await expect(page.locator('.vq-table .rt-table')).toHaveCount(4);
+  // can / may / shall / will: past tense only, as printed
+  await expect(page.locator('.vq-table input')).toHaveCount(91 * 2 - 4);
 });

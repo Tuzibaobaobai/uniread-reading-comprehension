@@ -1,6 +1,6 @@
 // Generate the examiner's lines of speaking papers as audio with Volcano Engine TTS (HTTP V1, non-streaming).
 //   node scripts/tts.mjs <playlist> [--voice en_female_amanda_mars_bigtts] [--partner-voice en_male_adam_mars_bigtts] [--speed 1.0] [--force]
-//   node scripts/tts.mjs --lexicon <lexicon> [--voice …] [--force]   词汇天天练 (#110): every entry's headword and examples →
+//   node scripts/tts.mjs --lexicon <lexicon> [--voice …] [--jobs 4] [--force]   词汇天天练 (#110): every entry's headword and examples →
 //     content/assets/lexicons/<lx>/<entryId>.mp3 and <entryId>-x<N>.mp3, set as entry.audio. Standard (#131): a word is
 //     said as the book's IPA prints it — the headword and its forms in the examples go to the voice as SSML
 //     <phoneme alphabet="cmu"> from content/lexicons/<lx>/pronunciations.json (scripts/lexicon-pron.mjs; run it first).
@@ -56,7 +56,7 @@ async function synthesize(text, voiceType, ssml = false) {
     const body = await res.json().catch(() => ({}));
     if (body.code === 3000 && body.data) return Buffer.from(body.data, 'base64');
     // 3003 concurrency / 3005 busy / 3040 link error: retry a few times
-    if (attempt < 4 && [3003, 3005, 3040, 3030, 3032].includes(body.code)) {
+    if (attempt < 4 && [3003, 3005, 3031, 3040, 3030, 3032].includes(body.code)) {
       await new Promise((r) => setTimeout(r, 1500 * attempt));
       continue;
     }
@@ -108,7 +108,18 @@ if (lexicon) {
     manifest[src] = sent.text;
     return { src, seconds: seconds(file) };
   };
-  for (const f of readdirSync(dirL).filter((f) => f.endsWith('.json')).sort()) {
+  mkdirSync('.work/tts', { recursive: true });
+  const saveManifest = () => writeFileSync(manifestFile, JSON.stringify(manifest, null, 2) + '\n');
+  const failed = [];
+  const doEntry = async (f) => {
+    try {
+      await makeEntry(f);
+    } catch (e) {
+      // one bad clip (e.g. 3031 engine process fail on a particular text) must not stop a whole book: report it at the end
+      failed.push(`${f}: ${e.message}`);
+    }
+  };
+  const makeEntry = async (f) => {
     const path = join(dirL, f);
     const entry = JSON.parse(readFileSync(path, 'utf8'));
     const base = `assets/lexicons/${lexicon}/${entry.id}`;
@@ -124,9 +135,24 @@ if (lexicon) {
       const { errata, source, status, ...rest } = entry;
       writeFileSync(path, JSON.stringify({ ...rest, audio, ...(errata ? { errata } : {}), source, status }, null, 2) + '\n');
     }
-  }
-  mkdirSync('.work/tts', { recursive: true });
-  writeFileSync(manifestFile, JSON.stringify(manifest, null, 2) + '\n');
+  };
+  // a whole book is ~5–10k clips: a few entries at a time (--jobs, default 4), the manifest saved as it goes so a stop loses nothing
+  const queue = readdirSync(dirL).filter((f) => f.endsWith('.json')).sort();
+  const total = queue.length;
+  let done = 0;
+  await Promise.all(
+    Array.from({ length: Number(opt('jobs', '4')) }, async () => {
+      for (let f; (f = queue.shift()); ) {
+        await doEntry(f);
+        if (++done % 50 === 0) {
+          saveManifest();
+          console.log(`${done}/${total} entries, ${made} clip(s) made`);
+        }
+      }
+    }),
+  );
+  saveManifest();
+  if (failed.length) console.log(`${failed.length} entr${failed.length === 1 ? 'y' : 'ies'} failed (audio unchanged):\n  ${failed.join('\n  ')}`);
   console.log(`${made} clip(s) synthesised (${chars} characters, ${voice}, speed ${speed}); entries updated`);
   process.exit(0);
 }

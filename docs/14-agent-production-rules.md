@@ -6,7 +6,7 @@
 
 交付可还原布局与交互的源码、字体／图片及构建依赖。以相同内容、视口、回答与位置对照来源页面、打包产物、平台容器，并记录交互证据；截图或保存成功不能替代原样还原验收。
 
-版本：0.11，2026-11-02（新增第13节：UniRead平台规范——界面文案双语与页面加载）。对象：内容生产同事、Codex、Claude Code。本文规定生产输入和交付要求；平台解析／入库问题由接入方处理，不要求生产者填写数据库字段。RC是来源实现，不是UniRead标准。文中的“必须／不得”为交付要求，“待补／未验证”为合法但未完成的状态。本版同步RC当前稳定ID校验及既有媒体／截图／版本绑定流程；继续要求同类资源遵守既定规约，明确数据语义、源码依赖与验证责任；不把组件拆分固化为上游契约，也不要求保留旧测试答案、成绩或历史。
+版本：0.12，2026-11-03（新增第14节：静态资产与OSS上传，#130；0.11新增第13节：界面文案双语与页面加载）。对象：内容生产同事、Codex、Claude Code。本文规定生产输入和交付要求；平台解析／入库问题由接入方处理，不要求生产者填写数据库字段。RC是来源实现，不是UniRead标准。文中的“必须／不得”为交付要求，“待补／未验证”为合法但未完成的状态。本版同步RC当前稳定ID校验及既有媒体／截图／版本绑定流程；继续要求同类资源遵守既定规约，明确数据语义、源码依赖与验证责任；不把组件拆分固化为上游契约，也不要求保留旧测试答案、成绩或历史。
 
 ## 0. 只收到两个文件时，如何使用
 
@@ -170,6 +170,7 @@
 - 合集封面必须提供实际文件及来源。每个大题明确选择“独立缩略图／复用合集封面／平台占位图”，不要求无图题强行裁图。现有RC thumbnail没有值时，在附录说明选用策略。
 - 资产放在现有content/assets中，以assets/...相对路径引用；不得使用本机绝对路径、越界路径、符号链接、临时签名URL、凭据或未声明外链。
 - 在清单中列明文件使用位置和来源；同图复用可以引用同一文件，不必复制。生产方可从实际文件自动生成字节数与完整SHA-256，接入方重算核验并负责上传和生成URL；缺少摘要写待计算，不编造哈希，生产者不要手写OSS对象键或签名。
+- **采用生产阶段上传的交付**（#130）改按第14节：由RC工具生成releaseId、资源fingerprint和与BE完全一致的对象键并上传验真；仍不手写对象键或签名，不改源JSON的`assets/...`路径。
 - 页面必须能被接入工具打包。交代字体、图片、音视频、接口和模型等依赖；远程依赖未获支持时明确阻塞，不能仅凭本机能显示就标为可交付。
 - 不把钥匙、答案册、正确选项或未开放解析混进公开资产／JS／HTML。检查最终产物和网络请求，目录名为keys或private不构成隔离保证。
 
@@ -323,3 +324,42 @@ UniRead平台接入方下发的规范独立存放在原RC仓库的`docs/uniread-
 
 - 整页数据未就绪时只用统一的`Loading`组件（`src/components/Loading`，来自`ui-style-kit/components/Loading/`）：全屏40%白色遮罩、居中转圈、拦截点击，与父应用一致。不另写转圈、骨架屏或「加载中…」文字；按钮里的小状态（如「识别中」）仍用设计稿图标。
 - 新增内容类型的页面在加载数据期间同样显示该组件，并补一条端到端检查（请求变慢时出现遮罩、数据到达后消失）。
+
+## 14. 静态资产与 OSS 上传（`uniread-spec/asset-oss`，#130，版本0.2）
+
+规范原文：`docs/uniread-spec/asset-oss.md`（平台方维护，以其最新版本为准）。本节是RC的落实办法。只在任务明确采用「生产阶段上传资产」时执行；它不授予生产环境写入、平台发布、删除对象或修改bucket策略的权限。
+
+### 14.1 工具（固定实现，不由每批Agent重写）
+
+| 步骤 | 命令 | 产出 |
+| --- | --- | --- |
+| 冻结选材 | `npx tsx scripts/selection-json.ts <paperId> "<标题>" <playlist> [item…]` | `docs/handoff/production-selection.<paperId>.json`（rc-selection-2，接入方确认后使用） |
+| 身份与计划 | `npx tsx scripts/asset-plan.ts <contentReleaseId> <selection.json>` | `docs/handoff/asset-plan.<contentReleaseId>.json`（`be-asset-upload-plan-1`）与`asset-snapshot.<contentReleaseId>.sha256`（计划绑定的公开内容文件摘要） |
+| 预检（dry run） | `npx tsx scripts/asset-upload.ts <plan> --profile <名称>` | 列出精确对象、数量、字节和目标；不读凭证、不联网 |
+| 上传并回读验真 | `… --profile test --execute`；生产另加`--confirm <storageTargetId>` | `.work/assets/receipts/<contentReleaseId>.<storageTargetId>.json`（回执，含bucket，不入库、不贴到issue） |
+
+- **身份**（`scripts/lib/asset-identity.ts`）：`releaseId`在首次冻结时生成（UUIDv4），写进计划；同一`contentReleaseId`再次运行沿用该值，且必须得到逐字节相同的计划，内容或选材有任何变化即失败——新内容另起`contentReleaseId`。资源fingerprint = UUIDv5(UUIDv5(URL命名空间, `uniread/exam-import/rc-selection-1`), Go `json.Marshal`的`["resource", sourceId, paperId, resourceId]`)。
+- **releaseId的范围（2026-11-03 决定）**：每个选材一个releaseId——KET／PET一个，时文阅读一个，词汇天天练一个；以后新的内容类型各自一个。该选材内容或素材有改动需要重新交付时，冻结新的`contentReleaseId`并生成新的releaseId，其他选材不受影响。封面／缩略图的键只取决于文件内容，跨release自动复用。是否与BE的登记包范围一致，待BE确认。
+- **对象键**完全沿用BE：封面／缩略图`exam-media/v1/<sha256>.jpg|.png`；音频`exam-resources/v1/<releaseId>/<resourceFingerprint>/media/<sha256><来源扩展名小写>`。不加环境前缀、日期或新命名空间。
+- **覆盖范围**：合集封面、item缩略图 → 图片键；Section录音（`sections[].audio`，原书录音）、口语提示（`turns[].audio`，TTS）→ 所在资源的音频键。文章／题目／选项图片保留本地（BE内嵌HTML，无独立键，列在`localOnly`）。BE尚无规则的对象（合集banner、视频、词汇天天练词条音频）列为`capabilityGaps`，不自造键。缺文件、扩展名与内容不符、符号链接、跨资源的item级音频、未知引用 → `errors`，计划状态为`INCOMPLETE`，不能上传。Key、答案册、私有转写、OCR与PDF永远不进计划。
+- **上传**：`x-oss-forbid-overwrite`不可覆盖PUT，再用鉴权GET取回全部字节核对SHA-256、大小与Content-Type；已存在且字节相同则复用，不同则失败（不覆盖、不删除、不改ACL）。遇到第一个失败即停止，重跑时先核对已存在的对象再继续。
+- **Profile与凭证**：维护方私下交接的`oss-profiles.private.json`（`rc-oss-private-handoff-1`，内含凭证）放在仓库外的受控目录（如`~/.uniread-oss-private/`，权限0700），用`--profiles <路径>`直接读取；凭证只在`--verify`／`--execute`时使用、从不输出。交接文件声明`sharedStorage`（测试与生产共用同一bucket）时，任何profile写入都要`--confirm <storageTargetId>`，回执注明共享存储；`--verify`只读核对计划内对象是否已存在且字节一致。自建profile可用`.work/asset-profiles.local.json`（git忽略）；字段同规范第6节，`credentialRef: env:<NAME>`在执行时读取`<NAME>_ACCESS_KEY_ID`、`<NAME>_ACCESS_KEY_SECRET`及可选`<NAME>_SECURITY_TOKEN`（STS）。实际endpoint、bucket、凭证由维护方私下交接，不写进仓库、issue、日志或交接文档；测试回执不能用于生产。
+
+### 14.2 状态（交接中如实填写）
+
+| 状态 | 含义 |
+| --- | --- |
+| `PREPARED` | 计划生成且无错误；未证明远端存在 |
+| `UPLOADED_VERIFIED` | 指定存储目标的全部对象已鉴权回读验真（看回执） |
+| `DELIVERY_VERIFIED` | 另经平台实际读取路径验证（注明路径与范围；RC工具不做此项） |
+| `INCOMPLETE` | 有错误、失败或未确定结果 |
+
+都不表示已人工审核、已登记或已发布。BE事后用同一`releaseId`（`prepare_registration.py --release-id`）构建，独立重算fingerprint并核对键；`registrationSHA256`由BE构建后另记。
+
+### 14.3 当前缺口
+
+- 未与BE跨仓样例核对：fingerprint算法已与独立实现（Python `uuid`）的参考值一致，仍需BE提供一组`(sourceId, paperId, resourceId) → fingerprint`与一份登记包的实际键作对照。
+- 音频项的`assetId`字段：规范第5节提到，BE尚未给出定义，计划中暂不填写。
+- 2026-11-03 已收到私下交接的profile：测试与生产共用同一资源bucket、同一长期AccessKey（非STS），因此测试上传即写入生产所用存储，不能靠profile名称隔离。该Key可读单个对象，不能列举bucket。只读核对：KET第1套计划中合集封面已存在于同一`exam-media/v1/<sha256>.jpg`键（BE此前上传），图片键规则与BE实际产物一致；音频对象因releaseId为新生成而尚不存在。
+- 真实上传（试点）须经用户确认后执行；BE的预上传素材验真模式（不再PUT）尚待BE实现。
+
