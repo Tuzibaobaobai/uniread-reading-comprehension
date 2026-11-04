@@ -1,0 +1,15 @@
+/* RC/Quiz/PosChips (proposed). Tokens only. */
+.vq-pos { display: inline-flex; flex-wrap: wrap; gap: var(--ur-space-4); padding: var(--ur-space-2); border-radius: var(--ur-radius-s); }
+.vq-pos.is-wrong { background: var(--ur-color-feedback-error-bg); }
+.vq-pos.is-correct { background: var(--ur-color-feedback-success-bg); }
+.vq-pos-chip {
+  min-width: var(--ur-size-touch-target); min-height: var(--ur-size-touch-target); padding: 0 var(--ur-space-8);
+  border: var(--ur-stroke-default) solid var(--ur-color-border-default); border-radius: var(--ur-radius-full);
+  background: var(--ur-color-background-card);
+  font-size: var(--ur-text-font-system-s-regular-size); color: var(--ur-color-text-strong);
+}
+.vq-pos-chip.is-on {
+  border-color: var(--ur-color-action-primary); background: var(--ur-color-action-primary-soft);
+  color: var(--ur-color-action-primary-strong); font-weight: var(--ur-text-font-system-s-bold-weight);
+}
+.vq-pos-chip:disabled:not(.is-on) { opacity: var(--ur-opacity-disabled); }

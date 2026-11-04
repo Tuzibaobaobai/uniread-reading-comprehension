@@ -39,8 +39,8 @@ export function check(root = '.') {
       // a component may name its own value built from tokens (--entry-indent: calc(var(--ur-…) + …)) and reuse it
       const local = new Set([...text.matchAll(/(--[a-z0-9-]+)\s*:/g)].map((m) => m[1]));
       for (const m of text.matchAll(/var\(\s*(--[a-z0-9-]+)/g)) if (!m[1].startsWith('--ur-') && !local.has(m[1])) errors.push(`${f}: ${m[1]} — components use --ur-* tokens only`);
-      // breakpoints in @media conditions are layout, not design tokens (UniRead publishes none)
-      for (const m of text.replace(/@media[^{]*/g, '').matchAll(/(?<![\w.-])(\d*\.?\d+)px\b/g)) if (Number(m[1]) !== 0) errors.push(`${f}: ${m[1]}px — use a --ur-* size / space token`);
+      // breakpoints in @media / @container conditions are layout, not design tokens (UniRead publishes none)
+      for (const m of text.replace(/@(?:media|container)[^{]*/g, '').matchAll(/(?<![\w.-])(\d*\.?\d+)px\b/g)) if (Number(m[1]) !== 0) errors.push(`${f}: ${m[1]}px — use a --ur-* size / space token`);
     }
     // svg markup / data URIs in .tsx carry their own colours only through currentColor; anything else counts
     const colors = (text.match(COLOR) ?? []).length;

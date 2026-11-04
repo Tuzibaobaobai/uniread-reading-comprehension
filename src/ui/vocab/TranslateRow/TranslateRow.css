@@ -1,0 +1,11 @@
+/* RC/Vocab/TranslateRow (proposed). Tokens only; the textarea box itself is the shared .long-answer (app.css). */
+.vq-zh-sentence {
+  margin: 0; font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+  color: var(--ur-color-text-primary);
+}
+.vq-required { color: var(--ur-color-action-primary-strong); font-weight: var(--ur-text-font-system-m-bold-weight); }
+.long-answer.vq-textarea {
+  margin-top: var(--ur-space-8); min-height: 0; padding: var(--ur-space-8) var(--ur-space-12);
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+}
+.vq-textarea::placeholder { color: var(--ur-color-text-tertiary); font-size: var(--ur-text-font-system-m-regular-size); }

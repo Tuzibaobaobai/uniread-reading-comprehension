@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import type { AttemptT, ItemKeyT, LexiconEntryT, LexiconT, VocabDayItemT } from '@schema';
@@ -6,13 +6,13 @@ import { staticContent } from '@/lib/content';
 import { localAttempts, newAttempt } from '@/lib/storage';
 import { allQuestions, isAnswered, type Result } from '@/lib/grading';
 import { applyJudgement, fallbackToSelf } from '@/lib/judge';
-import { Book, Cards, Question } from '@/components/Icons';
 import Loading from '@/components/Loading';
-import correctIcon from '@/assets/icons/correct.svg';
-import wrongIcon from '@/assets/icons/wrong.svg';
 import { VocabList } from './VocabList';
 import { EntryCard } from '@/ui/vocab/EntryCard/EntryCard';
 import { EntryDialog } from '@/ui/vocab/EntryDialog/EntryDialog';
+import { StepTabs } from '@/ui/StepTabs/StepTabs';
+import { QuizButton } from '@/ui/QuizButton/QuizButton';
+import { QuizResult } from '@/ui/quiz/QuizResult/QuizResult';
 import { VocabScan } from './VocabScan';
 import { VocabQuiz, partLabel, type QuizState, type VocabResponses } from './VocabQuiz';
 import { useVisualViewport } from './useVisualViewport';
@@ -171,22 +171,17 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
     onOpenEntry: setEntryOpen,
   };
 
-  const tabDefs: { id: Tab; icon: JSX.Element; label: string }[] = [
-    { id: 'scan', icon: <Cards />, label: t('vocab.tabScan') },
-    { id: 'study', icon: <Book />, label: t('vocab.tabStudy') },
-    { id: 'quiz', icon: <Question />, label: t('vocab.tabQuiz') },
-  ];
   const tabs = (
-    <div className="mode-tabs" role="tablist" aria-label={t('vocab.tabs')}>
-      {tabDefs.map((d, i) => (
-        <Fragment key={d.id}>
-          {i > 0 && <span className="mode-tab-sep" aria-hidden />}
-          <button role="tab" aria-selected={tab === d.id} className={`mode-tab ${tab === d.id ? 'is-active' : ''}`} onClick={() => setTab(d.id)}>
-            {d.icon} {d.label}
-          </button>
-        </Fragment>
-      ))}
-    </div>
+    <StepTabs<Tab>
+      label={t('vocab.tabs')}
+      steps={[
+        { id: 'scan', label: t('vocab.tabScan') },
+        { id: 'study', label: t('vocab.tabStudy') },
+        { id: 'quiz', label: t('vocab.tabQuiz') },
+      ]}
+      current={tab}
+      onSelect={setTab}
+    />
   );
 
   const entryById = new Map(entries?.map((e) => [e.id, e]));
@@ -241,12 +236,10 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
             <h2 id="vq-confirm">{t('vocab.quiz.unanswered', { count: confirm })}</h2>
             <p>{t('reader.unansweredHint')}</p>
             <div className="dialog-actions">
-              <button className="pill-button" onClick={() => void submit()}>
-                {t('reader.submitAnyway')}
-              </button>
-              <button className="pill-button primary" autoFocus onClick={() => setConfirm(0)}>
+              <QuizButton onClick={() => void submit()}>{t('reader.submitAnyway')}</QuizButton>
+              <QuizButton variant="primary" autoFocus onClick={() => setConfirm(0)}>
                 {t('reader.keepAnswering')}
-              </button>
+              </QuizButton>
             </div>
           </div>
         </div>
@@ -280,45 +273,34 @@ function ResultView({
   const percent = Math.round((result.score / total) * 100);
   const passed = percent >= item.meta.passPercent;
   const wrong = result.byQuestion.filter((b) => b.correct !== true).length;
+  const round = (n: number) => Math.round(n * 10) / 10;
   return (
-    <div className="question-card vq-result">
-      <h2 className="vq-result-title">{passed ? t('vocab.result.passed') : t('vocab.result.failed')}</h2>
-      <p className="vq-result-score">
-        {t('vocab.result.score', { score: Math.round(result.score * 10) / 10, total, percent, pass: item.meta.passPercent })}
-        {pending && <span className="vq-result-pending"> {t('vocab.result.pending')}</span>}
-      </p>
-      <ul className="vq-result-sections">
-        {item.sections.map((s, i) => {
-          const rows = result.byQuestion.filter((b) => s.questions.some((q) => q.id === b.q));
-          const got = rows.reduce((n, r) => n + r.points, 0);
-          const max = rows.reduce((n, r) => n + r.maxPoints, 0);
-          const ok = rows.every((r) => r.correct === true);
-          return (
-            <li key={s.id}>
-              <img src={ok ? correctIcon : wrongIcon} alt={ok ? t('reader.dotCorrect') : t('reader.dotWrong')} />
-              <span className="vq-result-label">{partLabel(t, i)}</span>
-              <span className="vq-result-points">
-                {Math.round(got * 10) / 10}/{Math.round(max * 10) / 10}
-              </span>
-            </li>
-          );
-        })}
-      </ul>
-      <div className="vq-result-actions">
-        <button className="vq-result-card" onClick={onReview} disabled={!reviewReady}>
-          <b>{t('vocab.result.view')}</b>
-          <span>{t('vocab.result.viewHint')}</span>
-        </button>
-        <button className="vq-result-card" onClick={() => onRetry(wrong > 0)}>
-          <b>{wrong > 0 ? t('vocab.result.retryWrong') : t('vocab.result.retryAll')}</b>
-          <span>{wrong > 0 ? t('vocab.result.retryWrongHint', { count: wrong }) : t('vocab.result.retryAllHint')}</span>
-        </button>
-      </div>
-      {wrong > 0 && (
-        <button className="pill-button vq-result-all" onClick={() => onRetry(false)}>
-          {t('vocab.result.retryAll')}
-        </button>
-      )}
-    </div>
+    <QuizResult
+      pass={passed}
+      title={passed ? t('vocab.result.passed') : t('vocab.result.failed')}
+      score={t('vocab.result.score', { score: round(result.score), total, percent, pass: item.meta.passPercent })}
+      pending={pending ? t('vocab.result.pending') : undefined}
+      parts={item.sections.map((s, i) => {
+        const rows = result.byQuestion.filter((b) => s.questions.some((q) => q.id === b.q));
+        const ok = rows.every((r) => r.correct === true);
+        return {
+          key: s.id,
+          label: partLabel(t, i),
+          points: `${round(rows.reduce((n, r) => n + r.points, 0))}/${round(rows.reduce((n, r) => n + r.maxPoints, 0))}`,
+          ok,
+          iconLabel: ok ? t('reader.dotCorrect') : t('reader.dotWrong'),
+        };
+      })}
+      actions={[
+        { key: 'view', title: t('vocab.result.view'), hint: t('vocab.result.viewHint'), onClick: onReview, disabled: !reviewReady },
+        {
+          key: 'retry',
+          title: wrong > 0 ? t('vocab.result.retryWrong') : t('vocab.result.retryAll'),
+          hint: wrong > 0 ? t('vocab.result.retryWrongHint', { count: wrong }) : t('vocab.result.retryAllHint'),
+          onClick: () => onRetry(wrong > 0),
+        },
+      ]}
+      secondary={wrong > 0 ? { label: t('vocab.result.retryAll'), onClick: () => onRetry(false) } : undefined}
+    />
   );
 }

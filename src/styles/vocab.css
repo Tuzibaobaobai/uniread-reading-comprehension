@@ -2,18 +2,8 @@
    screen Figma Quiz 完成结果 (15643-204521), the entry popover the vocabulary card (15643-204524); the rest is 待补组件
    (docs/design/figma-registry.md) built from tokens only. */
 
-/* header mode tabs: dark pill for the current one, dotted separator */
-.mode-tabs { display: flex; align-items: center; gap: 8px; }
-.mode-tab {
-  display: inline-flex; align-items: center; gap: 6px;
-  min-height: var(--tap); padding: 0 18px;
-  border: none; border-radius: var(--radius-full); background: transparent;
-  font-size: var(--fs-m); font-weight: var(--fw-bold); color: var(--text-tertiary);
-}
-.mode-tab svg { width: var(--icon-m); height: var(--icon-m); }
-.mode-tab.is-active { background: var(--text-primary); color: var(--text-on-accent); }
-.mode-tab-sep { width: 24px; border-top: 2px dotted var(--border-strong); }
-@media (hover: hover) and (pointer: fine) { .mode-tab:not(.is-active):hover { color: var(--text-primary); } }
+/* the step tabs are src/ui/StepTabs; the Quiz parts are src/ui/quiz/* and src/ui/vocab/* (docs/14 §15) — only page
+   layout stays here */
 
 .vocab-day { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 0 var(--gutter) var(--gutter); }
 .vocab-pane { flex: 1; min-height: 0; width: 100%; max-width: var(--solo-max-w); margin: 0 auto; display: flex; flex-direction: column; }
@@ -44,149 +34,53 @@
 
 /* Quiz tab */
 .quiz-pane .question-card { flex: 1; }
-.vq-progress { margin-left: 12px; font-weight: var(--fw-bold); color: var(--accent-strong); }
 .vq-rows { list-style: none; margin: 0; padding: 0; display: grid; }
 .vq-row { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--divider); }
 .vq-row:last-child { border-bottom: none; }
 .vq-num { padding-top: 10px; font-weight: var(--fw-bold); color: var(--text-secondary); font-variant-numeric: tabular-nums; }
 .vq-body { min-width: 0; display: grid; gap: 10px; }
-/* 一 (#117): IPA | [word] [meaning] / 词性： chips — the label starts where the word line starts */
-.vq-profile { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 8px 16px; align-items: start; }
-.vq-ipa { padding-top: 6px; font-size: var(--fs-l); color: var(--text-primary); }
-.vq-profile-fields { display: grid; gap: 10px; justify-items: start; }
-.vq-line-row { display: flex; flex-wrap: wrap; gap: 8px 24px; }
-.vq-pos-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; }
-.vq-pos-label { color: var(--text-secondary); font-size: var(--fs-m); }
-
-/* 三 (#120): number | given word | one line per form (part of speech, word, meaning) in aligned columns */
-.vq-family { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 8px 16px; align-items: start; }
-.vq-base { padding-top: 6px; font-size: var(--fs-l); color: var(--text-primary); }
-.vq-slots { display: grid; grid-template-columns: 48px auto auto; justify-content: start; align-items: center; gap: 8px 16px; }
-.vq-slot { display: contents; }
-.vq-slot-pos { color: var(--text-secondary); font-style: italic; }
-
-/* answer lines: the KET / PET underlined blank (.blank-input) — standalone fields get a fixed width (#121 #122) */
-.vq-line { margin: 0; }
-.vq-line input { width: 200px; min-width: 0; text-align: left; }
-.vq-line.is-zh input { width: 280px; font-weight: var(--fw-medium); }
-.vq-line input::placeholder { text-align: left; font-weight: var(--fw-regular); }
-.vq-sentence, .vq-zh-sentence { margin: 0; font-size: var(--fs-question); line-height: 2.2; color: var(--text-primary); }
+/* sentences with blanks (TextEntryRow; the blanks are the shared .blank-input) */
+.vq-sentence { margin: 0; font-size: var(--fs-question); line-height: 2.2; color: var(--text-primary); }
 /* 二 / 词组日一 (#118): the Chinese prompt on the left, its answer line on the right, as in the book */
 .vq-sentence.is-answer-right { display: flex; align-items: baseline; gap: 16px; }
 .vq-sentence.is-answer-right .vq-prompt { flex: 1; min-width: 0; }
 .vq-answer-cell { flex: none; }
 .vq-answer-cell .blank-input { margin: 0; }
 .vq-answer-cell .blank-input input { width: 220px; }
-.vq-required { color: var(--accent-strong); font-weight: var(--fw-bold); }
-.vq-pos { display: inline-flex; flex-wrap: wrap; gap: 6px; padding: 2px; border-radius: var(--radius-s); }
-.vq-pos.is-wrong { background: var(--danger-soft); }
-.vq-pos.is-correct { background: var(--success-soft); }
-.vq-pos-chip {
-  min-width: var(--tap); min-height: var(--tap); padding: 0 10px;
-  border: 1px solid var(--border-strong); border-radius: var(--radius-full); background: var(--bg-card);
-  font-size: var(--fs-m); color: var(--text-strong);
-}
-.vq-pos-chip.is-on { border-color: var(--accent); background: var(--accent-soft); color: var(--accent-strong); font-weight: var(--fw-bold); }
-.vq-pos-chip:disabled:not(.is-on) { opacity: var(--disabled-opacity); }
-.vq-textarea { margin-top: 8px; min-height: 0; }
-
-
-.vq-bank { display: flex; flex-wrap: wrap; gap: 8px; margin: -8px 0 20px; padding: 14px; border: 1px solid var(--border-strong); border-radius: var(--radius-s); }
-.vq-bank-item { min-height: var(--tap); padding: 0 14px; border: none; border-radius: var(--radius-full); background: var(--bg-subtle); font-size: var(--fs-m); color: var(--text-primary); }
-.vq-bank-item.is-used { text-decoration: line-through; color: var(--text-tertiary); }
-
 .vq-row.is-kept { opacity: .7; }
 .vq-kept { justify-self: start; font-size: var(--fs-s); color: var(--success-text); }
-.vq-review { display: grid; gap: 8px; justify-items: start; padding: 12px 16px; border-radius: var(--radius-s); background: var(--bg-subtle); }
-.vq-row.is-wrong .vq-review { background: var(--danger-soft); }
-.vq-row.is-correct .vq-review { background: var(--success-soft); }
-.vq-answer { margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; font-size: var(--fs-l); }
-.vq-points { display: inline-flex; align-items: center; gap: 4px; font-size: var(--fs-s); color: var(--text-secondary); }
-.vq-points svg { width: 14px; height: 14px; }
-.vq-explain { margin: 0; font-size: var(--fs-m); line-height: var(--lh-m); color: var(--text-body); }
-.vq-review .judge { width: 100%; }
-
-/* result (Figma 15643-204521) */
-.vq-result { align-items: center; justify-content: center; gap: 16px; padding: var(--quiz-pad); text-align: center; overflow-y: auto; }
-.vq-result-title { margin: 0; font-size: var(--fs-4xl); line-height: var(--lh-4xl); }
-.vq-result-score { margin: 0; color: var(--text-secondary); }
-.vq-result-sections { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 20px; }
-.vq-result-sections li { display: grid; justify-items: center; gap: 2px; }
-.vq-result-sections img { width: var(--pager-result-icon); height: var(--pager-result-icon); }
-.vq-result-label { font-weight: var(--fw-bold); }
-.vq-result-points { font-size: var(--fs-s); color: var(--text-secondary); }
-.vq-result-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 220px)); gap: 16px; margin-top: 8px; }
-.vq-result-card {
-  display: grid; gap: 6px; align-content: center; min-height: 140px; padding: 20px;
-  border: 1px solid transparent; border-radius: var(--radius-m); background: var(--bg-subtle);
-  font-size: var(--fs-s); color: var(--text-secondary);
-}
-.vq-result-card b { font-size: var(--fs-l); color: var(--text-primary); }
-.vq-result-card:disabled { opacity: var(--disabled-opacity); }
-@media (hover: hover) and (pointer: fine) { .vq-result-card:hover:not(:disabled) { border-color: var(--accent); } }
-
-
 /* on-screen keyboard open (useVisualViewport): keep the field above it, footer out of the way */
 .kb-open .vocab-quiz .question-nav { display: none; }
 .kb-open .vocab-quiz .question-scroll { padding-bottom: calc(var(--kb-h, 0px) + 24px); }
 
 @media (max-width: 1023px) {
   .reader-head:has(.mode-tabs) { flex-wrap: wrap; }
-  .mode-tab { padding: 0 12px; }
   .vq-row { grid-template-columns: 28px minmax(0, 1fr); }
   .entry-senses, .entry-examples, .entry-tip, .entry-more, .entry-extra, .entry-cover, .entry-check { margin-left: 0; }
 }
 @media (max-width: 640px) {
-  .vq-result-actions { grid-template-columns: 1fr; }
   .reader-head:has(.mode-tabs) .reader-head-title { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .switch, .switch span { transition: none; }
 }
-/* the Question icon draws its "?" in white: dark on the current (dark) tab */
-.mode-tab.is-active svg path { stroke: var(--text-primary) !important; }
-.vq-textarea::placeholder { color: var(--text-tertiary); font-size: var(--fs-m); }
 /* #112: Vocabulary / Quiz centred in the header, as in Figma Header (9414-48120); the title keeps to the left half */
 .reader-head:has(.mode-tabs) { position: relative; }
 .reader-head:has(.mode-tabs) .reader-head-title { max-width: calc(50% - 220px); }
 .reader-head .mode-tabs { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
-
-/* #113: what the marks mean, one small line under the entry count */
 
 /* #124: one Part per page reads like the KET / PET one-page Parts (.part-grid): body text at --fs-l, compact rows with a
    thin divider, regular-weight numbers "6." in line with the text */
 .vocab-quiz .vq-row { grid-template-columns: 36px minmax(0, 1fr); gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--border); }
 .vocab-quiz .vq-row:last-child { border-bottom: none; }
 .vocab-quiz .vq-num { padding-top: 0; font-size: var(--fs-l); line-height: var(--lh-l); font-weight: var(--fw-regular); color: var(--text-primary); }
-.vocab-quiz .vq-sentence, .vocab-quiz .vq-zh-sentence { font-size: var(--fs-l); line-height: var(--lh-l); }
+.vocab-quiz .vq-sentence { font-size: var(--fs-l); line-height: var(--lh-l); }
 .vocab-quiz .vq-sentence .blank-input input { padding: 2px 0; }
-.vocab-quiz .vq-ipa, .vocab-quiz .vq-base { padding-top: 0; font-size: var(--fs-l); line-height: var(--lh-l); }
-.vocab-quiz .vq-profile, .vocab-quiz .vq-family { grid-template-columns: 140px minmax(0, 1fr); }
-.vocab-quiz .vq-profile-fields { gap: 6px; }
-.vocab-quiz .vq-slots { gap: 4px 16px; }
-.vocab-quiz .vq-line input { padding: 2px 0; }
-.vocab-quiz .vq-pos-chip { font-size: var(--fs-s); }
-.vocab-quiz .vq-textarea { margin-top: 6px; padding: 8px 12px; font-size: var(--fs-l); line-height: var(--lh-l); }
 .vocab-quiz .vq-body { gap: 8px; }
-.vocab-quiz .vq-review { padding: 10px 14px; gap: 6px; }
-.vocab-quiz .vq-answer { font-size: var(--fs-m); }
-.vocab-quiz .vq-bank { margin: -8px 0 12px; padding: 10px; gap: 6px; }
-.vocab-quiz .vq-bank-item { font-size: var(--fs-m); }
 
 /* #123: the pager has the KET / PET size — the compact one their half-width question card gets (app.css @container
    ≤ 900px); this card is wider, so the same values are set here. Narrower cards still get the ≤ 560px rules. */
 @container (min-width: 561px) {
   .vocab-quiz .question-nav { padding: 20px 24px; gap: 8px; }
   .vocab-quiz .question-nav .pill-button { width: auto; height: 56px; padding: 0 20px; font-size: var(--fs-l); }
-  .vocab-quiz .question-dot { width: 56px; height: 56px; }
-  .vocab-quiz .question-dot-num { font-size: var(--fs-2xl); line-height: var(--lh-2xl); }
-  .vocab-quiz .question-dot-mark { width: 16px; height: 6px; }
-  .vocab-quiz .question-dot-icon { width: 32px; height: 32px; }
 }
-/* 辨析 (高考): similar words compared */
-/* 第69–70天 (tables): the printed table with a typed blank in each answer cell */
-.vq-table { margin: 8px 0 16px; overflow-x: auto; }
-.vq-table .rt-table th { white-space: nowrap; }
-.vq-table .rt-table th, .vq-table .rt-table td { padding: 8px; vertical-align: middle; }
-.vq-table .blank-input { display: flex; margin: 0; }
-.vq-table .blank-input input { width: 100%; min-width: 56px; }

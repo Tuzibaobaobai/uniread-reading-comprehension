@@ -1,0 +1,9 @@
+/* RC/Vocab/WordFamilyRow (proposed). Tokens only. */
+.vq-family {
+  --vq-lead: calc(var(--ur-space-80) + var(--ur-space-40) + var(--ur-space-20));
+  display: grid; grid-template-columns: var(--vq-lead) minmax(0, 1fr); gap: var(--ur-space-8) var(--ur-space-16); align-items: start;
+}
+.vq-base { font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height); color: var(--ur-color-text-primary); }
+.vq-slots { display: grid; grid-template-columns: var(--ur-space-48) auto auto; justify-content: start; align-items: center; gap: var(--ur-space-4) var(--ur-space-16); }
+.vq-slot { display: contents; }
+.vq-slot-pos { color: var(--ur-color-text-secondary); font-style: italic; }

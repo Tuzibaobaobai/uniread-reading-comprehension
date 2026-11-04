@@ -1,0 +1,8 @@
+/* ui/PartPager (extends UIKit-Quiz page number). Tokens only. #123: the KET / PET compact pager size (app.css, card
+   ≤ 900px) also on this wider card; narrower cards keep the shared ≤ 560px rules. */
+@container (min-width: 561px) {
+  .question-dot.part-pager { width: var(--ur-height-height-7); height: var(--ur-height-height-7); }
+  .part-pager .question-dot-num { font-size: var(--ur-text-font-system-2xl-regular-size); line-height: var(--ur-text-font-system-2xl-regular-line-height); }
+  .part-pager .question-dot-mark { width: var(--ur-space-16); height: calc(var(--ur-space-4) + var(--ur-space-2)); }
+  .part-pager .question-dot-icon { width: var(--ur-size-icon-l); height: var(--ur-size-icon-l); }
+}

@@ -1,0 +1,23 @@
+/* ui/QuizResult (extends UIKit-Quiz Result). Tokens only; .question-card is the shared card (app.css). */
+.vq-result {
+  --vq-result-card-w: calc(var(--ur-space-80) * 2 + var(--ur-space-48) + var(--ur-space-12));
+  --vq-result-card-h: calc(var(--ur-space-80) + var(--ur-space-40) + var(--ur-space-20));
+  align-items: center; justify-content: center; gap: var(--ur-space-16); padding: var(--ur-space-48); text-align: center; overflow-y: auto;
+}
+.vq-result-title { margin: 0; font-size: var(--ur-text-font-system-4xl-regular-size); line-height: var(--ur-text-font-system-4xl-regular-line-height); }
+.vq-result-score { margin: 0; color: var(--ur-color-text-secondary); }
+.vq-result-sections { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--ur-space-12) var(--ur-space-20); }
+.vq-result-sections li { display: grid; justify-items: center; gap: var(--ur-space-2); }
+.vq-result-sections img { width: var(--ur-size-icon-xl); height: var(--ur-size-icon-xl); }
+.vq-result-label { font-weight: var(--ur-text-font-system-m-bold-weight); }
+.vq-result-points { font-size: var(--ur-text-font-system-s-regular-size); color: var(--ur-color-text-secondary); }
+.vq-result-actions { display: grid; grid-template-columns: repeat(2, minmax(0, var(--vq-result-card-w))); gap: var(--ur-space-16); margin-top: var(--ur-space-8); }
+.vq-result-card {
+  display: grid; gap: var(--ur-space-8); align-content: center; min-height: var(--vq-result-card-h); padding: var(--ur-space-20);
+  border: var(--ur-stroke-default) solid transparent; border-radius: var(--ur-radius-m); background: var(--ur-color-background-subtle);
+  font-size: var(--ur-text-font-system-s-regular-size); color: var(--ur-color-text-secondary);
+}
+.vq-result-card b { font-size: var(--ur-text-font-system-l-regular-size); color: var(--ur-color-text-primary); }
+.vq-result-card:disabled { opacity: var(--ur-opacity-disabled); }
+@media (hover: hover) and (pointer: fine) { .vq-result-card:hover:not(:disabled) { border-color: var(--ur-color-action-primary); } }
+@media (max-width: 640px) { .vq-result-actions { grid-template-columns: 1fr; } }

@@ -16,6 +16,8 @@ type Entry = {
   figmaProposal?: { nodeId: string; url: string };
   variants?: Record<string, string>;
   note?: string;
+  /** the src/ui component that implements it */
+  source?: string;
 };
 
 const LABEL: Record<string, string> = {
@@ -45,7 +47,8 @@ export function render(reg: { designSystem: string; components: Entry[] }) {
       const fig = c.figma ? `[${c.figma.group} / ${c.figma.name}](${c.figma.url})` : status === 'proposed' ? `\`RC/${c.code.replace(/^rc\//, '')}\`（新建）` : '—';
       const v = c.variants ? Object.entries(c.variants).map(([k, val]) => `**${k}**: ${val}`).join('<br>') : '';
       const prop = c.figmaProposal ? ` · [提案 ↗](${c.figmaProposal.url})` : '';
-      out.push(`| \`${c.code}\` | ${c.description} | ${fig}${prop} | ${v} | ${c.screens.join(' ')} | ${c.note ?? ''} |`);
+      const src = c.source ? `<br>\`${c.source}\`` : '';
+      out.push(`| \`${c.code}\`${src} | ${c.description} | ${fig}${prop} | ${v} | ${c.screens.join(' ')} | ${c.note ?? ''} |`);
     }
     out.push('');
   }

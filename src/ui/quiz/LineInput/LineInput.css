@@ -1,0 +1,6 @@
+/* RC/Quiz/LineInput (proposed). Tokens only. The underline, focus and result colours are the shared .blank-input
+   (app.css, rc/Quiz/BlankInput); a standalone line gets a fixed width per language. */
+.vq-line { margin: 0; }
+.vq-line input { width: calc(var(--ur-space-80) * 2 + var(--ur-space-40)); min-width: 0; padding: var(--ur-space-2) 0; text-align: left; }
+.vq-line.is-zh input { width: calc(var(--ur-space-80) * 3 + var(--ur-space-40)); font-weight: var(--ur-text-font-system-m-medium-weight); }
+.vq-line input::placeholder { text-align: left; font-weight: var(--ur-text-font-system-m-regular-weight); }
