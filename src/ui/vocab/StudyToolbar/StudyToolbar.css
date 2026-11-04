@@ -1,0 +1,16 @@
+/* RC/Vocab/StudyToolbar (proposed). Tokens only. */
+.vocab-toolbar {
+  position: sticky; top: 0; z-index: 1;
+  display: flex; align-items: center; gap: var(--ur-space-16); flex-wrap: wrap;
+  padding: var(--ur-space-16) 0; background: var(--ur-color-background-card);
+  border-bottom: var(--ur-stroke-default) solid var(--ur-color-border-divider);
+}
+.vocab-count { font: var(--ur-text-font-system-m-bold); color: var(--ur-color-text-secondary); }
+.vocab-tally { font: var(--ur-text-font-system-m-regular); color: var(--ur-color-text-secondary); }
+.vocab-legend {
+  flex-basis: 100%; margin: 0; display: flex; flex-wrap: wrap; gap: var(--ur-space-4) var(--ur-space-20);
+  font: var(--ur-text-font-system-s-regular); color: var(--ur-color-text-secondary);
+}
+.vocab-legend-item { display: inline-flex; align-items: center; gap: var(--ur-space-8); }
+.vocab-legend .entry-tag { padding: 0 var(--ur-space-8); }
+.vocab-legend .entry-star { font-weight: var(--ur-text-font-system-s-bold-weight); }

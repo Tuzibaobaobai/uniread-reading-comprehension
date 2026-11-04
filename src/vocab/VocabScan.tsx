@@ -5,7 +5,7 @@ import { QuizButton } from '@/ui/QuizButton/QuizButton';
 import { MarkButton } from '@/ui/vocab/MarkButton/MarkButton';
 import { ScanCard } from '@/ui/vocab/ScanCard/ScanCard';
 import { ScanSummary } from '@/ui/vocab/ScanSummary/ScanSummary';
-import { say } from './VocabList';
+import { say } from '@/lib/say';
 
 /**
  * 词汇天天练 step 1 · Scan (#133): one word a page — headword and IPA only — marked 认识 / 不认识, then on to the next.

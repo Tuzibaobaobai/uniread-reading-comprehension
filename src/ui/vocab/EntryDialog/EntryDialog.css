@@ -1,0 +1,9 @@
+/* RC/Vocab/EntryDialog (proposed). Tokens only. The dialog shell itself is the shared .dialog (app.css). */
+.entry-dialog { width: min(calc(var(--ur-space-64) * 10), 100%); max-height: 100%; overflow-y: auto; }
+.entry-dialog .entry { padding: var(--ur-space-8) 0 0; border: none; }
+/* the dialog's own paragraph margins / colour must not reach the entry */
+.entry-dialog .entry p { color: inherit; margin-bottom: 0; }
+.entry-dialog .entry .entry-senses { color: var(--ur-color-text-primary); }
+.entry-dialog .entry .entry-zh { color: var(--ur-color-text-secondary); }
+.entry-dialog .entry .entry-compare p { color: inherit; }
+@media (max-width: 1023px) { .entry-dialog .entry .entry-senses { margin-left: 0; } }

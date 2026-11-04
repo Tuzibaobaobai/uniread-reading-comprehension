@@ -36,8 +36,11 @@ export function check(root = '.') {
       for (const m of text.replace(/@font-face\s*{[^}]*}/g, '').matchAll(/font-family:\s*([^;}]+)/g)) if (!/^var\(/.test(m[1].trim()) && !/^inherit|^initial/.test(m[1].trim())) errors.push(`${f}: font-family "${m[1].trim()}" must be a token`);
     // src/ui: the component library speaks only the design system — --ur-* tokens, no px / colour literals, no legacy names
     if (f.startsWith('src/ui/') && css) {
-      for (const m of text.matchAll(/var\(\s*(--[a-z0-9-]+)/g)) if (!m[1].startsWith('--ur-')) errors.push(`${f}: ${m[1]} — components use --ur-* tokens only`);
-      for (const m of text.matchAll(/(?<![\w.-])(\d*\.?\d+)px\b/g)) if (Number(m[1]) !== 0) errors.push(`${f}: ${m[1]}px — use a --ur-* size / space token`);
+      // a component may name its own value built from tokens (--entry-indent: calc(var(--ur-…) + …)) and reuse it
+      const local = new Set([...text.matchAll(/(--[a-z0-9-]+)\s*:/g)].map((m) => m[1]));
+      for (const m of text.matchAll(/var\(\s*(--[a-z0-9-]+)/g)) if (!m[1].startsWith('--ur-') && !local.has(m[1])) errors.push(`${f}: ${m[1]} — components use --ur-* tokens only`);
+      // breakpoints in @media conditions are layout, not design tokens (UniRead publishes none)
+      for (const m of text.replace(/@media[^{]*/g, '').matchAll(/(?<![\w.-])(\d*\.?\d+)px\b/g)) if (Number(m[1]) !== 0) errors.push(`${f}: ${m[1]}px — use a --ur-* size / space token`);
     }
     // svg markup / data URIs in .tsx carry their own colours only through currentColor; anything else counts
     const colors = (text.match(COLOR) ?? []).length;

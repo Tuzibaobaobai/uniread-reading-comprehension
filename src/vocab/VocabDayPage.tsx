@@ -10,7 +10,9 @@ import { Book, Cards, Question } from '@/components/Icons';
 import Loading from '@/components/Loading';
 import correctIcon from '@/assets/icons/correct.svg';
 import wrongIcon from '@/assets/icons/wrong.svg';
-import { EntryCard, VocabList } from './VocabList';
+import { VocabList } from './VocabList';
+import { EntryCard } from '@/ui/vocab/EntryCard/EntryCard';
+import { EntryDialog } from '@/ui/vocab/EntryDialog/EntryDialog';
 import { VocabScan } from './VocabScan';
 import { VocabQuiz, partLabel, type QuizState, type VocabResponses } from './VocabQuiz';
 import { useVisualViewport } from './useVisualViewport';
@@ -250,14 +252,9 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
         </div>
       )}
       {open && (
-        <div className="dialog-backdrop" role="presentation" onClick={() => setEntryOpen(null)}>
-          <div className="dialog entry-dialog" role="dialog" aria-modal aria-label={open.headword} onClick={(e) => e.stopPropagation()}>
-            <button className="dialog-close" onClick={() => setEntryOpen(null)} aria-label={t('common.close')}>
-              ×
-            </button>
-            <EntryCard entry={open} marks={marks} as="div" />
-          </div>
-        </div>
+        <EntryDialog label={open.headword} closeLabel={t('common.close')} onClose={() => setEntryOpen(null)}>
+          <EntryCard entry={open} marks={marks} as="div" />
+        </EntryDialog>
       )}
     </div>
   );
