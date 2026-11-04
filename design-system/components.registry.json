@@ -62,7 +62,13 @@
     "add": "Flow: Learn（Read/Speak/Quiz，现有）/ Vocab（速览/学习/测验，新增）× Step 1/2/3",
     "item": "7805:90511 item（Text、Selected、State）保持不变，通过文本属性写入步骤名"
    },
-   "note": "设计规范 §07「学习模式」已要求词汇导航使用速览／学习／测验、不与 Read/Speak/Quiz 混用；目前没有对应变体。"
+   "note": "设计规范 §07「学习模式」已要求词汇导航使用速览／学习／测验、不与 Read/Speak/Quiz 混用；目前没有对应变体。",
+   "figmaProposal": {
+    "nodeId": "19447:773",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19447-773"
+   },
+   "issue": "#138"
   },
   {
    "code": "ui/StepIcon",
@@ -83,7 +89,13 @@
     "existing": "icon: Read / Speak / Quiz / Recite / Dictation",
     "add": "icon: Scan（速览）/ Study（学习）"
    },
-   "note": "需要设计师绘制两个图标；代码目前用占位图标（速览为方块）。"
+   "note": "需要设计师绘制两个图标；代码目前用占位图标（速览为方块）。",
+   "figmaProposal": {
+    "nodeId": "19447:751",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19447-751"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Vocab/ScanCard",
@@ -100,7 +112,13 @@
     "Marked": "none / known / unknown",
     "State": "Default"
    },
-   "note": "内部复用 UIkit-Read btn-play（3221:7265）作朗读按钮"
+   "note": "内部复用 UIkit-Read btn-play（3221:7265）作朗读按钮",
+   "figmaProposal": {
+    "nodeId": "19443:488",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19443-488"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Vocab/MarkButton",
@@ -117,7 +135,13 @@
     "Selected": "no / yes",
     "State": "Default / Hover / Pressed"
    },
-   "note": "与 Dictation「btn-加入错词本」语义不同（标记掌握程度，不是加入列表），因此新建"
+   "note": "与 Dictation「btn-加入错词本」语义不同（标记掌握程度，不是加入列表），因此新建",
+   "figmaProposal": {
+    "nodeId": "19443:521",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19443-521"
+   },
+   "issue": "#138"
   },
   {
    "code": "ui/ArrowButton",
@@ -147,7 +171,13 @@
    "variants": {
     "State": "Default"
    },
-   "note": "按钮复用 UIKit-Quiz button（6433:39508 / 7870:49853）"
+   "note": "按钮复用 UIKit-Quiz button（6433:39508 / 7870:49853）",
+   "figmaProposal": {
+    "nodeId": "19443:530",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19443-530"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Vocab/StudyToolbar",
@@ -159,7 +189,13 @@
     "3.09",
     "3.10",
     "4.02"
-   ]
+   ],
+   "figmaProposal": {
+    "nodeId": "19445:666",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19445-666"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Vocab/MarkTag",
@@ -172,7 +208,13 @@
    ],
    "variants": {
     "Kind": "level / textbook / supplement / star"
-   }
+   },
+   "figmaProposal": {
+    "nodeId": "19445:483",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19445-483"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Vocab/EntryCard",
@@ -191,7 +233,13 @@
     "Open": "yes / no",
     "Kind": "word / phrase"
    },
-   "note": "认识 = 绿色词头且默认收起；不认识 / 未标记 = 红色且展开（#133）。朗读按钮复用 btn-play。"
+   "note": "认识 = 绿色词头且默认收起；不认识 / 未标记 = 红色且展开（#133）。朗读按钮复用 btn-play。",
+   "figmaProposal": {
+    "nodeId": "19445:654",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19445-654"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Vocab/Example",
@@ -204,7 +252,13 @@
    ],
    "variants": {
     "Audio": "yes / no"
-   }
+   },
+   "figmaProposal": {
+    "nodeId": "19445:495",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19445-495"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Vocab/TipBox",
@@ -216,7 +270,13 @@
    ],
    "variants": {
     "Open": "no / yes"
-   }
+   },
+   "figmaProposal": {
+    "nodeId": "19445:506",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19445-506"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Vocab/CompareBlock",
@@ -225,7 +285,13 @@
    "description": "辨析（高考词条）",
    "screens": [
     "3.10"
-   ]
+   ],
+   "figmaProposal": {
+    "nodeId": "19445:512",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19445-512"
+   },
+   "issue": "#138"
   },
   {
    "code": "ui/PartPager",
@@ -247,7 +313,13 @@
     "existing": "Completed: no/yes; State: Default/Hover; Selected: no/yes",
     "add": "Label（文本属性：题号范围如 1–5）+ Kicker（文本属性：P1）；Result: none / correct / wrong（提交后显示对错图标）"
    },
-   "note": "提交后的对错图标可复用 quiz result（7870:51523，State: wrong / Default）"
+   "note": "提交后的对错图标可复用 quiz result（7870:51523，State: wrong / Default）",
+   "figmaProposal": {
+    "nodeId": "19448:750",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19448-750"
+   },
+   "issue": "#138"
   },
   {
    "code": "ui/QuizButton",
@@ -280,7 +352,13 @@
     "3.12",
     "3.13",
     "3.18"
-   ]
+   ],
+   "figmaProposal": {
+    "nodeId": "19446:576",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19446-576"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Quiz/LineInput",
@@ -298,7 +376,13 @@
     "Locked": "no / yes",
     "Lang": "en / zh"
    },
-   "note": "i18n placeholder；输入字号 ≥ 16px"
+   "note": "i18n placeholder；输入字号 ≥ 16px",
+   "figmaProposal": {
+    "nodeId": "19446:589",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19446-589"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Quiz/BlankInput",
@@ -316,7 +400,13 @@
     "State": "Empty / Focus / Filled",
     "Result": "none / correct / wrong"
    },
-   "note": "与时文阅读、KET/PET 的填空共用，阶段 5 合并"
+   "note": "与时文阅读、KET/PET 的填空共用，阶段 5 合并",
+   "figmaProposal": {
+    "nodeId": "19446:609",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19446-609"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Quiz/PosChips",
@@ -330,7 +420,13 @@
     "Selected": "no / yes",
     "State": "Default / Hover",
     "Result": "none / correct / wrong"
-   }
+   },
+   "figmaProposal": {
+    "nodeId": "19446:620",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19446-620"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Vocab/WordProfileRow",
@@ -344,7 +440,13 @@
    "variants": {
     "Result": "none / correct / wrong / partial",
     "Locked": "no / yes"
-   }
+   },
+   "figmaProposal": {
+    "nodeId": "19446:693",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19446-693"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Vocab/WordFamilyRow",
@@ -357,7 +459,13 @@
    "variants": {
     "Result": "none / correct / wrong / partial",
     "Locked": "no / yes"
-   }
+   },
+   "figmaProposal": {
+    "nodeId": "19446:726",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19446-726"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Vocab/TranslateRow",
@@ -372,7 +480,13 @@
    "variants": {
     "State": "Empty / Filled",
     "Result": "none / judged"
-   }
+   },
+   "figmaProposal": {
+    "nodeId": "19446:765",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19446-765"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Quiz/JudgeResult",
@@ -386,7 +500,13 @@
    "variants": {
     "Score": "full / partial / zero"
    },
-   "note": "时文阅读开放题共用"
+   "note": "时文阅读开放题共用",
+   "figmaProposal": {
+    "nodeId": "19446:739",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19446-739"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Vocab/PhraseBank",
@@ -398,7 +518,13 @@
    ],
    "variants": {
     "Used": "no / yes"
-   }
+   },
+   "figmaProposal": {
+    "nodeId": "19446:770",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19446-770"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Quiz/TableFill",
@@ -414,7 +540,13 @@
    "variants": {
     "Cell": "header / text / blank"
    },
-   "note": "答案格复用 rc/Quiz/BlankInput"
+   "note": "答案格复用 rc/Quiz/BlankInput",
+   "figmaProposal": {
+    "nodeId": "19446:779",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19446-779"
+   },
+   "issue": "#138"
   },
   {
    "code": "ui/QuizResult",
@@ -435,7 +567,13 @@
     "existing": "Pass: no / yes / Pass3（View Answers / Try Again 两个入口）",
     "add": "Actions: view-answers / retry-mistakes / retry-all（三个入口）；Part 标签（文本属性）"
    },
-   "note": "各 Part 对错图标复用 quiz result（12409:123905）"
+   "note": "各 Part 对错图标复用 quiz result（12409:123905）",
+   "figmaProposal": {
+    "nodeId": "19448:796",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19448-796"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Quiz/AnswerFeedback",
@@ -450,7 +588,13 @@
    "variants": {
     "Result": "correct / wrong / partial"
    },
-   "note": "与 option-text-item 的「正确-展开」不同：这里显示的是填空 / 翻译题的答案与解析"
+   "note": "与 option-text-item 的「正确-展开」不同：这里显示的是填空 / 翻译题的答案与解析",
+   "figmaProposal": {
+    "nodeId": "19446:804",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19446-804"
+   },
+   "issue": "#138"
   },
   {
    "code": "rc/Vocab/EntryDialog",
@@ -460,7 +604,13 @@
    "screens": [
     "3.29"
    ],
-   "note": "内容为 rc/Vocab/EntryCard；关闭按钮复用 UIKit-LearnNav btn-close（7870:43771）"
+   "note": "内容为 rc/Vocab/EntryCard；关闭按钮复用 UIKit-LearnNav btn-close（7870:43771）",
+   "figmaProposal": {
+    "nodeId": "19445:703",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19445-703"
+   },
+   "issue": "#138"
   },
   {
    "code": "ui/Loading",
@@ -470,5 +620,15 @@
    "screens": [],
    "note": "来自 ui-style-kit（UniRead 下发），不是 Figma 组件"
   }
- ]
+ ],
+ "proposalPage": {
+  "nodeId": "19442:466",
+  "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19442-466",
+  "variableCollections": [
+   "RC Semantic (proposed)",
+   "RC Spacing (proposed)",
+   "RC Size (proposed)"
+  ]
+ },
+ "proposalIssue": "#138"
 }

@@ -13,6 +13,7 @@ type Entry = {
   description: string;
   screens: string[];
   figma?: { nodeId: string; name: string; group: string; url: string };
+  figmaProposal?: { nodeId: string; url: string };
   variants?: Record<string, string>;
   note?: string;
 };
@@ -43,7 +44,8 @@ export function render(reg: { designSystem: string; components: Entry[] }) {
     for (const c of list) {
       const fig = c.figma ? `[${c.figma.group} / ${c.figma.name}](${c.figma.url})` : status === 'proposed' ? `\`RC/${c.code.replace(/^rc\//, '')}\`（新建）` : '—';
       const v = c.variants ? Object.entries(c.variants).map(([k, val]) => `**${k}**: ${val}`).join('<br>') : '';
-      out.push(`| \`${c.code}\` | ${c.description} | ${fig} | ${v} | ${c.screens.join(' ')} | ${c.note ?? ''} |`);
+      const prop = c.figmaProposal ? ` · [提案 ↗](${c.figmaProposal.url})` : '';
+      out.push(`| \`${c.code}\` | ${c.description} | ${fig}${prop} | ${v} | ${c.screens.join(' ')} | ${c.note ?? ''} |`);
     }
     out.push('');
   }
