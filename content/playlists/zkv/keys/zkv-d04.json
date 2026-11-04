@@ -482,8 +482,9 @@
       "explanationZh": "这是 attractive 词条的例句。“越来越……”= more and more + 形容词原级（attractive 是多音节词）；“对……有吸引力”= be attractive to；“正在变得”用现在进行时 is becoming。"
     },
     "q40": {
-      "sampleAnswer": "The teacher, as well as his students was invited to attend the party last week.",
+      "sampleAnswer": "The teacher, as well as his students, was invited to attend the party last week.",
       "references": [
+        "The teacher, as well as his students, was invited to attend the party last week.",
         "The teacher, as well as his students was invited to attend the party last week."
       ],
       "rubricType": "translation",
@@ -500,7 +501,7 @@
         }
       ],
       "explanationZh": "这是 attend 词条的例句。“A as well as B”作主语时，谓语动词和 A（the teacher）一致，所以用单数 was；“被邀请做某事”= be invited to do sth.；“参加聚会”= attend the party。",
-      "rubricZh": "书末答案在 students 后漏了逗号，手册 attend 词条例句为 The teacher, as well as his students, was invited to attend the party last week.；两种标点都应视为正确。"
+      "rubricZh": "书末答案印作 The teacher, as well as his students was invited…（students 后漏了逗号），经人工复核（GitHub #135）更正为 The teacher, as well as his students, was invited to attend the party last week.（与手册 attend 词条例句一致）；漏逗号的写法仍视为正确。"
     },
     "q41": {
       "sampleAnswer": "We believe children in poor areas are lacking in medical care.",
@@ -523,9 +524,10 @@
       "explanationZh": "“穷困地区”= poor areas（area 是可数名词，这里用复数）；“急需，缺乏”可以用 be lacking in；“我们相信”= We believe + 宾语从句。"
     },
     "q42": {
-      "sampleAnswer": "Tourists are at its peak in August.",
+      "sampleAnswer": "The number of tourists reaches its peak in August.",
       "references": [
-        "Tourists are at its peak in August."
+        "The number of tourists reaches its peak in August.",
+        "Tourists are at their peak in August."
       ],
       "rubricType": "translation",
       "keyPoints": [
@@ -540,8 +542,8 @@
           "weight": 2
         }
       ],
-      "explanationZh": "这是 August 词条的例句。“在八月”= in August，月份前用介词 in，首字母大写；“达到高峰”= be at its/their peak。",
-      "rubricZh": "书末答案与手册例句都印作 Tourists are at its peak in August.，its 与复数主语 tourists 不一致；Tourists are at their peak in August. / Tourism is at its peak in August. / The number of tourists reaches its peak in August. 等意思正确的译法都应视为正确。"
+      "explanationZh": "这是 August 词条的例句。“在八月”= in August，月份前用介词 in，首字母大写；“达到高峰”= reach its peak / be at its peak（主语 the number of tourists 是单数）。",
+      "rubricZh": "书末答案与手册例句都印作 Tourists are at its peak in August.（its 与复数主语 tourists 不一致），经人工复核（GitHub #135）更正为 The number of tourists reaches its peak in August.；Tourists are at their peak in August. 等意思正确的译法也应视为正确。"
     }
   }
 }

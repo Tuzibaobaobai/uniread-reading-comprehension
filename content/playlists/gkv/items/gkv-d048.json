@@ -1133,7 +1133,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "The operation may succeed, and it may not; it’s a bit of a "
+                "v": "The operation may succeed, or it may not; it’s a bit of a "
               },
               {
                 "t": "blank",
@@ -1442,9 +1442,9 @@
               }
             ],
             "scoring": "judge",
-            "requiredWord": "gold"
+            "requiredWord": "gather"
           },
-          "entryRef": "e-gold"
+          "entryRef": "e-gather"
         },
         {
           "id": "q67",
@@ -1459,11 +1459,28 @@
               }
             ],
             "scoring": "judge",
-            "requiredWord": "government"
+            "requiredWord": "gas"
           },
-          "entryRef": "e-government"
+          "entryRef": "e-gas"
         }
       ]
+    }
+  ],
+  "errata": [
+    {
+      "original": "The operation may succeed, and it may not; it’s a bit of a g____.",
+      "corrected": "The operation may succeed, or it may not; it’s a bit of a g____.",
+      "note": "第三部分第 5 题 and 应为 or（手册 gamble 例句为 or it may not）；经人工复核（GitHub #136 第 93 条）确认更正"
+    },
+    {
+      "original": "（gold）",
+      "corrected": "（gather）",
+      "note": "第四部分第 9 题括号内指定词 gold 属后面的词条，本句是 gather 的手册例句，指定词改为 gather；经人工复核（GitHub #136 第 94 条）确认更正"
+    },
+    {
+      "original": "（government）",
+      "corrected": "（gas）",
+      "note": "第四部分第 10 题括号内指定词 government 属后面的词条，本句是 gas 的手册例句，指定词改为 gas；经人工复核（GitHub #136 第 94 条）确认更正"
     }
   ],
   "source": {
@@ -1481,6 +1498,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

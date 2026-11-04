@@ -19,15 +19,15 @@
       "en": [
         {
           "t": "text",
-          "v": "The police "
+          "v": "The police are "
         },
         {
           "t": "underline",
-          "v": "investigate"
+          "v": "investigating"
         },
         {
           "t": "text",
-          "v": " the cause of car accident."
+          "v": " the cause of the car accident."
         }
       ],
       "zh": "警方正在调查这起车祸的原因。"
@@ -41,10 +41,17 @@
     "examples": [
       {
         "src": "assets/lexicons/zkv/e-investigate-x1.mp3",
-        "seconds": 4.3
+        "seconds": 4.6
       }
     ]
   },
+  "errata": [
+    {
+      "original": "The police investigate the cause of car accident.",
+      "corrected": "The police are investigating the cause of the car accident.",
+      "note": "car accident 前缺冠词，且一般现在时与中文“正在调查”不符；经人工复核（GitHub #135 第 61 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -56,6 +63,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

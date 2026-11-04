@@ -768,7 +768,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "I like most about him is his "
+                "v": "What I like most about him is his "
               },
               {
                 "t": "blank",
@@ -1065,6 +1065,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "I like most about him is his ______.",
+      "corrected": "What I like most about him is his ______.",
+      "note": "四.3 句子缺少主语从句引导词 What；经人工复核（GitHub #135 第 62 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1077,6 +1084,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

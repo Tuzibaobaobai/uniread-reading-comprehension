@@ -117,7 +117,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "烹饪法；食谱；〈喻〉窍门，决窍 n. "
+                "v": "烹饪法；食谱；〈喻〉窍门，诀窍 n. "
               },
               {
                 "t": "blank",
@@ -1592,6 +1592,18 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "reception – rejurenate",
+      "corrected": "reception – rejuvenate",
+      "note": "练习册当天标题 rejuvenate 误印为 rejurenate（手册与答案册均为 rejuvenate）；经人工复核（GitHub #137 第 65 条）确认更正"
+    },
+    {
+      "original": "烹饪法；食谱；〈喻〉窍门，决窍 n. ",
+      "corrected": "烹饪法；食谱；〈喻〉窍门，诀窍 n. ",
+      "note": "「诀窍」误印为「决窍」；经人工复核（GitHub #137 第 66 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1607,6 +1619,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

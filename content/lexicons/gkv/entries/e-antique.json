@@ -40,7 +40,15 @@
       "en": [
         {
           "t": "text",
-          "v": "This two-story hotel, whose antique charm is preserved, is located halfway up the mountain. Guests can easily reach the summit and visit the memorial hall at off-peak times."
+          "v": "This two-story hotel, whose "
+        },
+        {
+          "t": "underline",
+          "v": "antique"
+        },
+        {
+          "t": "text",
+          "v": " charm is preserved, is located halfway up the mountain. Guests can easily reach the summit and visit the memorial hall at off-peak times."
         }
       ],
       "zh": "这个两层楼的酒店古色古香，坐落于半山腰，住店客人可以轻松登顶，并错峰参观纪念馆。（上海春考）"
@@ -62,6 +70,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "This two-story hotel, whose antique charm is preserved, is located halfway up the mountain. Guests can easily reach the summit and visit the memorial hall at off-peak times.",
+      "corrected": "This two-story hotel, whose <u>antique</u> charm is preserved, is located halfway up the mountain. Guests can easily reach the summit and visit the memorial hall at off-peak times.",
+      "note": "第 2 个例句中词头 antique 漏印下划线；经人工复核（GitHub #136 第 10 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -73,6 +88,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

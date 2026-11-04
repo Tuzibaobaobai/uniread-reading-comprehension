@@ -974,7 +974,7 @@
               }
             ],
             "scoring": "judge",
-            "requiredWord": "humourous"
+            "requiredWord": "humorous"
           },
           "entryRef": "e-humorous"
         },
@@ -1049,6 +1049,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "humourous",
+      "corrected": "humorous",
+      "note": "六.1 括号中的指定词 humourous 不是规范拼写，统一为 humorous；经人工复核（GitHub #135 第 54 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1061,6 +1068,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

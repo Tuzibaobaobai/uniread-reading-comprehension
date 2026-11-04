@@ -46,15 +46,15 @@
       "en": [
         {
           "t": "text",
-          "v": "She "
+          "v": "She has "
         },
         {
           "t": "underline",
-          "v": "has"
+          "v": "recorded"
         },
         {
           "t": "text",
-          "v": " recorded some popular songs."
+          "v": " some popular songs."
         }
       ],
       "zh": "她录了一些通俗歌曲。"
@@ -83,6 +83,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "She has recorded some popular songs.（下划线在 has 上）",
+      "corrected": "She has recorded some popular songs.（下划线在 recorded 上）",
+      "note": "例句下划线应标在词目形式 recorded 上，原书误标在 has 上；经人工复核（GitHub #135 第 95 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -96,6 +103,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

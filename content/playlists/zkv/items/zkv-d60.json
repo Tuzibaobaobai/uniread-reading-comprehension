@@ -590,7 +590,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Jenny stays with a Chinese family for two years. Now she "
+                "v": "Jenny has stayed with a Chinese family for two years. Now she "
               },
               {
                 "t": "blank",
@@ -1001,6 +1001,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "Jenny stays with a Chinese family for two years. Now she ______ the life in China.",
+      "corrected": "Jenny has stayed with a Chinese family for two years. Now she ______ the life in China.",
+      "note": "第 26 题 for two years 不能与一般现在时 stays 连用，应为 has stayed；经人工复核（GitHub #135 第 127 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1013,6 +1020,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -24,7 +24,15 @@
       "en": [
         {
           "t": "text",
-          "v": "Rain begins to fall and peach trees blossom."
+          "v": "Rain begins to fall and peach trees "
+        },
+        {
+          "t": "underline",
+          "v": "blossom"
+        },
+        {
+          "t": "text",
+          "v": "."
         }
       ],
       "zh": "开始下雨了，桃树也开花了。"
@@ -33,7 +41,15 @@
       "en": [
         {
           "t": "text",
-          "v": "The trees are in blossom."
+          "v": "The trees are in "
+        },
+        {
+          "t": "underline",
+          "v": "blossom"
+        },
+        {
+          "t": "text",
+          "v": "."
         }
       ],
       "zh": "树上鲜花盛开。"
@@ -55,6 +71,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Rain begins to fall and peach trees blossom. / The trees are in blossom.",
+      "corrected": "Rain begins to fall and peach trees <u>blossom</u>. / The trees are in <u>blossom</u>.",
+      "note": "两个例句中词头 blossom 均漏印下划线；经人工复核（GitHub #136 第 32 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -66,6 +89,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

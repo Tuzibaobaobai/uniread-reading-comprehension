@@ -44,7 +44,7 @@
       "en": [
         {
           "t": "text",
-          "v": "I’m a "
+          "v": "I’m "
         },
         {
           "t": "underline",
@@ -74,6 +74,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "I’m a French.",
+      "corrected": "I’m French.",
+      "note": "French 不能作可数名词指人，I’m a French. 不合语法，应为 I’m French.；经人工复核（GitHub #135 第 43 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -85,6 +92,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

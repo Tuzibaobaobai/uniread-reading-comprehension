@@ -112,7 +112,7 @@
           "content": [
             {
               "t": "text",
-              "v": "Unearthed cultural relics was "
+              "v": "Unearthed cultural relics were "
             },
             {
               "t": "underline",
@@ -201,6 +201,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "Unearthed cultural relics was exhibited here last month.",
+      "corrected": "Unearthed cultural relics were exhibited here last month.",
+      "note": "辨析中 exhibit 例句主语 relics 为复数，谓语应为 were；经人工复核（GitHub #136 第 80 条）确认更正"
+    }
+  ],
   "audio": {
     "word": {
       "src": "assets/lexicons/gkv/e-expose.mp3",
@@ -226,6 +233,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

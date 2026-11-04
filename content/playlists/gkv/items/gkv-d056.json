@@ -1274,7 +1274,7 @@
               },
               {
                 "t": "text",
-                "v": " but also CD. No wonder children like it so much."
+                "v": " but also a CD. No wonder children like it so much."
               }
             ]
           },
@@ -1487,6 +1487,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "The book has not only i____ but also CD.",
+      "corrected": "The book has not only i____ but also a CD.",
+      "note": "三·9 CD 前缺冠词 a（手册例句作 but also a CD）；经人工复核（GitHub #136 第 119 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1502,6 +1509,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

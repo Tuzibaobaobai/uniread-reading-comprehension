@@ -31,7 +31,7 @@
         },
         {
           "t": "text",
-          "v": " getting the work down."
+          "v": " getting the work done."
         }
       ],
       "zh": "我们需要集中精力完成这项工作。"
@@ -45,10 +45,17 @@
     "examples": [
       {
         "src": "assets/lexicons/zkv/e-focus-on-x1.mp3",
-        "seconds": 4.2
+        "seconds": 4.1
       }
     ]
   },
+  "errata": [
+    {
+      "original": "We need to focus our efforts on getting the work down.",
+      "corrected": "We need to focus our efforts on getting the work done.",
+      "note": "例句 getting the work done（完成这项工作）误印为 down；经人工复核（GitHub #135 第 128 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -60,6 +67,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

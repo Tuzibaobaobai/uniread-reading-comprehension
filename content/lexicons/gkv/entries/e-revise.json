@@ -62,7 +62,7 @@
             },
             {
               "t": "text",
-              "v": " 都有“复习”的意思，revise 主要用于美式英语。"
+              "v": " 都有“复习”的意思，revise 主要用于英式英语。"
             }
           ]
         },
@@ -99,6 +99,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "review 和 revise 都有“复习”的意思，revise 主要用于美式英语。",
+      "corrected": "review 和 revise 都有“复习”的意思，revise 主要用于英式英语。",
+      "note": "辨析把英美用法说反了：revise 作“复习”主要用于英式英语；经人工复核（GitHub #137 第 75 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -110,6 +117,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

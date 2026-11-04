@@ -23,15 +23,15 @@
       "en": [
         {
           "t": "text",
-          "v": "Many old houses around our school will "
+          "v": "Many old houses around our school will be "
         },
         {
           "t": "underline",
-          "v": "be"
+          "v": "pulled"
         },
         {
           "t": "text",
-          "v": " pulled down next year and a large green area will appear."
+          "v": " down next year and a large green area will appear."
         }
       ],
       "zh": "明年我们学校周围许多旧房子要被拆除，将出现一片大型的绿化区域。"
@@ -49,6 +49,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Many old houses around our school will be pulled down next year …（下划线在 be 上）",
+      "corrected": "Many old houses around our school will be pulled down next year …（下划线在 pulled 上）",
+      "note": "例句下划线应标在词目形式 pulled 上，原书误标在 be 上；经人工复核（GitHub #135 第 92 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -60,6 +67,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

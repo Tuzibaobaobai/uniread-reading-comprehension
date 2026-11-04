@@ -28,7 +28,7 @@
         },
         {
           "t": "text",
-          "v": " would be passed."
+          "v": " would pass."
         }
       ],
       "zh": "当病人退烧了，危险期就过去了。"
@@ -42,10 +42,17 @@
     "examples": [
       {
         "src": "assets/lexicons/gkv/e-crisis-x1.mp3",
-        "seconds": 4.5
+        "seconds": 4.3
       }
     ]
   },
+  "errata": [
+    {
+      "original": "When the patient’s fever broke, the crisis would be passed.",
+      "corrected": "When the patient’s fever broke, the crisis would pass.",
+      "note": "例句 would be passed 用法不当，应为 would pass；经人工复核（GitHub #136 第 55 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -57,6 +64,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

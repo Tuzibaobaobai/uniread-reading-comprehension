@@ -908,7 +908,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "The gentleman lost temper for the first time and shut the door "
+                "v": "The gentleman lost his temper for the first time and shut the door "
               },
               {
                 "t": "blank",
@@ -1075,6 +1075,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "The gentleman lost temper for the first time and shut the door h____ when he left.",
+      "corrected": "The gentleman lost his temper for the first time and shut the door h____ when he left.",
+      "note": "五.3 固定搭配 lose one’s temper 漏了物主代词 his；经人工复核（GitHub #135 第 53 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1087,6 +1094,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

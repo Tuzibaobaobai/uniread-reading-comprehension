@@ -150,7 +150,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "去医院（看病） "
+                "v": "实行节食 "
               },
               {
                 "t": "blank",
@@ -1001,6 +1001,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "5. 去医院（看病）",
+      "corrected": "5. 实行节食",
+      "note": "第 5 题题干误印成与第 2 题相同的「去医院（看病）」，书末答案为 go on a diet；经人工复核（GitHub #135 第 133 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1013,6 +1020,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -6,8 +6,8 @@
   "order": 10,
   "day": 10,
   "unit": "words",
-  "title": "balloon – BC",
-  "displayName": "balloon – BC",
+  "title": "balloon – BCE",
+  "displayName": "balloon – BCE",
   "taskType": {
     "code": "vocab_day",
     "labelZh": "词汇天天练"
@@ -1491,6 +1491,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "第十天 balloon – BC",
+      "corrected": "第十天 balloon – BCE",
+      "note": "天标题末词误印为 BC，本天最后一个词条为 BCE（第 339 条，答案册亦作 BCE）；经人工复核（GitHub #136 第 23 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1508,6 +1515,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

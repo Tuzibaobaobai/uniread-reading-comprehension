@@ -20,7 +20,7 @@
       "en": [
         {
           "t": "text",
-          "v": "Not only did the visitors from home and abroad appreciate the beauty of the ancient city, but also have a rough idea of the local traditional culture and the long "
+          "v": "Not only did the visitors from home and abroad appreciate the beauty of the ancient city, but they also had a rough idea of the local traditional culture and the long "
         },
         {
           "t": "underline",
@@ -42,10 +42,17 @@
     "examples": [
       {
         "src": "assets/lexicons/gkv/e-history-x1.mp3",
-        "seconds": 12.7
+        "seconds": 11.9
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Not only did the visitors from home and abroad appreciate the beauty of the ancient city, but also have a rough idea of the local traditional culture and the long history.",
+      "corrected": "Not only did the visitors from home and abroad appreciate the beauty of the ancient city, but they also had a rough idea of the local traditional culture and the long history.",
+      "note": "例句后半句 but also have 语法错误（答案书同句作 but they also had）；经人工复核（GitHub #136 第 115 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -57,6 +64,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

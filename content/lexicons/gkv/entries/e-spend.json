@@ -36,8 +36,8 @@
   ],
   "phrases": [
     {
-      "en": "spend money/time (in) doing",
-      "zh": "花费时间/精力做某事"
+      "en": "spend money/time (in) doing sth.",
+      "zh": "花费时间/金钱做某事"
     },
     {
       "en": "spend money/time on sth.",
@@ -56,6 +56,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "spend money/time (in) doing 花费时间/精力做某事",
+      "corrected": "spend money/time (in) doing sth. 花费时间/金钱做某事",
+      "note": "词组中文释义「时间/精力」与英文 money/time 不符，英文也缺 sth.；经人工复核（GitHub #137 第 96 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -67,6 +74,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -28,7 +28,7 @@
         },
         {
           "t": "underline",
-          "v": "waken"
+          "v": "woken"
         },
         {
           "t": "text",
@@ -63,7 +63,7 @@
     "examples": [
       {
         "src": "assets/lexicons/gkv/e-waken-x1.mp3",
-        "seconds": 3.4
+        "seconds": 3.1
       },
       {
         "src": "assets/lexicons/gkv/e-waken-x2.mp3",
@@ -71,6 +71,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "It looks as if he had just waken up.",
+      "corrected": "It looks as if he had just woken up.",
+      "note": "第1个例句 had just waken up 动词形式错误；经人工复核（GitHub #137 第 125 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -82,6 +89,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -1086,7 +1086,10 @@
               {
                 "t": "blank",
                 "id": "b50",
-                "number": 50
+                "number": 50,
+                "hint": {
+                  "firstLetter": "s"
+                }
               },
               {
                 "t": "text",
@@ -1492,6 +1495,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "An experienced Indian guide is provided during your ______.",
+      "corrected": "An experienced Indian guide is provided during your s______.",
+      "note": "三 2 漏印首字母提示（本大题其他各题都印首字母）；经人工复核（GitHub #137 第 98 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1507,6 +1517,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

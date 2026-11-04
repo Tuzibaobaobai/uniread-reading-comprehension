@@ -932,7 +932,7 @@
               },
               {
                 "t": "text",
-                "v": "."
+                "v": "?"
               }
             ]
           },
@@ -1060,6 +1060,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "Has that tin got anything i______.",
+      "corrected": "Has that tin got anything i______?",
+      "note": "五.4 疑问句句末误用句号；经人工复核（GitHub #135 第 56 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1072,6 +1079,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

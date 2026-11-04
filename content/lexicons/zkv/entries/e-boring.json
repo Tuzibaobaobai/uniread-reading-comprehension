@@ -9,6 +9,7 @@
     "ˈbɔːrɪŋ"
   ],
   "star": true,
+  "starLevel": 2,
   "levelMark": true,
   "senses": [
     {
@@ -21,7 +22,7 @@
       "en": [
         {
           "t": "text",
-          "v": "Tom always tells us the same things whenever he meets. He is really "
+          "v": "Tom always tells us the same things whenever he meets us. He is really "
         },
         {
           "t": "underline",
@@ -89,10 +90,17 @@
     "examples": [
       {
         "src": "assets/lexicons/zkv/e-boring-x1.mp3",
-        "seconds": 6.6
+        "seconds": 6.7
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Tom always tells us the same things whenever he meets. He is really boring.",
+      "corrected": "Tom always tells us the same things whenever he meets us. He is really boring.",
+      "note": "例句中 meets 缺少宾语 us（中文译文为“每当汤姆见到我们”）；经人工复核（GitHub #135 第 7 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -104,6 +112,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

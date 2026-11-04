@@ -293,7 +293,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "每，每一 prep., adv. "
+                "v": "每，每一 prep. "
               },
               {
                 "t": "blank",
@@ -1514,6 +1514,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "每，每一 prep., adv. ",
+      "corrected": "每，每一 prep. ",
+      "note": "per 只作介词（手册第 2767 条仅标 prep.），adv. 无依据；经人工复核（GitHub #137 第 47 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1529,6 +1536,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

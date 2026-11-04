@@ -705,7 +705,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Your friend lifts you up and makes "
+                "v": "Your friend lifts you up and makes a "
               },
               {
                 "t": "blank",
@@ -744,7 +744,7 @@
               },
               {
                 "t": "text",
-                "v": " to let young children to play with electrical appliances."
+                "v": " to let young children play with electrical appliances."
               }
             ]
           },
@@ -820,7 +820,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "He always practise "
+                "v": "He always practises "
               },
               {
                 "t": "blank",
@@ -1041,6 +1041,23 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "He always practise ___ with other cyclists.",
+      "corrected": "He always practises ___ with other cyclists.",
+      "note": "主语为第三人称单数，谓语应为 practises；经人工复核（GitHub #135 第 20 条）确认更正"
+    },
+    {
+      "original": "It’s ___ to let young children to play with electrical appliances.",
+      "corrected": "It’s ___ to let young children play with electrical appliances.",
+      "note": "let 后接不带 to 的不定式；经人工复核（GitHub #135 第 21 条）确认更正"
+    },
+    {
+      "original": "Your friend lifts you up and makes ___ and empty world seem bright and full.",
+      "corrected": "Your friend lifts you up and makes a ___ and empty world seem bright and full.",
+      "note": "dark and empty world 前缺少冠词 a；经人工复核（GitHub #135 第 24 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1053,6 +1070,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

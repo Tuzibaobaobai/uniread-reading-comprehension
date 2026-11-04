@@ -538,7 +538,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "周年纪念（日）n, 周年的，每年的 adj. "
+                "v": "周年纪念（日）n. 周年的，每年的 adj. "
               },
               {
                 "t": "blank",
@@ -1613,6 +1613,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "周年纪念（日）n, 周年的，每年的 adj.",
+      "corrected": "周年纪念（日）n. 周年的，每年的 adj.",
+      "note": "第 24 题题干词性 n 后误印逗号，应为句点；经人工复核（GitHub #136 第 11 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1628,6 +1635,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -32,7 +32,7 @@
         },
         {
           "t": "text",
-          "v": " us three historical events in the Tang Dynasty?"
+          "v": " three historical events in the Tang Dynasty to us?"
         }
       ],
       "zh": "你能向我们介绍唐朝的 3 个历史事件吗？"
@@ -57,6 +57,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Could you introduce us three historical events in the Tang Dynasty?",
+      "corrected": "Could you introduce three historical events in the Tang Dynasty to us?",
+      "note": "introduce 不接双宾语，应为 introduce sth. to sb.；经人工复核（GitHub #135 第 60 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -68,6 +75,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

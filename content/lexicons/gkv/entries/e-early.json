@@ -41,7 +41,7 @@
       "en": [
         {
           "t": "text",
-          "v": "The more quickly he walk, the "
+          "v": "The more quickly he walks, the "
         },
         {
           "t": "underline",
@@ -77,6 +77,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "The more quickly he walk, the earlier he will get there.",
+      "corrected": "The more quickly he walks, the earlier he will get there.",
+      "note": "例句主语 he 为第三人称单数，walk 应为 walks；经人工复核（GitHub #136 第 69 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -88,6 +95,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

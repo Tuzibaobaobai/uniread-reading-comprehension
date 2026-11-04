@@ -20,7 +20,7 @@
       "en": [
         {
           "t": "text",
-          "v": "Apple costs five yuan a "
+          "v": "Apples cost five yuan a "
         },
         {
           "t": "underline",
@@ -46,6 +46,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Apple costs five yuan a kilo.",
+      "corrected": "Apples cost five yuan a kilo.",
+      "note": "例句主语应为复数 Apples，谓语相应用 cost；经人工复核（GitHub #137 第 1 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -57,6 +64,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

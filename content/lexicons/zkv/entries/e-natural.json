@@ -9,6 +9,7 @@
     "ˈnætʃrəl"
   ],
   "star": true,
+  "starLevel": 2,
   "senses": [
     {
       "pos": "adj.",
@@ -20,7 +21,7 @@
       "en": [
         {
           "t": "text",
-          "v": "Earthquake is one of the "
+          "v": "An earthquake is one of the "
         },
         {
           "t": "underline",
@@ -57,10 +58,17 @@
     "examples": [
       {
         "src": "assets/lexicons/zkv/e-natural-x1.mp3",
-        "seconds": 4.3
+        "seconds": 4.4
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Earthquake is one of the natural disasters on the earth.",
+      "corrected": "An earthquake is one of the natural disasters on the earth.",
+      "note": "可数名词单数 earthquake 前缺冠词；经人工复核（GitHub #135 第 74 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -74,6 +82,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

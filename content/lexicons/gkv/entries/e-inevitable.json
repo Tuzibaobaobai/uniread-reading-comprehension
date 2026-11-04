@@ -20,7 +20,7 @@
       "en": [
         {
           "t": "text",
-          "v": "Such a difficult operation may not succeed, it’s an "
+          "v": "Such a difficult operation may not succeed, but it’s an "
         },
         {
           "t": "underline",
@@ -42,10 +42,17 @@
     "examples": [
       {
         "src": "assets/lexicons/gkv/e-inevitable-x1.mp3",
-        "seconds": 5.8
+        "seconds": 6
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Such a difficult operation may not succeed, it’s an inevitable gamble.",
+      "corrected": "Such a difficult operation may not succeed, but it’s an inevitable gamble.",
+      "note": "例句为逗号粘连句，缺连词 but（答案书四·8 同句作 but it’s）；经人工复核（GitHub #136 第 124 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -57,6 +64,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

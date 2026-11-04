@@ -33,7 +33,7 @@
       "en": [
         {
           "t": "text",
-          "v": "Jenny stays with a Chinese family for two years. Now she"
+          "v": "Jenny has stayed with a Chinese family for two years. Now she"
         },
         {
           "t": "underline",
@@ -101,10 +101,17 @@
       },
       {
         "src": "assets/lexicons/zkv/e-be-used-to-x2.mp3",
-        "seconds": 7.2
+        "seconds": 7.8
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Jenny stays with a Chinese family for two years. Now she’s used to the life in China.",
+      "corrected": "Jenny has stayed with a Chinese family for two years. Now she’s used to the life in China.",
+      "note": "for two years 不能与一般现在时 stays 连用，应为 has stayed；经人工复核（GitHub #135 第 127 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -116,6 +123,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

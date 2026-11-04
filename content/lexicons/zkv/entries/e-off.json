@@ -67,7 +67,7 @@
         },
         {
           "t": "text",
-          "v": " two bowls of chicken noodles soup in no time."
+          "v": " two bowls of chicken noodle soup in no time."
         }
       ],
       "zh": "他很快吃完了两碗鸡汤面。"
@@ -123,7 +123,7 @@
       },
       {
         "src": "assets/lexicons/zkv/e-off-x3.mp3",
-        "seconds": 5.2
+        "seconds": 5
       },
       {
         "src": "assets/lexicons/zkv/e-off-x4.mp3",
@@ -135,6 +135,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "He finished off two bowls of chicken noodles soup in no time.",
+      "corrected": "He finished off two bowls of chicken noodle soup in no time.",
+      "note": "chicken noodles soup 应为 chicken noodle soup；经人工复核（GitHub #135 第 78 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -146,6 +153,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -28,7 +28,7 @@
         },
         {
           "t": "text",
-          "v": " to win Nobel Prize is not likely to be realised."
+          "v": " to win the Nobel Prize is not likely to be realised."
         }
       ],
       "zh": "他想获得诺贝尔奖的愿望不大可能实现。"
@@ -42,10 +42,17 @@
     "examples": [
       {
         "src": "assets/lexicons/gkv/e-ambition-x1.mp3",
-        "seconds": 5.6
+        "seconds": 5.4
       }
     ]
   },
+  "errata": [
+    {
+      "original": "His ambition to win Nobel Prize is not likely to be realised.",
+      "corrected": "His ambition to win the Nobel Prize is not likely to be realised.",
+      "note": "例句 Nobel Prize 前漏印 the；经人工复核（GitHub #136 第 13 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -57,6 +64,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

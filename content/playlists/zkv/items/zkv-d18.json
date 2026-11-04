@@ -293,7 +293,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "探索；探测；探究 n. "
+                "v": "探索；探测；探究 v. "
               },
               {
                 "t": "blank",
@@ -580,7 +580,7 @@
           "interaction": {
             "kind": "wordFamily",
             "base": {
-              "word": "explaination",
+              "word": "explanation",
               "pos": "n."
             },
             "slots": [
@@ -904,7 +904,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "He said, “I feel "
+                "v": "You need to be "
               },
               {
                 "t": "blank",
@@ -916,7 +916,7 @@
               },
               {
                 "t": "text",
-                "v": " convicted with the passing of Michael Jackson.”"
+                "v": " careful not to make any mistake."
               }
             ]
           },
@@ -1044,6 +1044,23 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "explaination n.",
+      "corrected": "explanation n.",
+      "note": "explaination 为 explanation 的拼写错误；经人工复核（GitHub #135 第 32 条）确认更正"
+    },
+    {
+      "original": "探索；探测；探究 n.",
+      "corrected": "探索；探测；探究 v.",
+      "note": "答案 explore 是动词（手册标 v.），原书误标 n.；经人工复核（GitHub #135 第 33 条）确认更正"
+    },
+    {
+      "original": "He said, “I feel e____ convicted with the passing of Michael Jackson.”",
+      "corrected": "You need to be e______ careful not to make any mistake.",
+      "note": "原句 convicted 用词不通；经人工复核（GitHub #135 第 35 条）确认改为新句，答案仍为 extra"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1056,6 +1073,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

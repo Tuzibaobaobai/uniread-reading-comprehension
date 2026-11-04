@@ -20,7 +20,7 @@
       "en": [
         {
           "t": "text",
-          "v": "Audience who attended the industrial exhibition all sang the praises of the family "
+          "v": "The audience who attended the industrial exhibition all sang the praises of the family "
         },
         {
           "t": "underline",
@@ -49,10 +49,17 @@
     "examples": [
       {
         "src": "assets/lexicons/gkv/e-automatic-x1.mp3",
-        "seconds": 9.7
+        "seconds": 9.9
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Audience who attended the industrial exhibition all sang the praises of the family automatic alarm system promoted by this exhibitor.",
+      "corrected": "The audience who attended the industrial exhibition all sang the praises of the family automatic alarm system promoted by this exhibitor.",
+      "note": "例句主语 Audience 前漏印冠词 The；经人工复核（GitHub #136 第 19 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -64,6 +71,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

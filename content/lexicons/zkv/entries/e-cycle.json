@@ -19,7 +19,7 @@
       "en": [
         {
           "t": "text",
-          "v": "He always practise "
+          "v": "He always practises "
         },
         {
           "t": "underline",
@@ -61,10 +61,17 @@
     "examples": [
       {
         "src": "assets/lexicons/zkv/e-cycle-x1.mp3",
-        "seconds": 3.9
+        "seconds": 4.5
       }
     ]
   },
+  "errata": [
+    {
+      "original": "He always practise cycling with other cyclists.",
+      "corrected": "He always practises cycling with other cyclists.",
+      "note": "主语为第三人称单数，谓语应为 practises；经人工复核（GitHub #135 第 20 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -76,6 +83,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

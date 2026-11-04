@@ -45,7 +45,7 @@
         },
         {
           "t": "text",
-          "v": " road, it is the shortest way."
+          "v": " road; it is the shortest way."
         }
       ],
       "zh": "走向东那条路，那是最近的路。"
@@ -63,10 +63,17 @@
       },
       {
         "src": "assets/lexicons/gkv/e-east-x2.mp3",
-        "seconds": 3.9
+        "seconds": 4
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Take the east road, it is the shortest way.",
+      "corrected": "Take the east road; it is the shortest way.",
+      "note": "例句两个独立分句只用逗号连接，改为分号；经人工复核（GitHub #136 第 71 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -78,6 +85,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

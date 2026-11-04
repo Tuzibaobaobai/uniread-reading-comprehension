@@ -16,7 +16,7 @@
       "en": [
         {
           "t": "text",
-          "v": "Danny has worked as newspaper reporter for "
+          "v": "Danny has worked as a newspaper reporter for "
         },
         {
           "t": "underline",
@@ -42,6 +42,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Danny has worked as newspaper reporter for a couple of years.",
+      "corrected": "Danny has worked as a newspaper reporter for a couple of years.",
+      "note": "例句 newspaper reporter 前漏印冠词 a；经人工复核（GitHub #135 第 120 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -53,6 +60,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

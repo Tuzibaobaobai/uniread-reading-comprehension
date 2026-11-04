@@ -491,7 +491,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "在头顶上的；上面的；高架的 adv. 在头顶；在上面 adj. "
+                "v": "在头顶上的；上面的；高架的 adj. 在头顶；在上面 adv. "
               },
               {
                 "t": "blank",
@@ -1446,6 +1446,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "在头顶上的；上面的；高架的 adv. 在头顶；在上面 adj. ",
+      "corrected": "在头顶上的；上面的；高架的 adj. 在头顶；在上面 adv. ",
+      "note": "练习册把 adj. 与 adv. 两个词性标注印反（手册 overhead 为 adj. 在头顶上的…… adv. 在头顶……）；经人工复核（GitHub #137 第 37 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1461,6 +1468,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

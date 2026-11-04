@@ -9,6 +9,7 @@
     "baɪ"
   ],
   "star": true,
+  "starLevel": 2,
   "levelMark": true,
   "senses": [
     {
@@ -68,7 +69,7 @@
       "en": [
         {
           "t": "text",
-          "v": "Tom is reading an 60-word composition. It was written all "
+          "v": "Tom is reading a 60-word composition. It was written all "
         },
         {
           "t": "underline",
@@ -208,6 +209,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Tom is reading an 60-word composition. It was written all by himself.",
+      "corrected": "Tom is reading a 60-word composition. It was written all by himself.",
+      "note": "60（sixty）以辅音音素开头，冠词应为 a；经人工复核（GitHub #135 第 13 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -221,6 +229,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

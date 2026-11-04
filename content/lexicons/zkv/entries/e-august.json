@@ -19,7 +19,7 @@
       "en": [
         {
           "t": "text",
-          "v": "Tourists are at its peak in "
+          "v": "The number of tourists reaches its peak in "
         },
         {
           "t": "underline",
@@ -41,10 +41,17 @@
     "examples": [
       {
         "src": "assets/lexicons/zkv/e-august-x1.mp3",
-        "seconds": 3.2
+        "seconds": 4
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Tourists are at its peak in August.",
+      "corrected": "The number of tourists reaches its peak in August.",
+      "note": "例句中 its 与复数主语 tourists 不一致；经人工复核（GitHub #135 第 3 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -56,6 +63,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

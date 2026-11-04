@@ -23,14 +23,21 @@
         },
         {
           "t": "underline",
-          "v": "endangere"
+          "v": "endangered"
         },
         {
           "t": "text",
-          "v": "d wildlife is the loss of their natural habitat due to human activities."
+          "v": " wildlife is the loss of their natural habitat due to human activities."
         }
       ],
       "zh": "濒危野生动物面临的最大威胁是由于人类活动导致的自然栖息地的丧失。"
+    }
+  ],
+  "errata": [
+    {
+      "original": "endangere",
+      "corrected": "endangered",
+      "note": "例句 The biggest threat to endangered wildlife… 中下划线只覆盖 endangere，末尾的 d 未划线，应划在整个 endangered 上；经人工复核（GitHub #136 第 75 条）确认更正"
     }
   ],
   "audio": {
@@ -56,6 +63,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

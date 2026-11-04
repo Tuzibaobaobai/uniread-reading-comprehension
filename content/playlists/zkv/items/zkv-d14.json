@@ -874,7 +874,7 @@
               },
               {
                 "t": "text",
-                "v": " dozens of paintings at the musum."
+                "v": " dozens of paintings at the museum."
               }
             ]
           },
@@ -1056,6 +1056,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "A fire d_____ dozens of paintings at the musum.",
+      "corrected": "A fire d_____ dozens of paintings at the museum.",
+      "note": "musum 为 museum 的拼写错误；经人工复核（GitHub #135 第 25 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1068,6 +1075,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -718,7 +718,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "试图打中，向……打中，向……打去；抨击；挖苦 "
+                "v": "试图打中，向……打去；抨击；挖苦 "
               },
               {
                 "t": "blank",
@@ -1172,7 +1172,7 @@
               },
               {
                 "t": "text",
-                "v": " by our universtiy."
+                "v": " by our university."
               }
             ]
           },
@@ -1466,6 +1466,18 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "The academic conference was h____ by our universtiy.",
+      "corrected": "The academic conference was h____ by our university.",
+      "note": "三·6 universtiy 为拼写错误；经人工复核（GitHub #136 第 112 条）确认更正"
+    },
+    {
+      "original": "试图打中，向……打中，向……打去；抨击；挖苦",
+      "corrected": "试图打中，向……打去；抨击；挖苦",
+      "note": "二·1 多印了“向……打中”，与手册 hit 词条不符；经人工复核（GitHub #136 第 113 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1481,6 +1493,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

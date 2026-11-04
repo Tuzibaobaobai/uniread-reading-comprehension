@@ -1406,7 +1406,7 @@
               },
               {
                 "t": "text",
-                "v": ", these robots have relieved the facotry’s pressure of lacking workers."
+                "v": ", these robots have relieved the factory’s pressure of lacking workers."
               }
             ]
           },
@@ -1592,6 +1592,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "Despite the high c____, these robots have relieved the facotry’s pressure of lacking workers.",
+      "corrected": "Despite the high c____, these robots have relieved the factory’s pressure of lacking workers.",
+      "note": "三 第 63 题 facotry’s 为拼写错误，应为 factory’s；经人工复核（GitHub #136 第 52 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1607,6 +1614,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

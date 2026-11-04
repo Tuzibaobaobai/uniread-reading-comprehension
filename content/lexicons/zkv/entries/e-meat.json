@@ -28,7 +28,7 @@
         },
         {
           "t": "text",
-          "v": ". You are already over weight,” said the doctor."
+          "v": ". You are already overweight,” said the doctor."
         }
       ],
       "zh": "医生说：“朱先生，您最好不要吃太多的肉。您已经超重了。”"
@@ -42,10 +42,17 @@
     "examples": [
       {
         "src": "assets/lexicons/zkv/e-meat-x1.mp3",
-        "seconds": 7.4
+        "seconds": 7.5
       }
     ]
   },
+  "errata": [
+    {
+      "original": "“Mr. Zhu, you’d better not eat too much meat. You are already over weight,” said the doctor.",
+      "corrected": "“Mr. Zhu, you’d better not eat too much meat. You are already overweight,” said the doctor.",
+      "note": "over weight 应为一个词 overweight；经人工复核（GitHub #135 第 68 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -57,6 +64,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -20,7 +20,7 @@
       "en": [
         {
           "t": "text",
-          "v": "He wants to ask for three day’s "
+          "v": "He wants to ask for three days’ "
         },
         {
           "t": "underline",
@@ -46,6 +46,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "He wants to ask for three day’s leave.",
+      "corrected": "He wants to ask for three days’ leave.",
+      "note": "复数名词所有格应为 days’；经人工复核（GitHub #137 第 5 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -57,6 +64,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

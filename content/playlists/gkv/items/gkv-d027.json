@@ -1204,7 +1204,7 @@
               },
               {
                 "t": "text",
-                "v": " would be passed."
+                "v": " would pass."
               }
             ]
           },
@@ -1525,6 +1525,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "When the patient’s fever broke, the c____ would be passed.",
+      "corrected": "When the patient’s fever broke, the c____ would pass.",
+      "note": "三 第 52 题 crisis 作不及物用法，would be passed 应为 would pass；经人工复核（GitHub #136 第 55 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1542,6 +1549,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

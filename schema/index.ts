@@ -533,6 +533,9 @@ export const LexiconEntry = z
     ipa: z.array(z.string()).optional(),
     /** * before the headword: a key exam word */
     star: z.boolean().optional(),
+    /** how many stars the book prints, when it grades them (中考: * / ** / ***; the meaning of each level is in the
+     *  lexicon's star mark `levels`). Absent → one star. Only with `star`. */
+    starLevel: z.number().int().min(1).max(3).optional(),
     /** ▶ (中考) / circled 初 (高考): a lower-level curriculum word — what it means is in lexicon.json `marks` */
     levelMark: z.boolean().optional(),
     /** ▲ (高考): added by the Shanghai exam authority */
@@ -577,7 +580,17 @@ export const Lexicon = z
     source: z.object({ pdf: z.string() }).strict(),
     /** legend, in display order: `symbol` is shown as printed (*, ▲) or as the tag text (三级, 初中) */
     marks: z
-      .array(z.object({ key: z.enum(['star', 'supplement', 'levelMark', 'textbook']), symbol: z.string(), description: z.string() }).strict())
+      .array(
+        z
+          .object({
+            key: z.enum(['star', 'supplement', 'levelMark', 'textbook']),
+            symbol: z.string(),
+            description: z.string(),
+            /** graded marks (中考 * / ** / ***): what each printed level means, level 1 first */
+            levels: z.array(z.object({ symbol: z.string(), description: z.string() }).strict()).optional(),
+          })
+          .strict(),
+      )
       .default([]),
   })
   .strict();

@@ -20,7 +20,15 @@
       "en": [
         {
           "t": "text",
-          "v": "The reason why Eric didn’t come to the party yesterday was that he went to the airport to see his friend off."
+          "v": "The reason why Eric didn’t come to the party yesterday was that he went to the "
+        },
+        {
+          "t": "underline",
+          "v": "airport"
+        },
+        {
+          "t": "text",
+          "v": " to see his friend off."
         }
       ],
       "zh": "艾里克之所以没能出席昨天的晚会，是因为他去了机场给朋友送行。"
@@ -38,6 +46,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "The reason why Eric didn’t come to the party yesterday was that he went to the airport to see his friend off.",
+      "corrected": "The reason why Eric didn’t come to the party yesterday was that he went to the <u>airport</u> to see his friend off.",
+      "note": "例句中词头 airport 漏印下划线；经人工复核（GitHub #136 第 7 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -49,6 +64,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

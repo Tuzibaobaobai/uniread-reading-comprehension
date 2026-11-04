@@ -1220,7 +1220,7 @@
               },
               {
                 "t": "text",
-                "v": " between the buffet or the set menu."
+                "v": " between the buffet and the set menu."
               }
             ]
           },
@@ -1649,6 +1649,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "At lunchtime, there’s a c____ between the buffet or the set menu.",
+      "corrected": "At lunchtime, there’s a c____ between the buffet and the set menu.",
+      "note": "三 第 54 题 between ... or 应为 between ... and；经人工复核（GitHub #136 第 41 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1666,6 +1673,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

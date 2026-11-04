@@ -6,7 +6,7 @@
   "kind": "word",
   "headword": "announcer",
   "ipa": [
-    "əˈnaunsə(r)"
+    "əˈnaʊnsə(r)"
   ],
   "star": true,
   "senses": [
@@ -37,15 +37,22 @@
   "audio": {
     "word": {
       "src": "assets/lexicons/gkv/e-announcer.mp3",
-      "seconds": 1.8
+      "seconds": 1.7
     },
     "examples": [
       {
         "src": "assets/lexicons/gkv/e-announcer-x1.mp3",
-        "seconds": 4.6
+        "seconds": 4.2
       }
     ]
   },
+  "errata": [
+    {
+      "original": "/əˈnaunsə(r)/",
+      "corrected": "/əˈnaʊnsə(r)/",
+      "note": "音标中双元音 aʊ 误印为 au（同页 announce 印作 /əˈnaʊns/）；经人工复核（GitHub #136 第 9 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -57,6 +64,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

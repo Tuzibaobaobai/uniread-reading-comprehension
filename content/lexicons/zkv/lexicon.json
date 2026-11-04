@@ -6,6 +6,15 @@
   "marks": [
     { "key": "levelMark", "symbol": "三级", "description": "英语课程标准三级词汇" },
     { "key": "textbook", "symbol": "G6下U1", "description": "在沪教版教材中出现的年级、学期和单元（G6下U1 = 六年级第二学期 Unit 1）" },
-    { "key": "star", "symbol": "*", "description": "各类试卷中多次出现的高频词汇" }
+    {
+      "key": "star",
+      "symbol": "*",
+      "description": "各类试卷中多次出现的高频词汇",
+      "levels": [
+        { "symbol": "*", "description": "在各区统考试卷中出现的高频词汇" },
+        { "symbol": "**", "description": "在区统考试卷和市毕业考试卷中都出现的高频词汇" },
+        { "symbol": "***", "description": "在市毕业考试卷中多次出现的高频词汇" }
+      ]
+    }
   ]
 }

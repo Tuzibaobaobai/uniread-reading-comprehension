@@ -33,7 +33,7 @@
       "en": [
         {
           "t": "text",
-          "v": "Most of Asians "
+          "v": "Most Asians "
         },
         {
           "t": "underline",
@@ -59,10 +59,17 @@
       },
       {
         "src": "assets/lexicons/zkv/e-live-on-x2.mp3",
-        "seconds": 3.2
+        "seconds": 3
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Most of Asians live on rice.",
+      "corrected": "Most Asians live on rice.",
+      "note": "most of 后接复数名词需加限定词，例句应为 Most Asians；经人工复核（GitHub #135 第 134 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -74,6 +81,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

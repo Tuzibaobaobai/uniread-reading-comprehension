@@ -22,15 +22,15 @@
       "en": [
         {
           "t": "text",
-          "v": "The river "
+          "v": "The river is "
         },
         {
           "t": "underline",
-          "v": "is"
+          "v": "rising"
         },
         {
           "t": "text",
-          "v": " rising after the rain."
+          "v": " after the rain."
         }
       ],
       "zh": "雨后河水涨了起来。"
@@ -48,6 +48,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "The river is rising after the rain.（下划线在 is 上）",
+      "corrected": "The river is rising after the rain.（下划线在 rising 上）",
+      "note": "例句下划线应标在词目形式 rising 上，原书误标在 is 上；经人工复核（GitHub #135 第 99 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -59,6 +66,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -1109,7 +1109,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "He gets up and begin to "
+                "v": "He gets up and begins to "
               },
               {
                 "t": "blank",
@@ -1546,6 +1546,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "He gets up and begin to ",
+      "corrected": "He gets up and begins to ",
+      "note": "主谓不一致，begin 应为 begins（手册例句为 begins）；经人工复核（GitHub #137 第 40 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1561,6 +1568,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -185,7 +185,15 @@
           "content": [
             {
               "t": "text",
-              "v": "They saw a boat about a mile from the shore. 他们看到在离海岸大约 1 英里处有条小船。"
+              "v": "They saw a boat about a mile from the "
+            },
+            {
+              "t": "underline",
+              "v": "shore"
+            },
+            {
+              "t": "text",
+              "v": ". 他们看到在离海岸大约 1 英里处有条小船。"
             }
           ]
         }
@@ -204,6 +212,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "They saw a boat about a mile from the shore.",
+      "corrected": "They saw a boat about a mile from the <u>shore</u>.",
+      "note": "辨析中 shore 的例句漏印下划线（其余辨析例句均有）；经人工复核（GitHub #136 第 24 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -215,6 +230,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -28,7 +28,7 @@
         },
         {
           "t": "text",
-          "v": " President of the United Sates."
+          "v": " President of the United States."
         }
       ],
       "zh": "三轮激烈的电视辩论之后，他当选为美国总统。"
@@ -139,10 +139,17 @@
     "examples": [
       {
         "src": "assets/lexicons/gkv/e-elect-x1.mp3",
-        "seconds": 6.1
+        "seconds": 5.9
       }
     ]
   },
+  "errata": [
+    {
+      "original": "After three heated TV debates, he was elected President of the United Sates.",
+      "corrected": "After three heated TV debates, he was elected President of the United States.",
+      "note": "例句中「Sates」为拼写错误，应为 States；经人工复核（GitHub #136 第 72 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -154,6 +161,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

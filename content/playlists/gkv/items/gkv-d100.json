@@ -1174,7 +1174,7 @@
               },
               {
                 "t": "text",
-                "v": " of the blast slattered many windows."
+                "v": " of the blast shattered many windows."
               }
             ]
           },
@@ -1491,6 +1491,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "The s___ of the blast slattered many windows.",
+      "corrected": "The s___ of the blast shattered many windows.",
+      "note": "三 5 slattered 为 shattered 的印刷错误（手册例句作 shattered）；经人工复核（GitHub #137 第 82 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1508,6 +1515,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

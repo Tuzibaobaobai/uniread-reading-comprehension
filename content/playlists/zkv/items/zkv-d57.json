@@ -343,7 +343,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "零；零度；零点 n. & nurn. "
+                "v": "零；零度；零点 n. & num. "
               },
               {
                 "t": "blank",
@@ -720,7 +720,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Please tell me wether you have "
+                "v": "Please tell me whether you have "
               },
               {
                 "t": "blank",
@@ -1033,6 +1033,18 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "零；零度；零点 n. & nurn.",
+      "corrected": "零；零度；零点 n. & num.",
+      "note": "第 13 题词性 num. 误印为 nurn.；经人工复核（GitHub #135 第 118 条）确认更正"
+    },
+    {
+      "original": "Please tell me wether you have ______ flowers.",
+      "corrected": "Please tell me whether you have ______ flowers.",
+      "note": "第 30 题 whether 误印为 wether；经人工复核（GitHub #135 第 119 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1045,6 +1057,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

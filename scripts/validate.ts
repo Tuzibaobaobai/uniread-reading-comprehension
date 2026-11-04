@@ -301,6 +301,12 @@ function lexicon(name: string): Map<string, LexiconEntryT> {
       const legend = new Set(meta.data.marks.map((k) => k.key));
       const used = new Set([...out.values()].flatMap((e) => [e.star && 'star', e.supplement && 'supplement', e.levelMark && 'levelMark', e.textbook?.length && 'textbook'].filter(Boolean) as string[]));
       used.forEach((k) => !legend.has(k as never) && warnings.push(`lexicons/${name}: entries use the ${k} mark but lexicon.json does not explain it`));
+      // graded stars (#139): a level needs a star, and levels above 1 need the legend's `levels`
+      const starLevels = meta.data.marks.find((k) => k.key === 'star')?.levels?.length ?? 1;
+      for (const e of out.values()) {
+        if (e.starLevel && !e.star) errors.push(`lexicons/${name}/${e.id}: starLevel without star`);
+        if ((e.starLevel ?? 1) > starLevels) errors.push(`lexicons/${name}/${e.id}: starLevel ${e.starLevel} but lexicon.json defines ${starLevels} star level(s)`);
+      }
     }
   }
   const numbers = [...out.values()].map((e) => `${e.kind}:${e.number}`);

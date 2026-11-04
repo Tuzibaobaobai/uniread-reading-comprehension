@@ -30,7 +30,7 @@
         },
         {
           "t": "text",
-          "v": " James will possibily be an artist when he grows up."
+          "v": " James will possibly be an artist when he grows up."
         }
       ],
       "zh": "我们都认为詹姆斯长大后可能成为一名艺术家。"
@@ -69,6 +69,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "We all think James will possibily be an artist when he grows up.",
+      "corrected": "We all think James will possibly be an artist when he grows up.",
+      "note": "例句中 possibly 误印为 possibily；经人工复核（GitHub #135 第 110 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -80,6 +87,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

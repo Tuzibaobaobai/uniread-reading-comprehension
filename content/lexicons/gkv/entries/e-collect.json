@@ -24,7 +24,7 @@
         },
         {
           "t": "underline",
-          "v": "was collected"
+          "v": "were collected"
         },
         {
           "t": "text",
@@ -176,10 +176,17 @@
     "examples": [
       {
         "src": "assets/lexicons/gkv/e-collect-x1.mp3",
-        "seconds": 6.3
+        "seconds": 6
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Huge amounts of information about pollution was collected by the scientist last year.",
+      "corrected": "Huge amounts of information about pollution were collected by the scientist last year.",
+      "note": "例句主语 amounts 为复数，was 应为 were；经人工复核（GitHub #136 第 46 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -191,6 +198,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

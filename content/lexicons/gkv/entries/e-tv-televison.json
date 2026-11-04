@@ -4,7 +4,7 @@
   "lexicon": "gkv",
   "number": 3966,
   "kind": "word",
-  "headword": "TV (= televison)",
+  "headword": "TV (= television)",
   "ipa": [
     "ˌtiːˈviː"
   ],
@@ -36,7 +36,7 @@
   "audio": {
     "word": {
       "src": "assets/lexicons/gkv/e-tv-televison.mp3",
-      "seconds": 2.7
+      "seconds": 2.8
     },
     "examples": [
       {
@@ -45,6 +45,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "TV (= televison)",
+      "corrected": "TV (= television)",
+      "note": "词头括注 televison 拼写错误，应为 television；经人工复核（GitHub #137 第 115 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -56,6 +63,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

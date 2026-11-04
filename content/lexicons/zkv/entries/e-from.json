@@ -89,7 +89,7 @@
       "en": [
         {
           "t": "text",
-          "v": "She receired some gifts "
+          "v": "She received some gifts "
         },
         {
           "t": "underline",
@@ -137,10 +137,17 @@
       },
       {
         "src": "assets/lexicons/zkv/e-from-x5.mp3",
-        "seconds": 3.1
+        "seconds": 3.2
       }
     ]
   },
+  "errata": [
+    {
+      "original": "She receired some gifts from her friend.",
+      "corrected": "She received some gifts from her friend.",
+      "note": "例句中 receired 拼写错误，应为 received；经人工复核（GitHub #135 第 40 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -152,6 +159,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

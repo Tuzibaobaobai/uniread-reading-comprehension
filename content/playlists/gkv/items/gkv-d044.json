@@ -1331,7 +1331,7 @@
               },
               {
                 "t": "text",
-                "v": " between 50 to 500 yuan."
+                "v": " between 50 and 500 yuan."
               }
             ]
           },
@@ -1517,6 +1517,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "Those who are found eating, smoking or lying across the seats on the subway in Beijing can be f____ between 50 to 500 yuan.",
+      "corrected": "Those who are found eating, smoking or lying across the seats on the subway in Beijing can be f____ between 50 and 500 yuan.",
+      "note": "第三部分第 10 题 between … to … 搭配错误，应为 between 50 and 500；经人工复核（GitHub #136 第 87 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1534,6 +1541,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

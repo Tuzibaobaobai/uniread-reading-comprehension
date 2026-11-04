@@ -65,7 +65,7 @@
             },
             {
               "t": "text",
-              "v": " Canal in the Sui Dynasty. 大运河是在隋朝开始修建的。"
+              "v": " Canal began in the Sui Dynasty. 大运河是在隋朝开始修建的。"
             }
           ]
         },
@@ -104,6 +104,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "The construction of the Grand Canal in the Sui Dynasty.",
+      "corrected": "The construction of the Grand Canal began in the Sui Dynasty.",
+      "note": "辨析例句缺谓语，与译文「大运河是在隋朝开始修建的」不符，补 began；经人工复核（GitHub #136 第 103 条）确认更正"
+    }
+  ],
   "audio": {
     "word": {
       "src": "assets/lexicons/gkv/e-grand.mp3",
@@ -127,6 +134,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

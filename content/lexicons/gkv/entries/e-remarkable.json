@@ -27,7 +27,7 @@
         },
         {
           "t": "text",
-          "v": " evoluation in natural language processing and conversational AI capabilities."
+          "v": " evolution in natural language processing and conversational AI capabilities."
         }
       ],
       "zh": "过去两年 ChatGPT 改变了我们的生活，在此期间，我们见证了自然语言处理和会话式人工智能能力的显著进步。"
@@ -48,10 +48,17 @@
     "examples": [
       {
         "src": "assets/lexicons/gkv/e-remarkable-x1.mp3",
-        "seconds": 13.4
+        "seconds": 13.7
       }
     ]
   },
+  "errata": [
+    {
+      "original": " evoluation in natural language processing and conversational AI capabilities.",
+      "corrected": " evolution in natural language processing and conversational AI capabilities.",
+      "note": "evoluation 为 evolution 的拼写错误；经人工复核（GitHub #137 第 68 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -63,6 +70,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

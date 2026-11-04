@@ -464,7 +464,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "记得；想记 v. "
+                "v": "记得；想起 v. "
               },
               {
                 "t": "blank",
@@ -1075,6 +1075,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "记得；想记 v.",
+      "corrected": "记得；想起 v.",
+      "note": "二.14「想记」为「想起」之误（手册 1300 remember 为 记得；想起）；经人工复核（GitHub #135 第 94 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1087,6 +1094,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

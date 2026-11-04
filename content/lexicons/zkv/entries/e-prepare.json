@@ -24,15 +24,15 @@
       "en": [
         {
           "t": "text",
-          "v": "We "
+          "v": "We are "
         },
         {
           "t": "underline",
-          "v": "are"
+          "v": "preparing"
         },
         {
           "t": "text",
-          "v": " preparing for the party."
+          "v": " for the party."
         }
       ],
       "zh": "我们在为派对做准备。"
@@ -63,6 +63,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "We are preparing for the party.（下划线在 are 上）",
+      "corrected": "We are preparing for the party.（下划线在 preparing 上）",
+      "note": "例句下划线应标在词目形式 preparing 上，原书误标在助动词 are 上；经人工复核（GitHub #135 第 87 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -74,6 +81,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

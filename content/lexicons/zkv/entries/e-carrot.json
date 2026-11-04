@@ -23,7 +23,15 @@
       "en": [
         {
           "t": "text",
-          "v": "I’ll have some more carrots."
+          "v": "I’ll have some more "
+        },
+        {
+          "t": "underline",
+          "v": "carrots"
+        },
+        {
+          "t": "text",
+          "v": "."
         }
       ],
       "zh": "我还要一些胡萝卜。"
@@ -41,6 +49,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "I’ll have some more carrots.",
+      "corrected": "I’ll have some more <u>carrots</u>.",
+      "note": "例句中词条词形 carrots 漏印下划线；经人工复核（GitHub #135 第 12 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -52,6 +67,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

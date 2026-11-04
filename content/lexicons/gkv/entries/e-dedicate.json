@@ -19,7 +19,15 @@
       "en": [
         {
           "t": "text",
-          "v": "He dedicated himself body and soul to the education of young people."
+          "v": "He "
+        },
+        {
+          "t": "underline",
+          "v": "dedicated"
+        },
+        {
+          "t": "text",
+          "v": " himself body and soul to the education of young people."
         }
       ],
       "zh": "他全身心地投入到年轻人的教育中。"
@@ -33,10 +41,17 @@
     "examples": [
       {
         "src": "assets/lexicons/gkv/e-dedicate-x1.mp3",
-        "seconds": 5.7
+        "seconds": 5.6
       }
     ]
   },
+  "errata": [
+    {
+      "original": "He dedicated himself body and soul to the education of young people.",
+      "corrected": "He dedicated himself body and soul to the education of young people.（dedicated 加下划线）",
+      "note": "例句中词头形式 dedicated 原书未加下划线，补加下划线；经人工复核（GitHub #136 第 60 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -48,6 +63,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -4,8 +4,9 @@
   "lexicon": "zkv",
   "number": 221,
   "kind": "phrase",
-  "headword": "lose temper",
+  "headword": "lose one’s temper",
   "star": true,
+  "starLevel": 2,
   "senses": [
     {
       "zh": "发脾气"
@@ -20,7 +21,7 @@
         },
         {
           "t": "underline",
-          "v": "lost temper"
+          "v": "lost his temper"
         },
         {
           "t": "text",
@@ -33,7 +34,7 @@
   "audio": {
     "word": {
       "src": "assets/lexicons/zkv/e-lose-temper.mp3",
-      "seconds": 1.8
+      "seconds": 2.2
     },
     "examples": [
       {
@@ -42,6 +43,18 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "lose temper",
+      "corrected": "lose one’s temper",
+      "note": "词组标准形式为 lose one’s temper，原书漏印 one’s；经人工复核（GitHub #135 第 135 条）确认更正"
+    },
+    {
+      "original": "Father lost temper after he was told his daughter stole a mobile phone from her deskmate.",
+      "corrected": "Father lost his temper after he was told his daughter stole a mobile phone from her deskmate.",
+      "note": "例句漏印 his（书末答案为 lost his temper）；经人工复核（GitHub #135 第 135 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -53,6 +66,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

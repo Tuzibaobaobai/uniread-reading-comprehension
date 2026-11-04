@@ -20,7 +20,15 @@
       "en": [
         {
           "t": "text",
-          "v": "He made an apology to the teacher for being late."
+          "v": "He made an "
+        },
+        {
+          "t": "underline",
+          "v": "apology"
+        },
+        {
+          "t": "text",
+          "v": " to the teacher for being late."
         }
       ],
       "zh": "他因迟到向老师道歉。"
@@ -44,6 +52,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "He made an apology to the teacher for being late.",
+      "corrected": "He made an <u>apology</u> to the teacher for being late.",
+      "note": "例句中词头 apology 漏印下划线；经人工复核（GitHub #136 第 14 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -55,6 +70,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

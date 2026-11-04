@@ -37,6 +37,8 @@ export function EntryCard({
   useEffect(() => setOpen(known !== true), [known]);
   const folded = known !== undefined && !open;
   const mark = (key: string) => marks.find((m) => m.key === key);
+  // graded stars (中考 * / ** / ***): the level's own meaning when the book defines one
+  const starText = mark('star')?.levels?.[(e.starLevel ?? 1) - 1]?.description ?? mark('star')?.description;
   const extras = [
     e.phrases?.length && { label: t('vocab.entry.phrases'), rows: e.phrases.map((p) => [p.en, p.zh]) },
     e.wordFamily?.length && { label: t('vocab.entry.family'), rows: e.wordFamily.map((w) => [`${w.word}${w.pos ? ` ${w.pos}` : ''}`, w.zh]) },
@@ -55,8 +57,8 @@ export function EntryCard({
             </MarkTag>
           )}
           {e.star && (
-            <MarkTag kind="star" title={mark('star')?.description} label={mark('star')?.description ?? t('vocab.entry.star')}>
-              *
+            <MarkTag kind="star" title={starText} label={starText ?? t('vocab.entry.star')}>
+              {'*'.repeat(e.starLevel ?? 1)}
             </MarkTag>
           )}
           {e.headword}

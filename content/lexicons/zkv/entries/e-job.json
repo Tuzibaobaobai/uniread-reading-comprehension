@@ -6,7 +6,7 @@
   "kind": "word",
   "headword": "job",
   "ipa": [
-    "dʒəʊb"
+    "dʒɒb"
   ],
   "star": true,
   "levelMark": true,
@@ -148,6 +148,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "dʒəʊb",
+      "corrected": "dʒɒb",
+      "note": "job 的元音是短元音 /ɒ/，不是双元音 /əʊ/；经人工复核（GitHub #135 第 58 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -161,6 +168,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

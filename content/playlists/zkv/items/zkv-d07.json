@@ -781,7 +781,16 @@
               },
               {
                 "t": "blank",
-                "id": "b30",
+                "id": "b30a",
+                "number": 30
+              },
+              {
+                "t": "text",
+                "v": " "
+              },
+              {
+                "t": "blank",
+                "id": "b30b",
                 "number": 30,
                 "hint": {
                   "baseWord": "busy"
@@ -1059,6 +1068,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "They ______ with wedding preparations. (busy)",
+      "corrected": "They ______ ______ with wedding preparations. (busy)",
+      "note": "第四大题要求每空格限填一词，但本题答案 are busy / were busy 是两个词；经人工复核（GitHub #135 第 9 条）确认改为两个空格"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1071,6 +1087,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

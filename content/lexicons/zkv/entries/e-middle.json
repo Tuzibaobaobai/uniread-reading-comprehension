@@ -50,7 +50,7 @@
         },
         {
           "t": "text",
-          "v": " aged women."
+          "v": "-aged women."
         }
       ],
       "zh": "这款式最适合中年妇女。"
@@ -78,6 +78,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "The design is the most suitable for middle aged women.",
+      "corrected": "The design is the most suitable for middle-aged women.",
+      "note": "复合形容词 middle-aged 漏印连字符；经人工复核（GitHub #135 第 72 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -89,6 +96,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

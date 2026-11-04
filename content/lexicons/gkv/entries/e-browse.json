@@ -62,7 +62,7 @@
             },
             {
               "t": "text",
-              "v": " at my watch and told him what time it is. 我看了一下手表，告诉他几点了。"
+              "v": " at my watch and told him what time it was. 我看了一下手表，告诉他几点了。"
             }
           ]
         },
@@ -195,6 +195,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "I glanced at my watch and told him what time it is.",
+      "corrected": "I glanced at my watch and told him what time it was.",
+      "note": "辨析 glance 例句时态不一致，what time it is 应为 what time it was；经人工复核（GitHub #136 第 36 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -206,6 +213,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -23,11 +23,11 @@
         },
         {
           "t": "underline",
-          "v": "hot"
+          "v": "hot dogs"
         },
         {
           "t": "text",
-          "v": "-dog."
+          "v": "."
         }
       ],
       "zh": "我喜欢吃热狗。"
@@ -41,10 +41,17 @@
     "examples": [
       {
         "src": "assets/lexicons/zkv/e-hot-dog-x1.mp3",
-        "seconds": 2.7
+        "seconds": 2.8
       }
     ]
   },
+  "errata": [
+    {
+      "original": "I like to eat hot-dog.",
+      "corrected": "I like to eat hot dogs.",
+      "note": "例句 hot-dog 用法不当且下划线只覆盖 hot，改为 hot dogs 并整体加下划线；经人工复核（GitHub #135 第 55 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -56,6 +63,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

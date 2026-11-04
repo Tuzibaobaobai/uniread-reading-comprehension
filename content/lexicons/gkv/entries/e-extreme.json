@@ -37,7 +37,7 @@
       "en": [
         {
           "t": "text",
-          "v": "We are on a world of "
+          "v": "We live in a world of "
         },
         {
           "t": "underline",
@@ -76,10 +76,17 @@
       },
       {
         "src": "assets/lexicons/gkv/e-extreme-x2.mp3",
-        "seconds": 4
+        "seconds": 4.1
       }
     ]
   },
+  "errata": [
+    {
+      "original": "We are on a world of extremes of temperature.",
+      "corrected": "We live in a world of extremes of temperature.",
+      "note": "例句介词用错，应为 in a world，与中文「我们生活在……世界上」对应；经人工复核（GitHub #136 第 82 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -91,6 +98,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -28,7 +28,7 @@
         },
         {
           "t": "text",
-          "v": " in Shanghai were built in 1920s or 1930s."
+          "v": " in Shanghai were built in the 1920s or 1930s."
         }
       ],
       "zh": "上海沿外滩的许多建筑建于 20 世纪二三十年代。"
@@ -42,10 +42,17 @@
     "examples": [
       {
         "src": "assets/lexicons/zkv/e-bund-x1.mp3",
-        "seconds": 7
+        "seconds": 7.2
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Many buildings along the Bund in Shanghai were built in 1920s or 1930s.",
+      "corrected": "Many buildings along the Bund in Shanghai were built in the 1920s or 1930s.",
+      "note": "年代前缺少定冠词 the；经人工复核（GitHub #135 第 10 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -57,6 +64,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

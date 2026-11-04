@@ -18,16 +18,12 @@
     {
       "en": [
         {
-          "t": "text",
-          "v": "Mount Qomolangma is the highest "
-        },
-        {
           "t": "underline",
-          "v": "mountain"
+          "v": "Mount"
         },
         {
           "t": "text",
-          "v": " in the world."
+          "v": " Qomolangma is the highest mountain in the world."
         }
       ],
       "zh": "珠穆朗玛峰是世界上最高的山峰。"
@@ -45,6 +41,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Mount Qomolangma is the highest __mountain__ in the world.",
+      "corrected": "__Mount__ Qomolangma is the highest mountain in the world.",
+      "note": "例句下划线应标在词头 Mount 上，而不是 mountain；经人工复核（GitHub #137 第 16 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -56,6 +59,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

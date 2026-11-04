@@ -24,7 +24,7 @@
       "en": [
         {
           "t": "text",
-          "v": "To protect the environment, supermakets don’t "
+          "v": "To protect the environment, supermarkets don’t "
         },
         {
           "t": "underline",
@@ -69,7 +69,7 @@
     "examples": [
       {
         "src": "assets/lexicons/zkv/e-provide-x1.mp3",
-        "seconds": 6.8
+        "seconds": 6.6
       },
       {
         "src": "assets/lexicons/zkv/e-provide-x2.mp3",
@@ -77,6 +77,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "To protect the environment, supermakets don’t provide free plastic bags for shoppers.",
+      "corrected": "To protect the environment, supermarkets don’t provide free plastic bags for shoppers.",
+      "note": "supermakets 为 supermarkets 的拼写错误；经人工复核（GitHub #135 第 93 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -88,6 +95,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

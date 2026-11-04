@@ -1186,7 +1186,7 @@
               },
               {
                 "t": "text",
-                "v": " action to lower price."
+                "v": " action to lower prices."
               }
             ]
           },
@@ -1507,6 +1507,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "The government is taking d____ action to lower price.",
+      "corrected": "The government is taking d____ action to lower prices.",
+      "note": "三 第 52 题 price 应为复数 prices（手册 deliberate 例句）；经人工复核（GitHub #136 第 62 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1522,6 +1529,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

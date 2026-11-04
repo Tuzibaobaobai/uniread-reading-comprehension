@@ -963,7 +963,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "降；失败 "
+                "v": "下降；失败 "
               },
               {
                 "t": "blank",
@@ -1090,7 +1090,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "We are on a world of "
+                "v": "We live in a world of "
               },
               {
                 "t": "blank",
@@ -1531,6 +1531,18 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "降；失败",
+      "corrected": "下降；失败",
+      "note": "第二部分第 10 题提示漏印「下」，手册 fall down 释义为「下降；失败」；经人工复核（GitHub #136 第 83 条）确认更正"
+    },
+    {
+      "original": "We are on a world of e____ of temperature.",
+      "corrected": "We live in a world of e____ of temperature.",
+      "note": "第三部分第 1 题介词用错，应为 in a world（本句按手册更正为 We live in a world of …）；经人工复核（GitHub #136 第 82 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1548,6 +1560,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

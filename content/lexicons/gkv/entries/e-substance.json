@@ -33,19 +33,6 @@
       "zh": "水和冰是同一种物质的不同形态。"
     }
   ],
-  "phrases": [
-    {
-      "en": "be subject to",
-      "zh": "经受；遭受"
-    }
-  ],
-  "wordFamily": [
-    {
-      "word": "subjective",
-      "pos": "adj.",
-      "zh": "主语的；主格的；主观的"
-    }
-  ],
   "audio": {
     "word": {
       "src": "assets/lexicons/gkv/e-substance.mp3",
@@ -58,6 +45,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "派生 subjective adj. 主语的；主格的；主观的 / 词组 be subject to 经受；遭受",
+      "corrected": "（删去：属于 subject 词条）",
+      "note": "这组派生词和词组属于 subject（3662），原书误抄到 substance 下；经人工复核（GitHub #137 第 104 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -69,6 +63,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

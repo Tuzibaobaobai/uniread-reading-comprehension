@@ -1086,7 +1086,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Huge amounts of information about pollution was "
+                "v": "Huge amounts of information about pollution were "
               },
               {
                 "t": "blank",
@@ -1469,6 +1469,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "Huge amounts of information about pollution was c____ by the scientists last year.",
+      "corrected": "Huge amounts of information about pollution were c____ by the scientists last year.",
+      "note": "三 第 50 题主语 amounts 为复数，was 应为 were；经人工复核（GitHub #136 第 46 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1486,6 +1493,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -20,7 +20,15 @@
       "en": [
         {
           "t": "text",
-          "v": "We have purchased some valuable jewelry."
+          "v": "We have purchased some valuable "
+        },
+        {
+          "t": "underline",
+          "v": "jewelry"
+        },
+        {
+          "t": "text",
+          "v": "."
         }
       ],
       "zh": "我们购置了几件贵重的珠宝饰物。"
@@ -38,6 +46,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "We have purchased some valuable jewelry.（jewelry 未加下划线）",
+      "corrected": "We have purchased some valuable jewelry.（jewelry 加下划线）",
+      "note": "例句中词头 jewelry 漏加下划线；经人工复核（GitHub #136 第 131 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -49,6 +64,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

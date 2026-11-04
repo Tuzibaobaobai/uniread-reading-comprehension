@@ -49,7 +49,7 @@
         },
         {
           "t": "text",
-          "v": " book that I’ve been looking for a long time."
+          "v": " book that I’ve been looking for for a long time."
         }
       ],
       "zh": "这正是我找了很久的书。"
@@ -67,10 +67,17 @@
       },
       {
         "src": "assets/lexicons/gkv/e-very-x2.mp3",
-        "seconds": 4.5
+        "seconds": 5
       }
     ]
   },
+  "errata": [
+    {
+      "original": "It is the very book that I’ve been looking for a long time.",
+      "corrected": "It is the very book that I’ve been looking for for a long time.",
+      "note": "第2个例句漏了一个 for；经人工复核（GitHub #137 第 119 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -82,6 +89,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -1408,7 +1408,7 @@
               }
             ],
             "scoring": "judge",
-            "requiredWord": "extention"
+            "requiredWord": "extension"
           },
           "entryRef": "e-extension"
         },
@@ -1551,6 +1551,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "（extention）",
+      "corrected": "（extension）",
+      "note": "第四部分第 2 题括号内指定词 extention 为拼写错误，应为 extension；经人工复核（GitHub #136 第 78 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1566,6 +1573,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

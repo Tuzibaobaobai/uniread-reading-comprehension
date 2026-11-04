@@ -24,13 +24,24 @@ export function VocabList({
   const unmarked = entries.filter((e) => known[e.id] === undefined).length;
   // what the marks beside a headword mean (#113): only the marks that occur in this day's entries
   const used = new Set(entries.flatMap((e) => [...marksOf(e)]));
+  const levelsUsed = new Set(entries.filter((e) => e.star).map((e) => e.starLevel ?? 1));
   const legend = marks
     .filter((m) => used.has(m.key))
-    .map((m) => ({
-      key: m.key,
-      description: m.description,
-      symbol: <MarkTag kind={m.key === 'star' ? 'star' : m.key === 'supplement' ? 'supplement' : m.key === 'textbook' ? 'textbook' : 'level'}>{m.symbol}</MarkTag>,
-    }));
+    .flatMap((m) =>
+      // graded stars (中考 * / ** / ***, #139): one legend item per level used today
+      m.key === 'star' && m.levels?.length
+        ? m.levels
+            .map((l, i) => ({ level: i + 1, ...l }))
+            .filter((l) => levelsUsed.has(l.level))
+            .map((l) => ({ key: `star-${l.level}`, description: l.description, symbol: <MarkTag kind="star">{l.symbol}</MarkTag> }))
+        : [
+            {
+              key: m.key,
+              description: m.description,
+              symbol: <MarkTag kind={m.key === 'star' ? 'star' : m.key === 'supplement' ? 'supplement' : m.key === 'textbook' ? 'textbook' : 'level'}>{m.symbol}</MarkTag>,
+            },
+          ],
+    );
   return (
     <div className="vocab-list">
       <StudyToolbar

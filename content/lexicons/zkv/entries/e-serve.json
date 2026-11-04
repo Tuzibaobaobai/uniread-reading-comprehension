@@ -41,15 +41,15 @@
       "en": [
         {
           "t": "text",
-          "v": "Peter "
+          "v": "Peter has "
         },
         {
           "t": "underline",
-          "v": "has"
+          "v": "served"
         },
         {
           "t": "text",
-          "v": " served the company for 25 years, first as office boy and finally as sales manager."
+          "v": " the company for 25 years, first as office boy and finally as sales manager."
         }
       ],
       "zh": "彼得在这家公司服务了 25 年，开始是办公室工作人员，最后成为销售经理。"
@@ -82,10 +82,17 @@
       },
       {
         "src": "assets/lexicons/zkv/e-serve-x2.mp3",
-        "seconds": 8.3
+        "seconds": 8.5
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Peter has served the company for 25 years, …（下划线在 has 上）",
+      "corrected": "Peter has served the company for 25 years, …（下划线在 served 上）",
+      "note": "例句下划线应标在词目形式 served 上，原书误标在 has 上；经人工复核（GitHub #135 第 101 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -97,6 +104,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

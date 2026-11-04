@@ -20,7 +20,15 @@
       "en": [
         {
           "t": "text",
-          "v": "She found it impossible to extricate herself from the relationship."
+          "v": "She found it impossible to extricate herself from the "
+        },
+        {
+          "t": "underline",
+          "v": "relationship"
+        },
+        {
+          "t": "text",
+          "v": "."
         }
       ],
       "zh": "她发现自己不可能从这种关系中解脱出来。"
@@ -60,6 +68,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "She found it impossible to extricate herself from the relationship.（relationship 未加下划线）",
+      "corrected": "She found it impossible to extricate herself from the relationship.（relationship 加下划线）",
+      "note": "例句中词目 relationship 漏加下划线；经人工复核（GitHub #135 第 96 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -71,6 +86,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

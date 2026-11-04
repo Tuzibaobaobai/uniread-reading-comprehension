@@ -892,7 +892,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Either measure the temperature with a thermometre or "
+                "v": "Either measure the temperature with a thermometer or "
               },
               {
                 "t": "blank",
@@ -1086,6 +1086,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "Either measure the temperature with a thermometre or t___ the water with your wrist.",
+      "corrected": "Either measure the temperature with a thermometer or t___ the water with your wrist.",
+      "note": "第 35 题 thermometer 误印为非标准拼写 thermometre（手册 test 词条为 thermometer）；经人工复核（GitHub #135 第 111 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1098,6 +1105,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

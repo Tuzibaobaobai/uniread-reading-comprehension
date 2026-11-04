@@ -78,7 +78,7 @@
       "en": [
         {
           "t": "text",
-          "v": "The workers demand for a twenty percent "
+          "v": "The workers demand a twenty percent "
         },
         {
           "t": "underline",
@@ -122,6 +122,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "The workers demand for a twenty percent pay rise.",
+      "corrected": "The workers demand a twenty percent pay rise.",
+      "note": "demand 作动词直接接宾语，不加 for；经人工复核（GitHub #135 第 79 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -133,6 +140,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

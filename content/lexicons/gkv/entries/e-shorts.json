@@ -20,15 +20,15 @@
       "en": [
         {
           "t": "text",
-          "v": "This pair of shorts is made of real silk and is very "
+          "v": "This pair of "
         },
         {
           "t": "underline",
-          "v": "comfortable"
+          "v": "shorts"
         },
         {
           "t": "text",
-          "v": " to wear in summer."
+          "v": " is made of real silk and is very comfortable to wear in summer."
         }
       ],
       "zh": "这条短裤是真丝做的，夏天穿起来很舒服。"
@@ -46,6 +46,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "This pair of shorts is made of real silk and is very <u>comfortable</u> to wear in summer.",
+      "corrected": "This pair of <u>shorts</u> is made of real silk and is very comfortable to wear in summer.",
+      "note": "例句下划线应标在词目 shorts 上，原书误标在 comfortable 上；经人工复核（GitHub #137 第 83 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -57,6 +64,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

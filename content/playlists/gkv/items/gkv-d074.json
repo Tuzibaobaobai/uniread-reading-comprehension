@@ -757,7 +757,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "贵族 "
+                "v": "一个高尚的人 "
               },
               {
                 "t": "blank",
@@ -1449,6 +1449,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "35. 贵族",
+      "corrected": "35. 一个高尚的人",
+      "note": "第 35 题题干「贵族」与答案 a noble man（手册释为“一个高尚的人”）不符；经人工复核（GitHub #137 第 26 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1464,6 +1471,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

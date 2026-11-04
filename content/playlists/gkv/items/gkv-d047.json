@@ -1267,7 +1267,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "Aircrafts sometimes "
+                "v": "Aircraft sometimes "
               },
               {
                 "t": "blank",
@@ -1600,6 +1600,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "Aircrafts sometimes f____ while in the air.",
+      "corrected": "Aircraft sometimes f______ while in the air.",
+      "note": "第三部分第 5 题 aircraft 复数不加 -s；答案改为 fly；经人工复核（GitHub #136 第 90 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1617,6 +1624,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -132,7 +132,7 @@
         },
         {
           "t": "text",
-          "v": " interesting as this one. 那部小说远不及这部有趣。"
+          "v": " as interesting as this one. 那部小说远不及这部有趣。"
         }
       ]
     }
@@ -149,6 +149,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "That novel is not nearly interesting as this one.",
+      "corrected": "That novel is not nearly as interesting as this one.",
+      "note": "名师点拨例句漏印 as，应为 not nearly as interesting as；经人工复核（GitHub #136 第 5 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -162,6 +169,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

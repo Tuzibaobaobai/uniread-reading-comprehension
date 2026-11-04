@@ -893,7 +893,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "The workers’ demand for a twenty percent "
+                "v": "The workers demand a twenty percent "
               },
               {
                 "t": "blank",
@@ -1033,6 +1033,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "The workers’ demand for a twenty percent p____ rise.",
+      "corrected": "The workers demand a twenty percent p______ rise.",
+      "note": "五.4 句子缺谓语动词，改为 demand 作动词；经人工复核（GitHub #135 第 80 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1045,6 +1052,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

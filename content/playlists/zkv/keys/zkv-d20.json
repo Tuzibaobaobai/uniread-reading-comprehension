@@ -535,9 +535,10 @@
       "explanationZh": "这是 foolish 词条的谚语：Stay hungry, stay foolish. stay 后接形容词，表示“保持……状态”。"
     },
     "q42": {
-      "sampleAnswer": "Parents are our first teachers, they usually teach us lessons of life.",
+      "sampleAnswer": "Parents are our first teachers. They teach us lessons of life.",
       "references": [
-        "Parents are our first teachers, they usually teach us lessons of life."
+        "Parents are our first teachers. They teach us lessons of life.",
+        "Parents are our first teachers and they teach us lessons of life."
       ],
       "rubricType": "translation",
       "keyPoints": [
@@ -552,7 +553,8 @@
           "weight": 2
         }
       ],
-      "explanationZh": "“第一任老师”= first teachers，first 作形容词放在名词前；“教某人某物”= teach sb. sth.，“人生的课程”= lessons of life。"
+      "explanationZh": "“第一任老师”= first teachers，first 作形容词放在名词前；“教某人某物”= teach sb. sth.，“人生的课程”= lessons of life。",
+      "rubricZh": "书末答案印作 Parents are our first teachers, they usually teach us lessons of life.（两个分句只用逗号连接，且 usually 在中文里没有对应），经人工复核（GitHub #135）更正为 Parents are our first teachers. They teach us lessons of life.；Parents are our first teachers and they teach us lessons of life. 亦正确。"
     },
     "q43": {
       "sampleAnswer": "It is better to teach a man to fish than to give him fish.",

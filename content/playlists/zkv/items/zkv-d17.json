@@ -966,7 +966,7 @@
               }
             ],
             "scoring": "judge",
-            "requiredWord": "everyday"
+            "requiredWord": "every day"
           },
           "entryRef": "e-everyday"
         },
@@ -1024,6 +1024,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "（everyday）",
+      "corrected": "（every day）",
+      "note": "作时间状语“每天”应写作两个词 every day（手册 everyday 词条名师点拨即以本句为例），原书指定词与答案印作 everyday；经人工复核（GitHub #135 第 30 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1036,6 +1043,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

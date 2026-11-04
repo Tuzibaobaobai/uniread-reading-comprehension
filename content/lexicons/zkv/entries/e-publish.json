@@ -24,15 +24,15 @@
       "en": [
         {
           "t": "text",
-          "v": "By the age of ten, the little girl "
+          "v": "By the age of ten, the little girl had "
         },
         {
           "t": "underline",
-          "v": "had"
+          "v": "published"
         },
         {
           "t": "text",
-          "v": " published her first collection of poems. She’s now very famous."
+          "v": " her first collection of poems. She’s now very famous."
         }
       ],
       "zh": "这个小女孩在 10 岁的时候已经出版了她的第一本诗集。她现在很出名。"
@@ -46,10 +46,17 @@
     "examples": [
       {
         "src": "assets/lexicons/zkv/e-publish-x1.mp3",
-        "seconds": 8.4
+        "seconds": 8.2
       }
     ]
   },
+  "errata": [
+    {
+      "original": "By the age of ten, the little girl had published her first collection of poems.（下划线在 had 上）",
+      "corrected": "By the age of ten, the little girl had published her first collection of poems.（下划线在 published 上）",
+      "note": "例句下划线应标在词目形式 published 上，原书误标在 had 上；经人工复核（GitHub #135 第 91 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -61,6 +68,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

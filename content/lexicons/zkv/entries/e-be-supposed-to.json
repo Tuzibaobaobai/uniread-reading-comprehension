@@ -15,7 +15,7 @@
       "en": [
         {
           "t": "text",
-          "v": "The whole conference as totally disorganised and nobody knew where they "
+          "v": "The whole conference was totally disorganised and nobody knew where they "
         },
         {
           "t": "underline",
@@ -45,10 +45,17 @@
     "examples": [
       {
         "src": "assets/lexicons/zkv/e-be-supposed-to-x1.mp3",
-        "seconds": 8.8
+        "seconds": 8.4
       }
     ]
   },
+  "errata": [
+    {
+      "original": "The whole conference as totally disorganised and nobody knew where they were supposed to be or what they were supposed to be doing.",
+      "corrected": "The whole conference was totally disorganised and nobody knew where they were supposed to be or what they were supposed to be doing.",
+      "note": "例句中 was 误印为 as；经人工复核（GitHub #135 第 124 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -60,6 +67,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

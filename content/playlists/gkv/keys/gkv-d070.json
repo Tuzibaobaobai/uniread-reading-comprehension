@@ -512,17 +512,17 @@
           ]
         }
       },
-      "explanationZh": "mistake A for B“把 A 误认为 B”，介词用 for。"
+      "explanationZh": "mistake A for B“把 A 误认为 B”，介词用 for。原书答案在 mistake 与 for 之间印有一个错乱字符（mistake ɔıɔ for …），经人工复核（GitHub #137）更正为 mistake ... for ...。"
     },
     "q50": {
       "slots": {
         "b50": {
           "accept": [
-            "millions"
+            "million"
           ]
         }
       },
-      "explanationZh": "“他拥有价值 400 万的财产”，用 million“百万”。注意：前面有具体数字 four 时 million 通常不加 -s（手册例句为 four million），书上答案印作 millions。"
+      "explanationZh": "“他拥有价值 400 万的财产”，用 million“百万”。前面有具体数字 four 时 million 不加 -s（手册例句为 four million）；原书答案印作 millions，经人工复核（GitHub #137）更正为 million。"
     },
     "q51": {
       "slots": {
@@ -655,11 +655,12 @@
       "explanationZh": "“矿产资源”= mineral resources，mineral 作形容词；“拥有”可用 possess / have。"
     },
     "q62": {
-      "sampleAnswer": "The literature works of the time mirrored the perseverance of the people in our country when they were faced with the national crisis,",
+      "sampleAnswer": "The literary works of the time mirrored the perseverance of the people in our country when they were faced with the national crisis.",
       "references": [
-        "The literature works of the time mirrored the perseverance of the people in our country when they were faced with the national crisis,"
+        "The literary works of the time mirrored the perseverance of the people in our country when they were faced with the national crisis."
       ],
       "rubricType": "translation",
+      "rubricZh": "原书参考答案印作“The literature works of the time mirrored the perseverance of the people in our country when they were faced with the national crisis,”（句末误用逗号；literature works 不规范，通常说 literary works），经人工复核（GitHub #137）更正为现参考答案。",
       "keyPoints": [
         {
           "id": "meaning",

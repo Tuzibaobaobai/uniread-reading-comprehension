@@ -1253,7 +1253,7 @@
               },
               {
                 "t": "text",
-                "v": " for is breakfnst and dinner."
+                "v": " for is breakfast and dinner."
               }
             ]
           },
@@ -1466,6 +1466,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": " for is breakfnst and dinner.",
+      "corrected": " for is breakfast and dinner.",
+      "note": "breakfnst 为 breakfast 的印刷错误；经人工复核（GitHub #137 第 43 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1483,6 +1490,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

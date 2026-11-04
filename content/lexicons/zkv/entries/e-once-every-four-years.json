@@ -15,7 +15,7 @@
       "en": [
         {
           "t": "text",
-          "v": "Olympic is held "
+          "v": "The Olympics are held "
         },
         {
           "t": "underline",
@@ -41,6 +41,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Olympic is held once every four years.",
+      "corrected": "The Olympics are held once every four years.",
+      "note": "Olympic 是形容词，例句缺名词，应为 The Olympics are held；经人工复核（GitHub #135 第 136 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -52,6 +59,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

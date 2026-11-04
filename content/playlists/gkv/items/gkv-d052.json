@@ -417,7 +417,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "仇恨；敌意 v. "
+                "v": "憎恨；对……感到遗憾；不喜欢 vt. "
               },
               {
                 "t": "blank",
@@ -1325,7 +1325,7 @@
               },
               {
                 "t": "text",
-                "v": " on young peple’s problems."
+                "v": " on young people’s problems."
               }
             ]
           },
@@ -1588,6 +1588,18 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "仇恨；敌意 v.",
+      "corrected": "憎恨；对……感到遗憾；不喜欢 vt.",
+      "note": "一·18 中文释义误作 hatred 的“仇恨；敌意”且词性标 v.，与手册 hate 词条不符；经人工复核（GitHub #136 第 108 条）确认更正"
+    },
+    {
+      "original": "The man often gives some advice to the h______ on young peple’s problems.",
+      "corrected": "The man often gives some advice to the h______ on young people’s problems.",
+      "note": "三·7 peple’s 为拼写错误；经人工复核（GitHub #136 第 109 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1603,6 +1615,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

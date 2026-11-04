@@ -757,7 +757,7 @@
               },
               {
                 "t": "text",
-                "v": " its products in a lower price."
+                "v": " its products at a lower price."
               }
             ]
           },
@@ -1053,6 +1053,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "The company had no way but to ______ its products in a lower price.",
+      "corrected": "The company had no way but to ______ its products at a lower price.",
+      "note": "四.3 in a lower price 不地道，应为 at a lower price；经人工复核（GitHub #135 第 102 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1065,6 +1072,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

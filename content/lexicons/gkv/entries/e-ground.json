@@ -20,7 +20,7 @@
       "en": [
         {
           "t": "text",
-          "v": "play "
+          "v": "play"
         },
         {
           "t": "underline",
@@ -44,10 +44,17 @@
     "examples": [
       {
         "src": "assets/lexicons/gkv/e-ground-x1.mp3",
-        "seconds": 1.9
+        "seconds": 1.7
       }
     ]
   },
+  "errata": [
+    {
+      "original": "play ground",
+      "corrected": "playground",
+      "note": "例词 playground 通常写成一个词，书上印作 play ground；经人工复核（GitHub #136 第 104 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -59,6 +66,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

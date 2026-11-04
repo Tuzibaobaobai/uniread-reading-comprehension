@@ -9,6 +9,7 @@
     "ˈjuːsləs"
   ],
   "star": true,
+  "starLevel": 3,
   "senses": [
     {
       "pos": "adj.",
@@ -20,7 +21,7 @@
       "en": [
         {
           "t": "text",
-          "v": "His advise is "
+          "v": "His advice is "
         },
         {
           "t": "underline",
@@ -42,10 +43,17 @@
     "examples": [
       {
         "src": "assets/lexicons/zkv/e-useless-x1.mp3",
-        "seconds": 3.9
+        "seconds": 3.6
       }
     ]
   },
+  "errata": [
+    {
+      "original": "His advise is useless to our project.",
+      "corrected": "His advice is useless to our project.",
+      "note": "例句主语应为名词 advice，误印为动词 advise；经人工复核（GitHub #135 第 114 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -57,6 +65,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

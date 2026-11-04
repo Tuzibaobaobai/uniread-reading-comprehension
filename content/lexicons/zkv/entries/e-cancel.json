@@ -21,15 +21,15 @@
       "en": [
         {
           "t": "text",
-          "v": "We shouldn’t hurry all the way to the airport, the flight "
+          "v": "We shouldn’t hurry all the way to the airport, the flight was "
         },
         {
           "t": "underline",
-          "v": "was"
+          "v": "cancelled"
         },
         {
           "t": "text",
-          "v": " cancelled because of the foggy weather."
+          "v": " because of the foggy weather."
         }
       ],
       "zh": "我们不应该急着去机场，因为有雾，航班被取消了。"
@@ -50,6 +50,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "We shouldn’t hurry all the way to the airport, the flight <u>was</u> cancelled because of the foggy weather.",
+      "corrected": "We shouldn’t hurry all the way to the airport, the flight was <u>cancelled</u> because of the foggy weather.",
+      "note": "例句下划线印在 was 下，应标在词条词形 cancelled 下；经人工复核（GitHub #135 第 11 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -61,6 +68,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

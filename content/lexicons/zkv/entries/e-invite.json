@@ -24,15 +24,15 @@
       "en": [
         {
           "t": "text",
-          "v": "Some of the Chinese celebrities "
+          "v": "Some of the Chinese celebrities were "
         },
         {
           "t": "underline",
-          "v": "were"
+          "v": "invited"
         },
         {
           "t": "text",
-          "v": " invited to attend the Cannes International Film Festival. It was a big event this summer."
+          "v": " to attend the Cannes International Film Festival. It was a big event this summer."
         }
       ],
       "zh": "一些中国名人应邀出席戛纳国际电影节。这是今夏的一件大事。"
@@ -50,6 +50,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "下划线在 were 上",
+      "corrected": "下划线在 invited 上",
+      "note": "例句下划线误标在 were 上，应标在词头形式 invited 上；经人工复核（GitHub #135 第 59 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -61,6 +68,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

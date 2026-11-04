@@ -409,7 +409,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "认识到；实现 adv. "
+                "v": "认识到；实现 v. "
               },
               {
                 "t": "blank",
@@ -615,7 +615,7 @@
             "slots": [
               {
                 "id": "f1",
-                "pos": "adj."
+                "pos": "adv."
               },
               {
                 "id": "f2",
@@ -1061,6 +1061,18 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "认识到；实现 adv.",
+      "corrected": "认识到；实现 v.",
+      "note": "二.10 词性误印为 adv.，realize 是动词；经人工复核（GitHub #135 第 89 条）确认更正"
+    },
+    {
+      "original": "real adj. → 第一行词性 adj.",
+      "corrected": "real adj. → 第一行词性 adv.",
+      "note": "三.6 第一行答案 really 是副词，词性应为 adv.；经人工复核（GitHub #135 第 90 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1073,6 +1085,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

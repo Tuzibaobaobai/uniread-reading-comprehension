@@ -6,7 +6,7 @@
   "kind": "word",
   "headword": "tropical",
   "ipa": [
-    "ˈtrɒpɪk"
+    "ˈtrɒpɪkl"
   ],
   "senses": [
     {
@@ -41,10 +41,17 @@
     "examples": [
       {
         "src": "assets/lexicons/gkv/e-tropical-x1.mp3",
-        "seconds": 3.8
+        "seconds": 3.9
       }
     ]
   },
+  "errata": [
+    {
+      "original": "/ˈtrɒpɪk/",
+      "corrected": "/ˈtrɒpɪkl/",
+      "note": "音标漏了末音节（/ˈtrɒpɪk/ 是 tropic 的音标）；经人工复核（GitHub #137 第 113 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -56,6 +63,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

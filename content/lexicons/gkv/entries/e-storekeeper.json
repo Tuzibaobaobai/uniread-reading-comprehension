@@ -34,12 +34,6 @@
       "zh": "店主保证货物品质一流。"
     }
   ],
-  "phrases": [
-    {
-      "en": "in store",
-      "zh": "储存着；准备着"
-    }
-  ],
   "audio": {
     "word": {
       "src": "assets/lexicons/gkv/e-storekeeper.mp3",
@@ -52,6 +46,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "词组 in store 储存着；准备着",
+      "corrected": "（删去，移至 store 词条）",
+      "note": "词组 in store 属于 store 词条，原书误印在 storekeeper 下；经人工复核（GitHub #137 第 103 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -63,6 +64,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

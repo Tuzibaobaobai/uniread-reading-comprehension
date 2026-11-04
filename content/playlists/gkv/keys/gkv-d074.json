@@ -356,13 +356,11 @@
       "slots": {
         "b35": {
           "accept": [
-            "a noble man",
-            "a nobleman",
-            "nobleman"
+            "a noble man"
           ]
         }
       },
-      "explanationZh": "答案 a noble man 来自手册例句（意为“一个高尚的人”）；表示“贵族”时也常写作 nobleman。"
+      "explanationZh": "a noble man“一个高尚的人”（手册例句）。原书题干印作“贵族”，与答案 a noble man 不符（“贵族”应为 nobleman），经人工复核（GitHub #137）将题干更正为“一个高尚的人”。"
     },
     "q36": {
       "slots": {
@@ -476,15 +474,13 @@
       "slots": {
         "b46": {
           "accept": [
-            "there is a good news that ...",
-            "there is a good news that …",
-            "there is a good news that",
             "there is good news that ...",
+            "there is good news that …",
             "there is good news that"
           ]
         }
       },
-      "explanationZh": "news 是不可数名词，规范写法是 There is good news that ...（同位语从句）；答案书印作 a good news。"
+      "explanationZh": "news 是不可数名词，不能加 a，写作 there is good news that ...（同位语从句）。原书答案印作 there is a good news that …，经人工复核（GitHub #137）更正为 there is good news that ...。"
     },
     "q47": {
       "slots": {
@@ -550,12 +546,11 @@
       "slots": {
         "b53": {
           "accept": [
-            "nonfictions",
             "nonfiction"
           ]
         }
       },
-      "explanationZh": "“我喜欢读纪实作品”，答案书给 nonfictions；nonfiction 一般作不可数名词，写 nonfiction 也通。"
+      "explanationZh": "“我喜欢读纪实作品”，nonfiction 一般作不可数名词。原书答案印作 nonfictions，经人工复核（GitHub #137）更正为 nonfiction。"
     },
     "q54": {
       "slots": {

@@ -19,7 +19,15 @@
       "en": [
         {
           "t": "text",
-          "v": "Wet weather always depresses her."
+          "v": "Wet weather always "
+        },
+        {
+          "t": "underline",
+          "v": "depresses"
+        },
+        {
+          "t": "text",
+          "v": " her."
         }
       ],
       "zh": "雨天总使她心情抑郁。"
@@ -54,6 +62,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Wet weather always depresses her.",
+      "corrected": "Wet weather always depresses her.（depresses 加下划线）",
+      "note": "例句中词头形式 depresses 原书未加下划线，补加下划线；经人工复核（GitHub #136 第 63 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -65,6 +80,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

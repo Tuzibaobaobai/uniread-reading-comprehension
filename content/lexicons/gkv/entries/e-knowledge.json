@@ -42,7 +42,7 @@
   ],
   "proverbs": [
     {
-      "en": "knowledge is power.",
+      "en": "Knowledge is power.",
       "zh": "知识就是力量。"
     }
   ],
@@ -102,7 +102,7 @@
           "content": [
             {
               "t": "text",
-              "v": "She is a man of "
+              "v": "She is a woman of "
             },
             {
               "t": "underline",
@@ -193,6 +193,18 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "knowledge is power.",
+      "corrected": "Knowledge is power.",
+      "note": "谚语句首字母应大写；经人工复核（GitHub #137 第 2 条）确认更正"
+    },
+    {
+      "original": "She is a man of learning. 她是一个博学之士。",
+      "corrected": "She is a woman of learning. 她是一个博学之士。",
+      "note": "辨析例句中 She 与 a man of learning 不一致；经人工复核（GitHub #137 第 3 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027上海市高考英语英语词汇手册.pdf",
     "pdfPages": [
@@ -206,6 +218,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -261,7 +261,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "女的；女性的；雌性的 n. "
+                "v": "女的；女性的；雌性的 adj. "
               },
               {
                 "t": "blank",
@@ -586,7 +586,7 @@
             "slots": [
               {
                 "id": "f1",
-                "pos": "v. & link"
+                "pos": "v. & link. v."
               }
             ]
           },
@@ -1092,6 +1092,18 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "女的；女性的；雌性的 n.",
+      "corrected": "女的；女性的；雌性的 adj.",
+      "note": "二.4 female 的词性误印为 n.（手册 female 词条为 adj.，释义也都是形容词）；经人工复核（GitHub #135 第 36 条）确认更正"
+    },
+    {
+      "original": "v. & link",
+      "corrected": "v. & link. v.",
+      "note": "三.3 feel 的词性印得不完整（手册 feel 词条为 v. & link.v.）；经人工复核（GitHub #135 第 38 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1104,6 +1116,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

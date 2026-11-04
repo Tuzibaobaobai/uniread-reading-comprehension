@@ -9,6 +9,7 @@
     "ɪkˈspɪəriəns"
   ],
   "star": true,
+  "starLevel": 3,
   "levelMark": true,
   "textbook": [
     "G6下U3"
@@ -93,7 +94,7 @@
         },
         {
           "t": "text",
-          "v": " in the rearch. 在这项研究上他很有经验。"
+          "v": " in the research. 在这项研究上他很有经验。"
         }
       ]
     },
@@ -132,6 +133,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "He has a lot of experience in the rearch.",
+      "corrected": "He has a lot of experience in the research.",
+      "note": "名师点拨例句中 rearch 为 research 的拼写错误；经人工复核（GitHub #135 第 34 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -145,6 +153,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

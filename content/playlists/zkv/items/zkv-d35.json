@@ -785,7 +785,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "He wanted to look for "
+                "v": "He wanted to look for an "
               },
               {
                 "t": "blank",
@@ -998,6 +998,18 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "一 16%，二 30%，三 12%，四 10%，五 10%，六 20%（合计 98%）",
+      "corrected": "一 16%，二 30%，三 14%，四 10%，五 10%，六 20%（合计 100%）",
+      "note": "各大题百分比合计只有 98%，三 应为 14%（与其他天 一 + 三 = 30% 一致），三 每题 7 分；经人工复核（GitHub #135 第 76 条）确认更正"
+    },
+    {
+      "original": "He wanted to look for o_____ suited to his abilities.",
+      "corrected": "He wanted to look for an o_____ suited to his abilities.",
+      "note": "五.1 空格前漏冠词 an（手册 1074 occupation 例句为 look for an occupation）；经人工复核（GitHub #135 第 77 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1010,6 +1022,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

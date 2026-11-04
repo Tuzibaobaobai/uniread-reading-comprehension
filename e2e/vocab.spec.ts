@@ -150,6 +150,22 @@ test('Scan → Study (#133): one word a page, 认识 / 不认识, Study coloured
   await expect(page.getByRole('tab', { name: /学习/ })).toHaveAttribute('aria-selected', 'true');
 });
 
+test('graded stars (#139): * / ** / *** as printed, legend explains the levels used that day', async ({ page }) => {
+  await page.goto('/#/p/zkv/zkv-d05');
+  await page.getByRole('tab', { name: /学习/ }).click();
+  const because = page.locator('.entry[data-entry="e-because"] .entry-star');
+  await expect(because).toHaveText('***');
+  await expect(because).toHaveAttribute('title', '在市毕业考试卷中多次出现的高频词汇');
+  const legend = page.locator('.vocab-legend');
+  await expect(legend).toContainText('在各区统考试卷中出现的高频词汇');
+  await expect(legend).toContainText('在市毕业考试卷中多次出现的高频词汇');
+  await expect(legend).not.toContainText('各类试卷中多次出现的高频词汇');
+  // 高考 has one star level: the plain legend
+  await page.goto('/#/p/gkv/gkv-d003');
+  await page.getByRole('tab', { name: /学习/ }).click();
+  await expect(page.locator('.entry-star').filter({ hasText: /^\*\*/ })).toHaveCount(0);
+});
+
 test('Quiz: Part pages, typed answers only, Enter, result, review, entry, retry mistakes', async ({ page }, info) => {
   await mockJudge(page);
   await seed(page, rightAnswers(['q1', 'q2']));

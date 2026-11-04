@@ -433,7 +433,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "食欲；欲望（for）爱好；趣味（for） n. "
+                "v": "食欲；欲望（for）；爱好；趣味（for） n. "
               },
               {
                 "t": "blank",
@@ -1341,7 +1341,15 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "The reason why the Voice of China appealed to audience of all ages was that it didn’t judge a person by his "
+                "v": "The reason why "
+              },
+              {
+                "t": "em",
+                "v": "The Voice of China"
+              },
+              {
+                "t": "text",
+                "v": " appealed to an audience of all ages was that it didn’t judge a person by his "
               },
               {
                 "t": "blank",
@@ -1539,6 +1547,18 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "The reason why the Voice of China appealed to audience of all ages was that it didn’t judge a person by his a____.",
+      "corrected": "The reason why The Voice of China appealed to an audience of all ages was that it didn’t judge a person by his a____.",
+      "note": "第 59 题题干 audience 前漏印冠词 an，节目名应为斜体 The Voice of China（据手册第 189 条原句）；经人工复核（GitHub #136 第 15 条）确认更正"
+    },
+    {
+      "original": "食欲；欲望（for）爱好；趣味（for） n.",
+      "corrected": "食欲；欲望（for）；爱好；趣味（for） n.",
+      "note": "第 19 题题干「欲望（for）」与「爱好」之间漏印分号（据手册第 190 条）；经人工复核（GitHub #136 第 16 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1556,6 +1576,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

@@ -52,7 +52,7 @@
         },
         {
           "t": "text",
-          "v": " of humourous stories to tell."
+          "v": " of humorous stories to tell."
         }
       ],
       "zh": "他有许多幽默故事可讲。"
@@ -76,10 +76,17 @@
       },
       {
         "src": "assets/lexicons/zkv/e-plenty-x2.mp3",
-        "seconds": 3.6
+        "seconds": 3.5
       }
     ]
   },
+  "errata": [
+    {
+      "original": "He has plenty of humourous stories to tell.",
+      "corrected": "He has plenty of humorous stories to tell.",
+      "note": "humourous 不是规范拼写，统一为 humorous；经人工复核（GitHub #135 第 54 条，各处统一）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -91,6 +98,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

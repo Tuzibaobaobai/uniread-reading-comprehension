@@ -21,15 +21,15 @@
       "en": [
         {
           "t": "text",
-          "v": "Will you change me five "
+          "v": "Will you change me five ten-"
         },
         {
           "t": "underline",
-          "v": "ten"
+          "v": "pound"
         },
         {
           "t": "text",
-          "v": "-pound notes?"
+          "v": " notes?"
         }
       ],
       "zh": "你给我换 5 张 10 英镑的纸币好吗？"
@@ -47,6 +47,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "Will you change me five ten-pound notes?（下划线在 ten 上）",
+      "corrected": "Will you change me five ten-pound notes?（下划线在 pound 上）",
+      "note": "例句下划线应标在词目 pound 上，原书误标在 ten 上；经人工复核（GitHub #135 第 86 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -58,6 +65,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

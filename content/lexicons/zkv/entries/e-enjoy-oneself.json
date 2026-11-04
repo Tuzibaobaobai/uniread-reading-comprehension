@@ -19,7 +19,7 @@
       "en": [
         {
           "t": "text",
-          "v": "At the yesterday’s English Evening, all of us "
+          "v": "At yesterday’s English Evening, all of us "
         },
         {
           "t": "underline",
@@ -53,10 +53,17 @@
     "examples": [
       {
         "src": "assets/lexicons/zkv/e-enjoy-oneself-x1.mp3",
-        "seconds": 5.1
+        "seconds": 5.2
       }
     ]
   },
+  "errata": [
+    {
+      "original": "At the yesterday’s English Evening, all of us enjoyed ourselves.",
+      "corrected": "At yesterday’s English Evening, all of us enjoyed ourselves.",
+      "note": "冠词 the 不能用在所有格时间名词 yesterday’s 前；经人工复核（GitHub #135 第 129 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -68,6 +75,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

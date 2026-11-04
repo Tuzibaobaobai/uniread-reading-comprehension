@@ -253,7 +253,7 @@
             "prompt": [
               {
                 "t": "text",
-                "v": "揭示，揭露；暴露；透露；展现 vt., n. "
+                "v": "揭示，揭露；暴露；透露；展现 vt. "
               },
               {
                 "t": "blank",
@@ -1221,7 +1221,7 @@
               },
               {
                 "t": "text",
-                "v": " of his bravery."
+                "v": " for his bravery."
               }
             ]
           },
@@ -1488,6 +1488,18 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "揭示，揭露；暴露；透露；展现 vt., n.",
+      "corrected": "揭示，揭露；暴露；透露；展现 vt.",
+      "note": "一 Q10 词性多印了 n.（手册 reveal 只标 vt.）；经人工复核（GitHub #137 第 71 条）确认更正"
+    },
+    {
+      "original": "It is no wonder that Tom received a medal in r____ of his bravery.",
+      "corrected": "It is no wonder that Tom received a medal in r____ for his bravery.",
+      "note": "三 Q7 固定搭配应为 in reward for，练习册误印为 of；经人工复核（GitHub #137 第 72 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "2027年上海市高考英语词汇练习.pdf",
     "pdfPages": [
@@ -1503,6 +1515,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

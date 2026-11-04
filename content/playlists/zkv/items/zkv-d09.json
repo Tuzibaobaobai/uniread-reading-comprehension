@@ -526,7 +526,7 @@
             "kind": "wordFamily",
             "base": {
               "word": "certain",
-              "pos": "n."
+              "pos": "adj."
             },
             "slots": [
               {
@@ -1008,6 +1008,13 @@
       ]
     }
   ],
+  "errata": [
+    {
+      "original": "certain n.",
+      "corrected": "certain adj.",
+      "note": "certain 是形容词（手册 certainly 词条标 certain adj.），原书误标 n.；经人工复核（GitHub #135 第 15 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "3. 26年初中英语考纲词汇天天练（最新版）141页.pdf",
     "pdfPages": [
@@ -1020,6 +1027,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

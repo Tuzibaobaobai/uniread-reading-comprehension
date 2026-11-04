@@ -24,7 +24,7 @@
       "en": [
         {
           "t": "text",
-          "v": "We should protect the "
+          "v": "We should protect "
         },
         {
           "t": "underline",
@@ -32,7 +32,7 @@
         },
         {
           "t": "text",
-          "v": " animal."
+          "v": " animals."
         }
       ],
       "zh": "我们应该保护野生动物。"
@@ -57,6 +57,13 @@
       }
     ]
   },
+  "errata": [
+    {
+      "original": "We should protect the wild animal.",
+      "corrected": "We should protect wild animals.",
+      "note": "泛指「保护野生动物」应用复数且不加 the，原书印作单数 the wild animal；经人工复核（GitHub #135 第 116 条）确认更正"
+    }
+  ],
   "source": {
     "pdf": "1. 26年初中英语考纲词汇用法手册（最新版）370页.pdf",
     "pdfPages": [
@@ -68,6 +75,6 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   }
 }

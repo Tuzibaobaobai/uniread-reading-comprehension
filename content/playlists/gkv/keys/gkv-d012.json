@@ -539,13 +539,11 @@
       "slots": {
         "b53": {
           "accept": [
-            "bind/bound",
-            "bind",
             "bound"
           ]
         }
       },
-      "explanationZh": "句子是过去时（couldn’t），要用 bind 的过去式 bound。"
+      "explanationZh": "句子是过去时（couldn’t），要用 bind 的过去式 bound。原书答案印作 bind/bound，经人工复核（GitHub #136）更正为 bound。"
     },
     "q54": {
       "slots": {
@@ -738,11 +736,12 @@
       "explanationZh": "besides“除……之外（还有）”，表示包括在内；“谈到……”= when it comes to (doing) sth.。"
     },
     "q65": {
-      "sampleAnswer": "Seldom did Jack turn to his teacher for help, because he thought self-study would benefit himself more.",
+      "sampleAnswer": "Seldom did Jack turn to his teacher for help, because he thought self-study would benefit him more.",
       "references": [
-        "Seldom did Jack turn to his teacher for help, because he thought self-study would benefit himself more."
+        "Seldom did Jack turn to his teacher for help, because he thought self-study would benefit him more."
       ],
       "rubricType": "translation",
+      "rubricZh": "原书参考答案印作“Seldom did Jack turn to his teacher for help, because he thought self-study would benefit himself more.”（反身代词 himself 与从句主语 self-study 不一致，应为 him），经人工复核（GitHub #136）更正为现参考答案。",
       "keyPoints": [
         {
           "id": "meaning",
