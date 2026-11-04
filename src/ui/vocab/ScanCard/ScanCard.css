@@ -1,0 +1,13 @@
+/* RC/Vocab/ScanCard (proposed). Tokens only. */
+.scan-stage {
+  flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: var(--ur-space-12); text-align: center;
+}
+.scan-word-row { display: flex; align-items: center; justify-content: center; gap: var(--ur-space-12); flex-wrap: wrap; }
+.scan-word { margin: 0; font: var(--ur-text-font-system-4xl-bold); color: var(--ur-color-text-primary); overflow-wrap: anywhere; }
+.scan-word.is-known { color: var(--ur-color-feedback-success); }
+.scan-word.is-unknown { color: var(--ur-color-feedback-error); }
+.scan-ipa {
+  margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--ur-space-4) var(--ur-space-16);
+  font: var(--ur-text-font-system-l-regular); color: var(--ur-color-text-secondary);
+}

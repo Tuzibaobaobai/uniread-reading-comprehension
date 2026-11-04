@@ -1,0 +1,8 @@
+/* ui/ArrowButton — UniRead round arrow button (reuse). Tokens only. */
+.scan-nav {
+  width: var(--ur-size-touch-target); height: var(--ur-size-touch-target);
+  display: grid; place-items: center; border: none;
+  border-radius: var(--ur-radius-full); background: var(--ur-color-background-subtle); color: var(--ur-color-text-strong);
+}
+.scan-nav svg { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); }
+.scan-nav:disabled { opacity: var(--ur-opacity-disabled); }

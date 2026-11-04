@@ -377,7 +377,16 @@
   --ur-color-feedback-error: var(--ur-paint-customization-state-wrong-light); /* proposed → paint/Customization/State/wrong-light */
   --ur-color-feedback-error-bg: var(--ur-paint-error-bg); /* proposed → paint/error-bg */
   --ur-color-feedback-warning: var(--ur-paint-customization-state-hint-light); /* proposed → paint/Customization/State/hint-light */
+  --ur-color-feedback-success-text: rgba(73, 114, 73, 1); /* needs-designer (value kept from RC until UniRead decides) */
+  --ur-color-feedback-success-divider: rgba(73, 114, 73, 0.2); /* needs-designer (value kept from RC until UniRead decides) */
   --ur-color-overlay-backdrop: var(--ur-color-black-40); /* proposed → color/black/40 */
+  --ur-color-pair-1: rgba(240, 123, 63, 1); /* needs-designer (value kept from RC until UniRead decides) */
+  --ur-color-pair-2: rgba(62, 142, 247, 1); /* needs-designer (value kept from RC until UniRead decides) */
+  --ur-color-pair-3: rgba(47, 163, 107, 1); /* needs-designer (value kept from RC until UniRead decides) */
+  --ur-color-pair-4: rgba(166, 92, 232, 1); /* needs-designer (value kept from RC until UniRead decides) */
+  --ur-color-pair-5: rgba(229, 164, 0, 1); /* needs-designer (value kept from RC until UniRead decides) */
+  --ur-color-pair-6: rgba(229, 72, 77, 1); /* needs-designer (value kept from RC until UniRead decides) */
+  --ur-color-pair-7: rgba(23, 162, 184, 1); /* needs-designer (value kept from RC until UniRead decides) */
   --ur-space-2: 2px; /* proposed */
   --ur-space-4: 4px; /* proposed */
   --ur-space-8: 8px; /* proposed */
@@ -395,4 +404,15 @@
   --ur-size-icon-m: 24px; /* proposed */
   --ur-size-icon-l: 32px; /* proposed */
   --ur-size-icon-xl: 40px; /* proposed */
+  --ur-opacity-disabled: 0.2; /* needs-designer (value kept from RC until UniRead decides) */
+  --ur-blur-panel: 100px; /* needs-designer (value kept from RC until UniRead decides) */
+  --ur-stroke-radio: 0.75px; /* needs-designer (value kept from RC until UniRead decides) */
+  --ur-stroke-blank: 1.5px; /* needs-designer (value kept from RC until UniRead decides) */
+  --ur-stroke-progress: 2px; /* needs-designer (value kept from RC until UniRead decides) */
+  --ur-stroke-criteria: 6px; /* needs-designer (value kept from RC until UniRead decides) */
+  --ur-stroke-default: 1px; /* proposed */
+  --ur-stroke-strong: 2px; /* proposed */
+  --ur-text-size-5xl: 32px; /* needs-designer (value kept from RC until UniRead decides) */
+  --ur-text-size-5xl-line-height: 44px; /* needs-designer (value kept from RC until UniRead decides) */
+  --ur-text-size-display: 48px; /* needs-designer (value kept from RC until UniRead decides) */
 }

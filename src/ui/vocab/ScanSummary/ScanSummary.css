@@ -1,0 +1,6 @@
+/* RC/Vocab/ScanSummary (proposed). Tokens only. */
+.scan-done { gap: var(--ur-space-16); }
+.scan-done-title { margin: 0; font: var(--ur-text-font-system-4xl-bold); color: var(--ur-color-text-primary); }
+.scan-done-tally { margin: 0; font: var(--ur-text-font-system-l-regular); color: var(--ur-color-text-secondary); }
+.scan-done-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--ur-space-16); margin-top: var(--ur-space-8); }
+.scan-done-actions .pill-button { min-height: var(--ur-height-height-7); padding: 0 var(--ur-space-24); }

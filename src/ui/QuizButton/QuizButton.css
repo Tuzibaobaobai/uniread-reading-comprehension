@@ -1,0 +1,15 @@
+/* ui/QuizButton — UniRead UIKit-Quiz button (reuse). Tokens only. Contexts (pager, dialogs) size it in their own CSS. */
+.pill-button {
+  min-height: var(--ur-size-touch-target); padding: 0 var(--ur-space-24);
+  border-radius: var(--ur-radius-full);
+  border: var(--ur-stroke-default) solid var(--ur-color-border-default);
+  background: var(--ur-color-background-card);
+  font: var(--ur-text-font-system-2xl-bold);
+  color: var(--ur-color-text-strong);
+}
+.pill-button:disabled { opacity: var(--ur-opacity-disabled); }
+.pill-button.primary { background: var(--ur-color-action-primary); border-color: var(--ur-color-action-primary); color: var(--ur-color-text-on-action); }
+.pill-button.primary.is-dim { opacity: var(--ur-opacity-disabled); }
+@media (hover: hover) and (pointer: fine) {
+  .pill-button.primary:hover:not(:disabled) { background: var(--ur-color-action-primary-strong); border-color: var(--ur-color-action-primary-strong); }
+}

@@ -43,8 +43,8 @@
   /* ---- Figma: Customization/State */
   --success: var(--ur-paint-customization-state-finished-light);          /* finished-light */
   --success-soft: var(--ur-paint-success-bg);     /* success-bg */
-  --success-text: #497249;     /* explanation text on success-bg */
-  --success-divider: rgba(73, 114, 73, 0.2);
+  --success-text: var(--ur-color-feedback-success-text);     /* explanation text on success-bg */
+  --success-divider: var(--ur-color-feedback-success-divider);
   --danger: var(--ur-paint-customization-state-wrong-light);           /* wrong-light */
   --danger-soft: var(--ur-paint-error-bg);      /* error-bg */
   --answer-text: var(--ur-color-text-answer);      /* learner's filled-in answers — must differ from vocab highlight (--accent-strong) */
@@ -52,13 +52,13 @@
   --highlight-strong: var(--ur-color-background-highlight-strong); /* locate flash */
 
   /* match: pair markers (not in Figma yet) */
-  --pair-1: #f07b3f;   /* match pair markers stay multi-colour */
-  --pair-2: #3e8ef7;
-  --pair-3: #2fa36b;
-  --pair-4: #a65ce8;
-  --pair-5: #e5a400;
-  --pair-6: #e5484d;
-  --pair-7: #17a2b8;
+  --pair-1: var(--ur-color-pair-1);   /* match pair markers stay multi-colour */
+  --pair-2: var(--ur-color-pair-2);
+  --pair-3: var(--ur-color-pair-3);
+  --pair-4: var(--ur-color-pair-4);
+  --pair-5: var(--ur-color-pair-5);
+  --pair-6: var(--ur-color-pair-6);
+  --pair-7: var(--ur-color-pair-7);
 
   /* ---- Figma: radius/* */
   --radius-xs: var(--ur-radius-xs);
@@ -99,8 +99,8 @@
   --fs-2xl: var(--ur-text-font-system-2xl-regular-size);  --lh-2xl: var(--ur-text-font-system-2xl-regular-line-height);
   --fs-3xl: var(--ur-text-font-system-3xl-regular-size);  --lh-3xl: var(--ur-text-font-system-3xl-regular-line-height);
   --fs-4xl: var(--ur-text-font-system-4xl-regular-size);  --lh-4xl: var(--ur-text-font-system-4xl-regular-line-height);
-  --fs-5xl: 32px;  --lh-5xl: 44px;
-  --fs-display: 48px;
+  --fs-5xl: var(--ur-text-size-5xl);  --lh-5xl: var(--ur-text-size-5xl-line-height);
+  --fs-display: var(--ur-text-size-display);
   /* semantic sizes */
   --fs-article: var(--fs-3xl);
   --lh-article: var(--lh-3xl);
@@ -120,7 +120,7 @@
   --icon-m: var(--ur-size-icon-m);
   --radio: var(--ur-size-icon-m);
   --radio-dot: 15px;
-  --radio-border: 0.75px;
+  --radio-border: var(--ur-stroke-radio);
   --option-pad-y: 19px;
   --option-pad-x: var(--ur-space-20);
   --option-gap: var(--ur-space-16);
@@ -140,18 +140,18 @@
   --strip-more-pad: var(--ur-space-12);
   --strip-more-gap: var(--ur-space-2);
   --strip-more-icon: var(--ur-size-icon-s);
-  --disabled-opacity: 0.2;
+  --disabled-opacity: var(--ur-opacity-disabled);
   --panel-pad: var(--ur-space-32);
   --panel-gap: var(--ur-space-16);
   --panel-btn-h: var(--ur-height-height-7);
   --row-thumb-w: 256px;
   --row-num: var(--ur-height-height-6);
-  --progress-h: 2px;
-  --blur-panel: 100px;
+  --progress-h: var(--ur-stroke-progress);
+  --blur-panel: var(--ur-blur-panel);
   --scroll-inset: var(--radius-xl);   /* scrollbars start/end below/above the card's corner radius */
 
   --blank-min-w: 3em;
-  --blank-line: 1.5px;
+  --blank-line: var(--ur-stroke-blank);
   --blank-line-color: var(--grey-12);
 
   /* ---- Figma UIkit-Read: player (11728:110946), btn-play / btn-pause / btn-before */
@@ -176,7 +176,7 @@
   --exam-warn: var(--danger);
   --exam-warn-soft: var(--danger-soft);
   --flag: var(--ur-color-feedback-warning);
-  --criteria-bar-h: 6px;
+  --criteria-bar-h: var(--ur-stroke-criteria);
   --record-dot: 12px;
   --speak-btn-icon: 64px;
   --part-gap: var(--ur-space-16);

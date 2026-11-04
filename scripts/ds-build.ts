@@ -57,12 +57,12 @@ export function build(tokenFiles: { file: string; status: 'uniread' | 'proposed'
       lines.push('', `  /* ---- ${status === 'proposed' ? 'RC proposed (pending UniRead approval)' : 'UniRead'} · ${group} */`);
       for (const [path, t] of list) {
         const figma = path.join('/');
-        const tag = status === 'proposed' ? `proposed${t.$extensions?.rc?.issue ? ` ${t.$extensions.rc.issue}` : ''}` : '';
+        const tag = status === 'proposed' ? `${t.$extensions?.rc?.status === 'needs-designer' ? 'needs-designer (value kept from RC until UniRead decides)' : 'proposed'}${t.$extensions?.rc?.issue ? ` ${t.$extensions.rc.issue}` : ''}` : '';
         const alias = t.$extensions?.rc?.alias as string | undefined;
         if (group === 'variables') {
           const name = `--ur-${slug(path)}`;
           const value = alias ? `var(--ur-${slug(alias.split('/'))})` : t.$type === 'string' ? (/font-family$/.test(figma) ? `"${t.$value}"` : String(t.$value)) : String(t.$value);
-          add(name, value, figma, group, status, [tag, alias ? `→ ${alias}` : ''].filter(Boolean).join(' '));
+          add(name, value, figma, group, t.$extensions?.rc?.status === 'needs-designer' ? 'needs-designer' : status, [tag, alias ? `→ ${alias}` : ''].filter(Boolean).join(' '));
         } else if (group === 'paint') {
           if (t.$type === 'empty') continue;
           const value = alias ? `var(--ur-${slug(alias.split('/'))})` : t.$type === 'gradient' ? gradient((t.$value as { stops: never }).stops) : String(t.$value);

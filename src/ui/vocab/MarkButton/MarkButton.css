@@ -1,0 +1,17 @@
+/* RC/Vocab/MarkButton (proposed). Tokens only. */
+.scan-btn {
+  flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: var(--ur-space-8);
+  min-height: var(--ur-height-height-8);
+  border: var(--ur-stroke-strong) solid var(--ur-color-border-default); border-radius: var(--ur-radius-full);
+  background: var(--ur-color-background-card);
+  font: var(--ur-text-font-system-m-bold); color: var(--ur-color-text-strong);
+}
+.scan-btn svg { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); }
+.scan-btn.is-know { border-color: var(--ur-color-feedback-success); color: var(--ur-color-feedback-success-text); }
+.scan-btn.is-unknown { border-color: var(--ur-color-feedback-error); color: var(--ur-color-feedback-error); }
+.scan-btn.is-know.is-on { background: var(--ur-color-feedback-success-bg); }
+.scan-btn.is-unknown.is-on { background: var(--ur-color-feedback-error-bg); }
+@media (hover: hover) and (pointer: fine) {
+  .scan-btn.is-know:hover { background: var(--ur-color-feedback-success-bg); }
+  .scan-btn.is-unknown:hover { background: var(--ur-color-feedback-error-bg); }
+}

@@ -1,0 +1,9 @@
+/* ui/PlayButton — UniRead btn-play (reuse). Tokens only (docs/14 §15). */
+.entry-play {
+  width: var(--ur-size-touch-target); height: var(--ur-size-touch-target);
+  display: grid; place-items: center; flex-shrink: 0;
+  border: none; border-radius: var(--ur-radius-full); background: var(--ur-color-background-subtle);
+}
+.entry-play img { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); }
+/* inline in a sentence: the same button and icon as the headword's (#131) */
+.entry-play.is-small { display: inline-grid; vertical-align: middle; margin-left: var(--ur-space-4); }

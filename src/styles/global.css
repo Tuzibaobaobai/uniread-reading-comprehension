@@ -96,19 +96,7 @@ img { display: block; max-width: 100%; }
   .back-button:hover { color: var(--back-icon-hover); }
 }
 
-/* Figma Quiz-pagination → button */
-.pill-button {
-  min-height: var(--tap); padding: 0 24px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border);
-  background: var(--bg-card);
-  font-weight: var(--fw-bold); font-size: var(--fs-2xl); line-height: var(--lh-2xl);
-  color: var(--text-strong);
-}
-.pill-button:disabled { opacity: var(--disabled-opacity); }
-.pill-button.primary { background: var(--accent); border-color: var(--accent); color: var(--text-on-accent); }
-.pill-button.primary.is-dim { opacity: var(--disabled-opacity); }
-@media (hover: hover) and (pointer: fine) { .pill-button.primary:hover:not(:disabled) { background: var(--accent-strong); border-color: var(--accent-strong); } }
+/* .pill-button → src/ui/QuizButton (UniRead UIKit-Quiz button) */
 
 /* Noto Sans SC (UniRead's font) draws Latin quotes and apostrophes at full CJK width ("won’ t"). English learning
    content uses the font's half-width alternates ("halt"; the "pwid" / proportional-width variant has no effect in this
