@@ -1,0 +1,5 @@
+/* RC/Read/Dialogue (proposed). Tokens only; em spacing follows the article size. */
+.rt-dialogue { display: grid; gap: .45em; }
+.rt-dialogue-legend { margin: 0; color: var(--ur-color-text-secondary); font-size: .8em; }
+.rt-turn { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: .5em; }
+.rt-speaker { font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-text-primary); }

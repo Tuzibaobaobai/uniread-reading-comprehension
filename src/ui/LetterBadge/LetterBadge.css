@@ -1,0 +1,14 @@
+/* ui/LetterBadge — extends Learn / num (18140:222459). Tokens only; Size m 28 = 24 + 4, s 24. */
+.letter-badge {
+  --badge-size: calc(var(--ur-size-icon-m) + var(--ur-space-4));
+  flex: none; min-width: var(--badge-size); height: var(--badge-size);
+  display: grid; place-items: center; border-radius: var(--ur-radius-xs);
+  background: var(--ur-color-background-subtle);
+  font-size: var(--ur-text-font-system-s-bold-size); font-weight: var(--ur-text-font-system-s-bold-weight);
+}
+.letter-badge.is-s { --badge-size: var(--ur-size-icon-m); }
+.letter-badge.is-filled { color: var(--ur-color-text-on-action); }
+.letter-badge.is-filled.is-neutral { background: var(--ur-color-text-secondary); }
+.letter-badge.is-filled.is-accent { background: var(--ur-color-action-primary); }
+.letter-badge.is-filled.is-success { background: var(--ur-color-feedback-success); }
+.letter-badge.is-filled.is-danger { background: var(--ur-color-feedback-error); }

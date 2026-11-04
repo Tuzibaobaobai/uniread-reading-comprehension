@@ -1,0 +1,60 @@
+/* rc/Quiz/JudgeResult (proposed, RC · Proposed 19446:739). Tokens only; padding is the option row's (19 = 20 − 1),
+   10 = 8 + 2, 6 = 4 + 2. The tags are rc/Common/Tag. */
+.judge {
+  margin-top: var(--ur-space-16); padding: calc(var(--ur-space-20) - var(--ur-stroke-default)) var(--ur-space-20);
+  border-radius: var(--ur-radius-s); background: var(--ur-color-background-subtle);
+  display: grid; gap: calc(var(--ur-space-8) + var(--ur-space-2));
+}
+.judge.is-pending {
+  color: var(--ur-color-text-secondary); font-size: var(--ur-text-font-system-l-regular-size);
+  animation: judge-pulse 1.4s ease-in-out infinite;
+}
+@keyframes judge-pulse { 50% { opacity: .5; } }
+.judge.is-full { background: var(--ur-color-feedback-success-bg); }
+.judge.is-zero { background: var(--ur-color-feedback-error-bg); }
+.judge-head { display: flex; align-items: baseline; gap: calc(var(--ur-space-8) + var(--ur-space-2)); flex-wrap: wrap; }
+.judge-score {
+  font-size: var(--ur-text-font-system-4xl-bold-size); line-height: var(--ur-text-font-system-4xl-bold-line-height);
+  font-weight: var(--ur-text-font-system-4xl-bold-weight); color: var(--ur-color-text-primary);
+}
+.judge-max {
+  font-size: var(--ur-text-font-system-l-regular-size); font-weight: var(--ur-text-font-system-l-regular-weight);
+  color: var(--ur-color-text-secondary);
+}
+.judge-points, .judge-language {
+  list-style: none; margin: 0; padding: 0; display: grid; gap: calc(var(--ur-space-4) + var(--ur-space-2));
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+}
+.judge-point { display: flex; gap: var(--ur-space-8); align-items: baseline; }
+.judge-point-mark { flex: none; width: var(--ur-size-icon-s); display: inline-grid; place-items: center; font-weight: var(--ur-text-font-system-m-bold-weight); }
+.judge-point-mark svg { width: var(--ur-space-16); height: var(--ur-space-16); }
+.judge-point.is-yes .judge-point-mark { color: var(--ur-color-feedback-success); }
+.judge-point.is-partial .judge-point-mark { color: var(--ur-color-action-primary-strong); }
+.judge-point.is-no { color: var(--ur-color-text-secondary); }
+.judge-point.is-no .judge-point-mark { color: var(--ur-color-feedback-error); }
+.judge-feedback {
+  margin: 0; font-size: var(--ur-text-font-system-2xl-regular-size); line-height: var(--ur-text-font-system-2xl-regular-line-height);
+  color: var(--ur-color-text-primary);
+}
+.judge-language { font-size: var(--ur-text-font-system-m-regular-size); color: var(--ur-color-text-secondary); }
+.judge-language s { color: var(--ur-color-feedback-error); }
+.judge-language b { color: var(--ur-color-feedback-success-text); }
+
+/* Rubric cambridge: criteria bars */
+.judge-standard {
+  margin: 0; color: var(--ur-color-text-secondary);
+  font-size: var(--ur-text-font-system-s-regular-size); line-height: var(--ur-text-font-system-s-regular-line-height);
+}
+.criteria {
+  list-style: none; margin: 0; padding: 0; display: grid; gap: var(--ur-space-8);
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+}
+.criteria-row { display: grid; grid-template-columns: 6em 1fr auto; align-items: center; gap: var(--ur-space-12); }
+.criteria-row.is-muted { color: var(--ur-color-text-tertiary); }
+.criteria-bar { height: var(--ur-stroke-criteria); border-radius: var(--ur-radius-full); background: var(--ur-color-background-track); overflow: hidden; }
+.criteria-bar > span { display: block; height: 100%; background: var(--ur-color-action-primary); }
+.criteria-band { font-weight: var(--ur-text-font-system-m-bold-weight); font-variant-numeric: tabular-nums; }
+
+@media (prefers-reduced-motion: reduce) {
+  .judge.is-pending { animation: none; }
+}

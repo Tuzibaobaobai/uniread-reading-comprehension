@@ -388,9 +388,9 @@ UniRead平台接入方下发的规范独立存放在原RC仓库的`docs/uniread-
 | 2 映射 | 每个界面状态的每个元素对应到「UniRead组件 + variant」或token，列出缺口：缺variant、缺组件、缺token（语义 / 间距） | 登记表条目（`design-system/components.registry.json`）、可读表格`docs/design/component-registry.md`（`npx tsx scripts/ds-registry.ts`生成）、token缺口`design-system/migrations/legacy-tokens.md` |
 | 3 提案 | 在UniRead文件的「RC · Proposed」页面用`use_figma`建立：<br>• `RC/<领域>/<名称>`组件集：auto-layout，变量绑定，内容通过TEXT / BOOLEAN / INSTANCE_SWAP属性公开，description写Status: Proposed。<br>• 已有组件的副本加新variant，标注Extends。<br>• 提案变量集合「RC Semantic (proposed)」「RC Spacing (proposed)」，别名指向Primitive。<br>每个提案开一个GitHub issue，label `design-proposal`。 | Figma提案页、`tokens/rc-proposed.tokens.json`、issue |
 | 4 评审 | UniRead设计师评论、修改或批准。批准后由设计师并入UIKit并发布，RC重新同步，登记表改为`approved` | 新版本lock |
-| 5 代码 | `src/ui`组件只用`--ur-*`，props与variant一一对应；Code Connect链接到Figma组件；页面只组合`src/ui`组件 | 组件、`.figma.tsx` |
-| 6 写回 | 每个界面状态用组件实例搭建frame，放在「RC · Screens · <DS版本>」页，提案组件标Proposed | Figma画面 |
-| 7 验证 | 门禁、e2e、视觉回归；设计师在Figma上签字确认；交接文档记录DS版本与提案状态 | 交接文档 |
+| 5 代码 | `src/ui`组件只用`--ur-*`，props与variant一一对应；页面只组合`src/ui`组件。组件与Figma的链接记在登记表（`source` + `figma` / `figmaProposal`）；Code Connect需要Organization / Enterprise的Dev席位，当前账号没有，暂不使用 | 组件、登记表`source` |
+| 6 写回 | 每个界面状态用组件实例搭建frame，放在「RC · Screens · <DS版本>」页；frame上方的说明写来源路由、提案组件、扩展组件、复用组件 | Figma画面 |
+| 7 验证 | 门禁、e2e、视觉回归（见15.5）；设计师在Figma上签字确认；交接文档记录DS版本与提案状态 | 交接文档 |
 
 ### 15.3 门禁（`npm test`）
 
@@ -403,3 +403,28 @@ UniRead平台接入方下发的规范独立存放在原RC仓库的`docs/uniread-
 
 - **升级：** 同步新版本 → 差异报告（增 / 删 / 改名 / 改值、组件属性变化）→ 迁移PR → 门禁与视觉回归 → 更新lock，并在`design-system/migrations/`留记录。删除或改名先标`deprecated`，留出过渡期。
 - **新内容类型：** 设计UI前先完成阶段2的映射；有缺口先走阶段3–4，再写代码。交付时要有组件化写回的Figma画面、登记表更新、`ds-check`通过，交接文档写明DS版本。
+
+### 15.5 做法与注意事项（词汇天天练、时文阅读迁移后补充）
+
+**映射（阶段2）**
+- 按界面区域分给多个Agent并行映射，再由一个Agent对照全部界面状态和代码做完整性检查：找漏掉的元素、核对UniRead组件和属性名是否真实存在、合并跨区域重复的提案。时文 / 真题第一轮有18处错误、21组重复，都是这一步发现的。
+- 映射结果先合并成登记表条目（一个组件一条，`screens`取自全部映射），再动代码。
+
+**代码（阶段5）**
+- 按文件分给多个Agent并行实现，各自只改自己的文件；`src/ui/index.ts`和登记表由合并步骤统一写入，避免冲突。最后由一个Agent审查整个diff：删掉的CSS是否在组件里重建、e2e依赖的class是否保留、加载顺序变化是否影响覆盖规则。
+- 组件CSS在`app.css`之后加载：同优先级的旧覆盖规则会失效，迁移时逐条检查。
+- 组件用`font`简写设置字体，它会重置`font-feature-settings`。英文学习内容的半角标点（`halt`）因此由`global.css`统一加在内容区及其后代上，组件不必各自处理。
+- 共用动画在`prefers-reduced-motion`下关闭（如定位原文的闪烁）。
+
+**视觉回归（阶段7）**
+1. 用`git worktree add <dir> <基准提交>`取出迁移前的代码，链接`node_modules`，用允许该路径的vite配置在另一个端口启动（否则字体加载失败，截图不可比）。
+2. 对两边运行同一份界面状态截图（`.work/figma/capture.mjs`的状态清单）。
+3. `npx tsx scripts/ds-visual-diff.ts <before> <after> <diff>`：每个变化都必须能解释（取整到token、已列出的有意改动，如触控目标40→44px）。解释不了的就是回归，先修再提交。
+
+**Figma（阶段3、6）**
+- needs-designer的token也要先建成Figma变量（描述写needs-designer），提案组件才能绑定，不能用字面量代替。
+- 复制variant生成新variant后，组件属性引用（TEXT / BOOLEAN）不会跟着走，要重新绑定；按属性名前缀取属性键，不要按顺序取（variant属性排在前面）。
+- UniRead组件不一定在每个variant都把文字绑定到属性（如option-text-item的「正确-展开」）。实例里只能直接改文字，并在提案说明里提醒设计师。
+- Figma没有自由插槽：对话框、面板这类容器，内容区做成固定的占位层加BOOLEAN开关；画面里的面板用绑定token的frame搭建，内容放组件实例。
+- 文本里不能放实例：文章中的空格在画面里用下划线文字表示，题目区的空格用`RC/Quiz/BlankInput`实例。
+- 截图逐屏核对，不只看结构检查：宽度溢出、默认文字没替换、属性引用丢失，只有看图才发现。

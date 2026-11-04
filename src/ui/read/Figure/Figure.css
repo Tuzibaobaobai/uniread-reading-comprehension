@@ -1,0 +1,11 @@
+/* RC/Read/Figure (proposed). Tokens only. */
+.article-figure { margin: var(--ur-space-24) 0; }
+.article-figure img {
+  width: auto; max-width: 100%; height: auto; margin: 0 auto; border-radius: var(--ur-radius-xs);
+  max-height: calc(var(--ur-space-80) * 5 + var(--ur-space-20));
+}
+.article-figure.is-full img { max-height: none; }
+.article-figure figcaption {
+  margin-top: var(--ur-space-8); text-align: center; color: var(--ur-color-text-secondary);
+  font-size: var(--ur-text-font-system-s-regular-size); line-height: var(--ur-text-font-system-s-regular-line-height);
+}

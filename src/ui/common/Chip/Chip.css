@@ -1,0 +1,12 @@
+/* RC/Common/Chip (proposed). Tokens only. */
+.chip {
+  display: inline-flex; align-items: center; gap: var(--ur-space-4);
+  min-height: var(--ur-size-touch-target); padding: 0 var(--ur-space-16);
+  border: var(--ur-stroke-default) solid var(--ur-color-border-default); border-radius: var(--ur-radius-full);
+  background: var(--ur-color-background-card);
+  font: var(--ur-text-font-system-m-bold); color: var(--ur-color-text-strong);
+}
+.chip svg { width: var(--ur-size-icon-s); height: var(--ur-size-icon-s); }
+.chip.is-on { border-color: var(--ur-color-action-primary); background: var(--ur-color-action-primary-soft); color: var(--ur-color-action-primary-strong); }
+.chip.is-correct { border-color: var(--ur-color-feedback-success); background: var(--ur-color-feedback-success-bg); color: var(--ur-color-feedback-success-text); }
+.chip.is-wrong { border-color: var(--ur-color-feedback-error); background: var(--ur-color-feedback-error-bg); color: var(--ur-color-feedback-error); }

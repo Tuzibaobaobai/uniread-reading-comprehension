@@ -1,0 +1,13 @@
+/* ui/quiz/RadioMark — extends UIKit-Quiz / Type (6759:44371). Tokens only; the dot is 15/24 of the ring. */
+.option-radio {
+  width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); border-radius: var(--ur-radius-full);
+  border: var(--ur-stroke-radio) solid var(--ur-color-border-radio); background: var(--ur-color-background-card);
+  display: grid; place-items: center;
+}
+.option-radio.is-on::after {
+  content: ''; width: calc(var(--ur-size-icon-m) * 0.625); height: calc(var(--ur-size-icon-m) * 0.625);
+  border-radius: var(--ur-radius-full); background: currentColor;
+}
+.option-radio.is-accent { border-color: var(--ur-color-action-primary); color: var(--ur-color-action-primary); }
+.option-radio.is-success { border-color: var(--ur-color-feedback-success); color: var(--ur-color-feedback-success); }
+.option-radio.is-danger { border-color: var(--ur-color-feedback-error); color: var(--ur-color-feedback-error); }

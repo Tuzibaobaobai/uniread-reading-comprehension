@@ -1,0 +1,6 @@
+/* ui/GroupTitle (UIKit-Ranking group title). Tokens only. */
+.week-label {
+  margin: var(--ur-space-24) 0 0 var(--ur-space-8);
+  font: var(--ur-text-font-system-m-bold); color: var(--ur-color-text-secondary);
+}
+.week-label.has-badge { display: flex; align-items: center; gap: var(--ur-space-12); flex-wrap: wrap; }

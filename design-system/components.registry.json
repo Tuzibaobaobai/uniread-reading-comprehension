@@ -468,7 +468,8 @@
     "page": "RC · Proposed",
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19446-609"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/quiz/BlankInput/BlankInput.tsx"
   },
   {
    "code": "rc/Quiz/PosChips",
@@ -576,7 +577,8 @@
     "page": "RC · Proposed",
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19446-739"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/quiz/JudgeResult/JudgeResult.tsx"
   },
   {
    "code": "rc/Vocab/PhraseBank",
@@ -740,7 +742,8 @@
     "State": "Default / Selected"
    },
    "note": "容器先核对 UIKit-SignUp&Login / Tabs 7301:62623 是否配套",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/SegmentedTabs/SegmentedTabs.tsx"
   },
   {
    "code": "ui/FavoriteButton",
@@ -757,7 +760,8 @@
     "group": "UIKit-Playlist",
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=18644-121797"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/playlist/FavoriteButton/FavoriteButton.tsx"
   },
   {
    "code": "ui/GroupTitle",
@@ -775,7 +779,8 @@
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=13263-223981"
    },
    "note": "KET/PET 套题成绩徽标用 RC/Common/Tag",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/playlist/GroupTitle/GroupTitle.tsx"
   },
   {
    "code": "ui/ProgressBar",
@@ -792,7 +797,8 @@
     "group": "UIKit-Playlist",
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=10539-77875"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/playlist/ProgressBar/ProgressBar.tsx"
   },
   {
    "code": "ui/CloseButton",
@@ -927,7 +933,12 @@
     "Locate": "BOOLEAN（新增，解析里的定位原文）"
    },
    "note": "单选圈复用 UIKit-Quiz / Type 6759:44371；判断题 T/F 不显示字母",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/quiz/OptionItem/OptionItem.tsx",
+   "figmaProposal": {
+    "nodeId": "19476:942",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19476-942"
+   }
   },
   {
    "code": "ui/quiz/RadioMark",
@@ -954,7 +965,12 @@
     "Check": "no / yes",
     "Tone": "accent / success / danger（新增）"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/quiz/RadioMark/RadioMark.tsx",
+   "figmaProposal": {
+    "nodeId": "19476:1022",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19476-1022"
+   }
   },
   {
    "code": "ui/quiz/QuestionNav",
@@ -977,7 +993,12 @@
     "Overflow": "none / start / end / both（新增：‹ +N / +N › 更多按钮）"
    },
    "note": "「更多」按钮在 Figma 里是 pagination 的新变体，不单独成组件",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/quiz/QuestionNav/QuestionNav.tsx",
+   "figmaProposal": {
+    "nodeId": "19478:984",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19478-984"
+   }
   },
   {
    "code": "ui/PlaylistCard",
@@ -998,7 +1019,8 @@
     "Locale": "zh-CN / en-US",
     "Icons": "INSTANCE_SWAP（ui/StepIcon）"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/playlist/PlaylistCard/PlaylistCard.tsx"
   },
   {
    "code": "ui/PlaylistItem",
@@ -1020,7 +1042,12 @@
     "Score": "BOOLEAN（新增，真题成绩）",
     "State": "Default / Hover / Done"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/playlist/PlaylistItem/PlaylistItem.tsx",
+   "figmaProposal": {
+    "nodeId": "19480:1107",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19480-1107"
+   }
   },
   {
    "code": "ui/Highlight",
@@ -1040,7 +1067,12 @@
     "row": "1 / 2 / 3 / 4",
     "Emphasis": "evidence / flash（新增）"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/Highlight/Highlight.tsx",
+   "figmaProposal": {
+    "nodeId": "19478:962",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19478-962"
+   }
   },
   {
    "code": "ui/OrderChunk",
@@ -1060,7 +1092,13 @@
     "Placed": "no / yes（新增）",
     "Result": "none / correct / wrong（新增）"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/OrderChunk/OrderChunk.tsx",
+   "figmaProposal": {
+    "nodeId": "19475:977",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19475-977"
+   },
+   "note": "Figma 提案 RC/Quiz/OrderChunk（外观对应 UIKit-Dictation / item-hug，设计师可并入该组件）"
   },
   {
    "code": "ui/exam/ModeMenu",
@@ -1145,7 +1183,12 @@
     "Size": "s / m"
    },
    "note": "合并 .bank-letter、.match-badge、.match-board-badge/-letter、.part-grid-letter；先与 UIKit-Report / num 10651:61377 对比",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/LetterBadge/LetterBadge.tsx",
+   "figmaProposal": {
+    "nodeId": "19476:1058",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19476-1058"
+   }
   },
   {
    "code": "ui/AudioPlayer",
@@ -1242,7 +1285,12 @@
     "Icon": "BOOLEAN + INSTANCE_SWAP（Locate / Check / Flag）"
    },
    "note": "高度需到 --ur-size-touch-target（现 40px）",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/common/Chip/Chip.tsx",
+   "figmaProposal": {
+    "nodeId": "19470:918",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19470-918"
+   }
   },
   {
    "code": "rc/Common/Dialog",
@@ -1262,7 +1310,12 @@
     "Actions": "none / one / two（ui/QuizButton）"
    },
    "note": "vocab 的 rc/Vocab/EntryDialog 以后改为此外壳",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/common/Dialog/Dialog.tsx",
+   "figmaProposal": {
+    "nodeId": "19471:986",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19471-986"
+   }
   },
   {
    "code": "rc/Common/InlineNotice",
@@ -1282,7 +1335,12 @@
     "Tone": "danger / warning / info",
     "Actions": "none / one / two"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/common/InlineNotice/InlineNotice.tsx",
+   "figmaProposal": {
+    "nodeId": "19470:958",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19470-958"
+   }
   },
   {
    "code": "rc/Common/HintText",
@@ -1304,7 +1362,12 @@
    "variants": {
     "Tone": "neutral / accent"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/common/HintText/HintText.tsx",
+   "figmaProposal": {
+    "nodeId": "19470:964",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19470-964"
+   }
   },
   {
    "code": "rc/Common/Tag",
@@ -1322,7 +1385,12 @@
     "Size": "s / m"
    },
    "note": "合并 .judge-tag、.task-card-tag、.speak-role、.part-audio-badge、.test-score",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/common/Tag/Tag.tsx",
+   "figmaProposal": {
+    "nodeId": "19470:930",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19470-930"
+   }
   },
   {
    "code": "rc/Common/Panel",
@@ -1348,7 +1416,12 @@
     "Header": "BOOLEAN",
     "Footer": "BOOLEAN"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/common/Panel/Panel.tsx",
+   "figmaProposal": {
+    "nodeId": "19477:1035",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19477-1035"
+   }
   },
   {
    "code": "rc/Common/PageHeader",
@@ -1362,7 +1435,12 @@
    "variants": {
     "Locale": "zh-CN / en-US"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/common/PageHeader/PageHeader.tsx",
+   "figmaProposal": {
+    "nodeId": "19480:1092",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19480-1092"
+   }
   },
   {
    "code": "rc/Common/PlaylistIntro",
@@ -1373,7 +1451,12 @@
     "1.01",
     "2.01"
    ],
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/common/PlaylistIntro/PlaylistIntro.tsx",
+   "figmaProposal": {
+    "nodeId": "19480:1103",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19480-1103"
+   }
   },
   {
    "code": "rc/Common/ListHeader",
@@ -1384,7 +1467,12 @@
     "1.01",
     "2.01"
    ],
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/common/ListHeader/ListHeader.tsx",
+   "figmaProposal": {
+    "nodeId": "19480:1086",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19480-1086"
+   }
   },
   {
    "code": "rc/Common/TextThumb",
@@ -1398,7 +1486,12 @@
    "variants": {
     "Kind": "reading / exam"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/common/TextThumb/TextThumb.tsx",
+   "figmaProposal": {
+    "nodeId": "19480:1080",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19480-1080"
+   }
   },
   {
    "code": "rc/Common/Disclosure",
@@ -1450,7 +1543,12 @@
     "Stem": "BOOLEAN（真题告示题只印题号）",
     "Hint": "BOOLEAN（rc/Common/HintText）"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/quiz/QuestionPrompt/QuestionPrompt.tsx",
+   "figmaProposal": {
+    "nodeId": "19472:930",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19472-930"
+   }
   },
   {
    "code": "rc/Quiz/ContextLine",
@@ -1469,7 +1567,12 @@
     "Mode": "default / exam（考试版只在窄屏显示）",
     "Stack": "single / stacked"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/quiz/ContextLine/ContextLine.tsx",
+   "figmaProposal": {
+    "nodeId": "19472:938",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19472-938"
+   }
   },
   {
    "code": "rc/Quiz/BlankSlot",
@@ -1497,7 +1600,12 @@
     "Base": "none / word"
    },
    "note": "合并 .blank-chip、.context-blank、.gap-slot、.rt-blank-plain",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/quiz/BlankSlot/BlankSlot.tsx",
+   "figmaProposal": {
+    "nodeId": "19472:958",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19472-958"
+   }
   },
   {
    "code": "rc/Quiz/WordBank",
@@ -1515,7 +1623,12 @@
     "Locked": "no / yes"
    },
    "note": "与 rc/Vocab/PhraseBank 的关系请设计师定（可能合一）",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/quiz/WordBank/WordBank.tsx",
+   "figmaProposal": {
+    "nodeId": "19472:979",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19472-979"
+   }
   },
   {
    "code": "rc/Quiz/MatchItem",
@@ -1535,7 +1648,12 @@
     "Result": "none / correct / wrong"
    },
    "note": "配对色用 color/pair/1–7（needs-designer）",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/quiz/MatchItem/MatchItem.tsx",
+   "figmaProposal": {
+    "nodeId": "19475:965",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19475-965"
+   }
   },
   {
    "code": "rc/Quiz/OrderLine",
@@ -1549,7 +1667,12 @@
     "State": "empty / partial / full",
     "Result": "none / correct / wrong"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/quiz/OrderLine/OrderLine.tsx",
+   "figmaProposal": {
+    "nodeId": "19475:1010",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19475-1010"
+   }
   },
   {
    "code": "rc/Quiz/LongAnswer",
@@ -1570,7 +1693,12 @@
     "Counter": "BOOLEAN（字数：已写 n 词 · 至少 m 词，Enough no / yes）"
    },
    "note": "rc/Vocab/TranslateRow 的输入框改用它",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/quiz/LongAnswer/LongAnswer.tsx",
+   "figmaProposal": {
+    "nodeId": "19475:1028",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19475-1028"
+   }
   },
   {
    "code": "rc/Quiz/SelfAssess",
@@ -1584,7 +1712,12 @@
    "variants": {
     "Answer": "none / yes / no"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/quiz/SelfAssess/SelfAssess.tsx",
+   "figmaProposal": {
+    "nodeId": "19472:1013",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19472-1013"
+   }
   },
   {
    "code": "rc/Read/ArticleHeader",
@@ -1618,7 +1751,12 @@
     "Instruction": "BOOLEAN"
    },
    "note": "合并 RC/Read/ArticleInfo、RC/Exam/PartHeading；真题左栏不是 SectionHeader",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/read/ArticleHeader/ArticleHeader.tsx",
+   "figmaProposal": {
+    "nodeId": "19477:979",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19477-979"
+   }
   },
   {
    "code": "rc/Read/ArticleText",
@@ -1637,7 +1775,8 @@
     "styles": "Article/Body · Heading · List · Vocab · Underline · Note"
    },
    "note": "以 Figma 文字样式提案「Article Text/*」",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/read/ArticleText/ArticleText.tsx"
   },
   {
    "code": "rc/Read/Figure",
@@ -1655,7 +1794,12 @@
     "Size": "inline / full / grid-3",
     "Caption": "BOOLEAN"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/read/Figure/Figure.tsx",
+   "figmaProposal": {
+    "nodeId": "19477:988",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19477-988"
+   }
   },
   {
    "code": "rc/Read/WordsBox",
@@ -1666,7 +1810,12 @@
     "1.04",
     "1.06"
    ],
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/read/WordsBox/WordsBox.tsx",
+   "figmaProposal": {
+    "nodeId": "19477:1009",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19477-1009"
+   }
   },
   {
    "code": "rc/Read/Dialogue",
@@ -1681,7 +1830,12 @@
     "Speaker": "TEXT",
     "Side": "a / b"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/read/Dialogue/Dialogue.tsx",
+   "figmaProposal": {
+    "nodeId": "19477:1021",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19477-1021"
+   }
   },
   {
    "code": "rc/Read/GenreNote",
@@ -1885,6 +2039,26 @@
     "Size": "entry / player（新增）",
     "Playing": "no / yes（新增）"
    }
+  },
+  {
+   "code": "rc/Icon",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "UniRead 图标库缺的线性图标：Locate（定位原文）、Flag（标记本题）、Check / Cross",
+   "screens": [
+    "1.05",
+    "1.06",
+    "2.03"
+   ],
+   "variants": {
+    "Icon": "Locate / Flag / Check / Cross"
+   },
+   "figmaProposal": {
+    "nodeId": "19479:1160",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19479-1160"
+   },
+   "source": "src/components/Icons.tsx",
+   "issue": "#138"
   }
  ],
  "proposalPage": {

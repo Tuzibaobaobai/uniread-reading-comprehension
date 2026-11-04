@@ -1,0 +1,11 @@
+/* rc/Quiz/ContextLine (proposed). Tokens only; padding 14 × 18 = 12 + 2 / 16 + 2. */
+.context-line {
+  margin: 0 0 var(--ur-space-24); padding: calc(var(--ur-space-12) + var(--ur-space-2)) calc(var(--ur-space-16) + var(--ur-space-2));
+  background: var(--ur-color-background-subtle); border-radius: var(--ur-radius-s);
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+  color: var(--ur-color-text-primary);
+}
+.context-stack .context-line { margin-bottom: calc(var(--ur-space-8) + var(--ur-space-2)); }
+
+/* Mode exam: the blank's sentence is already in the left pane — repeated only on narrow screens (#83) */
+@media (min-width: 1024px) { .exam-context { display: none; } }

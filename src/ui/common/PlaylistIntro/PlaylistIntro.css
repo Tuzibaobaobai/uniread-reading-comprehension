@@ -1,0 +1,51 @@
+/* RC/Common/PlaylistIntro (proposed). Tokens only. --cover is set inline (the playlist cover). */
+.playlist-intro { position: sticky; top: 0; padding: var(--ur-space-48) 0; height: 100cqh; } /* = .app-scroll height */
+.playlist-back {
+  position: absolute; left: calc(var(--ur-height-height-6) / -2); top: calc(var(--ur-space-24) + var(--ur-space-4)); z-index: 2;
+}
+.playlist-intro-panel {
+  --cover: none;
+  --panel-gap: var(--ur-space-16);
+  position: relative; isolation: isolate; overflow: hidden;
+  height: 100%;
+  display: flex; flex-direction: column; gap: var(--panel-gap);
+  padding: var(--ur-space-32);
+  border-radius: var(--ur-radius-m);
+}
+/* blurred cover behind a translucent white layer */
+.playlist-intro-panel::before,
+.playlist-intro-panel::after { content: ''; position: absolute; inset: 0; z-index: -1; }
+.playlist-intro-panel::before { background: var(--cover) center / cover; filter: blur(var(--ur-blur-panel)); transform: scale(1.4); }
+.playlist-intro-panel::after { background: var(--ur-color-background-overlay-panel); }
+.playlist-intro-cover {
+  width: 100%; aspect-ratio: 407 / 239; object-fit: cover; object-position: top; border-radius: var(--ur-radius-xs); flex: none;
+}
+.playlist-intro-title {
+  margin: 0; padding: var(--ur-space-8) 0 var(--ur-space-24);
+  font: var(--ur-text-font-system-3xl-bold); color: var(--ur-color-text-primary);
+  border-bottom: var(--ur-stroke-default) solid var(--ur-paint-customization-grey-8);
+  margin-bottom: calc(var(--panel-gap) * -1);
+}
+.playlist-intro-stats {
+  display: flex; justify-content: space-between; padding: var(--ur-space-16) 0;
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+  color: var(--ur-color-text-primary);
+  margin-bottom: calc(var(--panel-gap) * -1);
+}
+.playlist-intro-desc {
+  flex: 1; min-height: 0; margin: 0;
+  color: var(--ur-color-text-secondary);
+  font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height);
+  overflow: hidden;
+}
+/* narrow: a compact card above the list — banner left (200px = 5 × space/40), text right */
+@media (max-width: 1023px) {
+  .playlist-intro { position: relative; height: auto; padding: 0; }
+  .playlist-back { position: fixed; left: var(--ur-space-16); top: var(--ur-space-16); }
+  .playlist-intro-panel {
+    display: grid; grid-template-columns: calc(var(--ur-space-40) * 5) 1fr; align-items: start;
+    gap: var(--ur-space-8) var(--ur-space-20); padding: var(--ur-space-20);
+  }
+  .playlist-intro-cover { grid-row: span 4; }
+  .playlist-intro-title, .playlist-intro-stats { margin-bottom: 0; padding: 0 0 var(--ur-space-8); }
+}

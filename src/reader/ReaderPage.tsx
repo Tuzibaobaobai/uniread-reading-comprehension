@@ -7,10 +7,8 @@ import { staticContent } from '@/lib/content';
 import { localAttempts, newAttempt } from '@/lib/storage';
 import { isScored, type Result } from '@/lib/grading';
 import { applyJudgement, fallbackToSelf } from '@/lib/judge';
-import { BackArrow, Check, Cross, Locate } from '@/components/Icons';
+import { BackArrow, Locate } from '@/components/Icons';
 import Loading from '@/components/Loading';
-import correctIcon from '@/assets/icons/correct.svg';
-import wrongIcon from '@/assets/icons/wrong.svg';
 import { Rich, plainText, type BlankNode } from '@/components/Rich';
 import { ArticlePane } from './ArticlePane';
 import { ExamPane } from './ExamPane';
@@ -18,7 +16,6 @@ import { ExamReport, ExamTimer, ModeDialog, ModeSelect, SwitchModeDialog, type M
 import { examEndsAt } from '@/lib/exam-status';
 import { SpeakingView } from './Speaking';
 import { MatchBoardView, SectionAllView } from './PartViews';
-import { QuestionStrip } from './QuestionStrip';
 import { paint, sentenceRange } from './evidence';
 import {
   ChoiceView,
@@ -37,6 +34,16 @@ import {
 import { blankCorrect, blankOwners, blankText, correctBlankText, evidenceOf, flatten, pageAnswered, showFirstLetter, type Responses } from './model';
 import OverflowTip from '@/components/OverflowTip';
 import { VocabDayPage } from '@/vocab/VocabDayPage';
+import { Panel } from '@/ui/common/Panel/Panel';
+import { Chip } from '@/ui/common/Chip/Chip';
+import { Dialog } from '@/ui/common/Dialog/Dialog';
+import { InlineNotice } from '@/ui/common/InlineNotice/InlineNotice';
+import { SegmentedTabs } from '@/ui/SegmentedTabs/SegmentedTabs';
+import { Highlight } from '@/ui/Highlight/Highlight';
+import { QuizButton } from '@/ui/QuizButton/QuizButton';
+import { QuestionNav } from '@/ui/quiz/QuestionNav/QuestionNav';
+import { PartPager } from '@/ui/quiz/PartPager/PartPager';
+import { AnswerExplain, AnswerFeedback } from '@/ui/quiz/AnswerFeedback/AnswerFeedback';
 
 export function ReaderPage() {
   const { playlistId = '', itemId = '' } = useParams();
@@ -309,9 +316,7 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
         flashTimer.current = window.setTimeout(() => paint('flash', []), 1400);
         return;
       }
-      el.classList.remove('flash');
-      void el.offsetWidth;
-      el.classList.add('flash');
+      Highlight.flash(el);
     });
   };
 
@@ -384,14 +389,15 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
 
   return (
     <div className={`reader-body tab-${tab} ${soloQuestions ? 'no-left' : ''}`}>
-      <div className="reader-tabs" role="tablist">
-        <button role="tab" aria-selected={tab === 'article'} className={tab === 'article' ? 'is-active' : ''} onClick={() => setTab('article')}>
-          {exam ? t('reader.tabMaterial') : t('reader.tabArticle')}
-        </button>
-        <button role="tab" aria-selected={tab === 'questions'} className={tab === 'questions' ? 'is-active' : ''} onClick={() => setTab('questions')}>
-          {t('reader.tabQuestions', { progress: submitted ? '' : `${flat.length - unanswered.length}/${flat.length}` })}
-        </button>
-      </div>
+      <SegmentedTabs<Tab>
+        className="reader-tabs"
+        value={tab}
+        onChange={setTab}
+        tabs={[
+          { id: 'article', label: exam ? t('reader.tabMaterial') : t('reader.tabArticle') },
+          { id: 'questions', label: t('reader.tabQuestions', { progress: submitted ? '' : `${flat.length - unanswered.length}/${flat.length}` }) },
+        ]}
+      />
 
       <section className="reader-left">
         {exam ? (
@@ -413,159 +419,150 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
       </section>
 
       <section className="reader-right">
-        <div className="question-card">
-          {headSlot &&
-            exam &&
-            attempt.mode &&
-            !submitted &&
-            !modeDialog &&
-            createPortal(
-              <ModeSelect
-                mode={attempt.mode}
-                timer={
-                  examMode ? (
-                    <ExamTimer
-                      endsAt={endsAt}
-                      waitingForAudio={submitAfterAudio}
-                      onTimeUp={() => (examAudioPlaying ? setSubmitAfterAudio(true) : void submit())}
-                    />
-                  ) : undefined
+        <Panel
+          kind="quiz"
+          header={
+            <>
+              {headSlot &&
+                exam &&
+                attempt.mode &&
+                !submitted &&
+                !modeDialog &&
+                createPortal(
+                  <ModeSelect
+                    mode={attempt.mode}
+                    timer={
+                      examMode ? (
+                        <ExamTimer
+                          endsAt={endsAt}
+                          waitingForAudio={submitAfterAudio}
+                          onTimeUp={() => (examAudioPlaying ? setSubmitAfterAudio(true) : void submit())}
+                        />
+                      ) : undefined
+                    }
+                    onSwitch={() => setSwitchOpen(true)}
+                  />,
+                  headSlot,
+                )}
+              {exam && ((examMode && current) || (submitted && result)) && !modeDialog && (
+                <div className="exam-bar">
+                  {examMode && current && (
+                    <Chip
+                      tone={attempt.flagged?.includes(current.q.id) ? 'on' : 'neutral'}
+                      className="flag-toggle"
+                      aria-pressed={!!attempt.flagged?.includes(current.q.id)}
+                      onClick={() => toggleFlag(current.q.id)}
+                    >
+                      {attempt.flagged?.includes(current.q.id) ? t('reader.flagged') : t('reader.flag')}
+                    </Chip>
+                  )}
+                  {submitted && result && (
+                    <Chip onClick={() => setReportOpen(true)}>{t('exam.report.title')}</Chip>
+                  )}
+                </div>
+              )}
+            </>
+          }
+          footer={
+            <>
+              {submitError && (
+                <InlineNotice tone="danger" role="alert">
+                  {submitError.status ? t('reader.gradeUnavailable', { status: submitError.status }) : t('reader.networkError')}
+                </InlineNotice>
+              )}
+              <QuestionNav
+                label={t('reader.nav')}
+                current={index}
+                count={visible.length}
+                prev={
+                  <QuizButton disabled={pos <= 0} onClick={() => go(visible[pos - 1])}>
+                    {t('reader.prev')}
+                  </QuizButton>
                 }
-                onSwitch={() => setSwitchOpen(true)}
-              />,
-              headSlot,
-            )}
-          {exam && ((examMode && current) || (submitted && result)) && !modeDialog && (
-            <div className="exam-bar">
-              {examMode && current && (
-                <button
-                  className={`chip flag-toggle ${attempt.flagged?.includes(current.q.id) ? 'is-on' : ''}`}
-                  aria-pressed={!!attempt.flagged?.includes(current.q.id)}
-                  onClick={() => toggleFlag(current.q.id)}
-                >
-                  {attempt.flagged?.includes(current.q.id) ? t('reader.flagged') : t('reader.flag')}
-                </button>
-              )}
-              {submitted && result && (
-                <button className="chip" onClick={() => setReportOpen(true)}>
-                  {t('exam.report.title')}
-                </button>
-              )}
-            </div>
-          )}
-          <div className="question-scroll thin-scroll">
-            {current && iprops && (
-              <>
-                {current.section.instruction && (
-                  <p className="section-instruction">
-                    {current.section.label && <b>{current.section.label}. </b>}
-                    <Emph text={current.section.instruction} />
-                  </p>
-                )}
-                {current.section.intro && (
-                  // the Part's printed lead-in belongs with the questions, not the texts (#90)
-                  <p className="section-intro">
-                    <Rich nodes={current.section.intro} />
-                  </p>
-                )}
-                <QuestionBody
-                  // a new attempt (重新作答, practice ↔ exam) starts every interaction fresh — e.g. no recordings kept (#77)
-                  key={attempt.attemptId}
-                  props={iprops}
-                  selfAssessed={result?.selfAssessed?.[page!.q.id]}
-                  onSelfAssess={(v) =>
-                    result &&
-                    persist({ ...attempt, result: { ...result, selfAssessed: { ...result.selfAssessed, [page!.q.id]: v } } })
-                  }
-                />
-                {review &&
-                  !current.group &&
-                  (!EMBEDDED_EXPLAIN.has(current.q.interaction.kind) || hasImageOptions(current.q)) &&
-                  // speaking: the Part's model answer once, on its last page
-                  (current.q.interaction.kind !== 'speaking' || current.turn === undefined || current.turn === current.q.interaction.turns.length - 1) && (
-                  <Explanation item={item} fq={page!} keyData={review.key} onLocate={locate} result={review.result} />
-                )}
-              </>
-            )}
-          </div>
-
-          {submitError && (
-            <p className="submit-error" role="alert">
-              {submitError.status ? t('reader.gradeUnavailable', { status: submitError.status }) : t('reader.networkError')}
-            </p>
-          )}
-          <nav className="question-nav" aria-label={t('reader.nav')}>
-            <button className="pill-button" disabled={pos <= 0} onClick={() => go(visible[pos - 1])}>
-              {t('reader.prev')}
-            </button>
-            <QuestionStrip current={index} count={visible.length}>
-              {visible.map((i) => {
-                const f = flat[i];
-                // a group page (a whole Part on one page) is correct only when all its questions are
-                const rows = (f.group ? f.section.questions : [f.q]).map((q) => review?.result.byQuestion.find((b) => b.q === q.id));
-                const r = rows.length === 1 ? rows[0] : { correct: rows.some((x) => x?.correct === false) ? false : rows.every((x) => x?.correct === true) ? true : null };
-                const state = review
-                  ? r?.correct === true
-                    ? 'is-correct'
-                    : r?.correct === false
-                      ? 'is-wrong'
-                      : 'is-neutral'
-                  : pageAnswered(f, responses)
-                    ? 'is-answered'
-                    : '';
-                return (
-                  <button
-                    key={i}
-                    className={`question-dot ${i === index ? 'is-current' : ''} ${state} ${examMode && attempt.flagged?.includes(f.q.id) ? 'is-flagged' : ''} ${exam && f.firstInSection ? 'part-start' : ''}`}
-                    // exam papers: the first number of each Part carries the Part's label (GitHub #72)
-                    data-part={exam && f.firstInSection ? `P${f.section.part ?? ''}` : undefined}
-                    onClick={() => go(i)}
-                    aria-label={t('reader.dotLabel', {
-                      part: exam && f.section.part ? t('reader.partPrefix', { part: f.section.part }) : '',
-                      n: `${f.display}${f.displayTo && f.displayTo !== f.display ? `–${f.displayTo}` : ''}`,
-                      state: state === 'is-correct' ? t('reader.dotCorrect') : state === 'is-wrong' ? t('reader.dotWrong') : state === 'is-answered' ? t('reader.dotAnswered') : '',
-                    })}
-                    aria-current={i === index}
-                  >
-                    {state === 'is-correct' || state === 'is-wrong' ? (
-                      <img className="question-dot-icon" src={state === 'is-correct' ? correctIcon : wrongIcon} alt="" />
+                action={
+                  submitted ? (
+                    isLast ? (
+                      <QuizButton onClick={retry}>{t('reader.retry')}</QuizButton>
                     ) : (
-                      <>
-                        <span className={`question-dot-num ${f.displayTo ? 'is-range' : ''}`}>
-                          {f.display}
-                          {f.displayTo && f.displayTo !== f.display ? `–${f.displayTo}` : ''}
-                        </span>
-                        {!review && <span className="question-dot-mark" aria-hidden />}
-                      </>
-                    )}
-                  </button>
-                );
-              })}
-            </QuestionStrip>
-            {submitted ? (
-              isLast ? (
-                <button className="pill-button" onClick={retry}>
-                  {t('reader.retry')}
-                </button>
-              ) : (
-                <button className="pill-button" onClick={() => go(visible[pos + 1])}>
-                  {t('reader.next')}
-                </button>
-              )
-            ) : isLast ? (
-              <button
-                className={`pill-button primary ${unanswered.length ? 'is-dim' : ''}`}
-                onClick={() => (unanswered.length ? setConfirmOpen(true) : submit())}
+                      <QuizButton onClick={() => go(visible[pos + 1])}>{t('reader.next')}</QuizButton>
+                    )
+                  ) : isLast ? (
+                    <QuizButton variant="primary" dim={unanswered.length > 0} onClick={() => (unanswered.length ? setConfirmOpen(true) : submit())}>
+                      {t('reader.submit')}
+                    </QuizButton>
+                  ) : (
+                    <QuizButton onClick={() => go(visible[pos + 1])}>{t('reader.next')}</QuizButton>
+                  )
+                }
               >
-                {t('reader.submit')}
-              </button>
-            ) : (
-              <button className="pill-button" onClick={() => go(visible[pos + 1])}>
-                {t('reader.next')}
-              </button>
-            )}
-          </nav>
-        </div>
+                {visible.map((i) => {
+                  const f = flat[i];
+                  // a group page (a whole Part on one page) is correct only when all its questions are
+                  const rows = (f.group ? f.section.questions : [f.q]).map((q) => review?.result.byQuestion.find((b) => b.q === q.id));
+                  const r = rows.length === 1 ? rows[0] : { correct: rows.some((x) => x?.correct === false) ? false : rows.every((x) => x?.correct === true) ? true : null };
+                  const res = !review ? 'none' : r?.correct === true ? 'correct' : r?.correct === false ? 'wrong' : 'none';
+                  const answered = !review && pageAnswered(f, responses);
+                  const range = `${f.display}${f.displayTo && f.displayTo !== f.display ? `–${f.displayTo}` : ''}`;
+                  return (
+                    <PartPager
+                      key={i}
+                      layout="question"
+                      // exam papers: the first number of each Part carries the Part's label (GitHub #72)
+                      kicker={exam && f.firstInSection ? `P${f.section.part ?? ''}` : undefined}
+                      label={range}
+                      labelKind={f.displayTo ? 'range' : 'number'}
+                      selected={i === index}
+                      completed={answered}
+                      result={res}
+                      reviewing={!!review}
+                      flagged={examMode && !!attempt.flagged?.includes(f.q.id)}
+                      onClick={() => go(i)}
+                      ariaLabel={t('reader.dotLabel', {
+                        part: exam && f.section.part ? t('reader.partPrefix', { part: f.section.part }) : '',
+                        n: range,
+                        state: res === 'correct' ? t('reader.dotCorrect') : res === 'wrong' ? t('reader.dotWrong') : answered ? t('reader.dotAnswered') : '',
+                      })}
+                    />
+                  );
+                })}
+              </QuestionNav>
+            </>
+          }
+        >
+          {current && iprops && (
+            <>
+              {current.section.instruction && (
+                <p className="section-instruction">
+                  {current.section.label && <b>{current.section.label}. </b>}
+                  <Emph text={current.section.instruction} />
+                </p>
+              )}
+              {current.section.intro && (
+                // the Part's printed lead-in belongs with the questions, not the texts (#90)
+                <p className="section-intro">
+                  <Rich nodes={current.section.intro} />
+                </p>
+              )}
+              <QuestionBody
+                // a new attempt (重新作答, practice ↔ exam) starts every interaction fresh — e.g. no recordings kept (#77)
+                key={attempt.attemptId}
+                props={iprops}
+                selfAssessed={result?.selfAssessed?.[page!.q.id]}
+                onSelfAssess={(v) =>
+                  result &&
+                  persist({ ...attempt, result: { ...result, selfAssessed: { ...result.selfAssessed, [page!.q.id]: v } } })
+                }
+              />
+              {review &&
+                !current.group &&
+                (!EMBEDDED_EXPLAIN.has(current.q.interaction.kind) || hasImageOptions(current.q)) &&
+                // speaking: the Part's model answer once, on its last page
+                (current.q.interaction.kind !== 'speaking' || current.turn === undefined || current.turn === current.q.interaction.turns.length - 1) && (
+                <Explanation item={item} fq={page!} keyData={review.key} onLocate={locate} result={review.result} />
+              )}
+            </>
+          )}
+        </Panel>
       </section>
 
       {exam && modeDialog && <ModeDialog item={exam} reason={modeDialog} onChoose={startMode} onCancel={cancelMode} />}
@@ -574,36 +571,37 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
       )}
       {exam && reportOpen && result && <ExamReport item={exam} result={result} onClose={() => setReportOpen(false)} />}
       {confirmOpen && (
-        <div className="dialog-backdrop" role="presentation" onClick={() => setConfirmOpen(false)}>
-          <div className="dialog" role="dialog" aria-modal aria-labelledby="dlg-title" onClick={(e) => e.stopPropagation()}>
-            <h2 id="dlg-title">{t('reader.unansweredTitle', { count: unanswered.length })}</h2>
-            <p>{t('reader.unansweredHint')}</p>
-            <div className="dialog-dots">
-              {unanswered.map((f) => (
-                <button
-                  key={f.q.id}
-                  className="question-dot"
-                  aria-label={t('reader.questionN', { n: f.display })}
-                  onClick={() => {
-                    setConfirmOpen(false);
-                    go(f.index);
-                    setTab('questions');
-                  }}
-                >
-                  <span className="question-dot-num">{f.display}</span>
-                </button>
-              ))}
-            </div>
-            <div className="dialog-actions">
-              <button className="pill-button" onClick={submit}>
-                {t('reader.submitAnyway')}
-              </button>
-              <button className="pill-button primary" autoFocus onClick={() => setConfirmOpen(false)}>
+        <Dialog
+          title={t('reader.unansweredTitle', { count: unanswered.length })}
+          onClose={() => setConfirmOpen(false)}
+          actions={
+            <>
+              <QuizButton onClick={submit}>{t('reader.submitAnyway')}</QuizButton>
+              <QuizButton variant="primary" autoFocus onClick={() => setConfirmOpen(false)}>
                 {t('reader.keepAnswering')}
-              </button>
-            </div>
+              </QuizButton>
+            </>
+          }
+        >
+          <p>{t('reader.unansweredHint')}</p>
+          <div className="dialog-dots">
+            {unanswered.map((f) => (
+              <PartPager
+                key={f.q.id}
+                layout="question"
+                tone="pending"
+                label={String(f.display)}
+                labelKind="number"
+                ariaLabel={t('reader.questionN', { n: f.display })}
+                onClick={() => {
+                  setConfirmOpen(false);
+                  go(f.index);
+                  setTab('questions');
+                }}
+              />
+            ))}
           </div>
-        </div>
+        </Dialog>
       )}
     </div>
   );
@@ -698,35 +696,43 @@ function Explanation({
     answerText = seqs.map((seq) => orderSentence(it.items, seq, it.ending)).join(' / ');
   }
   const isSample = 'sampleAnswer' in k;
+  const ev = k.evidence?.[0];
   return (
-    <div className={`explain ${r?.correct === true ? 'is-correct' : r?.correct === false ? 'is-wrong' : ''}`}>
-      <div className="explain-head">
-        {r?.correct === true && (
-          <>
-            <Check /> {t('reader.correct')}
-          </>
-        )}
-        {r?.correct === false && (
-          <>
-            <Cross /> {r.points > 0 ? t('reader.partlyCorrect', { points: Math.round(r.points * 100) / 100, max: r.maxPoints }) : t('reader.wrong')}
-          </>
-        )}
-        {r?.correct === null && <>{t('reader.sampleAnswer')}</>}
-      </div>
-      <p className="explain-answer">
-        <span className="explain-label">{isSample ? t('reader.sampleAnswer') : t('reader.correctAnswer')}</span>
-        {answerText}
-      </p>
+    <AnswerFeedback
+      variant="block"
+      result={r?.correct === true ? 'correct' : r?.correct === false ? (r.points > 0 ? 'partial' : 'wrong') : 'none'}
+      head={
+        r?.correct === true
+          ? t('reader.correct')
+          : r?.correct === false
+            ? r.points > 0
+              ? t('reader.partlyCorrect', { points: Math.round(r.points * 100) / 100, max: r.maxPoints })
+              : t('reader.wrong')
+            : r?.correct === null
+              ? t('reader.sampleAnswer')
+              : undefined
+      }
+      label={isSample ? t('reader.sampleAnswer') : t('reader.correctAnswer')}
+      answer={answerText}
+      action={
+        ev && (
+          <Chip icon={<Locate />} onClick={() => onLocate(ev.block, ev.quote)}>
+            {t('reader.locate')}
+          </Chip>
+        )
+      }
+    >
       {/* many rubrics already begin with 要点： / 要点1： (#98) — add the label only when it is missing */}
-      {'rubricZh' in k && k.rubricZh && <p className="explain-text">{/^要点/.test(k.rubricZh) ? k.rubricZh : t('reader.keyPoints', { text: k.rubricZh })}</p>}
-      {k.explanationZh && <p className="explain-text">{k.explanationZh}</p>}
-      {k.tipsZh && <p className="explain-text explain-tip">{t('reader.tips', { text: k.tipsZh })}</p>}
-      {k.evidence?.[0] && (
-        <button className="chip" onClick={() => onLocate(k.evidence![0].block, k.evidence![0].quote)}>
-          <Locate /> {t('reader.locate')}
-        </button>
+      {'rubricZh' in k && k.rubricZh && (
+        <AnswerExplain variant="block">{/^要点/.test(k.rubricZh) ? k.rubricZh : t('reader.keyPoints', { text: k.rubricZh })}</AnswerExplain>
       )}
-    </div>
+      {k.explanationZh && <AnswerExplain variant="block">{k.explanationZh}</AnswerExplain>}
+      {k.tipsZh && (
+        <AnswerExplain variant="block" tip>
+          {t('reader.tips', { text: k.tipsZh })}
+        </AnswerExplain>
+      )}
+    </AnswerFeedback>
   );
 }
 

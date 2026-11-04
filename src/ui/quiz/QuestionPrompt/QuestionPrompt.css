@@ -1,0 +1,13 @@
+/* rc/Quiz/QuestionPrompt (proposed). Tokens only; 3xl bold (2xl below 1024px, line height kept). */
+.q-prompt {
+  display: flex; align-items: baseline; gap: var(--ur-space-8);
+  font-size: var(--ur-text-font-system-3xl-bold-size); line-height: var(--ur-text-font-system-3xl-bold-line-height);
+  font-weight: var(--ur-text-font-system-3xl-bold-weight); color: var(--ur-color-text-primary);
+  margin: 0 0 var(--ur-space-40);
+}
+.q-num { flex: none; }
+.q-prompt-hint { font-weight: var(--ur-text-font-system-m-regular-weight); color: var(--ur-color-text-secondary); }
+
+@media (max-width: 1023px) {
+  .q-prompt { font-size: var(--ur-text-font-system-2xl-bold-size); }
+}

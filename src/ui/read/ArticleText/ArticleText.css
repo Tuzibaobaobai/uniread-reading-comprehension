@@ -1,0 +1,85 @@
+/* RC/Read/ArticleText (proposed text styles "Article Text/*"): the article column and the rich-text blocks the
+   content renders (.rt-*: Body, Heading, List, Vocab, Underline, Note, Table, Callout). Tokens only; em values scale
+   with the article size (22px, 20px below 1024px). */
+.article {
+  --article-size: var(--ur-text-font-system-3xl-regular-size);
+  --article-lh: var(--ur-text-font-system-3xl-regular-line-height);
+  max-width: calc(var(--ur-space-80) * 9 + var(--ur-space-40)); margin: 0 auto;
+  font-size: var(--article-size); line-height: var(--article-lh); color: var(--ur-color-text-primary);
+}
+@media (max-width: 1023px) {
+  .article {
+    --article-size: var(--ur-text-font-system-2xl-regular-size);
+    --article-lh: var(--ur-text-font-system-2xl-regular-line-height);
+  }
+}
+
+.article-body > * { margin: 0 0 1em; }
+.rt-p { text-indent: 0; }
+.rt-h { font-size: 1.05em; font-weight: var(--ur-text-font-system-m-bold-weight); margin: 1.2em 0 .4em; color: var(--ur-color-text-primary); }
+.rt-list { padding-left: 1.4em; }
+.rt-list li { margin: .3em 0; }
+.rt-vocab { color: var(--ur-color-action-primary-strong); font-weight: var(--ur-text-font-system-m-bold-weight); }
+/* one continuous line under the whole phrase (#12) */
+.rt-underline {
+  text-decoration: underline; text-decoration-thickness: var(--ur-stroke-strong);
+  text-underline-offset: var(--ur-space-4); text-decoration-skip-ink: none;
+}
+/* handwritten note on a printed text (PET Writing Part 1) */
+.rt-callout {
+  display: inline-block; margin: 0 var(--ur-space-4); padding: 0 calc(var(--ur-space-8) + var(--ur-space-2)); transform: rotate(-2deg);
+  border: var(--ur-stroke-blank) solid var(--ur-color-action-primary); border-radius: var(--ur-radius-xs);
+  background: var(--ur-color-action-primary-soft);
+  color: var(--ur-color-action-primary-strong); font-weight: var(--ur-text-font-system-m-bold-weight); font-size: .85em; line-height: 1.6;
+}
+.rt-gloss { color: var(--ur-color-text-secondary); font-size: .72em; }
+
+/* notes, letters, notices */
+.rt-note {
+  padding: var(--ur-space-16) var(--ur-space-20);
+  border: var(--ur-stroke-default) solid var(--ur-color-border-default); border-radius: var(--ur-radius-s);
+}
+.rt-note p { margin: .2em 0; }
+.rt-note-title { font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-text-primary); }
+.rt-note-sign { text-align: right; color: var(--ur-color-text-secondary); }
+/* printed genre layouts (#96): email header band with field boxes; notice with a title bar */
+.rt-note.is-email, .rt-note.is-notice { padding: 0; border-color: var(--ur-paint-customization-grey-11); overflow: hidden; }
+.rt-note.is-email > p, .rt-note.is-notice > p { padding: 0 var(--ur-space-20); }
+.rt-note.is-email > p:last-child, .rt-note.is-notice > p:last-child { padding-bottom: var(--ur-space-16); }
+.rt-note.is-email .rt-note-title, .rt-note.is-notice .rt-note-title {
+  margin: 0 0 var(--ur-space-12); padding: var(--ur-space-8) var(--ur-space-20);
+  background: var(--ur-paint-customization-grey-12); color: var(--ur-color-text-on-action);
+}
+.rt-note.is-email .rt-note-title + .rt-note-header { margin-top: calc(var(--ur-space-12) * -1); }
+.rt-note-header {
+  display: grid; gap: var(--ur-space-8); margin: 0 0 calc(var(--ur-space-12) + var(--ur-space-2));
+  padding: var(--ur-space-12) var(--ur-space-20); background: var(--ur-paint-customization-grey-10);
+}
+.rt-note.is-email .rt-note-header:first-child { margin-bottom: calc(var(--ur-space-12) + var(--ur-space-2)); }
+.rt-note-field { display: grid; grid-template-columns: 6em 1fr; gap: var(--ur-space-12); align-items: stretch; }
+.rt-note-field-label, .rt-note-field-value {
+  padding: var(--ur-space-2) calc(var(--ur-space-8) + var(--ur-space-2)); border-radius: var(--ur-radius-xs);
+  background: var(--ur-paint-customization-grey-3); min-height: 1.6em;
+}
+.rt-note-field-label { font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-text-strong); }
+.rt-note.is-notice { text-align: center; }
+.rt-note-heading {
+  margin: var(--ur-space-4) 0 var(--ur-space-8) !important;
+  font-size: 1.4em; line-height: 1.3; font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-text-strong);
+}
+.rt-note.is-notice .rt-note-title { text-align: left; }
+
+/* a person's photo beside their text (KET Reading Part 2, #91) */
+.rt-portrait-row { display: flex; gap: var(--ur-space-16); align-items: flex-start; margin: .4em 0 1em; }
+.rt-portrait-row .rt-p { margin: 0; flex: 1; min-width: 0; }
+.rt-portrait { width: calc(var(--ur-space-80) + var(--ur-space-32)); height: auto; flex-shrink: 0; border-radius: var(--ur-radius-xs); }
+
+/* printed tables */
+.rt-table-wrap { overflow-x: auto; }
+.rt-table { width: 100%; border-collapse: collapse; font-size: .82em; line-height: 1.5; }
+.rt-table caption { font-weight: var(--ur-text-font-system-m-bold-weight); padding-bottom: var(--ur-space-8); text-align: left; }
+.rt-table th, .rt-table td {
+  border: var(--ur-stroke-default) solid var(--ur-color-border-default);
+  padding: var(--ur-space-8) var(--ur-space-12); vertical-align: top; text-align: left;
+}
+.rt-table th { background: var(--ur-color-background-subtle); font-weight: var(--ur-text-font-system-m-bold-weight); }

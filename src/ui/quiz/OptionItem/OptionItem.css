@@ -1,0 +1,49 @@
+/* ui/quiz/OptionItem — extends UIKit-Quiz / option-text-item (7301:61934). Tokens only.
+   --option-pad-y is Figma's 19px (20 − the 1px stroke); prompt / option text is 3xl (2xl below 1024px). */
+.options { display: grid; gap: var(--ur-space-12); }
+.option {
+  --option-pad-y: calc(var(--ur-space-20) - var(--ur-stroke-default));
+  --option-pad-x: var(--ur-space-20);
+  display: flex; flex-direction: column; width: 100%;
+  border: none; border-radius: var(--ur-radius-s); background: transparent;
+  text-align: left; color: var(--ur-color-text-primary);
+  overflow: hidden;
+}
+.option-row { display: flex; align-items: flex-start; gap: var(--ur-space-16); padding: var(--option-pad-y) var(--option-pad-x); }
+.option-radio-box { flex: none; height: var(--ur-text-font-system-3xl-regular-line-height); display: flex; align-items: center; }
+.option-text {
+  flex: 1; min-width: 0;
+  font-size: var(--ur-text-font-system-3xl-regular-size); line-height: var(--ur-text-font-system-3xl-regular-line-height);
+}
+.option-letter { color: inherit; }
+@media (hover: hover) and (pointer: fine) { button.option:hover { background: var(--ur-color-background-subtle); } }
+.option.is-selected { background: var(--ur-color-background-subtle); }
+.option.is-wrong { background: var(--ur-color-feedback-error-bg); }
+.option.is-correct { background: var(--ur-color-feedback-success-bg); }
+.option.is-correct .option-text { font-weight: var(--ur-text-font-system-3xl-bold-weight); }
+
+/* Media image (KET Listening Part 1): three cards side by side, letter above the picture */
+.option-image { display: block; max-width: 100%; max-height: calc(var(--ur-space-80) * 2); border-radius: var(--ur-radius-xs); }
+.options.has-images { grid-template-columns: repeat(auto-fit, minmax(calc(var(--ur-space-80) + var(--ur-space-48) + var(--ur-space-12)), 1fr)); }
+.options.has-images .option-text { display: grid; gap: var(--ur-space-8); justify-items: center; }
+.options.has-images .option-image { width: 100%; height: auto; object-fit: contain; }
+
+/* correct-expanded: the explanation under the right option */
+.option-explain {
+  display: flex; gap: var(--ur-space-16); align-items: flex-start;
+  padding: var(--option-pad-y) var(--option-pad-x);
+  border-top: var(--ur-stroke-default) solid var(--ur-color-feedback-success-divider);
+}
+.option-explain-icon {
+  flex: none; width: var(--ur-size-icon-m); height: var(--ur-size-icon-m);
+  margin-top: calc((var(--ur-text-font-system-2xl-regular-line-height) - var(--ur-size-icon-m)) / 2);
+}
+.option-explain-body { flex: 1; display: grid; gap: var(--ur-space-8); justify-items: start; }
+.option-explain-text {
+  margin: 0; font-size: var(--ur-text-font-system-2xl-regular-size); line-height: var(--ur-text-font-system-2xl-regular-line-height);
+  color: var(--ur-color-feedback-success-text);
+}
+
+@media (max-width: 1023px) {
+  .option-text { font-size: var(--ur-text-font-system-2xl-regular-size); }
+}

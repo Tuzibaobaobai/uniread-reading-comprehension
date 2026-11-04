@@ -1,4 +1,4 @@
-/* RC/Quiz/AnswerFeedback (proposed). Tokens only; .explain-label, .judge and .chip inside are the shared reader styles. */
+/* RC/Quiz/AnswerFeedback (proposed). Tokens only; .judge and .chip inside are the shared reader styles. Variant row first, block below. */
 .vq-review {
   display: grid; gap: var(--ur-space-8); justify-items: start; padding: var(--ur-space-12) var(--ur-space-16);
   border-radius: var(--ur-radius-s); background: var(--ur-color-background-subtle);
@@ -19,3 +19,27 @@
   color: var(--ur-color-text-primary);
 }
 .vq-review .judge { width: 100%; }
+
+/* variant block — the 时文 / 真题 review box (same palette as Option-text-item correct-expanded); .explain-label is
+   shared with the row variant */
+.explain {
+  margin-top: var(--ur-space-24); padding: var(--ur-space-20);
+  border-radius: var(--ur-radius-s); background: var(--ur-color-feedback-success-bg);
+  display: grid; gap: calc(var(--ur-space-8) + var(--ur-space-2)); justify-items: start;
+  color: var(--ur-color-feedback-success-text);
+}
+.explain.is-wrong, .explain.is-partial { background: var(--ur-color-feedback-error-bg); color: var(--ur-color-text-primary); }
+.explain-head {
+  display: flex; align-items: center; gap: calc(var(--ur-space-4) + var(--ur-space-2));
+  font-weight: var(--ur-text-font-system-l-bold-weight); font-size: var(--ur-text-font-system-l-bold-size);
+}
+.explain-head svg { width: calc(var(--ur-space-16) + var(--ur-space-2)); height: calc(var(--ur-space-16) + var(--ur-space-2)); }
+.explain.is-correct .explain-head { color: var(--ur-color-feedback-success-text); }
+.explain.is-wrong .explain-head, .explain.is-partial .explain-head { color: var(--ur-color-feedback-error); }
+.explain-answer { margin: 0; font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height); }
+.explain-label {
+  display: inline-block; margin-right: calc(var(--ur-space-8) + var(--ur-space-2));
+  font-size: var(--ur-text-font-system-s-bold-size); font-weight: var(--ur-text-font-system-s-bold-weight); color: var(--ur-color-text-secondary);
+}
+.explain-text { margin: 0; font-size: var(--ur-text-font-system-2xl-regular-size); line-height: var(--ur-text-font-system-2xl-regular-line-height); }
+.explain-tip { font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height); }

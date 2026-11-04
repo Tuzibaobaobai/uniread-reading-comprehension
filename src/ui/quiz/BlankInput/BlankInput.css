@@ -1,0 +1,26 @@
+/* rc/Quiz/BlankInput (proposed, RC · Proposed 19446:609). Tokens only; same single underline as the other blanks.
+   The input rules use :where(input) so callers' own `.x input` rules (LineInput, vocab rows) keep winning whatever
+   order the stylesheets load in. */
+.blank-input {
+  display: inline-flex; align-items: baseline; gap: 0; margin: 0 var(--ur-space-4);
+  padding: 0 var(--ur-space-2); background: transparent;
+  border-bottom: var(--ur-stroke-blank) solid var(--ur-color-text-strong);
+  vertical-align: baseline;
+}
+.blank-input:focus-within { border-bottom-color: var(--ur-color-action-primary); background: var(--ur-color-action-primary-soft); }
+.blank-input :where(input) {
+  border: none; outline: none; font: inherit; font-size: max(var(--ur-text-font-system-m-regular-size), 1em); min-width: 3em;
+  padding: var(--ur-space-4) 0;
+  background: transparent; color: var(--ur-color-text-answer); font-weight: var(--ur-text-font-system-m-bold-weight);
+}
+.blank-input :where(input)::placeholder { color: var(--ur-color-text-tertiary); text-align: center; font-size: .8em; }
+.blank-input-prefix { font-weight: var(--ur-text-font-system-m-bold-weight); }
+.blank-input-base { color: var(--ur-color-text-secondary); font-size: .8em; }
+.blank-input.is-correct { border-bottom-color: var(--ur-color-feedback-success); }
+.blank-input.is-correct :where(input) { color: var(--ur-color-feedback-success-text); }
+.blank-input.is-wrong { border-bottom-color: var(--ur-color-feedback-error); }
+.blank-input.is-wrong :where(input) { text-decoration: line-through; color: var(--ur-color-feedback-error); }
+.blank-input-answer {
+  color: var(--ur-color-feedback-success-text); font-weight: var(--ur-text-font-system-m-bold-weight);
+  font-size: var(--ur-text-font-system-m-regular-size);
+}

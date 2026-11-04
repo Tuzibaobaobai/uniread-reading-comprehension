@@ -1,0 +1,19 @@
+/* RC/Read/ArticleHeader (proposed). Tokens only. The exam kicker / instruction lines keep their exam styles
+   (.exam-part-kicker, .exam-instruction) until the KET / PET batch. */
+.article-title {
+  margin: 0; font-size: var(--ur-text-size-5xl); line-height: var(--ur-text-size-5xl-line-height);
+  font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-text-primary);
+}
+.info-box {
+  margin: var(--ur-space-24) 0; padding: var(--ur-space-16) var(--ur-space-20);
+  border-radius: var(--ur-radius-s); background: var(--ur-color-background-subtle);
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--ur-space-4) var(--ur-space-24);
+  font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height);
+}
+.info-box-row { display: flex; gap: calc(var(--ur-space-8) + var(--ur-space-2)); margin: 0; }
+.info-box-row dt { color: var(--ur-color-text-secondary); flex: none; }
+.info-box-row dd { margin: 0; color: var(--ur-color-text-primary); }
+.info-box-intro { grid-column: 1 / -1; }
+@media (max-width: 640px) {
+  .info-box { grid-template-columns: 1fr; }
+}

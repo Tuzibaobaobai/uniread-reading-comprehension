@@ -1,6 +1,8 @@
 import { Fragment, type ReactNode } from 'react';
 import type { InlineT } from '@schema';
 import { useTranslation } from 'react-i18next';
+// the .rt-* inline styles (vocab, underline, gloss, callout) are rc/Read/ArticleText
+import '@/ui/read/ArticleText/ArticleText.css';
 
 export type BlankNode = Extract<InlineT, { t: 'blank' }>;
 

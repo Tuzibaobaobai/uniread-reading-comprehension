@@ -1,0 +1,16 @@
+/* ui/OrderChunk — extends UIKit-Dictation / item-hug (15504:106347). Tokens only. */
+.order-chip {
+  min-height: var(--ur-size-touch-target); padding: 0 var(--ur-space-16);
+  border: var(--ur-stroke-default) solid var(--ur-color-border-default); border-radius: var(--ur-radius-s);
+  background: var(--ur-color-background-card);
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+  color: var(--ur-color-text-primary);
+}
+@media (hover: hover) and (pointer: fine) { .order-chip:hover:not(:disabled) { border-color: var(--ur-color-action-primary); } }
+.order-chip.is-placed {
+  background: var(--ur-color-action-primary-soft); border-color: var(--ur-color-action-primary);
+  color: var(--ur-color-action-primary-strong); font-weight: var(--ur-text-font-system-l-bold-weight);
+}
+.order-chip.is-placed.is-correct { background: var(--ur-color-feedback-success-bg); border-color: var(--ur-color-feedback-success); color: var(--ur-color-feedback-success-text); }
+.order-chip.is-placed.is-wrong { background: var(--ur-color-feedback-error-bg); border-color: var(--ur-color-feedback-error); color: var(--ur-color-feedback-error); }
+.order-chip:disabled { cursor: default; }

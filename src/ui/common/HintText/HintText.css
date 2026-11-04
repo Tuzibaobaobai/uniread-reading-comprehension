@@ -1,0 +1,5 @@
+/* RC/Common/HintText (proposed). Tokens only; the negative top margin tucks it under the prompt's bottom gap. */
+.hint-line {
+  margin: calc(var(--ur-space-40) / -2) 0 var(--ur-space-16);
+  font: var(--ur-text-font-system-s-regular); color: var(--ur-color-text-secondary);
+}

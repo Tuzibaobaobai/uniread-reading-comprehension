@@ -1,0 +1,12 @@
+/* ui/FavoriteButton (UIKit-Playlist Favorite). Tokens only. */
+.playlist-fav {
+  flex: none; height: var(--ur-height-height-7); border: none; border-radius: var(--ur-radius-s);
+  background: var(--ur-color-background-card); box-shadow: var(--ur-effect-drop-shadow-card-lg);
+  display: flex; align-items: center; justify-content: center; gap: var(--ur-space-8);
+  font: var(--ur-text-font-system-l-medium); color: var(--ur-paint-customization-grey-11);
+}
+.playlist-fav img { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); padding: var(--ur-space-2); }
+/* narrow: the button sits under the stats in the intro grid */
+@media (max-width: 1023px) {
+  .playlist-fav { justify-self: start; padding: 0 calc(var(--ur-space-24) + var(--ur-space-4)); }
+}

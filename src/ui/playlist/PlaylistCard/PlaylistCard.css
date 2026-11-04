@@ -1,0 +1,31 @@
+/* ui/PlaylistCard (extends UIKit-学生-首页 Web-card). Tokens only. */
+.playlist-card {
+  display: flex; flex-direction: column;
+  background: var(--ur-color-background-card);
+  border-radius: var(--ur-radius-l);
+  box-shadow: var(--ur-effect-card);
+  overflow: hidden;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .playlist-card:hover { transform: translateY(calc(var(--ur-space-2) * -1)); box-shadow: var(--ur-effect-card-hover); }
+}
+.playlist-card-cover { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: top; }
+.playlist-card-body {
+  display: grid; gap: calc(var(--ur-space-8) + var(--ur-space-2));
+  padding: calc(var(--ur-space-16) + var(--ur-space-2)) calc(var(--ur-space-20) + var(--ur-space-2)) var(--ur-space-20);
+}
+.playlist-card-title {
+  font: var(--ur-text-font-system-2xl-bold); color: var(--ur-color-text-strong);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.playlist-card-meta {
+  color: var(--ur-color-text-secondary);
+  font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height);
+}
+.playlist-card-icons { display: flex; gap: calc(var(--ur-space-8) + var(--ur-space-2)); color: var(--ur-color-text-tertiary); }
+.playlist-card-icons svg { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); }
+@media (prefers-reduced-motion: reduce) {
+  .playlist-card { transition: none; }
+  @media (hover: hover) and (pointer: fine) { .playlist-card:hover { transform: none; } }
+}

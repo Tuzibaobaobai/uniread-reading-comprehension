@@ -1,5 +1,69 @@
-/* ui/PartPager (extends UIKit-Quiz page number). Tokens only. #123: the KET / PET compact pager size (app.css, card
-   ≤ 900px) also on this wider card; narrower cards keep the shared ≤ 560px rules. */
+/* ui/PartPager (extends UIKit-Quiz page number). Tokens only. Sizes follow the question card's width
+   (@container on .question-card: ≤ 900px compact, ≤ 560px phone). */
+.question-dot {
+  flex: none;
+  width: var(--ur-height-height-9); height: var(--ur-height-height-9);
+  border: none; border-radius: var(--ur-radius-full); background: transparent;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--ur-space-2);
+  color: var(--ur-color-text-strong);
+}
+.question-dot-num {
+  font-size: var(--ur-text-font-system-3xl-bold-size); line-height: var(--ur-text-font-system-3xl-bold-line-height);
+  font-weight: var(--ur-text-font-system-3xl-bold-weight);
+}
+.question-dot-mark {
+  width: var(--ur-space-20); height: var(--ur-height-height); border-radius: var(--ur-radius-full);
+  background: var(--ur-paint-customization-grey-7); opacity: .8;
+}
+.question-dot.is-answered .question-dot-mark { background: var(--ur-color-action-primary); }
+.question-dot.is-current { background: var(--ur-color-background-subtle); }
+.question-dot.is-neutral { color: var(--ur-color-text-secondary); }
+.question-dot-icon { width: var(--ur-size-icon-xl); height: var(--ur-size-icon-xl); object-fit: contain; }
+.question-dot.is-wrong .question-dot-icon { padding: calc(var(--ur-space-4) + var(--ur-space-2)); }
+
+/* Tone pending: the unanswered numbers listed in the submit confirmation */
+.dialog-dots { display: flex; flex-wrap: wrap; gap: calc(var(--ur-space-4) + var(--ur-space-2)); margin-bottom: var(--ur-space-24); }
+.question-dot.is-pending {
+  width: var(--ur-height-height-7); height: var(--ur-height-height-7);
+  background: var(--ur-color-action-primary-soft); color: var(--ur-color-action-primary-strong);
+}
+
+/* Kicker: the first number of a Part carries "P1"…; later Parts start after a divider (exam papers #72) */
+.question-dot.part-start { --part-gap: var(--ur-space-16); position: relative; }
+.question-dot.part-start::after {
+  content: attr(data-part); position: absolute; top: var(--ur-space-2); left: 50%; transform: translateX(-50%);
+  font-size: var(--ur-text-font-system-xs-bold-size); line-height: 1; font-weight: var(--ur-text-font-system-xs-bold-weight);
+  color: var(--ur-color-action-primary-strong);
+}
+.question-dot.part-start:not(:first-child) { margin-left: var(--part-gap); }
+.question-dot.part-start:not(:first-child)::before {
+  content: ''; position: absolute; left: calc(var(--part-gap) / -2); top: 20%; bottom: 20%;
+  border-left: var(--ur-stroke-default) solid var(--ur-color-border-default);
+}
+
+/* Flagged (exam mode 标记本题) */
+.question-dot.is-flagged { box-shadow: inset 0 0 0 var(--ur-stroke-strong) var(--ur-color-feedback-warning); }
+
+/* Label range ("1–5", one-page Parts) */
+.question-dot-num.is-range {
+  font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height); white-space: nowrap;
+}
+
+@container (max-width: 900px) {
+  .question-dot { width: var(--ur-height-height-7); height: var(--ur-height-height-7); }
+  .question-dot-num { font-size: var(--ur-text-font-system-2xl-regular-size); line-height: var(--ur-text-font-system-2xl-regular-line-height); }
+  .question-dot-mark { width: var(--ur-space-16); height: calc(var(--ur-space-4) + var(--ur-space-2)); }
+  .question-dot-icon { width: var(--ur-size-icon-l); height: var(--ur-size-icon-l); }
+}
+@container (max-width: 560px) {
+  .question-dot { width: var(--ur-size-touch-target); height: var(--ur-size-touch-target); }
+  .question-dot-num { font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height); }
+  .question-dot-mark { width: var(--ur-space-12); height: var(--ur-space-4); }
+  .question-dot-icon { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); }
+}
+
+/* #123: the KET / PET compact pager size (card ≤ 900px) also on the wider vocab card; narrower cards keep the
+   ≤ 560px rules. */
 @container (min-width: 561px) {
   .question-dot.part-pager { width: var(--ur-height-height-7); height: var(--ur-height-height-7); }
   .part-pager .question-dot-num { font-size: var(--ur-text-font-system-2xl-regular-size); line-height: var(--ur-text-font-system-2xl-regular-line-height); }

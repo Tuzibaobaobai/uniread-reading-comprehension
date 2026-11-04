@@ -1,0 +1,36 @@
+/* RC/Common/Panel (proposed). Tokens only. --pane-inset keeps the scrollbar clear of the rounded corners (#8);
+   --pane-pad is the card's content padding (48, 28 below 1024px). The scrollbar itself is the shared .thin-scroll. */
+.article-pane, .question-card {
+  --pane-inset: var(--ur-radius-xl);
+  --pane-pad: var(--ur-space-48);
+  flex: 1; min-height: 0; display: flex; flex-direction: column;
+  background: var(--ur-color-background-card);
+  border-radius: var(--ur-radius-xl);
+  overflow: hidden;
+}
+.article-pane { padding: var(--pane-inset) 0; }
+.article-scroll {
+  flex: 1; min-height: 0; overflow-y: auto;
+  padding: max(0px, calc(var(--pane-pad) - var(--pane-inset))) var(--pane-pad);
+}
+
+/* the question card: its width drives the pager size (container queries in QuestionNav / PartPager) */
+.question-card { container-type: inline-size; }
+.question-scroll {
+  flex: 1; overflow-y: auto; margin-top: var(--pane-inset);
+  padding: max(0px, calc(var(--pane-pad) - var(--pane-inset))) var(--pane-pad) var(--ur-space-24);
+}
+/* a footer notice (grading unavailable) sits inside the card's padding, above the pager */
+.question-card > .inline-notice { margin: 0 var(--pane-pad) var(--ur-space-12); }
+
+@container (max-width: 560px) {
+  .question-scroll { padding: 0 calc(var(--ur-space-20) + var(--ur-space-2)) var(--ur-space-24); }
+}
+
+@media (max-width: 1023px) {
+  .article-pane, .question-card {
+    --pane-inset: var(--ur-radius-l);
+    --pane-pad: calc(var(--ur-space-24) + var(--ur-space-4));
+    border-radius: var(--ur-radius-l);
+  }
+}

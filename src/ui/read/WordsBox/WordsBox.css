@@ -1,0 +1,19 @@
+/* RC/Read/WordsBox (proposed). Tokens only. */
+.words-box {
+  margin-top: calc(var(--ur-space-32) + var(--ur-space-4)); padding: var(--ur-space-20) var(--ur-space-24);
+  border-radius: var(--ur-radius-s); border: var(--ur-stroke-default) solid var(--ur-color-border-default);
+}
+.words-box-title {
+  margin: 0 0 calc(var(--ur-space-8) + var(--ur-space-2));
+  font-size: var(--ur-text-font-system-m-bold-size); line-height: var(--ur-text-font-system-m-bold-line-height);
+  font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-action-primary-strong);
+}
+.words-box ul {
+  list-style: none; margin: 0; padding: 0; display: grid; gap: calc(var(--ur-space-4) + var(--ur-space-2));
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+}
+.words-box li { display: flex; flex-wrap: wrap; gap: var(--ur-space-4) calc(var(--ur-space-8) + var(--ur-space-2)); align-items: baseline; }
+.words-head { font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-text-primary); }
+.words-ipa { color: var(--ur-color-text-secondary); }
+.words-pos { font-style: italic; color: var(--ur-color-text-secondary); }
+.words-zh { color: var(--ur-color-text-primary); }

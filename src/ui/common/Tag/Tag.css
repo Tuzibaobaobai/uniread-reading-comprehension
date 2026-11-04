@@ -1,0 +1,9 @@
+/* RC/Common/Tag (proposed). Tokens only. */
+.ur-tag {
+  display: inline-flex; align-items: center; padding: 0 var(--ur-space-8); border-radius: var(--ur-radius-full);
+  font: var(--ur-text-font-system-s-bold); white-space: nowrap;
+}
+.ur-tag.is-neutral { background: var(--ur-color-background-subtle); color: var(--ur-color-text-secondary); }
+.ur-tag.is-accent { background: var(--ur-color-action-primary-soft); color: var(--ur-color-action-primary-strong); }
+.ur-tag.is-solid { background: var(--ur-color-action-primary); color: var(--ur-color-text-on-action); }
+.ur-tag.is-outline { background: var(--ur-color-background-card); color: var(--ur-color-text-secondary); border: var(--ur-stroke-default) solid var(--ur-color-border-default); }

@@ -1,14 +1,30 @@
-import { useEffect, useRef, useState, type InputHTMLAttributes, type ReactNode } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { InlineT, ItemKeyT, ItemT, JudgementT } from '@schema';
 import { Rich, plainText, type BlankNode } from '@/components/Rich';
-import { Check, Cross, Locate } from '@/components/Icons';
-import tipIcon from '@/assets/icons/tip.svg';
 import { questionBlankIds, type Result } from '@/lib/grading';
 import { isCambridge } from '@/lib/judge';
 import { Block } from './ArticlePane';
 import { blankContext, blankCorrect, correctBlankText, showFirstLetter, type FlatQuestion, type Responses } from './model';
 import { staticContent } from '@/lib/content';
+import { Chip } from '@/ui/common/Chip/Chip';
+import { HintText } from '@/ui/common/HintText/HintText';
+import { InlineNotice } from '@/ui/common/InlineNotice/InlineNotice';
+import { OptionGroup, OptionItem, type OptionState } from '@/ui/quiz/OptionItem/OptionItem';
+import { QuestionPrompt } from '@/ui/quiz/QuestionPrompt/QuestionPrompt';
+import { ContextLine, ContextStack } from '@/ui/quiz/ContextLine/ContextLine';
+import { BlankSlot } from '@/ui/quiz/BlankSlot/BlankSlot';
+import { BlankInput } from '@/ui/quiz/BlankInput/BlankInput';
+import { WordBank, WordBankEntry } from '@/ui/quiz/WordBank/WordBank';
+import { MatchColumns, MatchItem } from '@/ui/quiz/MatchItem/MatchItem';
+import { OrderLine, OrderPool } from '@/ui/quiz/OrderLine/OrderLine';
+import { OrderChunk } from '@/ui/OrderChunk/OrderChunk';
+import { LongAnswer } from '@/ui/quiz/LongAnswer/LongAnswer';
+import { JudgePending, JudgeResult } from '@/ui/quiz/JudgeResult/JudgeResult';
+import { SelfAssess } from '@/ui/quiz/SelfAssess/SelfAssess';
+
+// moved to src/ui (docs/14 §15); re-exported so PartViews / Speaking / VocabQuiz keep importing them from here
+export { BlankInput, QuestionPrompt };
 
 /** exam papers (KET/PET): no Chinese prompts, the number alone stands for a blank (#81 #83 #84) */
 const isExamItem = (item: ItemT) => 'format' in item && item.format === 'exam';
@@ -68,62 +84,42 @@ export function OptionList({
 }) {
   const { t } = useTranslation();
   return (
-    <div className={`options ${options.length > 0 && options.every((o) => o.image) ? 'has-images' : ''}`} role="radiogroup" aria-readonly={locked || undefined}>
+    <OptionGroup images={options.length > 0 && options.every((o) => o.image)} locked={locked}>
       {options.map((o) => {
         const isSel = selected === o.id;
-        const isRight = correct?.includes(o.id);
-        const state = correct ? (isRight ? 'is-correct' : isSel ? 'is-wrong' : '') : isSel ? 'is-selected' : '';
-        const marked = correct ? isRight || isSel : isSel;
-        const row = (
-          <span className="option-row">
-            <span className="option-radio-box" aria-hidden>
-              <span className={`option-radio ${marked ? 'is-on' : ''}`} />
-            </span>
-            <span className="option-text">
-              {showLetter && <span className="option-letter">{o.id}. </span>}
-              {o.image ? (
-                <img className="option-image" src={staticContent.assetUrl(o.image)} alt={o.content.map((n) => ('v' in n ? n.v : '')).join('') || t('interaction.optionAlt', { id: o.id })} />
-              ) : (
-                <Rich nodes={o.content} />
-              )}
-            </span>
-          </span>
-        );
-        if (!locked) {
-          return (
-            <button
-              key={o.id}
-              role="radio"
-              aria-checked={isSel}
-              aria-label={ariaLabels?.[o.id]}
-              className={`option ${state}`}
-              onClick={() => onSelect(o.id)}
-            >
-              {row}
-            </button>
-          );
-        }
-        const expanded = isRight && explain && (explain.text || explain.block);
+        const isRight = !!correct?.includes(o.id);
+        const state: OptionState = correct ? (isRight ? 'correct' : isSel ? 'wrong' : 'default') : isSel ? 'selected' : 'default';
+        const expanded = locked && isRight && explain && (explain.text || explain.block);
         return (
-          <div key={o.id} role="radio" aria-checked={isSel} aria-label={ariaLabels?.[o.id]} className={`option ${state}`}>
-            {row}
-            {expanded && (
-              <div className="option-explain">
-                <img className="option-explain-icon" src={tipIcon} alt="" />
-                <div className="option-explain-body">
-                  {explain.text && <p className="option-explain-text">{explain.text}</p>}
-                  {explain.block && explain.onLocate && (
-                    <button className="chip" onClick={() => explain.onLocate!(explain.block!, explain.quote)}>
-                      <Locate /> {t('reader.locate')}
-                    </button>
-                  )}
-                </div>
-              </div>
-            )}
-          </div>
+          <OptionItem
+            key={o.id}
+            state={state}
+            selected={isSel}
+            checked={correct ? isRight || isSel : isSel}
+            locked={locked}
+            letter={showLetter ? o.id : undefined}
+            image={
+              o.image
+                ? { src: staticContent.assetUrl(o.image), alt: o.content.map((n) => ('v' in n ? n.v : '')).join('') || t('interaction.optionAlt', { id: o.id }) }
+                : undefined
+            }
+            ariaLabel={ariaLabels?.[o.id]}
+            onSelect={() => onSelect(o.id)}
+            explain={
+              expanded
+                ? {
+                    text: explain.text,
+                    locateLabel: t('reader.locate'),
+                    onLocate: explain.block && explain.onLocate ? () => explain.onLocate!(explain.block!, explain.quote) : undefined,
+                  }
+                : undefined
+            }
+          >
+            <Rich nodes={o.content} />
+          </OptionItem>
         );
       })}
-    </div>
+    </OptionGroup>
   );
 }
 
@@ -210,9 +206,9 @@ export function InlineChoiceView(props: InteractionProps) {
       </QuestionPrompt>
       {!it.prompt && context && (
         // exam papers: the sentence is in the left pane already; repeated only on narrow screens (tabs)
-        <p className={`context-line ${isExamItem(item) ? 'exam-context' : ''}`}>
+        <ContextLine mode={isExamItem(item) ? 'exam' : 'default'}>
           <Rich nodes={context} blank={(n) => <ContextBlank n={n} active={n.id === it.blankId} />} />
-        </p>
+        </ContextLine>
       )}
       <OptionList
         options={it.options}
@@ -229,11 +225,13 @@ export function InlineChoiceView(props: InteractionProps) {
 /** read-only blank inside a prompt / context line: [first letter][answer or number] on a single underline */
 function ContextBlank({ n, active, text }: { n: BlankNode; active: boolean; text?: string }) {
   return (
-    <span className={`context-blank ${active ? 'is-active' : ''} ${text ? 'is-filled' : ''}`}>
-      {showFirstLetter(n.hint?.firstLetter, text) && <span className="blank-prefix">{n.hint!.firstLetter}</span>}
-      <span className={text ? 'blank-fill' : 'blank-num'}>{text ?? n.number ?? '\u00a0'}</span>
-      {n.hint?.baseWord && <span className="blank-base">({n.hint.baseWord})</span>}
-    </span>
+    <BlankSlot
+      state={active ? 'current' : text ? 'filled' : 'empty'}
+      label={n.number ?? '\u00a0'}
+      text={text || undefined}
+      prefix={showFirstLetter(n.hint?.firstLetter, text) ? n.hint!.firstLetter : undefined}
+      base={n.hint?.baseWord}
+    />
   );
 }
 
@@ -298,18 +296,16 @@ export function GapMatchView(props: InteractionProps) {
     const entry = bank.find((b) => b.id === entryId);
     const ok = review ? blankCorrect(review.result, fq, n.id) : null;
     return (
-      <button
-        className={`gap-slot ${active === n.id && !review ? 'is-active' : ''} ${ok === true ? 'is-correct' : ok === false ? 'is-wrong' : ''}`}
+      <BlankSlot
+        mode="button"
+        state={active === n.id && !review ? 'current' : entry ? 'filled' : 'empty'}
+        result={ok === true ? 'correct' : ok === false ? 'wrong' : 'none'}
+        label={n.number ?? '　'}
+        text={entry?.id}
         onClick={() => (active === n.id && entryId ? clear(n.id) : setActive(n.id))}
         disabled={!!review}
-        aria-label={`${t('interaction.slot', { n: n.number ?? '' })}${entryId ? t('interaction.slotChosen', { id: entryId }) : t('interaction.slotEmpty')}`}
-      >
-        {entry ? (
-          <b className="blank-fill">{entry.id}</b>
-        ) : (
-          (n.number ?? '　')
-        )}
-      </button>
+        ariaLabel={`${t('interaction.slot', { n: n.number ?? '' })}${entryId ? t('interaction.slotChosen', { id: entryId }) : t('interaction.slotEmpty')}`}
+      />
     );
   };
 
@@ -325,82 +321,34 @@ export function GapMatchView(props: InteractionProps) {
         {it.prompt ? <Rich nodes={it.prompt} blank={renderBlank} /> : isExamItem(item) ? null : <>{t('interaction.blankN', { n: fq.q.number })}</>}
       </QuestionPrompt>
       {!it.prompt && context && (
-        <p className={`context-line ${isExamItem(item) ? 'exam-context' : ''}`}>
+        <ContextLine mode={isExamItem(item) ? 'exam' : 'default'}>
           <Rich nodes={context} blank={renderBlank} />
-        </p>
+        </ContextLine>
       )}
-      <p className="hint-line">{review ? '' : blanks.length > 1 ? t('interaction.gapHintMulti') : t('interaction.gapHintSingle')}</p>
-      <div className={`bank ${bank.some((b) => plainText(b.content).split(' ').length > 4) ? 'bank-sentences' : ''}`}>
+      <HintText>{review ? '' : blanks.length > 1 ? t('interaction.gapHintMulti') : t('interaction.gapHintSingle')}</HintText>
+      <WordBank layout={bank.some((b) => plainText(b.content).split(' ').length > 4) ? 'sentence' : 'word'}>
         {bank.map((b) => {
           const use = usage.get(b.id);
-          const usedHere = use?.qid === fq.q.id;
-          const isAnswer = correctIds.includes(b.id);
           return (
-            <button
+            <WordBankEntry
               key={b.id}
-              className={`bank-entry ${use ? (usedHere ? 'is-here' : 'is-used') : ''} ${review && isAnswer ? 'is-correct' : ''}`}
-              disabled={!!review}
+              letter={b.id}
+              used={use ? (use.qid === fq.q.id ? 'here' : 'elsewhere') : 'no'}
+              usedLabel={use ? t('interaction.bankUsed', { n: use.number }) : undefined}
+              correct={!!review && correctIds.includes(b.id)}
+              locked={!!review}
               onClick={() => choose(b.id)}
             >
-              <span className="bank-letter">{b.id}</span>
-              <span className="bank-text">
-                <Rich nodes={b.content} />
-              </span>
-              {use && !usedHere && <span className="bank-used">{t('interaction.bankUsed', { n: use.number })}</span>}
-            </button>
+              <Rich nodes={b.content} />
+            </WordBankEntry>
           );
         })}
-      </div>
+      </WordBank>
     </>
   );
 }
 
 /* ------------------------------------------------------------- textEntry */
-
-export function BlankInput({
-  n,
-  value,
-  onChange,
-  ok,
-  correctText,
-  locked,
-  autoFocus,
-  inputAttrs,
-}: {
-  n: BlankNode;
-  value: string;
-  onChange: (v: string) => void;
-  ok: boolean | null;
-  correctText?: string;
-  locked: boolean;
-  autoFocus?: boolean;
-  /** extra attributes for the input (词汇天天练: Enter moves to the next blank, #121 #122) */
-  inputAttrs?: InputHTMLAttributes<HTMLInputElement> & Record<`data-${string}`, string>;
-}) {
-  const { t } = useTranslation();
-  return (
-    <span className={`blank-input ${ok === true ? 'is-correct' : ok === false ? 'is-wrong' : ''}`}>
-      {n.hint?.firstLetter && <span className="blank-input-prefix">{n.hint.firstLetter}</span>}
-      <input
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        readOnly={locked}
-        autoFocus={autoFocus}
-        autoCapitalize="off"
-        autoCorrect="off"
-        autoComplete="off"
-        spellCheck={false}
-        enterKeyHint="next"
-        aria-label={`${t('interaction.slot', { n: n.number ?? '' })}${n.hint?.firstLetter ? t('interaction.firstLetter', { letter: n.hint.firstLetter }) : ''}`}
-        placeholder={n.number !== undefined ? String(n.number) : undefined}
-        size={Math.max(6, value.length + 1)}
-        {...inputAttrs}
-      />
-      {n.hint?.baseWord && <span className="blank-input-base">({n.hint.baseWord})</span>}
-      {ok === false && correctText && <span className="blank-input-answer">{correctText}</span>}
-    </span>
-  );
-}
 
 export function TextEntryView(props: InteractionProps) {
   const { t } = useTranslation();
@@ -451,26 +399,30 @@ export function TextEntryView(props: InteractionProps) {
       )}
       {!it.prompt && !stimulus && (
         // typed blanks: the input lives in this sentence, so it always shows (only choice cloze hides it, #83)
-        <div className="context-stack">
+        <ContextStack>
           {blanks.map((b) => {
             const ctx = blankContext(item, b);
-            return (
-              <p key={b} className="context-line">
-                {ctx ? <Rich nodes={ctx} blank={renderBlank} /> : null}
-              </p>
-            );
+            return <ContextLine key={b}>{ctx ? <Rich nodes={ctx} blank={renderBlank} /> : null}</ContextLine>;
           })}
-        </div>
+        </ContextStack>
       )}
-      {it.maxWords && !isExamItem(item) && <p className="hint-line">{t('interaction.maxWords', { count: it.maxWords })}</p>}
+      {it.maxWords && !isExamItem(item) && <HintText>{t('interaction.maxWords', { count: it.maxWords })}</HintText>}
     </>
   );
 }
 
 /* ----------------------------------------------------------------- match */
 
-/** match pair markers: tokens --pair-1..7 */
-const PAIR_COLORS = [1, 2, 3, 4, 5, 6, 7].map((n) => `var(--pair-${n})`);
+/** match pair markers: tokens color/pair/1–7 */
+const PAIR_COLORS = [
+  'var(--ur-color-pair-1)',
+  'var(--ur-color-pair-2)',
+  'var(--ur-color-pair-3)',
+  'var(--ur-color-pair-4)',
+  'var(--ur-color-pair-5)',
+  'var(--ur-color-pair-6)',
+  'var(--ur-color-pair-7)',
+];
 
 export function MatchView(props: InteractionProps) {
   const { t } = useTranslation();
@@ -497,56 +449,46 @@ export function MatchView(props: InteractionProps) {
 
   return (
     <>
-      <QuestionPrompt number={fq.q.number}>{it.prompt ? <Rich nodes={it.prompt} /> : <>{t('interaction.matchPrompt')}</>}</QuestionPrompt>
-      <p className="hint-line">{review ? '' : t('interaction.matchProgress', { done: Object.keys(pairs).length, total: it.left.length })}</p>
-      <div className="match">
-        <div className="match-col">
-          {it.left.map((l) => {
-            const r = pairs[l.id];
-            const ok = review ? r === keyPairs[l.id] : null;
-            return (
-              <button
-                key={l.id}
-                className={`match-item ${selLeft === l.id ? 'is-active' : ''} ${ok === true ? 'is-correct' : ok === false ? 'is-wrong' : ''}`}
-                style={r ? { borderColor: colorOf(l.id) } : undefined}
-                disabled={!!review}
-                onClick={() => setSelLeft(selLeft === l.id ? null : l.id)}
-              >
-                <span className="match-id">{l.id}</span>
-                <span className="match-text">
-                  <Rich nodes={l.content} />
-                </span>
-                <span className="match-badge" style={r ? { background: colorOf(l.id) } : undefined}>
-                  {r ?? ''}
-                </span>
-                {review && ok === false && <span className="match-answer">→ {keyPairs[l.id]}</span>}
-              </button>
-            );
-          })}
-        </div>
-        <div className="match-col">
-          {it.right.map((r) => {
-            const left = leftOfRight(r.id);
-            return (
-              <button
-                key={r.id}
-                className={`match-item ${selLeft && !review ? 'is-target' : ''}`}
-                style={left ? { borderColor: colorOf(left) } : undefined}
-                disabled={!!review || !selLeft}
-                onClick={() => pickRight(r.id)}
-              >
-                <span className="match-badge" style={left ? { background: colorOf(left) } : undefined}>
-                  {left ?? ''}
-                </span>
-                <span className="match-id">{r.id}</span>
-                <span className="match-text">
-                  <Rich nodes={r.content} />
-                </span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
+      <QuestionPrompt number={fq.q.number} hint={review ? '' : t('interaction.matchProgress', { done: Object.keys(pairs).length, total: it.left.length })}>
+        {it.prompt ? <Rich nodes={it.prompt} /> : <>{t('interaction.matchPrompt')}</>}
+      </QuestionPrompt>
+      <MatchColumns
+        left={it.left.map((l) => {
+          const r = pairs[l.id];
+          const ok = review ? r === keyPairs[l.id] : null;
+          return (
+            <MatchItem
+              key={l.id}
+              side="prompt"
+              id={l.id}
+              active={selLeft === l.id}
+              pair={r ? { label: r, color: colorOf(l.id) } : undefined}
+              result={ok === true ? 'correct' : ok === false ? 'wrong' : 'none'}
+              answer={review && ok === false ? (keyPairs[l.id] ?? '') : undefined}
+              disabled={!!review}
+              onClick={() => setSelLeft(selLeft === l.id ? null : l.id)}
+            >
+              <Rich nodes={l.content} />
+            </MatchItem>
+          );
+        })}
+        right={it.right.map((r) => {
+          const left = leftOfRight(r.id);
+          return (
+            <MatchItem
+              key={r.id}
+              side="option"
+              id={r.id}
+              target={!!selLeft && !review}
+              pair={left ? { label: left, color: colorOf(left) } : undefined}
+              disabled={!!review || !selLeft}
+              onClick={() => pickRight(r.id)}
+            >
+              <Rich nodes={r.content} />
+            </MatchItem>
+          );
+        })}
+      />
     </>
   );
 }
@@ -574,36 +516,37 @@ export function OrderView(props: InteractionProps) {
   const set = (ids: string[]) => setOne(props, ids.length ? ids : undefined);
   const r = review?.result.byQuestion.find((b) => b.q === fq.q.id);
   const label = (id: string) => it.items.find((i) => i.id === id);
+  const result = r?.correct === true ? 'correct' : r?.correct === false ? 'wrong' : 'none';
   return (
     <>
-      <QuestionPrompt number={fq.q.number}>{it.prompt ? <Rich nodes={it.prompt} /> : <>{t('interaction.orderPrompt')}</>}</QuestionPrompt>
-      {!review && <p className="hint-line">{t('interaction.orderHint')}</p>}
-      <div className={`order-line ${r?.correct === true ? 'is-correct' : r?.correct === false ? 'is-wrong' : ''}`} aria-label={t('interaction.orderLine')}>
-        {placed.length === 0 && <span className="order-placeholder">{t('interaction.orderPlaceholder')}</span>}
+      <QuestionPrompt number={fq.q.number} hint={review ? undefined : t('interaction.orderHint')}>
+        {it.prompt ? <Rich nodes={it.prompt} /> : <>{t('interaction.orderPrompt')}</>}
+      </QuestionPrompt>
+      <OrderLine
+        result={result}
+        label={t('interaction.orderLine')}
+        placeholder={placed.length === 0 ? t('interaction.orderPlaceholder') : undefined}
+        ending={it.ending}
+      >
         {placed.map((id, i) => {
           const item = label(id);
           if (!item) return null;
           return (
-            <button key={id} className="order-chip is-placed" disabled={!!review} onClick={() => set(placed.filter((x) => x !== id))}>
+            <OrderChunk key={id} placed result={result} disabled={!!review} onClick={() => set(placed.filter((x) => x !== id))}>
               {i === 0 ? capitalise(plainText(item.content)) : <Rich nodes={item.content} />}
-            </button>
+            </OrderChunk>
           );
         })}
-        {it.ending && <span className="order-ending">{it.ending}</span>}
-      </div>
+      </OrderLine>
       {!review && (
-        <div className="order-pool">
+        <OrderPool>
           {pool.map((item) => (
-            <button key={item.id} className="order-chip" onClick={() => set([...placed, item.id])}>
+            <OrderChunk key={item.id} onClick={() => set([...placed, item.id])}>
               <Rich nodes={item.content} />
-            </button>
+            </OrderChunk>
           ))}
-          {placed.length > 0 && (
-            <button className="chip" onClick={() => set([])}>
-              {t('interaction.clear')}
-            </button>
-          )}
-        </div>
+          {placed.length > 0 && <Chip onClick={() => set([])}>{t('interaction.clear')}</Chip>}
+        </OrderPool>
       )}
     </>
   );
@@ -617,15 +560,7 @@ export function ExtendedTextView(props: InteractionProps & { selfAssessed?: bool
   const { t } = useTranslation();
   const { fq, responses, review } = props;
   const it = fq.q.interaction;
-  const ta = useRef<HTMLTextAreaElement>(null);
   const value = typeof responses[fq.q.id] === 'string' ? (responses[fq.q.id] as string) : '';
-  useEffect(() => {
-    const el = ta.current;
-    if (el) {
-      el.style.height = 'auto';
-      el.style.height = `${el.scrollHeight}px`;
-    }
-  }, [value]);
   if (it.kind !== 'extendedText') return null;
   return (
     <>
@@ -646,32 +581,27 @@ export function ExtendedTextView(props: InteractionProps & { selfAssessed?: bool
         </p>
       )}
       {it.scaffold && (
-        <p className="context-line">
-          <Rich nodes={it.scaffold} blank={() => <span className="context-blank"><span className="blank-num">{'\u00a0'}</span></span>} />
-        </p>
+        <ContextLine>
+          <Rich nodes={it.scaffold} blank={() => <BlankSlot label={'\u00a0'} />} />
+        </ContextLine>
       )}
-      <textarea
-        ref={ta}
-        className="long-answer"
+      <LongAnswer
         value={value}
-        readOnly={!!review}
+        locked={!!review}
         placeholder={t('interaction.answerPlaceholder')}
-        rows={it.minWords ? 6 : 3}
-        autoCapitalize="sentences"
-        onChange={(e) => setOne(props, e.target.value || undefined)}
+        rows={it.minWords ? 'long' : 'short'}
+        counter={it.minWords ? { text: t('interaction.wordCount', { count: countWords(value), min: it.minWords }), enough: countWords(value) >= it.minWords } : undefined}
+        onChange={(v) => setOne(props, v || undefined)}
       />
-      {it.minWords && <WordCount text={value} min={it.minWords} />}
       {review && <JudgeVerdict {...props} />}
       {review && rowOf(props)?.scoredBy === 'self' && (
-        <div className="self-assess">
-          <span>{t('interaction.selfAssessQuestion')}</span>
-          <button className={`chip ${props.selfAssessed === true ? 'is-correct' : ''}`} onClick={() => props.onSelfAssess(true)}>
-            <Check /> {t('interaction.selfRight')}
-          </button>
-          <button className={`chip ${props.selfAssessed === false ? 'is-wrong' : ''}`} onClick={() => props.onSelfAssess(false)}>
-            {t('interaction.selfWrong')}
-          </button>
-        </div>
+        <SelfAssess
+          answer={props.selfAssessed}
+          question={t('interaction.selfAssessQuestion')}
+          yesLabel={t('interaction.selfRight')}
+          noLabel={t('interaction.selfWrong')}
+          onAnswer={props.onSelfAssess}
+        />
       )}
     </>
   );
@@ -679,141 +609,66 @@ export function ExtendedTextView(props: InteractionProps & { selfAssessed?: bool
 
 const rowOf = (props: InteractionProps) => props.review?.result.byQuestion.find((b) => b.q === props.fq.q.id);
 
-export const countWords = (text: string) => (text.match(/[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*/g) ?? []).length;
-
 /** writing tasks: live word count against the task's minimum (Cambridge shows a live counter too) */
-function WordCount({ text, min }: { text: string; min: number }) {
-  const { t } = useTranslation();
-  const n = countWords(text);
-  return (
-    <p className={`word-count ${n >= min ? 'is-enough' : ''}`} aria-live="polite">
-      {t('interaction.wordCount', { count: n, min })}
-    </p>
-  );
-}
+export const countWords = (text: string) => (text.match(/[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*/g) ?? []).length;
 
 /** LLM judge verdict (docs/09): score, key points, feedback, language fixes; provisional when sent to review */
 export function JudgeVerdict(props: InteractionProps) {
   const { t } = useTranslation();
   const row = rowOf(props);
   if (!row) return null;
-  if (row.scoredBy === 'pending') {
-    return (
-      <div className="judge is-pending" role="status">
-        {t('judge.marking')}
-      </div>
-    );
-  }
+  if (row.scoredBy === 'pending') return <JudgePending>{t('judge.marking')}</JudgePending>;
   const j = row.judgement;
   if (row.scoredBy !== 'judge' || !j) return null;
   const k = props.review?.key.answers[props.fq.q.id];
   const points = k && 'keyPoints' in k ? (k.keyPoints ?? []) : [];
-  const full = j.score >= j.maxPoints;
   const rubric = k && 'sampleAnswer' in k ? k.rubricType : undefined;
   if (isCambridge(rubric)) {
     return (
-      <section className={`judge ${full ? 'is-full' : j.score > 0 ? 'is-partial' : 'is-zero'}`} aria-label={t('judge.scoreLabel')}>
-        <div className="judge-head">
-          <span className="judge-score">
-            {j.score}
-            <span className="judge-max"> / {j.maxPoints}</span>
-          </span>
-          <span className="judge-tag">{t('judge.cambridgeTag')}</span>
-          {j.needsReview && <span className="judge-tag is-review">{t('judge.needsReview')}</span>}
-        </div>
-        <p className="judge-standard">{t(`judge.note.${rubric}`)}</p>
-        <ul className="criteria">
-          {points.map((p) => {
-            const band = j.keyPoints.find((x) => x.id === p.id)?.band ?? 0;
-            return (
-              <li key={p.id} className="criteria-row">
-                <span className="criteria-name">{t(`judge.criteria.${p.id}`, { defaultValue: p.id })}</span>
-                <span className="criteria-bar" aria-hidden>
-                  <span style={{ width: `${(band / p.weight) * 100}%` }} />
-                </span>
-                <span className="criteria-band">
-                  {band}/{p.weight}
-                </span>
-              </li>
-            );
-          })}
-          {(rubric === 'cambridge_a2_speaking' || rubric === 'cambridge_b1_speaking') && (
-            <li className="criteria-row is-muted">
-              <span className="criteria-name">{t('judge.pronunciation')}</span>
-              <span className="criteria-bar" aria-hidden />
-              <span className="criteria-band">{t('judge.notAssessed')}</span>
-            </li>
-          )}
-        </ul>
-        {j.feedbackZh && <p className="judge-feedback">{j.feedbackZh}</p>}
-        {j.languageIssues.length > 0 && (
-          <ul className="judge-language">
-            {j.languageIssues.map((l, i) => (
-              <li key={i}>
-                <s>{l.text}</s> → <b>{l.fix}</b>
-                {l.noteZh && <span className="judge-language-note">{t('judge.issueNote', { note: l.noteZh })}</span>}
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
+      <JudgeResult
+        label={t('judge.scoreLabel')}
+        score={j.score}
+        max={j.maxPoints}
+        tag={t('judge.cambridgeTag')}
+        reviewTag={j.needsReview ? t('judge.needsReview') : undefined}
+        standard={t(`judge.note.${rubric}`)}
+        criteria={points.map((p) => ({
+          id: p.id,
+          name: t(`judge.criteria.${p.id}`, { defaultValue: p.id }),
+          band: j.keyPoints.find((x) => x.id === p.id)?.band ?? 0,
+          weight: p.weight,
+        }))}
+        extraCriterion={
+          rubric === 'cambridge_a2_speaking' || rubric === 'cambridge_b1_speaking' ? { name: t('judge.pronunciation'), note: t('judge.notAssessed') } : undefined
+        }
+        feedback={j.feedbackZh}
+        issues={languageIssues(j, t)}
+      />
     );
   }
   return <JudgeMarks j={j} points={points} />;
 }
 
+const languageIssues = (j: JudgementT, t: (k: string, o?: Record<string, unknown>) => string) =>
+  j.languageIssues.map((l) => ({ text: l.text, fix: l.fix, note: l.noteZh ? t('judge.issueNote', { note: l.noteZh }) : undefined }));
+
 /** an LLM judgement on its key points (reading answers, 中译英 #110) */
 export function JudgeMarks({ j, points }: { j: JudgementT; points: { id: string; descZh: string }[] }) {
   const { t } = useTranslation();
-  const full = j.score >= j.maxPoints;
   return (
-    <section className={`judge ${full ? 'is-full' : j.score > 0 ? 'is-partial' : 'is-zero'}`} aria-label={t('judge.markLabel')}>
-      <div className="judge-head">
-        <span className="judge-score">
-          {j.score}
-          <span className="judge-max"> / {j.maxPoints}</span>
-        </span>
-        <span className="judge-tag">{t('judge.markLabel')}</span>
-        {j.needsReview && <span className="judge-tag is-review">{t('judge.needsReview')}</span>}
-      </div>
-      {points.length > 0 && (
-        <ul className="judge-points">
-          {points.map((p) => {
-            const met = j.keyPoints.find((x) => x.id === p.id)?.met ?? 'no';
-            return (
-              <li key={p.id} className={`judge-point is-${met}`}>
-                <span className="judge-point-mark" aria-label={t(`judge.met.${met}`)}>
-                  {met === 'yes' ? <Check /> : met === 'partial' ? '½' : <Cross />}
-                </span>
-                {p.descZh}
-              </li>
-            );
-          })}
-        </ul>
-      )}
-      {j.feedbackZh && <p className="judge-feedback">{j.feedbackZh}</p>}
-      {j.languageIssues.length > 0 && (
-        <ul className="judge-language">
-          {j.languageIssues.map((l, i) => (
-            <li key={i}>
-              <s>{l.text}</s> → <b>{l.fix}</b>
-              {l.noteZh && <span className="judge-language-note">{t('judge.issueNote', { note: l.noteZh })}</span>}
-            </li>
-          ))}
-        </ul>
-      )}
-    </section>
-  );
-}
-
-/* ----------------------------------------------------------------- shared */
-
-export function QuestionPrompt({ number, children }: { number: number; children: ReactNode }) {
-  return (
-    <h2 className="q-prompt">
-      <span className="q-num">{number}.</span>
-      <span>{children}</span>
-    </h2>
+    <JudgeResult
+      label={t('judge.markLabel')}
+      score={j.score}
+      max={j.maxPoints}
+      tag={t('judge.markLabel')}
+      reviewTag={j.needsReview ? t('judge.needsReview') : undefined}
+      points={points.map((p) => {
+        const met = j.keyPoints.find((x) => x.id === p.id)?.met ?? 'no';
+        return { id: p.id, desc: p.descZh, met, metLabel: t(`judge.met.${met}`) };
+      })}
+      feedback={j.feedbackZh}
+      issues={languageIssues(j, t)}
+    />
   );
 }
 
@@ -859,7 +714,7 @@ export function ChooseTaskView(props: InteractionProps & { selfAssessed?: boolea
 
   return (
     <>
-      <p className="hint-line">{review ? '' : t('interaction.chooseHint', { count: tasks.length })}</p>
+      <HintText>{review ? '' : t('interaction.chooseHint', { count: tasks.length })}</HintText>
       <div className="task-cards" role="radiogroup" aria-label={t('interaction.chooseLabel')}>
         {tasks.map((q) => {
           const isSel = q.id === selected;
@@ -882,15 +737,22 @@ export function ChooseTaskView(props: InteractionProps & { selfAssessed?: boolea
         })}
       </div>
       {confirmTo && (
-        <div className="task-switch" role="alertdialog" aria-label={t('interaction.switchLabel')}>
-          <span>{t('interaction.switchConfirm')}</span>
-          <button className="chip" onClick={() => setConfirmTo(null)}>
-            {t('common.cancel')}
-          </button>
-          <button className="chip is-on" onClick={() => switchTo(confirmTo)}>
-            {t('interaction.switchAndClear')}
-          </button>
-        </div>
+        <InlineNotice
+          tone="warning"
+          className="task-switch"
+          role="alertdialog"
+          aria-label={t('interaction.switchLabel')}
+          actions={
+            <>
+              <Chip onClick={() => setConfirmTo(null)}>{t('common.cancel')}</Chip>
+              <Chip tone="on" onClick={() => switchTo(confirmTo)}>
+                {t('interaction.switchAndClear')}
+              </Chip>
+            </>
+          }
+        >
+          {t('interaction.switchConfirm')}
+        </InlineNotice>
       )}
       {task && <ExtendedTextView key={task.id} {...props} fq={{ ...fq, q: task }} />}
     </>

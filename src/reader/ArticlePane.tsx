@@ -3,6 +3,13 @@ import type { ArticleItemT, BlockT, InlineT, ItemT } from '@schema';
 import { useTranslation } from 'react-i18next';
 import { Rich, type BlankNode } from '@/components/Rich';
 import { staticContent } from '@/lib/content';
+import { Panel } from '@/ui/common/Panel/Panel';
+import { ArticleHeader } from '@/ui/read/ArticleHeader/ArticleHeader';
+import { ArticleBody, ArticleText } from '@/ui/read/ArticleText/ArticleText';
+import { Figure as FigureView } from '@/ui/read/Figure/Figure';
+import { WordsBox } from '@/ui/read/WordsBox/WordsBox';
+import { Dialogue } from '@/ui/read/Dialogue/Dialogue';
+import { Highlight } from '@/ui/Highlight/Highlight';
 import { highlightSupported, paint, sentenceRange } from './evidence';
 
 interface Props {
@@ -44,42 +51,29 @@ export function mergeRefs<T>(local: { current: T | null }, ref: ((el: T | null) 
   };
 }
 
-/** left pane: title → info box → images → body → Words & Expressions (static content) */
+/** left pane (rc/Common/Panel): title → info box → images → body → Words & Expressions (static content) */
 export const ArticlePane = forwardRef<HTMLDivElement, Props>(function ArticlePane({ item, renderBlank, evidence }, ref) {
   const m = item.meta;
   const { t } = useTranslation();
   const rootRef = useRef<HTMLDivElement | null>(null);
   const fallback = useEvidencePaint(rootRef, evidence);
   const setRef = mergeRefs(rootRef, ref);
-  const info: [string, string | number | undefined][] = [
-    [t('reader.info.genre'), m.genre],
-    [t('reader.info.wordCount'), m.wordCount],
-    [t('reader.info.difficulty'), t('reader.info.level', { n: m.difficulty })],
-    [t('reader.info.suggestedTime'), t('reader.info.minutes', { count: m.suggestedMinutes })],
-    [t('reader.info.theme'), m.themeContext],
-    [t('reader.info.requirement'), m.contentRequirement],
-  ];
+  const info = (
+    [
+      [t('reader.info.genre'), m.genre],
+      [t('reader.info.wordCount'), m.wordCount],
+      [t('reader.info.difficulty'), t('reader.info.level', { n: m.difficulty })],
+      [t('reader.info.suggestedTime'), t('reader.info.minutes', { count: m.suggestedMinutes })],
+      [t('reader.info.theme'), m.themeContext],
+      [t('reader.info.requirement'), m.contentRequirement],
+    ] as [string, string | number | undefined][]
+  )
+    .filter(([, v]) => v !== undefined && v !== '')
+    .map(([label, value]) => ({ label, value }));
   return (
-    <div className="article-pane">
-      {/* scroller sits inside the card's rounded corners (#8) */}
-      <div className="article-scroll thin-scroll" ref={setRef}>
-      <article className="article">
-        <h1 className="article-title">{item.title}</h1>
-
-        <dl className="info-box">
-          {info
-            .filter(([, v]) => v !== undefined && v !== '')
-            .map(([k, v]) => (
-              <div key={k} className="info-box-row">
-                <dt>{k}</dt>
-                <dd>{v}</dd>
-              </div>
-            ))}
-          <div className="info-box-row info-box-intro">
-            <dt>{t('reader.info.intro')}</dt>
-            <dd>{m.intro}</dd>
-          </div>
-        </dl>
+    <Panel kind="article" ref={setRef}>
+      <ArticleText>
+        <ArticleHeader title={item.title} info={[...info, { label: t('reader.info.intro'), value: m.intro, wide: true }]} />
 
         {/* images without an explicit position go between the info box and the body */}
         {item.article.images
@@ -88,7 +82,7 @@ export const ArticlePane = forwardRef<HTMLDivElement, Props>(function ArticlePan
             <Figure key={img.id} img={img} />
           ))}
 
-        <div className="article-body">
+        <ArticleBody>
           {item.article.blocks.map((b) =>
             b.type === 'imageRef' ? (
               <Figure key={b.id} img={item.article.images.find((i) => i.id === b.image)} />
@@ -96,37 +90,18 @@ export const ArticlePane = forwardRef<HTMLDivElement, Props>(function ArticlePan
               <Block key={b.id} block={b} renderBlank={renderBlank} evidence={fallback.has(b.id)} />
             ),
           )}
-        </div>
+        </ArticleBody>
 
-        {item.article.vocabulary.length > 0 && (
-          <section className="words-box" aria-label="Words & Expressions">
-            <h2 className="words-box-title">Words &amp; Expressions</h2>
-            <ul>
-              {item.article.vocabulary.map((v) => (
-                <li key={v.id}>
-                  <span className="words-head">{v.headword}</span>
-                  {v.ipa && <span className="words-ipa">/{v.ipa}/</span>}
-                  {v.pos && <span className="words-pos">{v.pos}</span>}
-                  <span className="words-zh">{v.meaningZh}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-      </article>
-      </div>
-    </div>
+        {item.article.vocabulary.length > 0 && <WordsBox items={item.article.vocabulary} />}
+      </ArticleText>
+    </Panel>
   );
 });
 
-export function Figure({ img }: { img?: ItemT['article']['images'][number] }) {
+/** an article / exam image (rc/Read/Figure); `full` = natural height (exam question material) */
+export function Figure({ img, size }: { img?: ItemT['article']['images'][number]; size?: 'inline' | 'full' }) {
   if (!img) return null;
-  return (
-    <figure className="article-figure">
-      <img src={staticContent.assetUrl(img.src)} alt={img.alt} width={img.w} height={img.h} style={{ aspectRatio: `${img.w} / ${img.h}` }} />
-      {img.caption && <figcaption>{img.caption}</figcaption>}
-    </figure>
-  );
+  return <FigureView src={staticContent.assetUrl(img.src)} alt={img.alt} w={img.w} h={img.h} caption={img.caption} size={size} />;
 }
 
 type ImageT = ItemT['article']['images'][number];
@@ -157,7 +132,7 @@ export function Block({
   /** resolves a paragraph's portrait (exam papers) */
   imageOf?: (id: string) => ImageT | undefined;
 }) {
-  const cls = evidence ? 'is-evidence' : undefined;
+  const cls = evidence ? Highlight.evidenceClass : undefined;
   const attrs = { 'data-block': b.id, className: cls };
   switch (b.type) {
     case 'paragraph': {
@@ -198,17 +173,11 @@ export function Block({
     }
     case 'dialogue':
       return (
-        <div {...attrs} className={['rt-dialogue', cls].filter(Boolean).join(' ')}>
-          {b.legend && <p className="rt-dialogue-legend">{b.legend}</p>}
-          {b.turns.map((t, i) => (
-            <p key={i} className="rt-turn">
-              <span className="rt-speaker">{t.speaker}:</span>
-              <span>
-                <Rich nodes={t.content} blank={renderBlank} />
-              </span>
-            </p>
-          ))}
-        </div>
+        <Dialogue
+          {...attrs}
+          legend={b.legend}
+          turns={b.turns.map((t) => ({ speaker: t.speaker, content: <Rich nodes={t.content} blank={renderBlank} /> }))}
+        />
       );
     case 'note':
       return (

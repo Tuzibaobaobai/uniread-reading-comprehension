@@ -1,0 +1,24 @@
+/* rc/Quiz/MatchItem (proposed). Tokens only; 56 = height-7, 10 = 8 + 2. The pair colour is set inline on the
+   border, so Active overrides it with !important. */
+.match { display: grid; grid-template-columns: 1fr 1fr; gap: var(--ur-space-16); }
+.match-col { display: grid; gap: calc(var(--ur-space-8) + var(--ur-space-2)); align-content: start; }
+.match-item {
+  display: flex; align-items: center; gap: calc(var(--ur-space-8) + var(--ur-space-2));
+  min-height: var(--ur-height-height-7); padding: calc(var(--ur-space-8) + var(--ur-space-2)) var(--ur-space-12);
+  border: var(--ur-stroke-strong) solid var(--ur-color-border-divider); border-radius: var(--ur-radius-s);
+  background: var(--ur-color-background-card);
+  text-align: left; font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+}
+.match-item.is-active { border-color: var(--ur-color-action-primary) !important; background: var(--ur-color-action-primary-soft); }
+@media (hover: hover) and (pointer: fine) { .match-item.is-target:hover { background: var(--ur-color-background-subtle); } }
+.match-item:disabled { color: inherit; }
+.match-item.is-correct { background: var(--ur-color-feedback-success-bg); }
+.match-item.is-wrong { background: var(--ur-color-feedback-error-bg); }
+.match-id { flex: none; font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-text-secondary); }
+.match-text { flex: 1; }
+.match-badge { color: var(--ur-color-text-on-action); }
+.match-answer { flex: none; color: var(--ur-color-feedback-success-text); font-weight: var(--ur-text-font-system-m-bold-weight); }
+
+@media (max-width: 640px) {
+  .match { grid-template-columns: 1fr; }
+}
