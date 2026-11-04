@@ -1,13 +1,25 @@
-/* RC/Vocab/ScanCard (proposed). Tokens only. */
-.scan-stage {
-  flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: var(--ur-space-12); text-align: center;
+/* RC/Vocab/ScanCard (proposed; layout from the designer's 3.03–3.05). Tokens only.
+   Row: previous | area | next, gap 16. Area: n/total (4XL regular, secondary) on top; headword block 96 above / 72 below
+   (word 48 Black, IPA 4XL regular tertiary, gap 16; btn-play 40 below); the MarkButtons 32 apart with 40 above and below. */
+.scan-card { width: 100%; display: flex; align-items: center; justify-content: center; gap: var(--ur-space-16); }
+.scan-area { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; }
+.scan-count {
+  font: var(--ur-text-font-system-4xl-regular); color: var(--ur-color-text-secondary); font-variant-numeric: tabular-nums;
 }
-.scan-word-row { display: flex; align-items: center; justify-content: center; gap: var(--ur-space-12); flex-wrap: wrap; }
-.scan-word { margin: 0; font: var(--ur-text-font-system-4xl-bold); color: var(--ur-color-text-primary); overflow-wrap: anywhere; }
+.scan-stage {
+  width: 100%; display: flex; flex-direction: column; align-items: center; gap: var(--ur-space-40);
+  padding: calc(var(--ur-space-80) + var(--ur-space-16)) 0 calc(var(--ur-space-64) + var(--ur-space-8)); text-align: center;
+}
+.scan-headword { display: flex; flex-direction: column; align-items: center; gap: var(--ur-space-16); max-width: 100%; }
+.scan-word {
+  margin: 0; font-family: var(--ur-font-primary-font-family); font-size: var(--ur-text-size-display); line-height: normal;
+  font-weight: var(--ur-font-weight-black); color: var(--ur-color-text-primary); overflow-wrap: anywhere;
+}
 .scan-word.is-known { color: var(--ur-color-feedback-success); }
 .scan-word.is-unknown { color: var(--ur-color-feedback-error); }
 .scan-ipa {
   margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--ur-space-4) var(--ur-space-16);
-  font: var(--ur-text-font-system-l-regular); color: var(--ur-color-text-secondary);
+  font-family: var(--ur-font-primary-font-family); font-size: var(--ur-text-font-system-4xl-regular-size); line-height: normal;
+  font-weight: var(--ur-text-font-system-4xl-regular-weight); color: var(--ur-color-text-tertiary);
 }
+.scan-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--ur-space-32); padding: var(--ur-space-40) 0; }

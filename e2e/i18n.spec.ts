@@ -97,7 +97,7 @@ test('en-US: 词汇天天练 — every step in English (#106 #133)', async ({ pa
   await expect(page.getByRole('tab')).toHaveText([/Scan/, /Study/, /Quiz/]);
   await expect(page.getByRole('button', { name: 'Know', exact: true })).toBeVisible();
   await expect(page.getByRole('button', { name: "Don't know" })).toBeVisible();
-  await expect(page.getByRole('navigation', { name: 'Word pager' })).toBeVisible();
+  await expect(page.getByRole('group', { name: 'Word pager' })).toBeVisible();
   await page.getByRole('button', { name: 'Know', exact: true }).click();
   await page.getByRole('tab', { name: /Study/ }).click();
   await expect(page.locator('.vocab-count')).toHaveText('34 entries');

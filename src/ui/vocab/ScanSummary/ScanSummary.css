@@ -1,6 +1,16 @@
-/* RC/Vocab/ScanSummary (proposed). Tokens only. */
-.scan-done { gap: var(--ur-space-16); }
-.scan-done-title { margin: 0; font: var(--ur-text-font-system-4xl-bold); color: var(--ur-color-text-primary); }
-.scan-done-tally { margin: 0; font: var(--ur-text-font-system-l-regular); color: var(--ur-color-text-secondary); }
-.scan-done-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--ur-space-16); margin-top: var(--ur-space-8); }
-.scan-done-actions .pill-button { min-height: var(--ur-height-height-7); padding: 0 var(--ur-space-24); }
+/* RC/Vocab/ScanSummary (proposed; sizes from the designer's 3.06, Ready for dev). Tokens only.
+   Padding 48, gap 40: title 32 bold (line 36), tally Font system/2XL/regular, two 200 × 72 UIKit-Quiz buttons 16 apart. */
+.scan-done {
+  display: flex; flex-direction: column; align-items: center; gap: var(--ur-space-40);
+  padding: var(--ur-space-48); text-align: center;
+}
+.scan-done-title {
+  margin: 0; font-family: var(--ur-font-primary-font-family); font-size: var(--ur-text-size-5xl);
+  line-height: var(--ur-text-font-system-4xl-bold-line-height); font-weight: var(--ur-text-font-system-4xl-bold-weight);
+  color: var(--ur-color-text-primary);
+}
+.scan-done-tally { margin: 0; font: var(--ur-text-font-system-2xl-regular); color: var(--ur-color-text-secondary); }
+.scan-done-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--ur-space-16); }
+.scan-done-actions .pill-button {
+  width: calc(var(--ur-space-80) * 2 + var(--ur-space-40)); min-height: var(--ur-height-height-9); padding: 0 var(--ur-space-24);
+}

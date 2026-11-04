@@ -1,4 +1,5 @@
 import { Fragment } from 'react';
+import sepLine from '@/assets/icons/step-line.svg';
 import { StepIcon, type Step } from '@/ui/StepIcon/StepIcon';
 import './StepTabs.css';
 
@@ -12,7 +13,7 @@ export function StepTabs<T extends Step>({ label, steps, current, onSelect }: { 
     <div className="mode-tabs" role="tablist" aria-label={label}>
       {steps.map((d, i) => (
         <Fragment key={d.id}>
-          {i > 0 && <span className="mode-tab-sep" aria-hidden />}
+          {i > 0 && <img className="mode-tab-sep" src={sepLine} alt="" />}
           <button role="tab" aria-selected={current === d.id} className={`mode-tab ${current === d.id ? 'is-active' : ''}`} onClick={() => onSelect(d.id)}>
             <StepIcon icon={d.id} /> {d.label}
           </button>

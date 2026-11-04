@@ -68,22 +68,22 @@ export function VocabScan({
         marked={v === true ? 'known' : v === false ? 'unknown' : 'none'}
         playLabel={t('vocab.entry.play', { word: e.headword })}
         onPlay={() => say(e.headword, e.audio?.word)}
+        count={`${index + 1}/${total}`}
+        countLabel={t('vocab.scan.position', { n: index + 1, total })}
+        label={t('vocab.scan.pager')}
+        prev={<ArrowButton direction="prev" disabled={index === 0} onClick={() => setIndex(index - 1)} label={t('vocab.scan.prev')} />}
+        next={<ArrowButton direction="next" onClick={() => setIndex(index + 1)} label={t('vocab.scan.next')} />}
+        actions={
+          <>
+            <MarkButton mark="know" selected={v === true} onClick={() => mark(true)}>
+              {t('vocab.scan.know')}
+            </MarkButton>
+            <MarkButton mark="unknown" selected={v === false} onClick={() => mark(false)}>
+              {t('vocab.scan.dontKnow')}
+            </MarkButton>
+          </>
+        }
       />
-      <div className="scan-actions">
-        <MarkButton mark="know" selected={v === true} onClick={() => mark(true)}>
-          {t('vocab.scan.know')}
-        </MarkButton>
-        <MarkButton mark="unknown" selected={v === false} onClick={() => mark(false)}>
-          {t('vocab.scan.dontKnow')}
-        </MarkButton>
-      </div>
-      <nav className="scan-pager" aria-label={t('vocab.scan.pager')}>
-        <ArrowButton direction="prev" disabled={index === 0} onClick={() => setIndex(index - 1)} label={t('vocab.scan.prev')} />
-        <span className="scan-count" aria-label={t('vocab.scan.position', { n: index + 1, total })}>
-          {index + 1}/{total}
-        </span>
-        <ArrowButton direction="next" onClick={() => setIndex(index + 1)} label={t('vocab.scan.next')} />
-      </nav>
     </div>
   );
 }

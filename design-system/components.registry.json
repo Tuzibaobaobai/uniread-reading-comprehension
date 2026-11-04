@@ -72,7 +72,7 @@
     "add": "Flow: Learn（Read/Speak/Quiz，现有）/ Vocab（速览/学习/测验，新增）× Step 1/2/3",
     "item": "7805:90511 item（Text、Selected、State）保持不变，通过文本属性写入步骤名"
    },
-   "note": "设计规范 §07「学习模式」已要求词汇导航使用速览／学习／测验、不与 Read/Speak/Quiz 混用；目前没有对应变体。",
+   "note": "设计规范 §07「学习模式」已要求词汇导航使用速览／学习／测验、不与 Read/Speak/Quiz 混用；目前没有对应变体。。UniRead 设计师在 RC · Screens · DS-2026-11-03「词汇 › 速览」（Ready for dev）中修改，代码已对齐（2026-11-04）",
    "figmaProposal": {
     "nodeId": "19447:773",
     "page": "RC · Proposed",
@@ -102,7 +102,7 @@
     "existing": "icon: Read / Speak / Quiz / Recite / Dictation",
     "add": "icon: Scan（速览）/ Study（学习）"
    },
-   "note": "需要设计师绘制两个图标；代码目前用占位图标（速览为方块）。",
+   "note": "Scan / Study 图标已由设计师绘制（19447:764 / 19447:769），代码已换用。",
    "figmaProposal": {
     "nodeId": "19447:751",
     "page": "RC · Proposed",
@@ -126,7 +126,7 @@
     "Marked": "none / known / unknown",
     "State": "Default"
    },
-   "note": "内部复用 UIkit-Read btn-play（3221:7265）作朗读按钮",
+   "note": "内部复用 UIkit-Read btn-play（3221:7265）作朗读按钮。UniRead 设计师在 RC · Screens · DS-2026-11-03「词汇 › 速览」（Ready for dev）中修改，代码已对齐（2026-11-04）",
    "figmaProposal": {
     "nodeId": "19443:488",
     "page": "RC · Proposed",
@@ -150,7 +150,7 @@
     "Selected": "no / yes",
     "State": "Default / Hover / Pressed"
    },
-   "note": "与 Dictation「btn-加入错词本」语义不同（标记掌握程度，不是加入列表），因此新建",
+   "note": "与 Dictation「btn-加入错词本」语义不同（标记掌握程度，不是加入列表），因此新建。UniRead 设计师在 RC · Screens · DS-2026-11-03「词汇 › 速览」（Ready for dev）中修改，代码已对齐（2026-11-04）",
    "figmaProposal": {
     "nodeId": "19443:521",
     "page": "RC · Proposed",
@@ -163,19 +163,23 @@
    "code": "ui/ArrowButton",
    "status": "reuse",
    "product": "词汇天天练",
-   "description": "单词翻页：上一个 / 下一个（圆形箭头）",
+   "description": "单词翻页：上一个 / 下一个（72 × 120 竖条按钮）",
    "screens": [
     "3.03",
     "3.04"
    ],
-   "figma": {
-    "nodeId": "12041:88652",
-    "name": "dialog-单词预习（内含箭头按钮）",
-    "group": "UiKit-Vocabulary",
-    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=12041-88652"
+   "note": "设计师新建的组件，替代原先复用的 UiKit-Vocabulary 圆形箭头。UniRead 设计师在 RC · Screens · DS-2026-11-03「词汇 › 速览」（Ready for dev）中修改，代码已对齐（2026-11-04）（尚未进入锁定的组件清单 components.inventory.json：下次 ds-sync 后补 figma.nodeId）",
+   "source": "src/ui/ArrowButton/ArrowButton.tsx",
+   "variants": {
+    "State": "Default / Hover（effect btn → btn-hover）",
+    "Disabled": "no / yes（yes = 不显示）"
    },
-   "note": "复用该对话框中的圆形箭头按钮实例；阶段 3 确认其主组件 node id，并补 Disabled 变体（若无）",
-   "source": "src/ui/ArrowButton/ArrowButton.tsx"
+   "figmaDesigner": {
+    "nodeId": "19528:124853",
+    "name": "previous / next（19528:124853 / 19528:124860）",
+    "group": "RC · Screens · DS-2026-11-03 › 词汇 · 速览（Scan）",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19528-124853"
+   }
   },
   {
    "code": "rc/Vocab/ScanSummary",
@@ -188,7 +192,7 @@
    "variants": {
     "State": "Default"
    },
-   "note": "按钮复用 UIKit-Quiz button（6433:39508 / 7870:49853）",
+   "note": "按钮复用 UIKit-Quiz button（6433:39508 / 7870:49853）。UniRead 设计师在 RC · Screens · DS-2026-11-03「词汇 › 速览」（Ready for dev）中修改，代码已对齐（2026-11-04）",
    "figmaProposal": {
     "nodeId": "19443:530",
     "page": "RC · Proposed",
@@ -2121,7 +2125,10 @@
    "product": "词汇天天练 · 真题 KET/PET",
    "description": "朗读 / 播放按钮",
    "screens": [
-    "2.07"
+    "2.07",
+    "3.03",
+    "3.04",
+    "3.05"
    ],
    "figma": {
     "nodeId": "3221:7265",
@@ -2130,9 +2137,9 @@
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=3221-7265"
    },
    "source": "src/ui/PlayButton/PlayButton.tsx",
-   "note": "真题播放器的播放 / 暂停：扩展 Size entry / player、Playing → btn-pause 9271:35589；播放中用 UIkit-Read / btn-pause 9271:35589（独立组件），Size player 为尺寸覆盖，无需扩展",
+   "note": "真题播放器的播放 / 暂停：扩展 Size entry / player、Playing → btn-pause 9271:35589；播放中用 UIkit-Read / btn-pause 9271:35589（独立组件），Size player 为尺寸覆盖，无需扩展；Size card 来自设计师在速览区新建的 btn-play（19528:124673：State Default / Hover / Play，播放中 30% 不透明度）",
    "variants": {
-    "Size": "entry / player（新增）",
+    "Size": "entry / player / card（新增：速览卡片 80 × 48，设计师 btn-play 19528:124673）",
     "Playing": "no / yes（新增）"
    }
   },

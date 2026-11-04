@@ -1,13 +1,14 @@
-/* RC/Vocab/MarkButton (proposed). Tokens only. */
+/* RC/Vocab/MarkButton (proposed). Tokens only. 200 × 80 pill, 2px border, 32px icon + Font system/L/bold, in success /
+   error; Selected and Hover tint the background with success-bg / error-bg. */
 .scan-btn {
-  flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: var(--ur-space-8);
-  min-height: var(--ur-height-height-8);
-  border: var(--ur-stroke-strong) solid var(--ur-color-border-default); border-radius: var(--ur-radius-full);
+  flex: none; width: calc(var(--ur-space-80) * 2 + var(--ur-space-40)); height: var(--ur-height-height-10);
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--ur-space-8); padding: 0 var(--ur-space-4) 0 0;
+  border: var(--ur-stroke-strong) solid; border-radius: var(--ur-radius-full);
   background: var(--ur-color-background-card);
-  font: var(--ur-text-font-system-m-bold); color: var(--ur-color-text-strong);
+  font: var(--ur-text-font-system-l-bold);
 }
-.scan-btn svg { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); }
-.scan-btn.is-know { border-color: var(--ur-color-feedback-success); color: var(--ur-color-feedback-success-text); }
+.scan-btn svg { flex: none; width: var(--ur-size-icon-l); height: var(--ur-size-icon-l); }
+.scan-btn.is-know { border-color: var(--ur-color-feedback-success); color: var(--ur-color-feedback-success); }
 .scan-btn.is-unknown { border-color: var(--ur-color-feedback-error); color: var(--ur-color-feedback-error); }
 .scan-btn.is-know.is-on { background: var(--ur-color-feedback-success-bg); }
 .scan-btn.is-unknown.is-on { background: var(--ur-color-feedback-error-bg); }

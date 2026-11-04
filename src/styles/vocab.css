@@ -22,15 +22,15 @@
 
 .vocab-entries { list-style: none; margin: 0; padding: 0; }
 
-/* Scan (#133): one word a page in the middle of the card, 认识 / 不认识 below, n/total at the bottom */
-.scan-pane { overflow: hidden; }
+/* Scan (#133), the designer's 3.03–3.06 (Figma RC · Screens, Ready for dev): a 960-wide card at most 700 tall, centred
+   in the space under the header (24 above, 48 below); the card is ui/vocab/ScanCard or ScanSummary */
+.scan-pane { overflow: hidden; justify-content: center; padding: var(--ur-space-24) 0 var(--ur-space-48); }
+.vocab-day.tab-scan { padding-bottom: 0; }
 .vocab-scan {
-  flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center;
-  background: var(--bg-card); border-radius: var(--radius-xl); padding: var(--quiz-pad);
+  flex: 1 1 auto; min-height: 0; max-height: calc(var(--ur-space-80) * 8 + var(--ur-space-48) + var(--ur-space-12));
+  display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: auto;
+  background: var(--ur-color-background-card); border-radius: var(--ur-radius-xl); padding: var(--ur-space-48) var(--ur-space-40);
 }
-.scan-actions { display: flex; gap: 16px; width: 100%; max-width: 480px; }
-.scan-pager { display: flex; align-items: center; gap: 16px; margin-top: 24px; }
-.scan-count { min-width: 64px; text-align: center; font-size: var(--fs-l); font-weight: var(--fw-bold); color: var(--text-secondary); font-variant-numeric: tabular-nums; }
 
 /* Quiz tab */
 .quiz-pane .question-card { flex: 1; }

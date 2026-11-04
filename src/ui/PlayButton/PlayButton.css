@@ -17,3 +17,16 @@
   display: grid; place-items: center;
 }
 .player-btn:disabled { opacity: var(--ur-opacity-disabled); }
+/* Size=card: the 速览 card's btn-play (19528:124673) — 80 × 48, radius m, drop-shadow/btn; icon Grey/11, Grey/10 on hover */
+.card-play {
+  flex: none; width: var(--ur-space-80); height: var(--ur-height-height-6);
+  display: grid; place-items: center; padding: 0; border: none;
+  border-radius: var(--ur-radius-m); background: var(--ur-color-background-card); box-shadow: var(--ur-effect-drop-shadow-btn);
+}
+.card-play-icon { grid-area: 1 / 1; width: calc(var(--ur-space-24) + var(--ur-space-4)); height: calc(var(--ur-space-24) + var(--ur-space-4)); }
+.card-play-icon.is-hover { visibility: hidden; }
+.card-play.is-playing { opacity: var(--ur-opacity-disabled); }
+@media (hover: hover) and (pointer: fine) {
+  .card-play:hover .card-play-icon { visibility: hidden; }
+  .card-play:hover .card-play-icon.is-hover { visibility: visible; }
+}

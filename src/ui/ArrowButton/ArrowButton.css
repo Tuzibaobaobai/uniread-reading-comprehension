@@ -1,8 +1,12 @@
-/* ui/ArrowButton — UniRead round arrow button (reuse). Tokens only. */
+/* ui/ArrowButton — UniRead previous / next (19528:124853 / 19528:124860). Tokens only.
+   72 × 120 white pill, effect style btn, btn-hover on hover; the arrow glyph sits in a 48 box (the svg keeps its size). */
 .scan-nav {
-  width: var(--ur-size-touch-target); height: var(--ur-size-touch-target);
-  display: grid; place-items: center; border: none;
-  border-radius: var(--ur-radius-full); background: var(--ur-color-background-subtle); color: var(--ur-color-text-strong);
+  flex: none; width: var(--ur-height-height-9); height: calc(var(--ur-space-80) + var(--ur-space-40));
+  display: grid; place-items: center; padding: 0; border: none;
+  border-radius: var(--ur-radius-full); background: var(--ur-color-background-card); box-shadow: var(--ur-effect-btn);
 }
-.scan-nav svg { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); }
-.scan-nav:disabled { opacity: var(--ur-opacity-disabled); }
+.scan-nav img { display: block; }
+.scan-nav:disabled { visibility: hidden; }
+@media (hover: hover) and (pointer: fine) {
+  .scan-nav:hover:not(:disabled) { box-shadow: var(--ur-effect-btn-hover); }
+}

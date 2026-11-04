@@ -551,6 +551,38 @@
           }
         }
       }
+    },
+    "font-weight": {
+      "black": {
+        "$type": "number",
+        "$value": 900,
+        "$extensions": {
+          "rc": {
+            "status": "needs-designer",
+            "use": "词汇速览词头 48px Black（Figma RC · Screens 3.03–3.05，Ready for dev）；Font system 无 900 字重"
+          }
+        }
+      }
+    }
+  },
+  "effect": {
+    "btn": {
+      "$type": "shadow",
+      "$value": "box-shadow: 0px 2px 8px 0px rgba(29, 39, 81, 0.1);",
+      "$extensions": {
+        "rc": {
+          "use": "UniRead file effect style \"btn\" (key eadf458afdac205dd2aac9b3fcfab3c0d4929a2d), added by the designer after DS-2026-11-03; scan previous / next. Moves to uniread.tokens.json at the next ds-sync"
+        }
+      }
+    },
+    "btn-hover": {
+      "$type": "shadow",
+      "$value": "box-shadow: 0px 2px 20px 0px rgba(29, 39, 81, 0.1);",
+      "$extensions": {
+        "rc": {
+          "use": "UniRead file effect style \"btn-hover\" (key 32a9567ef1f7af1cf326d06889b76453bfa087b7), as above; hover of previous / next"
+        }
+      }
     }
   }
 }

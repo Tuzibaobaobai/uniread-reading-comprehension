@@ -1,4 +1,4 @@
-/* ui/StepIcon (extends UIKit-LearnNav icons). Tokens only. Icon size in a step tab; the Question icon draws its "?" in
-   white — dark on the current (dark) tab. */
-.mode-tab svg { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); }
-.mode-tab.is-active svg path { stroke: var(--ur-color-text-primary) !important; }
+/* ui/StepIcon (extends UIKit-LearnNav icons). Tokens only. 28px in a step tab; the Question icon draws its "?" in
+   white — dark on the current tab (the designer's Scan / Study icons are plain fills in the tab's colour). */
+.mode-tab svg { flex: none; width: calc(var(--ur-space-24) + var(--ur-space-4)); height: calc(var(--ur-space-24) + var(--ur-space-4)); }
+.mode-tab.is-active svg circle + path { stroke: var(--ur-color-text-strong) !important; }
