@@ -1,18 +1,20 @@
-/* UniRead design tokens — the only place visual values live.
+/* RC token names (legacy layer). Values come from the generated UniRead tokens (uniread-tokens.css, scripts/ds-build.ts);
+   a literal left here has no exact UniRead token yet — listed in design-system/migrations/legacy-tokens.md for proposal.
+   UniRead design tokens — the only place visual values live.
    Source: Figma UniRead design system (docs/design/figma-registry.md, mapping rules there).
    --accent = Figma `color/6` (Neutral/Component/6-base). */
 :root {
   /* ---- Figma: Customization/Grey/N */
-  --grey-2: #f5f6f9;
-  --grey-3: #f0f2f7;
-  --grey-5: #e4e7ec;           /* Grey/5(divider) */
-  --grey-7: #cfd5e3;
-  --grey-8: #bdc4d4;
-  --grey-9: #979eaf;
-  --grey-10: #6c7280;
-  --grey-11: #474a50;
-  --grey-12: #393b40;
-  --white: #ffffff;
+  --grey-2: var(--ur-paint-customization-grey-2);
+  --grey-3: var(--ur-paint-customization-grey-3);
+  --grey-5: var(--ur-paint-customization-grey-5-divider);           /* Grey/5(divider) */
+  --grey-7: var(--ur-paint-customization-grey-7);
+  --grey-8: var(--ur-paint-customization-grey-8);
+  --grey-9: var(--ur-paint-customization-grey-9);
+  --grey-10: var(--ur-paint-customization-grey-10);
+  --grey-11: var(--ur-paint-customization-grey-11);
+  --grey-12: var(--ur-paint-customization-grey-12);
+  --white: var(--ur-color-white-100);
 
   /* ---- semantic surfaces & text */
   --bg-page: var(--grey-2);
@@ -20,8 +22,8 @@
   --bg-subtle: var(--grey-2);
   --bg-hover: var(--grey-2);
   --bg-selected: var(--grey-2);
-  --text-primary: rgba(0, 0, 0, 0.88);   /* Grey/13(text) at 88% */
-  --text-body: rgba(0, 0, 0, 0.88);
+  --text-primary: var(--ur-paint-customization-grey-13-text);   /* Grey/13(text) at 88% */
+  --text-body: var(--ur-paint-customization-grey-13-text);
   --text-strong: var(--grey-12);
   --text-secondary: var(--grey-10);
   --text-tertiary: var(--grey-9);
@@ -30,24 +32,24 @@
   --border-strong: var(--grey-7);
   --border-radio: var(--grey-9);
   --divider: var(--grey-5);
-  --overlay-panel: rgba(255, 255, 255, 0.8);   /* playlist info panel over blurred cover */
-  --backdrop: rgba(20, 22, 26, 0.4);
+  --overlay-panel: var(--ur-color-white-80);   /* playlist info panel over blurred cover */
+  --backdrop: var(--ur-color-overlay-backdrop);
 
   /* ---- brand: Figma color/6 → accent */
-  --accent: #9747ff;
-  --accent-soft: #f3ecff;      /* selected / active backgrounds */
-  --accent-strong: #7a2fe0;    /* accent text on white (vocab highlights, filled blanks) */
+  --accent: var(--ur-color-brand-6);
+  --accent-soft: var(--ur-color-action-primary-soft);      /* selected / active backgrounds */
+  --accent-strong: var(--ur-color-action-primary-strong);    /* accent text on white (vocab highlights, filled blanks) */
 
   /* ---- Figma: Customization/State */
-  --success: #07cd4d;          /* finished-light */
-  --success-soft: #ecfde0;     /* success-bg */
+  --success: var(--ur-paint-customization-state-finished-light);          /* finished-light */
+  --success-soft: var(--ur-paint-success-bg);     /* success-bg */
   --success-text: #497249;     /* explanation text on success-bg */
   --success-divider: rgba(73, 114, 73, 0.2);
-  --danger: #ff1e1e;           /* wrong-light */
-  --danger-soft: #ffeded;      /* error-bg */
-  --answer-text: #1f6fd1;      /* learner's filled-in answers — must differ from vocab highlight (--accent-strong) */
-  --highlight: #fff3c4;        /* evidence sentence in the article */
-  --highlight-strong: #ffe58a; /* locate flash */
+  --danger: var(--ur-paint-customization-state-wrong-light);           /* wrong-light */
+  --danger-soft: var(--ur-paint-error-bg);      /* error-bg */
+  --answer-text: var(--ur-color-text-answer);      /* learner's filled-in answers — must differ from vocab highlight (--accent-strong) */
+  --highlight: var(--ur-color-background-highlight);        /* evidence sentence in the article */
+  --highlight-strong: var(--ur-color-background-highlight-strong); /* locate flash */
 
   /* match: pair markers (not in Figma yet) */
   --pair-1: #f07b3f;   /* match pair markers stay multi-colour */
@@ -59,15 +61,15 @@
   --pair-7: #17a2b8;
 
   /* ---- Figma: radius/* */
-  --radius-xs: 10px;
-  --radius-s: 15px;
+  --radius-xs: var(--ur-radius-xs);
+  --radius-s: var(--ur-radius-s);
   --option-image-max-h: 160px;
-  --radius-m: 20px;
-  --radius-l: 24px;
-  --radius-xl: 40px;
-  --radius-full: 9999px;
-  --radius-btn-square: 12px;
-  --radius-row: 8px;
+  --radius-m: var(--ur-radius-m);
+  --radius-l: var(--ur-radius-l);
+  --radius-xl: var(--ur-radius-xl);
+  --radius-full: var(--ur-radius-full);
+  --radius-btn-square: var(--ur-radius-xs);
+  --radius-row: var(--ur-radius-xs);
   /* legacy aliases */
   --radius-card: var(--radius-xl);
   --radius-panel: var(--radius-m);
@@ -76,27 +78,27 @@
   --radius-pill: var(--radius-full);
 
   /* ---- Figma effects */
-  --shadow-btn: 0 2px 5px -1px rgba(123, 131, 147, 0.1);   /* drop-shadow/btn-xs */
-  --shadow-bar: 0 0 5px rgba(0, 0, 0, 0.08);               /* bar */
-  --shadow-card-lg: 0 2px 2px rgba(183, 183, 184, 0.1), 0 7px 3.5px rgba(183, 183, 184, 0.09), 0 16px 5px rgba(183, 183, 184, 0.05), 0 29px 6px rgba(183, 183, 184, 0.01);  /* drop-shadow/card lg */
-  --shadow-card: 0 4px 24px rgba(31, 35, 41, 0.06);
-  --shadow-card-hover: 0 8px 28px rgba(31, 35, 41, 0.1);
-  --shadow-dialog: 0 16px 48px rgba(0, 0, 0, 0.18);
+  --shadow-btn: var(--ur-effect-drop-shadow-btn-xs);   /* drop-shadow/btn-xs */
+  --shadow-bar: var(--ur-effect-bar);               /* bar */
+  --shadow-card-lg: var(--ur-effect-drop-shadow-card-lg);  /* drop-shadow/card lg */
+  --shadow-card: var(--ur-effect-card);
+  --shadow-card-hover: var(--ur-effect-card-hover);
+  --shadow-dialog: var(--ur-effect-drop-shadow-dropdown);
   --shadow-button: var(--shadow-btn);
 
   /* ---- Figma: font/primary-font-family + Font system */
-  /* Source Sans 3 = the Latin design inside Noto Sans SC; listed first so Latin quotes/apostrophes stay proportional */
-  --font-sans: 'Source Sans 3', 'Noto Sans SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, sans-serif;
-  --fw-regular: 400;
-  --fw-medium: 500;
-  --fw-bold: 700;
-  --fs-xs: 12px;   --lh-xs: 18px;
-  --fs-s: 14px;    --lh-s: 22px;
-  --fs-m: 16px;    --lh-m: 26px;
-  --fs-l: 18px;    --lh-l: 28px;
-  --fs-2xl: 20px;  --lh-2xl: 30px;
-  --fs-3xl: 22px;  --lh-3xl: 32px;
-  --fs-4xl: 24px;  --lh-4xl: 36px;
+  /* UniRead font/primary-font-family (Noto Sans SC, self-hosted in global.css); system CJK fonts only as fallback */
+  --font-sans: var(--ur-font-primary-font-family), 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --fw-regular: var(--ur-text-font-system-m-regular-weight);
+  --fw-medium: var(--ur-text-font-system-m-medium-weight);
+  --fw-bold: var(--ur-text-font-system-m-bold-weight);
+  --fs-xs: var(--ur-text-font-system-xs-regular-size);   --lh-xs: var(--ur-text-font-system-xs-regular-line-height);
+  --fs-s: var(--ur-text-font-system-s-regular-size);    --lh-s: var(--ur-text-font-system-s-regular-line-height);
+  --fs-m: var(--ur-text-font-system-m-regular-size);    --lh-m: var(--ur-text-font-system-m-regular-line-height);
+  --fs-l: var(--ur-text-font-system-l-regular-size);    --lh-l: var(--ur-text-font-system-l-regular-line-height);
+  --fs-2xl: var(--ur-text-font-system-2xl-regular-size);  --lh-2xl: var(--ur-text-font-system-2xl-regular-line-height);
+  --fs-3xl: var(--ur-text-font-system-3xl-regular-size);  --lh-3xl: var(--ur-text-font-system-3xl-regular-line-height);
+  --fs-4xl: var(--ur-text-font-system-4xl-regular-size);  --lh-4xl: var(--ur-text-font-system-4xl-regular-line-height);
   --fs-5xl: 32px;  --lh-5xl: 44px;
   --fs-display: 48px;
   /* semantic sizes */
@@ -105,45 +107,45 @@
   --fs-question: var(--fs-3xl);
   --fs-option: var(--fs-3xl);
   --fs-body: var(--fs-m);
-  --fs-meta: 15px;
-  --fs-small: 13px;
+  --fs-meta: var(--ur-text-font-system-s-regular-size);
+  --fs-small: var(--ur-text-font-system-xs-regular-size);
 
   /* ---- component metrics (Figma Quiz / Option-text-item / Quiz-pagination / Header) */
-  --header-h: 80px;
-  --back-btn: 48px;
+  --header-h: var(--ur-height-height-10);
+  --back-btn: var(--ur-height-height-6);
   --back-icon: 18px;                /* Figma btn-back icon (#99) */
   --back-icon-color: var(--grey-10);
   --back-icon-hover: var(--grey-9);
-  --select-icon: #141b34;           /* Figma "Dark" — select chevron (#102) */
-  --icon-m: 24px;
-  --radio: 24px;
+  --select-icon: var(--ur-color-icon-strong);           /* Figma "Dark" — select chevron (#102) */
+  --icon-m: var(--ur-size-icon-m);
+  --radio: var(--ur-size-icon-m);
   --radio-dot: 15px;
   --radio-border: 0.75px;
   --option-pad-y: 19px;
-  --option-pad-x: 20px;
-  --option-gap: 16px;
-  --options-gap: 12px;
-  --quiz-pad: 48px;
-  --quiz-gap: 40px;
-  --quiz-bar-pad-y: 32px;
+  --option-pad-x: var(--ur-space-20);
+  --option-gap: var(--ur-space-16);
+  --options-gap: var(--ur-space-12);
+  --quiz-pad: var(--ur-space-48);
+  --quiz-gap: var(--ur-space-40);
+  --quiz-bar-pad-y: var(--ur-space-32);
   --pager-btn-w: 200px;
-  --pager-btn-h: 72px;
-  --pager-num: 72px;
-  --pager-num-gap: 12px;
+  --pager-btn-h: var(--ur-height-height-9);
+  --pager-num: var(--ur-height-height-9);
+  --pager-num-gap: var(--ur-space-12);
   --pager-mark-w: 20px;
-  --pager-mark-h: 8px;
-  --pager-result-icon: 40px;
-  --strip-pad: 12px;          /* question-number strip: side padding, edge fade, "more" buttons */
-  --strip-fade: 48px;
-  --strip-more-pad: 10px;
-  --strip-more-gap: 2px;
-  --strip-more-icon: 20px;
+  --pager-mark-h: var(--ur-height-height);
+  --pager-result-icon: var(--ur-size-icon-xl);
+  --strip-pad: var(--ur-space-12);          /* question-number strip: side padding, edge fade, "more" buttons */
+  --strip-fade: var(--ur-space-48);
+  --strip-more-pad: var(--ur-space-12);
+  --strip-more-gap: var(--ur-space-2);
+  --strip-more-icon: var(--ur-size-icon-s);
   --disabled-opacity: 0.2;
-  --panel-pad: 32px;
-  --panel-gap: 16px;
-  --panel-btn-h: 56px;
+  --panel-pad: var(--ur-space-32);
+  --panel-gap: var(--ur-space-16);
+  --panel-btn-h: var(--ur-height-height-7);
   --row-thumb-w: 256px;
-  --row-num: 48px;
+  --row-num: var(--ur-height-height-6);
   --progress-h: 2px;
   --blur-panel: 100px;
   --scroll-inset: var(--radius-xl);   /* scrollbars start/end below/above the card's corner radius */
@@ -153,35 +155,35 @@
   --blank-line-color: var(--grey-12);
 
   /* ---- Figma UIkit-Read: player (11728:110946), btn-play / btn-pause / btn-before */
-  --shadow-btn-m: 0 4px 7.5px rgba(0, 0, 0, 0.1);           /* drop-shadow/btn */
-  --track-bg: #ebebeb;
-  --track-h: 8px;
-  --player-btn-h: 72px;
+  --shadow-btn-m: var(--ur-effect-drop-shadow-btn);           /* drop-shadow/btn */
+  --track-bg: var(--ur-color-background-track);
+  --track-h: var(--ur-height-height);
+  --player-btn-h: var(--ur-height-height-9);
   --player-btn-w: 128px;
-  --player-btn-gap: 12px;
+  --player-btn-gap: var(--ur-space-12);
   --player-icon: 44px;
-  --player-icon-s: 32px;
-  --player-pad: 24px;
+  --player-icon-s: var(--ur-size-icon-l);
+  --player-pad: var(--ur-space-24);
   --player-time-w: 52px;
 
   /* ---- ui-style-kit OverflowTip (full text of truncated titles; not in Figma yet) */
   --tip-bg: var(--text-primary);
-  --shadow-tip: 0 4px 12px rgba(0, 0, 0, 0.28);
+  --shadow-tip: var(--ur-effect-drop-shadow-chart-tip);
   --tip-max-w: 320px;
   --tip-max-h: 240px;
 
   /* ---- exam papers (KET/PET): not yet in Figma — built from existing tokens (待补组件) */
   --exam-warn: var(--danger);
   --exam-warn-soft: var(--danger-soft);
-  --flag: #f59e0b;
+  --flag: var(--ur-color-feedback-warning);
   --criteria-bar-h: 6px;
   --record-dot: 12px;
   --speak-btn-icon: 64px;
-  --part-gap: 16px;
+  --part-gap: var(--ur-space-16);
   --solo-max-w: 960px;              /* exam question card when there is no left pane (#78) */                 /* question strip: space + divider between exam Parts */           /* UIkit-Speak btn bg 64 × 64 */
 
-  --tap: 44px;
-  --gutter: 40px;
+  --tap: var(--ur-size-touch-target);
+  --gutter: var(--ur-space-40);
   /* printed genre layouts and portraits (#91 #96) — not in Figma yet (待补组件) */
   --genre-frame: var(--grey-11);
   --genre-bar-bg: var(--grey-12);

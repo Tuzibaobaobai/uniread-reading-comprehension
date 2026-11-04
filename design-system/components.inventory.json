@@ -1,0 +1,7572 @@
+[
+ {
+  "name": "item",
+  "group": "Learn",
+  "kind": "COMPONENT_SET",
+  "nodeId": "18140:222622",
+  "variantCount": 2,
+  "properties": "Text: TEXT = Two; Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "18140:222580",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "18140:222623",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "进入",
+  "group": "Learn",
+  "kind": "COMPONENT",
+  "nodeId": "12041:88149",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12041:88149",
+    "name": "进入"
+   }
+  ]
+ },
+ {
+  "name": "podcast",
+  "group": "Learn",
+  "kind": "COMPONENT",
+  "nodeId": "10651:57304",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "10651:57304",
+    "name": "podcast"
+   }
+  ]
+ },
+ {
+  "name": "website",
+  "group": "Learn",
+  "kind": "COMPONENT",
+  "nodeId": "10651:57305",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "10651:57305",
+    "name": "website"
+   }
+  ]
+ },
+ {
+  "name": "pdf",
+  "group": "Learn",
+  "kind": "COMPONENT",
+  "nodeId": "11795:145872",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11795:145872",
+    "name": "pdf"
+   }
+  ]
+ },
+ {
+  "name": "num",
+  "group": "Learn",
+  "kind": "COMPONENT",
+  "nodeId": "18140:222459",
+  "variantCount": null,
+  "properties": "num: TEXT = A",
+  "variants": [
+   {
+    "nodeId": "18140:222459",
+    "name": "num"
+   }
+  ]
+ },
+ {
+  "name": "card-背诵",
+  "group": "UIKit-Recite",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15282:102280",
+  "variantCount": 7,
+  "properties": "linear: BOOLEAN = false; State: Default / 倒计时 / 录音中 / 录音数据 / 评分排队中 / 评分结果-通过 / 评分结果-未通过",
+  "variants": [
+   {
+    "nodeId": "15282:102279",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "15398:103395",
+    "name": "State=倒计时"
+   },
+   {
+    "nodeId": "15282:102277",
+    "name": "State=录音中"
+   },
+   {
+    "nodeId": "15393:104938",
+    "name": "State=录音数据"
+   },
+   {
+    "nodeId": "15297:101269",
+    "name": "State=评分排队中"
+   },
+   {
+    "nodeId": "15282:104673",
+    "name": "State=评分结果-通过"
+   },
+   {
+    "nodeId": "15398:109408",
+    "name": "State=评分结果-未通过"
+   }
+  ]
+ },
+ {
+  "name": "背诵文件",
+  "group": "UIKit-Recite",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15429:100614",
+  "variantCount": 2,
+  "properties": "Text: TEXT = 背诵1; Tag: BOOLEAN = true; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "15429:100615",
+    "name": "Selected=no"
+   },
+   {
+    "nodeId": "15429:100629",
+    "name": "Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "背诵",
+  "group": "UIKit-Recite",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15398:128333",
+  "variantCount": 2,
+  "properties": "Show 再次挑战: BOOLEAN = true; Show 翻页器: BOOLEAN = true; Property 1: 背诵 / 记录",
+  "variants": [
+   {
+    "nodeId": "15126:96413",
+    "name": "Property 1=背诵"
+   },
+   {
+    "nodeId": "15398:119357",
+    "name": "Property 1=记录"
+   }
+  ]
+ },
+ {
+  "name": "Tab-背诵",
+  "group": "UIKit-Recite",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15429:104340",
+  "variantCount": 2,
+  "properties": "多条记录: BOOLEAN = true; State: 1 / 2",
+  "variants": [
+   {
+    "nodeId": "15429:104305",
+    "name": "State=1"
+   },
+   {
+    "nodeId": "15429:104341",
+    "name": "State=2"
+   }
+  ]
+ },
+ {
+  "name": "记录",
+  "group": "UIKit-Recite",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15429:104388",
+  "variantCount": 3,
+  "properties": "State: 无数据 / 通过 / 未通过",
+  "variants": [
+   {
+    "nodeId": "15429:107938",
+    "name": "State=无数据"
+   },
+   {
+    "nodeId": "15429:104022",
+    "name": "State=通过"
+   },
+   {
+    "nodeId": "15429:104286",
+    "name": "State=未通过"
+   }
+  ]
+ },
+ {
+  "name": "btn-背诵",
+  "group": "UIKit-Recite",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15398:101033",
+  "variantCount": 8,
+  "properties": "Text: TEXT = 开始背诵; state: Disabled / Default / Hover / Pressed / Release / Loading / Countdown / Activate",
+  "variants": [
+   {
+    "nodeId": "15398:101034",
+    "name": "state=Disabled"
+   },
+   {
+    "nodeId": "15398:101038",
+    "name": "state=Default"
+   },
+   {
+    "nodeId": "15398:101042",
+    "name": "state=Hover"
+   },
+   {
+    "nodeId": "15398:101046",
+    "name": "state=Pressed"
+   },
+   {
+    "nodeId": "15398:101050",
+    "name": "state=Release"
+   },
+   {
+    "nodeId": "15398:101054",
+    "name": "state=Loading"
+   },
+   {
+    "nodeId": "15398:101058",
+    "name": "state=Countdown"
+   },
+   {
+    "nodeId": "15398:101062",
+    "name": "state=Activate"
+   }
+  ]
+ },
+ {
+  "name": "btn-回放",
+  "group": "UIKit-Recite",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15398:103134",
+  "variantCount": 6,
+  "properties": "Text: TEXT = 回放; State: Default / Hover / Pressed / Release / Activate; DIsabled: no / yes",
+  "variants": [
+   {
+    "nodeId": "15398:109073",
+    "name": "State=Default, DIsabled=yes"
+   },
+   {
+    "nodeId": "15398:103154",
+    "name": "State=Default, DIsabled=no"
+   },
+   {
+    "nodeId": "15398:103161",
+    "name": "State=Hover, DIsabled=no"
+   },
+   {
+    "nodeId": "15398:103168",
+    "name": "State=Pressed, DIsabled=no"
+   },
+   {
+    "nodeId": "15398:103175",
+    "name": "State=Release, DIsabled=no"
+   },
+   {
+    "nodeId": "15398:103182",
+    "name": "State=Activate, DIsabled=no"
+   }
+  ]
+ },
+ {
+  "name": "btn-提交",
+  "group": "UIKit-Recite",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15398:107641",
+  "variantCount": 4,
+  "properties": "Text: TEXT = 提交; State: Default / Hover / Pressed / Release",
+  "variants": [
+   {
+    "nodeId": "15398:107642",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "15398:107648",
+    "name": "State=Hover"
+   },
+   {
+    "nodeId": "15398:107654",
+    "name": "State=Pressed"
+   },
+   {
+    "nodeId": "15398:107660",
+    "name": "State=Release"
+   }
+  ]
+ },
+ {
+  "name": "btn-提交",
+  "group": "UIKit-Recite",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15398:107699",
+  "variantCount": 4,
+  "properties": "State: Default / Hover / Pressed / Release",
+  "variants": [
+   {
+    "nodeId": "15398:107700",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "15398:107704",
+    "name": "State=Release"
+   },
+   {
+    "nodeId": "15398:107708",
+    "name": "State=Hover"
+   },
+   {
+    "nodeId": "15398:107712",
+    "name": "State=Pressed"
+   }
+  ]
+ },
+ {
+  "name": "得分",
+  "group": "UIKit-Recite",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15429:102597",
+  "variantCount": 2,
+  "properties": "Text: TEXT = 提交; Property 1: 得分-未通过 / 得分-通过",
+  "variants": [
+   {
+    "nodeId": "15398:107666",
+    "name": "Property 1=得分-通过"
+   },
+   {
+    "nodeId": "15398:109394",
+    "name": "Property 1=得分-未通过"
+   }
+  ]
+ },
+ {
+  "name": "modal",
+  "group": "UIKit-Recite",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15445:100771",
+  "variantCount": 2,
+  "properties": "Text2: TEXT = 获得奖励; Text: TEXT = 完成挑战; State: Default / keyframe",
+  "variants": [
+   {
+    "nodeId": "15445:100819",
+    "name": "State=keyframe"
+   },
+   {
+    "nodeId": "15450:100821",
+    "name": "State=Default"
+   }
+  ]
+ },
+ {
+  "name": "Tag",
+  "group": "UIKit-Recite",
+  "kind": "COMPONENT",
+  "nodeId": "15429:100998",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15429:100998",
+    "name": "Tag"
+   }
+  ]
+ },
+ {
+  "name": "empty",
+  "group": "UIKit-Recite",
+  "kind": "COMPONENT",
+  "nodeId": "15429:108611",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15429:108611",
+    "name": "empty"
+   }
+  ]
+ },
+ {
+  "name": "btn-提交/point",
+  "group": "UIKit-Recite",
+  "kind": "COMPONENT",
+  "nodeId": "15398:107966",
+  "variantCount": null,
+  "properties": "Text: TEXT = 提交; Generating Score: BOOLEAN = true",
+  "variants": [
+   {
+    "nodeId": "15398:107966",
+    "name": "btn-提交/point"
+   }
+  ]
+ },
+ {
+  "name": "btn",
+  "group": "UIKit-Recite",
+  "kind": "COMPONENT",
+  "nodeId": "15446:121126",
+  "variantCount": null,
+  "properties": "Text: TEXT = 知道了",
+  "variants": [
+   {
+    "nodeId": "15446:121126",
+    "name": "btn"
+   }
+  ]
+ },
+ {
+  "name": "icon-背诵",
+  "group": "UIKit-Recite",
+  "kind": "COMPONENT",
+  "nodeId": "15525:116546",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15525:116546",
+    "name": "icon-背诵"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-SignUp&Login",
+  "kind": "COMPONENT_SET",
+  "nodeId": "7301:62597",
+  "variantCount": 2,
+  "properties": "Text: TEXT = Individual; State: Default; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "7301:62598",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "7301:62600",
+    "name": "State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "tab-item",
+  "group": "UIKit-SignUp&Login",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11988:138978",
+  "variantCount": 2,
+  "properties": "Text: TEXT = Phone; State: Default; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "11988:138979",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "11988:138981",
+    "name": "State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "bg",
+  "group": "UIKit-SignUp&Login",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11012:97953",
+  "variantCount": 2,
+  "properties": "Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "7301:62765",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "11012:97954",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "login",
+  "group": "UIKit-SignUp&Login",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11012:107542",
+  "variantCount": 4,
+  "properties": "Property 1: Email / Phone / Username / Variant4",
+  "variants": [
+   {
+    "nodeId": "9935:99230",
+    "name": "Property 1=Phone"
+   },
+   {
+    "nodeId": "9935:99667",
+    "name": "Property 1=Email"
+   },
+   {
+    "nodeId": "9935:100109",
+    "name": "Property 1=Username"
+   },
+   {
+    "nodeId": "11988:139134",
+    "name": "Property 1=Variant4"
+   }
+  ]
+ },
+ {
+  "name": "Username",
+  "group": "UIKit-SignUp&Login",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11761:90695",
+  "variantCount": 2,
+  "properties": "Property 1: Parent’s ID / School ID",
+  "variants": [
+   {
+    "nodeId": "11761:90204",
+    "name": "Property 1=Parent’s ID"
+   },
+   {
+    "nodeId": "11761:90631",
+    "name": "Property 1=School ID"
+   }
+  ]
+ },
+ {
+  "name": "declaration",
+  "group": "UIKit-SignUp&Login",
+  "kind": "COMPONENT",
+  "nodeId": "7301:62579",
+  "variantCount": null,
+  "properties": "Text: TEXT = New users: we will register an account and log you in.  Logging in or completing registration means you agree to  Terms of Use and Privacy Policy.",
+  "variants": [
+   {
+    "nodeId": "7301:62579",
+    "name": "declaration"
+   }
+  ]
+ },
+ {
+  "name": "Tabs",
+  "group": "UIKit-SignUp&Login",
+  "kind": "COMPONENT",
+  "nodeId": "7301:62623",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "7301:62623",
+    "name": "Tabs"
+   }
+  ]
+ },
+ {
+  "name": "Tabs",
+  "group": "UIKit-SignUp&Login",
+  "kind": "COMPONENT",
+  "nodeId": "11988:138904",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11988:138904",
+    "name": "Tabs"
+   }
+  ]
+ },
+ {
+  "name": "备案",
+  "group": "UIKit-SignUp&Login",
+  "kind": "COMPONENT",
+  "nodeId": "9935:99222",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "9935:99222",
+    "name": "备案"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-LearnNav",
+  "kind": "COMPONENT_SET",
+  "nodeId": "7805:90511",
+  "variantCount": 3,
+  "properties": "Text: TEXT = Read; Selected: no / yes; State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "7805:90512",
+    "name": "Selected=no, State=Default"
+   },
+   {
+    "nodeId": "8951:119525",
+    "name": "Selected=no, State=Hover"
+   },
+   {
+    "nodeId": "7805:90510",
+    "name": "Selected=yes, State=Default"
+   }
+  ]
+ },
+ {
+  "name": "item-setting",
+  "group": "UIKit-LearnNav",
+  "kind": "COMPONENT_SET",
+  "nodeId": "6270:41413",
+  "variantCount": 3,
+  "properties": "State: Default / Hover; Open: no / yes",
+  "variants": [
+   {
+    "nodeId": "6270:41414",
+    "name": "State=Default, Open=no"
+   },
+   {
+    "nodeId": "9271:35598",
+    "name": "State=Hover, Open=no"
+   },
+   {
+    "nodeId": "6270:41418",
+    "name": "State=Hover, Open=yes"
+   }
+  ]
+ },
+ {
+  "name": "Btn-Back",
+  "group": "UIKit-LearnNav",
+  "kind": "COMPONENT_SET",
+  "nodeId": "6270:41344",
+  "variantCount": 1,
+  "properties": "state: Default",
+  "variants": [
+   {
+    "nodeId": "6270:41345",
+    "name": "state=Default"
+   }
+  ]
+ },
+ {
+  "name": "icons",
+  "group": "UIKit-LearnNav",
+  "kind": "COMPONENT_SET",
+  "nodeId": "8162:32091",
+  "variantCount": 5,
+  "properties": "icon: Read / Speak / Quiz / Recite / Dictation",
+  "variants": [
+   {
+    "nodeId": "8172:25919",
+    "name": "icon=Read"
+   },
+   {
+    "nodeId": "8172:24930",
+    "name": "icon=Speak"
+   },
+   {
+    "nodeId": "8172:25915",
+    "name": "icon=Quiz"
+   },
+   {
+    "nodeId": "15089:95622",
+    "name": "icon=Recite"
+   },
+   {
+    "nodeId": "15476:227939",
+    "name": "icon=Dictation"
+   }
+  ]
+ },
+ {
+  "name": "Header",
+  "group": "UIKit-LearnNav",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9172:35493",
+  "variantCount": 1,
+  "properties": "Property 1: Default",
+  "variants": [
+   {
+    "nodeId": "6346:84038",
+    "name": "Property 1=Default"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-LearnNav",
+  "kind": "COMPONENT_SET",
+  "nodeId": "13054:56538",
+  "variantCount": 2,
+  "properties": "Text: TEXT = 1x; Selected: yes / no",
+  "variants": [
+   {
+    "nodeId": "13054:56539",
+    "name": "Selected=no"
+   },
+   {
+    "nodeId": "13054:56537",
+    "name": "Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "Tabs",
+  "group": "UIKit-LearnNav",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15476:221046",
+  "variantCount": 3,
+  "properties": "Step: 1 / 2 / 3",
+  "variants": [
+   {
+    "nodeId": "15476:221047",
+    "name": "Step=1"
+   },
+   {
+    "nodeId": "15476:221054",
+    "name": "Step=2"
+   },
+   {
+    "nodeId": "15476:221061",
+    "name": "Step=3"
+   }
+  ]
+ },
+ {
+  "name": "btn-close",
+  "group": "UIKit-LearnNav",
+  "kind": "COMPONENT",
+  "nodeId": "7870:43771",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "7870:43771",
+    "name": "btn-close"
+   }
+  ]
+ },
+ {
+  "name": "font size",
+  "group": "UIKit-LearnNav",
+  "kind": "COMPONENT",
+  "nodeId": "6759:7026",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "6759:7026",
+    "name": "font size"
+   }
+  ]
+ },
+ {
+  "name": "dropdown",
+  "group": "UIKit-LearnNav",
+  "kind": "COMPONENT",
+  "nodeId": "6759:5518",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "6759:5518",
+    "name": "dropdown"
+   }
+  ]
+ },
+ {
+  "name": "line",
+  "group": "UIKit-LearnNav",
+  "kind": "COMPONENT",
+  "nodeId": "8941:85070",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "8941:85070",
+    "name": "line"
+   }
+  ]
+ },
+ {
+  "name": "Tooltip",
+  "group": "UIKit-LearnNav",
+  "kind": "COMPONENT",
+  "nodeId": "315:32710",
+  "variantCount": null,
+  "properties": "Body: TEXT = You can get 1 🔑 after completing the Speak task for each piece of material. ……; Has Body: BOOLEAN = true; Title: TEXT = Rules",
+  "variants": [
+   {
+    "nodeId": "315:32710",
+    "name": "Tooltip"
+   }
+  ]
+ },
+ {
+  "name": "btn-play",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT_SET",
+  "nodeId": "3221:7265",
+  "variantCount": 3,
+  "properties": "State: Play / Default / Hover; Dissabled: no / yes",
+  "variants": [
+   {
+    "nodeId": "3221:7266",
+    "name": "State=Default, Dissabled=no"
+   },
+   {
+    "nodeId": "9271:35590",
+    "name": "State=Hover, Dissabled=no"
+   },
+   {
+    "nodeId": "9253:96760",
+    "name": "State=Play, Dissabled=yes"
+   }
+  ]
+ },
+ {
+  "name": "btn-play",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12816:45088",
+  "variantCount": 3,
+  "properties": "State: Play / Default / Hover; Dissabled: no / yes",
+  "variants": [
+   {
+    "nodeId": "12816:45089",
+    "name": "State=Default, Dissabled=no"
+   },
+   {
+    "nodeId": "12816:45091",
+    "name": "State=Hover, Dissabled=no"
+   },
+   {
+    "nodeId": "12816:45093",
+    "name": "State=Play, Dissabled=yes"
+   }
+  ]
+ },
+ {
+  "name": "btn-before",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT_SET",
+  "nodeId": "3221:7318",
+  "variantCount": 3,
+  "properties": "State: Default / Hover; Dissabled: no / yes",
+  "variants": [
+   {
+    "nodeId": "3221:7319",
+    "name": "State=Default, Dissabled=no"
+   },
+   {
+    "nodeId": "9271:35582",
+    "name": "State=Hover, Dissabled=no"
+   },
+   {
+    "nodeId": "3221:7321",
+    "name": "State=Default, Dissabled=yes"
+   }
+  ]
+ },
+ {
+  "name": "btn-pause",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9271:35589",
+  "variantCount": 3,
+  "properties": "Property 1: Pause / Default / Hover; Property 2: no / yes",
+  "variants": [
+   {
+    "nodeId": "3221:7268",
+    "name": "Property 1=Default, Property 2=no"
+   },
+   {
+    "nodeId": "9271:35593",
+    "name": "Property 1=Hover, Property 2=no"
+   },
+   {
+    "nodeId": "9253:96763",
+    "name": "Property 1=Pause, Property 2=yes"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9542:33227",
+  "variantCount": 2,
+  "properties": "Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "9542:33223",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "9542:33228",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "btn",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11757:111231",
+  "variantCount": 3,
+  "properties": "Text: TEXT = Previous page; State: Default / Hover; Disabled: no / yes",
+  "variants": [
+   {
+    "nodeId": "11728:110942",
+    "name": "State=Default, Disabled=no"
+   },
+   {
+    "nodeId": "11757:111232",
+    "name": "State=Hover, Disabled=no"
+   },
+   {
+    "nodeId": "11757:111242",
+    "name": "State=Default, Disabled=yes"
+   }
+  ]
+ },
+ {
+  "name": "btn",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11757:111237",
+  "variantCount": 3,
+  "properties": "Text: TEXT = Next Page; State: Default / Hover; Disabled: no / yes",
+  "variants": [
+   {
+    "nodeId": "11728:110926",
+    "name": "State=Default, Disabled=no"
+   },
+   {
+    "nodeId": "11757:111238",
+    "name": "State=Hover, Disabled=no"
+   },
+   {
+    "nodeId": "11757:111246",
+    "name": "State=Default, Disabled=yes"
+   }
+  ]
+ },
+ {
+  "name": "转场音",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10672:96979",
+  "variantCount": 2,
+  "properties": "翻译: BOOLEAN = true; 原文: TEXT = ......; 收藏: BOOLEAN = true; Echoed: BOOLEAN = true; 翻译内容: TEXT = 一些蚜虫群体每英亩能产出数百千克的粪便，这使它们成为地球上最高产的排便者之一。 ; Karaok: BOOLEAN = true; State: Default / Read Focus",
+  "variants": [
+   {
+    "nodeId": "10672:96980",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "10672:96983",
+    "name": "State=Read Focus"
+   }
+  ]
+ },
+ {
+  "name": "SubtitleList",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT_SET",
+  "nodeId": "7740:21130",
+  "variantCount": 2,
+  "properties": "Property 1: 翻译 / 跟随滚动",
+  "variants": [
+   {
+    "nodeId": "10481:86461",
+    "name": "Property 1=跟随滚动"
+   },
+   {
+    "nodeId": "7740:21131",
+    "name": "Property 1=翻译"
+   }
+  ]
+ },
+ {
+  "name": "subtitle-ReadMode",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10672:96129",
+  "variantCount": 4,
+  "properties": "翻译: BOOLEAN = true; 原文: TEXT = Some aphid populations can produce hundreds of kilograms of poop per acre— making them some of the most prolific poopers on the planet.; 收藏: BOOLEAN = true; Echoed: BOOLEAN = true; 翻译内容: TEXT = 一些蚜虫群体每英亩能产出数百千克的粪便，这使它们成为地球上最高产的排便者之一。 ; Karaok: BOOLEAN = true; State: Default / Read Focus / 评分 / 遮罩",
+  "variants": [
+   {
+    "nodeId": "10672:94927",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "10672:94724",
+    "name": "State=Read Focus"
+   },
+   {
+    "nodeId": "15092:99236",
+    "name": "State=评分"
+   },
+   {
+    "nodeId": "15126:96650",
+    "name": "State=遮罩"
+   }
+  ]
+ },
+ {
+  "name": "highlight",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15398:105249",
+  "variantCount": 4,
+  "properties": "row: 1 / 2 / 3 / 4",
+  "variants": [
+   {
+    "nodeId": "15398:105248",
+    "name": "row=4"
+   },
+   {
+    "nodeId": "15398:105250",
+    "name": "row=3"
+   },
+   {
+    "nodeId": "15398:105259",
+    "name": "row=2"
+   },
+   {
+    "nodeId": "15398:105266",
+    "name": "row=1"
+   }
+  ]
+ },
+ {
+  "name": "drop down menu",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10672:98773",
+  "variantCount": 2,
+  "properties": "Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "10672:98732",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "10672:98774",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "mode",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15476:159263",
+  "variantCount": 3,
+  "properties": "Type: audio / video / web",
+  "variants": [
+   {
+    "nodeId": "8981:66023",
+    "name": "Type=video"
+   },
+   {
+    "nodeId": "9502:50951",
+    "name": "Type=audio"
+   },
+   {
+    "nodeId": "9542:33246",
+    "name": "Type=web"
+   }
+  ]
+ },
+ {
+  "name": "video",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT",
+  "nodeId": "6892:44588",
+  "variantCount": null,
+  "properties": "Show player: BOOLEAN = true",
+  "variants": [
+   {
+    "nodeId": "6892:44588",
+    "name": "video"
+   }
+  ]
+ },
+ {
+  "name": "Read-video&audio&web",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT",
+  "nodeId": "8872:82134",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "8872:82134",
+    "name": "Read-video&audio&web"
+   }
+  ]
+ },
+ {
+  "name": "Previous",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT",
+  "nodeId": "9253:97959",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "9253:97959",
+    "name": "Previous"
+   }
+  ]
+ },
+ {
+  "name": "player",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT",
+  "nodeId": "11728:110946",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11728:110946",
+    "name": "player"
+   }
+  ]
+ },
+ {
+  "name": "group",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT",
+  "nodeId": "12816:46807",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12816:46807",
+    "name": "group"
+   }
+  ]
+ },
+ {
+  "name": "Read-pdf",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT",
+  "nodeId": "12074:89001",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12074:89001",
+    "name": "Read-pdf"
+   }
+  ]
+ },
+ {
+  "name": "page",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT",
+  "nodeId": "12282:90157",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12282:90157",
+    "name": "page"
+   }
+  ]
+ },
+ {
+  "name": "karaok",
+  "group": "UIkit-Read",
+  "kind": "COMPONENT",
+  "nodeId": "10672:96522",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "10672:96522",
+    "name": "karaok"
+   }
+  ]
+ },
+ {
+  "name": "page number",
+  "group": "UIKit-Quiz",
+  "kind": "COMPONENT_SET",
+  "nodeId": "6346:85439",
+  "variantCount": 6,
+  "properties": "Completed: no / yes; State: Default / Hover; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "6346:85436",
+    "name": "Completed=no, State=Default, Selected=no"
+   },
+   {
+    "nodeId": "12409:123916",
+    "name": "Completed=no, State=Hover, Selected=yes"
+   },
+   {
+    "nodeId": "6346:85438",
+    "name": "Completed=no, State=Default, Selected=yes"
+   },
+   {
+    "nodeId": "6346:85437",
+    "name": "Completed=yes, State=Default, Selected=no"
+   },
+   {
+    "nodeId": "12409:123919",
+    "name": "Completed=yes, State=Hover, Selected=yes"
+   },
+   {
+    "nodeId": "6346:85963",
+    "name": "Completed=yes, State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "button",
+  "group": "UIKit-Quiz",
+  "kind": "COMPONENT_SET",
+  "nodeId": "6433:39508",
+  "variantCount": 3,
+  "properties": "Text: TEXT = Submit; State: Default / Hover; Disabled: no / yes",
+  "variants": [
+   {
+    "nodeId": "6433:39507",
+    "name": "State=Default, Disabled=no"
+   },
+   {
+    "nodeId": "7977:16723",
+    "name": "State=Hover, Disabled=no"
+   },
+   {
+    "nodeId": "7870:84979",
+    "name": "State=Default, Disabled=yes"
+   }
+  ]
+ },
+ {
+  "name": "button",
+  "group": "UIKit-Quiz",
+  "kind": "COMPONENT_SET",
+  "nodeId": "7870:49853",
+  "variantCount": 3,
+  "properties": "Text: TEXT = Next; State: Default / Hover; Disabled: no / yes",
+  "variants": [
+   {
+    "nodeId": "7870:49854",
+    "name": "State=Default, Disabled=no"
+   },
+   {
+    "nodeId": "7870:49856",
+    "name": "State=Hover, Disabled=no"
+   },
+   {
+    "nodeId": "7870:49858",
+    "name": "State=Default, Disabled=yes"
+   }
+  ]
+ },
+ {
+  "name": "Type",
+  "group": "UIKit-Quiz",
+  "kind": "COMPONENT_SET",
+  "nodeId": "6759:44371",
+  "variantCount": 4,
+  "properties": "Type: 多选 / 单选; Check: no / yes",
+  "variants": [
+   {
+    "nodeId": "6759:44377",
+    "name": "Type=单选, Check=no"
+   },
+   {
+    "nodeId": "6759:44372",
+    "name": "Type=单选, Check=yes"
+   },
+   {
+    "nodeId": "6759:44788",
+    "name": "Type=多选, Check=no"
+   },
+   {
+    "nodeId": "6759:44791",
+    "name": "Type=多选, Check=yes"
+   }
+  ]
+ },
+ {
+  "name": "pagination",
+  "group": "UIKit-Quiz",
+  "kind": "COMPONENT_SET",
+  "nodeId": "7870:51500",
+  "variantCount": 6,
+  "properties": "Property 1: Default / Variant3 / Variant4 / Variant5 / Variant6 / Variant2",
+  "variants": [
+   {
+    "nodeId": "6346:85464",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "7870:51501",
+    "name": "Property 1=Variant2"
+   },
+   {
+    "nodeId": "7870:51628",
+    "name": "Property 1=Variant3"
+   },
+   {
+    "nodeId": "7870:51644",
+    "name": "Property 1=Variant4"
+   },
+   {
+    "nodeId": "7870:84984",
+    "name": "Property 1=Variant5"
+   },
+   {
+    "nodeId": "7934:92053",
+    "name": "Property 1=Variant6"
+   }
+  ]
+ },
+ {
+  "name": "quiz result",
+  "group": "UIKit-Quiz",
+  "kind": "COMPONENT_SET",
+  "nodeId": "7870:51523",
+  "variantCount": 3,
+  "properties": "State: wrong / Default / Hover; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "6346:85966",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "12409:123909",
+    "name": "State=Hover, Selected=no"
+   },
+   {
+    "nodeId": "6346:85837",
+    "name": "State=wrong, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "option-text-item",
+  "group": "UIKit-Quiz",
+  "kind": "COMPONENT_SET",
+  "nodeId": "7301:61934",
+  "variantCount": 5,
+  "properties": "Text: TEXT = He was running fast on the ground with the wind blowing.; state: Default / Hover / 错误 / 正确-展开; checked: no / yes",
+  "variants": [
+   {
+    "nodeId": "6759:44410",
+    "name": "state=Default, checked=no"
+   },
+   {
+    "nodeId": "7301:61935",
+    "name": "state=Hover, checked=no"
+   },
+   {
+    "nodeId": "9211:94297",
+    "name": "state=Default, checked=yes"
+   },
+   {
+    "nodeId": "9211:94486",
+    "name": "state=错误, checked=yes"
+   },
+   {
+    "nodeId": "9211:96347",
+    "name": "state=正确-展开, checked=yes"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-Quiz",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12409:123632",
+  "variantCount": 3,
+  "properties": "State: Default / Hover; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "12404:89933",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "12409:123639",
+    "name": "State=Hover, Selected=no"
+   },
+   {
+    "nodeId": "12409:123633",
+    "name": "State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "quiz result",
+  "group": "UIKit-Quiz",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12409:123905",
+  "variantCount": 3,
+  "properties": "State: Default / Hover; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "6346:85968",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "12409:123906",
+    "name": "State=Hover, Selected=no"
+   },
+   {
+    "nodeId": "6346:85839",
+    "name": "State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-Quiz",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12409:145227",
+  "variantCount": 3,
+  "properties": "Text: TEXT = Once you view the answers, you won't be able to redo the quiz. Try it again! Maybe you can do it!; State: Default / Hover / Variant3; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "12409:145226",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "12409:145233",
+    "name": "State=Hover, Selected=no"
+   },
+   {
+    "nodeId": "12409:145238",
+    "name": "State=Variant3, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "Result",
+  "group": "UIKit-Quiz",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12409:145740",
+  "variantCount": 3,
+  "properties": "Pass: no / yes / Pass3",
+  "variants": [
+   {
+    "nodeId": "12409:145741",
+    "name": "Pass=yes"
+   },
+   {
+    "nodeId": "12463:42323",
+    "name": "Pass=Pass3"
+   },
+   {
+    "nodeId": "9139:32024",
+    "name": "Pass=no"
+   }
+  ]
+ },
+ {
+  "name": "group",
+  "group": "UIKit-Quiz",
+  "kind": "COMPONENT",
+  "nodeId": "6759:45392",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "6759:45392",
+    "name": "group"
+   }
+  ]
+ },
+ {
+  "name": "wrong",
+  "group": "UIKit-Quiz",
+  "kind": "COMPONENT",
+  "nodeId": "7870:49566",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "7870:49566",
+    "name": "wrong"
+   }
+  ]
+ },
+ {
+  "name": "correct",
+  "group": "UIKit-Quiz",
+  "kind": "COMPONENT",
+  "nodeId": "7934:91998",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "7934:91998",
+    "name": "correct"
+   }
+  ]
+ },
+ {
+  "name": "dot",
+  "group": "UIKit-Quiz",
+  "kind": "COMPONENT",
+  "nodeId": "7870:51967",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "7870:51967",
+    "name": "dot"
+   }
+  ]
+ },
+ {
+  "name": "Quiz",
+  "group": "UIKit-Quiz",
+  "kind": "COMPONENT",
+  "nodeId": "7870:85025",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "7870:85025",
+    "name": "Quiz"
+   }
+  ]
+ },
+ {
+  "name": "speak",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11728:108694",
+  "variantCount": 2,
+  "properties": "done: no / yes",
+  "variants": [
+   {
+    "nodeId": "11728:108695",
+    "name": "done=no"
+   },
+   {
+    "nodeId": "11728:108693",
+    "name": "done=yes"
+   }
+  ]
+ },
+ {
+  "name": "previous",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11790:80546",
+  "variantCount": 3,
+  "properties": "State: Default / Hover; Disabled: no / yes",
+  "variants": [
+   {
+    "nodeId": "11790:80547",
+    "name": "State=Default, Disabled=no"
+   },
+   {
+    "nodeId": "11790:80549",
+    "name": "State=Hover, Disabled=no"
+   },
+   {
+    "nodeId": "11790:81479",
+    "name": "State=Default, Disabled=yes"
+   }
+  ]
+ },
+ {
+  "name": "next",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11790:81451",
+  "variantCount": 3,
+  "properties": "State: Default / Hover; Disabled: no / yes",
+  "variants": [
+   {
+    "nodeId": "11790:81452",
+    "name": "State=Default, Disabled=no"
+   },
+   {
+    "nodeId": "11790:81454",
+    "name": "State=Hover, Disabled=no"
+   },
+   {
+    "nodeId": "11790:81482",
+    "name": "State=Default, Disabled=yes"
+   }
+  ]
+ },
+ {
+  "name": "card-1.0",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11705:122801",
+  "variantCount": 2,
+  "properties": "Text: TEXT = Mercy Waston: Fight Crime (CH1-5); Disabled: no / yes",
+  "variants": [
+   {
+    "nodeId": "11705:122288",
+    "name": "Disabled=no"
+   },
+   {
+    "nodeId": "11705:122802",
+    "name": "Disabled=yes"
+   }
+  ]
+ },
+ {
+  "name": "card-2.0",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15132:97739",
+  "variantCount": 2,
+  "properties": "Text: TEXT = Mercy Waston: Fight Crime (CH1-5); Disabled: no / yes",
+  "variants": [
+   {
+    "nodeId": "15132:97740",
+    "name": "Disabled=no"
+   },
+   {
+    "nodeId": "15132:97750",
+    "name": "Disabled=yes"
+   }
+  ]
+ },
+ {
+  "name": "Mystery Chest",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11728:109730",
+  "variantCount": 3,
+  "properties": "Text: TEXT = Mercy Waston: Fight Crime (CH1-5); Achieved: no / yes; Unlocked: no / yes",
+  "variants": [
+   {
+    "nodeId": "11705:123138",
+    "name": "Achieved=no, Unlocked=no"
+   },
+   {
+    "nodeId": "11728:109731",
+    "name": "Achieved=yes, Unlocked=no"
+   },
+   {
+    "nodeId": "11882:82884",
+    "name": "Achieved=yes, Unlocked=yes"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11705:118597",
+  "variantCount": 4,
+  "properties": "Text: TEXT = Week 1; Selected: no / yes; Locked: no / yes; State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "11705:118583",
+    "name": "Selected=no, Locked=no, State=Default"
+   },
+   {
+    "nodeId": "11715:71154",
+    "name": "Selected=no, Locked=no, State=Hover"
+   },
+   {
+    "nodeId": "11705:118611",
+    "name": "Selected=yes, Locked=no, State=Default"
+   },
+   {
+    "nodeId": "11705:118598",
+    "name": "Selected=no, Locked=yes, State=Default"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "13449:161459",
+  "variantCount": 4,
+  "properties": "Text: TEXT = Week 1; open: BOOLEAN = true; Selected: no / yes; Locked: no / yes; State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "13449:161460",
+    "name": "Selected=no, Locked=no, State=Default"
+   },
+   {
+    "nodeId": "13449:161462",
+    "name": "Selected=no, Locked=no, State=Hover"
+   },
+   {
+    "nodeId": "13449:161464",
+    "name": "Selected=yes, Locked=no, State=Default"
+   },
+   {
+    "nodeId": "13449:161469",
+    "name": "Selected=no, Locked=yes, State=Default"
+   }
+  ]
+ },
+ {
+  "name": "btn",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11777:76912",
+  "variantCount": 3,
+  "properties": "State: Default / Hover; Disabled: no / yes",
+  "variants": [
+   {
+    "nodeId": "11728:109467",
+    "name": "State=Default, Disabled=no"
+   },
+   {
+    "nodeId": "11777:76942",
+    "name": "State=Hover, Disabled=no"
+   },
+   {
+    "nodeId": "11777:76913",
+    "name": "State=Default, Disabled=yes"
+   }
+  ]
+ },
+ {
+  "name": "btn",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11882:85813",
+  "variantCount": 2,
+  "properties": "State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "11882:85814",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "11882:85816",
+    "name": "State=Hover"
+   }
+  ]
+ },
+ {
+  "name": "img",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11882:84226",
+  "variantCount": 2,
+  "properties": "unlock: no / yes",
+  "variants": [
+   {
+    "nodeId": "11882:84225",
+    "name": "unlock=no"
+   },
+   {
+    "nodeId": "11882:84227",
+    "name": "unlock=yes"
+   }
+  ]
+ },
+ {
+  "name": "progress",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10518:74243",
+  "variantCount": 3,
+  "properties": "Data: no / yes; Finished: no / yes",
+  "variants": [
+   {
+    "nodeId": "10518:74244",
+    "name": "Data=no, Finished=no"
+   },
+   {
+    "nodeId": "10518:137045",
+    "name": "Data=yes, Finished=no"
+   },
+   {
+    "nodeId": "10518:137118",
+    "name": "Data=yes, Finished=yes"
+   }
+  ]
+ },
+ {
+  "name": "quiz",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11728:109009",
+  "variantCount": 2,
+  "properties": "Completed: no / yes; Passed: yes / no; Chance: yes",
+  "variants": [
+   {
+    "nodeId": "11728:109008",
+    "name": "Completed=no, Passed=no, Chance=yes"
+   },
+   {
+    "nodeId": "11728:109010",
+    "name": "Completed=yes, Passed=yes, Chance=yes"
+   }
+  ]
+ },
+ {
+  "name": "group",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15132:97810",
+  "variantCount": 2,
+  "properties": "Property 1: 1.0 / 2.0",
+  "variants": [
+   {
+    "nodeId": "11728:109016",
+    "name": "Property 1=1.0"
+   },
+   {
+    "nodeId": "15132:99054",
+    "name": "Property 1=2.0"
+   }
+  ]
+ },
+ {
+  "name": "card",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11705:122647",
+  "variantCount": 5,
+  "properties": "Property 1: left / right / locked / Variant4 / unlocked",
+  "variants": [
+   {
+    "nodeId": "11705:119075",
+    "name": "Property 1=left"
+   },
+   {
+    "nodeId": "11790:81588",
+    "name": "Property 1=Variant4"
+   },
+   {
+    "nodeId": "11757:121588",
+    "name": "Property 1=right"
+   },
+   {
+    "nodeId": "11705:122648",
+    "name": "Property 1=locked"
+   },
+   {
+    "nodeId": "13449:161943",
+    "name": "Property 1=unlocked"
+   }
+  ]
+ },
+ {
+  "name": "Reading Plan-学生",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "16730:218453",
+  "variantCount": 3,
+  "properties": "Open: BOOLEAN = true; Open: yes / no / Open3",
+  "variants": [
+   {
+    "nodeId": "16730:218454",
+    "name": "Open=no"
+   },
+   {
+    "nodeId": "16730:220142",
+    "name": "Open=Open3"
+   },
+   {
+    "nodeId": "16678:225446",
+    "name": "Open=yes"
+   }
+  ]
+ },
+ {
+  "name": "btn",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "16767:190897",
+  "variantCount": 2,
+  "properties": "Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "16678:230734",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "16767:190902",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "plan",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT_SET",
+  "nodeId": "16730:218431",
+  "variantCount": 2,
+  "properties": "Show layers: BOOLEAN = true; Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "16678:224874",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "16730:218432",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "head",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT",
+  "nodeId": "12074:92192",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12074:92192",
+    "name": "head"
+   }
+  ]
+ },
+ {
+  "name": "icon",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT",
+  "nodeId": "13449:161424",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13449:161424",
+    "name": "icon"
+   }
+  ]
+ },
+ {
+  "name": "已获得钥匙",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT",
+  "nodeId": "11713:70797",
+  "variantCount": null,
+  "properties": "Text: TEXT = 3",
+  "variants": [
+   {
+    "nodeId": "11713:70797",
+    "name": "已获得钥匙"
+   }
+  ]
+ },
+ {
+  "name": "dialog close",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT",
+  "nodeId": "11777:76962",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11777:76962",
+    "name": "dialog close"
+   }
+  ]
+ },
+ {
+  "name": "dialog-阅读指引",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT",
+  "nodeId": "11790:77013",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11790:77013",
+    "name": "dialog-阅读指引"
+   }
+  ]
+ },
+ {
+  "name": "card",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT",
+  "nodeId": "11876:82445",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11876:82445",
+    "name": "card"
+   }
+  ]
+ },
+ {
+  "name": "dialog-盲盒",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT",
+  "nodeId": "11876:81871",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11876:81871",
+    "name": "dialog-盲盒"
+   }
+  ]
+ },
+ {
+  "name": "type",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT",
+  "nodeId": "11705:123263",
+  "variantCount": null,
+  "properties": "Text: TEXT = Fiction",
+  "variants": [
+   {
+    "nodeId": "11705:123263",
+    "name": "type"
+   }
+  ]
+ },
+ {
+  "name": "arrow",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT",
+  "nodeId": "11713:70829",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11713:70829",
+    "name": "arrow"
+   }
+  ]
+ },
+ {
+  "name": "Footer",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT",
+  "nodeId": "11721:70028",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11721:70028",
+    "name": "Footer"
+   }
+  ]
+ },
+ {
+  "name": "Frame",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT",
+  "nodeId": "12074:92126",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12074:92126",
+    "name": "Frame"
+   }
+  ]
+ },
+ {
+  "name": "我的计划",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT",
+  "nodeId": "16678:228711",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "16678:228711",
+    "name": "我的计划"
+   }
+  ]
+ },
+ {
+  "name": "我的书单",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT",
+  "nodeId": "16730:196316",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "16730:196316",
+    "name": "我的书单"
+   }
+  ]
+ },
+ {
+  "name": "icon",
+  "group": "UiKit-学生-我的计划",
+  "kind": "COMPONENT",
+  "nodeId": "16769:216029",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "16769:216029",
+    "name": "icon"
+   }
+  ]
+ },
+ {
+  "name": "btn",
+  "group": "UIKit-SideBar",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12091:95355",
+  "variantCount": 2,
+  "properties": "Open: no / yes",
+  "variants": [
+   {
+    "nodeId": "12074:92482",
+    "name": "Open=no"
+   },
+   {
+    "nodeId": "12091:95356",
+    "name": "Open=yes"
+   }
+  ]
+ },
+ {
+  "name": "SideBar-生产",
+  "group": "UIKit-SideBar",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15712:181445",
+  "variantCount": 2,
+  "properties": "open: no / yes",
+  "variants": [
+   {
+    "nodeId": "11823:83987",
+    "name": "open=yes"
+   },
+   {
+    "nodeId": "12589:59215",
+    "name": "open=no"
+   }
+  ]
+ },
+ {
+  "name": "账号管理",
+  "group": "UIKit-SideBar",
+  "kind": "COMPONENT",
+  "nodeId": "15733:201259",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15733:201259",
+    "name": "账号管理"
+   }
+  ]
+ },
+ {
+  "name": "设置",
+  "group": "UIKit-SideBar",
+  "kind": "COMPONENT",
+  "nodeId": "11795:100889",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11795:100889",
+    "name": "设置"
+   }
+  ]
+ },
+ {
+  "name": "more",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10292:96257",
+  "variantCount": 2,
+  "properties": "Property 1: Default / Hover; Open: no",
+  "variants": [
+   {
+    "nodeId": "10292:96258",
+    "name": "Property 1=Default, Open=no"
+   },
+   {
+    "nodeId": "10292:96262",
+    "name": "Property 1=Hover, Open=no"
+   }
+  ]
+ },
+ {
+  "name": "Card-Group",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11852:83062",
+  "variantCount": 2,
+  "properties": "Group Name: TEXT = Group A; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "10292:95055",
+    "name": "Selected=no"
+   },
+   {
+    "nodeId": "11852:83063",
+    "name": "Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12463:104057",
+  "variantCount": 2,
+  "properties": "num: TEXT = 1; State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "10276:85558",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "12463:104058",
+    "name": "State=Hover"
+   }
+  ]
+ },
+ {
+  "name": "Sort",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12463:108611",
+  "variantCount": 3,
+  "properties": "Text: TEXT = Sort; State: Default / Hover; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "12463:108353",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "12560:100572",
+    "name": "State=Hover, Selected=no"
+   },
+   {
+    "nodeId": "12583:129541",
+    "name": "State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "Field",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12583:130820",
+  "variantCount": 3,
+  "properties": "Text: TEXT = Field; State: Default / Hover; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "12583:130821",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "12583:130826",
+    "name": "State=Hover, Selected=no"
+   },
+   {
+    "nodeId": "12583:130831",
+    "name": "State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "cell",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12583:130806",
+  "variantCount": 4,
+  "properties": "Text: TEXT = Header Item Long Name; State: Default / Hover; Editable: no / yes; Center: no / yes",
+  "variants": [
+   {
+    "nodeId": "11823:80836",
+    "name": "State=Default, Editable=no, Center=no"
+   },
+   {
+    "nodeId": "12737:136537",
+    "name": "State=Default, Editable=no, Center=yes"
+   },
+   {
+    "nodeId": "12681:89932",
+    "name": "State=Default, Editable=yes, Center=no"
+   },
+   {
+    "nodeId": "12681:89934",
+    "name": "State=Hover, Editable=yes, Center=no"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12668:112969",
+  "variantCount": 3,
+  "properties": "State: Default / Hover / State3",
+  "variants": [
+   {
+    "nodeId": "11823:90793",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "12668:112970",
+    "name": "State=Hover"
+   },
+   {
+    "nodeId": "12737:84912",
+    "name": "State=State3"
+   }
+  ]
+ },
+ {
+  "name": "add",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12725:158146",
+  "variantCount": 2,
+  "properties": "State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "12725:158043",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "12725:158147",
+    "name": "State=Hover"
+   }
+  ]
+ },
+ {
+  "name": "cell",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12737:98321",
+  "variantCount": 6,
+  "properties": "Text: TEXT = item; Editable: no / yes; State: Default / Hover / Active / 比较; Center: no / yes",
+  "variants": [
+   {
+    "nodeId": "11823:80560",
+    "name": "Editable=no, State=Default, Center=no"
+   },
+   {
+    "nodeId": "14968:102434",
+    "name": "Editable=no, State=比较, Center=no"
+   },
+   {
+    "nodeId": "12737:136528",
+    "name": "Editable=no, State=Default, Center=yes"
+   },
+   {
+    "nodeId": "12737:98324",
+    "name": "Editable=yes, State=Default, Center=no"
+   },
+   {
+    "nodeId": "12737:98326",
+    "name": "Editable=yes, State=Hover, Center=no"
+   },
+   {
+    "nodeId": "12737:98329",
+    "name": "Editable=yes, State=Active, Center=no"
+   }
+  ]
+ },
+ {
+  "name": "cell",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12737:137672",
+  "variantCount": 4,
+  "properties": "Editable: no / yes; State: Default / Hover / Active",
+  "variants": [
+   {
+    "nodeId": "12463:107689",
+    "name": "Editable=no, State=Default"
+   },
+   {
+    "nodeId": "12737:137673",
+    "name": "Editable=yes, State=Default"
+   },
+   {
+    "nodeId": "12737:137678",
+    "name": "Editable=yes, State=Hover"
+   },
+   {
+    "nodeId": "12737:137684",
+    "name": "Editable=yes, State=Active"
+   }
+  ]
+ },
+ {
+  "name": "cell",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12816:43244",
+  "variantCount": 3,
+  "properties": "Text: TEXT = 123456; Editable: yes; State: Default / Hover / Active; Center: no",
+  "variants": [
+   {
+    "nodeId": "12816:43249",
+    "name": "Editable=yes, State=Default, Center=no"
+   },
+   {
+    "nodeId": "12816:43251",
+    "name": "Editable=yes, State=Hover, Center=no"
+   },
+   {
+    "nodeId": "12816:43253",
+    "name": "Editable=yes, State=Active, Center=no"
+   }
+  ]
+ },
+ {
+  "name": "arrow",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT_SET",
+  "nodeId": "14968:114841",
+  "variantCount": 2,
+  "properties": "Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "14968:114840",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "14968:114842",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "Pagination",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "12691:114677",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12691:114677",
+    "name": "Pagination"
+   }
+  ]
+ },
+ {
+  "name": "Table",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "11852:82018",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11852:82018",
+    "name": "Table"
+   }
+  ]
+ },
+ {
+  "name": "num",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "12463:108636",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12463:108636",
+    "name": "num"
+   }
+  ]
+ },
+ {
+  "name": "header",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "10276:85318",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "10276:85318",
+    "name": "header"
+   }
+  ]
+ },
+ {
+  "name": "header",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "11823:90811",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11823:90811",
+    "name": "header"
+   }
+  ]
+ },
+ {
+  "name": "cell",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "11852:86030",
+  "variantCount": null,
+  "properties": "Text: TEXT = wangjiayuan; Show avatar: BOOLEAN = true",
+  "variants": [
+   {
+    "nodeId": "11852:86030",
+    "name": "cell"
+   }
+  ]
+ },
+ {
+  "name": "Reports",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "10292:97811",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "10292:97811",
+    "name": "Reports"
+   }
+  ]
+ },
+ {
+  "name": "Group List",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "11852:83400",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11852:83400",
+    "name": "Group List"
+   }
+  ]
+ },
+ {
+  "name": "cell-action",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "11852:89542",
+  "variantCount": null,
+  "properties": "Text: TEXT = View",
+  "variants": [
+   {
+    "nodeId": "11852:89542",
+    "name": "cell-action"
+   }
+  ]
+ },
+ {
+  "name": "cell-delete",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "12675:47716",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12675:47716",
+    "name": "cell-delete"
+   }
+  ]
+ },
+ {
+  "name": "action",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "11852:89573",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11852:89573",
+    "name": "action"
+   }
+  ]
+ },
+ {
+  "name": "Accounts",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "11855:82568",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11855:82568",
+    "name": "Accounts"
+   }
+  ]
+ },
+ {
+  "name": "Table",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "12018:93211",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12018:93211",
+    "name": "Table"
+   }
+  ]
+ },
+ {
+  "name": "dialog-Kid Report",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "12463:105203",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12463:105203",
+    "name": "dialog-Kid Report"
+   }
+  ]
+ },
+ {
+  "name": "Scroll",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "7740:21458",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "7740:21458",
+    "name": "Scroll"
+   }
+  ]
+ },
+ {
+  "name": "cell",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "12642:104915",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12642:104915",
+    "name": "cell"
+   }
+  ]
+ },
+ {
+  "name": "cell",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "12675:44789",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12675:44789",
+    "name": "cell"
+   }
+  ]
+ },
+ {
+  "name": "Tab",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "12597:125965",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12597:125965",
+    "name": "Tab"
+   }
+  ]
+ },
+ {
+  "name": "cell",
+  "group": "UIKit-Management",
+  "kind": "COMPONENT",
+  "nodeId": "12725:158036",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12725:158036",
+    "name": "cell"
+   }
+  ]
+ },
+ {
+  "name": "Scatter Chart",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12626:44013",
+  "variantCount": 1,
+  "properties": "Property 1: Default",
+  "variants": [
+   {
+    "nodeId": "12626:44014",
+    "name": "Property 1=Default"
+   }
+  ]
+ },
+ {
+  "name": "Column Сhart",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12626:44717",
+  "variantCount": 1,
+  "properties": "type: single",
+  "variants": [
+   {
+    "nodeId": "12626:44718",
+    "name": "type=single"
+   }
+  ]
+ },
+ {
+  "name": "Radar chart",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12844:115259",
+  "variantCount": 1,
+  "properties": "type: single",
+  "variants": [
+   {
+    "nodeId": "12844:115260",
+    "name": "type=single"
+   }
+  ]
+ },
+ {
+  "name": "Funnel",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT_SET",
+  "nodeId": "13045:44934",
+  "variantCount": 1,
+  "properties": "type: single",
+  "variants": [
+   {
+    "nodeId": "13045:44935",
+    "name": "type=single"
+   }
+  ]
+ },
+ {
+  "name": "Checkbox",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12626:45530",
+  "variantCount": 3,
+  "properties": "Text: TEXT = Text label; State: Default / Hover; Selected: yes / no; Color: 1",
+  "variants": [
+   {
+    "nodeId": "12626:45531",
+    "name": "State=Default, Selected=yes, Color=1"
+   },
+   {
+    "nodeId": "13194:94038",
+    "name": "State=Hover, Selected=yes, Color=1"
+   },
+   {
+    "nodeId": "12626:45556",
+    "name": "State=Default, Selected=no, Color=1"
+   }
+  ]
+ },
+ {
+  "name": "list",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT_SET",
+  "nodeId": "13054:52497",
+  "variantCount": 3,
+  "properties": "count: 2 / 3 / 4",
+  "variants": [
+   {
+    "nodeId": "13054:48219",
+    "name": "count=2"
+   },
+   {
+    "nodeId": "13054:52498",
+    "name": "count=3"
+   },
+   {
+    "nodeId": "13557:83205",
+    "name": "count=4"
+   }
+  ]
+ },
+ {
+  "name": "Average",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT_SET",
+  "nodeId": "13104:107172",
+  "variantCount": 1,
+  "properties": "Property 1: single",
+  "variants": [
+   {
+    "nodeId": "13104:107173",
+    "name": "Property 1=single"
+   }
+  ]
+ },
+ {
+  "name": "Filter",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT_SET",
+  "nodeId": "13145:136676",
+  "variantCount": 4,
+  "properties": "Text: TEXT = Filter; State: Default / Hover; Selected: no / yes; Open: yes / no",
+  "variants": [
+   {
+    "nodeId": "13145:136677",
+    "name": "State=Default, Selected=no, Open=no"
+   },
+   {
+    "nodeId": "13145:136682",
+    "name": "State=Hover, Selected=no, Open=no"
+   },
+   {
+    "nodeId": "13145:136704",
+    "name": "State=Default, Selected=no, Open=yes"
+   },
+   {
+    "nodeId": "13145:136687",
+    "name": "State=Default, Selected=yes, Open=no"
+   }
+  ]
+ },
+ {
+  "name": "DataPicker",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT_SET",
+  "nodeId": "13579:108053",
+  "variantCount": 2,
+  "properties": "open: no / yes",
+  "variants": [
+   {
+    "nodeId": "13176:61632",
+    "name": "open=no"
+   },
+   {
+    "nodeId": "13579:108054",
+    "name": "open=yes"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT_SET",
+  "nodeId": "13584:111445",
+  "variantCount": 2,
+  "properties": "num: TEXT = 1; State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "13584:111446",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "13584:111465",
+    "name": "State=Hover"
+   }
+  ]
+ },
+ {
+  "name": "Column Rate Сhart",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12833:107867",
+  "variantCount": 1,
+  "properties": "Property 1: Default",
+  "variants": [
+   {
+    "nodeId": "12626:44740",
+    "name": "Property 1=Default"
+   }
+  ]
+ },
+ {
+  "name": "Dashboard",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT_SET",
+  "nodeId": "13563:103793",
+  "variantCount": 6,
+  "properties": "Property 1: 老师 / 3. 学习效果分析 / 4.每日表现对比 / 5.排名概览 / 6.学生维度数据概览 / 校长&主任",
+  "variants": [
+   {
+    "nodeId": "13563:103792",
+    "name": "Property 1=老师"
+   },
+   {
+    "nodeId": "13787:152013",
+    "name": "Property 1=校长&主任"
+   },
+   {
+    "nodeId": "13563:103790",
+    "name": "Property 1=3. 学习效果分析"
+   },
+   {
+    "nodeId": "13563:103789",
+    "name": "Property 1=4.每日表现对比"
+   },
+   {
+    "nodeId": "13563:103788",
+    "name": "Property 1=5.排名概览"
+   },
+   {
+    "nodeId": "13563:103787",
+    "name": "Property 1=6.学生维度数据概览"
+   }
+  ]
+ },
+ {
+  "name": "group",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT_SET",
+  "nodeId": "17713:219627",
+  "variantCount": 2,
+  "properties": "client: web / App",
+  "variants": [
+   {
+    "nodeId": "17545:145624",
+    "name": "client=web"
+   },
+   {
+    "nodeId": "17713:219628",
+    "name": "client=App"
+   }
+  ]
+ },
+ {
+  "name": "tooltip",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "12649:43632",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12649:43632",
+    "name": "tooltip"
+   }
+  ]
+ },
+ {
+  "name": "chart-line",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "12652:44287",
+  "variantCount": null,
+  "properties": "label: TEXT = NN",
+  "variants": [
+   {
+    "nodeId": "12652:44287",
+    "name": "chart-line"
+   }
+  ]
+ },
+ {
+  "name": "group",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "13104:108937",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13104:108937",
+    "name": "group"
+   }
+  ]
+ },
+ {
+  "name": "group",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "13104:108701",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13104:108701",
+    "name": "group"
+   }
+  ]
+ },
+ {
+  "name": "Dashboard",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "13136:110909",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13136:110909",
+    "name": "Dashboard"
+   }
+  ]
+ },
+ {
+  "name": "Filter",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "13145:136675",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13145:136675",
+    "name": "Filter"
+   }
+  ]
+ },
+ {
+  "name": "Tab",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "13563:103692",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13563:103692",
+    "name": "Tab"
+   }
+  ]
+ },
+ {
+  "name": "title",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "13563:144218",
+  "variantCount": null,
+  "properties": "Text: TEXT = 用户数据",
+  "variants": [
+   {
+    "nodeId": "13563:144218",
+    "name": "title"
+   }
+  ]
+ },
+ {
+  "name": "表格",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "13557:84702",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13557:84702",
+    "name": "表格"
+   }
+  ]
+ },
+ {
+  "name": "header",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "13584:111595",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13584:111595",
+    "name": "header"
+   }
+  ]
+ },
+ {
+  "name": "data card",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "13621:128302",
+  "variantCount": null,
+  "properties": "Titile: TEXT = 注册用户数; Data: TEXT = 40; 单位: TEXT = 人",
+  "variants": [
+   {
+    "nodeId": "13621:128302",
+    "name": "data card"
+   }
+  ]
+ },
+ {
+  "name": "header",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "12626:45133",
+  "variantCount": null,
+  "properties": "Text: TEXT = Titile",
+  "variants": [
+   {
+    "nodeId": "12626:45133",
+    "name": "header"
+   }
+  ]
+ },
+ {
+  "name": "group",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "13671:108708",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13671:108708",
+    "name": "group"
+   }
+  ]
+ },
+ {
+  "name": "Dots Pattern",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "13671:123020",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13671:123020",
+    "name": "Dots Pattern"
+   }
+  ]
+ },
+ {
+  "name": "data card",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "13623:140785",
+  "variantCount": null,
+  "properties": "Titile: TEXT = 总阅读时长; Data: TEXT = 0.7; 单位: TEXT = 小时",
+  "variants": [
+   {
+    "nodeId": "13623:140785",
+    "name": "data card"
+   }
+  ]
+ },
+ {
+  "name": "data card",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "13695:131095",
+  "variantCount": null,
+  "properties": "Titile: TEXT = 总金钥匙数; Data: TEXT = 100; 单位: TEXT = 个",
+  "variants": [
+   {
+    "nodeId": "13695:131095",
+    "name": "data card"
+   }
+  ]
+ },
+ {
+  "name": "block",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "13054:114858",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13054:114858",
+    "name": "block"
+   }
+  ]
+ },
+ {
+  "name": "Dashboard",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "13563:104090",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13563:104090",
+    "name": "Dashboard"
+   }
+  ]
+ },
+ {
+  "name": "Dashboard",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "12857:109391",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12857:109391",
+    "name": "Dashboard"
+   }
+  ]
+ },
+ {
+  "name": "Rate",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "13086:115039",
+  "variantCount": null,
+  "properties": "Value: TEXT = 75%; Text: TEXT = 达标率",
+  "variants": [
+   {
+    "nodeId": "13086:115039",
+    "name": "Rate"
+   }
+  ]
+ },
+ {
+  "name": "数值看板",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "17545:126399",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "17545:126399",
+    "name": "数值看板"
+   }
+  ]
+ },
+ {
+  "name": "Web-block",
+  "group": "UIKit-Dashboard",
+  "kind": "COMPONENT",
+  "nodeId": "13643:92126",
+  "variantCount": null,
+  "properties": "Text 1: TEXT = 阅读单词; Data 1: TEXT = 78,324; Text 2: TEXT = 掌握单词; Data 2: TEXT = 45,239",
+  "variants": [
+   {
+    "nodeId": "13643:92126",
+    "name": "Web-block"
+   }
+  ]
+ },
+ {
+  "name": "cell",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT_SET",
+  "nodeId": "13415:104976",
+  "variantCount": 1,
+  "properties": "Text: TEXT = item; Editable: no; State: Default; Center: no",
+  "variants": [
+   {
+    "nodeId": "13415:104977",
+    "name": "Editable=no, State=Default, Center=no"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12857:123899",
+  "variantCount": 2,
+  "properties": "num: TEXT = 1; State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "12857:123900",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "12857:123916",
+    "name": "State=Hover"
+   }
+  ]
+ },
+ {
+  "name": "累计数据",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT_SET",
+  "nodeId": "17667:144480",
+  "variantCount": 2,
+  "properties": "State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "17667:144358",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "17667:144481",
+    "name": "State=Hover"
+   }
+  ]
+ },
+ {
+  "name": "Sparklines",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "12092:89728",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12092:89728",
+    "name": "Sparklines"
+   }
+  ]
+ },
+ {
+  "name": "Report-2.0",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "12583:131999",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12583:131999",
+    "name": "Report-2.0"
+   }
+  ]
+ },
+ {
+  "name": "kids info",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "12959:117279",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12959:117279",
+    "name": "kids info"
+   }
+  ]
+ },
+ {
+  "name": "group",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "12788:47047",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12788:47047",
+    "name": "group"
+   }
+  ]
+ },
+ {
+  "name": "data card",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "13415:176928",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13415:176928",
+    "name": "data card"
+   }
+  ]
+ },
+ {
+  "name": "small chart",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "12959:109880",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12959:109880",
+    "name": "small chart"
+   }
+  ]
+ },
+ {
+  "name": "data card",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "12959:116127",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12959:116127",
+    "name": "data card"
+   }
+  ]
+ },
+ {
+  "name": "btn",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "12972:95192",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12972:95192",
+    "name": "btn"
+   }
+  ]
+ },
+ {
+  "name": "dialog-Detail",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "12972:98151",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12972:98151",
+    "name": "dialog-Detail"
+   }
+  ]
+ },
+ {
+  "name": "Column Сhart",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "12972:98016",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12972:98016",
+    "name": "Column Сhart"
+   }
+  ]
+ },
+ {
+  "name": "btn",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "12972:104819",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12972:104819",
+    "name": "btn"
+   }
+  ]
+ },
+ {
+  "name": "line",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "10651:71036",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "10651:71036",
+    "name": "line"
+   }
+  ]
+ },
+ {
+  "name": "num",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "10651:61377",
+  "variantCount": null,
+  "properties": "Text: TEXT = 00; Show Line: BOOLEAN = false",
+  "variants": [
+   {
+    "nodeId": "10651:61377",
+    "name": "num"
+   }
+  ]
+ },
+ {
+  "name": "header",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "12857:125568",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12857:125568",
+    "name": "header"
+   }
+  ]
+ },
+ {
+  "name": "Quiz",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "8035:198785",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "8035:198785",
+    "name": "Quiz"
+   }
+  ]
+ },
+ {
+  "name": "Reading Level",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "8035:198267",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "8035:198267",
+    "name": "Reading Level"
+   }
+  ]
+ },
+ {
+  "name": "chart",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "10651:71483",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "10651:71483",
+    "name": "chart"
+   }
+  ]
+ },
+ {
+  "name": "dot",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "10651:71439",
+  "variantCount": null,
+  "properties": "Show pop: BOOLEAN = true",
+  "variants": [
+   {
+    "nodeId": "10651:71439",
+    "name": "dot"
+   }
+  ]
+ },
+ {
+  "name": "kid report",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "12124:88534",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12124:88534",
+    "name": "kid report"
+   }
+  ]
+ },
+ {
+  "name": "pop",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "17667:144236",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "17667:144236",
+    "name": "pop"
+   }
+  ]
+ },
+ {
+  "name": "area",
+  "group": "UIKit-Report",
+  "kind": "COMPONENT",
+  "nodeId": "17667:144211",
+  "variantCount": null,
+  "properties": "Text: TEXT = 朗读获得; Value: TEXT = 12",
+  "variants": [
+   {
+    "nodeId": "17667:144211",
+    "name": "area"
+   }
+  ]
+ },
+ {
+  "name": "row",
+  "group": "UIKit-Home",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12509:143570",
+  "variantCount": 2,
+  "properties": "State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "11823:80567",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "12509:143571",
+    "name": "State=Hover"
+   }
+  ]
+ },
+ {
+  "name": "cell",
+  "group": "UIKit-Home",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12509:145466",
+  "variantCount": 3,
+  "properties": "Text: TEXT = 与阿兹卡班的囚徒（1080P 英中双语 内嵌简英双语字幕 159分钟加长版）.mp4; Property 1: Video / PDF / Link",
+  "variants": [
+   {
+    "nodeId": "12509:148651",
+    "name": "Property 1=PDF"
+   },
+   {
+    "nodeId": "12509:149199",
+    "name": "Property 1=Link"
+   },
+   {
+    "nodeId": "12509:145469",
+    "name": "Property 1=Video"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-Home",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12493:129048",
+  "variantCount": 3,
+  "properties": "Text: TEXT = W1; Done: BOOLEAN = true; State: Default / Hover; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "12493:129033",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "12597:125969",
+    "name": "State=Hover, Selected=no"
+   },
+   {
+    "nodeId": "12493:129049",
+    "name": "State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "header",
+  "group": "UIKit-Home",
+  "kind": "COMPONENT",
+  "nodeId": "11823:80593",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11823:80593",
+    "name": "header"
+   }
+  ]
+ },
+ {
+  "name": "Table",
+  "group": "UIKit-Home",
+  "kind": "COMPONENT",
+  "nodeId": "11823:80697",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11823:80697",
+    "name": "Table"
+   }
+  ]
+ },
+ {
+  "name": "Home-2.0",
+  "group": "UIKit-Home",
+  "kind": "COMPONENT",
+  "nodeId": "11823:85260",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11823:85260",
+    "name": "Home-2.0"
+   }
+  ]
+ },
+ {
+  "name": "Tab",
+  "group": "UIKit-Home",
+  "kind": "COMPONENT",
+  "nodeId": "12493:129038",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12493:129038",
+    "name": "Tab"
+   }
+  ]
+ },
+ {
+  "name": "Rank",
+  "group": "UIKit-Ranking",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12844:113016",
+  "variantCount": 1,
+  "properties": "Property 1: Default",
+  "variants": [
+   {
+    "nodeId": "12844:112544",
+    "name": "Property 1=Default"
+   }
+  ]
+ },
+ {
+  "name": "Ranking",
+  "group": "UIKit-Ranking",
+  "kind": "COMPONENT_SET",
+  "nodeId": "13263:218066",
+  "variantCount": 1,
+  "properties": "Property 1: Default",
+  "variants": [
+   {
+    "nodeId": "13263:218067",
+    "name": "Property 1=Default"
+   }
+  ]
+ },
+ {
+  "name": "tab item",
+  "group": "UIKit-Ranking",
+  "kind": "COMPONENT_SET",
+  "nodeId": "13237:101204",
+  "variantCount": 3,
+  "properties": "Text: TEXT = Ranking; State: Default / Hover; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "13237:101205",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "13237:101207",
+    "name": "State=Hover, Selected=no"
+   },
+   {
+    "nodeId": "13237:101209",
+    "name": "State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "Ranking-",
+  "group": "UIKit-Ranking",
+  "kind": "COMPONENT_SET",
+  "nodeId": "13256:213240",
+  "variantCount": 2,
+  "properties": "Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "13114:117818",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "13263:218803",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "cell",
+  "group": "UIKit-Ranking",
+  "kind": "COMPONENT",
+  "nodeId": "13190:91288",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13190:91288",
+    "name": "cell"
+   }
+  ]
+ },
+ {
+  "name": "Ranking",
+  "group": "UIKit-Ranking",
+  "kind": "COMPONENT",
+  "nodeId": "13136:121147",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13136:121147",
+    "name": "Ranking"
+   }
+  ]
+ },
+ {
+  "name": "item-Grade",
+  "group": "UIKit-Ranking",
+  "kind": "COMPONENT",
+  "nodeId": "12844:114501",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12844:114501",
+    "name": "item-Grade"
+   }
+  ]
+ },
+ {
+  "name": "group",
+  "group": "UIKit-Ranking",
+  "kind": "COMPONENT",
+  "nodeId": "13211:72730",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13211:72730",
+    "name": "group"
+   }
+  ]
+ },
+ {
+  "name": "group title",
+  "group": "UIKit-Ranking",
+  "kind": "COMPONENT",
+  "nodeId": "13263:223981",
+  "variantCount": null,
+  "properties": "Text: TEXT = Rank by Class",
+  "variants": [
+   {
+    "nodeId": "13263:223981",
+    "name": "group title"
+   }
+  ]
+ },
+ {
+  "name": "Ranking View",
+  "group": "UIKit-Ranking",
+  "kind": "COMPONENT",
+  "nodeId": "13256:209364",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13256:209364",
+    "name": "Ranking View"
+   }
+  ]
+ },
+ {
+  "name": "item-Class",
+  "group": "UIKit-Ranking",
+  "kind": "COMPONENT",
+  "nodeId": "13263:224397",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13263:224397",
+    "name": "item-Class"
+   }
+  ]
+ },
+ {
+  "name": "btn-listen",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9017:35320",
+  "variantCount": 6,
+  "properties": "Text: TEXT = Listen; state: Disabled / Default / Activate / Hover / Pressed / Release",
+  "variants": [
+   {
+    "nodeId": "9017:35321",
+    "name": "state=Disabled"
+   },
+   {
+    "nodeId": "9017:35325",
+    "name": "state=Default"
+   },
+   {
+    "nodeId": "12313:90195",
+    "name": "state=Hover"
+   },
+   {
+    "nodeId": "12313:90711",
+    "name": "state=Pressed"
+   },
+   {
+    "nodeId": "12313:90731",
+    "name": "state=Release"
+   },
+   {
+    "nodeId": "9017:35330",
+    "name": "state=Activate"
+   }
+  ]
+ },
+ {
+  "name": "btn-speak",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9017:38080",
+  "variantCount": 8,
+  "properties": "Text: TEXT = Speak; state: Disabled / Default / Hover / Pressed / Release / Loading / Countdown / Activate",
+  "variants": [
+   {
+    "nodeId": "9017:38081",
+    "name": "state=Disabled"
+   },
+   {
+    "nodeId": "9017:38085",
+    "name": "state=Default"
+   },
+   {
+    "nodeId": "12313:89873",
+    "name": "state=Hover"
+   },
+   {
+    "nodeId": "12311:89226",
+    "name": "state=Pressed"
+   },
+   {
+    "nodeId": "12313:90143",
+    "name": "state=Release"
+   },
+   {
+    "nodeId": "12311:89845",
+    "name": "state=Loading"
+   },
+   {
+    "nodeId": "9172:35708",
+    "name": "state=Countdown"
+   },
+   {
+    "nodeId": "9139:93195",
+    "name": "state=Activate"
+   }
+  ]
+ },
+ {
+  "name": "btn-playback",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9017:39283",
+  "variantCount": 8,
+  "properties": "Text: TEXT = Play back; Generating Score: BOOLEAN = true; State: Disabled / Default / Hover / Pressed / Release / Activate; Data: no / yes",
+  "variants": [
+   {
+    "nodeId": "9017:39284",
+    "name": "State=Disabled, Data=no"
+   },
+   {
+    "nodeId": "9139:75066",
+    "name": "State=Default, Data=no"
+   },
+   {
+    "nodeId": "9139:75133",
+    "name": "State=Activate, Data=no"
+   },
+   {
+    "nodeId": "10276:49524",
+    "name": "State=Default, Data=yes"
+   },
+   {
+    "nodeId": "12327:129377",
+    "name": "State=Hover, Data=yes"
+   },
+   {
+    "nodeId": "12327:129393",
+    "name": "State=Pressed, Data=yes"
+   },
+   {
+    "nodeId": "12327:129409",
+    "name": "State=Release, Data=yes"
+   },
+   {
+    "nodeId": "10276:49535",
+    "name": "State=Activate, Data=yes"
+   }
+  ]
+ },
+ {
+  "name": "subtitle-SpeakMode",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9017:40624",
+  "variantCount": 12,
+  "properties": "翻译: BOOLEAN = true; 原文: TEXT = Some aphid populations can produce hundreds of kilograms of poop per acre— making them some of the most prolific poopers on the planet.; 翻译内容: TEXT = 一些蚜虫群体每英亩能产出数百千克的粪便，这使它们成为地球上最高产的排便者之一。 ; 收藏: BOOLEAN = true; State: Default / Focus / Play OriginalVoice / Play OriginalVoice(demo) / Countdown / Speaking / Loading / Play UserVoice / Assessment / Default-Assessmented / without video / Default-Score Loading",
+  "variants": [
+   {
+    "nodeId": "9164:95434",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "8872:81973",
+    "name": "State=Focus"
+   },
+   {
+    "nodeId": "10717:68999",
+    "name": "State=without video"
+   },
+   {
+    "nodeId": "9017:41102",
+    "name": "State=Play OriginalVoice"
+   },
+   {
+    "nodeId": "9271:34790",
+    "name": "State=Play OriginalVoice(demo)"
+   },
+   {
+    "nodeId": "9172:35718",
+    "name": "State=Countdown"
+   },
+   {
+    "nodeId": "9017:41142",
+    "name": "State=Speaking"
+   },
+   {
+    "nodeId": "10227:49308",
+    "name": "State=Loading"
+   },
+   {
+    "nodeId": "9139:74517",
+    "name": "State=Play UserVoice"
+   },
+   {
+    "nodeId": "9139:32163",
+    "name": "State=Assessment"
+   },
+   {
+    "nodeId": "12691:140196",
+    "name": "State=Default-Score Loading"
+   },
+   {
+    "nodeId": "10717:67874",
+    "name": "State=Default-Assessmented"
+   }
+  ]
+ },
+ {
+  "name": "audio wave",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9139:77488",
+  "variantCount": 2,
+  "properties": "Keyframe: 1 / 2",
+  "variants": [
+   {
+    "nodeId": "9139:77489",
+    "name": "Keyframe=1"
+   },
+   {
+    "nodeId": "9139:77555",
+    "name": "Keyframe=2"
+   }
+  ]
+ },
+ {
+  "name": "btn-before",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9296:39205",
+  "variantCount": 3,
+  "properties": "State: Default / Hover; Dissabled: no / yes",
+  "variants": [
+   {
+    "nodeId": "9296:39206",
+    "name": "State=Default, Dissabled=no"
+   },
+   {
+    "nodeId": "9296:39208",
+    "name": "State=Hover, Dissabled=no"
+   },
+   {
+    "nodeId": "9296:39210",
+    "name": "State=Default, Dissabled=yes"
+   }
+  ]
+ },
+ {
+  "name": "btn-b",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9778:32208",
+  "variantCount": 3,
+  "properties": "State: Default / Hover; Dissabled: no / yes",
+  "variants": [
+   {
+    "nodeId": "9778:32209",
+    "name": "State=Default, Dissabled=no"
+   },
+   {
+    "nodeId": "9778:32211",
+    "name": "State=Hover, Dissabled=no"
+   },
+   {
+    "nodeId": "9778:32213",
+    "name": "State=Default, Dissabled=yes"
+   }
+  ]
+ },
+ {
+  "name": "countdown",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9139:93466",
+  "variantCount": 3,
+  "properties": "Property 1: 1 / 2 / Variant4",
+  "variants": [
+   {
+    "nodeId": "9172:36232",
+    "name": "Property 1=Variant4"
+   },
+   {
+    "nodeId": "9139:93250",
+    "name": "Property 1=2"
+   },
+   {
+    "nodeId": "9139:93252",
+    "name": "Property 1=1"
+   }
+  ]
+ },
+ {
+  "name": "karaok",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9271:33929",
+  "variantCount": 2,
+  "properties": "Property 1: 2 / 1",
+  "variants": [
+   {
+    "nodeId": "9271:33927",
+    "name": "Property 1=1"
+   },
+   {
+    "nodeId": "9271:33928",
+    "name": "Property 1=2"
+   }
+  ]
+ },
+ {
+  "name": "btn-speak",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12313:89859",
+  "variantCount": 5,
+  "properties": "loading: Default / Hover / Pressed / Loading / Release",
+  "variants": [
+   {
+    "nodeId": "9017:55523",
+    "name": "loading=Default"
+   },
+   {
+    "nodeId": "12313:90106",
+    "name": "loading=Hover"
+   },
+   {
+    "nodeId": "12313:90101",
+    "name": "loading=Pressed"
+   },
+   {
+    "nodeId": "12313:90151",
+    "name": "loading=Release"
+   },
+   {
+    "nodeId": "12313:89864",
+    "name": "loading=Loading"
+   }
+  ]
+ },
+ {
+  "name": "loading",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12313:89891",
+  "variantCount": 4,
+  "properties": "Property 1: Default / Variant2 / Variant3 / Variant4",
+  "variants": [
+   {
+    "nodeId": "12313:89890",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "12313:89892",
+    "name": "Property 1=Variant2"
+   },
+   {
+    "nodeId": "12313:90127",
+    "name": "Property 1=Variant3"
+   },
+   {
+    "nodeId": "12313:90129",
+    "name": "Property 1=Variant4"
+   }
+  ]
+ },
+ {
+  "name": "btn-playback",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12313:90202",
+  "variantCount": 4,
+  "properties": "State: Default / Hover / Pressed / Release",
+  "variants": [
+   {
+    "nodeId": "9017:55520",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "12313:90203",
+    "name": "State=Hover"
+   },
+   {
+    "nodeId": "12313:90703",
+    "name": "State=Pressed"
+   },
+   {
+    "nodeId": "12313:90707",
+    "name": "State=Release"
+   }
+  ]
+ },
+ {
+  "name": "btn-play",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12327:89968",
+  "variantCount": 4,
+  "properties": "State: Default / Hover / Pressed / Release",
+  "variants": [
+   {
+    "nodeId": "9017:55516",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "12327:129373",
+    "name": "State=Release"
+   },
+   {
+    "nodeId": "12327:89969",
+    "name": "State=Hover"
+   },
+   {
+    "nodeId": "12327:129369",
+    "name": "State=Pressed"
+   }
+  ]
+ },
+ {
+  "name": "point",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12691:139563",
+  "variantCount": 2,
+  "properties": "loading: no / yes",
+  "variants": [
+   {
+    "nodeId": "9164:95431",
+    "name": "loading=no"
+   },
+   {
+    "nodeId": "12691:140188",
+    "name": "loading=yes"
+   }
+  ]
+ },
+ {
+  "name": "Mic Test",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12788:41336",
+  "variantCount": 2,
+  "properties": "Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "12788:41335",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "12788:41337",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "button",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12788:41363",
+  "variantCount": 4,
+  "properties": "Text: TEXT = Start Test; State: Default / Hover / 3 / 4; Disabled: no",
+  "variants": [
+   {
+    "nodeId": "12788:41364",
+    "name": "State=Default, Disabled=no"
+   },
+   {
+    "nodeId": "12788:41366",
+    "name": "State=Hover, Disabled=no"
+   },
+   {
+    "nodeId": "12788:41421",
+    "name": "State=3, Disabled=no"
+   },
+   {
+    "nodeId": "12788:41463",
+    "name": "State=4, Disabled=no"
+   }
+  ]
+ },
+ {
+  "name": "SpeakMode",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT",
+  "nodeId": "7740:23887",
+  "variantCount": null,
+  "properties": "Auto Action: BOOLEAN = true; PiP: BOOLEAN = true",
+  "variants": [
+   {
+    "nodeId": "7740:23887",
+    "name": "SpeakMode"
+   }
+  ]
+ },
+ {
+  "name": "video",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT",
+  "nodeId": "9311:77284",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "9311:77284",
+    "name": "video"
+   }
+  ]
+ },
+ {
+  "name": "SubtitleList-speak",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT",
+  "nodeId": "6364:86513",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "6364:86513",
+    "name": "SubtitleList-speak"
+   }
+  ]
+ },
+ {
+  "name": "more",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT",
+  "nodeId": "9017:32416",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "9017:32416",
+    "name": "more"
+   }
+  ]
+ },
+ {
+  "name": "btn-pause",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT",
+  "nodeId": "9017:55976",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "9017:55976",
+    "name": "btn-pause"
+   }
+  ]
+ },
+ {
+  "name": "btn-submit",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT",
+  "nodeId": "9017:56902",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "9017:56902",
+    "name": "btn-submit"
+   }
+  ]
+ },
+ {
+  "name": "auto action bar",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT",
+  "nodeId": "9050:31198",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "9050:31198",
+    "name": "auto action bar"
+   }
+  ]
+ },
+ {
+  "name": "btn-respeak",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT",
+  "nodeId": "9139:32561",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "9139:32561",
+    "name": "btn-respeak"
+   }
+  ]
+ },
+ {
+  "name": "btn-x",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT",
+  "nodeId": "12313:90764",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12313:90764",
+    "name": "btn-x"
+   }
+  ]
+ },
+ {
+  "name": "point",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT",
+  "nodeId": "10717:68416",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "10717:68416",
+    "name": "point"
+   }
+  ]
+ },
+ {
+  "name": "group",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT",
+  "nodeId": "9172:36245",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "9172:36245",
+    "name": "group"
+   }
+  ]
+ },
+ {
+  "name": "dialog-设备检测",
+  "group": "UIkit-Speak",
+  "kind": "COMPONENT",
+  "nodeId": "12782:139341",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12782:139341",
+    "name": "dialog-设备检测"
+   }
+  ]
+ },
+ {
+  "name": "item-vocabulary",
+  "group": "UiKit-Vocabulary",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12074:89601",
+  "variantCount": 2,
+  "properties": "State: Default / Hover; Open: no",
+  "variants": [
+   {
+    "nodeId": "12074:89602",
+    "name": "State=Default, Open=no"
+   },
+   {
+    "nodeId": "12074:89605",
+    "name": "State=Hover, Open=no"
+   }
+  ]
+ },
+ {
+  "name": "dialog-单词预习",
+  "group": "UiKit-Vocabulary",
+  "kind": "COMPONENT",
+  "nodeId": "12041:88652",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12041:88652",
+    "name": "dialog-单词预习"
+   }
+  ]
+ },
+ {
+  "name": "dialog-单词预习",
+  "group": "UiKit-Vocabulary",
+  "kind": "COMPONENT",
+  "nodeId": "13873:161981",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13873:161981",
+    "name": "dialog-单词预习"
+   }
+  ]
+ },
+ {
+  "name": "icon",
+  "group": "UiKit-Vocabulary",
+  "kind": "COMPONENT",
+  "nodeId": "12074:89640",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12074:89640",
+    "name": "icon"
+   }
+  ]
+ },
+ {
+  "name": "Dictionary",
+  "group": "UIkit-Dic",
+  "kind": "COMPONENT_SET",
+  "nodeId": "6270:41428",
+  "variantCount": 5,
+  "properties": "state: Default / Hover / Focus / Inputing / Result",
+  "variants": [
+   {
+    "nodeId": "6270:41429",
+    "name": "state=Default"
+   },
+   {
+    "nodeId": "10946:60752",
+    "name": "state=Hover"
+   },
+   {
+    "nodeId": "10938:60167",
+    "name": "state=Focus"
+   },
+   {
+    "nodeId": "9388:37051",
+    "name": "state=Inputing"
+   },
+   {
+    "nodeId": "7934:96353",
+    "name": "state=Result"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIkit-Dic",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10946:61505",
+  "variantCount": 2,
+  "properties": "Text 2: TEXT = lation; Text 1: TEXT = popu; State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "10946:61318",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "10946:61506",
+    "name": "State=Hover"
+   }
+  ]
+ },
+ {
+  "name": "pop",
+  "group": "UIkit-Dic",
+  "kind": "COMPONENT",
+  "nodeId": "10848:61276",
+  "variantCount": null,
+  "properties": "翻译: BOOLEAN = true",
+  "variants": [
+   {
+    "nodeId": "10848:61276",
+    "name": "pop"
+   }
+  ]
+ },
+ {
+  "name": "释义-small",
+  "group": "UIkit-Dic",
+  "kind": "COMPONENT",
+  "nodeId": "10848:60789",
+  "variantCount": null,
+  "properties": "Text: TEXT = Stay alive; num: TEXT = 1.",
+  "variants": [
+   {
+    "nodeId": "10848:60789",
+    "name": "释义-small"
+   }
+  ]
+ },
+ {
+  "name": "例句-small",
+  "group": "UIkit-Dic",
+  "kind": "COMPONENT",
+  "nodeId": "10848:60801",
+  "variantCount": null,
+  "properties": "Text: TEXT = The population of this country is growing fast every year.; 翻译: TEXT = 这个国家的人口每年都在快速增长。; 翻译2: BOOLEAN = true",
+  "variants": [
+   {
+    "nodeId": "10848:60801",
+    "name": "例句-small"
+   }
+  ]
+ },
+ {
+  "name": "Fuzzy",
+  "group": "UIkit-Dic",
+  "kind": "COMPONENT",
+  "nodeId": "10938:60197",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "10938:60197",
+    "name": "Fuzzy"
+   }
+  ]
+ },
+ {
+  "name": "item-letter",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15504:106337",
+  "variantCount": 2,
+  "properties": "Text: TEXT = w; State: mouse down / Default",
+  "variants": [
+   {
+    "nodeId": "15504:106338",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "15504:106342",
+    "name": "State=mouse down"
+   }
+  ]
+ },
+ {
+  "name": "字母",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15504:104904",
+  "variantCount": 4,
+  "properties": "Text: TEXT = w; Focus: no / yes; input: no / yes; inputed: no / yes",
+  "variants": [
+   {
+    "nodeId": "15504:104886",
+    "name": "Focus=no, input=no, inputed=no"
+   },
+   {
+    "nodeId": "15504:104907",
+    "name": "Focus=no, input=yes, inputed=no"
+   },
+   {
+    "nodeId": "15504:106230",
+    "name": "Focus=yes, input=yes, inputed=no"
+   },
+   {
+    "nodeId": "15506:110121",
+    "name": "Focus=no, input=yes, inputed=yes"
+   }
+  ]
+ },
+ {
+  "name": "btn-开始听写",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15507:102742",
+  "variantCount": 3,
+  "properties": "Text: TEXT = 开始听写; State: Default / Hover; Disabled: no / yes",
+  "variants": [
+   {
+    "nodeId": "15507:102743",
+    "name": "State=Default, Disabled=no"
+   },
+   {
+    "nodeId": "15507:102745",
+    "name": "State=Hover, Disabled=no"
+   },
+   {
+    "nodeId": "15507:102747",
+    "name": "State=Default, Disabled=yes"
+   }
+  ]
+ },
+ {
+  "name": "btn-听写设置",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15507:102749",
+  "variantCount": 2,
+  "properties": "Text: TEXT = 听写设置; State: Default / Hover; Disabled: no",
+  "variants": [
+   {
+    "nodeId": "15507:102750",
+    "name": "State=Default, Disabled=no"
+   },
+   {
+    "nodeId": "15507:102752",
+    "name": "State=Hover, Disabled=no"
+   }
+  ]
+ },
+ {
+  "name": "选项",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15525:107753",
+  "variantCount": 4,
+  "properties": "Property 1: water / skiing / supermarket / be responsible for",
+  "variants": [
+   {
+    "nodeId": "17588:116492",
+    "name": "Property 1=water"
+   },
+   {
+    "nodeId": "17598:149783",
+    "name": "Property 1=skiing"
+   },
+   {
+    "nodeId": "15504:107377",
+    "name": "Property 1=supermarket"
+   },
+   {
+    "nodeId": "17610:154282",
+    "name": "Property 1=be responsible for"
+   }
+  ]
+ },
+ {
+  "name": "word",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15525:115534",
+  "variantCount": 6,
+  "properties": "类型: 单词 / 短语; 方式: 字母排序 / 拆音节 / 键盘输入",
+  "variants": [
+   {
+    "nodeId": "15504:107389",
+    "name": "类型=单词, 方式=字母排序"
+   },
+   {
+    "nodeId": "15525:115535",
+    "name": "类型=单词, 方式=拆音节"
+   },
+   {
+    "nodeId": "17598:149274",
+    "name": "类型=短语, 方式=拆音节"
+   },
+   {
+    "nodeId": "17598:149332",
+    "name": "类型=短语, 方式=字母排序"
+   },
+   {
+    "nodeId": "17612:155182",
+    "name": "类型=单词, 方式=键盘输入"
+   },
+   {
+    "nodeId": "17612:155727",
+    "name": "类型=短语, 方式=键盘输入"
+   }
+  ]
+ },
+ {
+  "name": "word-结果",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15525:116554",
+  "variantCount": 2,
+  "properties": "Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "15525:105060",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "15525:116555",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "结果",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15525:116944",
+  "variantCount": 2,
+  "properties": "Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "15525:116834",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "15525:116945",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "评分",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15569:106622",
+  "variantCount": 4,
+  "properties": "Type: 无数据 / 通过 / 未通过 / 错词重练",
+  "variants": [
+   {
+    "nodeId": "15569:106623",
+    "name": "Type=无数据"
+   },
+   {
+    "nodeId": "15525:110607",
+    "name": "Type=通过"
+   },
+   {
+    "nodeId": "15616:129908",
+    "name": "Type=未通过"
+   },
+   {
+    "nodeId": "15643:186151",
+    "name": "Type=错词重练"
+   }
+  ]
+ },
+ {
+  "name": "btn-加入错词本",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15574:105350",
+  "variantCount": 2,
+  "properties": "Text: TEXT = 加入错词本; State: 未加入 / 已加入",
+  "variants": [
+   {
+    "nodeId": "15574:105351",
+    "name": "State=未加入"
+   },
+   {
+    "nodeId": "15643:183841",
+    "name": "State=已加入"
+   }
+  ]
+ },
+ {
+  "name": "btn-错词重练",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15574:105608",
+  "variantCount": 2,
+  "properties": "Text: TEXT = 错词重练; State: Default / State2",
+  "variants": [
+   {
+    "nodeId": "15574:105609",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "15643:186563",
+    "name": "State=State2"
+   }
+  ]
+ },
+ {
+  "name": "word",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15574:107160",
+  "variantCount": 3,
+  "properties": "单词: water / supermarket / chips",
+  "variants": [
+   {
+    "nodeId": "15574:107159",
+    "name": "单词=water"
+   },
+   {
+    "nodeId": "15574:107161",
+    "name": "单词=supermarket"
+   },
+   {
+    "nodeId": "15582:111630",
+    "name": "单词=chips"
+   }
+  ]
+ },
+ {
+  "name": "letter",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15574:133178",
+  "variantCount": 3,
+  "properties": "Text: TEXT = a; 修正: TEXT = b; input: no / yes; 修正: no / yes",
+  "variants": [
+   {
+    "nodeId": "15597:104172",
+    "name": "input=no, 修正=no"
+   },
+   {
+    "nodeId": "15574:107535",
+    "name": "input=yes, 修正=no"
+   },
+   {
+    "nodeId": "15574:133179",
+    "name": "input=yes, 修正=yes"
+   }
+  ]
+ },
+ {
+  "name": "word-结果",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15579:105770",
+  "variantCount": 2,
+  "properties": "Property 1: Variant4 / word-默写",
+  "variants": [
+   {
+    "nodeId": "15525:103199",
+    "name": "Property 1=word-默写"
+   },
+   {
+    "nodeId": "15579:105448",
+    "name": "Property 1=Variant4"
+   }
+  ]
+ },
+ {
+  "name": "听写文件",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15616:133214",
+  "variantCount": 2,
+  "properties": "Text: TEXT = 背诵1; Tag: BOOLEAN = true; 错词重练: BOOLEAN = true; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "15616:133215",
+    "name": "Selected=no"
+   },
+   {
+    "nodeId": "15616:133220",
+    "name": "Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "Tab-听写",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15616:133225",
+  "variantCount": 2,
+  "properties": "多条记录: BOOLEAN = true; State: 1 / 2",
+  "variants": [
+   {
+    "nodeId": "15616:133226",
+    "name": "State=1"
+   },
+   {
+    "nodeId": "15616:133229",
+    "name": "State=2"
+   }
+  ]
+ },
+ {
+  "name": "icon",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15643:183856",
+  "variantCount": 2,
+  "properties": "added: no / yes",
+  "variants": [
+   {
+    "nodeId": "15574:105435",
+    "name": "added=no"
+   },
+   {
+    "nodeId": "15643:183866",
+    "name": "added=yes"
+   }
+  ]
+ },
+ {
+  "name": "DictationWords",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15643:184840",
+  "variantCount": 2,
+  "properties": "EN: TEXT = wa·ter; CN: TEXT = 水; Size: s / l",
+  "variants": [
+   {
+    "nodeId": "15625:179357",
+    "name": "Size=s"
+   },
+   {
+    "nodeId": "15643:184841",
+    "name": "Size=l"
+   }
+  ]
+ },
+ {
+  "name": "button",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15643:185447",
+  "variantCount": 2,
+  "properties": "Type: 下一个 / 完成听写",
+  "variants": [
+   {
+    "nodeId": "15643:185446",
+    "name": "Type=下一个"
+   },
+   {
+    "nodeId": "15643:185448",
+    "name": "Type=完成听写"
+   }
+  ]
+ },
+ {
+  "name": "音节",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "17588:115178",
+  "variantCount": 3,
+  "properties": "Text: TEXT = w; Fouce: yes / no; Inputed: no / yes",
+  "variants": [
+   {
+    "nodeId": "17588:115177",
+    "name": "Fouce=no, Inputed=no"
+   },
+   {
+    "nodeId": "17588:115179",
+    "name": "Fouce=yes, Inputed=no"
+   },
+   {
+    "nodeId": "17588:115182",
+    "name": "Fouce=no, Inputed=yes"
+   }
+  ]
+ },
+ {
+  "name": "input",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "17612:155246",
+  "variantCount": 2,
+  "properties": "Text: TEXT = w; Fouce: yes; Inputed: yes / no",
+  "variants": [
+   {
+    "nodeId": "17612:155440",
+    "name": "Fouce=yes, Inputed=no"
+   },
+   {
+    "nodeId": "17612:155255",
+    "name": "Fouce=yes, Inputed=yes"
+   }
+  ]
+ },
+ {
+  "name": "item-hug",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15504:106347",
+  "variantCount": 2,
+  "properties": "Text: TEXT = hug; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "15504:106348",
+    "name": "Selected=no"
+   },
+   {
+    "nodeId": "15504:106352",
+    "name": "Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "play",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT_SET",
+  "nodeId": "17624:119800",
+  "variantCount": 2,
+  "properties": "play: no / yes; gif: Default / 2",
+  "variants": [
+   {
+    "nodeId": "17624:119801",
+    "name": "play=no, gif=Default"
+   },
+   {
+    "nodeId": "17624:119806",
+    "name": "play=yes, gif=2"
+   }
+  ]
+ },
+ {
+  "name": "听写",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT",
+  "nodeId": "15504:104381",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15504:104381",
+    "name": "听写"
+   }
+  ]
+ },
+ {
+  "name": "modal",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT",
+  "nodeId": "15504:103929",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15504:103929",
+    "name": "modal"
+   }
+  ]
+ },
+ {
+  "name": "播放次数",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT",
+  "nodeId": "15504:104821",
+  "variantCount": null,
+  "properties": "Text: TEXT = 播放次数",
+  "variants": [
+   {
+    "nodeId": "15504:104821",
+    "name": "播放次数"
+   }
+  ]
+ },
+ {
+  "name": "area",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT",
+  "nodeId": "15504:103626",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15504:103626",
+    "name": "area"
+   }
+  ]
+ },
+ {
+  "name": "slider",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT",
+  "nodeId": "15504:103641",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15504:103641",
+    "name": "slider"
+   }
+  ]
+ },
+ {
+  "name": "空格",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT",
+  "nodeId": "15504:104905",
+  "variantCount": null,
+  "properties": "Text: TEXT = -",
+  "variants": [
+   {
+    "nodeId": "15504:104905",
+    "name": "空格"
+   }
+  ]
+ },
+ {
+  "name": "dot",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT",
+  "nodeId": "17597:146591",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "17597:146591",
+    "name": "dot"
+   }
+  ]
+ },
+ {
+  "name": "card-听写",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT",
+  "nodeId": "15476:228521",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15476:228521",
+    "name": "card-听写"
+   }
+  ]
+ },
+ {
+  "name": "card-听写",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT",
+  "nodeId": "15504:107411",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15504:107411",
+    "name": "card-听写"
+   }
+  ]
+ },
+ {
+  "name": "card-评分",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT",
+  "nodeId": "15525:103072",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15525:103072",
+    "name": "card-评分"
+   }
+  ]
+ },
+ {
+  "name": "area",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT",
+  "nodeId": "15525:103046",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15525:103046",
+    "name": "area"
+   }
+  ]
+ },
+ {
+  "name": "答题中",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT",
+  "nodeId": "15525:110777",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15525:110777",
+    "name": "答题中"
+   }
+  ]
+ },
+ {
+  "name": "icon",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT",
+  "nodeId": "15574:105666",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15574:105666",
+    "name": "icon"
+   }
+  ]
+ },
+ {
+  "name": "icon-听写",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT",
+  "nodeId": "15525:116551",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15525:116551",
+    "name": "icon-听写"
+   }
+  ]
+ },
+ {
+  "name": "tag",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT",
+  "nodeId": "15616:133282",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15616:133282",
+    "name": "tag"
+   }
+  ]
+ },
+ {
+  "name": "误导形选项",
+  "group": "UIKit-Dictation",
+  "kind": "COMPONENT",
+  "nodeId": "17612:156587",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "17612:156587",
+    "name": "误导形选项"
+   }
+  ]
+ },
+ {
+  "name": "link",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10817:60790",
+  "variantCount": 2,
+  "properties": "Text: TEXT = Examples >; State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "10817:60789",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "10817:60791",
+    "name": "State=Hover"
+   }
+  ]
+ },
+ {
+  "name": "play",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10848:59086",
+  "variantCount": 3,
+  "properties": "play: no / yes; gif: Default / 1 / 2",
+  "variants": [
+   {
+    "nodeId": "10848:59094",
+    "name": "play=no, gif=Default"
+   },
+   {
+    "nodeId": "10848:59087",
+    "name": "play=yes, gif=1"
+   },
+   {
+    "nodeId": "10848:59091",
+    "name": "play=yes, gif=2"
+   }
+  ]
+ },
+ {
+  "name": "card",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10817:58121",
+  "variantCount": 3,
+  "properties": "Text: TEXT = weekend; Property 1: Default / Hover / Variant3",
+  "variants": [
+   {
+    "nodeId": "10744:59755",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "10817:58122",
+    "name": "Property 1=Hover"
+   },
+   {
+    "nodeId": "10824:60118",
+    "name": "Property 1=Variant3"
+   }
+  ]
+ },
+ {
+  "name": "translation",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10824:60132",
+  "variantCount": 2,
+  "properties": "State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "10824:60112",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "10824:60133",
+    "name": "State=Hover"
+   }
+  ]
+ },
+ {
+  "name": "thumbup",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10848:59528",
+  "variantCount": 3,
+  "properties": "State: Default / Hover; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "10848:59529",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "10946:66686",
+    "name": "State=Hover, Selected=no"
+   },
+   {
+    "nodeId": "10848:59531",
+    "name": "State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "thumbdown",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10848:59533",
+  "variantCount": 3,
+  "properties": "State: Default / Hover; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "10848:59534",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "10946:66693",
+    "name": "State=Hover, Selected=no"
+   },
+   {
+    "nodeId": "10848:59536",
+    "name": "State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "copy",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10920:59179",
+  "variantCount": 2,
+  "properties": "State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "10920:59178",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "10920:59180",
+    "name": "State=Hover"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11795:142797",
+  "variantCount": 2,
+  "properties": "Text: TEXT = Words; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "11795:142798",
+    "name": "Selected=no"
+   },
+   {
+    "nodeId": "11795:142762",
+    "name": "Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "list",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT_SET",
+  "nodeId": "17713:295734",
+  "variantCount": 2,
+  "properties": "Client: Web / APP",
+  "variants": [
+   {
+    "nodeId": "15625:179699",
+    "name": "Client=Web"
+   },
+   {
+    "nodeId": "17713:295735",
+    "name": "Client=APP"
+   }
+  ]
+ },
+ {
+  "name": "Web-list-SearchedWords",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT_SET",
+  "nodeId": "17713:306220",
+  "variantCount": 1,
+  "properties": "Client: Web",
+  "variants": [
+   {
+    "nodeId": "15625:180070",
+    "name": "Client=Web"
+   }
+  ]
+ },
+ {
+  "name": "4:3",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT",
+  "nodeId": "10744:59749",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "10744:59749",
+    "name": "4:3"
+   }
+  ]
+ },
+ {
+  "name": "Tab",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT",
+  "nodeId": "11795:142770",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11795:142770",
+    "name": "Tab"
+   }
+  ]
+ },
+ {
+  "name": "Container",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT",
+  "nodeId": "10824:59704",
+  "variantCount": null,
+  "properties": "Text: TEXT = Today; Text 2: TEXT = (8)",
+  "variants": [
+   {
+    "nodeId": "10824:59704",
+    "name": "Container"
+   }
+  ]
+ },
+ {
+  "name": "出处",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT",
+  "nodeId": "10824:59655",
+  "variantCount": null,
+  "properties": "出处: TEXT = The bug that poops candy",
+  "variants": [
+   {
+    "nodeId": "10824:59655",
+    "name": "出处"
+   }
+  ]
+ },
+ {
+  "name": "Example",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT",
+  "nodeId": "10817:61477",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "10817:61477",
+    "name": "Example"
+   }
+  ]
+ },
+ {
+  "name": "释义-large",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT",
+  "nodeId": "10846:59528",
+  "variantCount": null,
+  "properties": "Text: TEXT = Stay alive; num: TEXT = 1.",
+  "variants": [
+   {
+    "nodeId": "10846:59528",
+    "name": "释义-large"
+   }
+  ]
+ },
+ {
+  "name": "例句-large",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT",
+  "nodeId": "10846:59422",
+  "variantCount": null,
+  "properties": "Text: TEXT = I plan to go hiking with my family this weekend.; 翻译: TEXT = 这个周末我打算和家人一起去徒步。",
+  "variants": [
+   {
+    "nodeId": "10846:59422",
+    "name": "例句-large"
+   }
+  ]
+ },
+ {
+  "name": "subtitle-mark",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT",
+  "nodeId": "10848:110017",
+  "variantCount": null,
+  "properties": "Text: TEXT = Some aphid populations can produce hundreds of kilograms of poop per acre— making them some of the most prolific poopers on the planet.",
+  "variants": [
+   {
+    "nodeId": "10848:110017",
+    "name": "subtitle-mark"
+   }
+  ]
+ },
+ {
+  "name": "Notes-Sentences",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT",
+  "nodeId": "10920:59374",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "10920:59374",
+    "name": "Notes-Sentences"
+   }
+  ]
+ },
+ {
+  "name": "Notes-IncorrectWords",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT",
+  "nodeId": "15625:174278",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15625:174278",
+    "name": "Notes-IncorrectWords"
+   }
+  ]
+ },
+ {
+  "name": "group",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT",
+  "nodeId": "17713:296503",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "17713:296503",
+    "name": "group"
+   }
+  ]
+ },
+ {
+  "name": "Notes-SearchedWords",
+  "group": "UIKit-Notes",
+  "kind": "COMPONENT",
+  "nodeId": "10817:58877",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "10817:58877",
+    "name": "Notes-SearchedWords"
+   }
+  ]
+ },
+ {
+  "name": "Web-SideBar-学生",
+  "group": "UIKit-学生-Sidebar",
+  "kind": "COMPONENT_SET",
+  "nodeId": "6498:38575",
+  "variantCount": 2,
+  "properties": "生成任务: BOOLEAN = true; Open: yes / no",
+  "variants": [
+   {
+    "nodeId": "9974:109580",
+    "name": "Open=yes"
+   },
+   {
+    "nodeId": "17713:292120",
+    "name": "Open=no"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-学生-Sidebar",
+  "kind": "COMPONENT_SET",
+  "nodeId": "6498:38804",
+  "variantCount": 3,
+  "properties": "Text: TEXT = Home; Show Tex: BOOLEAN = true; State: Default / Hover; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "6498:38805",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "6498:38808",
+    "name": "State=Hover, Selected=no"
+   },
+   {
+    "nodeId": "6498:38811",
+    "name": "State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "首页",
+  "group": "UIKit-学生-Sidebar",
+  "kind": "COMPONENT",
+  "nodeId": "11815:81261",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11815:81261",
+    "name": "首页"
+   }
+  ]
+ },
+ {
+  "name": "我的笔记",
+  "group": "UIKit-学生-Sidebar",
+  "kind": "COMPONENT",
+  "nodeId": "15712:172237",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15712:172237",
+    "name": "我的笔记"
+   }
+  ]
+ },
+ {
+  "name": "我的阅读",
+  "group": "UIKit-学生-Sidebar",
+  "kind": "COMPONENT",
+  "nodeId": "16641:219539",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "16641:219539",
+    "name": "我的阅读"
+   }
+  ]
+ },
+ {
+  "name": "收藏",
+  "group": "UIKit-学生-Sidebar",
+  "kind": "COMPONENT",
+  "nodeId": "16763:184551",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "16763:184551",
+    "name": "收藏"
+   }
+  ]
+ },
+ {
+  "name": "titile",
+  "group": "UIKit-学生-Sidebar",
+  "kind": "COMPONENT",
+  "nodeId": "11795:119469",
+  "variantCount": null,
+  "properties": "Text: TEXT = Educator; pro: BOOLEAN = true; Show Text: BOOLEAN = true",
+  "variants": [
+   {
+    "nodeId": "11795:119469",
+    "name": "titile"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-Sidebar-管理员",
+  "kind": "COMPONENT_SET",
+  "nodeId": "13787:273824",
+  "variantCount": 4,
+  "properties": "Text: TEXT = Overview; Show Tex: BOOLEAN = true; State: Default / Hover; Selected: no / yes; Open: no / yes",
+  "variants": [
+   {
+    "nodeId": "13787:273825",
+    "name": "State=Default, Selected=no, Open=no"
+   },
+   {
+    "nodeId": "13787:273828",
+    "name": "State=Hover, Selected=no, Open=no"
+   },
+   {
+    "nodeId": "13787:273831",
+    "name": "State=Default, Selected=yes, Open=no"
+   },
+   {
+    "nodeId": "13787:273868",
+    "name": "State=Default, Selected=yes, Open=yes"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-Sidebar-管理员",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15909:193049",
+  "variantCount": 4,
+  "properties": "Text: TEXT = 2026年; Show Tex: BOOLEAN = true; State: Default / Hover; Selected: no / yes; Open: no / yes",
+  "variants": [
+   {
+    "nodeId": "15909:193050",
+    "name": "State=Default, Selected=no, Open=no"
+   },
+   {
+    "nodeId": "15909:193055",
+    "name": "State=Hover, Selected=no, Open=no"
+   },
+   {
+    "nodeId": "15909:193060",
+    "name": "State=Default, Selected=yes, Open=no"
+   },
+   {
+    "nodeId": "15909:193065",
+    "name": "State=Default, Selected=yes, Open=yes"
+   }
+  ]
+ },
+ {
+  "name": "item-1",
+  "group": "UIKit-Sidebar-管理员",
+  "kind": "COMPONENT_SET",
+  "nodeId": "13787:291395",
+  "variantCount": 2,
+  "properties": "Select: yes / no; State: Default",
+  "variants": [
+   {
+    "nodeId": "13787:291396",
+    "name": "Select=no, State=Default"
+   },
+   {
+    "nodeId": "13787:291394",
+    "name": "Select=yes, State=Default"
+   }
+  ]
+ },
+ {
+  "name": "item-2",
+  "group": "UIKit-Sidebar-管理员",
+  "kind": "COMPONENT_SET",
+  "nodeId": "13873:153874",
+  "variantCount": 2,
+  "properties": "Text: TEXT = Class 1; Select: yes / no",
+  "variants": [
+   {
+    "nodeId": "13873:153875",
+    "name": "Select=no"
+   },
+   {
+    "nodeId": "13873:153883",
+    "name": "Select=yes"
+   }
+  ]
+ },
+ {
+  "name": "title-content",
+  "group": "UIKit-Sidebar-管理员",
+  "kind": "COMPONENT_SET",
+  "nodeId": "13873:155701",
+  "variantCount": 3,
+  "properties": "Text: TEXT = Grade 1; State: Default / Hover; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "13873:155700",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "13873:155702",
+    "name": "State=Hover, Selected=no"
+   },
+   {
+    "nodeId": "13873:155706",
+    "name": "State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "SideBar-管理员",
+  "group": "UIKit-Sidebar-管理员",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15712:178284",
+  "variantCount": 2,
+  "properties": "Role: 校长&主任 / 老师",
+  "variants": [
+   {
+    "nodeId": "13873:116470",
+    "name": "Role=校长&主任"
+   },
+   {
+    "nodeId": "11795:137683",
+    "name": "Role=老师"
+   }
+  ]
+ },
+ {
+  "name": "item-教学计划",
+  "group": "UIKit-Sidebar-管理员",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15733:210215",
+  "variantCount": 3,
+  "properties": "Text: TEXT = 三年级（初级）; Show Tex: BOOLEAN = true; State: Default / Hover; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "15733:210216",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "15733:210219",
+    "name": "State=Hover, Selected=no"
+   },
+   {
+    "nodeId": "15733:210222",
+    "name": "State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "item-学期",
+  "group": "UIKit-Sidebar-管理员",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15733:212594",
+  "variantCount": 3,
+  "properties": "Text: TEXT = 2026-春季学期; State: Default / Hover; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "15733:212595",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "15775:208451",
+    "name": "State=Hover, Selected=no"
+   },
+   {
+    "nodeId": "15775:209607",
+    "name": "State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "校长&主任",
+  "group": "UIKit-Sidebar-管理员",
+  "kind": "COMPONENT",
+  "nodeId": "11815:82583",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11815:82583",
+    "name": "校长&主任"
+   }
+  ]
+ },
+ {
+  "name": "班级老师",
+  "group": "UIKit-Sidebar-管理员",
+  "kind": "COMPONENT",
+  "nodeId": "13873:106986",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "13873:106986",
+    "name": "班级老师"
+   }
+  ]
+ },
+ {
+  "name": ".Menu item group - Light",
+  "group": "UIKit-Sidebar-管理员",
+  "kind": "COMPONENT",
+  "nodeId": "15915:216877",
+  "variantCount": null,
+  "properties": "Text: TEXT = 春季学期",
+  "variants": [
+   {
+    "nodeId": "15915:216877",
+    "name": ".Menu item group - Light"
+   }
+  ]
+ },
+ {
+  "name": "教学计划",
+  "group": "UIKit-Sidebar-管理员",
+  "kind": "COMPONENT",
+  "nodeId": "12642:43361",
+  "variantCount": null,
+  "properties": "二级目录: BOOLEAN = true",
+  "variants": [
+   {
+    "nodeId": "12642:43361",
+    "name": "教学计划"
+   }
+  ]
+ },
+ {
+  "name": "item2",
+  "group": "UIKit-UserCenter-0.1",
+  "kind": "COMPONENT_SET",
+  "nodeId": "8024:118578",
+  "variantCount": 2,
+  "properties": "Text: TEXT = Words; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "8024:118579",
+    "name": "Selected=no"
+   },
+   {
+    "nodeId": "8024:118585",
+    "name": "Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "Form Item",
+  "group": "UIKit-UserCenter-0.1",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10247:69017",
+  "variantCount": 2,
+  "properties": "Text: TEXT = Text; Layout: H / V",
+  "variants": [
+   {
+    "nodeId": "11964:108275",
+    "name": "Layout=H"
+   },
+   {
+    "nodeId": "10247:66747",
+    "name": "Layout=V"
+   }
+  ]
+ },
+ {
+  "name": "Access",
+  "group": "UIKit-UserCenter-0.1",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15661:130847",
+  "variantCount": 4,
+  "properties": "Property 1: Variant2 / Variant3 / Variant4 / Variant5",
+  "variants": [
+   {
+    "nodeId": "15661:130848",
+    "name": "Property 1=Variant2"
+   },
+   {
+    "nodeId": "15661:130854",
+    "name": "Property 1=Variant3"
+   },
+   {
+    "nodeId": "15661:131016",
+    "name": "Property 1=Variant4"
+   },
+   {
+    "nodeId": "15661:131018",
+    "name": "Property 1=Variant5"
+   }
+  ]
+ },
+ {
+  "name": "avatar",
+  "group": "UIKit-UserCenter-0.1",
+  "kind": "COMPONENT_SET",
+  "nodeId": "8542:65966",
+  "variantCount": 2,
+  "properties": "Property 1: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "8542:65965",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "8542:65972",
+    "name": "Property 1=Hover"
+   }
+  ]
+ },
+ {
+  "name": "setting",
+  "group": "UIKit-UserCenter-0.1",
+  "kind": "COMPONENT",
+  "nodeId": "8542:73957",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "8542:73957",
+    "name": "setting"
+   }
+  ]
+ },
+ {
+  "name": "label",
+  "group": "UIKit-UserCenter-0.1",
+  "kind": "COMPONENT",
+  "nodeId": "10252:70264",
+  "variantCount": null,
+  "properties": "Text: TEXT = Label",
+  "variants": [
+   {
+    "nodeId": "10252:70264",
+    "name": "label"
+   }
+  ]
+ },
+ {
+  "name": "UserCenter",
+  "group": "UIKit-UserCenter-0.1",
+  "kind": "COMPONENT",
+  "nodeId": "6606:39939",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "6606:39939",
+    "name": "UserCenter"
+   }
+  ]
+ },
+ {
+  "name": "Tag",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15661:131152",
+  "variantCount": 1,
+  "properties": "Role: Student",
+  "variants": [
+   {
+    "nodeId": "15712:110583",
+    "name": "Role=Student"
+   }
+  ]
+ },
+ {
+  "name": "dialog-修改密码",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11982:129620",
+  "variantCount": 2,
+  "properties": "Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "11964:129550",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "11982:129621",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "dialog-修改昵称",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15775:194278",
+  "variantCount": 1,
+  "properties": "Property 1: Default",
+  "variants": [
+   {
+    "nodeId": "15775:194279",
+    "name": "Property 1=Default"
+   }
+  ]
+ },
+ {
+  "name": "avatar",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15733:117989",
+  "variantCount": 2,
+  "properties": "State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "15733:117990",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "15733:117991",
+    "name": "State=Hover"
+   }
+  ]
+ },
+ {
+  "name": "Avatar",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15731:128341",
+  "variantCount": 3,
+  "properties": "State: Default / Hover; Open: no / yes",
+  "variants": [
+   {
+    "nodeId": "8263:29820",
+    "name": "State=Default, Open=no"
+   },
+   {
+    "nodeId": "15731:128342",
+    "name": "State=Hover, Open=no"
+   },
+   {
+    "nodeId": "15733:105703",
+    "name": "State=Default, Open=yes"
+   }
+  ]
+ },
+ {
+  "name": "item-2",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15731:146883",
+  "variantCount": 2,
+  "properties": "Text: TEXT = Setting; State: Default / Hover; Selected: no",
+  "variants": [
+   {
+    "nodeId": "15731:146884",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "15731:146887",
+    "name": "State=Hover, Selected=no"
+   }
+  ]
+ },
+ {
+  "name": "item-1",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15750:119912",
+  "variantCount": 2,
+  "properties": "Text: TEXT = Setting; arrow: BOOLEAN = true; State: Default / Hover; Selected: no",
+  "variants": [
+   {
+    "nodeId": "15750:119913",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "15750:119917",
+    "name": "State=Hover, Selected=no"
+   }
+  ]
+ },
+ {
+  "name": "item-3",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15750:120172",
+  "variantCount": 2,
+  "properties": "Text: TEXT = Setting; selected: BOOLEAN = true; State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "15750:120173",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "15750:120176",
+    "name": "State=Hover"
+   }
+  ]
+ },
+ {
+  "name": "btn",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT_SET",
+  "nodeId": "16769:218292",
+  "variantCount": 2,
+  "properties": "Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "16769:218291",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "16769:218293",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "btn",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT_SET",
+  "nodeId": "16769:218401",
+  "variantCount": 3,
+  "properties": "Property 1: Default / Hover; Open: no / yes",
+  "variants": [
+   {
+    "nodeId": "16769:218402",
+    "name": "Property 1=Default, Open=no"
+   },
+   {
+    "nodeId": "16769:218404",
+    "name": "Property 1=Hover, Open=no"
+   },
+   {
+    "nodeId": "16769:221755",
+    "name": "Property 1=Default, Open=yes"
+   }
+  ]
+ },
+ {
+  "name": "btn",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT_SET",
+  "nodeId": "16769:221832",
+  "variantCount": 2,
+  "properties": "State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "16769:221831",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "16769:221833",
+    "name": "State=Hover"
+   }
+  ]
+ },
+ {
+  "name": "Web-list footer",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10817:61740",
+  "variantCount": 2,
+  "properties": "loading: BOOLEAN = true; Size: large / small",
+  "variants": [
+   {
+    "nodeId": "7795:66559",
+    "name": "Size=large"
+   },
+   {
+    "nodeId": "10817:64859",
+    "name": "Size=small"
+   }
+  ]
+ },
+ {
+  "name": "area-logo",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT_SET",
+  "nodeId": "12589:117048",
+  "variantCount": 2,
+  "properties": "Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "12537:134833",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "12589:117049",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "TopBar-学生",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT",
+  "nodeId": "11508:65456",
+  "variantCount": null,
+  "properties": "操作列表: BOOLEAN = true",
+  "variants": [
+   {
+    "nodeId": "11508:65456",
+    "name": "TopBar-学生"
+   }
+  ]
+ },
+ {
+  "name": "dropdown",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT",
+  "nodeId": "15712:124300",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15712:124300",
+    "name": "dropdown"
+   }
+  ]
+ },
+ {
+  "name": "dialog-修改头像",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT",
+  "nodeId": "15733:177813",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15733:177813",
+    "name": "dialog-修改头像"
+   }
+  ]
+ },
+ {
+  "name": "dropdown",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT",
+  "nodeId": "15750:120128",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15750:120128",
+    "name": "dropdown"
+   }
+  ]
+ },
+ {
+  "name": "dot",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT",
+  "nodeId": "16769:219292",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "16769:219292",
+    "name": "dot"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT",
+  "nodeId": "16769:221661",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "16769:221661",
+    "name": "item"
+   }
+  ]
+ },
+ {
+  "name": "dropdown",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT",
+  "nodeId": "16769:221754",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "16769:221754",
+    "name": "dropdown"
+   }
+  ]
+ },
+ {
+  "name": "loading",
+  "group": "UIKit-学生-Topbar",
+  "kind": "COMPONENT",
+  "nodeId": "10453:103571",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "10453:103571",
+    "name": "loading"
+   }
+  ]
+ },
+ {
+  "name": "Avatar",
+  "group": "UIKit-Topbar-管理员",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15733:118000",
+  "variantCount": 3,
+  "properties": "State: Default / Hover; Open: no / yes",
+  "variants": [
+   {
+    "nodeId": "15733:118001",
+    "name": "State=Default, Open=no"
+   },
+   {
+    "nodeId": "15733:118004",
+    "name": "State=Hover, Open=no"
+   },
+   {
+    "nodeId": "15733:118007",
+    "name": "State=Default, Open=yes"
+   }
+  ]
+ },
+ {
+  "name": "Tag",
+  "group": "UIKit-Topbar-管理员",
+  "kind": "COMPONENT_SET",
+  "nodeId": "15733:124490",
+  "variantCount": 4,
+  "properties": "Property 1: Grade Lead / Group Lead / School Admin / Teacher",
+  "variants": [
+   {
+    "nodeId": "15661:131155",
+    "name": "Property 1=Teacher"
+   },
+   {
+    "nodeId": "15661:131157",
+    "name": "Property 1=Group Lead"
+   },
+   {
+    "nodeId": "15661:131159",
+    "name": "Property 1=Grade Lead"
+   },
+   {
+    "nodeId": "15661:131161",
+    "name": "Property 1=School Admin"
+   }
+  ]
+ },
+ {
+  "name": "TopBar-管理员",
+  "group": "UIKit-Topbar-管理员",
+  "kind": "COMPONENT",
+  "nodeId": "11795:139438",
+  "variantCount": null,
+  "properties": "操作列表: BOOLEAN = true",
+  "variants": [
+   {
+    "nodeId": "11795:139438",
+    "name": "TopBar-管理员"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-学生-首页",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11571:87760",
+  "variantCount": 2,
+  "properties": "Text: TEXT = F; Today: no; Done: yes / no",
+  "variants": [
+   {
+    "nodeId": "11571:87848",
+    "name": "Today=no, Done=no"
+   },
+   {
+    "nodeId": "11571:87435",
+    "name": "Today=no, Done=yes"
+   }
+  ]
+ },
+ {
+  "name": "btn",
+  "group": "UIKit-学生-首页",
+  "kind": "COMPONENT_SET",
+  "nodeId": "16678:118960",
+  "variantCount": 2,
+  "properties": "Text: TEXT = 更多; State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "16678:117408",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "16678:118961",
+    "name": "State=Hover"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-学生-首页",
+  "kind": "COMPONENT_SET",
+  "nodeId": "16678:146278",
+  "variantCount": 2,
+  "properties": "State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "16641:195009",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "16678:146279",
+    "name": "State=Hover"
+   }
+  ]
+ },
+ {
+  "name": "Web-card",
+  "group": "UIKit-学生-首页",
+  "kind": "COMPONENT_SET",
+  "nodeId": "6583:11904",
+  "variantCount": 3,
+  "properties": "Title: TEXT = A Bug’s Life; Link: TEXT = https://pokemondb.net/pokedex; Updated: BOOLEAN = true; State: Default / Hover; Skeleton: no / yes",
+  "variants": [
+   {
+    "nodeId": "6516:39225",
+    "name": "State=Default, Skeleton=no"
+   },
+   {
+    "nodeId": "6583:11938",
+    "name": "State=Hover, Skeleton=no"
+   },
+   {
+    "nodeId": "8132:28732",
+    "name": "State=Default, Skeleton=yes"
+   }
+  ]
+ },
+ {
+  "name": "欢迎",
+  "group": "UIKit-学生-首页",
+  "kind": "COMPONENT_SET",
+  "nodeId": "16769:191206",
+  "variantCount": 2,
+  "properties": "Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "11508:79550",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "16769:191207",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "Character",
+  "group": "UIKit-学生-首页",
+  "kind": "COMPONENT_SET",
+  "nodeId": "16769:191250",
+  "variantCount": 2,
+  "properties": "Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "11617:70949",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "16769:191251",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "Web-list",
+  "group": "UIKit-学生-首页",
+  "kind": "COMPONENT_SET",
+  "nodeId": "17713:252024",
+  "variantCount": 1,
+  "properties": "client: web",
+  "variants": [
+   {
+    "nodeId": "17713:252023",
+    "name": "client=web"
+   }
+  ]
+ },
+ {
+  "name": "Web-area",
+  "group": "UIKit-学生-首页",
+  "kind": "COMPONENT",
+  "nodeId": "6521:38987",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "6521:38987",
+    "name": "Web-area"
+   }
+  ]
+ },
+ {
+  "name": "打卡",
+  "group": "UIKit-学生-首页",
+  "kind": "COMPONENT",
+  "nodeId": "11571:87382",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11571:87382",
+    "name": "打卡"
+   }
+  ]
+ },
+ {
+  "name": "group",
+  "group": "UIKit-学生-首页",
+  "kind": "COMPONENT",
+  "nodeId": "16678:183217",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "16678:183217",
+    "name": "group"
+   }
+  ]
+ },
+ {
+  "name": "Recent Plan",
+  "group": "UIKit-学生-首页",
+  "kind": "COMPONENT",
+  "nodeId": "16641:195004",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "16641:195004",
+    "name": "Recent Plan"
+   }
+  ]
+ },
+ {
+  "name": "首页",
+  "group": "UIKit-学生-首页",
+  "kind": "COMPONENT",
+  "nodeId": "11721:70220",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11721:70220",
+    "name": "首页"
+   }
+  ]
+ },
+ {
+  "name": "star area",
+  "group": "UIKit-学生-首页",
+  "kind": "COMPONENT",
+  "nodeId": "16678:182058",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "16678:182058",
+    "name": "star area"
+   }
+  ]
+ },
+ {
+  "name": "video list item",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "6587:2549",
+  "variantCount": 3,
+  "properties": "进度条: BOOLEAN = true; Finished: BOOLEAN = false; State: Default / Hover; Skeleton: no / yes",
+  "variants": [
+   {
+    "nodeId": "6564:10570",
+    "name": "State=Default, Skeleton=no"
+   },
+   {
+    "nodeId": "6587:2550",
+    "name": "State=Hover, Skeleton=no"
+   },
+   {
+    "nodeId": "8183:41364",
+    "name": "State=Default, Skeleton=yes"
+   }
+  ]
+ },
+ {
+  "name": "audio list item",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "6900:48167",
+  "variantCount": 3,
+  "properties": "Finished: BOOLEAN = true; State: Default / Hover; Skeleton: no / yes",
+  "variants": [
+   {
+    "nodeId": "6900:48166",
+    "name": "State=Default, Skeleton=no"
+   },
+   {
+    "nodeId": "8183:43796",
+    "name": "State=Default, Skeleton=yes"
+   },
+   {
+    "nodeId": "7699:40110",
+    "name": "State=Hover, Skeleton=no"
+   }
+  ]
+ },
+ {
+  "name": "web feeds list",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "8183:42694",
+  "variantCount": 3,
+  "properties": "Finished: BOOLEAN = true; State: Default / Hover / Skeleton",
+  "variants": [
+   {
+    "nodeId": "6916:50251",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "8183:42695",
+    "name": "State=Hover"
+   },
+   {
+    "nodeId": "8183:43415",
+    "name": "State=Skeleton"
+   }
+  ]
+ },
+ {
+  "name": "add to",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9461:31621",
+  "variantCount": 3,
+  "properties": "Text: TEXT = Add to My Booklist; State: Default / Hover; Added: yes / no",
+  "variants": [
+   {
+    "nodeId": "9461:31488",
+    "name": "State=Default, Added=no"
+   },
+   {
+    "nodeId": "9635:113210",
+    "name": "State=Hover, Added=no"
+   },
+   {
+    "nodeId": "9737:46323",
+    "name": "State=Default, Added=yes"
+   }
+  ]
+ },
+ {
+  "name": "thumbnail1:1",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "8132:28845",
+  "variantCount": 2,
+  "properties": "Data: no / yes",
+  "variants": [
+   {
+    "nodeId": "8132:28846",
+    "name": "Data=no"
+   },
+   {
+    "nodeId": "7699:40273",
+    "name": "Data=yes"
+   }
+  ]
+ },
+ {
+  "name": "favorite2",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10091:49861",
+  "variantCount": 3,
+  "properties": "Text: TEXT = Favorite; State: Default / Hover; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "10091:49862",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "10091:49864",
+    "name": "State=Hover, Selected=no"
+   },
+   {
+    "nodeId": "10091:49866",
+    "name": "State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "btn group",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10091:56405",
+  "variantCount": 2,
+  "properties": "角色: 成人 / 儿童",
+  "variants": [
+   {
+    "nodeId": "10091:56404",
+    "name": "角色=成人"
+   },
+   {
+    "nodeId": "10091:56417",
+    "name": "角色=儿童"
+   }
+  ]
+ },
+ {
+  "name": "video",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10091:56854",
+  "variantCount": 2,
+  "properties": "Skeleton: yes / no",
+  "variants": [
+   {
+    "nodeId": "7740:27581",
+    "name": "Skeleton=no"
+   },
+   {
+    "nodeId": "10091:57039",
+    "name": "Skeleton=yes"
+   }
+  ]
+ },
+ {
+  "name": "audio",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10091:56931",
+  "variantCount": 2,
+  "properties": "Skeleton: no / yes",
+  "variants": [
+   {
+    "nodeId": "9737:46367",
+    "name": "Skeleton=no"
+   },
+   {
+    "nodeId": "8183:43696",
+    "name": "Skeleton=yes"
+   }
+  ]
+ },
+ {
+  "name": "website",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10091:57005",
+  "variantCount": 2,
+  "properties": "Skeleton: no / yes",
+  "variants": [
+   {
+    "nodeId": "7795:67984",
+    "name": "Skeleton=no"
+   },
+   {
+    "nodeId": "8183:42323",
+    "name": "Skeleton=yes"
+   }
+  ]
+ },
+ {
+  "name": "confirm",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9935:99049",
+  "variantCount": 3,
+  "properties": "Text: TEXT = Confirm; State: Default / Hover; Disabled: no / yes",
+  "variants": [
+   {
+    "nodeId": "9935:99050",
+    "name": "State=Default, Disabled=no"
+   },
+   {
+    "nodeId": "9935:99054",
+    "name": "State=Hover, Disabled=no"
+   },
+   {
+    "nodeId": "11964:129617",
+    "name": "State=Default, Disabled=yes"
+   }
+  ]
+ },
+ {
+  "name": "cancel",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9935:99184",
+  "variantCount": 2,
+  "properties": "Text: TEXT = Cancel; Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "9935:99058",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "9935:99187",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "item",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9935:98992",
+  "variantCount": 4,
+  "properties": "Text: TEXT = My Shelf; Text 2: TEXT = (Private); Property 1: Default / Hover; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "9935:97319",
+    "name": "Property 1=Default, Selected=no"
+   },
+   {
+    "nodeId": "9935:98993",
+    "name": "Property 1=Hover, Selected=no"
+   },
+   {
+    "nodeId": "9935:99032",
+    "name": "Property 1=Default, Selected=yes"
+   },
+   {
+    "nodeId": "9935:100186",
+    "name": "Property 1=Hover, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "group",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9935:100239",
+  "variantCount": 2,
+  "properties": "Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "9935:100219",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "9935:100240",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "select-item",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "9935:100647",
+  "variantCount": 3,
+  "properties": "Text: TEXT = Group A; Selected: BOOLEAN = true; Tag: BOOLEAN = true; State: Default / Hover; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "9935:100648",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "9935:100652",
+    "name": "State=Hover, Selected=no"
+   },
+   {
+    "nodeId": "9935:100656",
+    "name": "State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "progress",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10539:77875",
+  "variantCount": 3,
+  "properties": "Data: no / yes; Finished: no / yes",
+  "variants": [
+   {
+    "nodeId": "10539:77876",
+    "name": "Data=no, Finished=no"
+   },
+   {
+    "nodeId": "10539:77878",
+    "name": "Data=yes, Finished=no"
+   },
+   {
+    "nodeId": "10539:77880",
+    "name": "Data=yes, Finished=yes"
+   }
+  ]
+ },
+ {
+  "name": "audio list item",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11790:77480",
+  "variantCount": 2,
+  "properties": "Finished: BOOLEAN = true; 进度条: BOOLEAN = true; State: Default / Hover",
+  "variants": [
+   {
+    "nodeId": "7750:19446",
+    "name": "State=Default"
+   },
+   {
+    "nodeId": "11790:80543",
+    "name": "State=Hover"
+   }
+  ]
+ },
+ {
+  "name": "Favorite",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT_SET",
+  "nodeId": "18644:121797",
+  "variantCount": 2,
+  "properties": "Text: TEXT = 收藏; State: Default; Added: yes / no",
+  "variants": [
+   {
+    "nodeId": "18644:121798",
+    "name": "State=Default, Added=no"
+   },
+   {
+    "nodeId": "18644:121806",
+    "name": "State=Default, Added=yes"
+   }
+  ]
+ },
+ {
+  "name": "explore-playlist",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT",
+  "nodeId": "9748:83166",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "9748:83166",
+    "name": "explore-playlist"
+   }
+  ]
+ },
+ {
+  "name": "complete-audiolist",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT",
+  "nodeId": "7301:65112",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "7301:65112",
+    "name": "complete-audiolist"
+   }
+  ]
+ },
+ {
+  "name": "btn",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT",
+  "nodeId": "10006:40036",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "10006:40036",
+    "name": "btn"
+   }
+  ]
+ },
+ {
+  "name": "btn",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT",
+  "nodeId": "18647:274866",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "18647:274866",
+    "name": "btn"
+   }
+  ]
+ },
+ {
+  "name": "btn-share",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT",
+  "nodeId": "7740:38948",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "7740:38948",
+    "name": "btn-share"
+   }
+  ]
+ },
+ {
+  "name": "playlist",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT",
+  "nodeId": "7740:45432",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "7740:45432",
+    "name": "playlist"
+   }
+  ]
+ },
+ {
+  "name": "dialog",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT",
+  "nodeId": "9935:100180",
+  "variantCount": null,
+  "properties": "Class Select: BOOLEAN = true",
+  "variants": [
+   {
+    "nodeId": "9935:100180",
+    "name": "dialog"
+   }
+  ]
+ },
+ {
+  "name": "dropdown",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT",
+  "nodeId": "9935:100697",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "9935:100697",
+    "name": "dropdown"
+   }
+  ]
+ },
+ {
+  "name": "playlist-audio",
+  "group": "UIKit-Playlist",
+  "kind": "COMPONENT",
+  "nodeId": "7699:42481",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "7699:42481",
+    "name": "playlist-audio"
+   }
+  ]
+ },
+ {
+  "name": "Favorite",
+  "group": "UIkit-Explore",
+  "kind": "COMPONENT_SET",
+  "nodeId": "10518:138086",
+  "variantCount": 4,
+  "properties": "State: Default / Hover / Press; Selected: no / yes",
+  "variants": [
+   {
+    "nodeId": "10508:113364",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "10518:138087",
+    "name": "State=Hover, Selected=no"
+   },
+   {
+    "nodeId": "10524:54572",
+    "name": "State=Press, Selected=no"
+   },
+   {
+    "nodeId": "10524:56432",
+    "name": "State=Default, Selected=yes"
+   }
+  ]
+ },
+ {
+  "name": "Share",
+  "group": "UIkit-Explore",
+  "kind": "COMPONENT_SET",
+  "nodeId": "17980:272092",
+  "variantCount": 2,
+  "properties": "State: Default / Hover; Selected: no",
+  "variants": [
+   {
+    "nodeId": "17980:272093",
+    "name": "State=Default, Selected=no"
+   },
+   {
+    "nodeId": "17980:272096",
+    "name": "State=Hover, Selected=no"
+   }
+  ]
+ },
+ {
+  "name": "explore",
+  "group": "UIkit-Explore",
+  "kind": "COMPONENT",
+  "nodeId": "9748:84276",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "9748:84276",
+    "name": "explore"
+   }
+  ]
+ },
+ {
+  "name": "list",
+  "group": "Section 1",
+  "kind": "COMPONENT_SET",
+  "nodeId": "17713:287527",
+  "variantCount": 2,
+  "properties": "client: Web / APP",
+  "variants": [
+   {
+    "nodeId": "17713:287526",
+    "name": "client=Web"
+   },
+   {
+    "nodeId": "17713:287528",
+    "name": "client=APP"
+   }
+  ]
+ },
+ {
+  "name": "card list",
+  "group": "Section 1",
+  "kind": "COMPONENT",
+  "nodeId": "9806:35821",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "9806:35821",
+    "name": "card list"
+   }
+  ]
+ },
+ {
+  "name": "Favorite",
+  "group": "Section 1",
+  "kind": "COMPONENT",
+  "nodeId": "9748:93139",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "9748:93139",
+    "name": "Favorite"
+   }
+  ]
+ },
+ {
+  "name": "step",
+  "group": "UiKit-Onboarding",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11490:64455",
+  "variantCount": 2,
+  "properties": "Text: TEXT = Role Selection; Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "11490:64441",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "11490:64456",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "group",
+  "group": "UiKit-Onboarding",
+  "kind": "COMPONENT_SET",
+  "nodeId": "11490:64492",
+  "variantCount": 2,
+  "properties": "Text: TEXT = For Myself; Text 2: TEXT = University / Adult; Property 1: Default / Variant2",
+  "variants": [
+   {
+    "nodeId": "11490:64478",
+    "name": "Property 1=Default"
+   },
+   {
+    "nodeId": "11490:64493",
+    "name": "Property 1=Variant2"
+   }
+  ]
+ },
+ {
+  "name": "check box",
+  "group": "UiKit-Onboarding",
+  "kind": "COMPONENT_SET",
+  "nodeId": "17920:142082",
+  "variantCount": 2,
+  "properties": "check: no / yes",
+  "variants": [
+   {
+    "nodeId": "11497:65125",
+    "name": "check=no"
+   },
+   {
+    "nodeId": "17920:142084",
+    "name": "check=yes"
+   }
+  ]
+ },
+ {
+  "name": "card",
+  "group": "UiKit-Onboarding",
+  "kind": "COMPONENT",
+  "nodeId": "11490:65075",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11490:65075",
+    "name": "card"
+   }
+  ]
+ },
+ {
+  "name": "Nav/调研",
+  "group": "UiKit-Onboarding",
+  "kind": "COMPONENT",
+  "nodeId": "11490:64545",
+  "variantCount": null,
+  "properties": "生成任务: BOOLEAN = true",
+  "variants": [
+   {
+    "nodeId": "11490:64545",
+    "name": "Nav/调研"
+   }
+  ]
+ },
+ {
+  "name": "Home-管理员",
+  "group": "管理员",
+  "kind": "COMPONENT",
+  "nodeId": "15733:200392",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "15733:200392",
+    "name": "Home-管理员"
+   }
+  ]
+ },
+ {
+  "name": "Table",
+  "group": "管理员",
+  "kind": "COMPONENT",
+  "nodeId": "12463:104466",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12463:104466",
+    "name": "Table"
+   }
+  ]
+ },
+ {
+  "name": "Accounts",
+  "group": "管理员",
+  "kind": "COMPONENT",
+  "nodeId": "12691:112026",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12691:112026",
+    "name": "Accounts"
+   }
+  ]
+ },
+ {
+  "name": "Home-学生",
+  "group": "学生",
+  "kind": "COMPONENT",
+  "nodeId": "11777:74330",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "11777:74330",
+    "name": "Home-学生"
+   }
+  ]
+ },
+ {
+  "name": "Report",
+  "group": "学生",
+  "kind": "COMPONENT",
+  "nodeId": "12972:47786",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "12972:47786",
+    "name": "Report"
+   }
+  ]
+ },
+ {
+  "name": "Explore",
+  "group": "学生",
+  "kind": "COMPONENT",
+  "nodeId": "16730:142029",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "16730:142029",
+    "name": "Explore"
+   }
+  ]
+ },
+ {
+  "name": "我的计划",
+  "group": "学生",
+  "kind": "COMPONENT",
+  "nodeId": "16678:229782",
+  "variantCount": null,
+  "properties": "无公开属性",
+  "variants": [
+   {
+    "nodeId": "16678:229782",
+    "name": "我的计划"
+   }
+  ]
+ }
+]

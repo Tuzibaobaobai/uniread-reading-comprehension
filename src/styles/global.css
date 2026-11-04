@@ -1,4 +1,14 @@
+@import './uniread-tokens.css';
 @import './tokens.css';
+
+/* UniRead font/primary-font-family: Noto Sans SC, self-hosted (ui-style-kit fonts, SIL OFL — src/assets/fonts/Noto_Sans_SC/OFL.txt) */
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('../assets/fonts/Noto_Sans_SC/NotoSansSC-Variable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
 
 *,
 *::before,
@@ -99,3 +109,10 @@ img { display: block; max-width: 100%; }
 .pill-button.primary { background: var(--accent); border-color: var(--accent); color: var(--text-on-accent); }
 .pill-button.primary.is-dim { opacity: var(--disabled-opacity); }
 @media (hover: hover) and (pointer: fine) { .pill-button.primary:hover:not(:disabled) { background: var(--accent-strong); border-color: var(--accent-strong); } }
+
+/* Noto Sans SC (UniRead's font) draws Latin quotes and apostrophes at full CJK width ("won’ t"). English learning
+   content uses the font's half-width alternates ("halt"; the "pwid" / proportional-width variant has no effect in this
+   build); the Chinese UI chrome keeps standard full-width punctuation. */
+.article, .question-card, .entry, .scan-word, .vq-rows, .vq-table, .speak-card, .part-stack, .rt-note, .playlist-items, .reader-head-title, .item-row-title {
+  font-feature-settings: 'halt';
+}

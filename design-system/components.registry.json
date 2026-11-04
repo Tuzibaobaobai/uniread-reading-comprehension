@@ -1,0 +1,474 @@
+{
+ "note": "Code component ↔ UniRead Figma component (docs/14 §15). status: reuse | extend | proposed | approved | deprecated. Stage 2 mapping: 词汇天天练 (2026-11-04).",
+ "designSystem": "DS-2026-11-03",
+ "components": [
+  {
+   "code": "ui/BackButton",
+   "status": "reuse",
+   "product": "词汇天天练",
+   "description": "顶栏返回按钮",
+   "screens": [
+    "3.03",
+    "3.07",
+    "3.11"
+   ],
+   "figma": {
+    "nodeId": "6270:41344",
+    "name": "Btn-Back",
+    "group": "UIKit-LearnNav",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=6270-41344"
+   },
+   "variants": {
+    "state": "Default"
+   }
+  },
+  {
+   "code": "ui/LearnHeader",
+   "status": "reuse",
+   "product": "词汇天天练",
+   "description": "学习页顶栏：返回 + 资源标题 + 步骤导航",
+   "screens": [
+    "3.03",
+    "3.07",
+    "3.11"
+   ],
+   "figma": {
+    "nodeId": "9172:35493",
+    "name": "Header",
+    "group": "UIKit-LearnNav",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=9172-35493"
+   },
+   "note": "标题通过文本属性覆盖：「第N天 <词条范围>」（i18n）"
+  },
+  {
+   "code": "ui/StepTabs",
+   "status": "extend",
+   "product": "词汇天天练",
+   "description": "速览 / 学习 / 测验 三步导航（#133）",
+   "screens": [
+    "3.03",
+    "3.07",
+    "3.11",
+    "4.01"
+   ],
+   "figma": {
+    "nodeId": "15476:221046",
+    "name": "Tabs",
+    "group": "UIKit-LearnNav",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=15476-221046"
+   },
+   "variants": {
+    "existing": "Step: 1 / 2 / 3（Read / Speak / Quiz）",
+    "add": "Flow: Learn（Read/Speak/Quiz，现有）/ Vocab（速览/学习/测验，新增）× Step 1/2/3",
+    "item": "7805:90511 item（Text、Selected、State）保持不变，通过文本属性写入步骤名"
+   },
+   "note": "设计规范 §07「学习模式」已要求词汇导航使用速览／学习／测验、不与 Read/Speak/Quiz 混用；目前没有对应变体。"
+  },
+  {
+   "code": "ui/StepIcon",
+   "status": "extend",
+   "product": "词汇天天练",
+   "description": "步骤图标：速览、学习",
+   "screens": [
+    "3.03",
+    "3.07"
+   ],
+   "figma": {
+    "nodeId": "8162:32091",
+    "name": "icons",
+    "group": "UIKit-LearnNav",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=8162-32091"
+   },
+   "variants": {
+    "existing": "icon: Read / Speak / Quiz / Recite / Dictation",
+    "add": "icon: Scan（速览）/ Study（学习）"
+   },
+   "note": "需要设计师绘制两个图标；代码目前用占位图标（速览为方块）。"
+  },
+  {
+   "code": "rc/Vocab/ScanCard",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "速览词卡：词头、音标、朗读",
+   "screens": [
+    "3.03",
+    "3.04",
+    "3.05",
+    "4.01"
+   ],
+   "variants": {
+    "Marked": "none / known / unknown",
+    "State": "Default"
+   },
+   "note": "内部复用 UIkit-Read btn-play（3221:7265）作朗读按钮"
+  },
+  {
+   "code": "rc/Vocab/MarkButton",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "认识 / 不认识按钮",
+   "screens": [
+    "3.03",
+    "3.04",
+    "3.05"
+   ],
+   "variants": {
+    "Mark": "know / unknown",
+    "Selected": "no / yes",
+    "State": "Default / Hover / Pressed"
+   },
+   "note": "与 Dictation「btn-加入错词本」语义不同（标记掌握程度，不是加入列表），因此新建"
+  },
+  {
+   "code": "ui/ArrowButton",
+   "status": "reuse",
+   "product": "词汇天天练",
+   "description": "单词翻页：上一个 / 下一个（圆形箭头）",
+   "screens": [
+    "3.03",
+    "3.04"
+   ],
+   "figma": {
+    "nodeId": "12041:88652",
+    "name": "dialog-单词预习（内含箭头按钮）",
+    "group": "UiKit-Vocabulary",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=12041-88652"
+   },
+   "note": "复用该对话框中的圆形箭头按钮实例；阶段 3 确认其主组件 node id，并补 Disabled 变体（若无）"
+  },
+  {
+   "code": "rc/Vocab/ScanSummary",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "速览完成小结：标记统计 + 从头再看 / 去学习",
+   "screens": [
+    "3.06"
+   ],
+   "variants": {
+    "State": "Default"
+   },
+   "note": "按钮复用 UIKit-Quiz button（6433:39508 / 7870:49853）"
+  },
+  {
+   "code": "rc/Vocab/StudyToolbar",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "学习页工具栏：词条数、认识 / 不认识计数、未标记提示、标记图例",
+   "screens": [
+    "3.07",
+    "3.09",
+    "3.10",
+    "4.02"
+   ]
+  },
+  {
+   "code": "rc/Vocab/MarkTag",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "标记标签（三级、G6下U1、▲补充词等）",
+   "screens": [
+    "3.07",
+    "3.10"
+   ],
+   "variants": {
+    "Kind": "level / textbook / supplement / star"
+   }
+  },
+  {
+   "code": "rc/Vocab/EntryCard",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "词条卡：词头、星标、朗读、音标、标签、义项、例句、折叠区（词组 / 词形 / 辨析 / 谚语）、名师点拨",
+   "screens": [
+    "3.07",
+    "3.08",
+    "3.09",
+    "3.10",
+    "3.29"
+   ],
+   "variants": {
+    "Known": "known / unknown / unmarked",
+    "Open": "yes / no",
+    "Kind": "word / phrase"
+   },
+   "note": "认识 = 绿色词头且默认收起；不认识 / 未标记 = 红色且展开（#133）。朗读按钮复用 btn-play。"
+  },
+  {
+   "code": "rc/Vocab/Example",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "例句行：英文（下划线标出词头）+ 朗读 + 中文",
+   "screens": [
+    "3.07",
+    "3.08"
+   ],
+   "variants": {
+    "Audio": "yes / no"
+   }
+  },
+  {
+   "code": "rc/Vocab/TipBox",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "名师点拨（默认收起，#134）",
+   "screens": [
+    "3.08"
+   ],
+   "variants": {
+    "Open": "no / yes"
+   }
+  },
+  {
+   "code": "rc/Vocab/CompareBlock",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "辨析（高考词条）",
+   "screens": [
+    "3.10"
+   ]
+  },
+  {
+   "code": "ui/PartPager",
+   "status": "extend",
+   "product": "词汇天天练",
+   "description": "测验分页：每个 Part 一页，显示 P 号与题号范围",
+   "screens": [
+    "3.11",
+    "3.12",
+    "3.21"
+   ],
+   "figma": {
+    "nodeId": "6346:85439",
+    "name": "page number",
+    "group": "UIKit-Quiz",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=6346-85439"
+   },
+   "variants": {
+    "existing": "Completed: no/yes; State: Default/Hover; Selected: no/yes",
+    "add": "Label（文本属性：题号范围如 1–5）+ Kicker（文本属性：P1）；Result: none / correct / wrong（提交后显示对错图标）"
+   },
+   "note": "提交后的对错图标可复用 quiz result（7870:51523，State: wrong / Default）"
+  },
+  {
+   "code": "ui/QuizButton",
+   "status": "reuse",
+   "product": "词汇天天练",
+   "description": "上一题 / 下一题 / 提交",
+   "screens": [
+    "3.11",
+    "3.16"
+   ],
+   "figma": {
+    "nodeId": "7870:49853",
+    "name": "button（Next）",
+    "group": "UIKit-Quiz",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=7870-49853"
+   },
+   "variants": {
+    "State": "Default / Hover",
+    "Disabled": "no / yes"
+   },
+   "note": "提交用 6433:39508 button（Submit）"
+  },
+  {
+   "code": "rc/Quiz/SectionHeader",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "Part 标题行：Part N + 题型说明 + 已完成 x/y",
+   "screens": [
+    "3.11",
+    "3.12",
+    "3.13",
+    "3.18"
+   ]
+  },
+  {
+   "code": "rc/Quiz/LineInput",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "单行作答输入（下划线式）",
+   "screens": [
+    "3.11",
+    "3.12",
+    "3.13"
+   ],
+   "variants": {
+    "State": "Empty / Focus / Filled",
+    "Result": "none / correct / wrong",
+    "Locked": "no / yes",
+    "Lang": "en / zh"
+   },
+   "note": "i18n placeholder；输入字号 ≥ 16px"
+  },
+  {
+   "code": "rc/Quiz/BlankInput",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "句中空格（首字母前缀、括号原词）",
+   "screens": [
+    "3.14",
+    "3.15",
+    "3.22"
+   ],
+   "variants": {
+    "Prefix": "none / first-letter",
+    "Base": "none / word",
+    "State": "Empty / Focus / Filled",
+    "Result": "none / correct / wrong"
+   },
+   "note": "与时文阅读、KET/PET 的填空共用，阶段 5 合并"
+  },
+  {
+   "code": "rc/Quiz/PosChips",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "词性选择（n. v. adj. …）",
+   "screens": [
+    "3.11"
+   ],
+   "variants": {
+    "Selected": "no / yes",
+    "State": "Default / Hover",
+    "Result": "none / correct / wrong"
+   }
+  },
+  {
+   "code": "rc/Vocab/WordProfileRow",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "音标写词 + 词性 + 中文释义 行",
+   "screens": [
+    "3.11",
+    "3.26"
+   ],
+   "variants": {
+    "Result": "none / correct / wrong / partial",
+    "Locked": "no / yes"
+   }
+  },
+  {
+   "code": "rc/Vocab/WordFamilyRow",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "词形拓展行（相关词 + 中文）",
+   "screens": [
+    "3.13"
+   ],
+   "variants": {
+    "Result": "none / correct / wrong / partial",
+    "Locked": "no / yes"
+   }
+  },
+  {
+   "code": "rc/Vocab/TranslateRow",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "中译英：中文 + 指定词 + 多行输入",
+   "screens": [
+    "3.16",
+    "3.23",
+    "3.28"
+   ],
+   "variants": {
+    "State": "Empty / Filled",
+    "Result": "none / judged"
+   }
+  },
+  {
+   "code": "rc/Quiz/JudgeResult",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "模型评分结果：得分、要点达成、反馈",
+   "screens": [
+    "3.28",
+    "1.16"
+   ],
+   "variants": {
+    "Score": "full / partial / zero"
+   },
+   "note": "时文阅读开放题共用"
+  },
+  {
+   "code": "rc/Vocab/PhraseBank",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "词组日中文词组方框（点选划掉）",
+   "screens": [
+    "3.17"
+   ],
+   "variants": {
+    "Used": "no / yes"
+   }
+  },
+  {
+   "code": "rc/Quiz/TableFill",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "表格填空（第 69–70 天）",
+   "screens": [
+    "3.18",
+    "3.19",
+    "3.20",
+    "3.31"
+   ],
+   "variants": {
+    "Cell": "header / text / blank"
+   },
+   "note": "答案格复用 rc/Quiz/BlankInput"
+  },
+  {
+   "code": "ui/QuizResult",
+   "status": "extend",
+   "product": "词汇天天练",
+   "description": "测验结果卡：通过 / 未通过、得分、各 Part 对错、查看答案 / 只练错题 / 全部重做",
+   "screens": [
+    "3.24",
+    "3.25"
+   ],
+   "figma": {
+    "nodeId": "12409:145740",
+    "name": "Result",
+    "group": "UIKit-Quiz",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=12409-145740"
+   },
+   "variants": {
+    "existing": "Pass: no / yes / Pass3（View Answers / Try Again 两个入口）",
+    "add": "Actions: view-answers / retry-mistakes / retry-all（三个入口）；Part 标签（文本属性）"
+   },
+   "note": "各 Part 对错图标复用 quiz result（12409:123905）"
+  },
+  {
+   "code": "rc/Quiz/AnswerFeedback",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "复盘答案框：正确答案、得分、解析、查看词条",
+   "screens": [
+    "3.26",
+    "3.27",
+    "3.31"
+   ],
+   "variants": {
+    "Result": "correct / wrong / partial"
+   },
+   "note": "与 option-text-item 的「正确-展开」不同：这里显示的是填空 / 翻译题的答案与解析"
+  },
+  {
+   "code": "rc/Vocab/EntryDialog",
+   "status": "proposed",
+   "product": "词汇天天练",
+   "description": "查看词条弹层",
+   "screens": [
+    "3.29"
+   ],
+   "note": "内容为 rc/Vocab/EntryCard；关闭按钮复用 UIKit-LearnNav btn-close（7870:43771）"
+  },
+  {
+   "code": "ui/Loading",
+   "status": "reuse",
+   "product": "词汇天天练",
+   "description": "整页加载遮罩（#107）",
+   "screens": [],
+   "note": "来自 ui-style-kit（UniRead 下发），不是 Figma 组件"
+  }
+ ]
+}

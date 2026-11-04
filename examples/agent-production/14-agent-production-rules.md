@@ -6,7 +6,7 @@
 
 交付可还原布局与交互的源码、字体／图片及构建依赖。以相同内容、视口、回答与位置对照来源页面、打包产物、平台容器，并记录交互证据；截图或保存成功不能替代原样还原验收。
 
-版本：0.12，2026-11-03（新增第14节：静态资产与OSS上传，#130；0.11新增第13节：界面文案双语与页面加载）。对象：内容生产同事、Codex、Claude Code。本文规定生产输入和交付要求；平台解析／入库问题由接入方处理，不要求生产者填写数据库字段。RC是来源实现，不是UniRead标准。文中的“必须／不得”为交付要求，“待补／未验证”为合法但未完成的状态。本版同步RC当前稳定ID校验及既有媒体／截图／版本绑定流程；继续要求同类资源遵守既定规约，明确数据语义、源码依赖与验证责任；不把组件拆分固化为上游契约，也不要求保留旧测试答案、成绩或历史。
+版本：0.13，2026-11-04（新增第15节：UniRead设计系统——token、组件与版本；0.12新增第14节：静态资产与OSS上传，#130；0.11新增第13节：界面文案双语与页面加载）。对象：内容生产同事、Codex、Claude Code。本文规定生产输入和交付要求；平台解析／入库问题由接入方处理，不要求生产者填写数据库字段。RC是来源实现，不是UniRead标准。文中的“必须／不得”为交付要求，“待补／未验证”为合法但未完成的状态。本版同步RC当前稳定ID校验及既有媒体／截图／版本绑定流程；继续要求同类资源遵守既定规约，明确数据语义、源码依赖与验证责任；不把组件拆分固化为上游契约，也不要求保留旧测试答案、成绩或历史。
 
 ## 0. 只收到两个文件时，如何使用
 
@@ -363,3 +363,43 @@ UniRead平台接入方下发的规范独立存放在原RC仓库的`docs/uniread-
 - 2026-11-03 已收到私下交接的profile：测试与生产共用同一资源bucket、同一长期AccessKey（非STS），因此测试上传即写入生产所用存储，不能靠profile名称隔离。该Key可读单个对象，不能列举bucket。只读核对：KET第1套计划中合集封面已存在于同一`exam-media/v1/<sha256>.jpg`键（BE此前上传），图片键规则与BE实际产物一致；音频对象因releaseId为新生成而尚不存在。
 - 真实上传（试点）须经用户确认后执行；BE的预上传素材验真模式（不再PUT）尚待BE实现。
 
+## 15. UniRead 设计系统：token、组件与版本（`uniread-spec/design-system`）
+
+设计系统原文与快照见`docs/uniread-spec/design-system/`（UniRead设计师维护）。本节是RC的落实流程，适用于全部界面和今后新增的内容类型。
+
+### 15.1 五条规则
+
+1. **token唯一来源是Figma。** 视觉值只来自`src/styles/uniread-tokens.css`中的`--ur-*`，由`scripts/ds-build.ts`从`design-system/tokens/`生成，不手写。`src/styles/tokens.css`是过渡层：旧名指向`--ur-*`；仍是字面量的，是等待提案的缺口（`design-system/migrations/legacy-tokens.md`）。
+2. **一个Figma组件集对应一个代码组件**（`src/ui/<Component>/`），variant属性就是组件props。写回Figma时，画面只由组件实例组成（`use_figma`），不用html_to_figma。
+3. **先复用，再扩展，最后新建。** 状态登记在`design-system/components.registry.json`：
+   - `reuse`：直接用UniRead组件。
+   - `extend`：给已有组件集加variant，待批准。
+   - `proposed`：新组件，待批准。
+   - `approved`：已并入UIKit。
+   - `deprecated`：已废弃，等待迁移。
+4. **variant按业务维度拆开**，如State、Selected、Correctness、Locked、Size，不压进一个`Property 1`，也不拆散实例来模拟变体。
+5. **一切绑定设计系统版本。** `design-system/lock.json`固定当前版本；交接文档写明所用版本。
+
+### 15.2 流程
+
+| 阶段 | 做什么 | 产物 |
+| --- | --- | --- |
+| 1 同步 | `npx tsx scripts/ds-sync.ts --snapshot <设计规范.html>`或`--figma`（Variables REST API，`FIGMA_TOKEN`）→ `npx tsx scripts/ds-build.ts`；已有旧版本时生成差异报告 | `design-system/lock.json`、`tokens/uniread.tokens.json`、`components.inventory.json`、`uniread-tokens.css` |
+| 2 映射 | 每个界面状态的每个元素对应到「UniRead组件 + variant」或token，列出缺口：缺variant、缺组件、缺token（语义 / 间距） | 登记表条目（`design-system/components.registry.json`）、可读表格`docs/design/component-registry.md`（`npx tsx scripts/ds-registry.ts`生成）、token缺口`design-system/migrations/legacy-tokens.md` |
+| 3 提案 | 在UniRead文件的「RC · Proposed」页面用`use_figma`建立：<br>• `RC/<领域>/<名称>`组件集：auto-layout，变量绑定，内容通过TEXT / BOOLEAN / INSTANCE_SWAP属性公开，description写Status: Proposed。<br>• 已有组件的副本加新variant，标注Extends。<br>• 提案变量集合「RC Semantic (proposed)」「RC Spacing (proposed)」，别名指向Primitive。<br>每个提案开一个GitHub issue，label `design-proposal`。 | Figma提案页、`tokens/rc-proposed.tokens.json`、issue |
+| 4 评审 | UniRead设计师评论、修改或批准。批准后由设计师并入UIKit并发布，RC重新同步，登记表改为`approved` | 新版本lock |
+| 5 代码 | `src/ui`组件只用`--ur-*`，props与variant一一对应；Code Connect链接到Figma组件；页面只组合`src/ui`组件 | 组件、`.figma.tsx` |
+| 6 写回 | 每个界面状态用组件实例搭建frame，放在「RC · Screens · <DS版本>」页，提案组件标Proposed | Figma画面 |
+| 7 验证 | 门禁、e2e、视觉回归；设计师在Figma上签字确认；交接文档记录DS版本与提案状态 | 交接文档 |
+
+### 15.3 门禁（`npm test`）
+
+`scripts/ds-check.ts`：
+- 出现锁定版本中不存在的`--ur-*`，或字体不是token时，直接失败。
+- 硬编码颜色和`tokens.css`中的遗留字面量按文件计数，只能减少（基线`design-system/check-baseline.json`）。迁移后用`--update`降低基线，不得用它掩盖新增的字面量。
+- 组件登记表：状态必须有效；`reuse`、`extend`、`approved`的条目必须指向锁定版本组件清单中的node id；`proposed`组件必须以`rc/`命名。
+
+### 15.4 设计系统升级与新内容类型
+
+- **升级：** 同步新版本 → 差异报告（增 / 删 / 改名 / 改值、组件属性变化）→ 迁移PR → 门禁与视觉回归 → 更新lock，并在`design-system/migrations/`留记录。删除或改名先标`deprecated`，留出过渡期。
+- **新内容类型：** 设计UI前先完成阶段2的映射；有缺口先走阶段3–4，再写代码。交付时要有组件化写回的Figma画面、登记表更新、`ds-check`通过，交接文档写明DS版本。

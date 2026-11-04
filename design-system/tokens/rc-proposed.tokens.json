@@ -1,0 +1,70 @@
+{
+  "$description": "RC proposals to the UniRead design system (docs/14 §15, stage 3) — pending approval by the UniRead designer. Semantic colours alias existing UniRead primitives / paint styles (the design system's own P1: 'add a Semantic role collection'); spacing / size are new scales. Edited by hand; ds-build marks every token 'proposed'.",
+  "variables": {
+    "color": {
+      "text": {
+        "primary": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/Customization/Grey/13(text)", "use": "body and titles" } } },
+        "strong": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/Customization/Grey/12", "use": "emphasised labels" } } },
+        "secondary": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/Customization/Grey/10", "use": "meta, captions" } } },
+        "tertiary": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/Customization/Grey/9", "use": "placeholders, hints" } } },
+        "on-action": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "color/white/100", "use": "text on brand fill" } } },
+        "answer": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/Customization/Primary Blue/Cyan", "use": "the learner's typed answers (must differ from vocab highlight)" } } }
+      },
+      "icon": {
+        "strong": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/Customization/Grey/14", "use": "dark chevrons / select icons" } } }
+      },
+      "background": {
+        "page": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/Customization/Grey/2" } } },
+        "card": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "color/white/100" } } },
+        "subtle": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/Customization/Grey/2" } } },
+        "track": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/Customization/Grey/4", "use": "audio / progress track" } } },
+        "highlight": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/Customization/Chart/1 #3", "use": "evidence sentence in the article" } } },
+        "highlight-strong": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/Customization/Chart/2 #3", "use": "locate flash" } } },
+        "overlay-panel": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "color/white/80" } } }
+      },
+      "border": {
+        "default": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/Customization/Grey/7" } } },
+        "radio": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/Customization/Grey/9" } } },
+        "divider": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/Customization/Grey/5(divider)" } } }
+      },
+      "action": {
+        "primary": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "color/brand/6" } } },
+        "primary-soft": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "color/brand/2", "use": "selected / active backgrounds" } } },
+        "primary-strong": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "color/brand/7", "use": "accent text on white" } } }
+      },
+      "feedback": {
+        "success": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/Customization/State/finished-light" } } },
+        "success-bg": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/success-bg" } } },
+        "error": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/Customization/State/wrong-light" } } },
+        "error-bg": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/error-bg" } } },
+        "warning": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "paint/Customization/State/hint-light", "use": "flagged question" } } }
+      },
+      "overlay": {
+        "backdrop": { "$type": "color", "$value": null, "$extensions": { "rc": { "alias": "color/black/40", "use": "dialog backdrop" } } }
+      }
+    },
+    "space": {
+      "2": { "$type": "dimension", "$value": "2px" },
+      "4": { "$type": "dimension", "$value": "4px" },
+      "8": { "$type": "dimension", "$value": "8px" },
+      "12": { "$type": "dimension", "$value": "12px" },
+      "16": { "$type": "dimension", "$value": "16px" },
+      "20": { "$type": "dimension", "$value": "20px" },
+      "24": { "$type": "dimension", "$value": "24px" },
+      "32": { "$type": "dimension", "$value": "32px" },
+      "40": { "$type": "dimension", "$value": "40px" },
+      "48": { "$type": "dimension", "$value": "48px" },
+      "64": { "$type": "dimension", "$value": "64px" },
+      "80": { "$type": "dimension", "$value": "80px" }
+    },
+    "size": {
+      "touch-target": { "$type": "dimension", "$value": "44px", "$extensions": { "rc": { "use": "minimum tap target (WCAG 2.5.5 / Apple HIG); at the 1000px design width" } } },
+      "icon": {
+        "s": { "$type": "dimension", "$value": "20px" },
+        "m": { "$type": "dimension", "$value": "24px" },
+        "l": { "$type": "dimension", "$value": "32px" },
+        "xl": { "$type": "dimension", "$value": "40px" }
+      }
+    }
+  }
+}
