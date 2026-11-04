@@ -323,9 +323,9 @@
    },
    "variants": {
     "existing": "Completed: no/yes; State: Default/Hover; Selected: no/yes",
-    "add": "Label（文本属性：题号范围如 1–5）+ Kicker（文本属性：P1）；Result: none / correct / wrong（提交后显示对错图标）"
+    "add": "Label（文本属性：题号范围如 1–5）+ Kicker（文本属性：P1）；Result: none / correct / wrong（提交后显示对错图标），含当前部分 Selected=yes × correct / wrong"
    },
-   "note": "提交后的对错图标可复用 quiz result（7870:51523，State: wrong / Default）",
+   "note": "对错图标复用 UniRead quiz result：错 7870:51523（State=Default），对 12409:123905（State=Default）",
    "figmaProposal": {
     "nodeId": "19448:750",
     "page": "RC · Proposed",
@@ -654,6 +654,12 @@
    "RC Spacing (proposed)",
    "RC Size (proposed)"
   ]
+ },
+ "screensPage": {
+  "nodeId": "19451:468",
+  "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19451-468",
+  "name": "RC · Screens · DS-2026-11-03",
+  "screens": "3.03–3.31 (词汇天天练, 29 frames, instances only; the caption above each frame lists proposed / extended / reused components)"
  },
  "proposalIssue": "#138"
 }
