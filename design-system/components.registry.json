@@ -5,9 +5,15 @@
   {
    "code": "ui/BackButton",
    "status": "reuse",
-   "product": "词汇天天练",
+   "product": "词汇天天练 · 时文阅读 · 真题 KET/PET",
    "description": "顶栏返回按钮",
    "screens": [
+    "1.01",
+    "1.04",
+    "1.05",
+    "1.06",
+    "1.18",
+    "2.01",
     "3.03",
     "3.07",
     "3.11"
@@ -25,9 +31,13 @@
   {
    "code": "ui/LearnHeader",
    "status": "reuse",
-   "product": "词汇天天练",
+   "product": "词汇天天练 · 时文阅读",
    "description": "学习页顶栏：返回 + 资源标题 + 步骤导航",
    "screens": [
+    "1.04",
+    "1.05",
+    "1.06",
+    "1.18",
     "3.03",
     "3.07",
     "3.11"
@@ -74,9 +84,11 @@
   {
    "code": "ui/StepIcon",
    "status": "extend",
-   "product": "词汇天天练",
+   "product": "词汇天天练 · 时文阅读",
    "description": "步骤图标：速览、学习",
    "screens": [
+    "0.01",
+    "0.02",
     "3.03",
     "3.07"
    ],
@@ -308,9 +320,17 @@
   {
    "code": "ui/PartPager",
    "status": "extend",
-   "product": "词汇天天练",
+   "product": "词汇天天练 · 时文阅读 · 真题 KET/PET",
    "description": "测验分页：每个 Part 一页，显示 P 号与题号范围",
    "screens": [
+    "1.02",
+    "1.03",
+    "1.04",
+    "1.05",
+    "1.06",
+    "1.16",
+    "1.18",
+    "2.03",
     "3.11",
     "3.12",
     "3.21"
@@ -323,9 +343,14 @@
    },
    "variants": {
     "existing": "Completed: no/yes; State: Default/Hover; Selected: no/yes",
-    "add": "Label（文本属性：题号范围如 1–5）+ Kicker（文本属性：P1）；Result: none / correct / wrong（提交后显示对错图标），含当前部分 Selected=yes × correct / wrong"
+    "add": "Label（文本属性：题号范围如 1–5）+ Kicker（文本属性：P1）；Result: none / correct / wrong（提交后显示对错图标），含当前部分 Selected=yes × correct / wrong",
+    "Kicker": "BOOLEAN（新增）",
+    "Label": "number / range",
+    "Result": "none / correct / wrong",
+    "Flagged": "no / yes（新增）",
+    "Tone": "default / pending（新增）"
    },
-   "note": "对错图标复用 UniRead quiz result：错 7870:51523（State=Default），对 12409:123905（State=Default）",
+   "note": "对错图标复用 UniRead quiz result：错 7870:51523（State=Default），对 12409:123905（State=Default）；时文 / 真题题号复用：Kicker 可省（逐题时不加 part-start），新增 Label number / range、Flagged、Tone pending（提交确认里的未答题号）",
    "figmaProposal": {
     "nodeId": "19448:750",
     "page": "RC · Proposed",
@@ -337,9 +362,21 @@
   {
    "code": "ui/QuizButton",
    "status": "reuse",
-   "product": "词汇天天练",
+   "product": "词汇天天练 · 时文阅读 · 真题 KET/PET",
    "description": "上一题 / 下一题 / 提交",
    "screens": [
+    "1.02",
+    "1.03",
+    "1.04",
+    "1.05",
+    "1.06",
+    "1.07",
+    "1.09",
+    "1.14",
+    "1.18",
+    "2.05",
+    "2.11",
+    "2.12",
     "3.11",
     "3.16"
    ],
@@ -359,9 +396,11 @@
   {
    "code": "rc/Quiz/SectionHeader",
    "status": "proposed",
-   "product": "词汇天天练",
+   "product": "词汇天天练 · 时文阅读",
    "description": "Part 标题行：Part N + 题型说明 + 已完成 x/y",
    "screens": [
+    "1.05",
+    "1.18",
     "3.11",
     "3.12",
     "3.13",
@@ -373,7 +412,8 @@
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19446-576"
    },
    "issue": "#138",
-   "source": "src/ui/quiz/SectionHeader/SectionHeader.tsx"
+   "source": "src/ui/quiz/SectionHeader/SectionHeader.tsx",
+   "note": "时文的 Part 说明；真题左栏标题不是它（见 rc/Read/ArticleHeader）"
   },
   {
    "code": "rc/Quiz/LineInput",
@@ -403,9 +443,14 @@
   {
    "code": "rc/Quiz/BlankInput",
    "status": "proposed",
-   "product": "词汇天天练",
+   "product": "词汇天天练 · 时文阅读 · 真题 KET/PET",
    "description": "句中空格（首字母前缀、括号原词）",
    "screens": [
+    "1.11",
+    "1.12",
+    "1.13",
+    "2.08",
+    "2.17",
     "3.14",
     "3.15",
     "3.22"
@@ -414,9 +459,10 @@
     "Prefix": "none / first-letter",
     "Base": "none / word",
     "State": "Empty / Focus / Filled",
-    "Result": "none / correct / wrong"
+    "Result": "none / correct / wrong",
+    "Answer": "none / shown（复盘显示正确答案；先对比 UIKit-Dictation / letter 15574:133178）"
    },
-   "note": "与时文阅读、KET/PET 的填空共用，阶段 5 合并；code: shared src/reader/interactions (BlankInput / JudgeMarks); moves to src/ui with the reader migration",
+   "note": "与时文阅读、KET/PET 的填空共用，阶段 5 合并；code: shared src/reader/interactions (BlankInput / JudgeMarks); moves to src/ui with the reader migration；时文表格 / 短文 / 句子填空与真题笔记填空、开放完形共用；src/reader/interactions 的 BlankInput 移入 src/ui",
    "figmaProposal": {
     "nodeId": "19446:609",
     "page": "RC · Proposed",
@@ -511,16 +557,20 @@
   {
    "code": "rc/Quiz/JudgeResult",
    "status": "proposed",
-   "product": "词汇天天练",
+   "product": "词汇天天练 · 时文阅读 · 真题 KET/PET",
    "description": "模型评分结果：得分、要点达成、反馈",
    "screens": [
-    "3.28",
-    "1.16"
+    "1.16",
+    "2.20",
+    "3.28"
    ],
    "variants": {
-    "Score": "full / partial / zero"
+    "Score": "full / partial / zero",
+    "Pending": "no / yes",
+    "Rubric": "points / cambridge",
+    "NeedsReview": "no / yes"
    },
-   "note": "时文阅读开放题共用；code: shared src/reader/interactions (BlankInput / JudgeMarks); moves to src/ui with the reader migration",
+   "note": "时文阅读开放题共用；code: shared src/reader/interactions (BlankInput / JudgeMarks); moves to src/ui with the reader migration；时文回答问题与真题写作 / 口语共用",
    "figmaProposal": {
     "nodeId": "19446:739",
     "page": "RC · Proposed",
@@ -550,18 +600,23 @@
   {
    "code": "rc/Quiz/TableFill",
    "status": "proposed",
-   "product": "词汇天天练",
+   "product": "词汇天天练 · 时文阅读 · 真题 KET/PET",
    "description": "表格填空（第 69–70 天）",
    "screens": [
+    "1.11",
+    "2.11",
+    "2.12",
+    "2.13",
     "3.18",
     "3.19",
     "3.20",
     "3.31"
    ],
    "variants": {
-    "Cell": "header / text / blank"
+    "Cell": "header / text / blank / score（新增）",
+    "Caption": "BOOLEAN（新增）"
    },
-   "note": "答案格复用 rc/Quiz/BlankInput",
+   "note": "答案格复用 rc/Quiz/BlankInput；扩展为通用表格：文章表格、表格填空、成绩得分表",
    "figmaProposal": {
     "nodeId": "19446:779",
     "page": "RC · Proposed",
@@ -601,17 +656,32 @@
   {
    "code": "rc/Quiz/AnswerFeedback",
    "status": "proposed",
-   "product": "词汇天天练",
+   "product": "词汇天天练 · 时文阅读 · 真题 KET/PET",
    "description": "复盘答案框：正确答案、得分、解析、查看词条",
    "screens": [
+    "1.05",
+    "1.06",
+    "1.09",
+    "1.10",
+    "1.11",
+    "1.12",
+    "1.13",
+    "1.14",
+    "1.16",
+    "1.17",
+    "2.15",
+    "2.22",
     "3.26",
     "3.27",
     "3.31"
    ],
    "variants": {
-    "Result": "correct / wrong / partial"
+    "Result": "correct / wrong / partial / none",
+    "Head": "no / yes（新增：图标 + 正确 / 错误 / 得 x/y 分）",
+    "Action": "BOOLEAN（新增：定位原文 chip）",
+    "Size": "default / compact（新增：真题 Part 结束后的逐题解析）"
    },
-   "note": "与 option-text-item 的「正确-展开」不同：这里显示的是填空 / 翻译题的答案与解析",
+   "note": "与 option-text-item 的「正确-展开」不同：这里显示的是填空 / 翻译题的答案与解析；时文与真题复盘共用；e2e 选择器 .explain / .explain-text 要保留或同步改测试",
    "figmaProposal": {
     "nodeId": "19446:804",
     "page": "RC · Proposed",
@@ -640,10 +710,1181 @@
   {
    "code": "ui/Loading",
    "status": "reuse",
-   "product": "词汇天天练",
+   "product": "词汇天天练 · 时文阅读 · 真题 KET/PET",
    "description": "整页加载遮罩（#107）",
-   "screens": [],
+   "screens": [
+    "0.01",
+    "1.01",
+    "2.01"
+   ],
    "note": "来自 ui-style-kit（UniRead 下发），不是 Figma 组件"
+  },
+  {
+   "code": "ui/SegmentedTabs",
+   "status": "reuse",
+   "product": "时文阅读",
+   "description": "窄屏「文章 / 题目」切换（< 1024px）",
+   "screens": [
+    "1.04",
+    "1.05",
+    "1.06",
+    "1.18"
+   ],
+   "figma": {
+    "nodeId": "13237:101204",
+    "name": "tab item",
+    "group": "UIKit-Ranking",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=13237-101204"
+   },
+   "variants": {
+    "State": "Default / Selected"
+   },
+   "note": "容器先核对 UIKit-SignUp&Login / Tabs 7301:62623 是否配套",
+   "issue": "#138"
+  },
+  {
+   "code": "ui/FavoriteButton",
+   "status": "reuse",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "合集页收藏",
+   "screens": [
+    "1.01",
+    "2.01"
+   ],
+   "figma": {
+    "nodeId": "18644:121797",
+    "name": "Favorite",
+    "group": "UIKit-Playlist",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=18644-121797"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "ui/GroupTitle",
+   "status": "reuse",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "合集页分组标题（Week N / Test N）",
+   "screens": [
+    "1.01",
+    "2.01"
+   ],
+   "figma": {
+    "nodeId": "13263:223981",
+    "name": "group title",
+    "group": "UIKit-Ranking",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=13263-223981"
+   },
+   "note": "KET/PET 套题成绩徽标用 RC/Common/Tag",
+   "issue": "#138"
+  },
+  {
+   "code": "ui/ProgressBar",
+   "status": "reuse",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "合集条目进度条",
+   "screens": [
+    "1.01",
+    "2.01"
+   ],
+   "figma": {
+    "nodeId": "10539:77875",
+    "name": "progress",
+    "group": "UIKit-Playlist",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=10539-77875"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "ui/CloseButton",
+   "status": "reuse",
+   "product": "真题 KET/PET",
+   "description": "对话框关闭 ×",
+   "screens": [
+    "2.02",
+    "2.12"
+   ],
+   "figma": {
+    "nodeId": "7870:43771",
+    "name": "btn-close",
+    "group": "UIKit-LearnNav",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=7870-43771"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "ui/LinkButton",
+   "status": "reuse",
+   "product": "真题 KET/PET",
+   "description": "文中链接按钮（成绩报告「换算表」）",
+   "screens": [
+    "2.11"
+   ],
+   "figma": {
+    "nodeId": "10817:60790",
+    "name": "link",
+    "group": "UIKit-Notes",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=10817-60790"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "ui/ResultMark",
+   "status": "reuse",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "对 / 错标记（解析头、评分要点）",
+   "screens": [
+    "1.05",
+    "1.06",
+    "1.16",
+    "2.15",
+    "2.20",
+    "2.22"
+   ],
+   "figma": {
+    "nodeId": "7934:91998",
+    "name": "correct",
+    "group": "UIKit-Quiz",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=7934-91998"
+   },
+   "variants": {
+    "Result": "correct / wrong"
+   },
+   "note": "错用 UIKit-Quiz / wrong 7870:49566",
+   "issue": "#138"
+  },
+  {
+   "code": "ui/ListenButton",
+   "status": "reuse",
+   "product": "真题 KET/PET",
+   "description": "听题 / 听搭档 / 开始播放听力",
+   "screens": [
+    "2.03",
+    "2.25",
+    "2.26",
+    "2.27",
+    "2.29"
+   ],
+   "figma": {
+    "nodeId": "9017:35320",
+    "name": "btn-listen",
+    "group": "UIkit-Speak",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=9017-35320"
+   },
+   "variants": {
+    "state": "Disabled / Default / Hover …（按源组件）"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "ui/PlaybackButton",
+   "status": "reuse",
+   "product": "真题 KET/PET",
+   "description": "口语回放",
+   "screens": [
+    "2.25",
+    "2.27"
+   ],
+   "figma": {
+    "nodeId": "9017:39283",
+    "name": "btn-playback",
+    "group": "UIkit-Speak",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=9017-39283"
+   },
+   "variants": {
+    "Generating Score": "BOOLEAN"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "ui/quiz/OptionItem",
+   "status": "extend",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "单选 / 判断 / 图片选项行（含正确选项解析展开）",
+   "screens": [
+    "1.02",
+    "1.03",
+    "1.05",
+    "1.06",
+    "1.07",
+    "1.08",
+    "1.17",
+    "2.09",
+    "2.14",
+    "2.16"
+   ],
+   "figma": {
+    "nodeId": "7301:61934",
+    "name": "option-text-item",
+    "group": "UIKit-Quiz",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=7301-61934"
+   },
+   "variants": {
+    "state": "Default / Hover / 错误 / 正确（新增，收起）/ 正确-展开",
+    "checked": "no / yes",
+    "Size": "default / compact（新增，五题同页 / 告示）",
+    "Media": "text / image（新增）",
+    "Locked": "no / yes（新增，复盘只读）",
+    "Locate": "BOOLEAN（新增，解析里的定位原文）"
+   },
+   "note": "单选圈复用 UIKit-Quiz / Type 6759:44371；判断题 T/F 不显示字母",
+   "issue": "#138"
+  },
+  {
+   "code": "ui/quiz/RadioMark",
+   "status": "extend",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "单独使用的单选圈（KET 阅读 Part 2 网格）",
+   "screens": [
+    "1.02",
+    "1.03",
+    "1.05",
+    "1.07",
+    "1.08",
+    "1.17",
+    "2.15"
+   ],
+   "figma": {
+    "nodeId": "6759:44371",
+    "name": "Type",
+    "group": "UIKit-Quiz",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=6759-44371"
+   },
+   "variants": {
+    "Type": "单选",
+    "Check": "no / yes",
+    "Tone": "accent / success / danger（新增）"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "ui/quiz/QuestionNav",
+   "status": "extend",
+   "product": "时文阅读",
+   "description": "题目页底部导航：上一题、题号条、下一题 / 提交",
+   "screens": [
+    "1.04",
+    "1.05",
+    "1.06",
+    "1.18"
+   ],
+   "figma": {
+    "nodeId": "7870:51500",
+    "name": "pagination",
+    "group": "UIKit-Quiz",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=7870-51500"
+   },
+   "variants": {
+    "Overflow": "none / start / end / both（新增：‹ +N / +N › 更多按钮）"
+   },
+   "note": "「更多」按钮在 Figma 里是 pagination 的新变体，不单独成组件",
+   "issue": "#138"
+  },
+  {
+   "code": "ui/PlaylistCard",
+   "status": "extend",
+   "product": "时文阅读",
+   "description": "首页合集卡片（封面、标题、信息、题型图标）",
+   "screens": [
+    "0.01",
+    "0.02"
+   ],
+   "figma": {
+    "nodeId": "6583:11904",
+    "name": "Web-card",
+    "group": "UIKit-学生-首页",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=6583-11904"
+   },
+   "variants": {
+    "Locale": "zh-CN / en-US",
+    "Icons": "INSTANCE_SWAP（ui/StepIcon）"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "ui/PlaylistItem",
+   "status": "extend",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "合集条目行（序号、文字缩略图、标题、信息行、进度、成绩）",
+   "screens": [
+    "1.01",
+    "2.01"
+   ],
+   "figma": {
+    "nodeId": "6587:2549",
+    "name": "video list item",
+    "group": "UIKit-Playlist",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=6587-2549"
+   },
+   "variants": {
+    "Thumb": "image / text（新增，RC/Common/TextThumb）",
+    "Score": "BOOLEAN（新增，真题成绩）",
+    "State": "Default / Hover / Done"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "ui/Highlight",
+   "status": "extend",
+   "product": "时文阅读",
+   "description": "原文证据句高亮与定位闪烁",
+   "screens": [
+    "1.06"
+   ],
+   "figma": {
+    "nodeId": "15398:105249",
+    "name": "highlight",
+    "group": "UIkit-Read",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=15398-105249"
+   },
+   "variants": {
+    "row": "1 / 2 / 3 / 4",
+    "Emphasis": "evidence / flash（新增）"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "ui/OrderChunk",
+   "status": "extend",
+   "product": "时文阅读",
+   "description": "连词成句的词块（词池 / 已放置）",
+   "screens": [
+    "1.14"
+   ],
+   "figma": {
+    "nodeId": "15504:106347",
+    "name": "item-hug",
+    "group": "UIKit-Dictation",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=15504-106347"
+   },
+   "variants": {
+    "Placed": "no / yes（新增）",
+    "Result": "none / correct / wrong（新增）"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "ui/exam/ModeMenu",
+   "status": "extend",
+   "product": "真题 KET/PET",
+   "description": "真题模式切换下拉菜单",
+   "screens": [
+    "2.04"
+   ],
+   "figma": {
+    "nodeId": "6759:5518",
+    "name": "dropdown",
+    "group": "UIKit-LearnNav",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=6759-5518"
+   },
+   "variants": {
+    "Checked": "no / yes（新增，当前模式打勾）"
+   },
+   "note": "菜单项沿用 LearnNav item 13054:56538",
+   "issue": "#138"
+  },
+  {
+   "code": "ui/ChoiceCard",
+   "status": "extend",
+   "product": "真题 KET/PET",
+   "description": "选择卡片：练习 / 考试模式、PET 写作二选一任务、成绩页操作卡",
+   "screens": [
+    "2.02",
+    "2.24"
+   ],
+   "figma": {
+    "nodeId": "12409:145227",
+    "name": "item",
+    "group": "UIKit-Quiz",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=12409-145227"
+   },
+   "variants": {
+    "Selected": "no / yes",
+    "Tag": "BOOLEAN（未选择 / 已选）",
+    "Disabled": "no / yes"
+   },
+   "note": "合并 .mode-option、.task-card、QuizResult .vq-result-card",
+   "issue": "#138"
+  },
+  {
+   "code": "ui/exam/SkillScore",
+   "status": "extend",
+   "product": "真题 KET/PET",
+   "description": "成绩报告技能卡（技能 · 换算分 · 等级 · 原始分）",
+   "screens": [
+    "2.11"
+   ],
+   "figma": {
+    "nodeId": "13621:128302",
+    "name": "data card",
+    "group": "UIKit-Dashboard",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=13621-128302"
+   },
+   "variants": {
+    "Pending": "no / yes（新增，写作 / 口语待评）"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "ui/LetterBadge",
+   "status": "extend",
+   "product": "真题 KET/PET",
+   "description": "字母圆标（词库、连线、网格、配对）",
+   "screens": [
+    "2.10",
+    "2.21"
+   ],
+   "figma": {
+    "nodeId": "18140:222459",
+    "name": "num",
+    "group": "Learn",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=18140-222459"
+   },
+   "variants": {
+    "Filled": "no / yes",
+    "Tone": "neutral / accent / success / danger",
+    "Size": "s / m"
+   },
+   "note": "合并 .bank-letter、.match-badge、.match-board-badge/-letter、.part-grid-letter；先与 UIKit-Report / num 10651:61377 对比",
+   "issue": "#138"
+  },
+  {
+   "code": "ui/AudioPlayer",
+   "status": "extend",
+   "product": "真题 KET/PET",
+   "description": "练习模式听力播放器（进度 + 后退 / 播放 / 前进）",
+   "screens": [
+    "2.03",
+    "2.07"
+   ],
+   "figma": {
+    "nodeId": "11728:110946",
+    "name": "player",
+    "group": "UIkit-Read",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=11728-110946"
+   },
+   "variants": {
+    "Mode": "practice / exam（新增：考试模式只显示进度）"
+   },
+   "note": "后退 / 前进 5 秒用 UIkit-Read / btn-before 3221:7318（前进为镜像，新增 Direction: back / forward）",
+   "issue": "#138"
+  },
+  {
+   "code": "ui/SpeakButton",
+   "status": "extend",
+   "product": "真题 KET/PET",
+   "description": "回答 / 录音中 Ns / 识别中",
+   "screens": [
+    "2.25",
+    "2.26",
+    "2.27",
+    "2.28"
+   ],
+   "figma": {
+    "nodeId": "9017:38080",
+    "name": "btn-speak",
+    "group": "UIkit-Speak",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=9017-38080"
+   },
+   "variants": {
+    "state": "按源组件",
+    "Recording": "no / yes（新增，计时）",
+    "Recognising": "no / yes（新增）"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "ui/SpeakCard",
+   "status": "extend",
+   "product": "真题 KET/PET",
+   "description": "口语题卡（n/N、角色、考官句、你的回答）",
+   "screens": [
+    "2.25",
+    "2.26",
+    "2.27",
+    "2.28",
+    "2.29",
+    "2.30"
+   ],
+   "figma": {
+    "nodeId": "9017:40624",
+    "name": "subtitle-SpeakMode",
+    "group": "UIkit-Speak",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=9017-40624"
+   },
+   "variants": {
+    "Prompt": "shown / hidden（新增，考试模式）",
+    "Answer": "none / transcript（新增）",
+    "Role": "examiner / partner（新增）"
+   },
+   "note": "Speaking.tsx:48 注释里的 8872:81973 不存在，迁移时改为 9017:40624",
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Common/Chip",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "小圆角按钮：定位原文、清空、对 / 不对自评、标记本题、成绩报告、取消 / 切换",
+   "screens": [
+    "1.05",
+    "1.06",
+    "1.14",
+    "1.16",
+    "2.03",
+    "2.11",
+    "2.15",
+    "2.20",
+    "2.22",
+    "2.24"
+   ],
+   "variants": {
+    "Tone": "neutral / on / correct / wrong / flag",
+    "Selected": "no / yes",
+    "Icon": "BOOLEAN + INSTANCE_SWAP（Locate / Check / Flag）"
+   },
+   "note": "高度需到 --ur-size-touch-target（现 40px）",
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Common/Dialog",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "对话框外壳：提交确认、模式选择、切换模式、成绩报告、换算表",
+   "screens": [
+    "1.04",
+    "2.02",
+    "2.05",
+    "2.11",
+    "2.12"
+   ],
+   "variants": {
+    "Size": "s 480 / m 560 / l 720",
+    "Close": "no / yes（ui/CloseButton）",
+    "Actions": "none / one / two（ui/QuizButton）"
+   },
+   "note": "vocab 的 rc/Vocab/EntryDialog 以后改为此外壳",
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Common/InlineNotice",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "行内提示：判分服务不可用、上次考试时间已到、切换任务确认、录音出错、加载失败",
+   "screens": [
+    "0.01",
+    "1.01",
+    "1.04",
+    "1.19",
+    "2.01",
+    "2.02",
+    "2.24"
+   ],
+   "variants": {
+    "Tone": "danger / warning / info",
+    "Actions": "none / one / two"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Common/HintText",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "题干下方的小字提示（空格提示、连线进度、计分说明）",
+   "screens": [
+    "1.09",
+    "1.10",
+    "1.13",
+    "1.14",
+    "2.10",
+    "2.21",
+    "2.22",
+    "2.24",
+    "2.25",
+    "2.29"
+   ],
+   "variants": {
+    "Tone": "neutral / accent"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Common/Tag",
+   "status": "proposed",
+   "product": "真题 KET/PET",
+   "description": "药丸标签：模型评分 / 待复核、未选择、考官 / 搭档、正在播放、套题成绩",
+   "screens": [
+    "2.20",
+    "2.24",
+    "2.25",
+    "2.29"
+   ],
+   "variants": {
+    "Tone": "neutral / accent / success / warning",
+    "Size": "s / m"
+   },
+   "note": "合并 .judge-tag、.task-card-tag、.speak-role、.part-audio-badge、.test-score",
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Common/Panel",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "左右两栏的卡片容器（文章 / 题目 / 真题材料），内置细滚动条",
+   "screens": [
+    "1.04",
+    "1.05",
+    "1.06",
+    "1.18",
+    "2.03",
+    "2.07",
+    "2.13",
+    "2.14",
+    "2.15",
+    "2.17",
+    "2.22",
+    "2.23"
+   ],
+   "variants": {
+    "Kind": "article / quiz / exam",
+    "Header": "BOOLEAN",
+    "Footer": "BOOLEAN"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Common/PageHeader",
+   "status": "proposed",
+   "product": "时文阅读",
+   "description": "首页标题 + 卡片网格",
+   "screens": [
+    "0.01",
+    "0.02"
+   ],
+   "variants": {
+    "Locale": "zh-CN / en-US"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Common/PlaylistIntro",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "合集页简介面板（模糊封面背景、横幅、标题、说明）",
+   "screens": [
+    "1.01",
+    "2.01"
+   ],
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Common/ListHeader",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "合集条目列表头（共 N 篇），吸顶",
+   "screens": [
+    "1.01",
+    "2.01"
+   ],
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Common/TextThumb",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "文字缩略图（Week 1 · Monday / Test 1 · Reading）",
+   "screens": [
+    "1.01",
+    "2.01"
+   ],
+   "variants": {
+    "Kind": "reading / exam"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Common/Disclosure",
+   "status": "proposed",
+   "product": "真题 KET/PET",
+   "description": "可折叠面板：听力原文、名师点拨",
+   "screens": [
+    "2.13"
+   ],
+   "variants": {
+    "Tone": "neutral / tip",
+    "Open": "no / yes"
+   },
+   "note": "合并 RC/Exam/TranscriptPanel 与 rc/Vocab/TipBox；保留 <details>/<summary> 与 .transcript（ket.spec.ts）",
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Quiz/QuestionPrompt",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "题号 + 题干（时文与真题共用）",
+   "screens": [
+    "1.02",
+    "1.03",
+    "1.05",
+    "1.07",
+    "1.08",
+    "1.09",
+    "1.10",
+    "1.11",
+    "1.12",
+    "1.13",
+    "1.14",
+    "1.15",
+    "1.16",
+    "1.17",
+    "2.08",
+    "2.09",
+    "2.16",
+    "2.17",
+    "2.18",
+    "2.19",
+    "2.21",
+    "2.25",
+    "2.30"
+   ],
+   "variants": {
+    "Number": "TEXT",
+    "Stem": "BOOLEAN（真题告示题只印题号）",
+    "Hint": "BOOLEAN（rc/Common/HintText）"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Quiz/ContextLine",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "题干下的原句灰框（含空格）",
+   "screens": [
+    "1.08",
+    "1.09",
+    "1.12",
+    "2.08",
+    "2.16",
+    "2.21"
+   ],
+   "variants": {
+    "Mode": "default / exam（考试版只在窄屏显示）",
+    "Stack": "single / stacked"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Quiz/BlankSlot",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "句中空格：文章里的空格 chip、只读空格、可点的连线空格",
+   "screens": [
+    "1.05",
+    "1.06",
+    "1.08",
+    "1.09",
+    "1.11",
+    "1.12",
+    "1.13",
+    "2.13",
+    "2.16",
+    "2.17",
+    "2.21"
+   ],
+   "variants": {
+    "Mode": "readonly / button",
+    "State": "empty / filled / current",
+    "Result": "none / correct / wrong",
+    "Prefix": "none / first-letter",
+    "Base": "none / word"
+   },
+   "note": "合并 .blank-chip、.context-blank、.gap-slot、.rt-blank-plain",
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Quiz/WordBank",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "词库 / 句库（选词填空、PET 阅读 Part 4）",
+   "screens": [
+    "1.09",
+    "2.21"
+   ],
+   "variants": {
+    "Layout": "word / sentence",
+    "Entry.Used": "no / here / elsewhere",
+    "Entry.Result": "none / correct",
+    "Locked": "no / yes"
+   },
+   "note": "与 rc/Vocab/PhraseBank 的关系请设计师定（可能合一）",
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Quiz/MatchItem",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "连线题的左右两项",
+   "screens": [
+    "1.10",
+    "2.10"
+   ],
+   "variants": {
+    "Side": "prompt / option",
+    "State": "Default / Hover / Active / Target",
+    "Pair": "none / 1–7",
+    "Used": "no / yes",
+    "Example": "no / yes",
+    "Result": "none / correct / wrong"
+   },
+   "note": "配对色用 color/pair/1–7（needs-designer）",
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Quiz/OrderLine",
+   "status": "proposed",
+   "product": "时文阅读",
+   "description": "连词成句的答题行（占位、已放词块、清空）",
+   "screens": [
+    "1.14"
+   ],
+   "variants": {
+    "State": "empty / partial / full",
+    "Result": "none / correct / wrong"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Quiz/LongAnswer",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "长答题框：回答问题、写作（自动增高 + 字数）",
+   "screens": [
+    "1.15",
+    "1.16",
+    "2.18",
+    "2.19",
+    "2.24"
+   ],
+   "variants": {
+    "State": "Empty / Focus / Filled",
+    "Locked": "no / yes",
+    "Rows": "short / long",
+    "Counter": "BOOLEAN（字数：已写 n 词 · 至少 m 词，Enough no / yes）"
+   },
+   "note": "rc/Vocab/TranslateRow 的输入框改用它",
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Quiz/SelfAssess",
+   "status": "proposed",
+   "product": "时文阅读",
+   "description": "自评行（你答对了吗？对 / 不对）",
+   "screens": [
+    "1.16",
+    "1.19"
+   ],
+   "variants": {
+    "Answer": "none / yes / no"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Read/ArticleHeader",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "材料区标题：套题 kicker、Part / 文章标题、说明、文章信息框",
+   "screens": [
+    "1.04",
+    "1.05",
+    "1.06",
+    "1.18",
+    "2.03",
+    "2.07",
+    "2.13",
+    "2.14",
+    "2.15",
+    "2.16",
+    "2.17",
+    "2.18",
+    "2.19",
+    "2.21",
+    "2.22",
+    "2.23",
+    "2.24",
+    "2.25",
+    "2.30"
+   ],
+   "variants": {
+    "Kicker": "BOOLEAN",
+    "Info": "BOOLEAN（体裁 / 词数 / 难度 / 建议用时…）",
+    "Instruction": "BOOLEAN"
+   },
+   "note": "合并 RC/Read/ArticleInfo、RC/Exam/PartHeading；真题左栏不是 SectionHeader",
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Read/ArticleText",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "文章正文排版（段落、小标题、列表、行内标记）——文字样式，不是组件",
+   "screens": [
+    "1.04",
+    "1.05",
+    "1.06",
+    "1.18",
+    "2.14",
+    "2.17"
+   ],
+   "variants": {
+    "styles": "Article/Body · Heading · List · Vocab · Underline · Note"
+   },
+   "note": "以 Figma 文字样式提案「Article Text/*」",
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Read/Figure",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "图片 + 图注（文章插图、告示照片、看图写作、看图描述）",
+   "screens": [
+    "1.04",
+    "1.06",
+    "2.14",
+    "2.19",
+    "2.30"
+   ],
+   "variants": {
+    "Size": "inline / full / grid-3",
+    "Caption": "BOOLEAN"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Read/WordsBox",
+   "status": "proposed",
+   "product": "时文阅读",
+   "description": "Words & Expressions 词汇框",
+   "screens": [
+    "1.04",
+    "1.06"
+   ],
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Read/Dialogue",
+   "status": "proposed",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "对话块（文章、听力原文）",
+   "screens": [
+    "1.04",
+    "2.13"
+   ],
+   "variants": {
+    "Speaker": "TEXT",
+    "Side": "a / b"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Read/GenreNote",
+   "status": "proposed",
+   "product": "真题 KET/PET",
+   "description": "印刷体材料：邮件（标题栏、发件人 / 收件人 / 主题）、便条、告示",
+   "screens": [
+    "2.17",
+    "2.23",
+    "2.24"
+   ],
+   "variants": {
+    "Style": "plain / email / notice",
+    "Header": "BOOLEAN",
+    "Signature": "BOOLEAN"
+   },
+   "note": "合并 RC/Read/NoteCard 与 GenreNote + EmailField",
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Read/Callout",
+   "status": "proposed",
+   "product": "真题 KET/PET",
+   "description": "PET 写作 Part 1 邮件上的手写批注",
+   "screens": [
+    "2.23"
+   ],
+   "variants": {
+    "Side": "left / right"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Read/PortraitParagraph",
+   "status": "proposed",
+   "product": "真题 KET/PET",
+   "description": "人物照片 + 段落（KET 阅读 Part 2、PET 阅读 Part 2）",
+   "screens": [
+    "2.15",
+    "2.22"
+   ],
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Exam/ModeSelect",
+   "status": "proposed",
+   "product": "真题 KET/PET",
+   "description": "顶栏模式选择（当前模式 + 倒计时 + 下拉箭头）",
+   "screens": [
+    "2.03",
+    "2.04",
+    "2.06",
+    "2.07"
+   ],
+   "variants": {
+    "Mode": "practice / exam",
+    "Open": "no / yes"
+   },
+   "note": "菜单是 ui/exam/ModeMenu",
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Exam/ExamTimer",
+   "status": "proposed",
+   "product": "真题 KET/PET",
+   "description": "考试倒计时（剩余 N 分钟 → m:ss）",
+   "screens": [
+    "2.03",
+    "2.06"
+   ],
+   "variants": {
+    "Level": "normal / warning（≤5 分钟）/ alert（≤1 分钟）"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Exam/ListeningPart",
+   "status": "proposed",
+   "product": "真题 KET/PET",
+   "description": "听力 Part 模块（标题、正在播放、说明、播放器）",
+   "screens": [
+    "2.03",
+    "2.07",
+    "2.13"
+   ],
+   "variants": {
+    "Playing": "no / yes",
+    "Mode": "practice / exam"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Exam/ScoreReport",
+   "status": "proposed",
+   "product": "真题 KET/PET",
+   "description": "成绩报告内容（Part 得分表、技能卡、说明）",
+   "screens": [
+    "2.11"
+   ],
+   "variants": {
+    "Pending": "no / yes"
+   },
+   "note": "Part 得分表用 rc/Quiz/TableFill（Cell=score，复用 UIKit-Report / cell 13415:104976 的外观）",
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Exam/ScaleTable",
+   "status": "proposed",
+   "product": "真题 KET/PET",
+   "description": "成绩换算表（四个技能表格 + 等级说明）",
+   "screens": [
+    "2.12"
+   ],
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Exam/ChoiceGrid",
+   "status": "proposed",
+   "product": "真题 KET/PET",
+   "description": "KET 阅读 Part 2 题目 × 人物网格",
+   "screens": [
+    "2.15"
+   ],
+   "variants": {
+    "Cell": "header / choice",
+    "Result": "none / correct / wrong"
+   },
+   "note": "格内单选圈用 ui/quiz/RadioMark",
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Exam/QuestionStack",
+   "status": "proposed",
+   "product": "真题 KET/PET",
+   "description": "一页多题容器（听力 Part 3 五题同页）",
+   "screens": [
+    "2.09"
+   ],
+   "variants": {
+    "Density": "default / compact"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Exam/MatchBoard",
+   "status": "proposed",
+   "product": "真题 KET/PET",
+   "description": "两栏配对板（列标题，窄屏堆叠）",
+   "screens": [
+    "2.10"
+   ],
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Exam/MatchRow",
+   "status": "proposed",
+   "product": "真题 KET/PET",
+   "description": "PET 阅读 Part 2 人物与描述配对行（字母开关）",
+   "screens": [
+    "2.22"
+   ],
+   "variants": {
+    "Letter": "off / on / used",
+    "Result": "none / correct / wrong"
+   },
+   "note": "字母开关 44px 圆，与 ui/LetterBadge 区分",
+   "issue": "#138"
+  },
+  {
+   "code": "rc/Exam/WritingTask",
+   "status": "proposed",
+   "product": "真题 KET/PET",
+   "description": "写作任务块（印刷材料 + 要点 + 作答框）",
+   "screens": [
+    "2.18",
+    "2.19",
+    "2.24"
+   ],
+   "variants": {
+    "Kind": "email / story / choose-one"
+   },
+   "issue": "#138"
+  },
+  {
+   "code": "ui/PlayButton",
+   "status": "extend",
+   "product": "词汇天天练 · 真题 KET/PET",
+   "description": "朗读 / 播放按钮",
+   "screens": [
+    "2.07"
+   ],
+   "figma": {
+    "nodeId": "3221:7265",
+    "name": "btn-play",
+    "group": "UIkit-Read",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=3221-7265"
+   },
+   "source": "src/ui/PlayButton/PlayButton.tsx",
+   "note": "真题播放器的播放 / 暂停：扩展 Size entry / player、Playing → btn-pause 9271:35589",
+   "variants": {
+    "Size": "entry / player（新增）",
+    "Playing": "no / yes（新增）"
+   }
   }
  ],
  "proposalPage": {
