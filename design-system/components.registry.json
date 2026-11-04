@@ -1106,7 +1106,7 @@
   },
   {
    "code": "ui/exam/ModeMenu",
-   "status": "reuse",
+   "status": "extend",
    "product": "真题 KET/PET",
    "description": "真题模式切换下拉菜单",
    "screens": [
@@ -1121,7 +1121,7 @@
    "variants": {
     "Checked": "no / yes（新增，当前模式打勾）"
    },
-   "note": "UIKit-LearnNav dropdown 6759:5518 + item 13054:56538 Selected=yes 即当前模式，无需扩展",
+   "note": "UIKit-LearnNav dropdown 6759:5518 是字幕设置面板，不能直接当菜单用；画面里用 LearnNav item 13054:56538（Selected=yes = 当前模式）+ token 卡片组合。建议设计师给 dropdown 加一个通用列表变体",
    "issue": "#138",
    "source": "src/ui/exam/ModeMenu/ModeMenu.tsx"
   },
@@ -1250,11 +1250,11 @@
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=9017-38080"
    },
    "variants": {
-    "state": "Default / Countdown（录音中计时）/ Loading（识别中）/ Disabled …（按源组件）"
+    "state": "Default（回答 / 重录）/ Activate（录音中计时，点 ✓ 结束）/ Loading（识别中）/ Disabled"
    },
    "issue": "#138",
    "source": "src/ui/SpeakButton/SpeakButton.tsx",
-   "note": "UniRead btn-speak 已有 Countdown / Loading 状态，无需扩展（Figma 核对后由 extend 改为 reuse）"
+   "note": "UniRead btn-speak 已有全部状态，无需扩展；Countdown 是开录前的 3-2-1，不是录音中"
   },
   {
    "code": "ui/SpeakCard",
@@ -1280,7 +1280,7 @@
     "Answer": "none / transcript（新增）",
     "Role": "examiner / partner（新增）"
    },
-   "note": "Speaking.tsx:48 注释里的 8872:81973 不存在，迁移时改为 9017:40624",
+   "note": "扩展副本 19497:1265：只保留句子区（UniRead 的 without video 状态去掉自带按钮组和卡片底），题号 + 角色（RC/Common/Tag）与 btn-listen / btn-speak / btn-playback 在外层卡片里组合。代码注释里的 8872:81973 已改为 9017:40624",
    "issue": "#138",
    "source": "src/ui/SpeakCard/SpeakCard.tsx",
    "figmaProposal": {
@@ -1335,7 +1335,7 @@
     "Close": "no / yes（ui/CloseButton）",
     "Actions": "none / one / two（ui/QuizButton）"
    },
-   "note": "vocab 的 rc/Vocab/EntryDialog 以后改为此外壳",
+   "note": "vocab 的 rc/Vocab/EntryDialog 以后改为此外壳；内容复杂的对话框（模式选择、成绩报告、换算表）在 Figma 画面里按本组件样式用 token 搭建、内容放实例——Figma 没有自由插槽",
    "issue": "#138",
    "source": "src/ui/common/Dialog/Dialog.tsx",
    "figmaProposal": {
@@ -2170,7 +2170,7 @@
   "nodeId": "19451:468",
   "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19451-468",
   "name": "RC · Screens · DS-2026-11-03",
-  "screens": "3.03–3.31 (词汇天天练, 29 frames, instances only; the caption above each frame lists proposed / extended / reused components)"
+  "screens": "0.01–0.02、1.01–1.19（时文阅读）、2.01–2.30（KET / PET）、3.03–3.31（词汇天天练）；每个 frame 上方的说明列出来源、提案组件、扩展组件、复用组件"
  },
  "proposalIssue": "#138"
 }
