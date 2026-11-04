@@ -1,5 +1,12 @@
-/* RC/Read/ArticleHeader (proposed). Tokens only. The exam kicker / instruction lines keep their exam styles
-   (.exam-part-kicker, .exam-instruction) until the KET / PET batch. */
+/* RC/Read/ArticleHeader (proposed). Tokens only. Kicker / instruction are the exam paper's lines (KET / PET). */
+.exam-part-kicker {
+  margin: 0 0 var(--ur-space-4); color: var(--ur-color-text-tertiary);
+  font-size: var(--ur-text-font-system-s-regular-size); line-height: var(--ur-text-font-system-s-regular-line-height);
+}
+.exam-instruction {
+  margin: var(--ur-space-8) 0 var(--ur-space-24); color: var(--ur-color-text-secondary);
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+}
 .article-title {
   margin: 0; font-size: var(--ur-text-size-5xl); line-height: var(--ur-text-size-5xl-line-height);
   font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-text-primary);

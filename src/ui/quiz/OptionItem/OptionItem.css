@@ -47,3 +47,9 @@
 @media (max-width: 1023px) {
   .option-text { font-size: var(--ur-text-font-system-2xl-regular-size); }
 }
+
+/* Size compact (rc/Exam/QuestionStack — five questions on one page): tighter rows, body text at l at every width;
+   (0,2,0) so it also wins over the < 1024px rule above. 6 = 4 + 2, 10 = 8 + 2. */
+.options.is-compact { gap: calc(var(--ur-space-4) + var(--ur-space-2)); }
+.option.is-compact .option-row { padding: var(--ur-space-8) var(--ur-space-12); gap: calc(var(--ur-space-8) + var(--ur-space-2)); }
+.option.is-compact .option-text { font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height); }

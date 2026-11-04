@@ -1,0 +1,19 @@
+/* RC/Common/Disclosure (proposed). Tokens only. */
+.ur-disclosure {
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+}
+.ur-disclosure-summary {
+  cursor: pointer; min-height: var(--ur-size-touch-target); display: flex; align-items: center;
+  font-weight: var(--ur-text-font-system-l-bold-weight); color: var(--ur-color-text-primary);
+}
+.ur-disclosure.is-neutral {
+  margin-top: var(--ur-space-32); padding-top: var(--ur-space-16);
+  border-top: var(--ur-stroke-default) solid var(--ur-color-border-default);
+}
+.ur-disclosure.is-tip {
+  padding: 0 var(--ur-space-16); border-radius: var(--ur-radius-s); background: var(--ur-color-background-subtle);
+  box-shadow: inset var(--ur-stroke-strong) 0 0 var(--ur-color-action-primary);
+  font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height);
+}
+.ur-disclosure.is-tip[open] { padding-bottom: var(--ur-space-12); }
+.ur-disclosure.is-tip .ur-disclosure-summary { color: var(--ur-color-text-strong); }

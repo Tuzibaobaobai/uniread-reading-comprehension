@@ -12,10 +12,5 @@
 .dialog.is-l { --dialog-w: calc(var(--ur-space-80) * 9); }
 .dialog h2 { margin: 0 0 var(--ur-space-8); font: var(--ur-text-font-system-3xl-bold); }
 .dialog p { margin: 0 0 var(--ur-space-12); color: var(--ur-color-text-secondary); }
-.dialog-close {
-  position: absolute; top: var(--ur-space-12); right: var(--ur-space-12);
-  width: var(--ur-size-touch-target); height: var(--ur-size-touch-target);
-  border: none; border-radius: var(--ur-radius-full); background: transparent;
-  font: var(--ur-text-font-system-4xl-regular); line-height: 1; color: var(--ur-color-text-secondary);
-}
+/* × → ui/CloseButton (src/ui/CloseButton) */
 .dialog-actions { display: flex; justify-content: flex-end; gap: var(--ur-space-12); }

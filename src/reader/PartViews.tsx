@@ -2,14 +2,21 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { InlineT, QuestionT } from '@schema';
 import { Rich, plainText } from '@/components/Rich';
-import { Check, Cross, Locate } from '@/components/Icons';
+import { Locate } from '@/components/Icons';
 import { staticContent } from '@/lib/content';
+import { Chip } from '@/ui/common/Chip/Chip';
+import { HintText } from '@/ui/common/HintText/HintText';
+import { AnswerFeedback, AnswerFeedbackList } from '@/ui/quiz/AnswerFeedback/AnswerFeedback';
+import { ChoiceGrid, ChoiceGridCell, ChoiceGridRow } from '@/ui/exam/ChoiceGrid/ChoiceGrid';
+import { MatchBoard, MatchBoardOption, MatchBoardPerson } from '@/ui/exam/MatchBoard/MatchBoard';
+import { MatchRow, MatchRowLetter, MatchRows } from '@/ui/exam/MatchRow/MatchRow';
+import { QuestionStack, QuestionStackItem } from '@/ui/exam/QuestionStack/QuestionStack';
 import { OptionList, QuestionPrompt, type InteractionProps } from './interactions';
 
 /*
  * Exam Parts answered on one page (section.view, GitHub #82 #86 #87). Every question keeps its own id, response
- * ([optionId]) and key — only the presentation changes. 待补组件 — no Figma design yet; built from Option-text-item
- * and existing tokens.
+ * ([optionId]) and key — only the presentation changes. Built from src/ui: rc/Exam/QuestionStack, rc/Exam/ChoiceGrid,
+ * rc/Exam/MatchBoard, rc/Exam/MatchRow, and rc/Quiz/AnswerFeedback (Size compact) for the explanations.
  */
 
 type Opt = { id: string; content: InlineT[] };
@@ -39,31 +46,39 @@ function useAnswers(props: InteractionProps) {
   return { pick, answerOf, correctOf };
 }
 
-/** after submitting: each question's explanation (Chinese), in order */
+/** after submitting: each question's explanation (Chinese), in order — rc/Quiz/AnswerFeedback Size compact */
 function Explanations({ props, qs }: { props: InteractionProps; qs: QuestionT[] }) {
   const { correctOf, answerOf } = useAnswers(props);
   const { t } = useTranslation();
   if (!props.review) return null;
   return (
-    <ul className="part-explain">
+    <AnswerFeedbackList>
       {qs.map((q) => {
         const k = props.review!.key.answers[q.id];
         const ok = correctOf(q.id)?.includes(answerOf(q.id) ?? '');
+        const ev = k?.evidence?.[0];
         return (
-          <li key={q.id} className={ok ? 'is-correct' : 'is-wrong'}>
-            <b>
-              {q.number}. {ok ? <Check /> : <Cross />} {correctOf(q.id)?.join('')}
-            </b>{' '}
+          <AnswerFeedback
+            key={q.id}
+            as="li"
+            variant="block"
+            size="compact"
+            result={ok ? 'correct' : 'wrong'}
+            label={`${q.number}.`}
+            answer={correctOf(q.id)?.join('') ?? ''}
+            action={
+              ev && props.onLocate ? (
+                <Chip className="part-explain-locate" icon={<Locate />} onClick={() => props.onLocate!(ev.block, ev.quote)}>
+                  {t('reader.locate')}
+                </Chip>
+              ) : undefined
+            }
+          >
             {k?.explanationZh}
-            {k?.evidence?.[0] && props.onLocate && (
-              <button className="chip part-explain-locate" onClick={() => props.onLocate!(k.evidence![0].block, k.evidence![0].quote)}>
-                <Locate /> {t('reader.locate')}
-              </button>
-            )}
-          </li>
+          </AnswerFeedback>
         );
       })}
-    </ul>
+    </AnswerFeedbackList>
   );
 }
 
@@ -82,55 +97,43 @@ export function SectionAllView(props: InteractionProps) {
     const opts = optionsOf(qs[0]);
     return (
       <>
-        <table className="part-grid">
-          <thead>
-            <tr>
-              <th scope="col" />
-              {opts.map((o) => (
-                <th key={o.id} scope="col">
-                  <span className="part-grid-letter">{o.id}</span> <Rich nodes={o.content} />
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {qs.map((q) => (
-              <tr key={q.id}>
-                <th scope="row" className="part-grid-q">
+        <ChoiceGrid columns={opts.map((o) => ({ id: o.id, label: <Rich nodes={o.content} /> }))}>
+          {qs.map((q) => (
+            <ChoiceGridRow
+              key={q.id}
+              head={
+                <>
                   <span className="q-num">{q.number}.</span> <Rich nodes={promptOf(q)} />
-                </th>
-                {opts.map((o) => {
-                  const sel = answerOf(q.id) === o.id;
-                  const right = correctOf(q.id)?.includes(o.id);
-                  const state = review ? (right ? 'is-correct' : sel ? 'is-wrong' : '') : sel ? 'is-selected' : '';
-                  return (
-                    <td key={o.id}>
-                      <button
-                        className={`part-grid-cell ${state}`}
-                        role="radio"
-                        aria-checked={sel}
-                        aria-label={t('reader.questionOption', { n: q.number, option: `${o.id} ${plainText(o.content)}` })}
-                        disabled={!!review}
-                        onClick={() => pick(q.id, sel ? undefined : o.id)}
-                      >
-                        <span className={`option-radio ${sel || (review && right) ? 'is-on' : ''}`} />
-                      </button>
-                    </td>
-                  );
-                })}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                </>
+              }
+            >
+              {opts.map((o) => {
+                const sel = answerOf(q.id) === o.id;
+                const right = correctOf(q.id)?.includes(o.id);
+                return (
+                  <ChoiceGridCell
+                    key={o.id}
+                    selected={sel}
+                    checked={sel || !!(review && right)}
+                    result={review ? (right ? 'correct' : sel ? 'wrong' : 'none') : sel ? 'selected' : 'none'}
+                    ariaLabel={t('reader.questionOption', { n: q.number, option: `${o.id} ${plainText(o.content)}` })}
+                    disabled={!!review}
+                    onClick={() => pick(q.id, sel ? undefined : o.id)}
+                  />
+                );
+              })}
+            </ChoiceGridRow>
+          ))}
+        </ChoiceGrid>
         <Explanations props={props} qs={qs} />
       </>
     );
   }
 
   return (
-    <div className="part-stack">
+    <QuestionStack density="compact">
       {qs.map((q) => (
-        <section key={q.id} className="part-stack-q" aria-label={t('reader.questionN', { n: q.number })}>
+        <QuestionStackItem key={q.id} label={t('reader.questionN', { n: q.number })}>
           <QuestionPrompt number={q.number}>
             <Rich nodes={promptOf(q)} />
           </QuestionPrompt>
@@ -151,9 +154,9 @@ export function SectionAllView(props: InteractionProps) {
             }
             onSelect={(id) => pick(q.id, id)}
           />
-        </section>
+        </QuestionStackItem>
       ))}
-    </div>
+    </QuestionStack>
   );
 }
 
@@ -190,116 +193,106 @@ export function MatchBoardView(props: InteractionProps) {
   if (long)
     return (
       <>
-        {!review && <p className="hint-line">{t('interaction.matchRowsHint')}</p>}
-        <ol className="match-rows">
+        {!review && <HintText>{t('interaction.matchRowsHint')}</HintText>}
+        <MatchRows>
           {qs.map((q) => {
             const ans = answerOf(q.id);
             const right = correctOf(q.id);
             const ok = review ? right?.includes(ans ?? '') : null;
             const photo = q.image ? props.item.article.images.find((i) => i.id === q.image) : undefined;
             return (
-              <li key={q.id} className={`match-row ${photo ? 'has-photo' : ''} ${ok === true ? 'is-correct' : ok === false ? 'is-wrong' : ''}`}>
-                {/* each person's printed photo: a visual anchor while checking back against the texts (#91) */}
-                {photo && <img className="match-row-photo" src={staticContent.assetUrl(photo.src)} alt={photo.alt} width={photo.w} height={photo.h} />}
-                <p className="match-row-text">
-                  <span className="q-num">{q.number}.</span> <Rich nodes={promptOf(q)} />
-                </p>
-                <div className="match-row-letters" role="radiogroup" aria-label={t('reader.questionN', { n: q.number })}>
-                  {opts.map((o) => {
-                    const owner = ownerOf(o.id);
-                    const mine = ans === o.id;
-                    const isRight = review && right?.includes(o.id);
-                    return (
-                      <button
-                        key={o.id}
-                        role="radio"
-                        aria-checked={mine}
-                        aria-label={`${o.id} ${plainText(o.content)}${owner && !mine ? t('interaction.takenBy', { n: owner.number }) : ''}`}
-                        className={`match-row-letter ${mine ? 'is-on' : ''} ${owner && !mine ? 'is-used' : ''} ${isRight ? 'is-correct' : review && mine ? 'is-wrong' : ''}`}
-                        disabled={!!review || o.id === example?.answer}
-                        onClick={() => {
-                          if (mine) return pick(q.id, undefined);
-                          if (owner) pick(owner.id, undefined);
-                          pick(q.id, o.id);
-                        }}
-                      >
-                        {o.id}
-                        {owner && !mine && <span className="match-row-owner">{owner.number}</span>}
-                      </button>
-                    );
-                  })}
-                </div>
-              </li>
+              <MatchRow
+                key={q.id}
+                number={q.number}
+                photo={photo && { src: staticContent.assetUrl(photo.src), alt: photo.alt, width: photo.w, height: photo.h }}
+                result={ok === true ? 'correct' : ok === false ? 'wrong' : 'none'}
+                lettersLabel={t('reader.questionN', { n: q.number })}
+                letters={opts.map((o) => {
+                  const owner = ownerOf(o.id);
+                  const mine = ans === o.id;
+                  const isRight = review && right?.includes(o.id);
+                  return (
+                    <MatchRowLetter
+                      key={o.id}
+                      letter={o.id}
+                      state={mine ? 'on' : owner ? 'used' : 'off'}
+                      result={isRight ? 'correct' : review && mine ? 'wrong' : 'none'}
+                      owner={owner?.number}
+                      ariaLabel={`${o.id} ${plainText(o.content)}${owner && !mine ? t('interaction.takenBy', { n: owner.number }) : ''}`}
+                      disabled={!!review || o.id === example?.answer}
+                      onClick={() => {
+                        if (mine) return pick(q.id, undefined);
+                        if (owner) pick(owner.id, undefined);
+                        pick(q.id, o.id);
+                      }}
+                    />
+                  );
+                })}
+              >
+                <Rich nodes={promptOf(q)} />
+              </MatchRow>
             );
           })}
-        </ol>
+        </MatchRows>
         <Explanations props={props} qs={qs} />
       </>
     );
 
   return (
     <>
-      {!review && <p className="hint-line">{t('interaction.matchBoardHint')}</p>}
-      <div className="match-board">
-        {section.columns && (
+      {!review && <HintText>{t('interaction.matchBoardHint')}</HintText>}
+      <MatchBoard
+        columns={section.columns}
+        peopleLabel={t('interaction.questions')}
+        optionsLabel={t('interaction.options')}
+        people={
           <>
-            <p className="match-board-head">{section.columns.left}</p>
-            <p className="match-board-head">{section.columns.right}</p>
-          </>
-        )}
-        <ol className="match-board-people" aria-label={t('interaction.questions')}>
-          {example && (
-            <li className="match-board-person is-example" aria-label={t('interaction.exampleLabel', { prompt: example.prompt, answer: example.answer })}>
-              <span className="q-num">0</span>
-              <span className="match-board-text">{example.prompt}</span>
-              <span className="match-board-badge">{example.answer}</span>
-            </li>
-          )}
-          {qs.map((q) => {
-            const ans = answerOf(q.id);
-            const right = correctOf(q.id);
-            const ok = review ? right?.includes(ans ?? '') : null;
-            return (
-              <li key={q.id}>
-                <button
-                  className={`match-board-person ${active === q.id ? 'is-active' : ''} ${ok === true ? 'is-correct' : ok === false ? 'is-wrong' : ''}`}
+            {example && (
+              <MatchBoardPerson example number={0} answer={example.answer} ariaLabel={t('interaction.exampleLabel', { prompt: example.prompt, answer: example.answer })}>
+                {example.prompt}
+              </MatchBoardPerson>
+            )}
+            {qs.map((q) => {
+              const ans = answerOf(q.id);
+              const right = correctOf(q.id);
+              const ok = review ? right?.includes(ans ?? '') : null;
+              return (
+                <MatchBoardPerson
+                  key={q.id}
+                  number={q.number}
+                  answer={ans}
+                  active={active === q.id}
+                  result={ok === true ? 'correct' : ok === false ? 'wrong' : 'none'}
+                  rightAnswer={right?.join('')}
                   disabled={!!review}
-                  aria-pressed={active === q.id}
                   onClick={() => setActive(q.id)}
                 >
-                  <span className="q-num">{q.number}</span>
-                  <span className="match-board-text">
-                    <Rich nodes={promptOf(q)} />
-                  </span>
-                  <span className={`match-board-badge ${ans ? 'is-filled' : ''}`}>{ans ?? ''}</span>
-                  {review && ok === false && <span className="match-board-answer">→ {right?.join('')}</span>}
-                </button>
-              </li>
-            );
-          })}
-        </ol>
-        <div className="match-board-options" role="group" aria-label={t('interaction.options')}>
-          {opts.map((o) => {
-            const isExample = o.id === example?.answer;
-            const owner = ownerOf(o.id);
-            return (
-              <button
-                key={o.id}
-                className={`match-board-option ${isExample ? 'is-example' : ''} ${owner ? 'is-used' : ''} ${owner && owner.id === active ? 'is-here' : ''}`}
-                disabled={!!review || isExample || !active}
-                aria-label={`${o.id} ${plainText(o.content)}${isExample ? t('interaction.exampleUsed') : owner ? t('interaction.takenBy', { n: owner.number }) : ''}`}
-                onClick={() => choose(o.id)}
-              >
-                <span className="match-board-letter">{o.id}</span>
-                <span className="match-board-text">
-                  <Rich nodes={o.content} />
-                </span>
-                {isExample ? <span className="match-board-used">{t('interaction.exampleMark')}</span> : owner && <span className="match-board-used">{owner.number}</span>}
-              </button>
-            );
-          })}
-        </div>
-      </div>
+                  <Rich nodes={promptOf(q)} />
+                </MatchBoardPerson>
+              );
+            })}
+          </>
+        }
+        options={opts.map((o) => {
+          const isExample = o.id === example?.answer;
+          const owner = ownerOf(o.id);
+          return (
+            <MatchBoardOption
+              key={o.id}
+              letter={o.id}
+              example={isExample}
+              used={!!owner}
+              here={!!owner && owner.id === active}
+              mark={isExample ? t('interaction.exampleMark') : owner?.number}
+              disabled={!!review || isExample || !active}
+              ariaLabel={`${o.id} ${plainText(o.content)}${isExample ? t('interaction.exampleUsed') : owner ? t('interaction.takenBy', { n: owner.number }) : ''}`}
+              onClick={() => choose(o.id)}
+            >
+              <Rich nodes={o.content} />
+            </MatchBoardOption>
+          );
+        })}
+      />
       <Explanations props={props} qs={qs} />
     </>
   );

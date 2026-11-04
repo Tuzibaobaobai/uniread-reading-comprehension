@@ -1,3 +1,4 @@
+import type { HTMLAttributes, ReactNode } from 'react';
 import './Figure.css';
 
 export type FigureSize = 'inline' | 'full';
@@ -14,5 +15,18 @@ export function Figure({ src, alt, w, h, caption, size = 'inline' }: { src: stri
       <img src={src} alt={alt} width={w} height={h} style={{ aspectRatio: `${w} / ${h}` }} />
       {caption && <figcaption>{caption}</figcaption>}
     </figure>
+  );
+}
+
+/**
+ * RC/Read/Figure, Size grid-3: several figures of one question's material laid out as a sequence (auto-fit columns).
+ * `sequence` false renders a plain wrapper, so callers can switch by picture count. Extra attributes / classes
+ * (.exam-q-material, .article-body) go on the wrapper.
+ */
+export function FigureGrid({ sequence = true, className = '', children, ...rest }: { sequence?: boolean; children: ReactNode } & HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={[className, sequence ? 'figure-grid is-sequence' : ''].filter(Boolean).join(' ')} {...rest}>
+      {children}
+    </div>
   );
 }

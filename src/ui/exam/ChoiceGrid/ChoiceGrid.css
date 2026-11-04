@@ -1,0 +1,24 @@
+/* rc/Exam/ChoiceGrid (proposed). Tokens only; body text l. */
+.part-grid {
+  width: 100%; border-collapse: collapse;
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+}
+.part-grid th, .part-grid td {
+  padding: var(--ur-space-8); border-bottom: var(--ur-stroke-default) solid var(--ur-color-border-default);
+  text-align: center; vertical-align: middle;
+}
+.part-grid thead th { font-weight: var(--ur-text-font-system-l-bold-weight); color: var(--ur-color-text-strong); }
+.part-grid-letter.letter-badge { display: inline-grid; vertical-align: middle; }
+.part-grid th.part-grid-q { text-align: left; font-weight: var(--ur-text-font-system-l-regular-weight); color: var(--ur-color-text-primary); }
+.part-grid-cell {
+  width: var(--ur-size-touch-target); height: var(--ur-size-touch-target);
+  border: none; border-radius: var(--ur-radius-full); background: transparent;
+  display: inline-grid; place-items: center;
+}
+.part-grid-cell.is-selected { background: var(--ur-color-background-subtle); }
+.part-grid-cell.is-correct { background: var(--ur-color-feedback-success-bg); }
+.part-grid-cell.is-wrong { background: var(--ur-color-feedback-error-bg); }
+@media (hover: hover) and (pointer: fine) {
+  .part-grid-cell:hover:not(:disabled) { background: var(--ur-color-background-subtle); }
+}
+.part-grid-letter.is-bare { min-width: 1.5em; font-weight: inherit; }

@@ -7,7 +7,7 @@ import { staticContent } from '@/lib/content';
 import { localAttempts, newAttempt } from '@/lib/storage';
 import { isScored, type Result } from '@/lib/grading';
 import { applyJudgement, fallbackToSelf } from '@/lib/judge';
-import { BackArrow, Locate } from '@/components/Icons';
+import { BackArrow, Flag, Locate } from '@/components/Icons';
 import Loading from '@/components/Loading';
 import { Rich, plainText, type BlankNode } from '@/components/Rich';
 import { ArticlePane } from './ArticlePane';
@@ -448,8 +448,9 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
                 <div className="exam-bar">
                   {examMode && current && (
                     <Chip
-                      tone={attempt.flagged?.includes(current.q.id) ? 'on' : 'neutral'}
+                      tone={attempt.flagged?.includes(current.q.id) ? 'flag' : 'neutral'}
                       className="flag-toggle"
+                      icon={<Flag />}
                       aria-pressed={!!attempt.flagged?.includes(current.q.id)}
                       onClick={() => toggleFlag(current.q.id)}
                     >

@@ -9,6 +9,8 @@ import { ArticleBody, ArticleText } from '@/ui/read/ArticleText/ArticleText';
 import { Figure as FigureView } from '@/ui/read/Figure/Figure';
 import { WordsBox } from '@/ui/read/WordsBox/WordsBox';
 import { Dialogue } from '@/ui/read/Dialogue/Dialogue';
+import { GenreNote, type GenreNoteField } from '@/ui/read/GenreNote/GenreNote';
+import { PortraitParagraph } from '@/ui/read/PortraitParagraph/PortraitParagraph';
 import { Highlight } from '@/ui/Highlight/Highlight';
 import { highlightSupported, paint, sentenceRange } from './evidence';
 
@@ -106,18 +108,11 @@ export function Figure({ img, size }: { img?: ItemT['article']['images'][number]
 
 type ImageT = ItemT['article']['images'][number];
 
-/** "**From:** Chris" → label + value boxes of an email header (#96) */
-function NoteField({ line, renderBlank }: { line: InlineT[]; renderBlank: (n: BlankNode) => ReactNode }) {
+/** "**From:** Chris" → a label + value field of an email header (#96, rc/Read/GenreNote Header) */
+function noteField(line: InlineT[], renderBlank: (n: BlankNode) => ReactNode): GenreNoteField {
   const [first, ...rest] = line;
   const labelled = first?.t === 'strong';
-  return (
-    <div className="rt-note-field">
-      {labelled && <span className="rt-note-field-label">{first.v.trim()}</span>}
-      <span className="rt-note-field-value">
-        <Rich nodes={labelled ? rest : line} blank={renderBlank} />
-      </span>
-    </div>
-  );
+  return { label: labelled ? first.v.trim() : undefined, value: <Rich nodes={labelled ? rest : line} blank={renderBlank} /> };
 }
 
 export function Block({
@@ -138,14 +133,11 @@ export function Block({
     case 'paragraph': {
       const portrait = b.image ? imageOf?.(b.image) : undefined;
       if (portrait)
-        // a writer's photo beside their text (KET Reading Part 2, #91)
+        // a writer's photo beside their text (KET Reading Part 2, #91) — rc/Read/PortraitParagraph
         return (
-          <div {...attrs} className={['rt-portrait-row', cls].filter(Boolean).join(' ')}>
-            <img className="rt-portrait" src={staticContent.assetUrl(portrait.src)} alt={portrait.alt} width={portrait.w} height={portrait.h} />
-            <p className="rt-p">
-              <Rich nodes={b.content} blank={renderBlank} />
-            </p>
-          </div>
+          <PortraitParagraph {...attrs} src={staticContent.assetUrl(portrait.src)} alt={portrait.alt} w={portrait.w} h={portrait.h}>
+            <Rich nodes={b.content} blank={renderBlank} />
+          </PortraitParagraph>
         );
       return (
         <p {...attrs} className={['rt-p', cls].filter(Boolean).join(' ')}>
@@ -180,36 +172,21 @@ export function Block({
         />
       );
     case 'note':
+      // printed note / email / notice (rc/Read/GenreNote)
       return (
-        <div {...attrs} className={['rt-note', b.style && `is-${b.style}`, cls].filter(Boolean).join(' ')}>
-          {b.title && (
-            <p className="rt-note-title">
-              <Rich nodes={b.title} blank={renderBlank} />
-            </p>
-          )}
-          {b.header && b.header.length > 0 && (
-            <div className="rt-note-header">
-              {b.header.map((line, i) => (
-                <NoteField key={i} line={line} renderBlank={renderBlank} />
-              ))}
-            </div>
-          )}
-          {b.heading && (
-            <p className="rt-note-heading">
-              <Rich nodes={b.heading} blank={renderBlank} />
-            </p>
-          )}
-          {b.content.map((c, i) => (
-            <p key={i}>
-              <Rich nodes={c} blank={renderBlank} />
-            </p>
+        <GenreNote
+          {...attrs}
+          noteStyle={b.style ?? 'plain'}
+          title={b.title && <Rich nodes={b.title} blank={renderBlank} />}
+          header={b.header?.map((line) => noteField(line, renderBlank))}
+          heading={b.heading && <Rich nodes={b.heading} blank={renderBlank} />}
+          paragraphs={b.content.map((c, i) => (
+            <Rich key={i} nodes={c} blank={renderBlank} />
           ))}
-          {b.signature?.map((c, i) => (
-            <p key={`s${i}`} className="rt-note-sign">
-              <Rich nodes={c} blank={renderBlank} />
-            </p>
+          signature={b.signature?.map((c, i) => (
+            <Rich key={i} nodes={c} blank={renderBlank} />
           ))}
-        </div>
+        />
       );
     case 'table':
       return (

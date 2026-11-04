@@ -1,0 +1,6 @@
+/* ui/LinkButton — UniRead link (reuse). Tokens only. */
+.link-button {
+  min-height: 0; padding: 0 var(--ur-space-2); border: none; background: none;
+  font: inherit; color: var(--ur-color-action-primary-strong);
+  text-decoration: underline; text-underline-offset: calc(var(--ur-space-2) + var(--ur-stroke-default));
+}

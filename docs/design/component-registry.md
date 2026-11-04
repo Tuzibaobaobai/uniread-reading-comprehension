@@ -4,9 +4,9 @@
 
 「画面」列是 Figma 页面 2B-Content-Pages 上的状态编号（与 `.work/figma/capture.mjs` 一致）。
 
-共 92 项：复用 14，扩展变体（待批准） 19，新组件（待批准） 59。
+共 92 项：复用 17，扩展变体（待批准） 16，新组件（待批准） 59。
 
-## 复用（14）
+## 复用（17）
 
 | 代码组件 | 用途 | UniRead 组件 | 变体 | 画面 | 说明 |
 | --- | --- | --- | --- | --- | --- |
@@ -19,13 +19,16 @@
 | `ui/FavoriteButton`<br>`src/ui/playlist/FavoriteButton/FavoriteButton.tsx` | 合集页收藏 | [UIKit-Playlist / Favorite](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=18644-121797) |  | 1.01 2.01 |  |
 | `ui/GroupTitle`<br>`src/ui/playlist/GroupTitle/GroupTitle.tsx` | 合集页分组标题（Week N / Test N） | [UIKit-Ranking / group title](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=13263-223981) |  | 1.01 2.01 | KET/PET 套题成绩徽标用 RC/Common/Tag |
 | `ui/ProgressBar`<br>`src/ui/playlist/ProgressBar/ProgressBar.tsx` | 合集条目进度条 | [UIKit-Playlist / progress](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=10539-77875) |  | 1.01 2.01 |  |
-| `ui/CloseButton` | 对话框关闭 × | [UIKit-LearnNav / btn-close](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=7870-43771) |  | 2.02 2.12 |  |
-| `ui/LinkButton` | 文中链接按钮（成绩报告「换算表」） | [UIKit-Notes / link](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=10817-60790) |  | 2.11 |  |
+| `ui/CloseButton`<br>`src/ui/CloseButton/CloseButton.tsx` | 对话框关闭 × | [UIKit-LearnNav / btn-close](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=7870-43771) |  | 2.02 2.12 |  |
+| `ui/LinkButton`<br>`src/ui/LinkButton/LinkButton.tsx` | 文中链接按钮（成绩报告「换算表」） | [UIKit-Notes / link](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=10817-60790) |  | 2.11 |  |
 | `ui/ResultMark` | 对 / 错标记（解析头、评分要点） | [UIKit-Quiz / correct](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=7934-91998) | **Result**: correct / wrong | 1.05 1.06 1.16 2.15 2.20 2.22 | 错用 UIKit-Quiz / wrong 7870:49566 |
-| `ui/ListenButton` | 听题 / 听搭档 / 开始播放听力 | [UIkit-Speak / btn-listen](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=9017-35320) | **state**: Disabled / Default / Hover …（按源组件） | 2.03 2.25 2.26 2.27 2.29 |  |
-| `ui/PlaybackButton` | 口语回放 | [UIkit-Speak / btn-playback](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=9017-39283) | **Generating Score**: BOOLEAN | 2.25 2.27 |  |
+| `ui/ListenButton`<br>`src/ui/ListenButton/ListenButton.tsx` | 听题 / 听搭档 / 开始播放听力 | [UIkit-Speak / btn-listen](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=9017-35320) | **state**: Disabled / Default / Hover …（按源组件） | 2.03 2.25 2.26 2.27 2.29 |  |
+| `ui/PlaybackButton`<br>`src/ui/PlaybackButton/PlaybackButton.tsx` | 口语回放 | [UIkit-Speak / btn-playback](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=9017-39283) | **Generating Score**: BOOLEAN | 2.25 2.27 |  |
+| `ui/exam/ModeMenu`<br>`src/ui/exam/ModeMenu/ModeMenu.tsx` | 真题模式切换下拉菜单 | [UIKit-LearnNav / dropdown](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=6759-5518) | **Checked**: no / yes（新增，当前模式打勾） | 2.04 | UIKit-LearnNav dropdown 6759:5518 + item 13054:56538 Selected=yes 即当前模式，无需扩展 |
+| `ui/SpeakButton`<br>`src/ui/SpeakButton/SpeakButton.tsx` | 回答 / 录音中 Ns / 识别中 | [UIkit-Speak / btn-speak](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=9017-38080) | **state**: Default / Countdown（录音中计时）/ Loading（识别中）/ Disabled …（按源组件） | 2.25 2.26 2.27 2.28 | UniRead btn-speak 已有 Countdown / Loading 状态，无需扩展（Figma 核对后由 extend 改为 reuse） |
+| `ui/PlayButton`<br>`src/ui/PlayButton/PlayButton.tsx` | 朗读 / 播放按钮 | [UIkit-Read / btn-play](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=3221-7265) | **Size**: entry / player（新增）<br>**Playing**: no / yes（新增） | 2.07 | 真题播放器的播放 / 暂停：扩展 Size entry / player、Playing → btn-pause 9271:35589；播放中用 UIkit-Read / btn-pause 9271:35589（独立组件），Size player 为尺寸覆盖，无需扩展 |
 
-## 扩展变体（待批准）（19）
+## 扩展变体（待批准）（16）
 
 | 代码组件 | 用途 | UniRead 组件 | 变体 | 画面 | 说明 |
 | --- | --- | --- | --- | --- | --- |
@@ -40,14 +43,11 @@
 | `ui/PlaylistItem`<br>`src/ui/playlist/PlaylistItem/PlaylistItem.tsx` | 合集条目行（序号、文字缩略图、标题、信息行、进度、成绩） | [UIKit-Playlist / video list item](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=6587-2549) · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19480-1107) | **Thumb**: image / text（新增，RC/Common/TextThumb）<br>**Score**: BOOLEAN（新增，真题成绩）<br>**State**: Default / Hover / Done | 1.01 2.01 |  |
 | `ui/Highlight`<br>`src/ui/Highlight/Highlight.tsx` | 原文证据句高亮与定位闪烁 | [UIkit-Read / highlight](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=15398-105249) · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19478-962) | **row**: 1 / 2 / 3 / 4<br>**Emphasis**: evidence / flash（新增） | 1.06 |  |
 | `ui/OrderChunk`<br>`src/ui/OrderChunk/OrderChunk.tsx` | 连词成句的词块（词池 / 已放置） | [UIKit-Dictation / item-hug](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=15504-106347) · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19475-977) | **Placed**: no / yes（新增）<br>**Result**: none / correct / wrong（新增） | 1.14 | Figma 提案 RC/Quiz/OrderChunk（外观对应 UIKit-Dictation / item-hug，设计师可并入该组件） |
-| `ui/exam/ModeMenu` | 真题模式切换下拉菜单 | [UIKit-LearnNav / dropdown](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=6759-5518) | **Checked**: no / yes（新增，当前模式打勾） | 2.04 | 菜单项沿用 LearnNav item 13054:56538 |
-| `ui/ChoiceCard` | 选择卡片：练习 / 考试模式、PET 写作二选一任务、成绩页操作卡 | [UIKit-Quiz / item](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=12409-145227) | **Selected**: no / yes<br>**Tag**: BOOLEAN（未选择 / 已选）<br>**Disabled**: no / yes | 2.02 2.24 | 合并 .mode-option、.task-card、QuizResult .vq-result-card |
-| `ui/exam/SkillScore` | 成绩报告技能卡（技能 · 换算分 · 等级 · 原始分） | [UIKit-Dashboard / data card](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=13621-128302) | **Pending**: no / yes（新增，写作 / 口语待评） | 2.11 |  |
+| `ui/ChoiceCard`<br>`src/ui/ChoiceCard/ChoiceCard.tsx` | 选择卡片：练习 / 考试模式、PET 写作二选一任务、成绩页操作卡 | [UIKit-Quiz / item](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=12409-145227) · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19497-1116) | **Selected**: no / yes<br>**Tag**: BOOLEAN（未选择 / 已选）<br>**Disabled**: no / yes<br>**Size**: l（模式选择）/ m（PET 写作任务卡）——代码已有，待设计师定是否作为 variant | 2.02 2.24 | 合并 .mode-option、.task-card、QuizResult .vq-result-card |
+| `ui/exam/SkillScore`<br>`src/ui/exam/SkillScore/SkillScore.tsx` | 成绩报告技能卡（技能 · 换算分 · 等级 · 原始分） | [UIKit-Dashboard / data card](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=13621-128302) · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19497-1175) | **Pending**: no / yes（新增，写作 / 口语待评） | 2.11 |  |
 | `ui/LetterBadge`<br>`src/ui/LetterBadge/LetterBadge.tsx` | 字母圆标（词库、连线、网格、配对） | [Learn / num](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=18140-222459) · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19476-1058) | **Filled**: no / yes<br>**Tone**: neutral / accent / success / danger<br>**Size**: s / m | 2.10 2.21 | 合并 .bank-letter、.match-badge、.match-board-badge/-letter、.part-grid-letter；先与 UIKit-Report / num 10651:61377 对比 |
-| `ui/AudioPlayer` | 练习模式听力播放器（进度 + 后退 / 播放 / 前进） | [UIkit-Read / player](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=11728-110946) | **Mode**: practice / exam（新增：考试模式只显示进度） | 2.03 2.07 | 后退 / 前进 5 秒用 UIkit-Read / btn-before 3221:7318（前进为镜像，新增 Direction: back / forward） |
-| `ui/SpeakButton` | 回答 / 录音中 Ns / 识别中 | [UIkit-Speak / btn-speak](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=9017-38080) | **state**: 按源组件<br>**Recording**: no / yes（新增，计时）<br>**Recognising**: no / yes（新增） | 2.25 2.26 2.27 2.28 |  |
-| `ui/SpeakCard` | 口语题卡（n/N、角色、考官句、你的回答） | [UIkit-Speak / subtitle-SpeakMode](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=9017-40624) | **Prompt**: shown / hidden（新增，考试模式）<br>**Answer**: none / transcript（新增）<br>**Role**: examiner / partner（新增） | 2.25 2.26 2.27 2.28 2.29 2.30 | Speaking.tsx:48 注释里的 8872:81973 不存在，迁移时改为 9017:40624 |
-| `ui/PlayButton`<br>`src/ui/PlayButton/PlayButton.tsx` | 朗读 / 播放按钮 | [UIkit-Read / btn-play](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=3221-7265) | **Size**: entry / player（新增）<br>**Playing**: no / yes（新增） | 2.07 | 真题播放器的播放 / 暂停：扩展 Size entry / player、Playing → btn-pause 9271:35589 |
+| `ui/AudioPlayer`<br>`src/ui/AudioPlayer/AudioPlayer.tsx` | 练习模式听力播放器（进度 + 后退 / 播放 / 前进） | [UIkit-Read / player](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=11728-110946) · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19497-1209) | **Mode**: practice / exam（新增：考试模式只显示进度） | 2.03 2.07 | 后退 / 前进 5 秒用 UIkit-Read / btn-before 3221:7318（前进为镜像，新增 Direction: back / forward）；btn-before 扩展副本 19497:1213（Direction forward） |
+| `ui/SpeakCard`<br>`src/ui/SpeakCard/SpeakCard.tsx` | 口语题卡（n/N、角色、考官句、你的回答） | [UIkit-Speak / subtitle-SpeakMode](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=9017-40624) · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19497-1265) | **Prompt**: shown / hidden（新增，考试模式）<br>**Answer**: none / transcript（新增）<br>**Role**: examiner / partner（新增） | 2.25 2.26 2.27 2.28 2.29 2.30 | Speaking.tsx:48 注释里的 8872:81973 不存在，迁移时改为 9017:40624 |
 
 ## 新组件（待批准）（59）
 
@@ -84,7 +84,7 @@
 | `rc/Common/PlaylistIntro`<br>`src/ui/common/PlaylistIntro/PlaylistIntro.tsx` | 合集页简介面板（模糊封面背景、横幅、标题、说明） | `RC/Common/PlaylistIntro`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19480-1103) |  | 1.01 2.01 |  |
 | `rc/Common/ListHeader`<br>`src/ui/common/ListHeader/ListHeader.tsx` | 合集条目列表头（共 N 篇），吸顶 | `RC/Common/ListHeader`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19480-1086) |  | 1.01 2.01 |  |
 | `rc/Common/TextThumb`<br>`src/ui/common/TextThumb/TextThumb.tsx` | 文字缩略图（Week 1 · Monday / Test 1 · Reading） | `RC/Common/TextThumb`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19480-1080) | **Kind**: reading / exam | 1.01 2.01 |  |
-| `rc/Common/Disclosure` | 可折叠面板：听力原文、名师点拨 | `RC/Common/Disclosure`（新建） | **Tone**: neutral / tip<br>**Open**: no / yes | 2.13 | 合并 RC/Exam/TranscriptPanel 与 rc/Vocab/TipBox；保留 <details>/<summary> 与 .transcript（ket.spec.ts） |
+| `rc/Common/Disclosure`<br>`src/ui/common/Disclosure/Disclosure.tsx` | 可折叠面板：听力原文、名师点拨 | `RC/Common/Disclosure`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19496-1257) | **Tone**: neutral / tip<br>**Open**: no / yes | 2.13 | 合并 RC/Exam/TranscriptPanel 与 rc/Vocab/TipBox；保留 <details>/<summary> 与 .transcript（ket.spec.ts） |
 | `rc/Quiz/QuestionPrompt`<br>`src/ui/quiz/QuestionPrompt/QuestionPrompt.tsx` | 题号 + 题干（时文与真题共用） | `RC/Quiz/QuestionPrompt`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19472-930) | **Number**: TEXT<br>**Stem**: BOOLEAN（真题告示题只印题号）<br>**Hint**: BOOLEAN（rc/Common/HintText） | 1.02 1.03 1.05 1.07 1.08 1.09 1.10 1.11 1.12 1.13 1.14 1.15 1.16 1.17 2.08 2.09 2.16 2.17 2.18 2.19 2.21 2.25 2.30 |  |
 | `rc/Quiz/ContextLine`<br>`src/ui/quiz/ContextLine/ContextLine.tsx` | 题干下的原句灰框（含空格） | `RC/Quiz/ContextLine`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19472-938) | **Mode**: default / exam（考试版只在窄屏显示）<br>**Stack**: single / stacked | 1.08 1.09 1.12 2.08 2.16 2.21 |  |
 | `rc/Quiz/BlankSlot`<br>`src/ui/quiz/BlankSlot/BlankSlot.tsx` | 句中空格：文章里的空格 chip、只读空格、可点的连线空格 | `RC/Quiz/BlankSlot`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19472-958) | **Mode**: readonly / button<br>**State**: empty / filled / current<br>**Result**: none / correct / wrong<br>**Prefix**: none / first-letter<br>**Base**: none / word | 1.05 1.06 1.08 1.09 1.11 1.12 1.13 2.13 2.16 2.17 2.21 | 合并 .blank-chip、.context-blank、.gap-slot、.rt-blank-plain |
@@ -98,18 +98,18 @@
 | `rc/Read/Figure`<br>`src/ui/read/Figure/Figure.tsx` | 图片 + 图注（文章插图、告示照片、看图写作、看图描述） | `RC/Read/Figure`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19477-988) | **Size**: inline / full / grid-3<br>**Caption**: BOOLEAN | 1.04 1.06 2.14 2.19 2.30 |  |
 | `rc/Read/WordsBox`<br>`src/ui/read/WordsBox/WordsBox.tsx` | Words & Expressions 词汇框 | `RC/Read/WordsBox`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19477-1009) |  | 1.04 1.06 |  |
 | `rc/Read/Dialogue`<br>`src/ui/read/Dialogue/Dialogue.tsx` | 对话块（文章、听力原文） | `RC/Read/Dialogue`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19477-1021) | **Speaker**: TEXT<br>**Side**: a / b | 1.04 2.13 |  |
-| `rc/Read/GenreNote` | 印刷体材料：邮件（标题栏、发件人 / 收件人 / 主题）、便条、告示 | `RC/Read/GenreNote`（新建） | **Style**: plain / email / notice<br>**Header**: BOOLEAN<br>**Signature**: BOOLEAN | 2.17 2.23 2.24 | 合并 RC/Read/NoteCard 与 GenreNote + EmailField |
-| `rc/Read/Callout` | PET 写作 Part 1 邮件上的手写批注 | `RC/Read/Callout`（新建） | **Side**: left / right | 2.23 |  |
-| `rc/Read/PortraitParagraph` | 人物照片 + 段落（KET 阅读 Part 2、PET 阅读 Part 2） | `RC/Read/PortraitParagraph`（新建） |  | 2.15 2.22 |  |
-| `rc/Exam/ModeSelect` | 顶栏模式选择（当前模式 + 倒计时 + 下拉箭头） | `RC/Exam/ModeSelect`（新建） | **Mode**: practice / exam<br>**Open**: no / yes | 2.03 2.04 2.06 2.07 | 菜单是 ui/exam/ModeMenu |
-| `rc/Exam/ExamTimer` | 考试倒计时（剩余 N 分钟 → m:ss） | `RC/Exam/ExamTimer`（新建） | **Level**: normal / warning（≤5 分钟）/ alert（≤1 分钟） | 2.03 2.06 |  |
-| `rc/Exam/ListeningPart` | 听力 Part 模块（标题、正在播放、说明、播放器） | `RC/Exam/ListeningPart`（新建） | **Playing**: no / yes<br>**Mode**: practice / exam | 2.03 2.07 2.13 |  |
-| `rc/Exam/ScoreReport` | 成绩报告内容（Part 得分表、技能卡、说明） | `RC/Exam/ScoreReport`（新建） | **Pending**: no / yes | 2.11 | Part 得分表用 rc/Quiz/TableFill（Cell=score，复用 UIKit-Report / cell 13415:104976 的外观） |
-| `rc/Exam/ScaleTable` | 成绩换算表（四个技能表格 + 等级说明） | `RC/Exam/ScaleTable`（新建） |  | 2.12 |  |
-| `rc/Exam/ChoiceGrid` | KET 阅读 Part 2 题目 × 人物网格 | `RC/Exam/ChoiceGrid`（新建） | **Cell**: header / choice<br>**Result**: none / correct / wrong | 2.15 | 格内单选圈用 ui/quiz/RadioMark |
-| `rc/Exam/QuestionStack` | 一页多题容器（听力 Part 3 五题同页） | `RC/Exam/QuestionStack`（新建） | **Density**: default / compact | 2.09 |  |
-| `rc/Exam/MatchBoard` | 两栏配对板（列标题，窄屏堆叠） | `RC/Exam/MatchBoard`（新建） |  | 2.10 |  |
-| `rc/Exam/MatchRow` | PET 阅读 Part 2 人物与描述配对行（字母开关） | `RC/Exam/MatchRow`（新建） | **Letter**: off / on / used<br>**Result**: none / correct / wrong | 2.22 | 字母开关 44px 圆，与 ui/LetterBadge 区分 |
-| `rc/Exam/WritingTask` | 写作任务块（印刷材料 + 要点 + 作答框） | `RC/Exam/WritingTask`（新建） | **Kind**: email / story / choose-one | 2.18 2.19 2.24 |  |
+| `rc/Read/GenreNote`<br>`src/ui/read/GenreNote/GenreNote.tsx` | 印刷体材料：邮件（标题栏、发件人 / 收件人 / 主题）、便条、告示 | `RC/Read/GenreNote`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19499-1229) | **Style**: plain / email / notice<br>**Header**: BOOLEAN<br>**Signature**: BOOLEAN | 2.17 2.23 2.24 | 合并 RC/Read/NoteCard 与 GenreNote + EmailField |
+| `rc/Read/Callout`<br>`src/ui/read/Callout/Callout.tsx` | PET 写作 Part 1 邮件上的手写批注 | `RC/Read/Callout`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19499-1235) | **Side**: left / right | 2.23 |  |
+| `rc/Read/PortraitParagraph`<br>`src/ui/read/PortraitParagraph/PortraitParagraph.tsx` | 人物照片 + 段落（KET 阅读 Part 2、PET 阅读 Part 2） | `RC/Read/PortraitParagraph`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19499-1242) |  | 2.15 2.22 |  |
+| `rc/Exam/ModeSelect`<br>`src/ui/exam/ModeSelect/ModeSelect.tsx` | 顶栏模式选择（当前模式 + 倒计时 + 下拉箭头） | `RC/Exam/ModeSelect`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19496-1129) | **Mode**: practice / exam<br>**Open**: no / yes | 2.03 2.04 2.06 2.07 | 菜单是 ui/exam/ModeMenu |
+| `rc/Exam/ExamTimer`<br>`src/ui/exam/ExamTimer/ExamTimer.tsx` | 考试倒计时（剩余 N 分钟 → m:ss） | `RC/Exam/ExamTimer`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19496-1109) | **Level**: normal / warning（≤5 分钟）/ alert（≤1 分钟） | 2.03 2.06 |  |
+| `rc/Exam/ListeningPart`<br>`src/ui/exam/ListeningPart/ListeningPart.tsx` | 听力 Part 模块（标题、正在播放、说明、播放器） | `RC/Exam/ListeningPart`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19496-1147) | **Playing**: no / yes<br>**Mode**: practice / exam | 2.03 2.07 2.13 |  |
+| `rc/Exam/ScoreReport`<br>`src/ui/exam/ScoreReport/ScoreReport.tsx` | 成绩报告内容（Part 得分表、技能卡、说明） | `RC/Exam/ScoreReport`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19499-1429) | **Pending**: no / yes | 2.11 | Part 得分表用 rc/Quiz/TableFill（Cell=score，复用 UIKit-Report / cell 13415:104976 的外观） |
+| `rc/Exam/ScaleTable`<br>`src/ui/exam/ScaleTable/ScaleTable.tsx` | 成绩换算表（四个技能表格 + 等级说明） | `RC/Exam/ScaleTable`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19499-1502) |  | 2.12 |  |
+| `rc/Exam/ChoiceGrid`<br>`src/ui/exam/ChoiceGrid/ChoiceGrid.tsx` | KET 阅读 Part 2 题目 × 人物网格 | `RC/Exam/ChoiceGrid`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19496-1178) | **Cell**: header / choice<br>**Result**: none / correct / wrong | 2.15 | 格内单选圈用 ui/quiz/RadioMark |
+| `rc/Exam/QuestionStack`<br>`src/ui/exam/QuestionStack/QuestionStack.tsx` | 一页多题容器（听力 Part 3 五题同页） | `RC/Exam/QuestionStack`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19499-1330) | **Density**: default / compact | 2.09 |  |
+| `rc/Exam/MatchBoard`<br>`src/ui/exam/MatchBoard/MatchBoard.tsx` | 两栏配对板（列标题，窄屏堆叠） | `RC/Exam/MatchBoard`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19499-1273) |  | 2.10 |  |
+| `rc/Exam/MatchRow`<br>`src/ui/exam/MatchRow/MatchRow.tsx` | PET 阅读 Part 2 人物与描述配对行（字母开关） | `RC/Exam/MatchRow`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19496-1239) | **Letter**: off / on / used<br>**Result**: none / correct / wrong | 2.22 | 字母开关 44px 圆，与 ui/LetterBadge 区分 |
+| `rc/Exam/WritingTask`<br>`src/ui/exam/WritingTask/WritingTask.tsx` | 写作任务块（印刷材料 + 要点 + 作答框） | `RC/Exam/WritingTask`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19499-1366) | **Kind**: email / story / choose-one | 2.18 2.19 2.24 |  |
 | `rc/Icon`<br>`src/components/Icons.tsx` | UniRead 图标库缺的线性图标：Locate（定位原文）、Flag（标记本题）、Check / Cross | `RC/Icon`（新建） · [提案 ↗](https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19479-1160) | **Icon**: Locate / Flag / Check / Cross | 1.05 1.06 2.03 |  |
 

@@ -1,17 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { staticContent } from '@/lib/content';
-import playIcon from '@/assets/icons/audio-play.svg';
-import pauseIcon from '@/assets/icons/audio-pause.svg';
-import previousIcon from '@/assets/icons/audio-previous.svg';
+import { AudioPlayer as AudioPlayerView } from '@/ui/AudioPlayer/AudioPlayer';
 
 const SKIP = 5;
-export const fmtTime = (s: number) => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
 
 /**
- * Practice-mode recording for one Listening Part — Figma UIkit-Read `player` (11728:110946): progress row,
- * then back 5 s / play·pause / forward 5 s; the track seeks. Only one Part plays at a time (`active` false
- * pauses it); a finished Part never starts the next one (GitHub #72). Exam mode uses ExamAudioSequence instead.
+ * Practice-mode recording for one Listening Part — ui/AudioPlayer Mode=practice (Figma UIkit-Read `player`
+ * 11728:110946): progress row, then back 5 s / play·pause / forward 5 s; the track seeks. Only one Part plays at a time
+ * (`active` false pauses it); a finished Part never starts the next one (GitHub #72). Exam mode uses
+ * ExamAudioSequence instead. This wrapper owns the <audio> element and its state.
  */
 export function AudioPlayer({
   src,
@@ -47,7 +45,16 @@ export function AudioPlayer({
   };
 
   return (
-    <div className="player">
+    <AudioPlayerView
+      mode="practice"
+      time={time}
+      duration={duration}
+      playing={playing}
+      labels={{ progress: t('audio.progress'), play: t('audio.play'), pause: t('audio.pause'), back: t('audio.back', { s: SKIP }), forward: t('audio.forward', { s: SKIP }) }}
+      onToggle={toggle}
+      onSkip={(dir) => skip(dir === 'back' ? -SKIP : SKIP)}
+      onSeek={(s) => audio.current && (audio.current.currentTime = s)}
+    >
       <audio
         ref={audio}
         src={staticContent.assetUrl(src)}
@@ -61,41 +68,6 @@ export function AudioPlayer({
         onTimeUpdate={(e) => setTime(e.currentTarget.currentTime)}
         onLoadedMetadata={(e) => Number.isFinite(e.currentTarget.duration) && setDuration(e.currentTarget.duration)}
       />
-      <Progress time={time} duration={duration} onSeek={(t) => audio.current && (audio.current.currentTime = t)} />
-      <div className="player-actions">
-        <button className="player-btn is-square" onClick={() => skip(-SKIP)} aria-label={t('audio.back', { s: SKIP })}>
-          <img src={previousIcon} alt="" width={32} height={32} />
-        </button>
-        <button className="player-btn" onClick={toggle} aria-label={playing ? t('audio.pause') : t('audio.play')}>
-          <img src={playing ? pauseIcon : playIcon} alt="" width={44} height={44} />
-        </button>
-        <button className="player-btn is-square is-forward" onClick={() => skip(SKIP)} aria-label={t('audio.forward', { s: SKIP })}>
-          <img src={previousIcon} alt="" width={32} height={32} />
-        </button>
-      </div>
-    </div>
-  );
-}
-
-/** time · track · duration; the track seeks unless onSeek is absent (exam mode) */
-export function Progress({ time, duration, onSeek }: { time: number; duration: number; onSeek?: (t: number) => void }) {
-  const { t } = useTranslation();
-  return (
-    <div className="player-progress">
-      <span className="player-time">{fmtTime(time)}</span>
-      <input
-        className="player-track"
-        type="range"
-        min={0}
-        max={Math.max(1, Math.round(duration))}
-        step={1}
-        value={Math.round(time)}
-        disabled={!onSeek}
-        aria-label={t('audio.progress')}
-        style={{ '--progress': `${(time / Math.max(1, duration)) * 100}%` } as React.CSSProperties}
-        onChange={(e) => onSeek?.(Number(e.target.value))}
-      />
-      <span className="player-time">{fmtTime(duration)}</span>
-    </div>
+    </AudioPlayerView>
   );
 }

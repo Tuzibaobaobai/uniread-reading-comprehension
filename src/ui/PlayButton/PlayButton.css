@@ -7,3 +7,13 @@
 .entry-play img { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); }
 /* inline in a sentence: the same button and icon as the headword's (#131) */
 .entry-play.is-small { display: inline-grid; vertical-align: middle; margin-left: var(--ur-space-4); }
+/* Size=player: the 真题 recording player's buttons (UIkit-Read player 11728:110946); ui/AudioPlayer's back / forward
+   buttons share this box */
+.player-btn {
+  --player-btn-w: calc(var(--ur-space-80) + var(--ur-space-48));
+  height: var(--ur-height-height-9); width: var(--player-btn-w);
+  border: none; border-radius: var(--ur-radius-m);
+  background: var(--ur-color-background-card); box-shadow: var(--ur-effect-drop-shadow-btn);
+  display: grid; place-items: center;
+}
+.player-btn:disabled { opacity: var(--ur-opacity-disabled); }

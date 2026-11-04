@@ -815,7 +815,8 @@
     "group": "UIKit-LearnNav",
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=7870-43771"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/CloseButton/CloseButton.tsx"
   },
   {
    "code": "ui/LinkButton",
@@ -831,7 +832,8 @@
     "group": "UIKit-Notes",
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=10817-60790"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/LinkButton/LinkButton.tsx"
   },
   {
    "code": "ui/ResultMark",
@@ -879,7 +881,8 @@
    "variants": {
     "state": "Disabled / Default / Hover …（按源组件）"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/ListenButton/ListenButton.tsx"
   },
   {
    "code": "ui/PlaybackButton",
@@ -899,7 +902,8 @@
    "variants": {
     "Generating Score": "BOOLEAN"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/PlaybackButton/PlaybackButton.tsx"
   },
   {
    "code": "ui/quiz/OptionItem",
@@ -1102,7 +1106,7 @@
   },
   {
    "code": "ui/exam/ModeMenu",
-   "status": "extend",
+   "status": "reuse",
    "product": "真题 KET/PET",
    "description": "真题模式切换下拉菜单",
    "screens": [
@@ -1117,8 +1121,9 @@
    "variants": {
     "Checked": "no / yes（新增，当前模式打勾）"
    },
-   "note": "菜单项沿用 LearnNav item 13054:56538",
-   "issue": "#138"
+   "note": "UIKit-LearnNav dropdown 6759:5518 + item 13054:56538 Selected=yes 即当前模式，无需扩展",
+   "issue": "#138",
+   "source": "src/ui/exam/ModeMenu/ModeMenu.tsx"
   },
   {
    "code": "ui/ChoiceCard",
@@ -1138,10 +1143,16 @@
    "variants": {
     "Selected": "no / yes",
     "Tag": "BOOLEAN（未选择 / 已选）",
-    "Disabled": "no / yes"
+    "Disabled": "no / yes",
+    "Size": "l（模式选择）/ m（PET 写作任务卡）——代码已有，待设计师定是否作为 variant"
    },
    "note": "合并 .mode-option、.task-card、QuizResult .vq-result-card",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/ChoiceCard/ChoiceCard.tsx",
+   "figmaProposal": {
+    "nodeId": "19497:1116",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19497-1116"
+   }
   },
   {
    "code": "ui/exam/SkillScore",
@@ -1160,7 +1171,12 @@
    "variants": {
     "Pending": "no / yes（新增，写作 / 口语待评）"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/exam/SkillScore/SkillScore.tsx",
+   "figmaProposal": {
+    "nodeId": "19497:1175",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19497-1175"
+   }
   },
   {
    "code": "ui/LetterBadge",
@@ -1208,12 +1224,17 @@
    "variants": {
     "Mode": "practice / exam（新增：考试模式只显示进度）"
    },
-   "note": "后退 / 前进 5 秒用 UIkit-Read / btn-before 3221:7318（前进为镜像，新增 Direction: back / forward）",
-   "issue": "#138"
+   "note": "后退 / 前进 5 秒用 UIkit-Read / btn-before 3221:7318（前进为镜像，新增 Direction: back / forward）；btn-before 扩展副本 19497:1213（Direction forward）",
+   "issue": "#138",
+   "source": "src/ui/AudioPlayer/AudioPlayer.tsx",
+   "figmaProposal": {
+    "nodeId": "19497:1209",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19497-1209"
+   }
   },
   {
    "code": "ui/SpeakButton",
-   "status": "extend",
+   "status": "reuse",
    "product": "真题 KET/PET",
    "description": "回答 / 录音中 Ns / 识别中",
    "screens": [
@@ -1229,11 +1250,11 @@
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=9017-38080"
    },
    "variants": {
-    "state": "按源组件",
-    "Recording": "no / yes（新增，计时）",
-    "Recognising": "no / yes（新增）"
+    "state": "Default / Countdown（录音中计时）/ Loading（识别中）/ Disabled …（按源组件）"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/SpeakButton/SpeakButton.tsx",
+   "note": "UniRead btn-speak 已有 Countdown / Loading 状态，无需扩展（Figma 核对后由 extend 改为 reuse）"
   },
   {
    "code": "ui/SpeakCard",
@@ -1260,7 +1281,12 @@
     "Role": "examiner / partner（新增）"
    },
    "note": "Speaking.tsx:48 注释里的 8872:81973 不存在，迁移时改为 9017:40624",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/SpeakCard/SpeakCard.tsx",
+   "figmaProposal": {
+    "nodeId": "19497:1265",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19497-1265"
+   }
   },
   {
    "code": "rc/Common/Chip",
@@ -1506,7 +1532,12 @@
     "Open": "no / yes"
    },
    "note": "合并 RC/Exam/TranscriptPanel 与 rc/Vocab/TipBox；保留 <details>/<summary> 与 .transcript（ket.spec.ts）",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/common/Disclosure/Disclosure.tsx",
+   "figmaProposal": {
+    "nodeId": "19496:1257",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19496-1257"
+   }
   },
   {
    "code": "rc/Quiz/QuestionPrompt",
@@ -1853,7 +1884,12 @@
     "Signature": "BOOLEAN"
    },
    "note": "合并 RC/Read/NoteCard 与 GenreNote + EmailField",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/read/GenreNote/GenreNote.tsx",
+   "figmaProposal": {
+    "nodeId": "19499:1229",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19499-1229"
+   }
   },
   {
    "code": "rc/Read/Callout",
@@ -1866,7 +1902,12 @@
    "variants": {
     "Side": "left / right"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/read/Callout/Callout.tsx",
+   "figmaProposal": {
+    "nodeId": "19499:1235",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19499-1235"
+   }
   },
   {
    "code": "rc/Read/PortraitParagraph",
@@ -1877,7 +1918,12 @@
     "2.15",
     "2.22"
    ],
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/read/PortraitParagraph/PortraitParagraph.tsx",
+   "figmaProposal": {
+    "nodeId": "19499:1242",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19499-1242"
+   }
   },
   {
    "code": "rc/Exam/ModeSelect",
@@ -1895,7 +1941,12 @@
     "Open": "no / yes"
    },
    "note": "菜单是 ui/exam/ModeMenu",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/exam/ModeSelect/ModeSelect.tsx",
+   "figmaProposal": {
+    "nodeId": "19496:1129",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19496-1129"
+   }
   },
   {
    "code": "rc/Exam/ExamTimer",
@@ -1909,7 +1960,12 @@
    "variants": {
     "Level": "normal / warning（≤5 分钟）/ alert（≤1 分钟）"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/exam/ExamTimer/ExamTimer.tsx",
+   "figmaProposal": {
+    "nodeId": "19496:1109",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19496-1109"
+   }
   },
   {
    "code": "rc/Exam/ListeningPart",
@@ -1925,7 +1981,12 @@
     "Playing": "no / yes",
     "Mode": "practice / exam"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/exam/ListeningPart/ListeningPart.tsx",
+   "figmaProposal": {
+    "nodeId": "19496:1147",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19496-1147"
+   }
   },
   {
    "code": "rc/Exam/ScoreReport",
@@ -1939,7 +2000,12 @@
     "Pending": "no / yes"
    },
    "note": "Part 得分表用 rc/Quiz/TableFill（Cell=score，复用 UIKit-Report / cell 13415:104976 的外观）",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/exam/ScoreReport/ScoreReport.tsx",
+   "figmaProposal": {
+    "nodeId": "19499:1429",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19499-1429"
+   }
   },
   {
    "code": "rc/Exam/ScaleTable",
@@ -1949,7 +2015,12 @@
    "screens": [
     "2.12"
    ],
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/exam/ScaleTable/ScaleTable.tsx",
+   "figmaProposal": {
+    "nodeId": "19499:1502",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19499-1502"
+   }
   },
   {
    "code": "rc/Exam/ChoiceGrid",
@@ -1964,7 +2035,12 @@
     "Result": "none / correct / wrong"
    },
    "note": "格内单选圈用 ui/quiz/RadioMark",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/exam/ChoiceGrid/ChoiceGrid.tsx",
+   "figmaProposal": {
+    "nodeId": "19496:1178",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19496-1178"
+   }
   },
   {
    "code": "rc/Exam/QuestionStack",
@@ -1977,7 +2053,12 @@
    "variants": {
     "Density": "default / compact"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/exam/QuestionStack/QuestionStack.tsx",
+   "figmaProposal": {
+    "nodeId": "19499:1330",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19499-1330"
+   }
   },
   {
    "code": "rc/Exam/MatchBoard",
@@ -1987,7 +2068,12 @@
    "screens": [
     "2.10"
    ],
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/exam/MatchBoard/MatchBoard.tsx",
+   "figmaProposal": {
+    "nodeId": "19499:1273",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19499-1273"
+   }
   },
   {
    "code": "rc/Exam/MatchRow",
@@ -2002,7 +2088,12 @@
     "Result": "none / correct / wrong"
    },
    "note": "字母开关 44px 圆，与 ui/LetterBadge 区分",
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/exam/MatchRow/MatchRow.tsx",
+   "figmaProposal": {
+    "nodeId": "19496:1239",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19496-1239"
+   }
   },
   {
    "code": "rc/Exam/WritingTask",
@@ -2017,11 +2108,16 @@
    "variants": {
     "Kind": "email / story / choose-one"
    },
-   "issue": "#138"
+   "issue": "#138",
+   "source": "src/ui/exam/WritingTask/WritingTask.tsx",
+   "figmaProposal": {
+    "nodeId": "19499:1366",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19499-1366"
+   }
   },
   {
    "code": "ui/PlayButton",
-   "status": "extend",
+   "status": "reuse",
    "product": "词汇天天练 · 真题 KET/PET",
    "description": "朗读 / 播放按钮",
    "screens": [
@@ -2034,7 +2130,7 @@
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=3221-7265"
    },
    "source": "src/ui/PlayButton/PlayButton.tsx",
-   "note": "真题播放器的播放 / 暂停：扩展 Size entry / player、Playing → btn-pause 9271:35589",
+   "note": "真题播放器的播放 / 暂停：扩展 Size entry / player、Playing → btn-pause 9271:35589；播放中用 UIkit-Read / btn-pause 9271:35589（独立组件），Size player 为尺寸覆盖，无需扩展",
    "variants": {
     "Size": "entry / player（新增）",
     "Playing": "no / yes（新增）"

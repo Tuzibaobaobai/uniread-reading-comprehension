@@ -116,7 +116,6 @@
   --back-icon: 18px;                /* Figma btn-back icon (#99) */
   --back-icon-color: var(--grey-10);
   --back-icon-hover: var(--grey-9);
-  --select-icon: var(--ur-color-icon-strong);           /* Figma "Dark" — select chevron (#102) */
   --icon-m: var(--ur-size-icon-m);
   --radio: var(--ur-size-icon-m);
   --radio-dot: 15px;
@@ -154,18 +153,6 @@
   --blank-line: var(--ur-stroke-blank);
   --blank-line-color: var(--grey-12);
 
-  /* ---- Figma UIkit-Read: player (11728:110946), btn-play / btn-pause / btn-before */
-  --shadow-btn-m: var(--ur-effect-drop-shadow-btn);           /* drop-shadow/btn */
-  --track-bg: var(--ur-color-background-track);
-  --track-h: var(--ur-height-height);
-  --player-btn-h: var(--ur-height-height-9);
-  --player-btn-w: 128px;
-  --player-btn-gap: var(--ur-space-12);
-  --player-icon: 44px;
-  --player-icon-s: var(--ur-size-icon-l);
-  --player-pad: var(--ur-space-24);
-  --player-time-w: 52px;
-
   /* ---- ui-style-kit OverflowTip (full text of truncated titles; not in Figma yet) */
   --tip-bg: var(--text-primary);
   --shadow-tip: var(--ur-effect-drop-shadow-chart-tip);
@@ -173,23 +160,10 @@
   --tip-max-h: 240px;
 
   /* ---- exam papers (KET/PET): not yet in Figma — built from existing tokens (待补组件) */
-  --exam-warn: var(--danger);
-  --exam-warn-soft: var(--danger-soft);
   --flag: var(--ur-color-feedback-warning);
-  --criteria-bar-h: var(--ur-stroke-criteria);
-  --record-dot: 12px;
-  --speak-btn-icon: 64px;
-  --part-gap: var(--ur-space-16);
-  --solo-max-w: 960px;              /* exam question card when there is no left pane (#78) */                 /* question strip: space + divider between exam Parts */           /* UIkit-Speak btn bg 64 × 64 */
+  --part-gap: var(--ur-space-16);   /* question strip: space + divider between exam Parts */
+  --solo-max-w: 960px;              /* exam question card when there is no left pane (#78) */
 
   --tap: var(--ur-size-touch-target);
   --gutter: var(--ur-space-40);
-  /* printed genre layouts and portraits (#91 #96) — not in Figma yet (待补组件) */
-  --genre-frame: var(--grey-11);
-  --genre-bar-bg: var(--grey-12);
-  --genre-bar-text: var(--white);
-  --genre-band-bg: var(--grey-10);
-  --genre-field-bg: var(--grey-3);
-  --portrait-w: 112px;
-  --portrait-row-w: 64px;
 }

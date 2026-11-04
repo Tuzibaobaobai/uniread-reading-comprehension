@@ -1,0 +1,34 @@
+/* ui/SpeakCard — UniRead UIkit-Speak subtitle-SpeakMode 9017:40624 (extend). Tokens only (docs/14 §15);
+   10 = 8 + 2. The role tag is rc/Common/Tag, the error rc/Common/InlineNotice. */
+.speak-turns { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--ur-space-16); }
+.speak-card {
+  border-radius: var(--ur-radius-l); background: var(--ur-color-background-card); box-shadow: var(--ur-effect-drop-shadow-card-lg);
+  padding: var(--ur-space-20) var(--ur-space-20) var(--ur-space-8);
+  border: var(--ur-stroke-default) solid var(--ur-color-border-default);
+}
+.speak-card.is-active { border-color: var(--ur-color-action-primary); }
+.speak-count {
+  margin: 0; display: flex; align-items: center; gap: calc(var(--ur-space-8) + var(--ur-space-2));
+  color: var(--ur-color-text-secondary);
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+}
+/* Prompt = shown */
+.speak-line { margin: var(--ur-space-4) 0 var(--ur-space-12); font: var(--ur-text-font-system-4xl-medium); color: var(--ur-color-text-strong); }
+/* Prompt = hidden (exam mode: only heard) */
+.speak-line.is-hidden { font: var(--ur-text-font-system-2xl-regular); color: var(--ur-color-text-tertiary); }
+/* Answer = transcript */
+.speak-said {
+  margin: 0 0 var(--ur-space-12); padding: var(--ur-space-12) var(--ur-space-16);
+  border-radius: var(--ur-radius-s); background: var(--ur-color-background-subtle);
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+}
+.speak-said-label {
+  display: block; color: var(--ur-color-text-secondary);
+  font-size: var(--ur-text-font-system-s-regular-size); line-height: var(--ur-text-font-system-s-regular-line-height);
+}
+/* the recording error (rc/Common/InlineNotice) inside the card or under the list */
+.speak-error { margin: 0 0 var(--ur-space-12); }
+.speak-actions {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: var(--ur-stroke-default) solid var(--ur-color-border-default); padding-top: var(--ur-space-8);
+}

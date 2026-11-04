@@ -1,0 +1,9 @@
+/* rc/Exam/QuestionStack (proposed). Tokens only. */
+.part-stack { display: grid; gap: var(--ur-space-32); }
+.part-stack .q-prompt { margin: 0 0 var(--ur-space-12); }
+/* Density compact: 20 between questions, the prompt at 2xl (bold, from rc/Quiz/QuestionPrompt) right above the options */
+.part-stack.is-compact { gap: var(--ur-space-20); }
+.part-stack.is-compact .q-prompt {
+  font-size: var(--ur-text-font-system-2xl-bold-size); line-height: var(--ur-text-font-system-2xl-bold-line-height);
+  margin: 0 0 var(--ur-space-8);
+}

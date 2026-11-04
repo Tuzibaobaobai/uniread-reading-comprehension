@@ -1,4 +1,5 @@
 import { useId, type ReactNode } from 'react';
+import { CloseButton } from '@/ui/CloseButton/CloseButton';
 import './Dialog.css';
 
 export type DialogSize = 's' | 'm' | 'l';
@@ -42,11 +43,7 @@ export function Dialog({
         aria-label={title ? undefined : label}
         onClick={(e) => e.stopPropagation()}
       >
-        {closeLabel && (
-          <button className="dialog-close" onClick={onClose} aria-label={closeLabel}>
-            ×
-          </button>
-        )}
+        {closeLabel && <CloseButton label={closeLabel} onClick={onClose} />}
         {title && <h2 id={id}>{title}</h2>}
         {children}
         {actions && <div className="dialog-actions">{actions}</div>}

@@ -1,0 +1,11 @@
+/* RC/Exam/ModeSelect (proposed). Tokens only. */
+.mode-select { position: relative; }
+.mode-select-button {
+  display: inline-flex; align-items: center; gap: var(--ur-space-8);
+  height: var(--ur-height-height-6); padding: 0 var(--ur-space-12) 0 var(--ur-space-16);
+  border: none; border-radius: var(--ur-radius-s); background: var(--ur-color-background-card); box-shadow: var(--ur-effect-drop-shadow-btn-xs);
+  font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height);
+  color: var(--ur-color-text-primary); white-space: nowrap;
+}
+.mode-select-button b { font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-text-strong); }
+.mode-select-button .chevron-down { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); color: var(--ur-color-icon-strong); }

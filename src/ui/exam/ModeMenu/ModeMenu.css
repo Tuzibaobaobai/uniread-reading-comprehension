@@ -1,0 +1,18 @@
+/* ui/exam/ModeMenu — extends UIKit-LearnNav dropdown. Tokens only. */
+.mode-select-menu {
+  position: absolute; right: 0; top: calc(100% + var(--ur-space-8)); z-index: 20; min-width: 100%; padding: var(--ur-space-8);
+  display: grid; gap: var(--ur-space-4); border-radius: var(--ur-radius-s);
+  background: var(--ur-color-background-card); box-shadow: var(--ur-effect-drop-shadow-card-lg);
+}
+.mode-select-item {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--ur-space-12);
+  min-height: var(--ur-size-touch-target); padding: 0 var(--ur-space-12);
+  border: none; border-radius: var(--ur-radius-xs); background: transparent;
+  font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height);
+  color: var(--ur-color-text-primary); text-align: left; white-space: nowrap;
+}
+.mode-select-item.is-current { color: var(--ur-color-action-primary-strong); font-weight: var(--ur-text-font-system-m-bold-weight); }
+.mode-select-item svg { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); }
+@media (hover: hover) and (pointer: fine) {
+  .mode-select-item:hover { background: var(--ur-color-background-subtle); }
+}

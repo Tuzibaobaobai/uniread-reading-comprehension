@@ -1,0 +1,5 @@
+/* RC/Read/PortraitParagraph (proposed). Tokens only. A person's photo beside their text (KET Reading Part 2, #91). */
+/* the second selector outranks ArticleText's .article-body > * spacing whatever the CSS order */
+.rt-portrait-row, .article-body > .rt-portrait-row { display: flex; gap: var(--ur-space-16); align-items: flex-start; margin: .4em 0 1em; }
+.rt-portrait-row .rt-p { margin: 0; flex: 1; min-width: 0; }
+.rt-portrait { width: calc(var(--ur-space-80) + var(--ur-space-32)); height: auto; flex-shrink: 0; border-radius: var(--ur-radius-xs); }

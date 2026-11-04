@@ -12,3 +12,10 @@
 .letter-badge.is-filled.is-accent { background: var(--ur-color-action-primary); }
 .letter-badge.is-filled.is-success { background: var(--ur-color-feedback-success); }
 .letter-badge.is-filled.is-danger { background: var(--ur-color-feedback-error); }
+/* Filled no + Tone accent (the exam option letters: .part-grid-letter, .match-board-letter): the letter takes the tone */
+.letter-badge.is-accent:not(.is-filled) { color: var(--ur-color-action-primary-strong); }
+/* Bare: the letter alone (exam grid column letters, board option letters) */
+.letter-badge.is-bare {
+  display: inline-block; height: auto; min-width: 0; border-radius: 0; background: none;
+  font-size: inherit; line-height: inherit; font-weight: var(--ur-text-font-system-m-bold-weight);
+}

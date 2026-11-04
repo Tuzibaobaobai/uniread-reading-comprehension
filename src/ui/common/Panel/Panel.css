@@ -34,3 +34,6 @@
     border-radius: var(--ur-radius-l);
   }
 }
+
+/* Kind exam: the Part has no material for the current question (line height follows the article) */
+.exam-empty { margin: var(--ur-space-16) 0; color: var(--ur-color-text-tertiary); font-size: var(--ur-text-font-system-m-regular-size); }

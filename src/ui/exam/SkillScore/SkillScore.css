@@ -1,0 +1,8 @@
+/* ui/exam/SkillScore — extends UIKit-Dashboard data card. Tokens only. */
+.report-skill { display: grid; gap: var(--ur-space-2); padding: var(--ur-space-16); border-radius: var(--ur-radius-s); background: var(--ur-color-background-subtle); }
+.report-skill-name, .report-skill-raw { color: var(--ur-color-text-secondary); font-size: var(--ur-text-font-system-s-regular-size); }
+.report-skill-scale {
+  font-size: var(--ur-text-size-5xl); line-height: var(--ur-text-size-5xl-line-height);
+  font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-text-primary);
+}
+.report-skill-grade { font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-action-primary-strong); }

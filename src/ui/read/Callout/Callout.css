@@ -1,0 +1,8 @@
+/* RC/Read/Callout (proposed). Tokens only; em values follow the article size. */
+.rt-callout {
+  display: inline-block; margin: 0 var(--ur-space-4); padding: 0 calc(var(--ur-space-8) + var(--ur-space-2)); transform: rotate(-2deg);
+  border: var(--ur-stroke-blank) solid var(--ur-color-action-primary); border-radius: var(--ur-radius-xs);
+  background: var(--ur-color-action-primary-soft);
+  color: var(--ur-color-action-primary-strong); font-weight: var(--ur-text-font-system-m-bold-weight); font-size: .85em; line-height: 1.6;
+}
+.rt-callout.is-right { transform: rotate(2deg); }

@@ -4,3 +4,8 @@
 .vq-table .rt-table th, .vq-table .rt-table td { padding: var(--ur-space-8); vertical-align: middle; }
 .vq-table .blank-input { display: flex; margin: 0; }
 .vq-table .blank-input input { width: 100%; min-width: var(--ur-height-height-7); }
+/* Cell=score (ScoreTable): the exam score report and the conversion table */
+.report-table { width: 100%; border-collapse: collapse; margin: var(--ur-space-8) 0 var(--ur-space-16); font-size: var(--ur-text-font-system-m-regular-size); }
+.report-table caption { text-align: left; font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-text-primary); padding-bottom: var(--ur-space-4); }
+.report-table th, .report-table td { text-align: left; padding: var(--ur-space-8) 0; border-bottom: var(--ur-stroke-default) solid var(--ur-color-border-default); }
+.report-table td:last-child, .report-table th:last-child { text-align: right; font-variant-numeric: tabular-nums; }

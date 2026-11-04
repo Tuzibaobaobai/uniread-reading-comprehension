@@ -1,0 +1,53 @@
+/* rc/Exam/MatchBoard (proposed). Tokens only; body text l. 10 = 8 + 2, 14 = 12 + 2, 3 = 2 + 1. */
+.match-board { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--ur-space-16); align-items: start; }
+.match-board-head {
+  margin: 0 0 calc(-1 * var(--ur-space-8));
+  font-size: var(--ur-text-font-system-m-bold-size); line-height: var(--ur-text-font-system-m-bold-line-height);
+  font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-text-strong);
+}
+@container (max-width: 640px) {
+  .match-board { grid-template-columns: 1fr; }
+  /* stacked: each printed heading stays above its own column (#104) */
+  .match-board > .match-board-head:nth-of-type(1) { order: 1; }
+  .match-board > .match-board-people { order: 2; }
+  .match-board > .match-board-head:nth-of-type(2) { order: 3; }
+  .match-board > .match-board-options { order: 4; }
+}
+.match-board-people { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--ur-space-8); }
+.match-board-options { display: grid; gap: var(--ur-space-8); }
+.match-board-person, .match-board-option {
+  width: 100%; min-height: var(--ur-size-touch-target);
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: calc(var(--ur-space-8) + var(--ur-space-2));
+  padding: calc(var(--ur-space-8) + var(--ur-space-2)) calc(var(--ur-space-12) + var(--ur-space-2));
+  border: var(--ur-stroke-default) solid var(--ur-color-border-default); border-radius: var(--ur-radius-s);
+  background: var(--ur-color-background-card);
+  text-align: left; font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+  color: var(--ur-color-text-primary);
+}
+.match-board-person.is-active {
+  border-color: var(--ur-color-action-primary);
+  box-shadow: 0 0 0 calc(var(--ur-space-2) + var(--ur-stroke-default)) var(--ur-color-action-primary-soft);
+}
+.match-board-person.is-example { background: var(--ur-color-background-subtle); color: var(--ur-color-text-secondary); }
+.match-board-person.is-correct { border-color: var(--ur-color-feedback-success); background: var(--ur-color-feedback-success-bg); }
+.match-board-person.is-wrong { border-color: var(--ur-color-feedback-error); background: var(--ur-color-feedback-error-bg); }
+/* the answer badge: ui/LetterBadge kept round at 2em with a dashed ring while empty */
+.letter-badge.match-board-badge {
+  --badge-size: 2em;
+  border-radius: var(--ur-radius-full); border: var(--ur-stroke-default) dashed var(--ur-color-border-default);
+  background: transparent; font-size: inherit; color: inherit;
+}
+.letter-badge.match-board-badge.is-filled { border-style: solid; border-color: var(--ur-color-action-primary); color: var(--ur-color-text-on-action); }
+.match-board-answer { grid-column: 2 / -1; color: var(--ur-color-feedback-error); font-weight: var(--ur-text-font-system-m-bold-weight); }
+.match-board-option.is-used { background: var(--ur-color-background-subtle); color: var(--ur-color-text-secondary); }
+.match-board-option.is-here { border-color: var(--ur-color-action-primary); }
+.match-board-option.is-example { text-decoration: line-through; opacity: var(--ur-opacity-disabled); }
+.match-board-option:disabled:not(.is-example) { cursor: default; }
+.match-board-used {
+  font-size: var(--ur-text-font-system-s-bold-size); font-weight: var(--ur-text-font-system-s-bold-weight);
+  color: var(--ur-color-action-primary-strong);
+}
+@media (hover: hover) and (pointer: fine) {
+  .match-board-option:hover:not(:disabled), .match-board-person:hover:not(:disabled) { border-color: var(--ur-color-action-primary); }
+}
+.match-board-letter.is-bare { min-width: 1.2em; }

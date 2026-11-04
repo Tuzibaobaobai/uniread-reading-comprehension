@@ -9,3 +9,6 @@
   margin-top: var(--ur-space-8); text-align: center; color: var(--ur-color-text-secondary);
   font-size: var(--ur-text-font-system-s-regular-size); line-height: var(--ur-text-font-system-s-regular-line-height);
 }
+/* Size grid-3: a picture sequence (KET / PET question material with several pictures) */
+.figure-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(calc(var(--ur-space-80) * 2), 1fr)); gap: var(--ur-space-16); }
+.figure-grid > .article-figure { margin: 0; }

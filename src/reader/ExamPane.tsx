@@ -4,7 +4,14 @@ import type { BlockT, ExamItemT, SectionT } from '@schema';
 import type { BlankNode } from '@/components/Rich';
 import { staticContent } from '@/lib/content';
 import playIcon from '@/assets/icons/audio-play.svg';
-import { AudioPlayer, Progress } from './AudioPlayer';
+import { Panel } from '@/ui/common/Panel/Panel';
+import { Disclosure } from '@/ui/common/Disclosure/Disclosure';
+import { ArticleHeader } from '@/ui/read/ArticleHeader/ArticleHeader';
+import { ArticleBody, ArticleText } from '@/ui/read/ArticleText/ArticleText';
+import { FigureGrid } from '@/ui/read/Figure/Figure';
+import { ListeningPart, ListeningPartStart, ListeningPartState } from '@/ui/exam/ListeningPart/ListeningPart';
+import { AudioPlayer as AudioPlayerView } from '@/ui/AudioPlayer/AudioPlayer';
+import { AudioPlayer } from './AudioPlayer';
 import { Block, Figure, mergeRefs, useEvidencePaint } from './ArticlePane';
 import type { FlatQuestion } from './model';
 import { Emph } from './interactions';
@@ -26,7 +33,7 @@ interface Props {
 }
 
 /**
- * left pane of an exam paper.
+ * left pane of an exam paper (rc/Common/Panel Kind exam; heading rc/Read/ArticleHeader Kicker + Instruction).
  * Reading & Writing / Speaking: the current Part's heading, the current question's own material (e.g. a Part 1
  * notice) and the Part's texts.
  * Listening (GitHub #72): every Part's recording stacked vertically — title, instructions, controls — so the audio
@@ -40,10 +47,11 @@ export const ExamPane = forwardRef<HTMLDivElement, Props>(function ExamPane(prop
   const section = fq?.section;
   const fallback = useEvidencePaint(rootRef, evidence, [section?.id, fq?.q.id]);
   const image = (id: string) => item.article.images.find((i) => i.id === id);
-  const blocks = (list: BlockT[] | undefined) =>
+  // a question's own pictures keep their natural height (rc/Read/Figure Size full)
+  const blocks = (list: BlockT[] | undefined, figureSize?: 'full') =>
     list?.map((b) =>
       b.type === 'imageRef' ? (
-        <Figure key={b.id} img={image(b.image)} />
+        <Figure key={b.id} img={image(b.image)} size={figureSize} />
       ) : (
         <Block key={b.id} block={b} renderBlank={renderBlank} evidence={fallback.has(b.id)} imageOf={image} />
       ),
@@ -52,44 +60,39 @@ export const ExamPane = forwardRef<HTMLDivElement, Props>(function ExamPane(prop
   const materialOf = (s: SectionT, withQuestion: boolean) => (
     <>
       {withQuestion && qMaterial && qMaterial.length > 0 && (
-        <div className={`article-body exam-q-material ${qMaterial.filter((b) => b.type === 'imageRef').length > 1 ? 'is-sequence' : ''}`}>
-          {blocks(qMaterial)}
-        </div>
+        // several pictures read as a sequence (rc/Read/Figure Size grid-3)
+        <FigureGrid className="article-body exam-q-material" sequence={qMaterial.filter((b) => b.type === 'imageRef').length > 1}>
+          {blocks(qMaterial, 'full')}
+        </FigureGrid>
       )}
-      {s.material && s.material.length > 0 && <div className="article-body">{blocks(s.material)}</div>}
+      {s.material && s.material.length > 0 && <ArticleBody>{blocks(s.material)}</ArticleBody>}
       {props.transcripts?.[s.id] && props.transcripts[s.id].length > 0 && (
-        <details className="transcript" open>
-          <summary>{t('reader.transcript')}</summary>
-          <div className="article-body">{blocks(props.transcripts[s.id])}</div>
-        </details>
+        // after submitting: the Part's transcript (rc/Common/Disclosure, open)
+        <Disclosure className="transcript" summary={t('reader.transcript')} defaultOpen>
+          <ArticleBody>{blocks(props.transcripts[s.id])}</ArticleBody>
+        </Disclosure>
       )}
     </>
   );
   return (
-    <div className="article-pane exam-pane">
-      <div className="article-scroll thin-scroll" ref={mergeRefs(rootRef, ref)}>
-        {item.paper === 'listening' ? (
-          <ListeningStack {...props} current={section?.id} materialOf={materialOf} />
-        ) : (
-          section && (
-            <article className="article">
-              <p className="exam-part-kicker">{item.title}</p>
-              <h1 className="article-title">{section.label ?? `Part ${section.part}`}</h1>
-              <p className="exam-instruction">
-                <Emph text={section.instruction} />
-              </p>
-              {materialOf(section, true)}
-              {!qMaterial?.length && !section.material?.length && <p className="exam-empty">{t('reader.noMaterial')}</p>}
-            </article>
-          )
-        )}
-      </div>
-    </div>
+    <Panel kind="exam" ref={mergeRefs(rootRef, ref)}>
+      {item.paper === 'listening' ? (
+        <ListeningStack {...props} current={section?.id} materialOf={materialOf} />
+      ) : (
+        section && (
+          <ArticleText>
+            <ArticleHeader kicker={item.title} title={section.label ?? `Part ${section.part}`} instruction={<Emph text={section.instruction} />} />
+            {materialOf(section, true)}
+            {!qMaterial?.length && !section.material?.length && <p className="exam-empty">{t('reader.noMaterial')}</p>}
+          </ArticleText>
+        )
+      )}
+    </Panel>
   );
 });
 
 /**
- * Listening: one module per Part. Practice — each module has its own controls, one Part plays at a time, nothing
+ * Listening: one module per Part (rc/Exam/ListeningPart). Practice — each module has its own controls, one Part plays at a time, nothing
  * advances by itself. Exam — one shared recording plays the Parts in exam order (the first play needs a tap, later
  * Parts follow automatically), the playing Part is highlighted, and nothing can be paused, sought or replayed.
  */
@@ -118,28 +121,25 @@ function ListeningStack({
   }, [current]);
 
   return (
-    <article className="article listening-stack">
-      <p className="exam-part-kicker">{item.title}</p>
+    <ArticleText className="listening-stack">
+      <ArticleHeader kicker={item.title} />
       {seq.audio}
       {item.sections.map((s) => {
         const isCurrent = s.id === current;
         const isPlaying = locked ? seq.playing === s.id : active === s.id;
         return (
-          <section
+          <ListeningPart
             key={s.id}
             ref={(el) => (el ? moduleRefs.current.set(s.id, el) : moduleRefs.current.delete(s.id))}
-            className={`part-audio ${isCurrent ? 'is-current' : ''} ${isPlaying ? 'is-playing' : ''}`}
-            aria-label={s.label ?? `Part ${s.part}`}
+            title={s.label ?? `Part ${s.part}`}
+            mode={locked ? 'exam' : 'practice'}
+            current={isCurrent}
+            playing={isPlaying}
+            playingLabel={locked ? t('audio.nowPlaying') : t('audio.playing')}
+            instruction={<Emph text={s.instruction} />}
+            note={locked ? t('audio.examNote') : t('audio.practiceNote')}
           >
-            <h2 className="part-audio-title">
-              {s.label ?? `Part ${s.part}`}
-              {isPlaying && <span className="part-audio-badge">{locked ? t('audio.nowPlaying') : t('audio.playing')}</span>}
-            </h2>
-            <p className="exam-instruction">
-              <Emph text={s.instruction} />
-            </p>
-            <p className="player-note">{locked ? t('audio.examNote') : t('audio.practiceNote')}</p>
-            {!s.audio && <p className="part-audio-state">{t('audio.missing')}</p>}
+            {!s.audio && <ListeningPartState>{t('audio.missing')}</ListeningPartState>}
             {s.audio &&
               (locked ? (
                 seq.controls(s)
@@ -147,10 +147,10 @@ function ListeningStack({
                 <AudioPlayer src={s.audio.src} seconds={s.audio.seconds} active={active === s.id} onPlay={() => setActive(s.id)} />
               ))}
             {isCurrent && materialOf(s, true)}
-          </section>
+          </ListeningPart>
         );
       })}
-    </article>
+    </ArticleText>
   );
 }
 
@@ -196,16 +196,16 @@ function useExamSequence(parts: SectionT[], locked: boolean, played: Set<string>
   ) : null;
 
   const controls = (s: SectionT) => {
-    if (playing === s.id) return <div className="player is-locked"><Progress time={time} duration={s.audio!.seconds} /></div>;
-    if (played.has(s.id)) return <p className="part-audio-state">{t('audio.finished')}</p>;
+    // exam mode: the locked recording, progress only (ui/AudioPlayer Mode=exam)
+    if (playing === s.id) return <AudioPlayerView mode="exam" time={time} duration={s.audio!.seconds} labels={{ progress: t('audio.progress') }} />;
+    if (played.has(s.id)) return <ListeningPartState>{t('audio.finished')}</ListeningPartState>;
     if (!playing && next?.id === s.id)
       return (
-        <button className="part-audio-start" onClick={() => play(s)}>
-          <img src={playIcon} alt="" width={32} height={32} />
+        <ListeningPartStart icon={playIcon} onClick={() => play(s)}>
           {s.id === parts[0]?.id ? t('audio.start') : t('audio.continueFrom', { part: s.label ?? `Part ${s.part}` })}
-        </button>
+        </ListeningPartStart>
       );
-    return <p className="part-audio-state">{t('audio.waiting')}</p>;
+    return <ListeningPartState>{t('audio.waiting')}</ListeningPartState>;
   };
   return { audio: element, playing, controls };
 }

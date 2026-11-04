@@ -10,3 +10,5 @@
 .chip.is-on { border-color: var(--ur-color-action-primary); background: var(--ur-color-action-primary-soft); color: var(--ur-color-action-primary-strong); }
 .chip.is-correct { border-color: var(--ur-color-feedback-success); background: var(--ur-color-feedback-success-bg); color: var(--ur-color-feedback-success-text); }
 .chip.is-wrong { border-color: var(--ur-color-feedback-error); background: var(--ur-color-feedback-error-bg); color: var(--ur-color-feedback-error); }
+.chip.is-flag { border-color: var(--ur-color-feedback-warning); color: var(--ur-color-text-strong); }
+.chip.is-flag svg { color: var(--ur-color-feedback-warning); }

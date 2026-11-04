@@ -79,15 +79,11 @@ body:has(.playlist-page) { background: var(--bg-card); }
 /* .question-card / .question-scroll → src/ui/common/Panel */
 .section-instruction { margin: 0 0 24px; color: var(--text-secondary); font-size: var(--fs-m); line-height: var(--lh-m); }
 .section-intro { margin: -12px 0 24px; color: var(--text-primary); font-size: var(--fs-l); line-height: var(--lh-l); }
-/* writing task: the printed genre text inside the prompt (#96) */
-.task-stimulus { margin: 0 0 16px; font-size: var(--fs-l); line-height: var(--lh-l); }
-.task-line { margin: 0 0 16px; font-size: var(--fs-l); line-height: var(--lh-l); color: var(--text-primary); }
+/* writing task (.task-stimulus, .task-line) and section stimulus (.stimulus) → src/ui/exam/WritingTask */
 /* question prompt, options, blanks, bank, match, order, long answer, judge: src/ui/quiz (docs/14 §15) */
 
 
 
-.stimulus { margin-bottom: 16px; font-size: var(--fs-l); line-height: var(--lh-l); }
-.stimulus .rt-table { font-size: var(--fs-m); }
 
 
 
@@ -107,249 +103,31 @@ body:has(.playlist-page) { background: var(--bg-card); }
 
 /* question strip: exam Parts (#72, .question-dot.part-start) → ui/PartPager Kicker */
 
-/* listening: every Part's recording stacked (#72) */
-.listening-stack { display: grid; gap: 16px; }
-.part-audio { padding: 20px; border: 1px solid var(--border); border-radius: var(--radius-m); background: var(--bg-card); scroll-margin-top: 16px; }
-.part-audio.is-current { border-color: var(--accent); }
-.part-audio.is-playing { box-shadow: 0 0 0 3px var(--accent-soft); background: var(--accent-soft); }
-.part-audio-title { margin: 0; display: flex; align-items: center; gap: 12px; font-size: var(--fs-2xl); line-height: var(--lh-2xl); color: var(--text-primary); }
-.part-audio-badge { padding: 0 10px; border-radius: var(--radius-full); background: var(--accent); color: var(--text-on-accent); font-size: var(--fs-s); line-height: var(--lh-s); }
-.part-audio .exam-instruction { margin: 4px 0 8px; }
-.part-audio .player { margin: 12px 0 0; }
-.part-audio .player-note { text-align: left; margin-bottom: 4px; }
-.part-audio > .article-body, .part-audio > .transcript { margin-top: 20px; }
-.part-audio-state { margin: 12px 0 0; color: var(--text-secondary); font-size: var(--fs-m); }
-.part-audio-start {
-  margin-top: 12px; min-height: var(--player-btn-h); padding: 0 24px; display: inline-flex; align-items: center; gap: 12px;
-  border: none; border-radius: var(--radius-m); background: var(--bg-card); box-shadow: var(--shadow-btn-m);
-  font-size: var(--fs-l); font-weight: var(--fw-bold); color: var(--text-strong);
-}
+/* listening Parts, Part heading, question material, transcript → src/ui (exam/ListeningPart, read/ArticleHeader,
+   read/Figure grid-3, common/Disclosure, common/Panel Kind exam) */
 
-/* left pane: Part heading + recording + material */
-.exam-part-kicker { margin: 0 0 4px; color: var(--text-tertiary); font-size: var(--fs-s); line-height: var(--lh-s); }
-.exam-instruction { margin: 8px 0 24px; color: var(--text-secondary); font-size: var(--fs-l); line-height: var(--lh-l); }
-.exam-empty { color: var(--text-tertiary); font-size: var(--fs-m); }
-.exam-q-material .article-figure img { max-height: none; }
-.exam-q-material.is-sequence { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: var(--panel-gap); }
-.exam-q-material.is-sequence .article-figure { margin: 0; }
-.transcript { margin-top: 32px; border-top: 1px solid var(--border); padding-top: 16px; font-size: var(--fs-l); line-height: var(--lh-l); }
-.transcript summary { cursor: pointer; font-weight: var(--fw-bold); color: var(--text-primary); min-height: var(--tap); display: flex; align-items: center; }
-
-/* Figma UIkit-Read `player` (11728:110946) */
-.player { margin: 0 0 24px; padding: var(--player-pad); border-radius: var(--radius-m); background: var(--bg-card); box-shadow: var(--shadow-card-lg); display: grid; gap: 16px; }
-.player-progress { display: flex; align-items: center; gap: 16px; }
-.player-time { flex: none; min-width: var(--player-time-w); font-size: var(--fs-m); line-height: var(--lh-m); font-weight: var(--fw-bold); color: var(--grey-9); font-variant-numeric: tabular-nums; }
-.player-track {
-  flex: 1; min-width: 0; height: var(--tap); margin: 0; background: transparent; appearance: none; -webkit-appearance: none; cursor: pointer;
-}
-.player-track::-webkit-slider-runnable-track {
-  height: var(--track-h); border-radius: var(--radius-full);
-  background: linear-gradient(to right, var(--accent) var(--progress, 0%), var(--track-bg) var(--progress, 0%));
-}
-.player-track::-moz-range-track { height: var(--track-h); border-radius: var(--radius-full); background: var(--track-bg); }
-.player-track::-moz-range-progress { height: var(--track-h); border-radius: var(--radius-full); background: var(--accent); }
-.player-track::-webkit-slider-thumb { -webkit-appearance: none; width: 0; height: 0; }
-.player-track::-moz-range-thumb { width: 0; height: 0; border: 0; }
-.player-track:disabled { cursor: default; }
-.player-actions { display: flex; justify-content: center; gap: var(--player-btn-gap); }
-.player-btn {
-  height: var(--player-btn-h); width: var(--player-btn-w); border: none; border-radius: var(--radius-m);
-  background: var(--bg-card); box-shadow: var(--shadow-btn-m); display: grid; place-items: center;
-}
-.player-btn.is-square { width: var(--player-btn-h); }
-.player-btn.is-forward img { transform: scaleX(-1); }
-.player-btn:disabled { opacity: var(--disabled-opacity); }
-.player-note { margin: 0; text-align: center; color: var(--text-secondary); font-size: var(--fs-s); line-height: var(--lh-s); }
+/* recording player (.player …) → src/ui/AudioPlayer; play / pause box (.player-btn) → ui/PlayButton Size=player */
 
 /* exam bar above the question: timer, flag, report (待补组件) */
 .exam-bar { display: flex; align-items: center; justify-content: flex-end; gap: 12px; padding: 16px var(--quiz-pad) 0; flex: none; }
 .reader-head-actions { margin-left: auto; flex: none; display: flex; align-items: center; }
-/* header mode select (#102, Figma 19215-125964); the open menu is 待补组件 */
-.mode-select { position: relative; }
-.mode-select-button {
-  display: inline-flex; align-items: center; gap: 8px; height: var(--back-btn); padding: 0 12px 0 16px;
-  border: none; border-radius: var(--radius-s); background: var(--bg-card); box-shadow: var(--shadow-btn);
-  font-size: var(--fs-m); line-height: var(--lh-m); color: var(--text-body); white-space: nowrap;
-}
-.mode-select-button b { font-weight: var(--fw-bold); color: var(--text-strong); }
-.mode-select-button .chevron-down { width: var(--icon-m); height: var(--icon-m); color: var(--select-icon); }
-.exam-timer { font-variant-numeric: tabular-nums; }
-.exam-timer.is-warn { color: var(--exam-warn); }
-.exam-timer.is-alert { color: var(--exam-warn); font-weight: var(--fw-bold); }
-.mode-select-menu {
-  position: absolute; right: 0; top: calc(100% + 8px); z-index: 20; min-width: 100%; padding: 8px;
-  display: grid; gap: 4px; border-radius: var(--radius-s); background: var(--bg-card); box-shadow: var(--shadow-card-lg);
-}
-.mode-select-item {
-  display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: var(--tap); padding: 0 12px;
-  border: none; border-radius: var(--radius-xs); background: transparent; font-size: var(--fs-m); line-height: var(--lh-m);
-  color: var(--text-body); text-align: left; white-space: nowrap;
-}
-.mode-select-item.is-current { color: var(--accent-strong); font-weight: var(--fw-bold); }
-.mode-select-item svg { width: var(--icon-m); height: var(--icon-m); }
-@media (hover: hover) and (pointer: fine) {
-  .mode-select-item:hover { background: var(--bg-hover); }
-}
+/* header mode select (.mode-select …, #102) → src/ui/exam/ModeSelect + ui/exam/ModeMenu; countdown (.exam-timer) →
+   src/ui/exam/ExamTimer */
 /* .chip. raises it above rc/Common/Chip's .chip.is-on, whose stylesheet now loads after app.css */
-.chip.flag-toggle.is-on { border-color: var(--flag); color: var(--text-strong); }
 
 
 
-/* speaking — Figma UIkit-Speak sentence card (8872:81973) */
-.speak-turns { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
-.speak-card { border-radius: var(--radius-l); background: var(--bg-card); box-shadow: var(--shadow-card-lg); padding: 20px var(--option-pad-x) 8px; border: 1px solid var(--border); }
-.speak-card.is-active { border-color: var(--accent); }
-.speak-count { margin: 0; color: var(--text-secondary); font-size: var(--fs-l); line-height: var(--lh-l); }
-.speak-line { margin: 4px 0 12px; font-size: var(--fs-4xl); line-height: 1.5; font-weight: var(--fw-medium); color: var(--grey-12); }
-.speak-line.is-hidden { color: var(--text-tertiary); font-size: var(--fs-2xl); font-weight: var(--fw-regular); }
-.speak-said { margin: 0 0 12px; padding: 12px 16px; border-radius: var(--radius-s); background: var(--bg-subtle); font-size: var(--fs-l); line-height: var(--lh-l); }
-.speak-said-label { display: block; color: var(--text-secondary); font-size: var(--fs-s); line-height: var(--lh-s); }
-.speak-error { margin: 0 0 12px; color: var(--danger); font-size: var(--fs-m); }
-.speak-actions { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border); padding-top: 8px; }
-.speak-btn {
-  display: flex; align-items: center; justify-content: center; gap: 16px; min-height: var(--tap);
-  padding: 12px 12px 12px 8px; border: none; border-radius: var(--radius-row); background: transparent;
-  font-size: var(--fs-3xl); line-height: var(--lh-3xl); font-weight: var(--fw-medium); color: var(--grey-12);
-}
-.speak-btn:disabled { opacity: var(--disabled-opacity); }
-.speak-btn-icon { flex: none; width: var(--speak-btn-icon); height: var(--speak-btn-icon); border-radius: var(--radius-full); background: var(--grey-3); display: grid; place-items: center; }
-.speak-btn-icon.is-submit { background: var(--success); }
-.speak-btn-icon.is-loading img { animation: spin 1s linear infinite; }
-@keyframes spin { to { transform: rotate(360deg); } }
+/* exam Parts on one page (#82 #86 #87): rc/Exam/QuestionStack, ChoiceGrid, MatchBoard, MatchRow and rc/Quiz/AnswerFeedback
+   Size compact (src/ui) */
 
-/* exam Parts on one page (#82 #86 #87, 待补组件) */
-.part-stack { display: grid; gap: 32px; }
-.part-stack-q .q-prompt { margin-bottom: 12px; }
-.part-grid { width: 100%; border-collapse: collapse; font-size: var(--fs-l); line-height: var(--lh-l); }
-.part-grid th, .part-grid td { padding: 8px; border-bottom: 1px solid var(--border); text-align: center; vertical-align: middle; }
-.part-grid thead th { font-weight: var(--fw-bold); color: var(--text-strong); }
-.part-grid-letter { display: inline-block; min-width: 1.5em; color: var(--accent-strong); }
-.part-grid-q { text-align: left !important; font-weight: var(--fw-regular); color: var(--text-primary); }
-.part-grid-cell { width: var(--tap); height: var(--tap); border: none; border-radius: var(--radius-full); background: transparent; display: inline-grid; place-items: center; }
-.part-grid-cell.is-selected { background: var(--bg-selected); }
-.part-grid-cell.is-correct { background: var(--success-soft); }
-.part-grid-cell.is-wrong { background: var(--danger-soft); }
-/* the radio itself follows the option rows: selected = accent, correct = success, wrong = danger (#82) */
-.part-grid-cell.is-selected .option-radio { border-color: var(--accent); color: var(--accent); }
-.part-grid-cell.is-correct .option-radio { border-color: var(--success); color: var(--success); }
-.part-grid-cell.is-wrong .option-radio { border-color: var(--danger); color: var(--danger); }
-.part-explain { list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 10px; font-size: var(--fs-m); line-height: var(--lh-m); }
-.part-explain li { padding: 10px 14px; border-radius: var(--radius-s); background: var(--bg-subtle); }
-.part-explain li.is-correct { background: var(--success-soft); }
-.part-explain li.is-wrong { background: var(--danger-soft); }
-.part-explain svg { width: 16px; height: 16px; vertical-align: -2px; }
-.part-explain-locate { margin-top: 6px; display: flex; width: fit-content; }
+/* PET Writing Part 2 task cards (.task-card) → src/ui/ChoiceCard; .task-switch → src/ui/exam/WritingTask */
 
-/* listening Parts on one page: compact rows, options stacked vertically as printed (#86) */
-.part-stack { gap: 20px; }
-.part-stack .options { gap: 6px; }
-.part-stack .option-row { padding: 8px 12px; gap: 10px; }
-.part-stack .option-text { font-size: var(--fs-l); line-height: var(--lh-l); }
-.part-stack .q-prompt { font-size: var(--fs-2xl); line-height: var(--lh-2xl); margin: 0 0 8px; }
-.part-stack .option-explain { grid-column: 1 / -1; }
-.match-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-.match-row { padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius-s); }
-.match-row.is-correct { border-color: var(--success); background: var(--success-soft); }
-.match-row.is-wrong { border-color: var(--danger); background: var(--danger-soft); }
-.match-row-text { margin: 0 0 10px; font-size: var(--fs-l); line-height: var(--lh-l); }
-.match-row.has-photo { display: grid; grid-template-columns: var(--portrait-row-w) 1fr; column-gap: 14px; }
-.match-row.has-photo > :not(.match-row-photo) { grid-column: 2; }
-.match-row-photo { grid-row: 1 / span 2; width: var(--portrait-row-w); height: auto; border-radius: var(--radius-xs); }
-.match-row-letters { display: flex; flex-wrap: wrap; gap: 6px; }
-.match-row-letter {
-  position: relative; width: var(--tap); height: var(--tap); border: 1px solid var(--border-strong); border-radius: var(--radius-full);
-  background: var(--bg-card); font-weight: var(--fw-bold); font-size: var(--fs-l); color: var(--text-strong);
-}
-.match-row-letter.is-on { background: var(--accent); border-color: var(--accent); color: var(--text-on-accent); }
-.match-row-letter.is-used { background: var(--bg-subtle); color: var(--text-tertiary); }
-.match-row-letter.is-correct { background: var(--success); border-color: var(--success); color: var(--text-on-accent); }
-.match-row-letter.is-wrong { background: var(--danger); border-color: var(--danger); color: var(--text-on-accent); }
-.match-row-owner { position: absolute; top: -6px; right: -6px; min-width: 18px; height: 18px; border-radius: var(--radius-full); background: var(--accent-soft); color: var(--accent-strong); font-size: var(--fs-xs); line-height: 18px; }
-.match-board { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
-.match-board-head { margin: 0 0 -8px; font-weight: var(--fw-bold); color: var(--text-strong); font-size: var(--fs-m); line-height: var(--lh-m); }
-@container (max-width: 640px) {
-  .match-board { grid-template-columns: 1fr; }
-  /* stacked: each printed heading stays above its own column (#104) */
-  .match-board > .match-board-head:nth-of-type(1) { order: 1; }
-  .match-board > .match-board-people { order: 2; }
-  .match-board > .match-board-head:nth-of-type(2) { order: 3; }
-  .match-board > .match-board-options { order: 4; }
-}
-.match-board-people { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-.match-board-person, .match-board-option {
-  width: 100%; min-height: var(--tap); display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px;
-  padding: 10px 14px; border: 1px solid var(--border); border-radius: var(--radius-s); background: var(--bg-card);
-  text-align: left; font-size: var(--fs-l); line-height: var(--lh-l); color: var(--text-primary);
-}
-.match-board-person.is-active { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
-.match-board-person.is-example { background: var(--bg-subtle); color: var(--text-secondary); }
-.match-board-person.is-correct { border-color: var(--success); background: var(--success-soft); }
-.match-board-person.is-wrong { border-color: var(--danger); background: var(--danger-soft); }
-.match-board-badge { min-width: 2em; height: 2em; display: grid; place-items: center; border-radius: var(--radius-full); border: 1px dashed var(--border-strong); font-weight: var(--fw-bold); }
-.match-board-badge.is-filled, .match-board-person.is-example .match-board-badge { border-style: solid; background: var(--accent); border-color: var(--accent); color: var(--text-on-accent); }
-.match-board-answer { grid-column: 2 / -1; color: var(--danger); font-weight: var(--fw-bold); }
-.match-board-options { display: grid; gap: 8px; }
-.match-board-letter { font-weight: var(--fw-bold); color: var(--accent-strong); min-width: 1.2em; }
-.match-board-option.is-used { background: var(--bg-subtle); color: var(--text-secondary); }
-.match-board-option.is-here { border-color: var(--accent); }
-.match-board-option.is-example { text-decoration: line-through; opacity: var(--disabled-opacity); }
-.match-board-option:disabled:not(.is-example) { cursor: default; }
-.match-board-used { font-size: var(--fs-s); font-weight: var(--fw-bold); color: var(--accent-strong); }
-
-/* PET Writing Part 2: choose one task (待补组件) */
-.task-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--options-gap); margin-bottom: 20px; }
-.task-card {
-  display: grid; gap: 6px; text-align: left; padding: var(--option-pad-y) var(--option-pad-x);
-  border: 1px solid var(--border); border-radius: var(--radius-s); background: var(--bg-card);
-  font-size: var(--fs-m); line-height: var(--lh-m); color: var(--text-secondary);
-}
-.task-card.is-selected { border-color: var(--accent); background: var(--accent-soft); color: var(--text-primary); }
-.task-card.is-unchosen { opacity: var(--disabled-opacity); }
-.task-card-head { display: flex; align-items: center; gap: 8px; font-weight: var(--fw-bold); font-size: var(--fs-l); color: var(--text-strong); }
-.task-card-tag { padding: 0 8px; border-radius: var(--radius-full); background: var(--bg-subtle); font-size: var(--fs-s); color: var(--text-secondary); }
-/* the switch confirm is rc/Common/InlineNotice (tone warning); only its place under the cards is set here */
-.task-switch { margin: -8px 0 16px; }
-
-/* speaking: who is talking — the examiner or the AI partner (PET Part 3, 待补组件) */
-.speak-count { display: flex; align-items: center; gap: 10px; }
-.speak-role { padding: 0 10px; border-radius: var(--radius-full); background: var(--bg-subtle); font-size: var(--fs-s); line-height: var(--lh-s); font-weight: var(--fw-bold); color: var(--text-secondary); }
-.speak-role.is-partner { background: var(--accent-soft); color: var(--accent-strong); }
-
-/* mode choice + score report (待补组件) */
-.mode-timeout { padding: 12px 16px; border-radius: var(--radius-s); background: var(--exam-warn-soft); color: var(--exam-warn) !important; }
-.link-button { border: none; background: none; padding: 0 2px; font: inherit; color: var(--accent-strong); text-decoration: underline; text-underline-offset: 3px; min-height: 0; }
-.scale-dialog { width: min(720px, 100%); max-height: 100%; overflow-y: auto; }
-.scale-tables { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }
-.report-table caption { text-align: left; font-weight: var(--fw-bold); color: var(--text-primary); padding-bottom: 4px; }
-.mode-dialog, .report-dialog { width: min(560px, 100%); }
-.mode-options { display: grid; gap: 12px; margin-top: 8px; }
-.mode-option {
-  display: grid; gap: 4px; text-align: left; padding: var(--option-pad-y) var(--option-pad-x);
-  border: 1px solid var(--border); border-radius: var(--radius-s); background: var(--bg-card); font-size: var(--fs-m); line-height: var(--lh-m);
-}
-.mode-option b { font-size: var(--fs-2xl); line-height: var(--lh-2xl); color: var(--text-primary); }
-.mode-option span { color: var(--text-secondary); }
-.report-table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; font-size: var(--fs-m); }
-.report-table th, .report-table td { text-align: left; padding: 8px 0; border-bottom: 1px solid var(--border); }
-.report-table td:last-child, .report-table th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
-.report-skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 16px; }
-.report-skill { display: grid; gap: 2px; padding: 16px; border-radius: var(--radius-s); background: var(--bg-subtle); }
-.report-skill-name { color: var(--text-secondary); font-size: var(--fs-s); }
-.report-skill-scale { font-size: var(--fs-5xl); line-height: var(--lh-5xl); font-weight: var(--fw-bold); color: var(--text-primary); }
-.report-skill-grade { font-weight: var(--fw-bold); color: var(--accent-strong); }
-.report-skill-raw { color: var(--text-secondary); font-size: var(--fs-s); }
-.report-note { font-size: var(--fs-s); line-height: var(--lh-s); }
+/* mode choice + score report → src/ui: rc/Common/Dialog sizes, ui/ChoiceCard (.mode-option), ui/LinkButton,
+   rc/Exam/ScoreReport, ui/exam/SkillScore, rc/Exam/ScaleTable, rc/Quiz/TableFill ScoreTable (.report-table).
+   The timeout notice is rc/Common/InlineNotice; only its place in the dialog is set here. */
+.mode-timeout { margin: 0 0 12px; }
 
 @media (hover: hover) and (pointer: fine) {
-  .mode-option:hover { border-color: var(--accent); }
-  .match-board-option:hover:not(:disabled), .match-board-person:hover:not(:disabled) { border-color: var(--accent); }
-  .part-grid-cell:hover:not(:disabled) { background: var(--bg-hover); }
-  .task-card:hover:not(:disabled) { border-color: var(--accent); }
-  .speak-btn:hover:not(:disabled) .speak-btn-icon { background: var(--grey-5); }
-}
-/* shared motion is switched off when the system asks for less motion (ui-style-kit) */
-@media (prefers-reduced-motion: reduce) {
-  .speak-btn-icon.is-loading img { animation: none; }
 }
 
 /* ======================================================= responsive */

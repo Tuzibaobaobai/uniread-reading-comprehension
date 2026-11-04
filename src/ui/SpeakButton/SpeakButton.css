@@ -1,0 +1,26 @@
+/* ui/SpeakButton — UniRead UIkit-Speak btn-speak 9017:38080 (extend). The frame below is shared by the speak-card
+   action row (ui/ListenButton btn-listen, ui/PlaybackButton btn-playback). Tokens only (docs/14 §15). */
+.speak-btn {
+  display: flex; align-items: center; justify-content: center; gap: var(--ur-space-16); min-height: var(--ur-size-touch-target);
+  padding: var(--ur-space-12) var(--ur-space-12) var(--ur-space-12) var(--ur-space-8);
+  border: none; border-radius: var(--ur-radius-xs); background: transparent;
+  font: var(--ur-text-font-system-3xl-medium); color: var(--ur-color-text-strong);
+}
+.speak-btn:disabled { opacity: var(--ur-opacity-disabled); }
+.speak-btn-icon {
+  flex: none; width: var(--ur-space-64); height: var(--ur-space-64); border-radius: var(--ur-radius-full);
+  background: var(--ur-paint-customization-grey-3); display: grid; place-items: center;
+}
+.speak-btn-icon img { width: var(--ur-size-icon-xl); height: var(--ur-size-icon-xl); }
+/* Recording = yes: the ✓ that finishes the answer */
+.speak-btn-icon.is-submit { background: var(--ur-color-feedback-success); }
+/* Recognising = yes */
+.speak-btn-icon.is-loading img { animation: speak-spin 1s linear infinite; }
+@keyframes speak-spin { to { transform: rotate(360deg); } }
+
+@media (hover: hover) and (pointer: fine) {
+  .speak-btn:hover:not(:disabled) .speak-btn-icon { background: var(--ur-paint-customization-grey-5-divider); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .speak-btn-icon.is-loading img { animation: none; }
+}

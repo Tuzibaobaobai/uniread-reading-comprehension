@@ -61,6 +61,12 @@ export const Locate = () => (
     <path d="M12 2v3M12 19v3M2 12h3M19 12h3" />
   </svg>
 );
+/** rc/Common/Chip Icon=Flag: 标记本题 (exam mode) */
+export const Flag = () => (
+  <svg className="flag-icon" viewBox="0 0 24 24" aria-hidden {...s} strokeWidth={2}>
+    <path d="M5 21V4M5 4h11l-2 4 2 4H5" />
+  </svg>
+);
 export const ChevronLeft = () => (
   <svg viewBox="0 0 24 24" aria-hidden {...s}>
     <path d="M15 5l-7 7 7 7" />

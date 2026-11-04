@@ -1,12 +1,22 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { Check, ChevronDown } from '@/components/Icons';
+import { useEffect, useState, type ReactNode } from 'react';
 import type { ExamItemT } from '@schema';
 import { Trans, useTranslation } from 'react-i18next';
 import { SCALES, belowLabel, examKey, examReport, grade, gradeLabel, type ExamKey, type Skill } from '@/lib/cambridge';
 import type { Result } from '@/lib/grading';
 import { paperLabel } from '@/lib/labels';
+import { Dialog } from '@/ui/common/Dialog/Dialog';
+import { InlineNotice } from '@/ui/common/InlineNotice/InlineNotice';
+import { QuizButton } from '@/ui/QuizButton/QuizButton';
+import { LinkButton } from '@/ui/LinkButton/LinkButton';
+import { ChoiceCard, ChoiceCardGroup } from '@/ui/ChoiceCard/ChoiceCard';
+import { ModeSelect as ModeSelectView } from '@/ui/exam/ModeSelect/ModeSelect';
+import { ExamTimer as ExamTimerView } from '@/ui/exam/ExamTimer/ExamTimer';
+import { ScoreReport } from '@/ui/exam/ScoreReport/ScoreReport';
+import { ScaleTable } from '@/ui/exam/ScaleTable/ScaleTable';
 
-/* Exam-paper chrome (KET/PET 真题). Not yet in Figma — built from existing tokens (待补组件, docs/design/figma-registry.md). */
+/* Exam-paper chrome (KET/PET 真题), composed of src/ui components (docs/14 §15; design-system/components.registry.json:
+   rc/Common/Dialog, ui/ChoiceCard, rc/Exam/ModeSelect + ui/exam/ModeMenu, rc/Exam/ExamTimer, rc/Exam/ScoreReport,
+   rc/Exam/ScaleTable, ui/LinkButton). This file keeps the exam logic and the texts. */
 
 /** why the mode is being asked: a new attempt, 重新作答, or an exam whose time ran out while away */
 export type ModeReason = 'new' | 'retry' | 'timeout';
@@ -27,84 +37,54 @@ export function ModeDialog({
   const speaking = item.paper === 'speaking';
   const { t } = useTranslation();
   return (
-    <div className="dialog-backdrop" role="presentation" onClick={onCancel}>
-      <div className="dialog mode-dialog" role="dialog" aria-modal aria-labelledby="mode-title" onClick={(e) => e.stopPropagation()}>
-        <button className="dialog-close" onClick={onCancel} aria-label={reason === 'retry' ? t('exam.mode.closeToResult') : t('exam.mode.closeToPlaylist')}>
-          ×
-        </button>
-        <h2 id="mode-title">{item.title}</h2>
-        {reason === 'timeout' && <p className="mode-timeout">{t('exam.mode.timeout')}</p>}
-        <p>
-          {t('exam.mode.summary', { exam: item.meta.exam, paper: paperLabel(item.paper, t), minutes: item.meta.durationMinutes, marks: item.meta.totalMarks })}
-        </p>
-        <div className="mode-options">
-          <button className="mode-option" onClick={() => onChoose('practice')}>
-            <b>{t('exam.mode.practice')}</b>
-            <span>
-              {t('exam.mode.practiceDesc', {
-                audio: listening ? t('exam.mode.practiceAudio') : '',
-                speaking: speaking ? t('exam.mode.practiceSpeaking') : '',
-                transcript: listening ? t('exam.mode.practiceTranscript') : '',
-              })}
-            </span>
-          </button>
-          <button className="mode-option" onClick={() => onChoose('exam')}>
-            <b>{t('exam.mode.exam')}</b>
-            <span>{t('exam.mode.examDesc', { minutes: item.meta.durationMinutes, audio: listening ? t('exam.mode.examAudio') : '' })}</span>
-          </button>
-        </div>
-      </div>
-    </div>
+    <Dialog
+      title={item.title}
+      size="m"
+      className="mode-dialog"
+      onClose={onCancel}
+      closeLabel={reason === 'retry' ? t('exam.mode.closeToResult') : t('exam.mode.closeToPlaylist')}
+    >
+      {reason === 'timeout' && (
+        <InlineNotice tone="warning" className="mode-timeout">
+          {t('exam.mode.timeout')}
+        </InlineNotice>
+      )}
+      <p>
+        {t('exam.mode.summary', { exam: item.meta.exam, paper: paperLabel(item.paper, t), minutes: item.meta.durationMinutes, marks: item.meta.totalMarks })}
+      </p>
+      <ChoiceCardGroup layout="list" className="mode-options">
+        <ChoiceCard size="l" className="mode-option" title={t('exam.mode.practice')} onClick={() => onChoose('practice')}>
+          {t('exam.mode.practiceDesc', {
+            audio: listening ? t('exam.mode.practiceAudio') : '',
+            speaking: speaking ? t('exam.mode.practiceSpeaking') : '',
+            transcript: listening ? t('exam.mode.practiceTranscript') : '',
+          })}
+        </ChoiceCard>
+        <ChoiceCard size="l" className="mode-option" title={t('exam.mode.exam')} onClick={() => onChoose('exam')}>
+          {t('exam.mode.examDesc', { minutes: item.meta.durationMinutes, audio: listening ? t('exam.mode.examAudio') : '' })}
+        </ChoiceCard>
+      </ChoiceCardGroup>
+    </Dialog>
   );
 }
 
 /**
  * reader header, top right (#102, Figma 模式切换 19215-125693 → select 19215-125964): the current mode, the exam
  * countdown, and a tap-only menu to switch (rarely used, so it sits away from the answering area). Choosing the
- * other mode asks first (SwitchModeDialog). The open menu is not in Figma yet (待补组件).
+ * other mode asks first (SwitchModeDialog). rc/Exam/ModeSelect + ui/exam/ModeMenu.
  */
 export function ModeSelect({ mode, timer, onSwitch }: { mode: 'practice' | 'exam'; timer?: ReactNode; onSwitch: () => void }) {
   const { t } = useTranslation();
-  const [open, setOpen] = useState(false);
-  const root = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (!open) return;
-    const outside = (e: PointerEvent) => root.current?.contains(e.target as Node) || setOpen(false);
-    const esc = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
-    document.addEventListener('pointerdown', outside);
-    document.addEventListener('keydown', esc);
-    return () => {
-      document.removeEventListener('pointerdown', outside);
-      document.removeEventListener('keydown', esc);
-    };
-  }, [open]);
   return (
-    <div className="mode-select" ref={root}>
-      <button className="mode-select-button" aria-haspopup="menu" aria-expanded={open} aria-label={t('exam.mode.selectLabel', { mode: t(`exam.mode.${mode}`) })} onClick={() => setOpen((o) => !o)}>
-        <b>{t(`exam.mode.${mode}`)}</b>
-        {timer}
-        <ChevronDown />
-      </button>
-      {open && (
-        <div className="mode-select-menu" role="menu" aria-label={t('exam.mode.menuLabel')}>
-          {(['practice', 'exam'] as const).map((m) => (
-            <button
-              key={m}
-              role="menuitemradio"
-              aria-checked={m === mode}
-              className={`mode-select-item ${m === mode ? 'is-current' : ''}`}
-              onClick={() => {
-                setOpen(false);
-                if (m !== mode) onSwitch();
-              }}
-            >
-              {t(`exam.mode.${m}`)}
-              {m === mode && <Check />}
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
+    <ModeSelectView
+      mode={mode}
+      label={t(`exam.mode.${mode}`)}
+      ariaLabel={t('exam.mode.selectLabel', { mode: t(`exam.mode.${mode}`) })}
+      timer={timer}
+      menuLabel={t('exam.mode.menuLabel')}
+      items={(['practice', 'exam'] as const).map((m) => ({ key: m, label: t(`exam.mode.${m}`), checked: m === mode }))}
+      onSelect={(m) => m !== mode && onSwitch()}
+    />
   );
 }
 
@@ -123,24 +103,24 @@ export function SwitchModeDialog({
   const toExam = from === 'practice';
   const { t } = useTranslation();
   return (
-    <div className="dialog-backdrop" role="presentation" onClick={onCancel}>
-      <div className="dialog" role="dialog" aria-modal aria-labelledby="switch-title" onClick={(e) => e.stopPropagation()}>
-        <h2 id="switch-title">{toExam ? t('exam.switch.toExamTitle') : t('exam.switch.toPracticeTitle')}</h2>
-        <p>
-          {toExam
-            ? t('exam.switch.toExamBody', { cleared: answered ? t('exam.switch.cleared', { count: answered }) : '' })
-            : t('exam.switch.toPracticeBody')}
-        </p>
-        <div className="dialog-actions">
-          <button className="pill-button" onClick={onCancel}>
-            {t('common.cancel')}
-          </button>
-          <button className="pill-button primary" autoFocus onClick={onConfirm}>
+    <Dialog
+      title={toExam ? t('exam.switch.toExamTitle') : t('exam.switch.toPracticeTitle')}
+      onClose={onCancel}
+      actions={
+        <>
+          <QuizButton onClick={onCancel}>{t('common.cancel')}</QuizButton>
+          <QuizButton variant="primary" autoFocus onClick={onConfirm}>
             {toExam ? t('exam.switch.startExam') : t('exam.switch.toPractice')}
-          </button>
-        </div>
-      </div>
-    </div>
+          </QuizButton>
+        </>
+      }
+    >
+      <p>
+        {toExam
+          ? t('exam.switch.toExamBody', { cleared: answered ? t('exam.switch.cleared', { count: answered }) : '' })
+          : t('exam.switch.toPracticeBody')}
+      </p>
+    </Dialog>
   );
 }
 
@@ -154,61 +134,36 @@ export function ScaleTableDialog({ exam, onClose }: { exam: ExamKey; onClose: ()
   const s = SCALES[exam];
   const { t } = useTranslation();
   return (
-    <div className="dialog-backdrop" role="presentation" onClick={onClose}>
-      <div className="dialog scale-dialog" role="dialog" aria-modal aria-labelledby="scale-title" onClick={(e) => e.stopPropagation()}>
-        <button className="dialog-close" onClick={onClose} aria-label={t('exam.scale.close')}>
-          ×
-        </button>
-        <h2 id="scale-title">{t('exam.scale.title')}</h2>
-        <p>{t('exam.scale.intro', { name: s.name, top: s.top })}</p>
-        <div className="scale-tables">
-          {SKILLS.map((k) => (
-            <table key={k} className="report-table scale-table">
-              <caption>{t('exam.scale.skillCaption', { skill: t(`skill.${k}`), max: s.skills[k].max })}</caption>
-              <thead>
-                <tr>
-                  <th>{t('exam.report.raw')}</th>
-                  <th>{t('exam.report.scale')}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[[s.skills[k].max, s.top] as [number, number], ...[...s.skills[k].anchors].reverse()].map(([raw, scale]) => (
-                  <tr key={raw}>
-                    <td>{raw}</td>
-                    <td>{scale}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          ))}
-        </div>
-        <table className="report-table">
-          <caption>{t('exam.scale.gradesCaption')}</caption>
-          <tbody>
-            {s.grades.map((band, i) => (
-              <tr key={band[0]}>
-                <td>
-                  {band[0]}–{i === 0 ? s.top : s.grades[i - 1][0] - 1}
-                </td>
-                <td>{gradeLabel(band, t)}</td>
-              </tr>
-            ))}
-            <tr>
-              <td>
-                {s.floor}–{s.grades[s.grades.length - 1][0] - 1}
-              </td>
-              <td>{t('exam.scale.belowRow', { below: belowLabel(exam, t), floor: s.floor })}</td>
-            </tr>
-          </tbody>
-        </table>
-        <p className="report-note">{t('exam.scale.source', { name: s.name })}</p>
-        <div className="dialog-actions">
-          <button className="pill-button primary" autoFocus onClick={onClose}>
-            {t('common.close')}
-          </button>
-        </div>
-      </div>
-    </div>
+    <Dialog
+      title={t('exam.scale.title')}
+      size="l"
+      className="scale-dialog"
+      onClose={onClose}
+      closeLabel={t('exam.scale.close')}
+      actions={
+        <QuizButton variant="primary" autoFocus onClick={onClose}>
+          {t('common.close')}
+        </QuizButton>
+      }
+    >
+      <p>{t('exam.scale.intro', { name: s.name, top: s.top })}</p>
+      <ScaleTable
+        head={[t('exam.report.raw'), t('exam.report.scale')]}
+        skills={SKILLS.map((k) => ({
+          key: k,
+          caption: t('exam.scale.skillCaption', { skill: t(`skill.${k}`), max: s.skills[k].max }),
+          rows: [[s.skills[k].max, s.top] as [number, number], ...[...s.skills[k].anchors].reverse()],
+        }))}
+        grades={{
+          caption: t('exam.scale.gradesCaption'),
+          rows: [
+            ...s.grades.map((band, i) => ({ key: band[0], range: `${band[0]}–${i === 0 ? s.top : s.grades[i - 1][0] - 1}`, label: gradeLabel(band, t) })),
+            { key: 'below', range: `${s.floor}–${s.grades[s.grades.length - 1][0] - 1}`, label: t('exam.scale.belowRow', { below: belowLabel(exam, t), floor: s.floor }) },
+          ],
+        }}
+      />
+      <p className="report-note">{t('exam.scale.source', { name: s.name })}</p>
+    </Dialog>
   );
 }
 
@@ -216,7 +171,7 @@ const clock = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60))
 
 /**
  * countdown for exam mode (Cambridge digital exam: minutes until the last 5, then minutes and seconds;
- * warning at 5 minutes, alert at 1 minute); calls onTimeUp once at 0
+ * warning at 5 minutes, alert at 1 minute); calls onTimeUp once at 0. Shown as rc/Exam/ExamTimer.
  */
 export function ExamTimer({ endsAt, onTimeUp, waitingForAudio = false }: { endsAt: number; onTimeUp: () => void; waitingForAudio?: boolean }) {
   const { t } = useTranslation();
@@ -229,18 +184,17 @@ export function ExamTimer({ endsAt, onTimeUp, waitingForAudio = false }: { endsA
   useEffect(() => {
     if (left === 0) onTimeUp();
   }, [left === 0]); // eslint-disable-line react-hooks/exhaustive-deps
-  const level = left <= 60 ? 'is-alert' : left <= 300 ? 'is-warn' : '';
   // listening: time is up but the exam recording is still playing — hand in when it ends (#109)
   if (left === 0 && waitingForAudio)
     return (
-      <span className="exam-timer is-alert" role="timer" aria-live="polite">
+      <ExamTimerView level="alert" live>
         {t('exam.timer.afterRecording')}
-      </span>
+      </ExamTimerView>
     );
   return (
-    <span className={`exam-timer ${level}`} role="timer" aria-live={left <= 300 ? 'polite' : 'off'} aria-label={t('exam.timer.label', { time: clock(left) })}>
+    <ExamTimerView level={left <= 60 ? 'alert' : left <= 300 ? 'warning' : 'normal'} live={left <= 300} ariaLabel={t('exam.timer.label', { time: clock(left) })}>
       {t('exam.timer.left', { time: left > 300 ? t('exam.timer.minutes', { count: Math.ceil(left / 60) }) : clock(left) })}
-    </span>
+    </ExamTimerView>
   );
 }
 
@@ -256,49 +210,44 @@ export function ExamReport({ item, result, onClose }: { item: ExamItemT; result:
     return { s, got: rs.reduce((n, r) => n + r.points, 0), max: rs.reduce((n, r) => n + r.maxPoints, 0), pending: rs.some((r) => r.scoredBy === 'pending') };
   });
   return (
-    <div className="dialog-backdrop" role="presentation" onClick={onClose}>
-      <div className="dialog report-dialog" role="dialog" aria-modal aria-labelledby="report-title" onClick={(e) => e.stopPropagation()}>
-        <h2 id="report-title">{t('exam.report.title')}</h2>
-        <table className="report-table">
-          <thead>
-            <tr>
-              <th>{t('exam.report.part')}</th>
-              <th>{t('exam.report.score')}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {parts.map(({ s, got, max, pending }) => (
-              <tr key={s.id}>
-                <td>{s.label ?? `Part ${s.part}`}</td>
-                <td>{pending ? t('exam.report.scoringEllipsis') : `${Math.round(got * 2) / 2} / ${max}`}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <div className="report-skills">
-          {rows.map((r) => (
-            <div key={r.skill} className="report-skill">
-              <span className="report-skill-name">{t(`skill.${r.skill}`)}</span>
-              <span className="report-skill-scale">{r.pending ? '…' : (r.scale ?? `<${SCALES[exam].floor}`)}</span>
-              <span className="report-skill-grade">{r.pending ? t('exam.report.scoring') : grade(r.scale, exam, t)}</span>
-              <span className="report-skill-raw">{t('exam.report.rawOf', { raw: r.raw, max: r.scaleMax })}</span>
-            </div>
-          ))}
-        </div>
-        <p className="report-note">
-          <Trans
-            i18nKey="exam.report.note"
-            values={{ name: SCALES[exam].name, speaking: item.paper === 'speaking' ? t('exam.report.noteSpeaking') : '' }}
-            components={{ btn: <button className="link-button" onClick={() => setTableOpen(true)} /> }}
-          />
-        </p>
-        <div className="dialog-actions">
-          <button className="pill-button primary" autoFocus onClick={onClose}>
+    <>
+      <Dialog
+        title={t('exam.report.title')}
+        size="m"
+        className="report-dialog"
+        onClose={onClose}
+        actions={
+          <QuizButton variant="primary" autoFocus onClick={onClose}>
             {t('exam.report.viewAnswers')}
-          </button>
-        </div>
-      </div>
+          </QuizButton>
+        }
+      >
+        <ScoreReport
+          head={[t('exam.report.part'), t('exam.report.score')]}
+          pending={parts.some((p) => p.pending)}
+          parts={parts.map(({ s, got, max, pending }) => ({
+            key: s.id,
+            label: s.label ?? `Part ${s.part}`,
+            score: pending ? t('exam.report.scoringEllipsis') : `${Math.round(got * 2) / 2} / ${max}`,
+          }))}
+          skills={rows.map((r) => ({
+            key: r.skill,
+            name: t(`skill.${r.skill}`),
+            scale: r.pending ? '…' : (r.scale ?? `<${SCALES[exam].floor}`),
+            grade: r.pending ? t('exam.report.scoring') : grade(r.scale, exam, t),
+            raw: t('exam.report.rawOf', { raw: r.raw, max: r.scaleMax }),
+            pending: r.pending,
+          }))}
+          note={
+            <Trans
+              i18nKey="exam.report.note"
+              values={{ name: SCALES[exam].name, speaking: item.paper === 'speaking' ? t('exam.report.noteSpeaking') : '' }}
+              components={{ btn: <LinkButton onClick={() => setTableOpen(true)} /> }}
+            />
+          }
+        />
+      </Dialog>
       {tableOpen && <ScaleTableDialog exam={exam} onClose={() => setTableOpen(false)} />}
-    </div>
+    </>
   );
 }

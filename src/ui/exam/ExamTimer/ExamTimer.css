@@ -1,0 +1,4 @@
+/* RC/Exam/ExamTimer (proposed). Tokens only. */
+.exam-timer { font-variant-numeric: tabular-nums; }
+.exam-timer.is-warn { color: var(--ur-color-feedback-error); }
+.exam-timer.is-alert { color: var(--ur-color-feedback-error); font-weight: var(--ur-text-font-system-m-bold-weight); }

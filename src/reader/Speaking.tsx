@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Rich } from '@/components/Rich';
 import { staticContent } from '@/lib/content';
-import listenIcon from '@/assets/icons/speak-listen.svg';
-import micIcon from '@/assets/icons/speak-mic.svg';
-import playbackIcon from '@/assets/icons/speak-playback.svg';
-import submitIcon from '@/assets/icons/speak-submit.svg';
-import respeakIcon from '@/assets/icons/speak-respeak.svg';
-import loadingIcon from '@/assets/icons/speak-loading.svg';
+import { HintText } from '@/ui/common/HintText/HintText';
+import { InlineNotice } from '@/ui/common/InlineNotice/InlineNotice';
+import { SpeakCard, SpeakTurns } from '@/ui/SpeakCard/SpeakCard';
+import { SpeakButton } from '@/ui/SpeakButton/SpeakButton';
+import { ListenButton } from '@/ui/ListenButton/ListenButton';
+import { PlaybackButton } from '@/ui/PlaybackButton/PlaybackButton';
 import { JudgeVerdict, QuestionPrompt, type InteractionProps } from './interactions';
 
 type TurnState = 'idle' | 'recording' | 'transcribing' | 'error';
@@ -45,7 +45,7 @@ export function speakWithDevice(text: string) {
 }
 
 /**
- * 口语 — Figma UIkit-Speak sentence card (subtitle-SpeakMode, State=Focus 8872:81973): one card per examiner line
+ * 口语 — ui/SpeakCard (Figma UIkit-Speak subtitle-SpeakMode 9017:40624): one card per examiner line
  * with Listen (TTS) / Speak (record, then tap ✓ to finish; stops by itself at maxSeconds) / Play back.
  * The recording is transcribed by /api/rc/speak; the transcripts are the response and are judged together after
  * submitting, on the Cambridge A2 Key speaking scale. Recordings stay in the browser for playback only.
@@ -141,84 +141,64 @@ export function SpeakingView(props: InteractionProps) {
       <QuestionPrompt number={fq.display}>
         <Rich nodes={it.prompt} />
       </QuestionPrompt>
-      {!review && !supported && <p className="hint-line">{t('speaking.unsupported')}</p>}
+      {!review && !supported && <HintText>{t('speaking.unsupported')}</HintText>}
       {!review && supported && (
-        <p className="hint-line">
+        <HintText>
           {fq.turn !== undefined && it.turns[fq.turn]?.role === 'partner'
             ? t('speaking.hintPartner', { seconds: it.maxSeconds })
             : t('speaking.hintExaminer', { seconds: it.maxSeconds })}
-        </p>
+        </HintText>
       )}
-      <ol className="speak-turns">
+      <SpeakTurns>
         {it.turns.map((turn, i) => {
           // one page per examiner question (GitHub #74); the whole Part is still scored together
           if (fq.turn !== undefined && fq.turn !== i) return null;
           const isActive = active === turn.id;
           const said = answers[turn.id];
+          const partner = turn.role === 'partner';
+          // exam mode: the question is only heard, as in the real test (#88); practice mode and review show it
+          const hidden = !!props.examMode && !review;
           return (
-            <li key={turn.id} className={`speak-card ${isActive ? 'is-active' : ''} ${said ? 'is-done' : ''}`}>
-              <p className="speak-count">
-                {i + 1}/{it.turns.length}
-                {/* PET Part 3: the AI partner speaks, the learner replies (待补组件) */}
-                <span className={`speak-role ${turn.role === 'partner' ? 'is-partner' : ''}`}>{turn.role === 'partner' ? t('speaking.partner') : t('speaking.examiner')}</span>
-              </p>
-              {/* exam mode: the question is only heard, as in the real test (#88); practice mode and review show it */}
-              {props.examMode && !review ? (
-                <p className="speak-line is-hidden">{turn.role === 'partner' ? t('speaking.hiddenPartner') : t('speaking.hiddenExaminer')}</p>
-              ) : (
-                <p className="speak-line">{turn.text}</p>
-              )}
-              {said && (
-                <p className="speak-said">
-                  <span className="speak-said-label">{t('speaking.yourAnswer')}</span>
-                  {said}
-                </p>
-              )}
-              {isActive && state === 'error' && error && <p className="speak-error">{t(error)}</p>}
-              <div className="speak-actions">
-                <button className="speak-btn" onClick={() => speak(turn)} disabled={busy}>
-                  <span className="speak-btn-icon">
-                    <img src={listenIcon} alt="" width={40} height={40} />
-                  </span>
-                  {turn.role === 'partner' ? t('speaking.listenPartner') : t('speaking.listen')}
-                </button>
-                {!review &&
-                  (isActive && state === 'recording' ? (
-                    <button className="speak-btn is-recording" onClick={stop} aria-label={t('speaking.stop')}>
-                      <span className="speak-btn-icon is-submit">
-                        <img src={submitIcon} alt="" width={40} height={40} />
-                      </span>
-                      {t('speaking.recording', { s: left })}
-                    </button>
-                  ) : isActive && state === 'transcribing' ? (
-                    <span className="speak-btn" role="status">
-                      <span className="speak-btn-icon is-loading">
-                        <img src={loadingIcon} alt="" width={40} height={40} />
-                      </span>
-                      {t('speaking.transcribing')}
-                    </span>
-                  ) : (
-                    <button className="speak-btn" onClick={() => void start(turn.id)} disabled={!supported || busy}>
-                      <span className="speak-btn-icon">
-                        <img src={said || clips[turn.id] ? respeakIcon : micIcon} alt="" width={40} height={40} />
-                      </span>
-                      {said || clips[turn.id] ? t('speaking.rerecord') : t('speaking.answer')}
-                    </button>
-                  ))}
-                <button className="speak-btn" disabled={!clips[turn.id] || busy} onClick={() => void new Audio(clips[turn.id]).play()}>
-                  <span className="speak-btn-icon">
-                    <img src={playbackIcon} alt="" width={40} height={40} />
-                  </span>
-                  {t('speaking.playback')}
-                </button>
-              </div>
-            </li>
+            <SpeakCard
+              key={turn.id}
+              index={i + 1}
+              total={it.turns.length}
+              role={partner ? 'partner' : 'examiner'}
+              roleLabel={partner ? t('speaking.partner') : t('speaking.examiner')}
+              promptHidden={hidden}
+              prompt={hidden ? (partner ? t('speaking.hiddenPartner') : t('speaking.hiddenExaminer')) : turn.text}
+              answer={said}
+              answerLabel={t('speaking.yourAnswer')}
+              active={isActive}
+              notice={isActive && state === 'error' && error && <InlineNotice className="speak-error">{t(error)}</InlineNotice>}
+              actions={
+                <>
+                  <ListenButton label={partner ? t('speaking.listenPartner') : t('speaking.listen')} onListen={() => speak(turn)} disabled={busy} />
+                  {!review &&
+                    (isActive && state === 'recording' ? (
+                      <SpeakButton state="recording" label={t('speaking.recording', { s: left })} stopLabel={t('speaking.stop')} onStart={() => void start(turn.id)} onStop={stop} />
+                    ) : isActive && state === 'transcribing' ? (
+                      <SpeakButton state="recognising" label={t('speaking.transcribing')} stopLabel={t('speaking.stop')} onStart={() => void start(turn.id)} onStop={stop} />
+                    ) : (
+                      <SpeakButton
+                        again={!!(said || clips[turn.id])}
+                        label={said || clips[turn.id] ? t('speaking.rerecord') : t('speaking.answer')}
+                        stopLabel={t('speaking.stop')}
+                        disabled={!supported || busy}
+                        onStart={() => void start(turn.id)}
+                        onStop={stop}
+                      />
+                    ))}
+                  <PlaybackButton label={t('speaking.playback')} disabled={!clips[turn.id] || busy} onPlay={() => void new Audio(clips[turn.id]).play()} />
+                </>
+              }
+            />
           );
         })}
-      </ol>
-      {error && state !== 'error' && <p className="speak-error">{t(error)}</p>}
+      </SpeakTurns>
+      {error && state !== 'error' && <InlineNotice className="speak-error">{t(error)}</InlineNotice>}
       {review && (fq.turn === undefined || fq.turn === it.turns.length - 1) && <JudgeVerdict {...props} />}
-      {review && fq.turn !== undefined && fq.turn < it.turns.length - 1 && <p className="hint-line">{t('speaking.scoreOnLast', { page: fq.display + it.turns.length - 1 - fq.turn })}</p>}
+      {review && fq.turn !== undefined && fq.turn < it.turns.length - 1 && <HintText>{t('speaking.scoreOnLast', { page: fq.display + it.turns.length - 1 - fq.turn })}</HintText>}
     </>
   );
 }

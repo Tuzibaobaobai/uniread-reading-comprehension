@@ -1,0 +1,7 @@
+/* ui/CloseButton — UniRead btn-close (reuse). Tokens only. */
+.dialog-close {
+  position: absolute; top: var(--ur-space-12); right: var(--ur-space-12);
+  width: var(--ur-size-touch-target); height: var(--ur-size-touch-target);
+  border: none; border-radius: var(--ur-radius-full); background: transparent;
+  font: var(--ur-text-font-system-4xl-regular); line-height: 1; color: var(--ur-color-text-secondary);
+}

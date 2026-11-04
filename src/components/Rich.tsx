@@ -1,8 +1,9 @@
 import { Fragment, type ReactNode } from 'react';
 import type { InlineT } from '@schema';
 import { useTranslation } from 'react-i18next';
-// the .rt-* inline styles (vocab, underline, gloss, callout) are rc/Read/ArticleText
+// the .rt-* inline styles (vocab, underline, gloss) are rc/Read/ArticleText; callouts are rc/Read/Callout
 import '@/ui/read/ArticleText/ArticleText.css';
+import { Callout } from '@/ui/read/Callout/Callout';
 
 export type BlankNode = Extract<InlineT, { t: 'blank' }>;
 
@@ -44,11 +45,11 @@ export function Rich({ nodes, blank }: { nodes?: InlineT[]; blank?: (n: BlankNod
           case 'br':
             return <br key={i} />;
           case 'callout':
-            // handwritten note on a printed text (PET Writing Part 1); 待补组件 — no Figma design yet
+            // handwritten note on a printed text (PET Writing Part 1)
             return (
-              <span key={i} className="rt-callout" role="note" aria-label={t('reader.callout', { text: n.v })}>
+              <Callout key={i} label={t('reader.callout', { text: n.v })}>
                 {n.v}
-              </span>
+              </Callout>
             );
         }
       })}

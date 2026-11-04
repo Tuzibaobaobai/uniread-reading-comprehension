@@ -22,6 +22,8 @@ import { OrderChunk } from '@/ui/OrderChunk/OrderChunk';
 import { LongAnswer } from '@/ui/quiz/LongAnswer/LongAnswer';
 import { JudgePending, JudgeResult } from '@/ui/quiz/JudgeResult/JudgeResult';
 import { SelfAssess } from '@/ui/quiz/SelfAssess/SelfAssess';
+import { ChoiceCard, ChoiceCardGroup } from '@/ui/ChoiceCard/ChoiceCard';
+import { Stimulus, WritingTask, type WritingKind } from '@/ui/exam/WritingTask/WritingTask';
 
 // moved to src/ui (docs/14 §15); re-exported so PartViews / Speaking / VocabQuiz keep importing them from here
 export { BlankInput, QuestionPrompt };
@@ -391,11 +393,11 @@ export function TextEntryView(props: InteractionProps) {
         {it.prompt ? <Rich nodes={it.prompt} blank={renderBlank} /> : isExamItem(item) ? null : <>{t('interaction.blankN', { n: fq.q.number })}</>}
       </QuestionPrompt>
       {!it.prompt && stimulus && (
-        <div className="stimulus">
+        <Stimulus>
           {stimulus.map((b) => (
             <Block key={b.id} block={b} renderBlank={renderBlank} />
           ))}
-        </div>
+        </Stimulus>
       )}
       {!it.prompt && !stimulus && (
         // typed blanks: the input lives in this sentence, so it always shows (only choice cloze hides it, #83)
@@ -556,7 +558,7 @@ const capitalise = (t: string) => (t ? t[0].toUpperCase() + t.slice(1) : t);
 
 /* ---------------------------------------------------------- extendedText */
 
-export function ExtendedTextView(props: InteractionProps & { selfAssessed?: boolean; onSelfAssess: (v: boolean) => void }) {
+export function ExtendedTextView(props: InteractionProps & { selfAssessed?: boolean; onSelfAssess: (v: boolean) => void; kind?: WritingKind }) {
   const { t } = useTranslation();
   const { fq, responses, review } = props;
   const it = fq.q.interaction;
@@ -567,19 +569,12 @@ export function ExtendedTextView(props: InteractionProps & { selfAssessed?: bool
       <QuestionPrompt number={fq.q.number}>
         <Rich nodes={it.prompt} />
       </QuestionPrompt>
-      {/* the printed text in its genre layout, then the closing instruction (#96) */}
-      {it.stimulus && (
-        <div className="task-stimulus">
-          {it.stimulus.map((b) => (
-            <Block key={b.id} block={b} renderBlank={() => null} />
-          ))}
-        </div>
-      )}
-      {it.task && (
-        <p className="task-line">
-          <Rich nodes={it.task} />
-        </p>
-      )}
+      {/* the printed text in its genre layout, then the closing instruction (#96): rc/Exam/WritingTask */}
+      <WritingTask
+        kind={props.kind ?? (it.stimulus ? 'email' : 'story')}
+        stimulus={it.stimulus && it.stimulus.map((b) => <Block key={b.id} block={b} renderBlank={() => null} />)}
+        task={it.task && <Rich nodes={it.task} />}
+      />
       {it.scaffold && (
         <ContextLine>
           <Rich nodes={it.scaffold} blank={() => <BlankSlot label={'\u00a0'} />} />
@@ -677,7 +672,7 @@ export function JudgeMarks({ j, points }: { j: JudgementT; points: { id: string;
 /**
  * PET Writing Part 2: the learner answers ONE of the section's tasks (article or story). Task cards on top; the
  * chosen task opens its writing box. Only one task holds an answer, so switching after writing asks first and
- * clears the other text; only the chosen task is scored. 待补组件 — no Figma design yet.
+ * clears the other text; only the chosen task is scored. rc/Exam/WritingTask Kind=choose-one: ui/ChoiceCard cards, rc/Common/InlineNotice confirm.
  */
 export function ChooseTaskView(props: InteractionProps & { selfAssessed?: boolean; onSelfAssess: (v: boolean) => void }) {
   const { t } = useTranslation();
@@ -715,27 +710,29 @@ export function ChooseTaskView(props: InteractionProps & { selfAssessed?: boolea
   return (
     <>
       <HintText>{review ? '' : t('interaction.chooseHint', { count: tasks.length })}</HintText>
-      <div className="task-cards" role="radiogroup" aria-label={t('interaction.chooseLabel')}>
+      <ChoiceCardGroup layout="columns" className="task-cards" role="radiogroup" aria-label={t('interaction.chooseLabel')}>
         {tasks.map((q) => {
           const isSel = q.id === selected;
           return (
-            <button
+            <ChoiceCard
               key={q.id}
               role="radio"
               aria-checked={isSel}
-              className={`task-card ${isSel ? 'is-selected' : ''} ${review && !isSel ? 'is-unchosen' : ''}`}
+              className="task-card"
+              titleClassName="task-card-head"
+              textClassName="task-card-text"
+              title={t('interaction.taskCard', { n: q.number })}
+              tag={review && !isSel ? t('interaction.unchosen') : undefined}
+              selected={isSel}
+              dim={!!review && !isSel}
               disabled={!!review}
               onClick={() => choose(q.id)}
             >
-              <span className="task-card-head">
-                {t('interaction.taskCard', { n: q.number })}
-                {review && !isSel && <span className="task-card-tag">{t('interaction.unchosen')}</span>}
-              </span>
-              <span className="task-card-text">{label(q).slice(0, 160)}</span>
-            </button>
+              {label(q).slice(0, 160)}
+            </ChoiceCard>
           );
         })}
-      </div>
+      </ChoiceCardGroup>
       {confirmTo && (
         <InlineNotice
           tone="warning"
@@ -754,7 +751,7 @@ export function ChooseTaskView(props: InteractionProps & { selfAssessed?: boolea
           {t('interaction.switchConfirm')}
         </InlineNotice>
       )}
-      {task && <ExtendedTextView key={task.id} {...props} fq={{ ...fq, q: task }} />}
+      {task && <ExtendedTextView key={task.id} {...props} kind="choose-one" fq={{ ...fq, q: task }} />}
     </>
   );
 }

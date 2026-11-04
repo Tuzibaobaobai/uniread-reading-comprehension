@@ -1,0 +1,6 @@
+/* RC/Exam/ScoreReport (proposed). Tokens only. */
+.report-skills {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(calc(var(--ur-space-64) * 2 + var(--ur-space-12)), 1fr));
+  gap: var(--ur-space-12); margin-bottom: var(--ur-space-16);
+}
+.report-note { font-size: var(--ur-text-font-system-s-regular-size); line-height: var(--ur-text-font-system-s-regular-line-height); }
