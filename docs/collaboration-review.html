@@ -91,7 +91,6 @@
     <li><a href="#improve">改进建议</a></li>
     <li><a href="#playbook">给其他团队的做法清单</a></li>
     <li><a href="#issue-inputs">附录 A：issue 里的 human 原话</a></li>
-    <li><a href="#session-inputs">附录 B：本次对话的 human 输入</a></li>
   </ol>
 </nav>
 
@@ -396,24 +395,6 @@
   <li><b>敢于收回</b>：提示、语音输入（#115 #116）在体验不好时直接取消，先把基础做好。</li>
   <li><b>短评论承担流程作用</b>：“verified!”“收到”“放到 11/15”“确认完再 assign 给我”，在 issue 里推动状态，而不是在对话里。</li>
 </ul>
-
-<h2 id="session-inputs">附录 B：本次对话（2026-11-05）里的 human 输入</h2>
-<div class="table-wrap"><table>
-  <thead><tr><th>顺序</th><th>原话</th><th>类别</th><th>对 agent 的作用</th></tr></thead>
-  <tbody>
-    <tr><td class="num">1</td><td>“在 dev 上 fix github 上 milestone 11/15 的所有 assign 给我的 issues”</td><td>开发 · 范围</td><td>一句话定义了分支（develop）、范围（里程碑 + 指派人），其余由 agent 判断：跳过 backlog，发现 #128 的修复在 main，拆出两个子 agent 并行。</td></tr>
-    <tr><td class="num">2</td><td>“等音频跑完后 push 并 deploy:dev，然后在 issue 里回复”</td><td>流程 · 授权</td><td>带前置条件的授权：推送、部署到预览站、回复 issue 都已批准，但必须等音频完成。</td></tr>
-    <tr><td class="num">3</td><td>“我们的资源会上传到 OSS 上了么？”</td><td>产品 · 对接</td><td>说明“部署到 Vercel”与“上传到平台 OSS”需要讲清楚；agent 回答不会，并列出阻塞条件（后端确认、共享存储、词汇音频没有 key）。</td></tr>
-    <tr><td class="num">4</td><td>“流程上，我怎么让 BE confirm 么？”</td><td>流程 · 跨团队</td><td>agent 给出做法：在 #130 发逐项确认清单，后端书面回复，human 再下令上传。</td></tr>
-    <tr><td class="num">5</td><td>“直接放进这次的回复里”</td><td>流程 · 决策</td><td>确认清单并入本次 #130 回复，不另开一轮。</td></tr>
-    <tr><td class="num">6</td><td>“不用给我看，直接发”</td><td>流程 · 授权</td><td>对外回复授权 agent 直接发出，不需要先审稿。</td></tr>
-    <tr><td class="num">7</td><td>“好了告诉我”</td><td>流程</td><td>完成时主动通知。</td></tr>
-    <tr><td class="num">8–9</td><td>“进度怎么样了？”（两次）</td><td>流程 · 可见性</td><td>长任务期间 human 需要追问进度，说明 agent 的进度汇报不够主动（见第 9 节建议 7、9）。</td></tr>
-    <tr><td class="num">10</td><td>“把我们开始做这个项目以来，我给你的 input 和整个项目的演进进展总结成一个 html 文档……review human 跟 agent 合作项目的方式”</td><td>流程 · 复盘</td><td>产生本文档。</td></tr>
-    <tr><td class="num">11</td><td>“能把 tuzibaobaobai 在 issues 里面的 human comments（不是 claude 的 AI comments）都总结到文档么？另外……这个对话窗口里面……也请总结出来。”</td><td>流程 · 复盘</td><td>产生附录 A、B；也说明共用账号让 human 与 AI 的发言难以区分（第 7 节）。</td></tr>
-  </tbody>
-</table></div>
-<p>这次对话的特点：<b>human 只给范围和授权，具体的技术判断全部交给 agent</b>（根因实验、合并冲突、记分规则落地、与后端约定的实现）；human 的问题集中在<b>对外影响</b>（资源会去哪里、后端怎么确认）和<b>进度可见性</b>。这正是第 9 节建议 9（固定格式的进度汇报：完成了什么、还在跑什么、什么在等人）要解决的问题。</p>
 
 <footer>2026-11-05 由 agent（Claude Code）根据仓库与 GitHub 记录整理，供团队复盘使用。数字截至 develop 分支当前状态。仓库：<a href="https://github.com/Tuzibaobaobai/uniread-reading-comprehension">Tuzibaobaobai/uniread-reading-comprehension</a>。</footer>
 </main>
