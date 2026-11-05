@@ -3,7 +3,9 @@
 //   node scripts/tts.mjs --lexicon <lexicon> [--voice …] [--jobs 4] [--force]   词汇天天练 (#110): every entry's headword and examples →
 //     content/assets/lexicons/<lx>/<entryId>.mp3 and <entryId>-x<N>.mp3, set as entry.audio. Standard (#131): a word is
 //     said as the book's IPA prints it — the headword and its forms in the examples go to the voice as SSML
-//     <phoneme alphabet="cmu"> from content/lexicons/<lx>/pronunciations.json (scripts/lexicon-pron.mjs; run it first).
+//     <phoneme alphabet="cmu"> from content/lexicons/<lx>/pronunciations.json (scripts/lexicon-pron.mjs; run it first);
+//     a headword with variants — a (an) — says each printed IPA in turn. Then check what the clips say with
+//     scripts/check-pron-audio.mjs.
 //     A clip is made again whenever what is sent for it changes (.work/tts/<lx>.json remembers what each clip was made from).
 // Credentials: VOLC_TTS_APPID / VOLC_TTS_TOKEN in .env.local (never committed). Writes
 // content/assets/<pl>/<itemId>-<qid>-<turnId>.mp3 (gitignored, shipped in rc-media-<pl>.zip) and sets
@@ -66,6 +68,10 @@ async function synthesize(text, voiceType, ssml = false) {
 
 let made = 0;
 let chars = 0;
+const verifyAll = args.includes('--verify-all');
+let wordInputFor; // set in the lexicon branch, used by verify()
+let manifestOf;
+let saveManifestOf;
 const seconds = (file) => Math.round(Number(/estimated duration: ([\d.]+)/.exec(execFileSync('afinfo', [file], { encoding: 'utf8' }))[1]) * 10) / 10;
 
 if (lexicon) {
@@ -82,6 +88,15 @@ if (lexicon) {
   const manifestFile = join('.work/tts', `${lexicon}.json`);
   const manifest = existsSync(manifestFile) ? JSON.parse(readFileSync(manifestFile, 'utf8')) : {};
   mkdirSync(join('content/assets/lexicons', lexicon), { recursive: true });
+  /** A pinned pronunciation as this voice needs it (#131, measured with scripts/check-pron-audio.mjs):
+   *  - ə: CMU writes AH0, but the voice says AH0 as a full vowel (affect /əˈfekt/ came out /ˈæfekt/, every time) and maps
+   *    a phone string that is a dictionary pronunciation back to the word's own default. AX is the schwa it honours.
+   *  - a lone ə (a /ə/): any one-vowel pin is stressed, and a stressed schwa comes out /eɪ/ — said as "uh" instead. */
+  //  The voice's phoneme support is approximate (it weighs the pin against what it knows of the word), so every headword
+  //  clip is then checked with a phoneme recogniser and, if it says something else, made again another way (see verify).
+  const voicePhones = (cmu, mode = 'ax') => (mode === 'cmu' ? cmu : cmu.split(' ').map((p) => (p === 'AH0' ? 'AX' : p)).join(' '));
+  const phoneme = (cmu, text, mode = 'ax') =>
+    cmu === 'AH0' && mode === 'ax' ? 'uh' : `<phoneme alphabet="cmu" ph="${voicePhones(cmu, mode)}">${esc(text)}</phoneme>`;
   /** the text sent for a clip: plain, or SSML with the entry's words pinned to their printed pronunciation */
   const input = (text, forms) => {
     let pinned = false;
@@ -91,18 +106,35 @@ if (lexicon) {
         const ph = i % 2 ? forms?.[part.toLowerCase()] : undefined;
         if (!ph) return esc(part);
         pinned = true;
-        return `<phoneme alphabet="cmu" ph="${ph}">${esc(part)}</phoneme>`;
+        return phoneme(ph, part);
       })
       .join('');
     return pinned ? { text: `<speak>${out}</speak>`, ssml: true } : { text: spoken(text), ssml: false };
   };
-  const clip = async (src, text, forms) => {
+  /** a headword that is not one plain word — a (an), although / though, colour (color): each printed IPA in turn */
+  const sayAll = (say, mode) => ({ text: `<speak>${say.map((x) => phoneme(x.cmu, x.text, mode)).join(', ')}</speak>`, ssml: true });
+  /** the headword clip's input. mode: "ax" (default, the pin with AX for ə), "cmu" (the pin as CMU writes it), "plain" (the
+   *  voice's own reading) — the verify step records in pronunciations.json ("voice") the mode that says the printed IPA */
+  const wordInput = (entry, p, mode = p?.voice ?? 'ax') => {
+    // a respelling the voice reads as printed (the /ðiː/ → "thee"), set by hand ("manual": true) where no pin works
+    if (p?.voiceText) return { text: p.voiceText, ssml: false };
+    if (mode === 'plain' || !p) return { text: spoken(p?.say ? p.say.map((x) => x.text).join(', ') : entry.headword), ssml: false };
+    if (p.say) return sayAll(p.say, mode);
+    return { text: `<speak>${phoneme(p.cmu, entry.headword, mode)}</speak>`, ssml: true };
+  };
+  const madeWords = [];
+  const madeSrc = new Set();
+  wordInputFor = wordInput;
+  manifestOf = manifest;
+  saveManifestOf = () => writeFileSync(manifestFile, JSON.stringify(manifest, null, 2) + '\n');
+  const clip = async (src, text, forms, sentFor) => {
     const file = join('content', src);
-    const sent = input(text, forms);
+    const sent = sentFor ?? input(text, forms);
     // clips made before #131 have no manifest line: they were made from the plain text
     if (force || !existsSync(file) || (manifest[src] ?? spoken(text)) !== sent.text) {
       writeFileSync(file, await synthesize(sent.text, voice, sent.ssml));
       made++;
+      madeSrc.add(src);
       chars += sent.text.length;
     }
     manifest[src] = sent.text;
@@ -124,7 +156,8 @@ if (lexicon) {
     const entry = JSON.parse(readFileSync(path, 'utf8'));
     const base = `assets/lexicons/${lexicon}/${entry.id}`;
     const p = prons[entry.id];
-    const audio = { word: await clip(`${base}.mp3`, entry.headword, p && { [entry.headword.toLowerCase()]: p.cmu }) };
+    const audio = { word: await clip(`${base}.mp3`, entry.headword, undefined, wordInput(entry, p)) };
+    if (p && (madeSrc.has(audio.word.src) || verifyAll)) madeWords.push({ entry, p, src: audio.word.src, path });
     if (entry.examples.length) {
       audio.examples = [];
       for (const [i, x] of entry.examples.entries())
@@ -154,7 +187,74 @@ if (lexicon) {
   saveManifest();
   if (failed.length) console.log(`${failed.length} entr${failed.length === 1 ? 'y' : 'ies'} failed (audio unchanged):\n  ${failed.join('\n  ')}`);
   console.log(`${made} clip(s) synthesised (${chars} characters, ${voice}, speed ${speed}); entries updated`);
+  if (!args.includes('--no-verify')) await verify(madeWords);
   process.exit(0);
+}
+
+/** Headword clips (#131): does the recording say the printed IPA? A phoneme recogniser checks the vowels of each clip made
+ *  in this run (--verify-all: every pinned headword); one that says something else is made the other ways in turn (cmu,
+ *  plain, ax) and the first that agrees is kept, its mode recorded as "voice" in pronunciations.json. Those no way gets
+ *  right are listed in .work/tts/<lx>-unverified.json for a person to listen to. */
+async function verify(words) {
+  const { compare, recognise, recogniserReady } = await import('./lib/pron-check.mjs');
+  if (!recogniserReady()) {
+    console.log('headword clips NOT verified: phoneme recogniser not set up (see scripts/lib/pron-check.mjs)');
+    return;
+  }
+  const expected = (p) => (p.say ? p.say.map((x) => x.cmu) : [p.cmu]);
+  const files = (ws) => ws.map((w) => join('content', w.src));
+  console.log(`verifying ${words.length} headword clip(s)…`);
+  const heard = await recognise(files(words));
+  let bad = words.filter((w) => {
+    w.heard = heard.get(join('content', w.src)) ?? '';
+    w.problems = compare(expected(w.p), w.heard);
+    return w.problems.length;
+  });
+  console.log(`${words.length - bad.length} agree with the printed IPA, ${bad.length} do not — trying other ways`);
+  const pronFile = join('content/lexicons', lexicon, 'pronunciations.json');
+  const pronDoc = JSON.parse(readFileSync(pronFile, 'utf8'));
+  mkdirSync('.work/tts/try', { recursive: true });
+  let fixed = 0;
+  for (const mode of ['cmu', 'plain', 'ax']) {
+    const tries = bad.filter((w) => (w.p.voice ?? 'ax') !== mode && !(w.tried ??= new Set()).has(mode));
+    if (!tries.length) continue;
+    for (const w of tries) {
+      w.tried.add(mode);
+      w.sent = wordInputFor(w.entry, w.p, mode);
+      w.tryFile = join('.work/tts/try', `${w.entry.id}-${mode}.mp3`);
+      try {
+        writeFileSync(w.tryFile, await synthesize(w.sent.text, voice, w.sent.ssml));
+        made++;
+        chars += w.sent.text.length;
+      } catch {
+        w.tryFile = null;
+      }
+    }
+    const got = await recognise(tries.filter((w) => w.tryFile).map((w) => w.tryFile));
+    for (const w of tries) {
+      if (!w.tryFile || compare(expected(w.p), got.get(w.tryFile) ?? '').length) continue;
+      // this way says the printed IPA: keep it
+      const file = join('content', w.src);
+      writeFileSync(file, readFileSync(w.tryFile));
+      manifestOf[w.src] = w.sent.text;
+      if (mode === 'ax') delete pronDoc.entries[w.entry.id].voice;
+      else pronDoc.entries[w.entry.id].voice = mode;
+      const entry = JSON.parse(readFileSync(w.path, 'utf8'));
+      entry.audio.word.seconds = seconds(file);
+      writeFileSync(w.path, JSON.stringify(entry, null, 2) + '\n');
+      w.ok = true;
+      fixed++;
+    }
+    bad = bad.filter((w) => !w.ok);
+  }
+  writeFileSync(pronFile, JSON.stringify(pronDoc, null, 2) + '\n');
+  saveManifestOf();
+  const out = join('.work/tts', `${lexicon}-unverified.json`);
+  writeFileSync(
+    out,
+    JSON.stringify(bad.map((w) => ({ id: w.entry.id, headword: w.entry.headword, ipa: w.entry.ipa, expected: expected(w.p), heard: w.heard, problems: w.problems })), null, 2) + '\n',
+  );
+  console.log(`${fixed} made again another way; ${bad.length} still differ (kept as made, a person should listen) → ${out}`);
 }
 
 const dir = join('content/playlists', pl, 'items');
