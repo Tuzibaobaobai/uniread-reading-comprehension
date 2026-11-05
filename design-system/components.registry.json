@@ -337,7 +337,11 @@
     "2.03",
     "3.11",
     "3.12",
-    "3.21"
+    "3.21",
+    "1.20",
+    "2.20",
+    "3.26",
+    "3.27"
    ],
    "figma": {
     "nodeId": "6346:85439",
@@ -350,10 +354,10 @@
     "add": "Label（文本属性：题号范围如 1–5）+ Kicker（文本属性：P1）；Result: none / correct / wrong（提交后显示对错图标），含当前部分 Selected=yes × correct / wrong",
     "Kicker": "BOOLEAN（新增）",
     "Label": "number / range",
-    "Result": "none / correct / wrong",
+    "Result": "none / correct / wrong / score",
     "Flagged": "no / yes（新增）",
     "Tone": "default / pending（新增）",
-    "Score": "text — 提交后\"得分/总分\"（18/20）或\"对的题数/总题数\"（3/5），替代对错图标（#128）"
+    "Score": "Result=score（Figma 19593:1282 / 19593:1286，2026-11-05）：提交后有分数的页显示「得分/总分」（18/20），一页一个 Part 的客观题与词汇测验 Part 显示「答对题数/总题数」（3/5、1/34），取代对错图标（#128 #140）"
    },
    "note": "对错图标复用 UniRead quiz result：错 7870:51523（State=Default），对 12409:123905（State=Default）；时文 / 真题题号复用：Kicker 可省（逐题时不加 part-start），新增 Label number / range、Flagged、Tone pending（提交确认里的未答题号）",
    "figmaProposal": {
@@ -649,7 +653,7 @@
    },
    "variants": {
     "existing": "Pass: no / yes / Pass3（View Answers / Try Again 两个入口）",
-    "add": "Actions: view-answers / retry-mistakes / retry-all（三个入口）；Part 标签（文本属性）"
+    "add": "Actions: view-answers / retry-mistakes / retry-all（三个入口）；Part 标签（文本属性）；每个 Part 图标下「Part N」+「答对题数/题数」（#140，Figma 已加入 Actions=2 / Actions=3 变体）；得分行「得分 48 / 100（60 分及格）」"
    },
    "note": "各 Part 对错图标复用 quiz result（12409:123905）",
    "figmaProposal": {
@@ -688,7 +692,7 @@
     "Action": "BOOLEAN（新增：定位原文 chip）",
     "Size": "default / compact（新增：真题 Part 结束后的逐题解析）"
    },
-   "note": "与 option-text-item 的「正确-展开」不同：这里显示的是填空 / 翻译题的答案与解析；时文与真题复盘共用；e2e 选择器 .explain / .explain-text 要保留或同步改测试",
+   "note": "与 option-text-item 的「正确-展开」不同：这里显示的是填空 / 翻译题的答案与解析；时文与真题复盘共用；e2e 选择器 .explain / .explain-text 要保留或同步改测试；词汇测验逐题只标 回答正确 / 部分正确 / 回答错误，不显示每题分值（#140）",
    "figmaProposal": {
     "nodeId": "19446:804",
     "page": "RC · Proposed",
@@ -2167,15 +2171,23 @@
   {
    "code": "rc/Exam/TableCell",
    "status": "proposed",
-   "product": "真题 KET/PET · 时文阅读",
+   "product": "时文阅读 · 真题 KET/PET",
    "description": "表格填空（view table）的作答格：下拉格（点开点选，非原生 select）/ 书写格；提交后标对错",
-   "screens": [],
+   "screens": [
+    "1.20"
+   ],
    "variants": {
     "Type": "select / text",
-    "Result": "none / correct / wrong"
+    "State": "empty / filled / open（仅 select）/ correct / wrong"
    },
    "source": "src/ui/exam/TableCell/TableCell.tsx",
-   "issue": "#127"
+   "issue": "#127",
+   "figmaProposal": {
+    "nodeId": "19594:1349",
+    "page": "RC · Proposed",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19594-1349"
+   },
+   "note": "题号为纯数字；select 为点开点选的下拉（黑白字体表情 Noto Emoji，非原生 select），已判对错的格不显示箭头，wrong 旁显示正确答案；text 为三行书写格，提交后由 AI 按参考答案判对错"
   }
  ],
  "proposalPage": {
@@ -2191,7 +2203,7 @@
   "nodeId": "19451:468",
   "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19451-468",
   "name": "RC · Screens · DS-2026-11-03",
-  "screens": "0.01–0.02、1.01–1.19（时文阅读）、2.01–2.30（KET / PET）、3.03–3.31（词汇天天练）；每个 frame 上方的说明列出来源、提案组件、扩展组件、复用组件"
+  "screens": "0.01–0.02、1.01–1.20（时文阅读）、2.01–2.30（KET / PET）、3.03–3.31（词汇天天练）；每个 frame 上方的说明列出来源、提案组件、扩展组件、复用组件"
  },
  "proposalIssue": "#138"
 }
