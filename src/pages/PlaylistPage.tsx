@@ -96,7 +96,7 @@ export function PlaylistPage() {
                         it.difficulty !== undefined ? `L${it.difficulty}` : null,
                         t('playlist.questions', { count: it.questionCount }),
                         formatMinutes(it.suggestedMinutes, t),
-                        it.paper ? status : done ? t('playlist.score', { score: att.result!.score, max: att.result!.maxScore }) : att ? t('playlist.inProgress') : null,
+                        it.paper ? status : done ? t('playlist.score', { score: Math.round(att.result!.score), max: Math.round(att.result!.maxScore) }) : att ? t('playlist.inProgress') : null,
                       ]
                         .filter(Boolean)
                         .join(' · ')}

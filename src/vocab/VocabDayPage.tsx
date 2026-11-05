@@ -273,12 +273,12 @@ function ResultView({
   const percent = Math.round((result.score / total) * 100);
   const passed = percent >= item.meta.passPercent;
   const wrong = result.byQuestion.filter((b) => b.correct !== true).length;
-  const round = (n: number) => Math.round(n * 10) / 10;
   return (
     <QuizResult
       pass={passed}
       title={passed ? t('vocab.result.passed') : t('vocab.result.failed')}
-      score={t('vocab.result.score', { score: round(result.score), total, percent, pass: item.meta.passPercent })}
+      // #140: a whole-number score (some 高考 blanks are worth 0.88 of a point) and the pass mark in points
+      score={t('vocab.result.score', { score: Math.round(result.score), total, pass: Math.round((item.meta.passPercent * total) / 100) })}
       pending={pending ? t('vocab.result.pending') : undefined}
       parts={item.sections.map((s, i) => {
         const rows = result.byQuestion.filter((b) => s.questions.some((q) => q.id === b.q));
@@ -286,7 +286,8 @@ function ResultView({
         return {
           key: s.id,
           label: partLabel(t, i),
-          points: `${round(rows.reduce((n, r) => n + r.points, 0))}/${round(rows.reduce((n, r) => n + r.maxPoints, 0))}`,
+          // #140: each 大题 as questions right / questions, not points
+          points: `${rows.filter((r) => r.correct === true).length}/${s.questions.length}`,
           ok,
           iconLabel: ok ? t('reader.dotCorrect') : t('reader.dotWrong'),
         };

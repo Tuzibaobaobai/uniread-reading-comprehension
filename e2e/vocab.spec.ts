@@ -219,13 +219,18 @@ test('Quiz: Part pages, typed answers only, Enter, result, review, entry, retry 
 
   // q2 earns 2 × 2/3, the rest full marks (translations: mocked judge)
   await expect(page.locator('.vq-result-title')).toHaveText('恭喜，通过了！');
-  await expect(page.locator('.vq-result-score')).toContainText('得分 99.3 / 100');
+  // #140: a whole-number score, and each Part as questions right / questions (q2 is only partly right)
+  await expect(page.locator('.vq-result-score')).toContainText('得分 99 / 100（60 分及格）');
   await expect(page.locator('.vq-result-label').first()).toHaveText('Part 1');
+  await expect(page.locator('.vq-result-points').first()).toHaveText('4/5');
+  await expect(page.locator('.vq-result-points').nth(1)).toHaveText('15/15');
   await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-result.png` });
 
   await page.getByRole('button', { name: /查看答案/ }).click();
   await expect(page.locator('.vq-row').first()).toHaveClass(/is-correct/);
   await expect(page.locator('.vq-row').nth(1)).toHaveClass(/is-wrong/);
+  // #140: no per-question points (some 高考 blanks are worth 0.88)
+  await expect(page.locator('.vq-row').nth(1)).not.toContainText(/\d+(\.\d+)?\/\d+(\.\d+)? 分/);
   await expect(page.locator('.vq-row').nth(1).locator('.vq-answer')).toContainText('abroad');
   await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-review.png` });
   await page.locator('.vq-row').nth(1).getByRole('button', { name: '查看词条' }).click();
@@ -240,6 +245,23 @@ test('Quiz: Part pages, typed answers only, Enter, result, review, entry, retry 
   await expect(page.locator('.vq-row.is-kept')).toHaveCount(4);
   await expect(page.getByRole('textbox', { name: '第 2 题：单词' })).toBeEditable();
   await expect(page.getByRole('textbox', { name: '第 1 题：单词' })).not.toBeEditable();
+});
+
+test('高考 scores in whole numbers (#140): Part = right / questions, no 0.88-point blanks shown', async ({ page }) => {
+  await page.goto('/#/p/gkv/gkv-d002');
+  await page.getByRole('tab', { name: /测验/ }).click();
+  await page.locator('.vq-row').first().getByRole('textbox').first().fill('achieve'); // worth 15/17 of a point
+  await page.getByRole('button', { name: /^Part 4/ }).click();
+  await page.getByRole('button', { name: '提交' }).click();
+  const confirm = page.getByRole('dialog').getByRole('button', { name: /提交/ });
+  if (await confirm.count()) await confirm.click();
+  await expect(page.locator('.vq-result-score')).toContainText('得分 1 / 100（60 分及格）');
+  await expect(page.locator('.vq-result-points')).toHaveText(['1/34', '0/15', '0/10', '0/10']);
+  await page.getByRole('button', { name: /查看答案/ }).click();
+  await expect(page.locator('.vq-row').first()).toContainText('回答正确');
+  await expect(page.locator('.vq-row').first()).not.toContainText('0.88');
+  await page.goto('/#/p/gkv');
+  await expect(page.getByText('得分 1/100')).toBeVisible();
 });
 
 test('Quiz table days (第69–70天): the printed table with a blank in each answer cell', async ({ page }, info) => {

@@ -355,8 +355,9 @@ function Review({ q, k, result, state }: { q: QuestionT; k: AnswerKeyT; result?:
         scored
           ? {
               correct: !!result.correct,
+              // #140: right / partly right / wrong — no per-question points (some are fractions of a point)
               text:
-                t('vocab.result.points', { points: Math.round(result.points * 100) / 100, max: Math.round(result.maxPoints * 100) / 100 }) +
+                (result.correct ? t('reader.correct') : result.points > 0 ? t('vocab.result.partly') : t('reader.wrong')) +
                 (hintedHere ? ` · ${t('vocab.result.hintHalf')}` : ''),
             }
           : undefined
