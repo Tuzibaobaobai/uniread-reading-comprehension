@@ -1,0 +1,47 @@
+{
+  "note": "docs/14 §15.6: Figma sections / frames the UniRead designer marked Ready for dev. Figma's Plugin API cannot read the tag, so links are recorded here (forwarded by the project lead or posted by the designer in a design-review issue). Before writing to Figma, RC checks this file and section names (\"✅ Ready\"): listed frames are never overwritten — changes go in a v2 next to them.",
+  "file": "gYPHIUtQ50mXuoE0Cfpmu0",
+  "designer": null,
+  "ready": [
+    {
+      "page": "RC · Screens · DS-2026-11-03",
+      "section": "词汇 › 速览",
+      "nodeId": "19518:124595",
+      "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19518-124595",
+      "frames": [
+        "3.03",
+        "3.04",
+        "3.05",
+        "3.06"
+      ],
+      "since": "2026-11-04",
+      "codeAligned": "66e5aea"
+    }
+  ],
+  "unknown": [
+    {
+      "section": "词汇 › 学习",
+      "nodeId": "19518:124596",
+      "frames": [
+        "3.07–3.10"
+      ],
+      "note": "section made by the designer; Ready for dev not confirmed"
+    },
+    {
+      "section": "词汇 › 测验",
+      "nodeId": "19518:124597",
+      "frames": [
+        "3.11–3.31"
+      ],
+      "note": "section made by the designer; Ready for dev not confirmed. 3.24–3.27 were edited in place by RC on 2026-11-05 (#128 #140)"
+    }
+  ],
+  "reviews": [
+    {
+      "issue": 141,
+      "opened": "2026-11-05",
+      "scope": "#127 #128 #140: PartPager Result=score, QuizResult Part labels, RC/Exam/TableCell (new); screens 2.20, 3.24–3.27, 1.20 (new)",
+      "status": "waiting for designer"
+    }
+  ]
+}
