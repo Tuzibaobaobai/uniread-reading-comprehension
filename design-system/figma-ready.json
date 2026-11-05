@@ -1,7 +1,6 @@
 {
-  "note": "docs/14 §15.6: Figma sections / frames the UniRead designer marked Ready for dev. Figma's Plugin API cannot read the tag, so links are recorded here (forwarded by the project lead or posted by the designer in a design-review issue). Before writing to Figma, RC checks this file and section names (\"✅ Ready\"): listed frames are never overwritten — changes go in a v2 next to them.",
+  "note": "docs/14 §15.6: Figma sections / frames the UniRead designer marked Ready for dev. Figma's Plugin API cannot read the tag, so the designer also puts \"✅ Ready\" before the section name (Claude reads names) and the project lead may forward links; both are recorded here. Listed frames are never overwritten — changes go in a v2 next to them. Reviews are requested only inside Figma (reviewQueue board, \"· 🟡 待评审\" name suffix, annotations in category 「RC 待评审」).",
   "file": "gYPHIUtQ50mXuoE0Cfpmu0",
-  "designer": null,
   "ready": [
     {
       "page": "RC · Screens · DS-2026-11-03",
@@ -36,12 +35,35 @@
       "note": "section made by the designer; Ready for dev not confirmed. 3.24–3.27 were edited in place by RC on 2026-11-05 (#128 #140)"
     }
   ],
-  "reviews": [
+  "reviewQueue": {
+    "page": "RC · Screens · DS-2026-11-03",
+    "nodeId": "19602:7879",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19602-7879",
+    "annotationCategory": "RC 待评审"
+  },
+  "pending": [
     {
-      "issue": 141,
-      "opened": "2026-11-05",
-      "scope": "#127 #128 #140: PartPager Result=score, QuizResult Part labels, RC/Exam/TableCell (new); screens 2.20, 3.24–3.27, 1.20 (new)",
-      "status": "waiting for designer"
+      "added": "2026-11-05",
+      "code": [
+        "#127",
+        "#128",
+        "#140"
+      ],
+      "nodes": {
+        "components": [
+          "19448:750",
+          "19448:796",
+          "19594:1349"
+        ],
+        "screens": [
+          "19506:7390",
+          "19463:2997",
+          "19463:3102",
+          "19463:3227",
+          "19463:3379",
+          "19598:7781"
+        ]
+      }
     }
   ]
 }
