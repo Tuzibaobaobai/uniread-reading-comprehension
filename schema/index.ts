@@ -275,6 +275,8 @@ export const ExtendedText = z
     task: Rich.optional(),
     /** 中译英 (#110): the word / phrase the translation must use, printed in brackets after the sentence */
     requiredWord: z.string().optional(),
+    /** a written cell of a section table (section.view "table", #127): the answer box sits at this blank */
+    blankId: z.string().optional(),
   })
   .strict();
 
@@ -408,9 +410,11 @@ export const Section = z
     choose: z.number().int().positive().optional(),
     /**
      * exam Parts answered on one page (#82 #86 #87): all = every question of the Part together (a grid when the
-     * questions share their options); match = two-column board, each option used once (people ↔ texts / things)
+     * questions share their options); match = two-column board, each option used once (people ↔ texts / things);
+     * table = the section's stimulus table as printed, each question answered in its cell (a dropdown for an
+     * inlineChoice blank, a text box for an extendedText blank — 表格填空 with ticks and written cells, #127)
      */
-    view: z.enum(['all', 'match']).optional(),
+    view: z.enum(['all', 'match', 'table']).optional(),
     /** the printed example of a match Part ("0 Jack — B"): shown first, its option is used up */
     example: z.object({ prompt: z.string(), answer: z.string() }).strict().optional(),
     /** a match Part's printed column headings ("People" | "Things to bring", KET Listening Part 5, #104) */
@@ -682,7 +686,7 @@ export const JudgeAnchor = z
   .strict();
 
 export const AnswerKey = z.union([
-  /** choice / inlineChoice → [optionId]; gapMatch → bank ids aligned with the question's blanks */
+  /** choice / inlineChoice → [optionId] (several ids = accepted alternatives); gapMatch → bank ids aligned with the question's blanks */
   z.object({ ...answerCommon, correct: z.array(z.string()).min(1) }).strict(),
   /** textEntry: one entry per blank id */
   z.object({ ...answerCommon, slots: z.record(SlotKey) }).strict(),

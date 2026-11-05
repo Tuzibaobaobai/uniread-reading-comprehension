@@ -238,6 +238,403 @@
     {
       "id": "s1",
       "instruction": "Complete the table according to the article. In the third column, tick the right emoticon to show how the person felt. Explain why he/she felt that way by copying the clues from the article into the fourth column. Answer the question in your own words in the last column.",
+      "stimulus": [
+        {
+          "id": "t1",
+          "type": "table",
+          "rows": [
+            [
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "When?"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Who?"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "How did the person feel?"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Why did the person feel that way?"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "What did the restaurant mean to the person?"
+                  }
+                ],
+                "header": true
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Before the meal"
+                  }
+                ],
+                "header": true,
+                "rowSpan": 3
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The author"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b1",
+                    "number": 1
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b2",
+                    "number": 2
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b3",
+                    "number": 3
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Nick"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b4",
+                    "number": 4
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b5",
+                    "number": 5
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b6",
+                    "number": 6
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Michael"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b7",
+                    "number": 7
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b8",
+                    "number": 8
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b9",
+                    "number": 9
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "At the meal"
+                  }
+                ],
+                "header": true,
+                "rowSpan": 4
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "The author"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b10",
+                    "number": 10
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b11",
+                    "number": 11
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b12",
+                    "number": 12
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Nick"
+                  }
+                ],
+                "header": true,
+                "rowSpan": 2
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b13",
+                    "number": 13
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "① "
+                  },
+                  {
+                    "t": "blank",
+                    "id": "b14",
+                    "number": 14
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "① "
+                  },
+                  {
+                    "t": "blank",
+                    "id": "b15",
+                    "number": 15
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b16",
+                    "number": 16
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "② "
+                  },
+                  {
+                    "t": "blank",
+                    "id": "b17",
+                    "number": 17
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "② "
+                  },
+                  {
+                    "t": "blank",
+                    "id": "b18",
+                    "number": 18
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Michael"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b19",
+                    "number": 19
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b20",
+                    "number": 20
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b21",
+                    "number": 21
+                  }
+                ]
+              }
+            ],
+            [
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "After the meal"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "content": [
+                  {
+                    "t": "text",
+                    "v": "Nick"
+                  }
+                ],
+                "header": true
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b22",
+                    "number": 22
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b23",
+                    "number": 23
+                  }
+                ]
+              },
+              {
+                "content": [
+                  {
+                    "t": "blank",
+                    "id": "b24",
+                    "number": 24
+                  }
+                ]
+              }
+            ]
+          ]
+        }
+      ],
+      "view": "table",
       "questions": [
         {
           "id": "q1",
@@ -247,9 +644,8 @@
             "attitude"
           ],
           "interaction": {
-            "kind": "choice",
-            "variant": "standard",
-            "maxChoices": 1,
+            "kind": "inlineChoice",
+            "blankId": "b1",
             "prompt": [
               {
                 "t": "text",
@@ -262,7 +658,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "😊 (smiling face)"
+                    "v": "🙂"
                   }
                 ]
               },
@@ -271,7 +667,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "☹ (sad face)"
+                    "v": "☹"
                   }
                 ]
               },
@@ -280,7 +676,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "😐 (neutral face)"
+                    "v": "😐"
                   }
                 ]
               }
@@ -302,7 +698,8 @@
                 "v": "Before the meal · The author: Why did the person feel that way? Copy the clues from the article."
               }
             ],
-            "scoring": "judge"
+            "scoring": "judge",
+            "blankId": "b2"
           }
         },
         {
@@ -320,7 +717,8 @@
                 "v": "Before the meal · The author: What did the restaurant mean to the person? Answer in your own words."
               }
             ],
-            "scoring": "judge"
+            "scoring": "judge",
+            "blankId": "b3"
           }
         },
         {
@@ -331,9 +729,8 @@
             "attitude"
           ],
           "interaction": {
-            "kind": "choice",
-            "variant": "standard",
-            "maxChoices": 1,
+            "kind": "inlineChoice",
+            "blankId": "b4",
             "prompt": [
               {
                 "t": "text",
@@ -346,7 +743,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "😊 (smiling face)"
+                    "v": "🙂"
                   }
                 ]
               },
@@ -355,7 +752,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "☹ (sad face)"
+                    "v": "☹"
                   }
                 ]
               },
@@ -364,7 +761,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "😐 (neutral face)"
+                    "v": "😐"
                   }
                 ]
               }
@@ -386,7 +783,8 @@
                 "v": "Before the meal · Nick: Why did the person feel that way? Copy the clues from the article."
               }
             ],
-            "scoring": "judge"
+            "scoring": "judge",
+            "blankId": "b5"
           }
         },
         {
@@ -404,7 +802,8 @@
                 "v": "Before the meal · Nick: What did the restaurant mean to the person? Answer in your own words."
               }
             ],
-            "scoring": "judge"
+            "scoring": "judge",
+            "blankId": "b6"
           }
         },
         {
@@ -415,9 +814,8 @@
             "attitude"
           ],
           "interaction": {
-            "kind": "choice",
-            "variant": "standard",
-            "maxChoices": 1,
+            "kind": "inlineChoice",
+            "blankId": "b7",
             "prompt": [
               {
                 "t": "text",
@@ -430,7 +828,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "😊 (smiling face)"
+                    "v": "🙂"
                   }
                 ]
               },
@@ -439,7 +837,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "☹ (sad face)"
+                    "v": "☹"
                   }
                 ]
               },
@@ -448,7 +846,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "😐 (neutral face)"
+                    "v": "😐"
                   }
                 ]
               }
@@ -470,7 +868,8 @@
                 "v": "Before the meal · Michael: Why did the person feel that way? Copy the clues from the article."
               }
             ],
-            "scoring": "judge"
+            "scoring": "judge",
+            "blankId": "b8"
           }
         },
         {
@@ -488,7 +887,8 @@
                 "v": "Before the meal · Michael: What did the restaurant mean to the person? Answer in your own words."
               }
             ],
-            "scoring": "judge"
+            "scoring": "judge",
+            "blankId": "b9"
           }
         },
         {
@@ -499,9 +899,8 @@
             "attitude"
           ],
           "interaction": {
-            "kind": "choice",
-            "variant": "standard",
-            "maxChoices": 1,
+            "kind": "inlineChoice",
+            "blankId": "b10",
             "prompt": [
               {
                 "t": "text",
@@ -514,7 +913,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "😊 (smiling face)"
+                    "v": "🙂"
                   }
                 ]
               },
@@ -523,7 +922,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "☹ (sad face)"
+                    "v": "☹"
                   }
                 ]
               },
@@ -532,7 +931,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "😐 (neutral face)"
+                    "v": "😐"
                   }
                 ]
               }
@@ -554,7 +953,8 @@
                 "v": "At the meal · The author: Why did the person feel that way? Copy the clues from the article."
               }
             ],
-            "scoring": "judge"
+            "scoring": "judge",
+            "blankId": "b11"
           }
         },
         {
@@ -572,7 +972,8 @@
                 "v": "At the meal · The author: What did the restaurant mean to the person? Answer in your own words."
               }
             ],
-            "scoring": "judge"
+            "scoring": "judge",
+            "blankId": "b12"
           }
         },
         {
@@ -583,9 +984,8 @@
             "attitude"
           ],
           "interaction": {
-            "kind": "choice",
-            "variant": "standard",
-            "maxChoices": 1,
+            "kind": "inlineChoice",
+            "blankId": "b13",
             "prompt": [
               {
                 "t": "text",
@@ -598,7 +998,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "😊 (smiling face)"
+                    "v": "🙂"
                   }
                 ]
               },
@@ -607,7 +1007,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "☹ (sad face)"
+                    "v": "☹"
                   }
                 ]
               },
@@ -616,7 +1016,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "😐 (neutral face)"
+                    "v": "😐"
                   }
                 ]
               }
@@ -638,7 +1038,8 @@
                 "v": "At the meal · Nick ①: Why did the person feel that way? Copy the clues from the article."
               }
             ],
-            "scoring": "judge"
+            "scoring": "judge",
+            "blankId": "b14"
           }
         },
         {
@@ -656,7 +1057,8 @@
                 "v": "At the meal · Nick ①: What did the restaurant mean to the person? Answer in your own words."
               }
             ],
-            "scoring": "judge"
+            "scoring": "judge",
+            "blankId": "b15"
           }
         },
         {
@@ -667,9 +1069,8 @@
             "attitude"
           ],
           "interaction": {
-            "kind": "choice",
-            "variant": "standard",
-            "maxChoices": 1,
+            "kind": "inlineChoice",
+            "blankId": "b16",
             "prompt": [
               {
                 "t": "text",
@@ -682,7 +1083,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "😊 (smiling face)"
+                    "v": "🙂"
                   }
                 ]
               },
@@ -691,7 +1092,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "☹ (sad face)"
+                    "v": "☹"
                   }
                 ]
               },
@@ -700,7 +1101,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "😐 (neutral face)"
+                    "v": "😐"
                   }
                 ]
               }
@@ -722,7 +1123,8 @@
                 "v": "At the meal · Nick ②: Why did the person feel that way? Copy the clues from the article."
               }
             ],
-            "scoring": "judge"
+            "scoring": "judge",
+            "blankId": "b17"
           }
         },
         {
@@ -740,7 +1142,8 @@
                 "v": "At the meal · Nick ②: What did the restaurant mean to the person? Answer in your own words."
               }
             ],
-            "scoring": "judge"
+            "scoring": "judge",
+            "blankId": "b18"
           }
         },
         {
@@ -751,9 +1154,8 @@
             "attitude"
           ],
           "interaction": {
-            "kind": "choice",
-            "variant": "standard",
-            "maxChoices": 1,
+            "kind": "inlineChoice",
+            "blankId": "b19",
             "prompt": [
               {
                 "t": "text",
@@ -766,7 +1168,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "😊 (smiling face)"
+                    "v": "🙂"
                   }
                 ]
               },
@@ -775,7 +1177,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "☹ (sad face)"
+                    "v": "☹"
                   }
                 ]
               },
@@ -784,7 +1186,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "😐 (neutral face)"
+                    "v": "😐"
                   }
                 ]
               }
@@ -806,7 +1208,8 @@
                 "v": "At the meal · Michael: Why did the person feel that way? Copy the clues from the article."
               }
             ],
-            "scoring": "judge"
+            "scoring": "judge",
+            "blankId": "b20"
           }
         },
         {
@@ -824,7 +1227,8 @@
                 "v": "At the meal · Michael: What did the restaurant mean to the person? Answer in your own words."
               }
             ],
-            "scoring": "judge"
+            "scoring": "judge",
+            "blankId": "b21"
           }
         },
         {
@@ -835,9 +1239,8 @@
             "attitude"
           ],
           "interaction": {
-            "kind": "choice",
-            "variant": "standard",
-            "maxChoices": 1,
+            "kind": "inlineChoice",
+            "blankId": "b22",
             "prompt": [
               {
                 "t": "text",
@@ -850,7 +1253,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "😊 (smiling face)"
+                    "v": "🙂"
                   }
                 ]
               },
@@ -859,7 +1262,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "☹ (sad face)"
+                    "v": "☹"
                   }
                 ]
               },
@@ -868,7 +1271,7 @@
                 "content": [
                   {
                     "t": "text",
-                    "v": "😐 (neutral face)"
+                    "v": "😐"
                   }
                 ]
               }
@@ -890,7 +1293,8 @@
                 "v": "After the meal · Nick: Why did the person feel that way? Copy the clues from the article."
               }
             ],
-            "scoring": "judge"
+            "scoring": "judge",
+            "blankId": "b23"
           }
         },
         {
@@ -908,7 +1312,8 @@
                 "v": "After the meal · Nick: What did the restaurant mean to the person? Answer in your own words."
               }
             ],
-            "scoring": "judge"
+            "scoring": "judge",
+            "blankId": "b24"
           }
         }
       ]

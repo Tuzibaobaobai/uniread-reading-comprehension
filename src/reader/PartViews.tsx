@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { InlineT, QuestionT } from '@schema';
-import { Rich, plainText } from '@/components/Rich';
+import { Rich, plainText, type BlankNode } from '@/components/Rich';
 import { Locate } from '@/components/Icons';
 import { staticContent } from '@/lib/content';
 import { Chip } from '@/ui/common/Chip/Chip';
@@ -11,6 +11,8 @@ import { ChoiceGrid, ChoiceGridCell, ChoiceGridRow } from '@/ui/exam/ChoiceGrid/
 import { MatchBoard, MatchBoardOption, MatchBoardPerson } from '@/ui/exam/MatchBoard/MatchBoard';
 import { MatchRow, MatchRowLetter, MatchRows } from '@/ui/exam/MatchRow/MatchRow';
 import { QuestionStack, QuestionStackItem } from '@/ui/exam/QuestionStack/QuestionStack';
+import { TableCellSelect, TableCellText } from '@/ui/exam/TableCell/TableCell';
+import { Block } from './ArticlePane';
 import { OptionList, QuestionPrompt, type InteractionProps } from './interactions';
 
 /*
@@ -295,5 +297,126 @@ export function MatchBoardView(props: InteractionProps) {
       />
       <Explanations props={props} qs={qs} />
     </>
+  );
+}
+
+/* ------------------------------------------------------------------ table */
+
+/**
+ * view "table" (#127): the section's table as printed, every question answered in its own cell — inlineChoice
+ * blanks are dropdowns, extendedText blanks are text boxes (rc/Exam/TableCell). One page in the pager; explanations
+ * follow the table (rc/Quiz/AnswerFeedback Size compact).
+ */
+export function SectionTableView(props: InteractionProps) {
+  const { t } = useTranslation();
+  const { section } = props.fq;
+  const review = props.review;
+  const byBlank = new Map(
+    section.questions.flatMap((q) => {
+      const it = q.interaction;
+      const b = it.kind === 'inlineChoice' ? it.blankId : it.kind === 'extendedText' ? it.blankId : undefined;
+      return b ? [[b, q] as const] : [];
+    }),
+  );
+  const set = (qid: string, v: string[] | string | undefined) =>
+    props.setResponses((prev) => {
+      const next = { ...prev };
+      if (v === undefined || v === '') delete next[qid];
+      else next[qid] = v;
+      return next;
+    });
+  const renderBlank = (n: BlankNode) => {
+    const q = byBlank.get(n.id);
+    if (!q) return null;
+    const it = q.interaction;
+    const r = props.responses[q.id];
+    if (it.kind === 'inlineChoice') {
+      const k = review?.key.answers[q.id];
+      const value = Array.isArray(r) ? r[0] : undefined;
+      const chosen = it.options.find((o) => o.id === value);
+      return (
+        <TableCellSelect
+          key={n.id}
+          n={q.number}
+          options={it.options.map((o) => ({ id: o.id, content: <Rich nodes={o.content} /> }))}
+          value={value}
+          correct={k && 'correct' in k ? k.correct : undefined}
+          locked={!!review}
+          onPick={(id) => set(q.id, [id])}
+          ariaLabel={t('interaction.cellSelect', { n: q.number, value: chosen ? plainText(chosen.content) : t('interaction.cellEmpty') })}
+          menuLabel={t('reader.questionN', { n: q.number })}
+          correctLabel={t('reader.correctAnswer')}
+        />
+      );
+    }
+    // written cells are marked right / wrong by the AI judge against the reference answer (#127)
+    const row = review?.result.byQuestion.find((b) => b.q === q.id);
+    const ok = row?.scoredBy === 'judge' ? row.correct : null;
+    return (
+      <TableCellText
+        key={n.id}
+        n={q.number}
+        value={typeof r === 'string' ? r : ''}
+        result={ok === true ? 'correct' : ok === false ? 'wrong' : 'none'}
+        locked={!!review}
+        onChange={(v) => set(q.id, v)}
+        ariaLabel={t('reader.questionN', { n: q.number })}
+      />
+    );
+  };
+  return (
+    <>
+      <div className="stimulus section-table">
+        {(section.stimulus ?? []).map((b) => (
+          <Block key={b.id} block={b} renderBlank={renderBlank} />
+        ))}
+      </div>
+      {review && <TableExplanations props={props} />}
+    </>
+  );
+}
+
+/** after submitting: one line per cell — ✓ / ✗ (written cells: the AI judge's verdict), the answer, the explanation */
+function TableExplanations({ props }: { props: InteractionProps }) {
+  const { t } = useTranslation();
+  const review = props.review!;
+  return (
+    <AnswerFeedbackList>
+      {props.fq.section.questions.map((q) => {
+        const k = review.key.answers[q.id];
+        const row = review.result.byQuestion.find((b) => b.q === q.id);
+        const it = q.interaction;
+        let answer = '';
+        if (it.kind === 'inlineChoice' && k && 'correct' in k)
+          answer = k.correct.map((id) => plainText(it.options.find((o) => o.id === id)?.content ?? [])).join(' ');
+        else if (k && 'sampleAnswer' in k) answer = k.sampleAnswer;
+        const pending = row?.scoredBy === 'pending';
+        const result = pending || row?.correct === null || row?.correct === undefined ? 'none' : row.correct ? 'correct' : 'wrong';
+        const ev = k?.evidence?.[0];
+        const prompt = plainText(it.kind === 'inlineChoice' ? (it.prompt ?? []) : it.kind === 'extendedText' ? it.prompt : []);
+        return (
+          <AnswerFeedback
+            key={q.id}
+            as="li"
+            variant="block"
+            size="compact"
+            result={result}
+            label={`${q.number}.`}
+            answer={`${prompt}${prompt ? ' — ' : ''}${it.kind === 'inlineChoice' ? t('reader.correctAnswer') : t('reader.sampleAnswer')} ${answer}`}
+            action={
+              ev && props.onLocate ? (
+                <Chip className="part-explain-locate" icon={<Locate />} onClick={() => props.onLocate!(ev.block, ev.quote)}>
+                  {t('reader.locate')}
+                </Chip>
+              ) : undefined
+            }
+          >
+            {pending && t('judge.marking')}
+            {row?.judgement?.feedbackZh && <> {row.judgement.feedbackZh}</>}
+            {k?.explanationZh && <> {k.explanationZh}</>}
+          </AnswerFeedback>
+        );
+      })}
+    </AnswerFeedbackList>
   );
 }

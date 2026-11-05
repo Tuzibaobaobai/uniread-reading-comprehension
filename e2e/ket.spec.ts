@@ -316,3 +316,17 @@ test('#82 every KET Reading Part 2 is one grid; the selected radio uses the acce
   const probe = await page.evaluate((c) => { const d = document.createElement('i'); d.style.color = c; document.body.append(d); const v = getComputedStyle(d).color; d.remove(); return v; }, accent);
   expect(dot).toBe(probe);
 });
+
+test('#128 after submitting, a Part on one page shows right / total in the pager; single questions keep ✓ / ✗', async ({ page }) => {
+  await page.goto('/#/p/ket1/ket1-t1-l');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await tab(page, /题目/);
+  await page.getByRole('button', { name: /第 11–15 题/ }).click();
+  await page.locator('.part-stack-q').first().locator('.option').first().click();
+  await page.locator('.question-dot').last().click();
+  await page.getByRole('button', { name: '提交' }).click();
+  const confirm = page.getByRole('button', { name: '仍然提交' });
+  if (await confirm.isVisible().catch(() => false)) await confirm.click();
+  await expect(page.getByRole('button', { name: /第 11–15 题/ }).locator('.is-score')).toHaveText(/^[0-5]\/5$/);
+  await expect(page.getByRole('button', { name: /第 16 题/ }).locator('.question-dot-icon')).toHaveCount(1);
+});

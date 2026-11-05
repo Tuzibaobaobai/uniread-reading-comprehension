@@ -191,3 +191,66 @@ test('#108 every 时文阅读 item uses the Week-Day card as its cover, not the 
   await expect(page.locator('.item-row-thumb.text-thumb')).toHaveCount(await page.locator('.item-row').count());
   await expect(page.locator('img.item-row-thumb')).toHaveCount(0);
 });
+
+test('#119 时文阅读 difficulty labels follow the series grade (8年级 → L8, 中考 → L9)', async ({ page }) => {
+  await page.goto('/#/p/ci-g8');
+  await expect(page.locator('.playlist-intro-stats')).toContainText('L8');
+  await expect(page.locator('.playlist-intro-stats')).not.toContainText('~');
+  await page.goto('/#/');
+  await expect(page.locator('.playlist-card', { hasText: '中考' }).filter({ hasNotText: '词汇' }).locator('.playlist-card-meta')).toContainText('L9');
+});
+
+test('#126 a glossed word is printed once; the word box shows above each 选词填空 sentence', async ({ page }) => {
+  await page.goto('/#/p/ci-g8/ci-g8-w05-fri');
+  await expect(page.locator('.article-body')).toContainText('will cause a hammer ( 音槌 ) to strike');
+  await expect(page.locator('.article-body')).not.toContainText('hammer hammer');
+  await showQuestions(page);
+  await page.locator('.question-dot').nth(6).click();
+  await expect(page.locator('.stimulus.is-box')).toContainText('inventor');
+});
+
+test('#127 table-fill: the book table on one page — face dropdowns, text boxes marked ✓ / ✗ by the AI, P1 → right/total', async ({ page }) => {
+  // mocked judge: cell 2 right, every other written cell wrong
+  await page.route('**/api/rc/judge', async (route) => {
+    const { questionId } = route.request().postDataJSON() as { questionId: string };
+    const ok = questionId === 'q2';
+    await route.fulfill({
+      json: {
+        score: ok ? 1 : 0, maxPoints: 1, keyPoints: [{ id: 'k1', met: ok ? 'yes' : 'no' }], languageIssues: [],
+        feedbackZh: ok ? '抄对了线索。' : '再到原文找一找。', confidence: 0.9, flags: [], needsReview: false,
+        model: 'mock', promptVersion: 'mock', judgedAt: new Date().toISOString(),
+      },
+    });
+  });
+  await page.goto('/#/p/ci-g8/ci-g8-w18-thu');
+  await showQuestions(page);
+  const table = page.locator('.section-table .rt-table');
+  await expect(table).toContainText('How did the person feel?');
+  await expect(table.locator('td', { hasText: '①' })).toHaveCount(2);
+  await expect(table.locator('td', { hasText: '②' })).toHaveCount(2);
+  await expect(page.locator('.cell-select-button')).toHaveCount(8);
+  await expect(page.locator('.cell-text-input')).toHaveCount(16);
+  await expect(page.locator('.question-dot')).toHaveCount(1);
+  await expect(page.locator('.question-dot')).toContainText('P1');
+  await expect(page.locator('select')).toHaveCount(0);
+  await page.locator('.cell-select-button').first().click();
+  await expect(page.locator('.cell-select-item')).toHaveText(['🙂', '☹', '😐']);
+  await page.locator('.cell-select-item').first().click();
+  await expect(page.locator('.cell-select-button').first()).toContainText('🙂');
+  // Nick before the meal: ☹ and 😐 are both accepted
+  await page.locator('.cell-select-button').nth(1).click();
+  await page.locator('.cell-select-item').nth(2).click();
+  await page.locator('.cell-text-input').first().fill('For years, I had wanted to eat at the restaurant.');
+  await page.locator('.cell-text-input').nth(1).fill('A boring place');
+  expect(await page.evaluate(() => getComputedStyle(document.body).fontFamily)).toContain('RC Emoticon');
+  expect(await page.evaluate(async () => (await document.fonts.load('16px "RC Emoticon"', '☹')).length)).toBeGreaterThan(0);
+  await page.getByRole('button', { name: '提交' }).click();
+  const confirm = page.getByRole('button', { name: '仍然提交' });
+  if (await confirm.isVisible().catch(() => false)) await confirm.click();
+  await expect(page.locator('.part-explain li')).toHaveCount(24);
+  await expect(page.locator('.cell-select-button').nth(0)).toHaveClass(/is-correct/);
+  await expect(page.locator('.cell-select-button').nth(1)).toHaveClass(/is-correct/);
+  await expect(page.locator('.cell-text').nth(0)).toHaveClass(/is-correct/);
+  await expect(page.locator('.cell-text').nth(1)).toHaveClass(/is-wrong/);
+  await expect(page.locator('.question-dot .is-score')).toHaveText('3/24');
+});

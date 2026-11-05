@@ -88,7 +88,8 @@
 
   /* ---- Figma: font/primary-font-family + Font system */
   /* UniRead font/primary-font-family (Noto Sans SC, self-hosted in global.css); system CJK fonts only as fallback */
-  --font-sans: var(--ur-font-primary-font-family), 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  /* RC Emoticon = black-and-white emoticon glyphs only (emoticons.css, #127) */
+  --font-sans: 'RC Emoticon', var(--ur-font-primary-font-family), 'PingFang SC', 'Microsoft YaHei', sans-serif;
   --fw-regular: var(--ur-text-font-system-m-regular-weight);
   --fw-medium: var(--ur-text-font-system-m-medium-weight);
   --fw-bold: var(--ur-text-font-system-m-bold-weight);
