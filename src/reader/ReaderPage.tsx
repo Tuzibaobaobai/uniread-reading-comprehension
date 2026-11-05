@@ -15,7 +15,7 @@ import { ExamPane } from './ExamPane';
 import { ExamReport, ExamTimer, ModeDialog, ModeSelect, SwitchModeDialog, type ModeReason } from './ExamChrome';
 import { examEndsAt } from '@/lib/exam-status';
 import { SpeakingView } from './Speaking';
-import { MatchBoardView, SectionAllView } from './PartViews';
+import { MatchBoardView, SectionAllView, SectionTableView } from './PartViews';
 import { paint, sentenceRange } from './evidence';
 import {
   ChoiceView,
@@ -31,7 +31,7 @@ import {
   hasImageOptions,
   type InteractionProps,
 } from './interactions';
-import { blankCorrect, blankOwners, blankText, correctBlankText, evidenceOf, flatten, pageAnswered, showFirstLetter, type Responses } from './model';
+import { blankCorrect, blankOwners, blankText, correctBlankText, evidenceOf, flatten, pageAnswered, scoreOnly, showFirstLetter, type Responses } from './model';
 import OverflowTip from '@/components/OverflowTip';
 import { VocabDayPage } from '@/vocab/VocabDayPage';
 import { Panel } from '@/ui/common/Panel/Panel';
@@ -498,12 +498,35 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
               >
                 {visible.map((i) => {
                   const f = flat[i];
-                  // a group page (a whole Part on one page) is correct only when all its questions are
-                  const rows = (f.group ? f.section.questions : [f.q]).map((q) => review?.result.byQuestion.find((b) => b.q === q.id));
-                  const r = rows.length === 1 ? rows[0] : { correct: rows.some((x) => x?.correct === false) ? false : rows.every((x) => x?.correct === true) ? true : null };
-                  const res = !review ? 'none' : r?.correct === true ? 'correct' : r?.correct === false ? 'wrong' : 'none';
+                  // after submitting (#128): a page with judged answers (writing, speaking, a table with written cells)
+                  // shows score / full marks, e.g. 15/20; a Part of objective questions on one page shows right / total,
+                  // e.g. 3/5; a single objective question keeps the ✓ / ✗ icon. Any future scored type: score, never an icon.
+                  const pageQs = f.group || f.choose ? f.section.questions : [f.q];
+                  const all = pageQs.map((q) => review?.result.byQuestion.find((b) => b.q === q.id)).filter((b) => b !== undefined);
+                  const rows = f.choose ? all.filter((b) => b.scoredBy !== 'none') : all;
+                  const judged = pageQs.some((q) => !isScored(q));
+                  const lastTurn = f.turn === undefined || f.q.interaction.kind !== 'speaking' || f.turn === f.q.interaction.turns.length - 1;
+                  const sum = (ns: number[]) => Math.round(ns.reduce((a, b) => a + b, 0) * 100) / 100;
+                  const table = tablePage(f);
+                  const score =
+                    !review || !rows.length
+                      ? undefined
+                      : table
+                        ? // a table is marked cell by cell, ticks and written cells alike (#127): right / total once all are marked
+                          rows.every((b) => b.scoredBy !== 'pending' && b.correct !== null)
+                          ? `${rows.filter((b) => b.correct === true).length}/${rows.length}`
+                          : undefined
+                        : judged
+                          ? lastTurn && rows.every((b) => b.scoredBy === 'judge' || b.scoredBy === 'auto' || b.scoredBy === undefined)
+                            ? `${sum(rows.map((b) => b.points))}/${sum(rows.map((b) => b.maxPoints))}`
+                            : undefined
+                          : rows.length > 1
+                            ? `${rows.filter((b) => b.correct === true).length}/${rows.length}`
+                            : undefined;
+                  const single = rows.length === 1 && !judged ? rows[0] : undefined;
+                  const res = !review || score ? 'none' : single?.correct === true ? 'correct' : single?.correct === false ? 'wrong' : 'none';
                   const answered = !review && pageAnswered(f, responses);
-                  const range = `${f.display}${f.displayTo && f.displayTo !== f.display ? `–${f.displayTo}` : ''}`;
+                  const range = table ?? `${f.display}${f.displayTo && f.displayTo !== f.display ? `–${f.displayTo}` : ''}`;
                   return (
                     <PartPager
                       key={i}
@@ -511,17 +534,21 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
                       // exam papers: the first number of each Part carries the Part's label (GitHub #72)
                       kicker={exam && f.firstInSection ? `P${f.section.part ?? ''}` : undefined}
                       label={range}
-                      labelKind={f.displayTo ? 'range' : 'number'}
+                      labelKind={f.displayTo && !table ? 'range' : 'number'}
                       selected={i === index}
                       completed={answered}
                       result={res}
+                      score={score}
                       reviewing={!!review}
                       flagged={examMode && !!attempt.flagged?.includes(f.q.id)}
                       onClick={() => go(i)}
                       ariaLabel={t('reader.dotLabel', {
                         part: exam && f.section.part ? t('reader.partPrefix', { part: f.section.part }) : '',
                         n: range,
-                        state: res === 'correct' ? t('reader.dotCorrect') : res === 'wrong' ? t('reader.dotWrong') : answered ? t('reader.dotAnswered') : '',
+                        state: score
+                          ? t(judged && !table ? 'reader.dotScore' : 'reader.dotRight', { score })
+                          : res === 'correct'
+                            ? t('reader.dotCorrect') : res === 'wrong' ? t('reader.dotWrong') : answered ? t('reader.dotAnswered') : '',
                       })}
                     />
                   );
@@ -611,6 +638,10 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
 /** kinds whose explanation is shown inside the correct option (Figma Option-text-item, correct-expanded) */
 const EMBEDDED_EXPLAIN = new Set(['choice', 'inlineChoice']);
 
+/** a table answered on one page (section.view "table", #127) is one Part in the pager: P1, P2 … */
+const tablePage = (f: ReturnType<typeof flatten>[number]) =>
+  f.group && f.section.view === 'table' ? `P${f.section.part ?? f.section.id.slice(1)}` : undefined;
+
 function QuestionBody({
   props,
   selfAssessed,
@@ -621,7 +652,8 @@ function QuestionBody({
   onSelfAssess: (v: boolean) => void;
 }) {
   if (props.fq.choose) return <ChooseTaskView {...props} selfAssessed={selfAssessed} onSelfAssess={onSelfAssess} />;
-  if (props.fq.group) return props.fq.section.view === 'match' ? <MatchBoardView {...props} /> : <SectionAllView {...props} />;
+  if (props.fq.group)
+    return props.fq.section.view === 'match' ? <MatchBoardView {...props} /> : props.fq.section.view === 'table' ? <SectionTableView {...props} /> : <SectionAllView {...props} />;
   switch (props.fq.q.interaction.kind) {
     case 'choice':
       return <ChoiceView {...props} />;
@@ -663,7 +695,9 @@ function Explanation({
   const { t } = useTranslation();
   const k = keyData.answers[fq.q.id];
   if (!k) return null;
-  const r = result.byQuestion.find((b) => b.q === fq.q.id);
+  const row = result.byQuestion.find((b) => b.q === fq.q.id);
+  const scored = row?.scoredBy === 'judge' && scoreOnly(keyData, fq.q.id);
+  const r = row && scored ? { ...row, correct: null } : row;
   const it = fq.q.interaction;
   let answerText = '';
   if ('correct' in k) {
@@ -710,7 +744,9 @@ function Explanation({
               ? t('reader.partlyCorrect', { points: Math.round(r.points * 100) / 100, max: r.maxPoints })
               : t('reader.wrong')
             : r?.correct === null
-              ? t('reader.sampleAnswer')
+              ? scored
+                ? t('reader.scored', { points: r.points, max: r.maxPoints })
+                : t('reader.sampleAnswer')
               : undefined
       }
       label={isSample ? t('reader.sampleAnswer') : t('reader.correctAnswer')}

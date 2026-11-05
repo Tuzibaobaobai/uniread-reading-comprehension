@@ -1,0 +1,59 @@
+/* RC/Exam/TableCell (proposed, #127): the answer cells of a printed 表格填空 table (section.view "table"). Tokens only;
+   .rt-table / .stimulus are the shared reader styles. */
+.section-table .rt-table-wrap { overflow: visible; } /* fits its pane; the dropdown menu may overlap the next row */
+.section-table .rt-table th, .section-table .rt-table td { padding: calc(var(--ur-space-4) + var(--ur-space-2)) var(--ur-space-8); }
+.section-table .rt-table td { vertical-align: middle; }
+.cell-num {
+  display: block; font-size: var(--ur-text-font-system-xs-regular-size); line-height: var(--ur-text-font-system-xs-regular-line-height);
+  color: var(--ur-color-text-tertiary);
+}
+
+/* Type select: a tap-to-open dropdown (no native <select>) */
+.cell-select { position: relative; display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--ur-space-4); }
+.cell-select-button {
+  display: inline-flex; align-items: center; gap: var(--ur-space-4); min-height: var(--ur-size-touch-target);
+  padding: 0 var(--ur-space-4) 0 var(--ur-space-8);
+  border: var(--ur-stroke-default) solid var(--ur-color-border-default); border-radius: var(--ur-radius-xs);
+  background: var(--ur-color-background-card); color: var(--ur-color-text-primary);
+}
+.cell-select-button .cell-num { display: inline; margin-right: var(--ur-space-4); }
+.cell-select-value {
+  flex: 1; min-width: var(--ur-space-32); text-align: center;
+  font-size: var(--ur-text-font-system-4xl-regular-size); line-height: var(--ur-text-font-system-4xl-regular-line-height);
+}
+.cell-select-button .chevron-down { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); color: var(--ur-color-text-tertiary); }
+.cell-select-button.is-filled { border-color: var(--ur-color-action-primary); }
+.cell-select-button.is-correct { border-color: var(--ur-color-feedback-success); background: var(--ur-color-feedback-success-bg); }
+.cell-select-button.is-wrong { border-color: var(--ur-color-feedback-error); background: var(--ur-color-feedback-error-bg); }
+.cell-select-correct {
+  font-size: var(--ur-text-font-system-4xl-regular-size); line-height: var(--ur-text-font-system-4xl-regular-line-height);
+  color: var(--ur-color-feedback-success-text);
+}
+.cell-select-menu {
+  position: absolute; left: 0; top: calc(100% + var(--ur-space-4)); z-index: 20; display: flex; gap: var(--ur-space-4);
+  padding: var(--ur-space-4); border-radius: var(--ur-radius-s); background: var(--ur-color-background-card);
+  box-shadow: var(--ur-effect-drop-shadow-dropdown);
+}
+.cell-select-item {
+  min-width: var(--ur-size-touch-target); min-height: var(--ur-size-touch-target); padding: 0 var(--ur-space-12);
+  border: none; border-radius: var(--ur-radius-xs); background: transparent; color: var(--ur-color-text-primary);
+  font-size: var(--ur-text-font-system-4xl-regular-size); line-height: var(--ur-text-font-system-4xl-regular-line-height);
+}
+.cell-select-item.is-current { background: var(--ur-color-background-subtle); }
+@media (hover: hover) and (pointer: fine) {
+  .cell-select-item:hover { background: var(--ur-color-background-subtle); }
+}
+
+/* Type text: a written cell, marked by the AI judge after submitting */
+.cell-text { display: block; }
+.cell-text .cell-num svg { width: var(--ur-space-16); height: var(--ur-space-16); vertical-align: middle; }
+.cell-text.is-correct .cell-num { color: var(--ur-color-feedback-success-text); }
+.cell-text.is-correct .cell-text-input { border-color: var(--ur-color-feedback-success); background: var(--ur-color-feedback-success-bg); }
+.cell-text.is-wrong .cell-num { color: var(--ur-color-feedback-error); }
+.cell-text.is-wrong .cell-text-input { border-color: var(--ur-color-feedback-error); background: var(--ur-color-feedback-error-bg); }
+.cell-text-input {
+  display: block; width: 100%; min-height: var(--ur-size-touch-target); padding: calc(var(--ur-space-4) + var(--ur-space-2)) var(--ur-space-8);
+  resize: vertical; border: var(--ur-stroke-default) solid var(--ur-color-border-default); border-radius: var(--ur-radius-xs);
+  background: var(--ur-color-background-card); color: var(--ur-color-text-primary);
+  font: inherit; font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height);
+}

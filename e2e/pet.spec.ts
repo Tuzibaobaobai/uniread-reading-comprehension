@@ -136,3 +136,57 @@ test('#101 the three recordings supplied later are in: every Part of PET 2 Tests
     await expect(page.locator('.part-audio .player')).toHaveCount(4);
   }
 });
+
+test('#128 writing is marked with a score only: the pager shows 18/20, no ✗', async ({ page }) => {
+  await page.route('**/api/rc/judge', (route) =>
+    route.fulfill({
+      json: {
+        score: 18, maxPoints: 20,
+        keyPoints: ['content', 'communicative_achievement', 'organisation', 'language'].map((id) => ({ id, met: 'yes', band: 4 })).map((k, i) => (i < 2 ? { ...k, band: 5 } : k)),
+        languageIssues: [], feedbackZh: '写得很好。', confidence: 0.9, flags: [], needsReview: false,
+        model: 'mock', promptVersion: 'mock', judgedAt: new Date().toISOString(),
+      },
+    }),
+  );
+  await practice(page, 'pet1-t1-w');
+  await tab(page, /题目/);
+  await page.locator('textarea').fill('Dear Mrs Hallam, thank you for your email. I would love to come to the concert with my class.');
+  await page.getByRole('button', { name: '下一题' }).click();
+  await page.locator('.task-card').nth(1).click();
+  await page.locator('textarea').fill('Lois smiled as she put the tickets in her pocket and walked out of her house.');
+  await page.getByRole('button', { name: '提交' }).click();
+  const confirm = page.getByRole('button', { name: '仍然提交' });
+  if (await confirm.isVisible().catch(() => false)) await confirm.click();
+  await expect(page.locator('.judge-score').first()).toContainText('18');
+  await expect(page.locator('.question-dot.is-wrong')).toHaveCount(0);
+  await expect(page.locator('.question-dot.is-correct')).toHaveCount(0);
+  // #128 comment: a judged Part shows score / full marks in the pager
+  await expect(page.locator('.question-dot .is-score')).toHaveText(['18/20', '18/20']);
+  await expect(page.locator('.explain .explain-head').first()).toHaveText('得分 18 / 20');
+});
+
+test('#128 (2026-11-05) a 0/20 writing answer: the pager shows 0/20, never ✗, and no 回答错误 verdict', async ({ page }) => {
+  await page.route('**/api/rc/judge', (route) =>
+    route.fulfill({
+      json: {
+        score: 0, maxPoints: 20,
+        keyPoints: ['content', 'communicative_achievement', 'organisation', 'language'].map((id) => ({ id, met: 'no', band: 0 })),
+        languageIssues: [], feedbackZh: '这次的回答看起来不是英文句子。', confidence: 0.9, flags: [], needsReview: false,
+        model: 'mock', promptVersion: 'mock', judgedAt: new Date().toISOString(),
+      },
+    }),
+  );
+  await practice(page, 'pet1-t1-w');
+  await tab(page, /题目/);
+  await page.locator('textarea').fill('ssss');
+  await page.getByRole('button', { name: '下一题' }).click();
+  await page.locator('.task-card').nth(1).click();
+  await page.locator('textarea').fill('ssss');
+  await page.getByRole('button', { name: '提交' }).click();
+  const confirm = page.getByRole('button', { name: '仍然提交' });
+  if (await confirm.isVisible().catch(() => false)) await confirm.click();
+  await expect(page.locator('.question-dot .is-score')).toHaveText(['0/20', '0/20']);
+  await expect(page.locator('.question-dot-icon')).toHaveCount(0);
+  await expect(page.locator('.explain .explain-head').first()).toHaveText('得分 0 / 20');
+  await expect(page.getByText('回答错误')).toHaveCount(0);
+});

@@ -352,7 +352,8 @@
     "Label": "number / range",
     "Result": "none / correct / wrong",
     "Flagged": "no / yes（新增）",
-    "Tone": "default / pending（新增）"
+    "Tone": "default / pending（新增）",
+    "Score": "text — 提交后\"得分/总分\"（18/20）或\"对的题数/总题数\"（3/5），替代对错图标（#128）"
    },
    "note": "对错图标复用 UniRead quiz result：错 7870:51523（State=Default），对 12409:123905（State=Default）；时文 / 真题题号复用：Kicker 可省（逐题时不加 part-start），新增 Label number / range、Flagged、Tone pending（提交确认里的未答题号）",
    "figmaProposal": {
@@ -2162,6 +2163,19 @@
    },
    "source": "src/components/Icons.tsx",
    "issue": "#138"
+  },
+  {
+   "code": "rc/Exam/TableCell",
+   "status": "proposed",
+   "product": "真题 KET/PET · 时文阅读",
+   "description": "表格填空（view table）的作答格：下拉格（点开点选，非原生 select）/ 书写格；提交后标对错",
+   "screens": [],
+   "variants": {
+    "Type": "select / text",
+    "Result": "none / correct / wrong"
+   },
+   "source": "src/ui/exam/TableCell/TableCell.tsx",
+   "issue": "#127"
   }
  ],
  "proposalPage": {

@@ -48,7 +48,9 @@ export function PlaylistPage() {
               vocab
                 ? t('playlist.entries', { count: pl.totalWords })
                 : t('playlist.words', { count: pl.totalWords, words: pl.totalWords.toLocaleString() }),
-              exam || vocab ? pl.gradeBand : `L${pl.difficultyRange[0]}~L${pl.difficultyRange[1]}`,
+              exam || vocab ? pl.gradeBand : pl.difficultyRange[1] !== pl.difficultyRange[0]
+                  ? `L${pl.difficultyRange[0]}~L${pl.difficultyRange[1]}`
+                  : `L${pl.difficultyRange[0]}`,
             ]}
             description={pl.description}
             backLabel={t('common.back')}

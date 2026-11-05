@@ -1,0 +1,12 @@
+/*
+ * Emoticons in content (🙂 ☹ 😐 …) render as black-and-white font glyphs like the book, not colour emoji (#127).
+ * unicode-range keeps every other character on the Figma fonts.
+ */
+@font-face {
+  font-family: 'RC Emoticon';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('@fontsource/noto-emoji/files/noto-emoji-9-400-normal.woff2') format('woff2');
+  unicode-range: U+2639-263A, U+1F600-1F644;
+}

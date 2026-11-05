@@ -14,6 +14,9 @@ export type PagerTone = 'default' | 'pending';
  * correct / wrong (after submitting, the quiz result icon 7870:51523 replaces the number), Flagged no / yes (真题
  * 标记本题), Tone default / pending (the unanswered numbers in the submit confirmation: brand-soft, no bar).
  * `reviewing` with Result none = submitted but not scored (greyed, no bar).
+ * Score (text, #128): after submitting, a page marked with points or several questions shows the mark instead of an
+ * icon — score / full marks for judged answers ("18/20": writing, speaking, written cells), right / total for an
+ * objective Part on one page ("3/5"). Every scored question type uses this, never a ✓ / ✗ icon.
  * Layout `part` (default) = one Part a page (词汇天天练: always a kicker, the range label, the wider pager of this
  * card); `question` = one question a page (时文阅读 / 真题).
  */
@@ -24,6 +27,7 @@ export function PartPager({
   selected = false,
   completed = false,
   result = 'none',
+  score,
   reviewing = false,
   flagged = false,
   tone = 'default',
@@ -37,6 +41,8 @@ export function PartPager({
   selected?: boolean;
   completed?: boolean;
   result?: PartResult;
+  /** Score: the mark shown instead of the result icon ("18/20", "3/5") */
+  score?: string;
   reviewing?: boolean;
   flagged?: boolean;
   tone?: PagerTone;
@@ -45,7 +51,7 @@ export function PartPager({
   onClick: () => void;
 }) {
   const pending = tone === 'pending';
-  const state = pending ? 'is-pending' : result !== 'none' ? `is-${result}` : reviewing ? 'is-neutral' : completed ? 'is-answered' : '';
+  const state = pending ? 'is-pending' : score && !pending ? 'is-score' : result !== 'none' ? `is-${result}` : reviewing ? 'is-neutral' : completed ? 'is-answered' : '';
   const cls = [
     'question-dot',
     kicker ? 'part-start' : '',
@@ -58,7 +64,9 @@ export function PartPager({
     .join(' ');
   return (
     <button type="button" className={cls} data-part={kicker} onClick={onClick} aria-current={pending ? undefined : selected} aria-label={ariaLabel}>
-      {result !== 'none' && !pending ? (
+      {score && !pending ? (
+        <span className="question-dot-num is-score">{score}</span>
+      ) : result !== 'none' && !pending ? (
         <img className="question-dot-icon" src={result === 'correct' ? correctIcon : wrongIcon} alt="" />
       ) : (
         <>

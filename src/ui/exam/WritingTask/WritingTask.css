@@ -7,3 +7,9 @@
   font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
 }
 .task-switch { margin: calc(-1 * var(--ur-space-8)) 0 var(--ur-space-16); }
+/* the section's word box above each textEntry sentence ("given items from the box", #126) */
+.stimulus.is-box {
+  padding: var(--ur-space-12) var(--ur-space-16);
+  border: var(--ur-stroke-default) solid var(--ur-color-border-default); border-radius: var(--ur-radius-xs);
+}
+.stimulus.is-box p { margin: 0; word-spacing: .5em; }
