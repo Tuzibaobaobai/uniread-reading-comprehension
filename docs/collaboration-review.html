@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>人机协作复盘</title>
+<style>
+  :root {
+    --bg: #ffffff; --surface: #f6f6f8; --surface-2: #eeeef2; --text: #1d1d22; --muted: #5d5d6b; --line: #dedee6;
+    --accent: #7a3fd6; --accent-soft: #f1eafd; --good: #1d7a46; --good-soft: #e6f4ec; --warn: #9a5b00; --warn-soft: #fdf2e0;
+    --bad: #b3261e; --bad-soft: #fbe9e7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141418; --surface: #1d1d23; --surface-2: #26262e; --text: #ececf1; --muted: #a3a3b2; --line: #33333d;
+      --accent: #b48cff; --accent-soft: #2a2140; --good: #6fd19b; --good-soft: #17301f; --warn: #f0b45a; --warn-soft: #33270f;
+      --bad: #ff8a80; --bad-soft: #3a1b18;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141418; --surface: #1d1d23; --surface-2: #26262e; --text: #ececf1; --muted: #a3a3b2; --line: #33333d;
+    --accent: #b48cff; --accent-soft: #2a2140; --good: #6fd19b; --good-soft: #17301f; --warn: #f0b45a; --warn-soft: #33270f;
+    --bad: #ff8a80; --bad-soft: #3a1b18;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.7 -apple-system, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 40px 16px 80px; }
+  h1 { font-size: 30px; line-height: 1.3; margin: 0 0 8px; }
+  h2 { font-size: 22px; margin: 56px 0 12px; padding-top: 8px; border-top: 1px solid var(--line); }
+  h3 { font-size: 17px; margin: 28px 0 8px; }
+  p, li { color: var(--text); }
+  .lede { color: var(--muted); font-size: 17px; margin: 0 0 24px; }
+  .note { font-size: 14px; color: var(--muted); background: var(--surface); border-radius: 8px; padding: 12px 14px; }
+  a { color: var(--accent); }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.88em; background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+  nav.toc { background: var(--surface); border-radius: 10px; padding: 14px 18px; font-size: 15px; }
+  nav.toc ol { margin: 6px 0 0; padding-left: 20px; columns: 2; column-gap: 32px; }
+  @media (max-width: 640px) { nav.toc ol { columns: 1; } }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(136px, 1fr)); gap: 12px; margin: 20px 0; }
+  .stat { background: var(--surface); border-radius: 10px; padding: 14px; }
+  .stat b { display: block; font-size: 26px; line-height: 1.2; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 13px; color: var(--muted); }
+  .table-wrap { overflow-x: auto; margin: 12px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; white-space: nowrap; }
+  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .timeline { list-style: none; padding: 0; margin: 16px 0; border-left: 2px solid var(--line); }
+  .timeline li { position: relative; padding: 0 0 18px 20px; }
+  .timeline li::before { content: ""; position: absolute; left: -7px; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); }
+  .timeline .when { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .timeline .what { font-weight: 600; }
+  blockquote { margin: 10px 0; padding: 8px 14px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 8px 8px 0; font-size: 15px; }
+  blockquote cite { display: block; font-style: normal; font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin: 12px 0; }
+  .card { border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+  .card h4 { margin: 0 0 6px; font-size: 16px; }
+  .card p { margin: 6px 0; font-size: 14.5px; }
+  .card.good { border-color: var(--good); background: var(--good-soft); }
+  .card.warn { border-color: var(--warn); background: var(--warn-soft); }
+  .card.bad { border-color: var(--bad); background: var(--bad-soft); }
+  .tag { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 999px; background: var(--surface-2); color: var(--muted); margin-right: 4px; }
+  .flow { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0; font-size: 14px; }
+  .flow span.step { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; }
+  .flow span.arrow { color: var(--muted); }
+  ol.actions > li { margin-bottom: 12px; }
+  ol.actions b { color: var(--text); }
+  footer { margin-top: 56px; font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+
+<h1>UniRead 阅读理解（RC）人机协作复盘</h1>
+<p class="lede">2026-10-14 至 2026-11-05：一位产品负责人（human）主导，Claude Code（agent）执行，内容审核同事与 UniRead 平台开发参与。本文整理 human 给出的输入、项目的演进，以及协作中做得好和可以改进的地方。</p>
+
+<p class="note"><b>资料来源与局限</b>：本仓库的 git 历史（76 个提交）、GitHub 的 140 个 issue 和 238 条评论、agent 的项目记忆（记录了对话中给出的常驻规则及日期）、<code>CLAUDE.md</code>、docs/ 下的规约与决策记录，以及 2026-11-05 这次会话。之前各次对话的完整记录 agent 看不到，对话里的指示只有被写进记忆、规约或 issue 的部分能在这里还原。另外，human 和 agent 共用 GitHub 账号 <code>Tuzibaobaobai</code>，该账号的 157 条评论里，约 39 条是 human 写的短指示，其余是 agent 写的修复说明。下文按内容区分。</p>
+
+<nav class="toc" aria-label="目录">
+  <b>目录</b>
+  <ol>
+    <li><a href="#numbers">项目规模</a></li>
+    <li><a href="#roles">角色与沟通渠道</a></li>
+    <li><a href="#timeline">演进时间线</a></li>
+    <li><a href="#inputs">human 的输入：类型与例子</a></li>
+    <li><a href="#rules">从输入沉淀出的常驻规则</a></li>
+    <li><a href="#worked">做得好的地方</a></li>
+    <li><a href="#friction">摩擦与问题（有据可查）</a></li>
+    <li><a href="#case">案例：2026-11-05 一次处理 6 个 issue</a></li>
+    <li><a href="#improve">改进建议</a></li>
+    <li><a href="#playbook">给其他团队的做法清单</a></li>
+  </ol>
+</nav>
+
+<h2 id="numbers">1. 项目规模</h2>
+<div class="stats">
+  <div class="stat"><b>23 天</b><span>10-14 首个提交 → 11-05</span></div>
+  <div class="stat"><b>819</b><span>可交互 item，15 个合集</span></div>
+  <div class="stat"><b>76</b><span>提交（全部由 agent 完成）</span></div>
+  <div class="stat"><b>140</b><span>GitHub issue，131 已关闭</span></div>
+  <div class="stat"><b>55</b><span>原书勘误 issue，全部经人工确认后才改</span></div>
+  <div class="stat"><b>2</b><span>里程碑：10.30（main）· 11.15（develop）</span></div>
+</div>
+<div class="table-wrap"><table>
+  <thead><tr><th>内容类型</th><th>合集</th><th>item</th><th>首次上线</th></tr></thead>
+  <tbody>
+    <tr><td>时文阅读（小学 / 初中）</td><td>ci-g3 · g4 · g5 · g7 · g8 · xsc3 · zk</td><td class="num">540</td><td>10-14 试点，10-18 全量</td></tr>
+    <tr><td>KET 校园版真题 1–3</td><td>ket1 · ket2 · ket3</td><td class="num">36</td><td>10-19</td></tr>
+    <tr><td>PET 校园版真题 1–3</td><td>pet1 · pet2 · pet3</td><td class="num">48</td><td>10-20 / 10-21</td></tr>
+    <tr><td>中考考纲词汇天天练</td><td>zkv</td><td class="num">70</td><td>10-23 样例，11-03 全量</td></tr>
+    <tr><td>高考考纲词汇天天练</td><td>gkv</td><td class="num">125</td><td>11-03</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="roles">2. 角色与沟通渠道</h2>
+<div class="cards">
+  <div class="card"><h4>human（产品负责人）</h4><p>定方向和范围，定标准，做决策，审批推送 / 部署，转发并裁定审核意见。</p></div>
+  <div class="card"><h4>agent（Claude Code）</h4><p>转录内容、写代码、写规约和交接文档、跑测试、提勘误 issue、在 issue 里汇报修复；用子 agent 并行处理独立任务。</p></div>
+  <div class="card"><h4>内容 / UI 审核</h4><p><code>zhuoranchen21-art</code>（25 个 issue，界面与交互），<code>Zoe-cyw</code>（7 个 issue，答案与勘误确认），在 Vercel 站点上验收后关闭 issue。</p></div>
+  <div class="card"><h4>UniRead 平台开发</h4><p><code>harveyqing</code>（后端 / 接入流程、OSS），<code>ForestLizard</code>（前端规范：ui-style-kit、i18n、Loading），以 <code>[规范同步]</code> / <code>[流程需求]</code> issue 下发要求。</p></div>
+</div>
+<h3>信息在哪里流动</h3>
+<div class="table-wrap"><table>
+  <thead><tr><th>渠道</th><th>用途</th><th>持久性</th></tr></thead>
+  <tbody>
+    <tr><td>对话（Claude Code 会话）</td><td>human 下达任务、批准推送 / 部署、给出常驻规则</td><td>会话结束即消失，除非写入记忆或文档</td></tr>
+    <tr><td>GitHub issue + 里程碑</td><td>审核意见、勘误、平台规范、修复汇报与验收</td><td>长期，可追溯</td></tr>
+    <tr><td><code>CLAUDE.md</code>、<code>.claude/rules/</code></td><td>项目约定（数据源、规约、代码规则、命令）</td><td>随仓库版本化</td></tr>
+    <tr><td>agent 记忆（10 条）</td><td>human 在对话里给出的协作规则（推送权限、勘误流程、分支…）</td><td>跨会话，但只有 agent 看得到</td></tr>
+    <tr><td>docs/（规约、ADR、交接文档）</td><td>生产规约 docs/14（v0.14）、8 个 ADR、每批内容的交接文档</td><td>长期，团队共享</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="timeline">3. 演进时间线</h2>
+<ul class="timeline">
+  <li><div class="when">10-14 → 10-15</div><div class="what">试点：静态 React 站点 + 时文阅读</div>
+    <div>Phase 0–2 试点上线 Vercel；按 Figma 设计系统对齐界面（主色从橙改紫），修复首批审核 #1–#13；中译英 / 写作用 LLM 判分，答案移到服务端。human 定下“先本地看，再推送”的规则。</div></li>
+  <li><div class="when">10-18 → 10-19</div><div class="what">规模化生产：540 篇时文阅读，生产规约，交接包</div>
+    <div>引入 UniRead 生产规约（docs/14）和交接模板；七本书全量转录；原书疑似错误一律提 issue（#14–#57），人工确认后统一修改。用本地 OCR + 脚本完成大部分工作，AI 只做结构化（“兼顾质量的同时，选择最省 token 的方式”）。</div></li>
+  <li><div class="when">10-19 → 10-22</div><div class="what">新题型：KET / PET 真题</div>
+    <div>试卷格式、听力连续音频、口语 TTS 考官、剑桥分数换算。审核同事集中提出 #81–#109；平台下发 ui-style-kit（#62）、生产规约 v0.10（#105）、i18n（#106）、Loading（#107）。“读写分开”（#71）当天又改回“合并”（#73）。</div></li>
+  <li><div class="when">10-22 → 10-23</div><div class="what">两条分支 + 新类型：词汇天天练</div>
+    <div>main = 当前发布（10.30），develop = 下一里程碑（11.15，独立 Vercel 预览站）。#110 要求先调研全球最好的词汇学习平台再设计交互，先做第 1、63 天样例，human 逐条提出 #112–#125。</div></li>
+  <li><div class="when">10-27</div><div class="what">10.30 发布前修复</div>
+    <div>写作只显示分数（#128）、表格填空按原表呈现（#127）、难度标签（#119）。这些修复只进了 main。</div></li>
+  <li><div class="when">11-02 → 11-04</div><div class="what">词汇全量 + 设计系统 + OSS</div>
+    <div>中考 70 天、高考 125 天；Scan → Study → Quiz 三步（#133）；音频按原书音标生成（#131）；OSS 上传工具（#130）；UniRead 设计系统六个阶段，三类内容全部迁到 <code>src/ui</code> 组件。</div></li>
+  <li><div class="when">11-05</div><div class="what">清理 11.15 指派的 issue</div>
+    <div>一次处理 6 个 issue，含 main → develop 合并、#131 根因排查、#130 与后端约定的落地，详见<a href="#case">第 8 节</a>。</div></li>
+</ul>
+
+<h2 id="inputs">4. human 的输入：类型与例子</h2>
+<p>把 human 的输入按“它让 agent 做了什么”分成六类。比例是粗略的，看例子更有用。</p>
+
+<h3>4.1 方向与范围：给目标和依据，不给实现</h3>
+<blockquote>需要你去调研现在全球最好的英语学习平台和标准平台里面，单词学习的模式，我们需要考虑学校的效率和效果。<cite>#110，词汇天天练（10-23）</cite></blockquote>
+<blockquote>你给出一个详细的结论，我们系统来解决这个问题，而不是一点点的打补丁。<cite>#129，等级体系（11-05）</cite></blockquote>
+<p>效果：agent 先写格式规约（docs/16）供审，再做样例，再全量。</p>
+
+<h3>4.2 具体的界面 / 交互指示：带截图、带规则</h3>
+<blockquote>如果这个 part 里面的题目们有分数，则显示：得分/总分，比如“15/20”…如果没有算分，则显示：对的题目数/总题目数。<cite>#128（10-27）</cite></blockquote>
+<blockquote>这个 table 按照原本的样式直接显示在一个题目的页面上：有 emoji faces 的第三列变成一个下拉选项…<cite>#127（10-27）</cite></blockquote>
+<p>最好执行的一类：有截图、有可验证的规则，还说明了“以后同类题都这样”。</p>
+
+<h3>4.3 质量标准：要求系统性、要求根因</h3>
+<blockquote>看一下同类型的题是否，如果有问题，系统性的修复，而不是只修复这一个题。<cite>#126</cite></blockquote>
+<blockquote>同时检查一下，右边有多道题目聚合的情况，是否也有同样的问题，如果有就一起 fix。<cite>#92</cite></blockquote>
+<blockquote>这个问题需要重视…你需要去找到这个问题的 root cause，解决它。（附可能原因表）<cite>#131（11-05）</cite></blockquote>
+<p>同类要求出现了至少 5 次，说明 agent 默认的修复范围偏窄（见<a href="#friction">第 7 节</a>）。</p>
+
+<h3>4.4 决策与取舍</h3>
+<blockquote>取消所有的 ASR 的输入，包括中文和英文，先把键盘输入做好。<cite>#116</cite></blockquote>
+<blockquote>这里的 emoji 都用黑白的 font emoji，不用图片彩色的。<cite>#127</cite></blockquote>
+<p>以及平台冲突的裁决：ui-style-kit 的 1000px 缩放与 RC 响应式冲突，agent 列出影响（#62），平台给出决定后再接入。</p>
+
+<h3>4.5 流程与权限</h3>
+<blockquote>需要 agent 先做 plan mode，跟我讨论和决策以下事项：现在的 bugs 很多是 agent fix 的…agent 可以自己做测试，所以对于一般的 issues，我们并不需要向提交人询问 ready 与否。<cite>#80（10-20）</cite></blockquote>
+<blockquote>等音频跑完后 push 并 deploy:dev，然后在 issue 里回复。<cite>对话（11-05）</cite></blockquote>
+
+<h3>4.6 澄清与纠偏</h3>
+<blockquote>issue 里面的问题和建议是矛盾的，是只高亮首次出现的 words&amp;expressions，还是都高亮。clarify 之后再提交。<cite>#93</cite></blockquote>
+<blockquote>这个问题还是没有 fix。<cite>#128（10-27、11-05 两次）</cite></blockquote>
+
+<h2 id="rules">5. 从输入沉淀出的常驻规则</h2>
+<p>human 在对话里说过一次、agent 写进记忆或 <code>CLAUDE.md</code> 之后一直执行的规则：</p>
+<div class="table-wrap"><table>
+  <thead><tr><th>日期</th><th>规则</th><th>起因</th></tr></thead>
+  <tbody>
+    <tr><td class="num">10-15</td><td>本地验证后先告诉 human，明确同意才推送 / 部署</td><td>想先在本地看每次更新</td></tr>
+    <tr><td class="num">10-15</td><td>视觉只来自 Figma 设计系统和 token，文档和代码里不写颜色、尺寸</td><td>Figma 作为唯一视觉来源</td></tr>
+    <tr><td class="num">10-18</td><td>原书错误不擅改：提 errata issue，人工确认后再改</td><td>每一处与原书不同都要人看过</td></tr>
+    <tr><td class="num">10-19</td><td>已交付的 540 篇冻结，新格式只做增量</td><td>平台正在接入</td></tr>
+    <tr><td class="num">10-19</td><td>本地 OCR + 脚本优先，AI 只做结构化，先抽查第一套</td><td>兼顾质量与 token</td></tr>
+    <tr><td class="num">10-20</td><td>审核同事的 issue：修完直接推送部署，在 issue 评论，不关闭；KET / PET 同类题一起修</td><td>#81–#89</td></tr>
+    <tr><td class="num">10-20</td><td>缺素材提 issue 指派给审核同事，不在对话里等</td><td>PET 缺听力音频</td></tr>
+    <tr><td class="num">10-20</td><td>backlog 标签的 issue 不处理</td><td>#63 Studio 等待决策</td></tr>
+    <tr><td class="num">10-21</td><td>修完的 issue 评论并指派回提交人，由提交人关闭</td><td>审核闭环</td></tr>
+    <tr><td class="num">10-22</td><td>main / develop 双分支对应两个里程碑，develop 部署到独立预览站</td><td>并行开发下一版</td></tr>
+  </tbody>
+</table></div>
+
+<h2 id="worked">6. 做得好的地方</h2>
+<div class="cards">
+  <div class="card good"><h4>规则一次说清，长期生效</h4><p>上表 10 条规则之后很少需要重复。在 GitHub 上下发的平台规范（#105–#107）也是一次同步到所有已有内容。</p></div>
+  <div class="card good"><h4>内容正确性有人兜底</h4><p>55 个勘误 issue 都是“保持原书 → 提 issue → 人工确认 → 修改”，key 一直保持 <code>reviewStatus: pending</code>，agent 不自己升级为已审核。</p></div>
+  <div class="card good"><h4>先规约、后样例、再全量</h4><p>新类型（KET、PET、词汇）都先写格式规约、做 1–2 个样例让人审，再批量生产。词汇从样例到 195 天全量用了 11 天。</p></div>
+  <div class="card good"><h4>agent 自测替代“问 ready”</h4><p>#80 的决定：一般 bug 由 agent 跑单元测试、e2e 和三种视口截图，不再每次去问提交人；人只处理歧义和规则决策。</p></div>
+  <div class="card good"><h4>跨团队边界清楚</h4><p>平台规范原文放在 <code>docs/uniread-spec/</code> 不改写，我们的落实写在 docs/14；OSS 写入这类不可逆操作要后端书面确认，不由 agent 推断授权。</p></div>
+  <div class="card good"><h4>并行处理独立任务</h4><p>11-05 把 main → develop 合并、OSS 工具改造交给两个子 agent，主线程同时排查音频根因、改记分，几小时内处理完 6 个 issue。</p></div>
+</div>
+
+<h2 id="friction">7. 摩擦与问题（有据可查）</h2>
+<div class="cards">
+  <div class="card bad">
+    <h4>修复在 main，验收在 develop：同一 bug 被报“没修好”两次</h4>
+    <p>#128 的修复在 10-27 提交到 main，之后 9 天没有合到 develop。审核在 develop 预览站上看，仍然是红叉，11-05 再次报告。</p>
+    <p><span class="tag">根因</span>双分支流程没有“main 的修复当天同步 develop”这一步，agent 汇报时也没说明修复在哪个分支、哪个站点能看到。</p>
+  </div>
+  <div class="card bad">
+    <h4>验证方式测不到要验证的性质：#131 反复三轮</h4>
+    <p>第一次修复汇报“用语音识别回听过，内容完整”，但语音识别只认出单词，听不出重音和 /ə/、/æ/ 的区别。affect 在 SSML 正确的情况下仍读成 /ˈæfekt/，审核又报一次，human 要求找根因。</p>
+    <p><span class="tag">根因</span>TTS 引擎把 CMU 的 AH0 读成全元音。11-05 用音素识别模型逐条测量才查清：旧音频中考 133/1,785、高考 439/4,263 条与原书音标不符。</p>
+  </div>
+  <div class="card warn">
+    <h4>修复范围默认偏窄</h4>
+    <p>#92、#96、#124、#126 等 human 都要特别说“同类题一起查”。KET / PET 同题型一起修是在 10-20 写成规则之后才稳定执行的。</p>
+  </div>
+  <div class="card warn">
+    <h4>决定反复</h4>
+    <p>10-20 当天“读写分成两个 item”（#71），几小时后又“合并，因为考试时这两部分时间是合并的”（#73）。约束（考试计时）在第一次决定时没有被提出来。</p>
+  </div>
+  <div class="card warn">
+    <h4>共用账号，分不清谁说的</h4>
+    <p>human 和 agent 都以 <code>Tuzibaobaobai</code> 发言。审核同事和平台开发看不出哪句是负责人的决定、哪句是 agent 的汇报，复盘时也只能靠文风区分。</p>
+  </div>
+  <div class="card warn">
+    <h4>权限规则越来越细</h4>
+    <p>“本地验证后要同意才推送”“审核同事的 issue 可以直接推生产”“develop 部署到预览站要确认”…规则正确，但散在记忆和 CLAUDE.md 里，只有 agent 看得全。</p>
+  </div>
+  <div class="card warn">
+    <h4>长任务卡住发布</h4>
+    <p>11-05 重新生成约 1.5 万段音频要几个小时，human 两次在对话里问进度；推送、部署和 issue 回复都排在它后面。</p>
+  </div>
+  <div class="card warn">
+    <h4>审核积压：key 一直是 pending</h4>
+    <p>819 个 item 的答案全部是 <code>reviewStatus: pending</code>。勘误一条条确认，但“整份 key 审核通过”没有对应的流程和负责人。</p>
+  </div>
+</div>
+
+<h2 id="case">8. 案例：2026-11-05 一次处理 6 个 issue</h2>
+<p>human 的指令只有一句：“在 dev 上 fix github 上 milestone 11/15 的所有 assign 给我的 issues”。过程如下：</p>
+<div class="flow">
+  <span class="step">列出 6 个 issue，跳过 backlog</span><span class="arrow">→</span>
+  <span class="step">逐个读评论和截图</span><span class="arrow">→</span>
+  <span class="step">发现 #128 的修复只在 main</span><span class="arrow">→</span>
+  <span class="step">子 agent 在独立 worktree 合并</span><span class="arrow">→</span>
+  <span class="step">主线程测量音频、找根因</span><span class="arrow">→</span>
+  <span class="step">全量重做 + 逐条核验</span><span class="arrow">→</span>
+  <span class="step">测试 / e2e → 推送 → 预览站 → issue 回复</span>
+</div>
+<div class="table-wrap"><table>
+  <thead><tr><th>issue</th><th>处理</th><th>human 中途的输入</th></tr></thead>
+  <tbody>
+    <tr><td>#131 词汇音频</td><td>实验确认 TTS 把 AH0 读成全元音、音素串与词典读法相同时退回默认读法；ə 改用 AX；只在与原书音标一致时采用词典读法；变体词头按印刷音标逐个读；每段新音频用音素识别核验，不对就换方式重做，仍不对的列给人听</td><td>—</td></tr>
+    <tr><td>#128 写作分数</td><td>把 main 的 10.30 修复合进 develop，迁到设计系统组件，补 0/20 的 e2e</td><td>—</td></tr>
+    <tr><td>#140 高考记分</td><td>大题显示答对题数 / 题数，总分取整，去掉 0.88 分这种逐题分值</td><td>—</td></tr>
+    <tr><td>#130 OSS</td><td>按与后端的约定改工具：Resource = Item，每个 Playlist 一个 releaseId，上传前复查冻结；试点重新冻结，不写入</td><td>“资源会上传到 OSS 上了么？”“怎么让 BE confirm？”“直接放进这次的回复里”</td></tr>
+    <tr><td>#103 / #111 勘误</td><td>按审核结论改两处文字；#111 已在之前完成</td><td>—</td></tr>
+  </tbody>
+</table></div>
+<p>这次的教训：human 关于 OSS 的三个问题说明，“部署”和“上传 OSS”在 human 心里没有分开。agent 的进度汇报应该一开始就讲清楚“哪些东西会到哪里去”。</p>
+
+<h2 id="improve">9. 改进建议</h2>
+<ol class="actions">
+  <li><b>分支同步写进完成标准。</b>main 上的任何修复，当天合并到 develop（或明确说明不需要）；agent 在修复汇报里写明“修复在哪个分支、在哪个站点可以验证”。可以加一个脚本检查 <code>git log develop..main</code> 是否为空，放进 <code>npm test</code> 或部署前检查。</li>
+  <li><b>验证证据要对准问题本身。</b>汇报里写“测的是什么、怎么测的”，而不只是“测过了”。音频问题测音素和重音，布局问题给三种视口截图，判分问题给 e2e。测不到的部分直接写“需要人确认”。</li>
+  <li><b>issue 模板加两栏。</b>“验收标准（可验证）”和“是否适用于同类题 / 同类内容（是 / 否 / 待定）”。默认“是”，让系统性修复不必每次靠 human 提醒。</li>
+  <li><b>agent 用独立身份发言。</b>用 GitHub App 或机器人账号发修复汇报，或者至少在 agent 的评论开头加统一标记。负责人的决定和 agent 的汇报一眼能分清。</li>
+  <li><b>把记忆里的协作规则公开出来。</b>推送 / 部署权限、勘误流程、分支规则从 agent 记忆迁到仓库里的一页（例如 docs/collaboration-rules.md），团队成员和平台开发都能看到、能改。</li>
+  <li><b>决定之前先列约束。</b>涉及考试规则、平台对接、不可逆操作的决定，用 plan mode 先列约束和选项，再定（#80 已经这样做，效果好）。#71 / #73 的反复本可以避免。</li>
+  <li><b>长任务前置或拆开。</b>预计超过 30 分钟的生成任务（音频、全量转录）放到前一晚或单独的分支跑；不影响的修复先推送部署，不必一起等。agent 在开始时给出预计时长和检查点。</li>
+  <li><b>给 key 审核建流程。</b>确定谁审、按什么粒度（一天 / 一套卷）、在哪里记录，审核通过后由人把 <code>reviewStatus</code> 改为通过。否则 pending 会一直累积到上线前。</li>
+  <li><b>进度汇报统一格式。</b>每次汇报固定说三件事：完成了什么（附证据）、还在跑什么（预计时间）、什么在等人（谁、做什么）。human 就不需要追问。</li>
+</ol>
+
+<h2 id="playbook">10. 给其他团队的做法清单</h2>
+<div class="table-wrap"><table>
+  <thead><tr><th>做法</th><th>本项目里的样子</th></tr></thead>
+  <tbody>
+    <tr><td>把一次性的指示变成常驻规则</td><td>human 说一次，agent 写进 <code>CLAUDE.md</code> / 记忆并标日期和原因</td></tr>
+    <tr><td>正确性交给人，执行交给 agent</td><td>原书勘误、答案审核由人确认；转录、代码、测试由 agent 完成</td></tr>
+    <tr><td>先规约和样例，再规模化</td><td>KET、PET、词汇都先审 1–2 个样例</td></tr>
+    <tr><td>用 issue 作为人与 agent 的共同记录</td><td>审核意见、勘误、平台规范、修复汇报都在 issue 里，有截图、有链接</td></tr>
+    <tr><td>不可逆操作要书面授权</td><td>推送、生产部署、OSS 写入都要明确同意；对方的“方向认可”不算授权</td></tr>
+    <tr><td>要求根因而不是补丁</td><td>human 给出可能原因表，agent 用实验逐一排除</td></tr>
+    <tr><td>省 token 的生产方式</td><td>本地 OCR + 脚本比对，AI 只做结构化，先抽查再批量</td></tr>
+  </tbody>
+</table></div>
+
+<footer>2026-11-05 由 agent（Claude Code）根据仓库与 GitHub 记录整理，供团队复盘使用。数字截至 develop 分支当前状态。仓库：<a href="https://github.com/Tuzibaobaobai/uniread-reading-comprehension">Tuzibaobaobai/uniread-reading-comprehension</a>。</footer>
+</main>
+</body>
+</html>
