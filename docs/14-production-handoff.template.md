@@ -132,9 +132,11 @@ RC当前校验不要求`id=q{number}`。例如在原`q1`、`q2`之间插入新�
 
 不采用生产阶段上传时写“不适用，按第5节由接入方上传”。状态只用`PREPARED`／`UPLOADED_VERIFIED`／`DELIVERY_VERIFIED`／`INCOMPLETE`，不写“已发布”。不填写真实endpoint、bucket、凭证或签名URL。
 
-- 本次内容范围：待填写
-- sourceId／contentReleaseId／sourceCommit／内容快照摘要（`asset-snapshot.<contentReleaseId>.sha256`）：待填写
-- RC固定releaseId／selection文件及SHA-256／资源fingerprint算法与核对依据：待填写（工具`scripts/lib/asset-identity.ts`；与BE跨仓样例核对：已核对／待核对）
+- 本次内容范围（一个Playlist；Resource = Item，Part在Resource内）：待填写
+- sourceId／playlistId／contentReleaseId／sourceCommit／内容快照摘要（`asset-snapshot.<contentReleaseId>.sha256`，含公开JSON、上传文件与本地内嵌图片）：待填写
+- RC固定releaseId（本Playlist本次交付专用；重试沿用，新交付另起）／selection文件及SHA-256／资源fingerprint算法与核对依据：待填写（工具`scripts/lib/asset-identity.ts`；BE跨仓样例见`scripts/asset.test.ts`）
+- 音频`assetId`（BE规则`audio-`+来源路径SHA-256前24位）：已写入计划 / 不适用
+- 上传前冻结复查（selection、快照及其列出的全部文件）：通过 / 未运行
 - BE事后补充的registrationSHA256与计划验真结果：未生成 / 待填写
 - 资产协议／key规则／上传工具版本：`be-asset-upload-plan-1`／`be-exam-existing-v1`／待填写
 - 计划位置及manifestSHA256：待填写

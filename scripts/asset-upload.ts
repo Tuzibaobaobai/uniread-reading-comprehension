@@ -18,6 +18,11 @@
  * only at execute time and never printed. When it says sharedStorage (test and production in one bucket), every
  * profile needs --confirm <storageTargetId>.
  *
+ * Freeze check (before --verify and --execute; the BE's review, #130): the selection file must still hash to the plan's
+ * selectionSHA256, the snapshot file to contentSnapshotSHA256, and every file the snapshot lists — the public content
+ * JSON, the files to upload and the inline images kept local — to its frozen digest. Any change stops the run before
+ * anything is sent: freeze a new delivery (new contentReleaseId → new releaseId) instead.
+ *
  * Per object: PUT with x-oss-forbid-overwrite (an existing object is never replaced), then an authenticated GET whose
  * full bytes must hash to the plan's sha256, with the plan's size and Content-Type. An existing object with the same
  * bytes is reused; different bytes fail the run (no overwrite, delete or ACL change, ever). The receipt
@@ -50,14 +55,42 @@ type Plan = {
   sourceId: string;
   contentReleaseId: string;
   releaseId: string;
+  selectionFile?: string;
   selectionSHA256: string;
+  snapshotFile?: string;
+  contentSnapshotSHA256?: string;
   keyPolicyVersion: string;
   status: string;
   files: PlanFile[];
 };
 
+/** the frozen delivery is unchanged: selection, snapshot and every file the snapshot lists (paths under content/) */
+export function checkFreeze(plan: Plan, readRoot: (p: string) => Buffer, readFile: (p: string) => Buffer) {
+  if (!plan.selectionFile || !plan.snapshotFile || !plan.contentSnapshotSHA256)
+    throw new Error('the plan names no selection / snapshot file: freeze it again with the current scripts/asset-plan.ts');
+  const read = (what: string, f: () => Buffer) => {
+    try {
+      return f();
+    } catch {
+      throw new Error(`${what} is missing: the frozen delivery cannot be checked`);
+    }
+  };
+  if (sha256(read(plan.selectionFile, () => readRoot(plan.selectionFile!))) !== plan.selectionSHA256)
+    throw new Error(`${plan.selectionFile} changed since the plan was frozen (selectionSHA256): freeze a new delivery`);
+  const snap = read(plan.snapshotFile, () => readRoot(plan.snapshotFile!));
+  if (sha256(snap) !== plan.contentSnapshotSHA256) throw new Error(`${plan.snapshotFile} changed since the plan was frozen (contentSnapshotSHA256)`);
+  const lines = snap.toString('utf8').split('\n').filter(Boolean);
+  for (const line of lines) {
+    const m = /^([0-9a-f]{64})  (.+)$/.exec(line);
+    if (!m) throw new Error(`${plan.snapshotFile}: bad line "${line}"`);
+    if (sha256(read(`content/${m[2]}`, () => readFile(m[2]))) !== m[1])
+      throw new Error(`content/${m[2]} changed since the plan was frozen: freeze a new delivery`);
+  }
+  return lines.length;
+}
+
 /** everything that can be checked without credentials or network; throws on the first problem */
-export function preflight(planText: string, profile: Profile, readFile: (p: string) => Buffer, forUpload = true) {
+export function preflight(planText: string, profile: Profile, readFile: (p: string) => Buffer, forUpload = true, readRoot?: (p: string) => Buffer) {
   const plan = JSON.parse(planText) as Plan;
   if (plan.format !== PLAN_FORMAT) throw new Error(`plan format ${plan.format}, expected ${PLAN_FORMAT}`);
   if (plan.status !== 'PREPARED') throw new Error(`plan status is ${plan.status}: fix its errors and freeze a new plan first`);
@@ -78,7 +111,9 @@ export function preflight(planText: string, profile: Profile, readFile: (p: stri
     const buf = readFile(f.sourcePath);
     if (buf.length !== f.sizeBytes || sha256(buf) !== f.sha256) throw new Error(`${f.sourcePath} changed since the plan was frozen`);
   }
-  return { plan, manifestSHA256: sha256(planText) };
+  // before anything touches the storage, the whole frozen delivery must be as it was (a dry run reports only the files)
+  const frozenFiles = forUpload && readRoot ? checkFreeze(plan, readRoot, readFile) : undefined;
+  return { plan, manifestSHA256: sha256(planText), frozenFiles };
 }
 
 /** OSS header signature (V1): HMAC-SHA1 over verb, MD5, type, date, x-oss-* headers and /bucket/key */
@@ -155,7 +190,19 @@ export function credentialsFrom(ref: string, env: NodeJS.ProcessEnv): Credential
 export async function run(
   planPath: string,
   profileName: string,
-  opts: { profilesFile: string; execute: boolean; verify?: boolean; confirm?: string; env: NodeJS.ProcessEnv; fetchImpl?: typeof fetch; contentDir?: string; receiptsDir?: string; log?: (s: string) => void },
+  opts: {
+    profilesFile: string;
+    execute: boolean;
+    verify?: boolean;
+    confirm?: string;
+    env: NodeJS.ProcessEnv;
+    fetchImpl?: typeof fetch;
+    contentDir?: string;
+    /** where the plan's selectionFile / snapshotFile paths start (the repository) */
+    rootDir?: string;
+    receiptsDir?: string;
+    log?: (s: string) => void;
+  },
 ) {
   const log = opts.log ?? console.log;
   const file = JSON.parse(readFileSync(opts.profilesFile, 'utf8')) as { profiles: Record<string, Profile>; keyPolicyVersion?: string; sharedStorage?: boolean };
@@ -173,7 +220,15 @@ export async function run(
     throw new Error(`profile "${profileName}" writes to ${profile.storageTargetId}${file.sharedStorage ? ' (storage shared with production)' : ''}: add --confirm ${profile.storageTargetId}`);
   const contentDir = opts.contentDir ?? 'content';
   const planText = readFileSync(planPath, 'utf8');
-  const { plan, manifestSHA256 } = preflight(planText, profile, (p) => readFileSync(join(contentDir, p)), opts.execute || opts.verify);
+  const rootDir = opts.rootDir ?? '.';
+  const { plan, manifestSHA256, frozenFiles } = preflight(
+    planText,
+    profile,
+    (p) => readFileSync(join(contentDir, p)),
+    opts.execute || opts.verify,
+    (p) => readFileSync(join(rootDir, p)),
+  );
+  if (frozenFiles !== undefined) log(`freeze check: selection, snapshot and ${frozenFiles} frozen file(s) unchanged`);
   const bytes = plan.files.reduce((n, f) => n + f.sizeBytes, 0);
   log(`${plan.contentReleaseId} (release ${plan.releaseId}) → ${profile.storageTargetId}: ${plan.files.length} object(s), ${bytes} bytes; manifestSHA256 ${manifestSHA256}`);
   if (opts.verify) {

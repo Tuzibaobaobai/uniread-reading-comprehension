@@ -141,7 +141,7 @@ PDF 是扫描件（无文字层、无答案页），内容靠 **页面图片 →
 
 **机器选材清单（§3.1，可选）**
 - 每份逻辑试卷一份 `docs/handoff/production-selection.<paperId>.json`（格式 `rc-selection-2`），由 `npx tsx scripts/selection-json.ts <paperId> "<标题>" <playlistId> [itemId…]` 生成。
-- 逻辑 ID 只用小写字母、数字和连字符：`sourceId = uniread-rc`、`resourceId = <itemId>-<sectionId>`、`materialId = <itemId>-article`。脚本会检查格式、标题、Section 不重复选用、材料都被使用。
+- 逻辑 ID 只用小写字母、数字和连字符：`sourceId = uniread-rc`、`resourceId = <itemId>`（一个 Item 一个 Resource，Section 按顺序列在 `sectionIds`；#130，2026-11-05。此前按 Section 拆的时文选材保持原 ID，`--per-section` 复现）、`materialId = <itemId>-article`。脚本会检查格式、标题、Section 不重复选用、材料都被使用。
 
 **身份与范围**
 - 已有 Item／Section／Question／blank／选项／词块 ID 永不重编。题号只用于展示；内容换版、插题、重排或拆合时，在交接文档给出旧新 ID 映射。

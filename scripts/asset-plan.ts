@@ -5,24 +5,31 @@
  *
  *   npx tsx scripts/asset-plan.ts <contentReleaseId> docs/handoff/production-selection.<paperId>.json
  *   → docs/handoff/asset-plan.<contentReleaseId>.json      the plan (be-asset-upload-plan-1; no bucket, no credentials)
- *     docs/handoff/asset-snapshot.<contentReleaseId>.sha256 the public content files it is bound to (sha256  path)
+ *     docs/handoff/asset-snapshot.<contentReleaseId>.sha256 every file it is bound to (sha256  path): the public content
+ *                                                          JSON, the uploaded files and the inline images kept local
  *
- * The first run generates the releaseId (UUIDv4); later runs with the same contentReleaseId keep it and must
- * reproduce the same plan — a changed file, selection or reference fails instead of silently rewriting a frozen
- * delivery (freeze a new contentReleaseId for new content). Exit code 2 = plan written but INCOMPLETE (errors listed).
+ * releaseId (agreed with the BE, 2026-11-05): one per frozen Selection of ONE Playlist (ket1, pet1, a 时文 collection,
+ * zkv, gkv…) — the registration package the BE builds with `prepare_registration.py --release-id`. The first run of a
+ * contentReleaseId generates it (UUIDv4); later runs keep it and must reproduce the same plan byte for byte — a changed
+ * file, selection or reference fails instead of silently rewriting a frozen delivery. A new delivery of the same Playlist
+ * is a new contentReleaseId and so a new releaseId; a retry of an upload reuses the frozen plan. A selection spanning
+ * several Playlists, or a releaseId already used by another plan, is refused. Exit code 2 = plan written but INCOMPLETE.
  *
  * Uploaded: playlist cover and item thumbnails (exam-media/v1/<sha>.jpg|png); section recordings and speaking
- * prompts (exam-resources/v1/<releaseId>/<resourceFingerprint>/media/<sha><ext>). Kept local, no key: article /
- * question images (the BE inlines them in HTML). Capability gaps, listed with no key invented: banner, video, vocab
- * lexicon audio. Errors (status INCOMPLETE): missing / mislabelled files, item audio spanning several resources, unknown references.
+ * prompts (exam-resources/v1/<releaseId>/<resourceFingerprint>/media/<sha><ext>, with the BE's assetId). A Resource is a
+ * whole Item (scripts/selection-json.ts), so a Part's recording belongs to its Item's Resource. Kept local, no key:
+ * article / question images (the BE inlines them in HTML). Capability gaps, listed with no key invented: banner, video,
+ * vocab lexicon audio. Errors (status INCOMPLETE): missing / mislabelled files, item audio spanning several resources,
+ * unknown references.
  */
-import { existsSync, lstatSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, lstatSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join, normalize } from 'node:path';
 import {
   AUDIO_TYPES,
   IMAGE_TYPES,
   KEY_POLICY_VERSION,
+  audioAssetId,
   extOf,
   imageObjectKey,
   isCanonicalUuid,
@@ -48,6 +55,8 @@ export type PlanFile = {
   usedBy: Use[];
   resourceId?: string;
   resourceFingerprint?: string;
+  /** audio: the BE's assetId, "audio-" + sha256(sourcePath)[:24] — not part of the key */
+  assetId?: string;
   seconds?: number;
   originType?: 'recording' | 'tts';
   origin?: string;
@@ -67,6 +76,9 @@ export function buildPlan(contentReleaseId: string, selectionPath: string, opts:
   const selBytes = readFileSync(selectionPath);
   const sel = JSON.parse(selBytes.toString('utf8')) as Selection;
   if (sel.format !== 'rc-selection-2') throw new Error(`${selectionPath}: format ${sel.format}, expected rc-selection-2`);
+  // one Playlist per selection = one registration package = one releaseId (KET A2 and PET B1 never share a package)
+  const selPlaylists = [...new Set(sel.resources.map((r) => r.playlistId))];
+  if (selPlaylists.length !== 1) throw new Error(`${selectionPath}: a selection must cover exactly one Playlist (has ${selPlaylists.join(', ') || 'none'})`);
   const releaseId = opts.releaseId ?? newReleaseId();
   if (!isCanonicalUuid(releaseId)) throw new Error(`releaseId ${releaseId} is not a canonical non-nil UUID`);
 
@@ -142,6 +154,7 @@ export function buildPlan(contentReleaseId: string, selectionPath: string, opts:
         contentType: AUDIO_TYPES[ext],
         resourceId,
         resourceFingerprint: fp,
+        assetId: audioAssetId(src),
         ...(seconds ? { seconds } : {}),
         originType,
         origin:
@@ -223,9 +236,13 @@ export function buildPlan(contentReleaseId: string, selectionPath: string, opts:
         });
       });
     });
-    // 词汇天天练: the headword / example recordings live on lexicon entries, which the BE does not import yet
+    // 词汇天天练: the headword / example recordings live on shared lexicon entries. Agreed direction (#130, 2026-11-05):
+    // the existing audio key per Resource, a recording used by several days uploaded once per Resource (duplication
+    // accepted) — but until the BE defines how entry audio maps to a Resource it stays a gap, with no key invented
     if (item.format === 'vocab-day')
-      capabilityGaps.push(`${document}: lexicon audio of ${item.entryIds.length} entries (content/lexicons/${item.lexicon}) — vocab-day is not a BE format yet, no key`);
+      capabilityGaps.push(
+        `${document}: lexicon audio of ${item.entryIds.length} entries (content/lexicons/${item.lexicon}) — will use the existing audio key of the day's Resource (exam-resources/v1/<releaseId>/<resourceFingerprint>/media/…, duplicated per Resource), but the BE has not yet defined how entry audio maps to a Resource; no key until it does`,
+      );
     // unknown reference types are reported, never guessed
     const walk = (o: unknown, parts: (string | number)[]) => {
       if (typeof o === 'string') {
@@ -255,8 +272,10 @@ export function buildPlan(contentReleaseId: string, selectionPath: string, opts:
     sourceCommit: opts.sourceCommit ?? git([...snapshot.keys()]),
     contentSnapshotSHA256: sha256(snapshotText),
     releaseId,
+    playlistId: selPlaylists[0],
     selectionFile: selectionPath,
     selectionSHA256: sha256(selBytes),
+    snapshotFile: planPaths(contentReleaseId).snapshot,
     keyPolicyVersion: KEY_POLICY_VERSION,
     frozenAt: opts.frozenAt ?? new Date().toISOString(),
     status: errors.length ? 'INCOMPLETE' : 'PREPARED',
@@ -302,7 +321,18 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   }
   const out = planPaths(contentReleaseId);
   const prev = existsSync(out.plan) ? readJson(out.plan) : null;
+  // a releaseId belongs to one frozen delivery only
+  const others = readdirSync('docs/handoff')
+    .filter((f) => /^asset-plan\..+\.json$/.test(f) && `docs/handoff/${f}` !== out.plan)
+    .map((f) => readJson(`docs/handoff/${f}`) as { contentReleaseId: string; releaseId: string; playlistId?: string });
   const { plan, snapshotText } = buildPlan(contentReleaseId, selectionPath, prev ? { releaseId: prev.releaseId, frozenAt: prev.frozenAt, sourceCommit: prev.sourceCommit } : {});
+  const clash = others.find((o) => o.releaseId === plan.releaseId);
+  if (clash) {
+    console.error(`releaseId ${plan.releaseId} is already frozen in ${clash.contentReleaseId}: one releaseId per delivery`);
+    process.exit(1);
+  }
+  const earlier = others.filter((o) => o.playlistId === plan.playlistId).map((o) => o.contentReleaseId);
+  if (!prev && earlier.length) console.log(`new delivery of playlist ${plan.playlistId} (earlier: ${earlier.join(', ')}) → new releaseId`);
   const text = JSON.stringify(plan, null, 2) + '\n';
   if (prev) {
     // a frozen delivery is never rewritten: the same inputs must give the same bytes

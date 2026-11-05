@@ -6,7 +6,7 @@
 
 交付可还原布局与交互的源码、字体／图片及构建依赖。以相同内容、视口、回答与位置对照来源页面、打包产物、平台容器，并记录交互证据；截图或保存成功不能替代原样还原验收。
 
-版本：0.13，2026-11-04（新增第15节：UniRead设计系统——token、组件与版本；0.12新增第14节：静态资产与OSS上传，#130；0.11新增第13节：界面文案双语与页面加载）。对象：内容生产同事、Codex、Claude Code。本文规定生产输入和交付要求；平台解析／入库问题由接入方处理，不要求生产者填写数据库字段。RC是来源实现，不是UniRead标准。文中的“必须／不得”为交付要求，“待补／未验证”为合法但未完成的状态。本版同步RC当前稳定ID校验及既有媒体／截图／版本绑定流程；继续要求同类资源遵守既定规约，明确数据语义、源码依赖与验证责任；不把组件拆分固化为上游契约，也不要求保留旧测试答案、成绩或历史。
+版本：0.14，2026-11-05（第14节：Resource按Item划分、每个Playlist选材一个releaseId、音频assetId、上传前冻结复查，#130；0.13新增第15节：UniRead设计系统——token、组件与版本；0.12新增第14节：静态资产与OSS上传，#130；0.11新增第13节：界面文案双语与页面加载）。对象：内容生产同事、Codex、Claude Code。本文规定生产输入和交付要求；平台解析／入库问题由接入方处理，不要求生产者填写数据库字段。RC是来源实现，不是UniRead标准。文中的“必须／不得”为交付要求，“待补／未验证”为合法但未完成的状态。本版同步RC当前稳定ID校验及既有媒体／截图／版本绑定流程；继续要求同类资源遵守既定规约，明确数据语义、源码依赖与验证责任；不把组件拆分固化为上游契约，也不要求保留旧测试答案、成绩或历史。
 
 ## 0. 只收到两个文件时，如何使用
 
@@ -86,6 +86,7 @@
 
 - RC Playlist可以代表书籍／内容目录；平台考试Playlist代表明确的一套试卷。必须说明本次是“书籍目录”“整卷”还是“试点选材”，并区分原书总篇数、已生产数量和本次交付数量。
 - 平台Resource可以是一道完形填空等大题，其内部有多个小题。不要以一个小题、一页PDF、一个React组件自动决定Resource边界。
+- RC（2026-11-05与BE确认，#130）：一个Item就是一个Resource，Part／Section是其内部结构，见第14节。
 - 一个Item可能有多个Section。必须逐道大题列出sourcePlaylistId、itemId、sectionIds、独立展示标题和排序。只写“每周精读”或“I／II／III”不够说明大题内容。
 - 同一文章供多道大题使用时，在交接清单赋予稳定materialId并列出使用关系；现有Item内文章保持原结构，接入方负责平台映射。统计文章词数时按材料去重，不能因拆大题重复累计。
 - 一个共享bank内的原子移词不能被拆成多个互不协调的资源。bank跨拟定大题时，先标明作用域并列为边界待确认；不得悄悄变成各题独立词库。
@@ -333,15 +334,18 @@ UniRead平台接入方下发的规范独立存放在原RC仓库的`docs/uniread-
 
 | 步骤 | 命令 | 产出 |
 | --- | --- | --- |
-| 冻结选材 | `npx tsx scripts/selection-json.ts <paperId> "<标题>" <playlist> [item…]` | `docs/handoff/production-selection.<paperId>.json`（rc-selection-2，接入方确认后使用） |
+| 冻结选材 | `npx tsx scripts/selection-json.ts <paperId> "<标题>" <playlist> [item…]` | `docs/handoff/production-selection.<paperId>.json`（rc-selection-2，一个Item一个Resource，接入方确认后使用） |
 | 身份与计划 | `npx tsx scripts/asset-plan.ts <contentReleaseId> <selection.json>` | `docs/handoff/asset-plan.<contentReleaseId>.json`（`be-asset-upload-plan-1`）与`asset-snapshot.<contentReleaseId>.sha256`（计划绑定的公开内容文件摘要） |
 | 预检（dry run） | `npx tsx scripts/asset-upload.ts <plan> --profile <名称>` | 列出精确对象、数量、字节和目标；不读凭证、不联网 |
 | 上传并回读验真 | `… --profile test --execute`；生产另加`--confirm <storageTargetId>` | `.work/assets/receipts/<contentReleaseId>.<storageTargetId>.json`（回执，含bucket，不入库、不贴到issue） |
 
+- **Resource边界（2026-11-05与BE确认）**：一个Item就是一个Resource——KET阅读写作整卷、PET每个分卷、时文阅读一天、词汇天天练一天各是一个Resource。Part／Section是Resource内部结构，`sectionIds`按顺序列出全部Section，不给Part单独的resourceId。`resourceId = <itemId>`，sourceId、paperId、itemId等业务ID不变。2026-11-05前已交付的时文选材（`production-selection.ci-*.json`，按Section拆）保持原ID不重写，新的映射与BE确认后另起交付；`selection-json.ts --per-section`只用于逐字节复现这些旧文件。资源边界决定fingerprint与音频键，映射调整后必须重新冻结，不能改已冻结的计划继续用。
+
 - **身份**（`scripts/lib/asset-identity.ts`）：`releaseId`在首次冻结时生成（UUIDv4），写进计划；同一`contentReleaseId`再次运行沿用该值，且必须得到逐字节相同的计划，内容或选材有任何变化即失败——新内容另起`contentReleaseId`。资源fingerprint = UUIDv5(UUIDv5(URL命名空间, `uniread/exam-import/rc-selection-1`), Go `json.Marshal`的`["resource", sourceId, paperId, resourceId]`)。
-- **releaseId的范围（2026-11-03 决定）**：每个选材一个releaseId——KET／PET一个，时文阅读一个，词汇天天练一个；以后新的内容类型各自一个。该选材内容或素材有改动需要重新交付时，冻结新的`contentReleaseId`并生成新的releaseId，其他选材不受影响。封面／缩略图的键只取决于文件内容，跨release自动复用。是否与BE的登记包范围一致，待BE确认。
+- **releaseId的范围（2026-11-05与BE确认，取代11-03的“每个内容类型一个”）**：一份范围明确的Playlist选材（Selection／登记包）的一次冻结版本对应一个releaseId，例如ket1、pet1、某个时文合集、zkv、gkv各自冻结。一份选材只能属于一个Playlist（KET A2与PET B1不能合成一个包），`asset-plan.ts`遇到跨Playlist的选材直接拒绝，计划里写明`playlistId`。同一Playlist重新交付时用新的`contentReleaseId`，也就生成新的releaseId，旧版本保留；上传失败后重试，沿用原来冻结的releaseId。一个releaseId只能属于一份计划，工具会检查。BE用`prepare_registration.py --release-id`沿用这个值。封面／缩略图的键只取决于文件内容，跨release自动复用。
 - **对象键**完全沿用BE：封面／缩略图`exam-media/v1/<sha256>.jpg|.png`；音频`exam-resources/v1/<releaseId>/<resourceFingerprint>/media/<sha256><来源扩展名小写>`。不加环境前缀、日期或新命名空间。
-- **覆盖范围**：合集封面、item缩略图 → 图片键；Section录音（`sections[].audio`，原书录音）、口语提示（`turns[].audio`，TTS）→ 所在资源的音频键。文章／题目／选项图片保留本地（BE内嵌HTML，无独立键，列在`localOnly`）。BE尚无规则的对象（合集banner、视频、词汇天天练词条音频）列为`capabilityGaps`，不自造键。缺文件、扩展名与内容不符、符号链接、跨资源的item级音频、未知引用 → `errors`，计划状态为`INCOMPLETE`，不能上传。Key、答案册、私有转写、OCR与PDF永远不进计划。
+- **覆盖范围**：合集封面、item缩略图 → 图片键；Section录音（`sections[].audio`，原书录音）、口语提示（`turns[].audio`，TTS）→ 所在Item这个Resource的音频键，并附BE的`assetId`（`"audio-"` + 来源路径UTF-8字节的SHA-256前24位，如`assets/ket1/ket1-t1-p1.m4a` → `audio-5e2aca1ac35b3ef242c6a7e6`；与文件内容SHA不同，不进入对象键）。文章／题目／选项图片保留本地（BE内嵌HTML，无独立键，列在`localOnly`）。BE尚无规则的对象（合集banner、视频、词汇天天练词条音频）列为`capabilityGaps`，不自造键。缺文件、扩展名与内容不符、符号链接、跨资源的item级音频、未知引用 → `errors`，计划状态为`INCOMPLETE`，不能上传。Key、答案册、私有转写、OCR与PDF永远不进计划。
+- **冻结复查（`--verify`与`--execute`之前）**：selection文件的SHA-256要与`selectionSHA256`一致，快照文件要与`contentSnapshotSHA256`一致，快照列出的每个文件也要与冻结时的摘要一致。快照包括公开内容JSON、要上传的文件和保留本地的内嵌图片。只要有一项变化就停止，什么都不发送，按新交付重新冻结。dry run只列出对象，不做复查。
 - **上传**：`x-oss-forbid-overwrite`不可覆盖PUT，再用鉴权GET取回全部字节核对SHA-256、大小与Content-Type；已存在且字节相同则复用，不同则失败（不覆盖、不删除、不改ACL）。遇到第一个失败即停止，重跑时先核对已存在的对象再继续。
 - **Profile与凭证**：维护方私下交接的`oss-profiles.private.json`（`rc-oss-private-handoff-1`，内含凭证）放在仓库外的受控目录（如`~/.uniread-oss-private/`，权限0700），用`--profiles <路径>`直接读取；凭证只在`--verify`／`--execute`时使用、从不输出。交接文件声明`sharedStorage`（测试与生产共用同一bucket）时，任何profile写入都要`--confirm <storageTargetId>`，回执注明共享存储；`--verify`只读核对计划内对象是否已存在且字节一致。自建profile可用`.work/asset-profiles.local.json`（git忽略）；字段同规范第6节，`credentialRef: env:<NAME>`在执行时读取`<NAME>_ACCESS_KEY_ID`、`<NAME>_ACCESS_KEY_SECRET`及可选`<NAME>_SECURITY_TOKEN`（STS）。实际endpoint、bucket、凭证由维护方私下交接，不写进仓库、issue、日志或交接文档；测试回执不能用于生产。
 
@@ -358,10 +362,12 @@ UniRead平台接入方下发的规范独立存放在原RC仓库的`docs/uniread-
 
 ### 14.3 当前缺口
 
-- 未与BE跨仓样例核对：fingerprint算法已与独立实现（Python `uuid`）的参考值一致，仍需BE提供一组`(sourceId, paperId, resourceId) → fingerprint`与一份登记包的实际键作对照。
-- 音频项的`assetId`字段：规范第5节提到，BE尚未给出定义，计划中暂不填写。
+- 跨仓样例：BE用`import_rc.py`离线复算的4组`(uniread-rc, ket1-t1, …) → fingerprint`已固定为`scripts/asset.test.ts`的回归测试，算法一致。已有正式登记包的实际音频键与远端验真回执，仍由BE侧补齐。
+- `assetId`已按BE定义（`build_runtime.py`）写入计划的音频项。
+- 词汇天天练词条音频：沿用现有音频键结构，多天引用同一词条时按Resource各传一份（接受重复存储），不引入共享音频命名空间。BE确定词条音频如何归属到Resource之前，仍列为`capabilityGaps`，不自造键、不上传。
+- KET第1套试点（2026-11-05按Item级映射重新冻结为`ket1-t1-20261105-01`，PREPARED）：3个Resource（`ket1-t1-rw`、`ket1-t1-l`、`ket1-t1-s`），27个对象共12,998,250字节，包括合集封面1个、听力录音5段（属`ket1-t1-l`）和口语提示21段（属`ket1-t1-s`）；28张内嵌题图保留本地，banner列为能力缺口。原按Section拆的`ket1-t1-20261103-01`作废，从未写入存储。
 - 2026-11-03 已收到私下交接的profile：测试与生产共用同一资源bucket、同一长期AccessKey（非STS），因此测试上传即写入生产所用存储，不能靠profile名称隔离。该Key可读单个对象，不能列举bucket。只读核对：KET第1套计划中合集封面已存在于同一`exam-media/v1/<sha256>.jpg`键（BE此前上传），图片键规则与BE实际产物一致；音频对象因releaseId为新生成而尚不存在。
-- 真实上传（试点）须经用户确认后执行；BE的预上传素材验真模式（不再PUT）尚待BE实现。
+- 真实上传（试点）须等BE确认接收这份selection和releaseId，并由用户单独确认共享存储的写入范围后才执行；BE的预上传素材验真模式（不再PUT）尚待BE实现。
 
 ## 15. UniRead 设计系统：token、组件与版本（`uniread-spec/design-system`）
 

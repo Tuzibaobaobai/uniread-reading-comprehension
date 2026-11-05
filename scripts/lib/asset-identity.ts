@@ -109,3 +109,7 @@ export function sniff(buf: Buffer, ext: string): boolean {
 }
 
 export const sha256 = (buf: Buffer | string) => createHash('sha256').update(buf).digest('hex');
+
+/** the BE's audio assetId (scripts/exam_resources/build_runtime.py): "audio-" + the first 24 hex of SHA-256 over the UTF-8
+ *  bytes of the source path — not of the file, and not part of the OSS key. assets/ket1/ket1-t1-p1.m4a → audio-5e2aca1ac35b3ef242c6a7e6 */
+export const audioAssetId = (sourcePath: string) => `audio-${sha256(Buffer.from(sourcePath, 'utf8')).slice(0, 24)}`;

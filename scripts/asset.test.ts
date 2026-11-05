@@ -5,8 +5,9 @@ import { existsSync, mkdtempSync, mkdirSync, readFileSync, writeFileSync } from 
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { IMPORT_NAMESPACE, goJSON, imageObjectKey, mediaObjectKey, playlistFingerprint, resourceFingerprint, sha256, sniff, uuidv5 } from './lib/asset-identity';
+import { IMPORT_NAMESPACE, audioAssetId, goJSON, imageObjectKey, mediaObjectKey, playlistFingerprint, resourceFingerprint, sha256, sniff, uuidv5 } from './lib/asset-identity';
 import { buildPlan } from './asset-plan';
+import { buildSelection } from './selection-json';
 import { run } from './asset-upload';
 
 describe('identities (BE algorithm)', () => {
@@ -17,6 +18,20 @@ describe('identities (BE algorithm)', () => {
     expect(playlistFingerprint('uniread-rc', 'ci-g3-pilot-1')).toBe('88c9567a-5ec8-517e-ba6b-4bf740dab86d');
     expect(resourceFingerprint('uniread-rc', 'ket1-t1', 'ket1-t1-l-s1')).toBe('b54bad04-a9ca-5412-ad58-37f40f6294ad');
     expect(uuidv5('www.example.com', '6ba7b810-9dad-11d1-80b4-00c04fd430c8')).toBe('2ed6657d-e927-568b-95e1-2665a8aea6a2');
+  });
+  // cross-repo vectors from the BE (#130, 2026-11-03): its scripts/exam_resources/import_rc.py on the same inputs. They test
+  // the algorithm; the per-section resourceIds are the old pilot mapping, not today's item-level one
+  it('fingerprints match the BE (cross-repo vectors)', () => {
+    const be: [string, string][] = [
+      ['ket1-t1-rw-s1', '9471b11d-43fc-59cf-ad5c-852038013e12'],
+      ['ket1-t1-rw-s2', 'bae6ea95-0136-5b5a-aa5f-d6fea35be8b8'],
+      ['ket1-t1-rw-s3', '47f3eaaa-2149-5800-8537-8184aefb2d38'],
+      ['ket1-t1-l-s1', 'b54bad04-a9ca-5412-ad58-37f40f6294ad'],
+    ];
+    for (const [resourceId, fp] of be) expect(resourceFingerprint('uniread-rc', 'ket1-t1', resourceId)).toBe(fp);
+  });
+  it("audio assetId is the BE's: audio- + sha256(source path)[:24]", () => {
+    expect(audioAssetId('assets/ket1/ket1-t1-p1.m4a')).toBe('audio-5e2aca1ac35b3ef242c6a7e6');
   });
   it('compact JSON is Go json.Marshal', () => {
     expect(goJSON(['resource', 'a', 'b'])).toBe('["resource","a","b"]');
@@ -55,13 +70,28 @@ describe.skipIf(!existsSync(ketAudio))('plan (KET 第1套 pilot)', () => {
     expect(roles.filter((r) => r === 'playlist-cover')).toHaveLength(1);
     expect(roles.filter((r) => r === 'section-recording')).toHaveLength(5);
     expect(roles).toContain('speaking-prompt');
+    expect(plan.playlistId).toBe('ket1');
+    // a Resource is a whole Item: every Part's recording is keyed under the Listening paper's Resource
     const rec = plan.files.find((f) => f.sourcePath === 'assets/ket1/ket1-t1-p1.m4a')!;
-    expect(rec.objectKey).toBe(`exam-resources/v1/${opts.releaseId}/${resourceFingerprint('uniread-rc', 'ket1-t1', 'ket1-t1-l-s1')}/media/${rec.sha256}.m4a`);
+    expect(rec.resourceId).toBe('ket1-t1-l');
+    expect(rec.objectKey).toBe(`exam-resources/v1/${opts.releaseId}/${resourceFingerprint('uniread-rc', 'ket1-t1', 'ket1-t1-l')}/media/${rec.sha256}.m4a`);
+    expect(rec.assetId).toBe('audio-5e2aca1ac35b3ef242c6a7e6');
+    expect(new Set(plan.files.filter((f) => f.resourceId).map((f) => f.resourceId))).toEqual(new Set(['ket1-t1-l', 'ket1-t1-s']));
     expect(rec.sha256).toBe(sha256(readFileSync(`content/${rec.sourcePath}`)));
     expect(rec.usedBy[0].pointer).toBe('/sections/0/audio/src');
     expect(plan.localOnly.length).toBeGreaterThan(0);
     expect(plan.files.every((f) => !/keys\//.test(f.sourcePath))).toBe(true);
     expect(plan.capabilityGaps.some((g) => g.includes('banner'))).toBe(true);
+  });
+});
+
+describe('selection (item-level Resources)', () => {
+  it('one Resource per Item with all its sections; the legacy per-section mapping is still reproducible', () => {
+    const sel = buildSelection('ket1-t1', 'KET 第1套', 'ket1', ['ket1-t1-rw', 'ket1-t1-l', 'ket1-t1-s']);
+    expect(sel.resources.map((r) => r.resourceId)).toEqual(['ket1-t1-rw', 'ket1-t1-l', 'ket1-t1-s']);
+    expect(sel.resources[0].sectionIds).toEqual(['s1', 's2', 's3', 's4', 's5', 's6', 's7']);
+    const legacy = buildSelection('ket1-t1', 'KET 第1套', 'ket1', ['ket1-t1-rw'], { perSection: true });
+    expect(legacy.resources.map((r) => r.resourceId)).toEqual(['s1', 's2', 's3', 's4', 's5', 's6', 's7'].map((s) => `ket1-t1-rw-${s}`));
   });
 });
 
@@ -113,13 +143,36 @@ describe('upload (mock OSS)', () => {
     const mp3 = Buffer.from('ID3\x03fake-audio');
     writeFileSync(join(content, 'assets/t/cover.jpg'), jpg);
     writeFileSync(join(content, 'assets/t/a.mp3'), mp3);
+    // the frozen delivery: a selection, an item JSON and an inline image kept local, all listed in the snapshot
+    mkdirSync(join(content, 'playlists/t/items'), { recursive: true });
+    mkdirSync(join(dir, 'handoff'), { recursive: true });
+    const itemJson = Buffer.from('{"id":"t-1"}');
+    const inline = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 7]);
+    writeFileSync(join(content, 'playlists/t/items/t-1.json'), itemJson);
+    writeFileSync(join(content, 'assets/t/inline.jpg'), inline);
+    const selection = Buffer.from('{"format":"rc-selection-2"}');
+    writeFileSync(join(dir, 'handoff/selection.json'), selection);
+    const snapshot = Buffer.from(
+      [
+        [sha256(mp3), 'assets/t/a.mp3'],
+        [sha256(jpg), 'assets/t/cover.jpg'],
+        [sha256(inline), 'assets/t/inline.jpg'],
+        [sha256(itemJson), 'playlists/t/items/t-1.json'],
+      ]
+        .map(([h, p]) => `${h}  ${p}`)
+        .join('\n') + '\n',
+    );
+    writeFileSync(join(dir, 'handoff/snapshot.sha256'), snapshot);
     const file = (sourcePath: string, buf: Buffer, contentType: string, objectKey: string) => ({ sourcePath, sha256: sha256(buf), sizeBytes: buf.length, contentType, objectKey, roles: ['x'], usedBy: [] });
     const plan = {
       format: 'be-asset-upload-plan-1',
       sourceId: 'uniread-rc',
       contentReleaseId: 't-01',
       releaseId,
-      selectionSHA256: 'x',
+      selectionFile: 'handoff/selection.json',
+      selectionSHA256: sha256(selection),
+      snapshotFile: 'handoff/snapshot.sha256',
+      contentSnapshotSHA256: sha256(snapshot),
       keyPolicyVersion: 'be-exam-existing-v1',
       status: 'PREPARED',
       files: [
@@ -148,12 +201,12 @@ describe('upload (mock OSS)', () => {
 
   it('dry run needs no credentials and sends nothing', async () => {
     const { planPath, profilesFile } = setup();
-    expect(await run(planPath, 'test', { profilesFile, execute: false, env: {}, contentDir: content, log: quiet })).toBeNull();
+    expect(await run(planPath, 'test', { profilesFile, execute: false, env: {}, contentDir: content, rootDir: dir, log: quiet })).toBeNull();
     expect(store.size).toBe(0);
   });
   it('uploads and verifies, then reuses on a rerun; the receipt has no secrets', async () => {
     const { planPath, profilesFile } = setup();
-    const o = { profilesFile, execute: true, env, contentDir: content, receiptsDir: join(dir, 'receipts'), log: quiet };
+    const o = { profilesFile, execute: true, env, contentDir: content, rootDir: dir, receiptsDir: join(dir, 'receipts'), log: quiet };
     const first = await run(planPath, 'test', o);
     expect(first!.status).toBe('UPLOADED_VERIFIED');
     expect(first!.newlyUploadedObjectCount).toBe(2);
@@ -166,7 +219,7 @@ describe('upload (mock OSS)', () => {
     const { planPath, profilesFile } = setup();
     const key = [...store.keys()].find((k) => k.endsWith('.mp3'))!;
     store.set(key, { body: Buffer.from('ID3\x03other'), type: 'audio/mpeg' });
-    const r = await run(planPath, 'test', { profilesFile, execute: true, env, contentDir: content, receiptsDir: join(dir, 'receipts'), log: quiet });
+    const r = await run(planPath, 'test', { profilesFile, execute: true, env, contentDir: content, rootDir: dir, receiptsDir: join(dir, 'receipts'), log: quiet });
     expect(r!.status).toBe('INCOMPLETE');
     expect(r!.failedObjects[0].error).toContain('not overwritten');
     expect(store.get(key)!.body.toString()).toContain('other');
@@ -177,7 +230,7 @@ describe('upload (mock OSS)', () => {
     const handoff = join(dir, 'oss-profiles.private.json');
     const p = { storageTargetId: 'shared-resource-oss', endpoint, region: 'r', bucket: 'b', addressing: 'path', credentials: { type: 'existing-access-key', accessKeyId: 'test-id', accessKeySecret: SECRET } };
     writeFileSync(handoff, JSON.stringify({ format: 'rc-oss-private-handoff-1', sharedStorage: true, keyPolicyVersion: 'be-exam-existing-v1', profiles: { test: p, production: p } }));
-    const o = { profilesFile: handoff, env: {}, contentDir: content, receiptsDir: join(dir, 'receipts'), log: quiet };
+    const o = { profilesFile: handoff, env: {}, contentDir: content, rootDir: dir, receiptsDir: join(dir, 'receipts'), log: quiet };
     await expect(run(planPath, 'test', { ...o, execute: true })).rejects.toThrow('storage shared with production');
     const lines: string[] = [];
     await run(planPath, 'test', { ...o, execute: false, verify: true, log: (l) => lines.push(l) });
@@ -195,8 +248,28 @@ describe('upload (mock OSS)', () => {
   it('a file changed after freezing, or production without --confirm, stops before anything is sent', async () => {
     const { planPath, profilesFile } = setup();
     writeFileSync(join(content, 'assets/t/cover.jpg'), Buffer.from([0xff, 0xd8, 0xff, 0xe0, 9]));
-    await expect(run(planPath, 'test', { profilesFile, execute: true, env, contentDir: content, log: quiet })).rejects.toThrow('changed since the plan was frozen');
+    await expect(run(planPath, 'test', { profilesFile, execute: true, env, contentDir: content, rootDir: dir, log: quiet })).rejects.toThrow('changed since the plan was frozen');
     setup();
-    await expect(run(planPath, 'production', { profilesFile, execute: true, env, contentDir: content, log: quiet })).rejects.toThrow('--confirm exam-materials-production');
+    await expect(run(planPath, 'production', { profilesFile, execute: true, env, contentDir: content, rootDir: dir, log: quiet })).rejects.toThrow('--confirm exam-materials-production');
+  });
+  it('the freeze is re-checked before --execute and --verify: selection, content JSON and local images too', async () => {
+    const o = (verify: boolean) => ({ execute: !verify, verify, env, contentDir: content, rootDir: dir, receiptsDir: join(dir, 'receipts'), log: quiet });
+    const cases: [string, string, string][] = [
+      [join(dir, 'handoff/selection.json'), '{"format":"rc-selection-2","x":1}', 'selectionSHA256'],
+      [join(content, 'playlists/t/items/t-1.json'), '{"id":"t-1","changed":true}', 'playlists/t/items/t-1.json changed'],
+      [join(content, 'assets/t/inline.jpg'), '\xff\xd8\xff\xe0changed', 'assets/t/inline.jpg changed'],
+    ];
+    for (const [file, bytes, msg] of cases)
+      for (const verify of [false, true]) {
+        const { planPath, profilesFile } = setup();
+        writeFileSync(file, bytes);
+        const before = store.size;
+        await expect(run(planPath, 'test', { profilesFile, ...o(verify) })).rejects.toThrow(msg);
+        expect(store.size).toBe(before);
+      }
+    // a dry run still only lists (no freeze check needs the repository)
+    const { planPath, profilesFile } = setup();
+    writeFileSync(join(dir, 'handoff/selection.json'), 'changed');
+    expect(await run(planPath, 'test', { profilesFile, ...o(false), execute: false })).toBeNull();
   });
 });
