@@ -95,6 +95,14 @@ export function VocabQuiz({
     const rows = s.questions.map((q) => review.result.byQuestion.find((b) => b.q === q.id));
     return rows.every((r) => r?.correct === true) ? 'correct' : rows.some((r) => r?.correct === false) ? 'wrong' : 'none';
   };
+  /** #128 / #140: after submitting, each Part's dot shows questions right / questions ("4/5"), not a ✓ / ✗ for the
+   *  whole Part; nothing while a 中译英 mark is still coming */
+  const sectionScore = (s: (typeof sections)[number]): string | undefined => {
+    if (!review) return undefined;
+    const rows = s.questions.map((q) => review.result.byQuestion.find((b) => b.q === q.id));
+    if (rows.some((r) => !r || r.scoredBy === 'pending')) return undefined;
+    return `${rows.filter((r) => r?.correct === true).length}/${s.questions.length}`;
+  };
   return (
     <div className="question-card vocab-quiz">
       <div className="question-scroll thin-scroll" ref={scroller}>
@@ -127,9 +135,13 @@ export function VocabQuiz({
               selected={i === page}
               completed={done(s) === s.questions.length}
               result={sectionResult(s)}
+              score={sectionScore(s)}
               reviewing={!!review}
               onClick={() => setPage(i)}
-              ariaLabel={t('vocab.quiz.sectionDot', { part: partLabel(t, i), range: range(s), done: done(s), total: s.questions.length })}
+              ariaLabel={
+                t('vocab.quiz.sectionDot', { part: partLabel(t, i), range: range(s), done: done(s), total: s.questions.length }) +
+                (sectionScore(s) ? t('reader.dotRight', { score: sectionScore(s) }) : '')
+              }
             />
           ))}
         </QuestionStrip>

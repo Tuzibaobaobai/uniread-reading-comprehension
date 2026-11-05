@@ -247,7 +247,7 @@ test('Quiz: Part pages, typed answers only, Enter, result, review, entry, retry 
   await expect(page.getByRole('textbox', { name: '第 1 题：单词' })).not.toBeEditable();
 });
 
-test('高考 scores in whole numbers (#140): Part = right / questions, no 0.88-point blanks shown', async ({ page }) => {
+test('高考 scores in whole numbers (#140): Part = right / questions, no 0.88-point blanks shown', async ({ page }, info) => {
   await page.goto('/#/p/gkv/gkv-d002');
   await page.getByRole('tab', { name: /测验/ }).click();
   await page.locator('.vq-row').first().getByRole('textbox').first().fill('achieve'); // worth 15/17 of a point
@@ -260,6 +260,10 @@ test('高考 scores in whole numbers (#140): Part = right / questions, no 0.88-p
   await page.getByRole('button', { name: /查看答案/ }).click();
   await expect(page.locator('.vq-row').first()).toContainText('回答正确');
   await expect(page.locator('.vq-row').first()).not.toContainText('0.88');
+  // #128: the Part dots show right / total, not ✓ / ✗
+  await expect(page.locator('.question-dot-num.is-score')).toHaveText(['1/34', '0/15', '0/10', '0/10']);
+  await expect(page.locator('.question-dot-icon')).toHaveCount(0);
+  await page.screenshot({ path: `.work/screens/${info.project.name}/gkv-review-pager.png` });
   await page.goto('/#/p/gkv');
   await expect(page.getByText('得分 1/100')).toBeVisible();
 });
