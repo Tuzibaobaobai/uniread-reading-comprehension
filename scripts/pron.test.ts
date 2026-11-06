@@ -5,6 +5,8 @@ import { describe, expect, it } from 'vitest';
 import { agrees, ipaToArpa, merge, toCmu, variants } from './lexicon-pron.mjs';
 // @ts-expect-error plain .mjs scripts without type declarations
 import { compare } from './lib/pron-check.mjs';
+// @ts-expect-error plain .mjs scripts without type declarations
+import { arpaToIpa, azurePart } from './lib/azure-tts.mjs';
 
 const arpa = (ipa: string) => toCmu(ipaToArpa(ipa));
 const cmu = (s: string) => s.split(' ');
@@ -75,5 +77,20 @@ describe('what a recording says vs the print (phoneme recogniser output)', () =>
   it('checks every printed pronunciation of a variant headword in turn', () => {
     expect(compare(['EY1', 'AH0'], 'eɪ ɐ')).toEqual([]);
     expect(compare(['EY1', 'AH0'], 'eɪ eɪ')).not.toEqual([]);
+  });
+});
+
+describe('ARPAbet → IPA for the Azure voice (#131)', () => {
+  it('writes ə for AH0, the stress mark before the stressed syllable onset', () => {
+    expect(arpaToIpa('AH0 B JH EH1 K T')).toBe('əbˈdʒɛkt');
+    expect(arpaToIpa('AA1 B JH IH0 K T')).toBe('ˈɑbdʒɪkt');
+    expect(arpaToIpa('P R AH0 T EH1 S T')).toBe('pɹəˈtɛst');
+    expect(arpaToIpa('IH0 K S P L EY1 N')).toBe('ɪkˈspleɪn');
+    expect(arpaToIpa('AH0 N D')).toBe('ənd');
+    expect(arpaToIpa('HH ER0')).toBe('hɚ');
+  });
+  it('pins the IPA on the word, or reads a hand-set respelling', () => {
+    expect(azurePart({ text: 'a', cmu: 'AH0' })).toBe('<phoneme alphabet="ipa" ph="ə">a</phoneme>');
+    expect(azurePart({ text: 'the', cmu: 'DH IY1', voiceText: 'thee' })).toBe('thee');
   });
 });

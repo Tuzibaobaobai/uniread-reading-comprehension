@@ -1,6 +1,6 @@
 // Generate the examiner's lines of speaking papers as audio with Volcano Engine TTS (HTTP V1, non-streaming).
 //   node scripts/tts.mjs <playlist> [--voice en_female_amanda_mars_bigtts] [--partner-voice en_male_adam_mars_bigtts] [--speed 1.0] [--force]
-//   node scripts/tts.mjs --lexicon <lexicon> [--voice …] [--jobs 4] [--force]   词汇天天练 (#110): every entry's headword and examples →
+//   node scripts/tts.mjs --lexicon <lexicon> [--voice …] [--azure-voice en-US-AvaNeural] [--jobs 4] [--force] [--verify-print | --verify-all | --no-verify]   词汇天天练 (#110): every entry's headword and examples →
 //     content/assets/lexicons/<lx>/<entryId>.mp3 and <entryId>-x<N>.mp3, set as entry.audio. Standard (#131): a word is
 //     said as the book's IPA prints it — the headword and its forms in the examples go to the voice as SSML
 //     <phoneme alphabet="cmu"> from content/lexicons/<lx>/pronunciations.json (scripts/lexicon-pron.mjs; run it first);
@@ -16,6 +16,7 @@ import { execFileSync } from 'node:child_process';
 import { randomUUID } from 'node:crypto';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
+import { azurePart, azureReady, azureSynthesize, arpaToIpa } from './lib/azure-tts.mjs';
 
 const args = process.argv.slice(2);
 const lexicon = args.includes('--lexicon') ? args[args.indexOf('--lexicon') + 1] : null;
@@ -24,6 +25,8 @@ const opt = (name, fallback) => (args.includes(`--${name}`) ? args[args.indexOf(
 const voice = opt('voice', 'en_female_amanda_mars_bigtts'); // US English, calm and formal (teacher-examiner)
 const partnerVoice = opt('partner-voice', 'en_male_adam_mars_bigtts'); // US English male: the AI partner in PET Part 3
 const speed = Number(opt('speed', '1.0'));
+// the second engine (#131), for what the Volcano voice cannot say as printed: Azure en-US neural voice
+const azureVoice = opt('azure-voice', 'en-US-AvaNeural');
 const force = args.includes('--force');
 if (!pl) {
   console.error('usage: node scripts/tts.mjs <playlist> [--voice <voice_type>] [--speed 1.0] [--force]');
@@ -70,12 +73,14 @@ async function synthesize(text, voiceType, ssml = false, encoding = 'mp3') {
 /** a clip's audio: one request, or — for a word said several ways (sent.parts) — one request per part, joined */
 async function render(sent) {
   if (!sent.parts) return synthesize(sent.text, voice, sent.ssml);
+  if (sent.engine === 'azure' && !azureReady(env)) throw new Error('AZURE_SPEECH_KEY / AZURE_SPEECH_REGION missing (.env.local)');
   const dir = join(tmpdir(), `rc-tts-${randomUUID()}`);
   mkdirSync(dir);
   const wavs = [];
   for (const [i, x] of sent.parts.entries()) {
     wavs.push(join(dir, `${i}.wav`));
-    writeFileSync(wavs[i], await synthesize(x.text, voice, x.ssml, 'wav'));
+    const wav = sent.engine === 'azure' ? await azureSynthesize(x.body, azureVoice, env) : await synthesize(x.text, voice, x.ssml, 'wav');
+    writeFileSync(wavs[i], wav);
   }
   const out = join(dir, 'joined.mp3');
   execFileSync('.work/venv-pron/bin/python', ['scripts/py/join_audio.py', out, ...wavs]);
@@ -88,6 +93,8 @@ let made = 0;
 let chars = 0;
 const verifyAll = args.includes('--verify-all');
 let wordInputFor; // set in the lexicon branch, used by verify()
+let firstModeOf;
+let modeNowOf;
 let manifestOf;
 let saveManifestOf;
 const seconds = (file) => Math.round(Number(/estimated duration: ([\d.]+)/.exec(execFileSync('afinfo', [file], { encoding: 'utf8' }))[1]) * 10) / 10;
@@ -142,7 +149,26 @@ if (lexicon) {
   };
   /** the headword clip's input. mode: "ax" (default, the pin with AX for ə), "cmu" (the pin as CMU writes it), "plain" (the
    *  voice's own reading) — the verify step records in pronunciations.json ("voice") the mode that says the printed IPA */
-  const wordInput = (entry, p, mode = p?.voice ?? 'ax') => {
+  /** a one-syllable weak form (a /ə/, and /ən/, them /ðəm/): the Volcano voice stresses any one-vowel pin, so ə comes out
+   *  /eɪ/ or /æ/ (and a lone ə, sent as "uh", the hesitation sound) — these go to Azure from the start */
+  const weakForm = (x) => {
+    const v = x.cmu?.split(' ').filter((q) => /\d$/.test(q)) ?? [];
+    return v.length === 1 && (v[0] === 'AH0' || v[0] === 'ER0'); // /ə/, /ə(r)/ (her /hə(r)/)
+  };
+  /** Azure (mode "azure"): every pronunciation of the word, each synthesised on its own and joined, one voice for the clip */
+  const azureInput = (entry, p) => {
+    const say = p.say ?? [{ text: entry.headword, cmu: p.cmu, voiceText: p.voiceText }];
+    const text = `azure ${azureVoice}: ${say.map((x) => x.voiceText ?? `/${arpaToIpa(x.cmu)}/`).join(' | ')}`;
+    return { parts: say.map((x) => ({ body: azurePart(x) })), engine: 'azure', text };
+  };
+  /** the way a clip is made unless verify found another ("voice") */
+  const firstMode = (p) => ((p?.say ?? [p ?? {}]).some(weakForm) ? 'azure' : 'ax');
+  firstModeOf = firstMode;
+  /** the way the clip is made now: a weak form always by Azure, else the way verify recorded ("voice"), else the AX pin */
+  const modeNow = (p) => (firstMode(p) === 'azure' ? 'azure' : (p?.voice ?? 'ax'));
+  modeNowOf = modeNow;
+  const wordInput = (entry, p, mode = modeNow(p)) => {
+    if (p && mode === 'azure') return azureInput(entry, p);
     // a respelling the voice reads as printed (the /ðiː/ → "thee"), set by hand ("manual": true) where no pin works
     if (p?.voiceText) return { text: p.voiceText, ssml: false };
     if (p?.say) return sayAll(p.say, mode);
@@ -184,7 +210,9 @@ if (lexicon) {
     const base = `assets/lexicons/${lexicon}/${entry.id}`;
     const p = prons[entry.id];
     const audio = { word: await clip(`${base}.mp3`, entry.headword, undefined, wordInput(entry, p)) };
-    if (p && (madeSrc.has(audio.word.src) || verifyAll)) madeWords.push({ entry, p, src: audio.word.src, path });
+    // --verify-print: the words the Volcano voice is known to get wrong — said several ways, or printed unlike the dictionary
+    const printOnly = args.includes('--verify-print') && p && (p.say || p.from === 'ipa');
+    if (p && (madeSrc.has(audio.word.src) || verifyAll || printOnly)) madeWords.push({ entry, p, src: audio.word.src, path });
     if (entry.examples.length) {
       audio.examples = [];
       for (const [i, x] of entry.examples.entries())
@@ -220,7 +248,7 @@ if (lexicon) {
 
 /** Headword clips (#131): does the recording say the printed IPA? A phoneme recogniser checks the vowels of each clip made
  *  in this run (--verify-all: every pinned headword); one that says something else is made the other ways in turn (cmu,
- *  plain, ax) and the first that agrees is kept, its mode recorded as "voice" in pronunciations.json. Those no way gets
+ *  plain, ax, then azure — scripts/lib/azure-tts.mjs) and the first that agrees is kept, its mode recorded as "voice" in pronunciations.json. Those no way gets
  *  right are listed in .work/tts/<lx>-unverified.json for a person to listen to. */
 async function verify(words) {
   const { compare, recognise, recogniserReady } = await import('./lib/pron-check.mjs');
@@ -242,10 +270,14 @@ async function verify(words) {
   const pronDoc = JSON.parse(readFileSync(pronFile, 'utf8'));
   mkdirSync('.work/tts/try', { recursive: true });
   let fixed = 0;
-  for (const mode of ['cmu', 'plain', 'ax']) {
+  for (const mode of ['cmu', 'plain', 'ax', ...(azureReady(env) ? ['azure'] : [])]) {
     // the voice's own reading of one word twice cannot say two pronunciations (object, object)
     const repeats = (w) => w.p.say && new Set(w.p.say.map((x) => x.voiceText ?? x.text.toLowerCase())).size < w.p.say.length;
-    const tries = bad.filter((w) => (w.p.voice ?? 'ax') !== mode && !(w.tried ??= new Set()).has(mode) && !(mode === 'plain' && repeats(w)));
+    // a weak form goes to Azure only: the recogniser cannot tell the Volcano voice's "uh" from a schwa
+    // Azure only where the Volcano voice is known to go wrong: a word said several ways, or one whose print differs from the
+    // dictionary. A plain word (book, get) the recogniser mishears keeps its Volcano clip.
+    const azureMay = (w) => Boolean(w.p.say || w.p.from === 'ipa');
+    const tries = bad.filter((w) => modeNowOf(w.p) !== mode && (firstModeOf(w.p) !== 'azure' || mode === 'azure') && (mode !== 'azure' || azureMay(w)) && !(w.tried ??= new Set()).has(mode) && !(mode === 'plain' && repeats(w)));
     if (!tries.length) continue;
     for (const w of tries) {
       w.tried.add(mode);
@@ -261,20 +293,34 @@ async function verify(words) {
     }
     const got = await recognise(tries.filter((w) => w.tryFile).map((w) => w.tryFile));
     for (const w of tries) {
-      if (!w.tryFile || compare(expected(w.p), got.get(w.tryFile) ?? '').length) continue;
-      // this way says the printed IPA: keep it
-      const file = join('content', w.src);
-      writeFileSync(file, readFileSync(w.tryFile));
-      manifestOf[w.src] = w.sent.text;
-      if (mode === 'ax') delete pronDoc.entries[w.entry.id].voice;
-      else pronDoc.entries[w.entry.id].voice = mode;
-      const entry = JSON.parse(readFileSync(w.path, 'utf8'));
-      entry.audio.word.seconds = seconds(file);
-      writeFileSync(w.path, JSON.stringify(entry, null, 2) + '\n');
-      w.ok = true;
+      if (!w.tryFile) continue;
+      if (compare(expected(w.p), got.get(w.tryFile) ?? '').length) {
+        if (mode === 'azure') w.azure = { file: w.tryFile, sent: w.sent }; // kept if no way agrees (below)
+        continue;
+      }
+      keep(w, mode); // this way says the printed IPA
       fixed++;
     }
     bad = bad.filter((w) => !w.ok);
+  }
+  // no way agrees with the recogniser: keep Azure's, which follows the printed IPA far more often than the Volcano voice
+  // (37 such words, 2026-11-06: Azure 18 heard as printed, Volcano 0) — still listed for a person to listen to
+  for (const w of bad) {
+    if (!w.azure || modeNowOf(w.p) === 'azure') continue;
+    w.tryFile = w.azure.file;
+    w.sent = w.azure.sent;
+    keep(w, 'azure', false);
+  }
+  function keep(w, mode, ok = true) {
+    const file = join('content', w.src);
+    writeFileSync(file, readFileSync(w.tryFile));
+    manifestOf[w.src] = w.sent.text;
+    if (mode === firstModeOf(w.p)) delete pronDoc.entries[w.entry.id].voice;
+    else pronDoc.entries[w.entry.id].voice = mode;
+    const entry = JSON.parse(readFileSync(w.path, 'utf8'));
+    entry.audio.word.seconds = seconds(file);
+    writeFileSync(w.path, JSON.stringify(entry, null, 2) + '\n');
+    w.ok = ok;
   }
   writeFileSync(pronFile, JSON.stringify(pronDoc, null, 2) + '\n');
   saveManifestOf();
