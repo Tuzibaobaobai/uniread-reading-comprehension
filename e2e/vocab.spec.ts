@@ -73,6 +73,30 @@ test('playlist lists the days', async ({ page }) => {
   await expect(page.locator('.item-row')).toHaveCount(125);
 });
 
+test('Scan (#142): moving to another word plays its audio once; the first card stays silent', async ({ page }) => {
+  await page.addInitScript(() => {
+    const played: string[] = ((window as unknown as { played: string[] }).played = []);
+    HTMLMediaElement.prototype.play = function () {
+      played.push(this.src);
+      return Promise.resolve();
+    };
+  });
+  await page.goto(`/#/p/zkv/${ITEM}`);
+  await expect(page.locator('.scan-word')).toHaveText('ability');
+  const played = () => page.evaluate(() => (window as unknown as { played: string[] }).played);
+  expect(await played()).toEqual([]);
+  await page.getByRole('button', { name: '下一个词' }).click();
+  await expect(page.locator('.scan-count')).toHaveText('2/34');
+  await expect.poll(played).toHaveLength(1);
+  await page.getByRole('button', { name: '认识', exact: true }).click(); // a mark moves on → plays the 3rd word
+  await expect.poll(played).toHaveLength(2);
+  await page.getByRole('button', { name: '上一个词' }).click();
+  await expect.poll(played).toHaveLength(3);
+  const srcs = await played();
+  expect(srcs[0]).not.toBe(srcs[1]);
+  expect(srcs[2]).toBe(srcs[0]);
+});
+
 test('Scan → Study (#133): one word a page, 认识 / 不认识, Study coloured and folded by the marks', async ({ page }, info) => {
   await page.goto(`/#/p/zkv/${ITEM}`);
   await expect(page.getByRole('tab')).toHaveText([/速览/, /学习/, /测验/]);

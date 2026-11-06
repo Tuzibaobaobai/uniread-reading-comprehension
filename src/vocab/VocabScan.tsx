@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { LexiconEntryT } from '@schema';
 import { ArrowButton } from '@/ui/ArrowButton/ArrowButton';
@@ -10,6 +11,8 @@ import { say } from '@/lib/say';
 /**
  * 词汇天天练 step 1 · Scan (#133): one word a page — headword and IPA only — marked 认识 / 不认识, then on to the next.
  * The marks (attempt.known) decide how Study shows each entry; they can be changed here at any time.
+ * Moving to another word (prev / next, or a mark that moves on) plays its audio once (#142); the first card shown on
+ * opening the tab stays silent until tapped.
  */
 export function VocabScan({
   entries,
@@ -30,6 +33,12 @@ export function VocabScan({
   const { t } = useTranslation();
   const total = entries.length;
   const e = entries[index];
+  const shown = useRef(index);
+  useEffect(() => {
+    if (shown.current === index) return;
+    shown.current = index;
+    if (e) say(e.headword, e.audio?.word);
+  }, [index, e]);
   const mark = (v: boolean) => {
     if (!e) return;
     onKnown(e.id, v);
