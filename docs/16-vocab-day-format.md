@@ -112,8 +112,8 @@
 - **布局：词典条目列表**（对标 Oxford Learner's / Cambridge 词典页，不用单卡翻页）：约 30 条一屏滚动，每条显示词头、音标、★、教材标签、词性 + 中文、例句（词头下划线 + 中文）；词组 / 词形拓展 / 近反义 / 谚语默认折叠，名师点拨常显。理由：内容来自纸质手册，学生习惯翻看；30 条单卡要翻 30 次；错题需要锚点定位到条目。
 - **音频**：词头和每个例句都有播放按钮，不自动播放。词头和例句的播放按钮同一样式（#131）。
 - **发音标准（#131，所有词汇类内容）**：TTS 生成的词头和例句里的该词，一律按**原书该词条印的音标**发音，不交给 TTS 自行判断（一词多音如 adult /ˈædʌlt/ 与 /əˈdʌlt/；TTS 也会读错单一发音的词，如 affect）。流程：
-  1. `node scripts/lexicon-pron.mjs <lexicon>`：把印刷音标转成 ARPAbet，写入 `content/lexicons/<lexicon>/pronunciations.json`。CMU 词典的读法只在**与印刷音标一致**时采用：辅音相同（英式音标省略的 r、/djuː/ 的 j 除外），元音逐个同质（英式 ↔ 美式对应，如 ɒ ~ AA/AO；ɑː 不改成美式 æ），主重音在同一音节。不一致时（zebra /ˈzebrə/、conduct /kənˈdʌkt/、of /ɒv/ 等）以印刷音标为准，只借用词典里的美式 r。例句中下划线的词形（adults、affected…）取最接近词头读法的词典读法。印了多个音标的单词，词头音频用第一个，例句交给 TTS。**有变体的词头**（a (an)、although / though、colour (color)、toward(s)）和带音标的词组，按印刷的每个音标依次读（a (an) 读 /eɪ/、/ə/），不按拼写读。
-  2. `node scripts/tts.mjs --lexicon <lexicon>`：用 SSML `<phoneme alphabet="cmu">` 交给火山 TTS，只重做送去合成的内容有变化的片段（`.work/tts/<lexicon>.json` 记录每段的合成输入）。这个音色的 phoneme 支持不完全，2026-11 实测：CMU 的 AH0（ə）会读成全元音（affect 读成 /ˈæfekt/，与 SSML 无关），音素串与词典读法相同时会退回该词的默认读法。所以 ə 以 AX 送出；只有一个元音的弱读式（单独的 /ə/、/ənd/）读不出来，单独的 /ə/ 用 "uh"。
+  1. `node scripts/lexicon-pron.mjs <lexicon>`：把印刷音标转成 ARPAbet，写入 `content/lexicons/<lexicon>/pronunciations.json`。CMU 词典的读法只在**与印刷音标一致**时采用：辅音相同（英式音标省略的 r、/djuː/ 的 j 除外），元音逐个同质（英式 ↔ 美式对应，如 ɒ ~ AA/AO；ɑː 不改成美式 æ），主重音在同一音节。不一致时（zebra /ˈzebrə/、conduct /kənˈdʌkt/、of /ɒv/ 等）以印刷音标为准，只借用词典里的美式 r。例句中下划线的词形（adults、affected…）取最接近词头读法的词典读法。**印了多个音标的单词**（object /əbˈdʒekt/ /ˈɒbdʒɪkt/、and /ənd/ /ən/，#131 第三轮）和**有变体的词头**（a (an)、although / though、colour (color)、toward(s)）及带音标的词组，词头音频按印刷的每个音标依次读（a (an) 读 /eɪ/、/ə/），不按拼写读；例句交给 TTS。
+  2. `node scripts/tts.mjs --lexicon <lexicon>`：用 SSML `<phoneme alphabet="cmu">` 交给火山 TTS，只重做送去合成的内容有变化的片段（`.work/tts/<lexicon>.json` 记录每段的合成输入）。这个音色的 phoneme 支持不完全，2026-11 实测：CMU 的 AH0（ə）会读成全元音（affect 读成 /ˈæfekt/，与 SSML 无关），音素串与词典读法相同时会退回该词的默认读法。所以 ə 以 AX 送出。**同一请求里同一个拼写只读一种**：either 先后按 /ˈaɪðə/、/ˈiːðə/ 标注，读出来两遍都是 /ˈaɪðə/（`<break>`、句号都无效），所以多个读法逐个单独合成，再用 `scripts/py/join_audio.py` 拼成一段（间隔 0.45 s；venv 需 `pip install lameenc`）。**这个音色读不出的**：单独成词的弱读式（a /ə/、and /ən/、her /hə/、them /ðəm/ 等，任何只有一个元音的标注都会被重读，/ə/ 变成 /eɪ/ 或 /æ/；单独的 /ə/ 现送 "uh"，读成拖长的感叹词 /ʌː/，约 0.5 s，并非弱读 ə），以及重音在后的词首弱读音节（object /əb-/、compound /kəm-/、protest /prə-/ 读成全元音）；从句子里截取弱读式只有 70–120 ms，过短。这些列在 unverified 里，需人工处理。
   3. **合成后逐条核验**：每段新做的词头音频都用音素识别模型（wav2vec2 espeak，`scripts/lib/pron-check.mjs`，首次安装见文件头）听一遍，与印刷音标逐个元音比对：音节数、印 ə 处是否弱读、全元音音质。不一致的依次换 `cmu`、`plain`（TTS 自己的读法）再做，取第一个一致的，写入 `pronunciations.json` 的 `voice`。都不一致的列在 `.work/tts/<lexicon>-unverified.json`，**需要人工试听**；可手工设 `"manual": true` 加 `voiceText` 换一个拼写（如 the /ðiː/ 用 "thee"）。词尾 s / z 清浊识别不可靠，不在核验范围内。任何时候都可以用 `node scripts/check-pron-audio.mjs <lexicon>` 重查全部词头音频。
   4. 页面播放：有录音的词条只播录音；录音播放失败时**不回退**到设备语音（设备语音不按原书音标读）。
 - **按 Scan 标注显示（#133）**：「认识」的词头绿色，释义等详细内容默认收起，词头行右侧「展开」可看；「不认识」的词头红色，默认展开，可手动「收起」。Scan 没做或没做完时，没标的词按「不认识」显示，顶部计数注明还有几个没标。在 Scan 里改了标注，Study 的颜色和展开 / 收起随之更新。原「遮住释义」开关由 Scan 取代，已去掉。
@@ -207,7 +207,7 @@
 
 同一类型的第二本书：《2027年上海市高考英语词汇用法手册》+ 配套综合练习（125 天）。制作规范 [production-brief-gkv.md](production-brief-gkv.md)。
 - 每天固定四个大题：一 单词默写（30%）、二 词组默写（30%）、三 首字母填空（20%）、四 句子翻译（20%）——全部是已有交互（`textEntry`、`extendedText` + `requiredWord`），无新题型。分值按原书百分比均分到每题（一：30 ÷ 34，不取整；显示时四舍五入）。
-- 音频按 3.2 节的发音标准（#131）生成：`content/lexicons/gkv/pronunciations.json` → `node scripts/tts.mjs --lexicon gkv`（`--jobs` 并发，默认 4）。印了两个音标的词条，词头用第一个，例句交给声音，需要时人工指定（`manual: true`）。
+- 音频按 3.2 节的发音标准（#131）生成：`content/lexicons/gkv/pronunciations.json` → `node scripts/tts.mjs --lexicon gkv`（`--jobs` 并发，默认 4）。印了两个及以上音标的词条，词头按每个音标依次读（见 3.2），例句交给声音，需要时人工指定（`manual: true`）。
 - 词条比中考多「辨析」（`compare`）和 ▲ 补充词（`supplement`）；三种标记的含义写在 `content/lexicons/gkv/lexicon.json`，与中考不同。
 - item id 三位数（`gkv-d001`）。
 - 第一批样例：第 1 天（a – ache，词条 1–34）+ 第 2 天（achieve – advanced，词条 35–68）。

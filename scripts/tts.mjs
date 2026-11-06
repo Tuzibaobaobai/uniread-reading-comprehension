@@ -4,17 +4,18 @@
 //     content/assets/lexicons/<lx>/<entryId>.mp3 and <entryId>-x<N>.mp3, set as entry.audio. Standard (#131): a word is
 //     said as the book's IPA prints it — the headword and its forms in the examples go to the voice as SSML
 //     <phoneme alphabet="cmu"> from content/lexicons/<lx>/pronunciations.json (scripts/lexicon-pron.mjs; run it first);
-//     a headword with variants — a (an) — says each printed IPA in turn. Then check what the clips say with
+//     a headword with variants — a (an) — or with more than one printed IPA — object — says each printed IPA in turn. Then check what the clips say with
 //     scripts/check-pron-audio.mjs.
 //     A clip is made again whenever what is sent for it changes (.work/tts/<lx>.json remembers what each clip was made from).
 // Credentials: VOLC_TTS_APPID / VOLC_TTS_TOKEN in .env.local (never committed). Writes
 // content/assets/<pl>/<itemId>-<qid>-<turnId>.mp3 (gitignored, shipped in rc-media-<pl>.zip) and sets
 // turn.audio {src, seconds} in the items. Existing files are kept unless --force (re-generation costs characters).
 // Docs: https://docs.volcengine.com/docs/DoubaoVoice/HTTPone-timecompositenon-streaminginterface-V1notrecommended
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { randomUUID } from 'node:crypto';
 import { join } from 'node:path';
+import { tmpdir } from 'node:os';
 
 const args = process.argv.slice(2);
 const lexicon = args.includes('--lexicon') ? args[args.indexOf('--lexicon') + 1] : null;
@@ -42,7 +43,7 @@ if (!appid || !token) {
   process.exit(1);
 }
 
-async function synthesize(text, voiceType, ssml = false) {
+async function synthesize(text, voiceType, ssml = false, encoding = 'mp3') {
   for (let attempt = 1; ; attempt++) {
     const res = await fetch('https://openspeech.bytedance.com/api/v1/tts', {
       method: 'POST',
@@ -51,7 +52,7 @@ async function synthesize(text, voiceType, ssml = false) {
       body: JSON.stringify({
         app: { appid, token: 'uniread-rc', cluster: 'volcano_tts' },
         user: { uid: 'uniread-rc' },
-        audio: { voice_type: voiceType, encoding: 'mp3', bitrate: 64, speed_ratio: speed, explicit_language: 'en' },
+        audio: { voice_type: voiceType, encoding, bitrate: 64, speed_ratio: speed, explicit_language: 'en' },
         request: { reqid: randomUUID(), text, operation: 'query', ...(ssml ? { text_type: 'ssml' } : {}) },
       }),
     });
@@ -64,6 +65,23 @@ async function synthesize(text, voiceType, ssml = false) {
     }
     throw new Error(`tts ${res.status} ${body.code}: ${body.message ?? ''} (logid ${res.headers.get('x-tt-logid')})`);
   }
+}
+
+/** a clip's audio: one request, or — for a word said several ways (sent.parts) — one request per part, joined */
+async function render(sent) {
+  if (!sent.parts) return synthesize(sent.text, voice, sent.ssml);
+  const dir = join(tmpdir(), `rc-tts-${randomUUID()}`);
+  mkdirSync(dir);
+  const wavs = [];
+  for (const [i, x] of sent.parts.entries()) {
+    wavs.push(join(dir, `${i}.wav`));
+    writeFileSync(wavs[i], await synthesize(x.text, voice, x.ssml, 'wav'));
+  }
+  const out = join(dir, 'joined.mp3');
+  execFileSync('.work/venv-pron/bin/python', ['scripts/py/join_audio.py', out, ...wavs]);
+  const mp3 = readFileSync(out);
+  rmSync(dir, { recursive: true });
+  return mp3;
 }
 
 let made = 0;
@@ -111,15 +129,24 @@ if (lexicon) {
       .join('');
     return pinned ? { text: `<speak>${out}</speak>`, ssml: true } : { text: spoken(text), ssml: false };
   };
-  /** a headword that is not one plain word — a (an), although / though, colour (color): each printed IPA in turn */
-  const sayAll = (say, mode) => ({ text: `<speak>${say.map((x) => phoneme(x.cmu, x.text, mode)).join(', ')}</speak>`, ssml: true });
+  /** a headword with more than one printed IPA — object /əbˈdʒekt/ /ˈɒbdʒɪkt/, a (an), although / though: each printed
+   *  IPA in turn. Each is synthesised on its own and the parts joined (scripts/py/join_audio.py): in one request the voice
+   *  says a spelling one way only — "either, either" pinned /ˈaɪðə/ then /ˈiːðə/ comes out /ˈaɪðə/ twice (#131). */
+  const sayAll = (say, mode) => {
+    const parts = say.map((x) =>
+      x.voiceText ? { text: x.voiceText, ssml: false }
+      : mode === 'plain' ? { text: spoken(x.text), ssml: false }
+      : { text: `<speak>${phoneme(x.cmu, x.text, mode)}</speak>`, ssml: true },
+    );
+    return { parts, text: parts.map((x) => x.text).join(' | ') };
+  };
   /** the headword clip's input. mode: "ax" (default, the pin with AX for ə), "cmu" (the pin as CMU writes it), "plain" (the
    *  voice's own reading) — the verify step records in pronunciations.json ("voice") the mode that says the printed IPA */
   const wordInput = (entry, p, mode = p?.voice ?? 'ax') => {
     // a respelling the voice reads as printed (the /ðiː/ → "thee"), set by hand ("manual": true) where no pin works
     if (p?.voiceText) return { text: p.voiceText, ssml: false };
-    if (mode === 'plain' || !p) return { text: spoken(p?.say ? p.say.map((x) => x.text).join(', ') : entry.headword), ssml: false };
-    if (p.say) return sayAll(p.say, mode);
+    if (p?.say) return sayAll(p.say, mode);
+    if (mode === 'plain' || !p) return { text: spoken(entry.headword), ssml: false };
     return { text: `<speak>${phoneme(p.cmu, entry.headword, mode)}</speak>`, ssml: true };
   };
   const madeWords = [];
@@ -132,7 +159,7 @@ if (lexicon) {
     const sent = sentFor ?? input(text, forms);
     // clips made before #131 have no manifest line: they were made from the plain text
     if (force || !existsSync(file) || (manifest[src] ?? spoken(text)) !== sent.text) {
-      writeFileSync(file, await synthesize(sent.text, voice, sent.ssml));
+      writeFileSync(file, await render(sent));
       made++;
       madeSrc.add(src);
       chars += sent.text.length;
@@ -216,14 +243,16 @@ async function verify(words) {
   mkdirSync('.work/tts/try', { recursive: true });
   let fixed = 0;
   for (const mode of ['cmu', 'plain', 'ax']) {
-    const tries = bad.filter((w) => (w.p.voice ?? 'ax') !== mode && !(w.tried ??= new Set()).has(mode));
+    // the voice's own reading of one word twice cannot say two pronunciations (object, object)
+    const repeats = (w) => w.p.say && new Set(w.p.say.map((x) => x.voiceText ?? x.text.toLowerCase())).size < w.p.say.length;
+    const tries = bad.filter((w) => (w.p.voice ?? 'ax') !== mode && !(w.tried ??= new Set()).has(mode) && !(mode === 'plain' && repeats(w)));
     if (!tries.length) continue;
     for (const w of tries) {
       w.tried.add(mode);
       w.sent = wordInputFor(w.entry, w.p, mode);
       w.tryFile = join('.work/tts/try', `${w.entry.id}-${mode}.mp3`);
       try {
-        writeFileSync(w.tryFile, await synthesize(w.sent.text, voice, w.sent.ssml));
+        writeFileSync(w.tryFile, await render(w.sent));
         made++;
         chars += w.sent.text.length;
       } catch {
