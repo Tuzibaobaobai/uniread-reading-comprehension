@@ -6,7 +6,7 @@
 
 交付可还原布局与交互的源码、字体／图片及构建依赖。以相同内容、视口、回答与位置对照来源页面、打包产物、平台容器，并记录交互证据；截图或保存成功不能替代原样还原验收。
 
-版本：0.15，2026-11-05（新增第15.6节：与设计师的评审回路，新 UI 自动写回 Figma、不覆盖 Ready for dev、在 Figma 里提醒设计师（待评审清单、名称标记、批注），设计师定稿时 section 名称加「✅ Ready」；0.14 第14节：Resource按Item划分、每个Playlist选材一个releaseId、音频assetId、上传前冻结复查，#130；0.13新增第15节：UniRead设计系统——token、组件与版本；0.12新增第14节：静态资产与OSS上传，#130；0.11新增第13节：界面文案双语与页面加载）。对象：内容生产同事、Codex、Claude Code。本文规定生产输入和交付要求；平台解析／入库问题由接入方处理，不要求生产者填写数据库字段。RC是来源实现，不是UniRead标准。文中的“必须／不得”为交付要求，“待补／未验证”为合法但未完成的状态。本版同步RC当前稳定ID校验及既有媒体／截图／版本绑定流程；继续要求同类资源遵守既定规约，明确数据语义、源码依赖与验证责任；不把组件拆分固化为上游契约，也不要求保留旧测试答案、成绩或历史。
+版本：0.16，2026-11-09（第15.2节阶段3的提案评审改走15.6的Figma评审回路，不再开GitHub issue；15.6明确只有RC自己建的草稿可以原地改，设计师建过或改过的画面、状态未确认的section一律加v2；0.15 新增第15.6节：与设计师的评审回路，新 UI 自动写回 Figma、不覆盖 Ready for dev、在 Figma 里提醒设计师（待评审清单、名称标记、批注），设计师定稿时 section 名称加「✅ Ready」；0.14 第14节：Resource按Item划分、每个Playlist选材一个releaseId、音频assetId、上传前冻结复查，#130；0.13新增第15节：UniRead设计系统——token、组件与版本；0.12新增第14节：静态资产与OSS上传，#130；0.11新增第13节：界面文案双语与页面加载）。对象：内容生产同事、Codex、Claude Code。本文规定生产输入和交付要求；平台解析／入库问题由接入方处理，不要求生产者填写数据库字段。RC是来源实现，不是UniRead标准。文中的“必须／不得”为交付要求，“待补／未验证”为合法但未完成的状态。本版同步RC当前稳定ID校验及既有媒体／截图／版本绑定流程；继续要求同类资源遵守既定规约，明确数据语义、源码依赖与验证责任；不把组件拆分固化为上游契约，也不要求保留旧测试答案、成绩或历史。
 
 ## 0. 只收到两个文件时，如何使用
 
@@ -394,7 +394,7 @@ UniRead平台接入方下发的规范独立存放在原RC仓库的`docs/uniread-
 | --- | --- | --- |
 | 1 同步 | `npx tsx scripts/ds-sync.ts --snapshot <设计规范.html>`或`--figma`（Variables REST API，`FIGMA_TOKEN`）→ `npx tsx scripts/ds-build.ts`；已有旧版本时生成差异报告 | `design-system/lock.json`、`tokens/uniread.tokens.json`、`components.inventory.json`、`uniread-tokens.css` |
 | 2 映射 | 每个界面状态的每个元素对应到「UniRead组件 + variant」或token，列出缺口：缺variant、缺组件、缺token（语义 / 间距） | 登记表条目（`design-system/components.registry.json`）、可读表格`docs/design/component-registry.md`（`npx tsx scripts/ds-registry.ts`生成）、token缺口`design-system/migrations/legacy-tokens.md` |
-| 3 提案 | 在UniRead文件的「RC · Proposed」页面用`use_figma`建立：<br>• `RC/<领域>/<名称>`组件集：auto-layout，变量绑定，内容通过TEXT / BOOLEAN / INSTANCE_SWAP属性公开，description写Status: Proposed。<br>• 已有组件的副本加新variant，标注Extends。<br>• 提案变量集合「RC Semantic (proposed)」「RC Spacing (proposed)」，别名指向Primitive。<br>每个提案开一个GitHub issue，label `design-proposal`。 | Figma提案页、`tokens/rc-proposed.tokens.json`、issue |
+| 3 提案 | 在UniRead文件的「RC · Proposed」页面用`use_figma`建立：<br>• `RC/<领域>/<名称>`组件集：auto-layout，变量绑定，内容通过TEXT / BOOLEAN / INSTANCE_SWAP属性公开，description写Status: Proposed。<br>• 已有组件的副本加新variant，标注Extends。<br>• 提案变量集合「RC Semantic (proposed)」「RC Spacing (proposed)」，别名指向Primitive。<br>提案按第15.6节的评审回路请设计师评审：加进「RC · 待评审」清单、名称后加「· 🟡 待评审」、加批注，并写入台账`pending`。不开GitHub issue（设计师只在Figma里工作）。 | Figma提案页、`tokens/rc-proposed.tokens.json`、待评审清单与台账`pending` |
 | 4 评审 | UniRead设计师评论、修改或批准。批准后由设计师并入UIKit并发布，RC重新同步，登记表改为`approved` | 新版本lock |
 | 5 代码 | `src/ui`组件只用`--ur-*`，props与variant一一对应；页面只组合`src/ui`组件。组件与Figma的链接记在登记表（`source` + `figma` / `figmaProposal`）；Code Connect需要Organization / Enterprise的Dev席位，当前账号没有，暂不使用 | 组件、登记表`source` |
 | 6 写回 | 每个界面状态用组件实例搭建frame，放在「RC · Screens · <DS版本>」页；frame上方的说明写来源路由、提案组件、扩展组件、复用组件 | Figma画面 |
@@ -447,11 +447,11 @@ Figma MCP / Plugin API 读不到 Ready for dev 标记（`devStatus` 不支持，
 
 **触发：只要 RC 新生成或改动了 UI，就自动走这个回路，不等人提醒。** 范围包括新内容类型、新界面状态、修 issue 时改动的版式 / 交互 / 文案位置，以及组件的新 variant。只改数据、不改界面的修复（内容勘误、判分逻辑、音频）不触发。
 
-1. **查定稿。** 写 Figma 之前读 `design-system/figma-ready.json`（项目负责人转发的 Ready for dev 链接），并读一遍 section / frame 名称：**设计师标 Ready for dev 时必须在 section 名称前加「✅ Ready」**，名称是 Claude 唯一能自己读到的定稿信号。名称里有 ✅ Ready 但台账里没有的，补进台账。
+1. **查定稿。** 写 Figma 之前读 `design-system/figma-ready.json`（项目负责人转发的 Ready for dev 链接），并读一遍 section / frame 名称：**设计师标 Ready for dev 时必须在 section 名称前加「✅ Ready」**，名称是 Claude 唯一能自己读到的定稿信号。名称里有 ✅ Ready 但台账里没有的，补进台账。台账 `unknown` 里的 section（设计师建的、是否定稿没人确认过）**按已定稿处理**。
 2. **写回 Figma：**
    - 新界面：在「RC · Screens · <DS版本>」页加新 frame，放进对应的 section。
-   - 改动**未定稿**的 frame（台账里没有、名称里没有 ✅ Ready）：可以原地改，这些只有 RC 的草稿。
-   - 改动**已定稿**的 frame / section：**不覆盖**。在原 frame 右侧复制一份 v2，命名「<编号> <名称> — v2 · <日期> · RC 提案」，改动处加批注。原版由设计师处理（采纳后归档或删除）。
+   - **只有 RC 自己建的草稿可以原地改**：frame 是 RC 建的、设计师没有动过，所在 section 不在台账 `ready` / `unknown` 里，名称里也没有 ✅ Ready。
+   - 其余一律**不覆盖**——已定稿的 frame / section、`unknown` 里的 section，以及设计师建过或改过的任何 frame（看不出来是谁建的，就当成设计师的）。在原 frame 右侧复制一份 v2，命名「<编号> <名称> — v2 · <日期> · RC 提案」，改动处加批注。原版由设计师处理（采纳后归档或删除）。
    - 组件：用在已定稿画面里的组件**只能增加**（新 variant / 新属性），不改已有 variant 的外观；必须改已有外观时，复制成 v2 组件提案。
 3. **在 Figma 里提醒设计师（三处同时做）：**
    - **待评审清单**：「RC · Screens」页顶部的「RC · 待评审（Review queue）」面板（台账 `reviewQueue`）。每批改动加一组：日期、对应代码 issue、每个画面 / 组件一行（链接直达节点，写明改了什么）。面板上写着设计师的三步做法。
