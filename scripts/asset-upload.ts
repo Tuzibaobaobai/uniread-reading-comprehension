@@ -26,7 +26,13 @@
  * Per object: PUT with x-oss-forbid-overwrite (an existing object is never replaced), then an authenticated GET whose
  * full bytes must hash to the plan's sha256, with the plan's size and Content-Type. An existing object with the same
  * bytes is reused; different bytes fail the run (no overwrite, delete or ACL change, ever). The receipt
- * (.work/assets/receipts/<contentReleaseId>.<storageTargetId>.json) holds no credentials or signed URLs.
+ * (.work/assets/receipts/<contentReleaseId>.<profile>.<storageTargetId>.json) holds no credentials or signed URLs but
+ * names the real endpoint, region and bucket, so it stays private; the copy for the issue / handoff is
+ * `….public.json` — the same evidence without them (logical storageTargetId only; BE review, #130).
+ *
+ * Exit codes: 0 = dry run listed, every object verified (--verify) or uploaded and verified (--execute);
+ * 2 = --verify found an object missing or different, or --execute did not verify every object; 1 = stopped before
+ * anything was checked (bad arguments, profile, plan or freeze).
  */
 import { createHash, createHmac } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -243,7 +249,8 @@ export async function run(
       if (r !== 'verified' && r !== 'missing') log(`  ${f.objectKey}: ${r}`);
     }
     log(`verify (read-only): ${Object.entries(counts).map(([k, v]) => `${v} ${k}`).join(', ')}`);
-    return null;
+    // anything not verified — missing, different bytes or type, an HTTP error — is a failed check, not a report (#130)
+    return { mode: 'verify' as const, status: counts.verified === plan.files.length ? ('VERIFIED' as const) : ('INCOMPLETE' as const), counts };
   }
   if (!opts.execute) {
     plan.files.forEach((f) => log(`  ${f.objectKey}  ${f.sizeBytes}  ${f.contentType}  ← ${f.sourcePath}`));
@@ -292,9 +299,22 @@ export async function run(
   mkdirSync(dir, { recursive: true });
   const out = join(dir, `${plan.contentReleaseId}.${profileName}.${profile.storageTargetId}.json`);
   writeFileSync(out, JSON.stringify(receipt, null, 2) + '\n');
+  const shareable = join(dir, `${plan.contentReleaseId}.${profileName}.${profile.storageTargetId}.public.json`);
+  writeFileSync(shareable, JSON.stringify(publicReceipt(receipt, profile), null, 2) + '\n');
   log(`${receipt.status}: ${receipt.newlyUploadedObjectCount} uploaded, ${receipt.reusedObjectCount} reused, ${failed.length} failed → ${out}`);
+  log(`  for the issue / handoff (no endpoint, region or bucket): ${shareable}`);
   failed.forEach((f) => log(`  FAILED ${f.objectKey}: ${f.error}`));
-  return receipt;
+  return { mode: 'execute' as const, ...receipt };
+}
+
+/** the receipt without the real storage configuration: what may be posted to an issue or a handoff doc (#130) */
+export function publicReceipt<R extends { endpoint: string; region: string; bucket: string }>(receipt: R, profile: Pick<Profile, 'endpoint' | 'region' | 'bucket'>) {
+  const { endpoint, region, bucket, ...rest } = receipt;
+  // error texts could quote a host or bucket: blank every real value wherever it appears
+  const secrets = [profile.endpoint, profile.endpoint && new URL(profile.endpoint).host, profile.bucket, profile.region].filter((v): v is string => !!v && v.length >= 3);
+  let text = JSON.stringify({ ...rest, receiptVisibility: 'public' });
+  for (const v of secrets.sort((a, b) => b.length - a.length)) text = text.split(v).join('<redacted>');
+  return JSON.parse(text) as Omit<R, 'endpoint' | 'region' | 'bucket'> & { receiptVisibility: 'public' };
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
@@ -312,7 +332,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     process.exit(1);
   }
   run(planPath, profileName, { profilesFile, execute: args.includes('--execute'), verify: args.includes('--verify'), confirm: opt('confirm'), env: process.env })
-    .then((r) => process.exit(r && r.status !== 'UPLOADED_VERIFIED' ? 2 : 0))
+    .then((r) => process.exit(r && r.status !== 'UPLOADED_VERIFIED' && r.status !== 'VERIFIED' ? 2 : 0))
     .catch((e) => {
       console.error((e as Error).message);
       process.exit(1);

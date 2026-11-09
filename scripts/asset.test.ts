@@ -198,6 +198,12 @@ describe('upload (mock OSS)', () => {
   };
   const env = { RC_ASSET_T_ACCESS_KEY_ID: 'test-id', RC_ASSET_T_ACCESS_KEY_SECRET: SECRET };
   const quiet = () => {};
+  // an --execute run returns its receipt (a --verify run returns only a status)
+  const execute = async (p: ReturnType<typeof run>) => {
+    const r = await p;
+    if (r?.mode !== 'execute') throw new Error('expected an --execute receipt');
+    return r;
+  };
 
   it('dry run needs no credentials and sends nothing', async () => {
     const { planPath, profilesFile } = setup();
@@ -207,10 +213,10 @@ describe('upload (mock OSS)', () => {
   it('uploads and verifies, then reuses on a rerun; the receipt has no secrets', async () => {
     const { planPath, profilesFile } = setup();
     const o = { profilesFile, execute: true, env, contentDir: content, rootDir: dir, receiptsDir: join(dir, 'receipts'), log: quiet };
-    const first = await run(planPath, 'test', o);
+    const first = await execute(run(planPath, 'test', o));
     expect(first!.status).toBe('UPLOADED_VERIFIED');
     expect(first!.newlyUploadedObjectCount).toBe(2);
-    const again = await run(planPath, 'test', o);
+    const again = await execute(run(planPath, 'test', o));
     expect(again!.reusedObjectCount).toBe(2);
     expect(again!.newlyUploadedObjectCount).toBe(0);
     expect(JSON.stringify(again)).not.toContain(SECRET);
@@ -219,7 +225,7 @@ describe('upload (mock OSS)', () => {
     const { planPath, profilesFile } = setup();
     const key = [...store.keys()].find((k) => k.endsWith('.mp3'))!;
     store.set(key, { body: Buffer.from('ID3\x03other'), type: 'audio/mpeg' });
-    const r = await run(planPath, 'test', { profilesFile, execute: true, env, contentDir: content, rootDir: dir, receiptsDir: join(dir, 'receipts'), log: quiet });
+    const r = await execute(run(planPath, 'test', { profilesFile, execute: true, env, contentDir: content, rootDir: dir, receiptsDir: join(dir, 'receipts'), log: quiet }));
     expect(r!.status).toBe('INCOMPLETE');
     expect(r!.failedObjects[0].error).toContain('not overwritten');
     expect(store.get(key)!.body.toString()).toContain('other');
@@ -233,17 +239,28 @@ describe('upload (mock OSS)', () => {
     const o = { profilesFile: handoff, env: {}, contentDir: content, rootDir: dir, receiptsDir: join(dir, 'receipts'), log: quiet };
     await expect(run(planPath, 'test', { ...o, execute: true })).rejects.toThrow('storage shared with production');
     const lines: string[] = [];
-    await run(planPath, 'test', { ...o, execute: false, verify: true, log: (l) => lines.push(l) });
+    const missing = await run(planPath, 'test', { ...o, execute: false, verify: true, log: (l) => lines.push(l) });
     expect(lines.at(-1)).toBe('verify (read-only): 2 missing');
+    expect(missing!.status).toBe('INCOMPLETE'); // the CLI exits 2: an automated run must not read this as success
     const before = store.size;
-    const r = await run(planPath, 'test', { ...o, execute: true, confirm: 'shared-resource-oss' });
+    const r = await execute(run(planPath, 'test', { ...o, execute: true, confirm: 'shared-resource-oss' }));
     expect(r!.status).toBe('UPLOADED_VERIFIED');
     expect(r!.sharedStorage).toBe(true);
     expect(JSON.stringify(r)).not.toContain(SECRET);
     expect(before).toBe(0); // verify wrote nothing
     lines.length = 0;
-    await run(planPath, 'test', { ...o, execute: false, verify: true, log: (l) => lines.push(l) });
+    const ok = await run(planPath, 'test', { ...o, execute: false, verify: true, log: (l) => lines.push(l) });
     expect(lines.at(-1)).toBe('verify (read-only): 2 verified');
+    expect(ok!.status).toBe('VERIFIED');
+    // the receipt for the issue names the logical target only; the private one keeps the real configuration
+    const host = new URL(endpoint).host;
+    const priv = readFileSync(join(dir, 'receipts/t-01.test.shared-resource-oss.json'), 'utf8');
+    const pub = readFileSync(join(dir, 'receipts/t-01.test.shared-resource-oss.public.json'), 'utf8');
+    expect(priv).toContain(host);
+    expect(pub).not.toContain(host);
+    expect(pub).not.toMatch(/"(endpoint|region|bucket)"/);
+    expect(JSON.parse(pub)).toMatchObject({ storageTargetId: 'shared-resource-oss', releaseId, status: 'UPLOADED_VERIFIED', receiptVisibility: 'public' });
+    expect(JSON.parse(pub).verifiedObjects).toHaveLength(2);
   });
   it('a file changed after freezing, or production without --confirm, stops before anything is sent', async () => {
     const { planPath, profilesFile } = setup();

@@ -337,7 +337,8 @@ UniRead平台接入方下发的规范独立存放在原RC仓库的`docs/uniread-
 | 冻结选材 | `npx tsx scripts/selection-json.ts <paperId> "<标题>" <playlist> [item…]` | `docs/handoff/production-selection.<paperId>.json`（rc-selection-2，一个Item一个Resource，接入方确认后使用） |
 | 身份与计划 | `npx tsx scripts/asset-plan.ts <contentReleaseId> <selection.json>` | `docs/handoff/asset-plan.<contentReleaseId>.json`（`be-asset-upload-plan-1`）与`asset-snapshot.<contentReleaseId>.sha256`（计划绑定的公开内容文件摘要） |
 | 预检（dry run） | `npx tsx scripts/asset-upload.ts <plan> --profile <名称>` | 列出精确对象、数量、字节和目标；不读凭证、不联网 |
-| 上传并回读验真 | `… --profile test --execute`；生产另加`--confirm <storageTargetId>` | `.work/assets/receipts/<contentReleaseId>.<storageTargetId>.json`（回执，含bucket，不入库、不贴到issue） |
+| 只读核对 | `… --profile <名称> --verify` | 计划内对象逐个取回核对；不写入 |
+| 上传并回读验真 | `… --profile test --execute`；生产另加`--confirm <storageTargetId>` | 私有回执`.work/assets/receipts/<contentReleaseId>.<profile>.<storageTargetId>.json`（含endpoint、region、bucket，不入库、不贴到issue）；可公开回执同名`….public.json`（只有逻辑storageTargetId、计划摘要和逐对象验真结果，贴到issue／交接文档用这一份） |
 
 - **Resource边界（2026-11-05与BE确认）**：一个Item就是一个Resource——KET阅读写作整卷、PET每个分卷、时文阅读一天、词汇天天练一天各是一个Resource。Part／Section是Resource内部结构，`sectionIds`按顺序列出全部Section，不给Part单独的resourceId。`resourceId = <itemId>`，sourceId、paperId、itemId等业务ID不变。2026-11-05前已交付的时文选材（`production-selection.ci-*.json`，按Section拆）保持原ID不重写，新的映射与BE确认后另起交付；`selection-json.ts --per-section`只用于逐字节复现这些旧文件。资源边界决定fingerprint与音频键，映射调整后必须重新冻结，不能改已冻结的计划继续用。
 
@@ -346,6 +347,7 @@ UniRead平台接入方下发的规范独立存放在原RC仓库的`docs/uniread-
 - **对象键**完全沿用BE：封面／缩略图`exam-media/v1/<sha256>.jpg|.png`；音频`exam-resources/v1/<releaseId>/<resourceFingerprint>/media/<sha256><来源扩展名小写>`。不加环境前缀、日期或新命名空间。
 - **覆盖范围**：合集封面、item缩略图 → 图片键；Section录音（`sections[].audio`，原书录音）、口语提示（`turns[].audio`，TTS）→ 所在Item这个Resource的音频键，并附BE的`assetId`（`"audio-"` + 来源路径UTF-8字节的SHA-256前24位，如`assets/ket1/ket1-t1-p1.m4a` → `audio-5e2aca1ac35b3ef242c6a7e6`；与文件内容SHA不同，不进入对象键）。文章／题目／选项图片保留本地（BE内嵌HTML，无独立键，列在`localOnly`）。BE尚无规则的对象（合集banner、视频、词汇天天练词条音频）列为`capabilityGaps`，不自造键。缺文件、扩展名与内容不符、符号链接、跨资源的item级音频、未知引用 → `errors`，计划状态为`INCOMPLETE`，不能上传。Key、答案册、私有转写、OCR与PDF永远不进计划。
 - **冻结复查（`--verify`与`--execute`之前）**：selection文件的SHA-256要与`selectionSHA256`一致，快照文件要与`contentSnapshotSHA256`一致，快照列出的每个文件也要与冻结时的摘要一致。快照包括公开内容JSON、要上传的文件和保留本地的内嵌图片。只要有一项变化就停止，什么都不发送，按新交付重新冻结。dry run只列出对象，不做复查。
+- **退出码（2026-11-09 BE复核，#130）**：0 = dry run已列出、`--verify`全部对象存在且一致、或`--execute`全部上传并验真；2 = `--verify`发现缺失／字节或类型不符／HTTP错误，或`--execute`未能验真全部对象；1 = 参数、profile、计划或冻结复查不通过，未做任何核对。自动流程只把0当作成功。
 - **上传**：`x-oss-forbid-overwrite`不可覆盖PUT，再用鉴权GET取回全部字节核对SHA-256、大小与Content-Type；已存在且字节相同则复用，不同则失败（不覆盖、不删除、不改ACL）。遇到第一个失败即停止，重跑时先核对已存在的对象再继续。
 - **Profile与凭证**：维护方私下交接的`oss-profiles.private.json`（`rc-oss-private-handoff-1`，内含凭证）放在仓库外的受控目录（如`~/.uniread-oss-private/`，权限0700），用`--profiles <路径>`直接读取；凭证只在`--verify`／`--execute`时使用、从不输出。交接文件声明`sharedStorage`（测试与生产共用同一bucket）时，任何profile写入都要`--confirm <storageTargetId>`，回执注明共享存储；`--verify`只读核对计划内对象是否已存在且字节一致。自建profile可用`.work/asset-profiles.local.json`（git忽略）；字段同规范第6节，`credentialRef: env:<NAME>`在执行时读取`<NAME>_ACCESS_KEY_ID`、`<NAME>_ACCESS_KEY_SECRET`及可选`<NAME>_SECURITY_TOKEN`（STS）。实际endpoint、bucket、凭证由维护方私下交接，不写进仓库、issue、日志或交接文档；测试回执不能用于生产。
 
