@@ -4,16 +4,16 @@ import type { TFunction } from 'i18next';
 import type { AnswerKeyT, BlockT, InlineT, ItemKeyT, QuestionT, VocabDayItemT } from '@schema';
 import { Rich, type BlankNode } from '@/components/Rich';
 import { isAnswered, type Result } from '@/lib/grading';
-import { BlankInput, JudgeMarks } from '@/reader/interactions';
-import { QuestionStrip } from '@/reader/QuestionStrip';
+import { BlankInput } from '@/reader/interactions';
 import { Block } from '@/reader/ArticlePane';
-import { QuizButton } from '@/ui/QuizButton/QuizButton';
 import { SectionHeader } from '@/ui/quiz/SectionHeader/SectionHeader';
+import { JudgeResult } from '@/ui/quiz/JudgeResult/JudgeResult';
+import bookmarkIcon from '@/assets/icons/answer-bookmark.svg';
 import { LineInput, type LineResult } from '@/ui/quiz/LineInput/LineInput';
 import { PosChips } from '@/ui/quiz/PosChips/PosChips';
 import { TableFill } from '@/ui/quiz/TableFill/TableFill';
 import { AnswerExplain, AnswerFeedback, type FeedbackResult } from '@/ui/quiz/AnswerFeedback/AnswerFeedback';
-import { PartPager, type PartResult } from '@/ui/quiz/PartPager/PartPager';
+import { PartNav, type PartNavPart, type PartQuestionState } from '@/ui/vocab/PartNav/PartNav';
 import { WordProfileRow as WordProfileLayout } from '@/ui/vocab/WordProfileRow/WordProfileRow';
 import { WordFamilyRow as WordFamilyLayout } from '@/ui/vocab/WordFamilyRow/WordFamilyRow';
 import { TranslateRow } from '@/ui/vocab/TranslateRow/TranslateRow';
@@ -64,6 +64,13 @@ const range = (s: VocabDayItemT['sections'][number]) => {
   return first === last ? `${first}` : `${first}–${last}`;
 };
 
+/** the range on a Part's card: "Q6–Q20" */
+const qRange = (t: TFunction, s: VocabDayItemT['sections'][number]) => {
+  const first = s.questions[0]?.number;
+  const last = s.questions[s.questions.length - 1]?.number;
+  return first === last ? t('vocab.quiz.qSingle', { n: first }) : t('vocab.quiz.qRange', { first, last });
+};
+
 /** the page = one 大题 */
 export function VocabQuiz({
   state,
@@ -90,77 +97,90 @@ export function VocabQuiz({
   }, [page]);
   const done = (s: (typeof sections)[number]) => s.questions.filter((q) => isAnswered(q, state.responses[q.id] as never)).length;
   const isLast = page === sections.length - 1;
-  const sectionResult = (s: (typeof sections)[number]): PartResult => {
-    if (!review) return 'none';
-    const rows = s.questions.map((q) => review.result.byQuestion.find((b) => b.q === q.id));
-    return rows.every((r) => r?.correct === true) ? 'correct' : rows.some((r) => r?.correct === false) ? 'wrong' : 'none';
-  };
-  /** #128 / #140: after submitting, each Part's dot shows questions right / questions ("4/5"), not a ✓ / ✗ for the
-   *  whole Part; nothing while a 中译英 mark is still coming */
+  const rowsOf = (s: (typeof sections)[number]) => s.questions.map((q) => review?.result.byQuestion.find((b) => b.q === q.id));
+  /** #128 / #140: after submitting, each Part's card shows questions right / questions ("4/5"); nothing while a 中译英
+   *  mark is still coming */
   const sectionScore = (s: (typeof sections)[number]): string | undefined => {
     if (!review) return undefined;
-    const rows = s.questions.map((q) => review.result.byQuestion.find((b) => b.q === q.id));
+    const rows = rowsOf(s);
     if (rows.some((r) => !r || r.scoredBy === 'pending')) return undefined;
     return `${rows.filter((r) => r?.correct === true).length}/${s.questions.length}`;
   };
+  /** the number of one question in the footer: answered (brand fill) while answering, right / wrong after submitting */
+  const questionState = (q: QuestionT): PartQuestionState => {
+    if (review) {
+      const r = review.result.byQuestion.find((b) => b.q === q.id);
+      return r?.correct === true ? 'correct' : r?.correct === false ? 'wrong' : 'none';
+    }
+    return isAnswered(q, state.responses[q.id] as never) ? 'answered' : 'none';
+  };
+  const allAnswered = sections.every((s) => done(s) === s.questions.length);
+  const parts: PartNavPart[] = sections.map((s, i) => {
+    const score = sectionScore(s);
+    return {
+      id: s.id,
+      title: partLabel(t, i),
+      kicker: `P${i + 1}`,
+      range: qRange(t, s),
+      questions: s.questions.map((q) => {
+        const st = questionState(q);
+        return {
+          id: q.id,
+          number: q.number,
+          state: st,
+          ariaLabel:
+            t('vocab.quiz.goQuestion', { n: q.number }) +
+            (st === 'answered' ? t('vocab.quiz.markAnswered') : st === 'correct' ? t('vocab.quiz.markRight') : st === 'wrong' ? t('vocab.quiz.markWrong') : ''),
+        };
+      }),
+      count: review ? score : `${done(s)}/${s.questions.length}`,
+      complete: done(s) === s.questions.length,
+      ariaLabel: t('vocab.quiz.sectionDot', { part: partLabel(t, i), range: range(s), done: done(s), total: s.questions.length }) + (score ? t('reader.dotRight', { score }) : ''),
+    };
+  });
+  /** tap a question number in the footer: bring its row into view and put the cursor in its first field */
+  const pickQuestion = (_part: number, qid: string) => {
+    const root = scroller.current;
+    const row = root?.querySelector<HTMLElement>(`[data-q="${qid}"], [data-vq-q="${qid}"]`);
+    if (!row) return;
+    const field = row.matches('[data-vq-field]') ? row : row.querySelector<HTMLElement>('[data-vq-field]:not([readonly])');
+    field?.focus({ preventScroll: true });
+    row.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  };
+  const next = { kind: 'next' as const, label: t('reader.next'), onClick: () => setPage(page + 1) };
   return (
     <div className="question-card vocab-quiz">
       <div className="question-scroll thin-scroll" ref={scroller}>
-        <SectionHeader
-          part={partLabel(t, page)}
-          instruction={section.instruction}
-          progress={review ? undefined : t('vocab.quiz.sectionProgress', { done: done(section), total: section.questions.length })}
-        />
+        <SectionHeader part={partLabel(t, page)} instruction={section.instruction} />
         {section.promptBank && <PromptBank items={section.promptBank} />}
         {section.stimulus && <TableStimulus blocks={section.stimulus} questions={section.questions} state={state} />}
         <ol className="vq-rows">
           {section.questions
-            // a question answered inside the table has no row of its own; in review its row shows the answer
-            .filter((q) => review || !inTable(q))
+            // a question answered inside the table has no row of its own; in review the table's right answers come in one box
+            .filter((q) => !inTable(q))
             .map((q) => (
               <Row key={q.id} q={q} state={state} />
             ))}
         </ol>
       </div>
-      <nav className="question-nav" aria-label={t('reader.nav')}>
-        <QuizButton disabled={page <= 0} onClick={() => setPage(page - 1)}>
-          {t('reader.prev')}
-        </QuizButton>
-        <QuestionStrip current={page} count={sections.length}>
-          {sections.map((s, i) => (
-            <PartPager
-              key={s.id}
-              kicker={`P${i + 1}`}
-              label={range(s)}
-              selected={i === page}
-              completed={done(s) === s.questions.length}
-              result={sectionResult(s)}
-              score={sectionScore(s)}
-              reviewing={!!review}
-              onClick={() => setPage(i)}
-              ariaLabel={
-                t('vocab.quiz.sectionDot', { part: partLabel(t, i), range: range(s), done: done(s), total: s.questions.length }) +
-                (sectionScore(s) ? t('reader.dotRight', { score: sectionScore(s) }) : '')
-              }
-            />
-          ))}
-        </QuestionStrip>
-        {review ? (
-          isLast ? (
-            <QuizButton variant="primary" onClick={onShowResult}>
-              {t('vocab.result.back')}
-            </QuizButton>
-          ) : (
-            <QuizButton onClick={() => setPage(page + 1)}>{t('reader.next')}</QuizButton>
-          )
-        ) : isLast ? (
-          <QuizButton variant="primary" disabled={submitting} onClick={onSubmit}>
-            {t('reader.submit')}
-          </QuizButton>
-        ) : (
-          <QuizButton onClick={() => setPage(page + 1)}>{t('reader.next')}</QuizButton>
-        )}
-      </nav>
+      <PartNav
+        label={t('reader.nav')}
+        parts={parts}
+        page={page}
+        review={!!review}
+        prev={{ label: t('reader.prev'), onClick: () => setPage(page - 1) }}
+        action={
+          review
+            ? isLast
+              ? { kind: 'back', label: t('vocab.result.back'), onClick: onShowResult }
+              : next
+            : isLast
+              ? { kind: 'submit', label: t('reader.submit'), dim: !allAnswered, disabled: submitting, onClick: onSubmit }
+              : next
+        }
+        onPage={setPage}
+        onPickQuestion={pickQuestion}
+      />
     </div>
   );
 }
@@ -187,16 +207,35 @@ function TableStimulus({ blocks, questions, state }: { blocks: BlockT[]; questio
         onChange={(v) => state.setResponse(q.id, { ...record(state.responses[q.id]), [n.id]: v })}
         ok={state.review ? (result?.parts?.[n.id] ?? null) : null}
         locked={(state.kept.has(q.id) && !state.review) || !!state.review}
-        inputAttrs={fieldAttrs}
+        inputAttrs={{ ...fieldAttrs, 'data-vq-q': q.id }}
       />
     );
   };
   return (
-    <TableFill>
-      {blocks.map((b) => (
-        <Block key={b.id} block={b} renderBlank={renderBlank} />
-      ))}
-    </TableFill>
+    <>
+      <TableFill>
+        {blocks.map((b) => (
+          <Block key={b.id} block={b} renderBlank={renderBlank} />
+        ))}
+      </TableFill>
+      {state.review && <TableReview questions={questions.filter(inTable)} state={state} />}
+    </>
+  );
+}
+
+/** Figma 3.31: after the table one fold "正确答案" with the answers of the cells that were not right (numbered as the questions) */
+function TableReview({ questions, state }: { questions: QuestionT[]; state: QuizState }) {
+  const { t } = useTranslation();
+  const review = state.review!;
+  const wrong = questions.filter((q) => review.result.byQuestion.find((b) => b.q === q.id)?.correct !== true && review.key.answers[q.id]);
+  if (!wrong.length) return <span className="sr-only">{t('reader.correct')}</span>;
+  return (
+    <AnswerFeedback
+      result="wrong"
+      label={t('reader.correctAnswer')}
+      answer={wrong.map((q) => `${q.number}. ${answerText(q, review.key.answers[q.id])}`).join('   ')}
+      score={{ correct: false, text: t('reader.wrong') }}
+    />
   );
 }
 
@@ -214,6 +253,13 @@ function PromptBank({ items }: { items: string[] }) {
   );
 }
 
+/** a sentence whose Chinese prompt ends in its blank (二, 词组日一): the blank sits at the right (#118) */
+const answerRight = (q: QuestionT) => {
+  if (q.interaction.kind !== 'textEntry') return false;
+  const prompt = q.interaction.prompt ?? [];
+  return prompt.length > 1 && prompt[prompt.length - 1]?.t === 'blank';
+};
+
 function Row({ q, state }: { q: QuestionT; state: QuizState }) {
   const { t } = useTranslation();
   const { review } = state;
@@ -226,9 +272,14 @@ function Row({ q, state }: { q: QuestionT; state: QuizState }) {
   else if (it.kind === 'wordFamily') body = <WordFamilyRow q={q} state={state} locked={kept} />;
   else if (it.kind === 'textEntry') body = <TextEntryRow q={q} state={state} locked={kept} />;
   else if (it.kind === 'extendedText') body = <TranslationRow q={q} state={state} locked={kept} />;
+  // 一 三 and the sentences with the blank at the right are white cards (RC/Vocab/WordProfileRow, WordFamilyRow, vq-row);
+  // the other rows sit on the card itself (Figma 3.11–3.16)
+  const card = it.kind === 'wordProfile' || it.kind === 'wordFamily' || answerRight(q);
   return (
-    <li className={`vq-row ${res?.correct === true ? 'is-correct' : res?.correct === false ? 'is-wrong' : ''} ${kept ? 'is-kept' : ''}`} data-q={q.id}>
-      <span className="vq-num">{q.number}.</span>
+    <li
+      className={`vq-row ${card ? 'is-card' : ''} ${review ? 'is-reviewed' : ''} ${res?.correct === true ? 'is-correct' : res?.correct === false ? 'is-wrong' : ''} ${kept ? 'is-kept' : ''}`}
+      data-q={q.id}
+    >
       <div className="vq-body">
         {body}
         {kept && <span className="vq-kept">{t('vocab.quiz.kept')}</span>}
@@ -250,9 +301,12 @@ function WordProfileRow({ q, state, locked }: { q: QuestionT; state: QuizState; 
   const set = (k: string, v: string) => state.setResponse(q.id, { ...r, [k]: v });
   return (
     <WordProfileLayout
+      num={`${q.number}.`}
       ipa={<Rich nodes={q.interaction.prompt} />}
-      word={<LineInput value={r.word ?? ''} onChange={(v) => set('word', v)} locked={ro} label={t('vocab.quiz.word', { n: q.number })} placeholder={t('vocab.quiz.phWord')} result={partResult(parts?.word)} lang="en" inputAttrs={fieldAttrs} />}
-      zh={<LineInput value={r.zh ?? ''} onChange={(v) => set('zh', v)} locked={ro} label={t('vocab.quiz.zh', { n: q.number })} placeholder={t('vocab.quiz.phZh')} result={partResult(parts?.zh)} lang="zh" inputAttrs={fieldAttrs} />}
+      word={<LineInput value={r.word ?? ''} onChange={(v) => set('word', v)} locked={ro} label={t('vocab.quiz.word', { n: q.number })} result={partResult(parts?.word)} lang="en" inputAttrs={fieldAttrs} />}
+      zh={<LineInput value={r.zh ?? ''} onChange={(v) => set('zh', v)} locked={ro} label={t('vocab.quiz.zh', { n: q.number })} result={partResult(parts?.zh)} lang="zh" inputAttrs={fieldAttrs} />}
+      wordLabel={t('vocab.quiz.wordLabel')}
+      zhLabel={t('vocab.quiz.zhLabel')}
       posLabel={t('vocab.quiz.posLabel')}
       pos={<PosChips options={q.interaction.posOptions} value={r.pos ?? ''} onChange={(v) => set('pos', v)} disabled={ro} label={t('vocab.quiz.pos', { n: q.number })} result={partResult(parts?.pos)} />}
     />
@@ -270,12 +324,15 @@ function WordFamilyRow({ q, state, locked }: { q: QuestionT; state: QuizState; l
   const set = (k: string, v: string) => state.setResponse(q.id, { ...r, [k]: v });
   return (
     <WordFamilyLayout
+      num={`${q.number}.`}
+      wordLabel={t('vocab.quiz.wordLabel')}
+      zhLabel={t('vocab.quiz.zhLabel')}
       base={it.base.word}
       slots={it.slots.map((s) => ({
         id: s.id,
         pos: s.pos,
-        word: <LineInput value={r[`${s.id}.word`] ?? ''} onChange={(v) => set(`${s.id}.word`, v)} locked={ro} label={t('vocab.quiz.familyWord', { n: q.number, pos: s.pos })} placeholder={t('vocab.quiz.phWord')} result={partResult(parts?.[`${s.id}.word`])} lang="en" inputAttrs={fieldAttrs} />,
-        zh: <LineInput value={r[`${s.id}.zh`] ?? ''} onChange={(v) => set(`${s.id}.zh`, v)} locked={ro} label={t('vocab.quiz.familyZh', { n: q.number, pos: s.pos })} placeholder={t('vocab.quiz.phZh')} result={partResult(parts?.[`${s.id}.zh`])} lang="zh" inputAttrs={fieldAttrs} />,
+        word: <LineInput value={r[`${s.id}.word`] ?? ''} onChange={(v) => set(`${s.id}.word`, v)} locked={ro} label={t('vocab.quiz.familyWord', { n: q.number, pos: s.pos })} result={partResult(parts?.[`${s.id}.word`])} lang="en" inputAttrs={fieldAttrs} />,
+        zh: <LineInput value={r[`${s.id}.zh`] ?? ''} onChange={(v) => set(`${s.id}.zh`, v)} locked={ro} label={t('vocab.quiz.familyZh', { n: q.number, pos: s.pos })} result={partResult(parts?.[`${s.id}.zh`])} lang="zh" inputAttrs={fieldAttrs} />,
       }))}
     />
   );
@@ -299,13 +356,16 @@ function TextEntryRow({ q, state, locked }: { q: QuestionT; state: QuizState; lo
       onChange={(v) => state.setResponse(q.id, { ...r, [n.id]: v })}
       ok={state.review ? (result?.parts?.[n.id] ?? null) : null}
       locked={locked || !!state.review}
+      baseOutside
       inputAttrs={fieldAttrs}
     />
   );
   const last = prompt[prompt.length - 1];
+  const num = <span className="vq-num">{q.number}.</span>;
   if (last?.t === 'blank' && prompt.length > 1) {
     return (
       <p className="vq-sentence is-answer-right">
+        {num}
         <span className="vq-prompt">
           <Rich nodes={prompt.slice(0, -1)} />
         </span>
@@ -315,7 +375,10 @@ function TextEntryRow({ q, state, locked }: { q: QuestionT; state: QuizState; lo
   }
   return (
     <p className="vq-sentence">
-      <Rich nodes={prompt} blank={blank} />
+      {num}
+      <span className="vq-text">
+        <Rich nodes={prompt} blank={blank} />
+      </span>
     </p>
   );
 }
@@ -327,6 +390,7 @@ function TranslationRow({ q, state, locked }: { q: QuestionT; state: QuizState; 
   const value = typeof state.responses[q.id] === 'string' ? (state.responses[q.id] as string) : '';
   return (
     <TranslateRow
+      num={`${q.number}.`}
       prompt={<Rich nodes={it.prompt} />}
       requiredWord={it.requiredWord}
       value={value}
@@ -358,6 +422,28 @@ function Review({ q, k, result, state }: { q: QuestionT; k: AnswerKeyT; result?:
   const hintedHere = [...state.hinted].some((h) => h.startsWith(`${q.id}:`));
   const points = 'keyPoints' in k ? (k.keyPoints ?? []) : [];
   const scored = result && result.scoredBy !== 'pending' && result.scoredBy !== 'self' && result.scoredBy !== 'none';
+  // Figma 3.28: a model-marked 中译英 is one grey box — the score, a pill per point met / to work on, the reference translation
+  if (result?.scoredBy === 'judge' && result.judgement) {
+    const j = result.judgement;
+    return (
+      <JudgeResult
+        layout="line"
+        label={t('judge.markLabel')}
+        score={j.score}
+        max={j.maxPoints}
+        scoreText={t('judge.scoreLine', { score: j.score, max: j.maxPoints })}
+        reviewTag={j.needsReview ? t('judge.needsReview') : undefined}
+        chips={[
+          ...points.map((p) => ({ id: p.id, text: p.descZh, kind: (j.keyPoints.find((x) => x.id === p.id)?.met === 'yes' ? 'good' : 'tip') as 'good' | 'tip' })),
+          ...j.languageIssues.map((l, i) => ({ id: `language-${i}`, text: l.noteZh ?? `${l.text} → ${l.fix}`, kind: 'tip' as const })),
+        ]}
+        feedback={j.feedbackZh}
+        reference={t('vocab.result.reference', { text: answerText(q, k) })}
+      />
+    );
+  }
+  // Figma 3.26: a right answer has no box — the colour of the field and the Part's mark say it (spoken here)
+  if (result?.correct === true) return <span className="sr-only">{t('reader.correct')}</span>;
   return (
     <AnswerFeedback
       result={feedbackResult(result)}
@@ -374,20 +460,22 @@ function Review({ q, k, result, state }: { q: QuestionT; k: AnswerKeyT; result?:
             }
           : undefined
       }
+      action={
+        q.entryRef && (
+          <button type="button" className="vq-word" onClick={() => state.onOpenEntry(q.entryRef!)}>
+            <img src={bookmarkIcon} alt="" />
+            {t('vocab.result.openEntry')}
+          </button>
+        )
+      }
     >
       {result?.scoredBy === 'pending' && (
         <p className="judge is-pending" role="status">
           {t('judge.marking')}
         </p>
       )}
-      {result?.scoredBy === 'judge' && result.judgement && <JudgeMarks j={result.judgement} points={points} />}
       {result?.scoredBy === 'self' && <AnswerExplain>{t('vocab.result.judgeUnavailable')}</AnswerExplain>}
       {k.explanationZh && <AnswerExplain>{k.explanationZh}</AnswerExplain>}
-      {q.entryRef && (
-        <button type="button" className="chip" onClick={() => state.onOpenEntry(q.entryRef!)}>
-          {t('vocab.result.openEntry')}
-        </button>
-      )}
     </AnswerFeedback>
   );
 }

@@ -1,7 +1,5 @@
-/* RC/Vocab/CompareBlock (proposed). Tokens only. */
-.entry-compare {
-  margin: var(--ur-space-12) 0 0 calc(var(--ur-space-32) + var(--ur-space-12)); padding: var(--ur-space-12) var(--ur-space-16);
-  border-radius: var(--ur-radius-s); background: var(--ur-color-background-subtle); font: var(--ur-text-font-system-m-regular);
-}
-.entry-compare p { margin: var(--ur-space-4) 0 0; }
-@media (max-width: 1023px) { .entry-compare { margin-left: 0; } }
+/* RC/Vocab/CompareBlock (proposed). Tokens only. Title S medium text/tertiary with 8 below, lines M regular 6 apart
+   (Figma 19445:507). The white box itself is the TipBox body. */
+.entry-compare { display: grid; gap: calc(var(--ur-space-8) - var(--ur-space-2)); font: var(--ur-text-font-system-m-regular); color: var(--ur-color-text-primary); }
+.entry-compare p { margin: 0; }
+.entry-compare-title { padding-bottom: var(--ur-space-8); font: var(--ur-text-font-system-s-medium); color: var(--ur-color-text-tertiary); }

@@ -38,7 +38,14 @@ export function VocabList({
             {
               key: m.key,
               description: m.description,
-              symbol: <MarkTag kind={m.key === 'star' ? 'star' : m.key === 'supplement' ? 'supplement' : m.key === 'textbook' ? 'textbook' : 'level'}>{m.symbol}</MarkTag>,
+              symbol:
+                m.key === 'star' ? (
+                  <MarkTag kind="star">{m.symbol}</MarkTag>
+                ) : m.key === 'supplement' ? (
+                  <MarkTag kind="supplement">{t('vocab.entry.supplement')}</MarkTag>
+                ) : (
+                  <MarkTag kind={m.key === 'textbook' ? 'textbook' : 'level'}>{m.symbol}</MarkTag>
+                ),
             },
           ],
     );

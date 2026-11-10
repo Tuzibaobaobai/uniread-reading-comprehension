@@ -22,7 +22,7 @@ export function LineInput({
   onChange: (v: string) => void;
   locked: boolean;
   label: string;
-  placeholder: string;
+  placeholder?: string;
   result?: LineResult;
   lang: 'en' | 'zh';
   inputAttrs?: InputHTMLAttributes<HTMLInputElement> & Record<`data-${string}`, string>;

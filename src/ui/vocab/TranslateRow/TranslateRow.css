@@ -1,11 +1,16 @@
-/* RC/Vocab/TranslateRow (proposed). Tokens only; the textarea box itself is the shared .long-answer (app.css). */
+/* RC/Vocab/TranslateRow (proposed) — Figma 19459:1071. Tokens only; the textarea is the shared .long-answer (LongAnswer.css),
+   here with radius xs, padding 8 / 12 and a 72 high writing area. */
+.vq-translate { display: grid; gap: var(--ur-space-16); padding: var(--ur-space-16) 0; }
 .vq-zh-sentence {
-  margin: 0; font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+  margin: 0; display: flex; gap: var(--ur-space-12); align-items: center; min-height: var(--ur-height-height-3);
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
   color: var(--ur-color-text-primary);
 }
-.vq-required { color: var(--ur-color-action-primary-strong); font-weight: var(--ur-text-font-system-m-bold-weight); }
+.vq-zh-sentence .vq-num { color: var(--ur-color-text-strong); }
+.vq-required { font-weight: var(--ur-text-font-system-l-medium-weight); }
 .long-answer.vq-textarea {
-  margin-top: var(--ur-space-8); min-height: 0; padding: var(--ur-space-8) var(--ur-space-12);
+  margin: 0; min-height: calc(var(--ur-space-80) + var(--ur-space-8) + var(--ur-stroke-strong));
+  padding: var(--ur-space-8) var(--ur-space-12); border-radius: var(--ur-radius-xs);
   font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
 }
 .vq-textarea::placeholder { color: var(--ur-color-text-tertiary); font-size: var(--ur-text-font-system-m-regular-size); }

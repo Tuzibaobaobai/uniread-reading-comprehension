@@ -1,2 +1,6 @@
-/* RC/Quiz/SectionHeader (proposed). Tokens only; .section-instruction itself is the shared reader style (app.css). */
-.vq-progress { margin-left: var(--ur-space-12); font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-action-primary-strong); }
+/* RC/Quiz/SectionHeader (proposed). Tokens only; .section-instruction itself is the shared reader style (app.css).
+   16 / 26: "Part 1." bold strong, 12 apart from the instruction in secondary. */
+.vq-part-head > b {
+  margin-right: var(--ur-space-8); color: var(--ur-color-text-strong);
+  font-weight: var(--ur-text-font-system-m-bold-weight);
+}

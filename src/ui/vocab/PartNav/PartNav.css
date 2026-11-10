@@ -1,0 +1,101 @@
+/* rc/Vocab/PartNav (proposed) — Figma 词汇 › 测验 question-nav (19706:143453…). Tokens only. The card's width does not
+   change the sizes: below 1000px the whole page scales with vw (postcss-mobile-forever); more Parts than fit scroll in
+   the strip (ui/quiz/QuestionNav QuestionStrip: fade + "+N" more buttons, the current Part kept centred). */
+.part-nav {
+  flex: none; display: flex; align-items: center; gap: var(--ur-space-8);
+  padding: var(--ur-space-12) var(--ur-space-16);
+  background: var(--ur-color-background-card); box-shadow: var(--ur-effect-bar);
+}
+.part-nav .question-strip { flex: 1; min-width: 0; }
+.part-nav .question-dots { gap: var(--ur-space-8); padding: 0; --strip-fade: var(--ur-space-32); }
+
+/* previous / next / submit: 56 × 80 round buttons, effect style btn; a disabled one stays visible at 20% */
+.part-arrow {
+  flex: none; width: var(--ur-height-height-7); height: var(--ur-height-height-10);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0;
+  border: none; border-radius: var(--ur-radius-full);
+  background: var(--ur-color-background-card); box-shadow: var(--ur-effect-btn);
+  color: var(--ur-color-text-on-action);
+}
+.part-arrow img { display: block; height: calc(var(--ur-space-16) + var(--ur-space-2)); width: auto; }
+.part-arrow:disabled { opacity: var(--ur-opacity-disabled); }
+.part-arrow.is-primary { background: var(--ur-color-action-primary); }
+.part-arrow.is-primary.is-dim { opacity: var(--ur-opacity-disabled); }
+.part-arrow.is-primary svg { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); flex: none; }
+.part-arrow.is-primary span {
+  font-size: var(--ur-text-font-system-s-medium-size); line-height: var(--ur-text-font-system-s-medium-line-height);
+  font-weight: var(--ur-text-font-system-s-medium-weight); white-space: nowrap;
+}
+.part-arrow.is-back span { font-size: var(--ur-text-font-system-xs-medium-size); line-height: var(--ur-text-font-system-xs-medium-line-height); }
+@media (hover: hover) and (pointer: fine) {
+  .part-arrow:hover:not(:disabled) { box-shadow: var(--ur-effect-btn-hover); }
+  .part-arrow.is-primary:hover:not(:disabled):not(.is-dim) { background: var(--ur-color-action-primary-strong); }
+}
+
+/* a Part: 88 high, radius s */
+.part-card {
+  flex: none; box-sizing: border-box; min-width: var(--ur-height-height-9); height: calc(var(--ur-space-80) + var(--ur-space-8));
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+  padding: calc(var(--ur-space-4) + var(--ur-space-2)) var(--ur-space-8) 0;
+  border: var(--ur-stroke-default) solid var(--ur-paint-neutral-black-8); border-radius: var(--ur-radius-s);
+  background: var(--ur-color-background-card); color: var(--ur-color-text-primary); font: inherit;
+}
+.part-card-title {
+  font-size: var(--ur-text-font-system-s-bold-size); line-height: var(--ur-text-font-system-s-bold-line-height);
+  font-weight: var(--ur-text-font-system-s-bold-weight); white-space: nowrap;
+}
+.part-card-range {
+  margin-top: var(--ur-space-2); white-space: nowrap; color: var(--ur-color-black-60); font-weight: 300;
+  font-size: calc(var(--ur-text-font-system-xs-regular-size) - var(--ur-space-2)); line-height: 1;
+}
+/* completion: 56 wide pill, grey while questions are left, brand once every question is answered */
+.part-pill {
+  margin-top: var(--ur-space-12); width: var(--ur-height-height-7); padding: var(--ur-space-2) 0; text-align: center;
+  border-radius: var(--ur-radius-full); background: var(--ur-paint-customization-grey-2); color: var(--ur-color-text-secondary);
+  font-size: var(--ur-text-font-system-s-medium-size); line-height: var(--ur-text-font-system-s-medium-line-height);
+  font-weight: var(--ur-text-font-system-s-medium-weight); font-variant-numeric: tabular-nums;
+}
+.part-pill.is-full { background: var(--ur-color-action-primary-soft); color: var(--ur-color-text-primary); font-weight: var(--ur-text-font-system-s-bold-weight); }
+/* review: one dash per question, then right / total */
+.part-result { margin-top: var(--ur-space-8); display: flex; flex-direction: column; align-items: center; gap: var(--ur-space-2); padding-top: var(--ur-space-2); }
+/* the dashes stay within the 56 wide pill's width (as drawn: 5 × 8 + gaps): a 15-, 26- or 34-question Part narrows its
+   dashes and gaps instead of widening the card and squeezing the current Part out of the footer */
+.part-segs { display: flex; gap: var(--ur-space-2); max-width: var(--ur-height-height-7); overflow: hidden; }
+.part-segs:has(> .part-seg:nth-child(11)) { gap: var(--ur-stroke-default); }
+.part-segs:has(> .part-seg:nth-child(21)) { gap: 0; }
+.part-seg { flex: 0 1 auto; width: var(--ur-space-8); min-width: var(--ur-stroke-default); height: calc(var(--ur-space-4) - var(--ur-stroke-default)); border-radius: var(--ur-radius-full); background: var(--ur-paint-customization-grey-6); }
+.part-seg.is-correct { background: var(--ur-color-feedback-success); }
+.part-seg.is-wrong { background: var(--ur-color-feedback-error); }
+.part-result-count {
+  min-height: var(--ur-text-font-system-s-medium-line-height); font-variant-numeric: tabular-nums;
+  font-size: var(--ur-text-font-system-s-medium-size); line-height: var(--ur-text-font-system-s-medium-line-height);
+  font-weight: var(--ur-text-font-system-s-medium-weight);
+}
+
+/* the current Part: its title and a round number per question (brand fill = answered) */
+/* it shrinks first (its numbers scroll inside it), so every other Part stays in view as drawn — a 15- or 32-question Part
+   must not push P3… behind the strip's "+N" button */
+.part-card.is-current { flex: 0 1 auto; min-width: min(100%, calc(var(--ur-height-height-5) * 5 + var(--ur-space-4) * 4 + var(--ur-space-32))); max-width: 100%; padding-inline: var(--ur-space-16); border-color: var(--ur-color-action-primary); gap: var(--ur-space-8); }
+.part-qs { display: flex; gap: var(--ur-space-4); max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.part-qs::-webkit-scrollbar { display: none; }
+/* the side that hides numbers fades out (the strip's own fade, --strip-fade) */
+.part-qs.has-more-end { mask-image: linear-gradient(to right, black calc(100% - var(--ur-space-32)), transparent); }
+.part-qs.has-more-start { mask-image: linear-gradient(to left, black calc(100% - var(--ur-space-32)), transparent); }
+.part-qs.has-more-start.has-more-end { mask-image: linear-gradient(to right, transparent, black var(--ur-space-32), black calc(100% - var(--ur-space-32)), transparent); }
+.part-q {
+  flex: none; position: relative; width: var(--ur-height-height-5); height: var(--ur-height-height-5); padding: 0;
+  display: grid; place-items: center; border: var(--ur-stroke-default) solid var(--ur-color-border-divider); border-radius: var(--ur-radius-full);
+  background: var(--ur-color-background-card); color: var(--ur-color-text-primary);
+  font-size: var(--ur-text-font-system-s-bold-size); line-height: var(--ur-text-font-system-s-bold-line-height);
+  font-weight: var(--ur-text-font-system-s-bold-weight); font-variant-numeric: tabular-nums;
+}
+/* the circle is 40 as drawn; the tap target is 44 */
+.part-q::before { content: ''; position: absolute; inset: calc(-1 * var(--ur-space-2)); border-radius: var(--ur-radius-full); }
+.part-q.is-answered { background: var(--ur-color-action-primary-soft); border-color: var(--ur-color-action-primary-soft); }
+.part-q.is-correct { background: var(--ur-color-feedback-success-bg); border-color: var(--ur-color-feedback-success-bg); color: var(--ur-color-feedback-success-text); }
+.part-q.is-wrong { background: var(--ur-color-feedback-error-bg); border-color: var(--ur-color-feedback-error-bg); color: var(--ur-color-feedback-error); }
+@media (hover: hover) and (pointer: fine) {
+  .part-nav button.part-card:hover { background: var(--ur-color-background-subtle); }
+  .part-q:not(.is-answered):not(.is-correct):not(.is-wrong):hover { background: var(--ur-color-background-subtle); }
+}
+.part-nav :is(.part-card, .part-q, .part-arrow):focus-visible { outline: var(--ur-stroke-strong) solid var(--ur-color-action-primary); outline-offset: var(--ur-space-2); }

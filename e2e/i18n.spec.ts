@@ -104,8 +104,28 @@ test('en-US: 词汇天天练 — every step in English (#106 #133)', async ({ pa
   await expect(page.locator('.vocab-tally')).toContainText('33 words not marked in Scan');
   await expect(page.getByRole('button', { name: 'Expand ability' })).toBeVisible();
   await page.getByRole('tab', { name: /Quiz/ }).click();
-  await expect(page.locator('.section-instruction b').first()).toHaveText('Part 1. ');
+  await expect(page.locator('.section-instruction b').first()).toHaveText('Part 1.');
   // nothing Chinese in the chrome: only content (entries, instructions, answers) may be Chinese
-  const chrome = await page.locator('.reader-head-title, .mode-tabs, .question-nav, .vq-progress').allInnerTexts();
+  const chrome = await page.locator('.reader-head-title, .mode-tabs, .part-nav').allInnerTexts();
+  expect(chrome.join(' ')).not.toMatch(/[一-鿿]/);
+});
+
+test('en-US: 词汇天天练 result and review — English chrome (#106; the designer’s 3.25 / 3.26)', async ({ page }) => {
+  await page.goto('/#/p/zkv/zkv-d01');
+  await page.getByRole('tab', { name: /Quiz/ }).click();
+  await page.getByRole('button', { name: /^Part 6/ }).click();
+  await page.getByRole('button', { name: 'Submit' }).click();
+  const confirm = page.getByRole('dialog').getByRole('button', { name: /Submit/ });
+  if (await confirm.count()) await confirm.click();
+  await expect(page.locator('.vq-result-title')).toHaveText('Not passed this time — try again');
+  await expect(page.locator('.vq-result-label').first()).toHaveText('P1');
+  await expect(page.locator('.vq-result-part').first()).toHaveAttribute('aria-label', 'Part 1, questions 1–5, 0/5 right');
+  await expect(page.getByRole('button', { name: /Retry mistakes/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Start over' })).toBeVisible();
+  await page.getByRole('button', { name: /View Answers/ }).click();
+  await expect(page.locator('.vq-fold-head').first()).toHaveText('Answer');
+  await page.locator('.vq-word').first().click();
+  await expect(page.getByRole('dialog')).toContainText('Open entry');
+  const chrome = await page.locator('.vq-fold-head, .vq-word, .entry-dialog-title').allInnerTexts();
   expect(chrome.join(' ')).not.toMatch(/[一-鿿]/);
 });

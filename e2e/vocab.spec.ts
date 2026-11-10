@@ -177,8 +177,9 @@ test('Scan → Study (#133): one word a page, 认识 / 不认识, Study coloured
 test('graded stars (#139): * / ** / *** as printed, legend explains the levels used that day', async ({ page }) => {
   await page.goto('/#/p/zkv/zkv-d05');
   await page.getByRole('tab', { name: /学习/ }).click();
+  // the designer's 3.07: one gold star icon per printed *, the meaning in the title / label
   const because = page.locator('.entry[data-entry="e-because"] .entry-star');
-  await expect(because).toHaveText('***');
+  await expect(because.locator('img')).toHaveCount(3);
   await expect(because).toHaveAttribute('title', '在市毕业考试卷中多次出现的高频词汇');
   const legend = page.locator('.vocab-legend');
   await expect(legend).toContainText('在各区统考试卷中出现的高频词汇');
@@ -187,7 +188,7 @@ test('graded stars (#139): * / ** / *** as printed, legend explains the levels u
   // 高考 has one star level: the plain legend
   await page.goto('/#/p/gkv/gkv-d003');
   await page.getByRole('tab', { name: /学习/ }).click();
-  await expect(page.locator('.entry-star').filter({ hasText: /^\*\*/ })).toHaveCount(0);
+  await expect(page.locator('.entry-star').filter({ has: page.locator('img:nth-child(2)') })).toHaveCount(0);
 });
 
 test('Quiz: Part pages, typed answers only, Enter, result, review, entry, retry mistakes', async ({ page }, info) => {
@@ -196,10 +197,14 @@ test('Quiz: Part pages, typed answers only, Enter, result, review, entry, retry 
   await page.goto(`/#/p/zkv/${ITEM}`);
   await expect(page.getByRole('tab', { name: /测验/ })).toHaveAttribute('aria-selected', 'true'); // an attempt in progress opens the quiz
   await expect(page.locator('.section-instruction')).toContainText('Part 1. 根据所给音标写出英语单词、词性及中文释义');
-  // pager: one Part per page, labelled P1… with its question numbers, like the one-page Parts of KET / PET (#114)
-  await expect(page.locator('.question-dot')).toHaveCount(6);
-  await expect(page.locator('.question-dot').nth(1)).toHaveAttribute('data-part', 'P2');
-  await expect(page.locator('.question-dot').nth(1)).toContainText('6–20');
+  // footer (the designer's question-nav): one Part per page — the current Part opens into its question numbers, the others
+  // are cards "P2 · Q6–Q20" with how many questions are answered
+  await expect(page.locator('.part-card')).toHaveCount(6);
+  await expect(page.locator('.part-card').nth(1)).toHaveAttribute('data-part', 'P2');
+  await expect(page.locator('.part-card').nth(1)).toContainText('Q6–Q20');
+  await expect(page.locator('.part-card').nth(1)).toContainText('15/15');
+  await expect(page.locator('.part-card.is-current .part-q')).toHaveText(['1', '2', '3', '4', '5']);
+  await expect(page.locator('.part-card.is-current .part-q.is-answered')).toHaveCount(3); // q3–q5 answered, q1–q2 left empty
   // no hints, no voice input (#115 #116)
   await expect(page.locator('.vq-row')).toHaveCount(5);
   await expect(page.getByRole('button', { name: /提示|语音/ })).toHaveCount(0);
@@ -213,8 +218,10 @@ test('Quiz: Part pages, typed answers only, Enter, result, review, entry, retry 
   await page.getByRole('radiogroup', { name: '第 1 题：词性' }).getByRole('radio', { name: 'n.', exact: true }).click();
   const box = async (name: string) => (await page.getByRole('textbox', { name }).boundingBox())!;
   expect(Math.abs((await box('第 1 题：单词')).y - (await box('第 1 题：中文释义')).y)).toBeLessThan(2);
+  // "英文单词：" and "词性：" start at the same x (the labelled rows of the designer's WordProfileRow)
   const label = (await page.locator('.vq-row').first().locator('.vq-pos-label').boundingBox())!;
-  expect(Math.abs(label.x - (await box('第 1 题：单词')).x)).toBeLessThan(4);
+  const wordLabel = (await page.locator('.vq-row').first().locator('.vq-field-label').first().boundingBox())!;
+  expect(Math.abs(label.x - wordLabel.x)).toBeLessThan(4);
   // q2: a misspelt word
   await page.getByRole('textbox', { name: '第 2 题：单词' }).fill('abord');
   await page.getByRole('radiogroup', { name: '第 2 题：词性' }).getByRole('radio', { name: 'adv.', exact: true }).click();
@@ -245,7 +252,11 @@ test('Quiz: Part pages, typed answers only, Enter, result, review, entry, retry 
   await expect(page.locator('.vq-result-title')).toHaveText('恭喜，通过了！');
   // #140: a whole-number score, and each Part as questions right / questions (q2 is only partly right)
   await expect(page.locator('.vq-result-score')).toContainText('得分 99 / 100（60 分及格）');
-  await expect(page.locator('.vq-result-label').first()).toHaveText('Part 1');
+  // the designer's 3.24 / 3.25: a card per Part — P1, Q1–Q5, a dash per question (right green / wrong red), 4/5
+  await expect(page.locator('.vq-result-label').first()).toHaveText('P1');
+  await expect(page.locator('.vq-result-range').first()).toHaveText('Q1–Q5');
+  await expect(page.locator('.vq-result-bar').first().locator('i.is-right')).toHaveCount(4);
+  await expect(page.locator('.vq-result-bar').first().locator('i.is-wrong')).toHaveCount(1);
   await expect(page.locator('.vq-result-points').first()).toHaveText('4/5');
   await expect(page.locator('.vq-result-points').nth(1)).toHaveText('15/15');
   await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-result.png` });
@@ -284,9 +295,10 @@ test('高考 scores in whole numbers (#140): Part = right / questions, no 0.88-p
   await page.getByRole('button', { name: /查看答案/ }).click();
   await expect(page.locator('.vq-row').first()).toContainText('回答正确');
   await expect(page.locator('.vq-row').first()).not.toContainText('0.88');
-  // #128: the Part dots show right / total, not ✓ / ✗
-  await expect(page.locator('.question-dot-num.is-score')).toHaveText(['1/34', '0/15', '0/10', '0/10']);
-  await expect(page.locator('.question-dot-icon')).toHaveCount(0);
+  // #128: the other Parts' cards show right / total, not ✓ / ✗; the current Part's numbers are green / red
+  await expect(page.locator('.part-result-count')).toHaveText(['0/15', '0/10', '0/10']);
+  await expect(page.locator('.part-card.is-current .part-q.is-correct')).toHaveCount(1);
+  await expect(page.locator('.part-card.is-current .part-q.is-wrong')).toHaveCount(33);
   await page.screenshot({ path: `.work/screens/${info.project.name}/gkv-review-pager.png` });
   await page.goto('/#/p/gkv');
   await expect(page.getByText('得分 1/100')).toBeVisible();
@@ -303,7 +315,22 @@ test('Quiz table days (第69–70天): the printed table with a blank in each an
   await expect(page.locator('.vq-row')).toHaveCount(0);
   await cells.nth(0).fill('me');
   await cells.nth(1).fill('your');
-  await expect(page.locator('.vq-progress').first()).toContainText('2/32');
+  await expect(page.getByRole('group', { name: /已完成 2\/32/ })).toBeVisible();
+  // a 32-question Part scrolls its numbers inside its card: every other Part card stays in the footer (no "+N" button),
+  // the hidden side fades, and a mouse wheel scrolls the numbers sideways
+  const nav = (await page.locator('.part-nav .question-strip').boundingBox())!;
+  for (const card of await page.locator('.part-nav .part-card').all()) {
+    const b = (await card.boundingBox())!;
+    expect(b.x).toBeGreaterThanOrEqual(nav.x - 1);
+    expect(b.x + b.width).toBeLessThanOrEqual(nav.x + nav.width + 1);
+  }
+  await expect(page.locator('.part-nav .strip-more')).toHaveCount(0);
+  const qs = page.locator('.part-card.is-current .part-qs');
+  await expect(qs).toHaveClass(/has-more-end/);
+  await qs.hover();
+  await page.mouse.wheel(0, 400);
+  await expect.poll(() => qs.evaluate((el) => el.scrollLeft)).toBeGreaterThan(0);
+  await expect(qs).toHaveClass(/has-more-start/);
   await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-table.png` });
   await page.getByRole('button', { name: /^Part 4/ }).click();
   await expect(page.locator('.vq-table .rt-table input')).toHaveCount(32); // 16 verbs × past / past participle
@@ -312,8 +339,17 @@ test('Quiz table days (第69–70天): the printed table with a blank in each an
   if (await confirm.count()) await confirm.click();
   await expect(page.locator('.vq-result-score')).toContainText('得分 1 / 100');
   await page.getByRole('button', { name: /查看答案/ }).click();
-  await expect(page.locator('.vq-row').first()).toHaveClass(/is-correct/);
-  await expect(page.locator('.vq-row').nth(1).locator('.vq-answer')).toContainText('you');
+  // the table has no rows of its own; its right answers are one fold under it (the designer's 3.31): the cells not right, by number
+  await expect(page.locator('.vq-row')).toHaveCount(0);
+  await expect(page.locator('.vq-table .blank-input.is-correct')).toHaveCount(1);
+  await expect(page.locator('.vq-table + .vq-review .vq-answer')).toContainText('2. you');
+  await expect(page.locator('.vq-table + .vq-review .vq-answer')).not.toContainText('1. me');
+  // review footer: a 26-question Part's dashes fit its narrow card, so the current Part keeps at least five numbers in view
+  await expect(page.locator('.part-card.is-current')).toHaveAttribute('data-part', 'P1'); // the review opens on Part 1
+  for (const card of await page.locator('.part-nav .part-card:not(.is-current)').all())
+    expect((await card.boundingBox())!.width).toBeLessThanOrEqual(96); // 72 as drawn (scaled down below 1000px)
+  const q = (await page.locator('.part-card.is-current .part-q').first().boundingBox())!.width; // 40 at the 1000px design width
+  expect((await page.locator('.part-card.is-current .part-qs').boundingBox())!.width).toBeGreaterThanOrEqual(5 * q);
 
   await page.goto('/#/p/zkv/zkv-d70');
   await page.getByRole('tab', { name: /测验/ }).click();

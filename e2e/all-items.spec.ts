@@ -22,7 +22,7 @@ test('every item renders', async ({ page }, info) => {
         await page.getByRole('tab', { name: /测验/ }).click();
         // a row per question, or the printed table with its answer cells (中考 days 69–70)
         await expect(page.locator('.vq-row, .vq-table input').first(), it.id).toBeVisible();
-        await expect(page.locator('.question-dot').first(), it.id).toBeVisible();
+        await expect(page.locator('.part-card').first(), it.id).toBeVisible();
         continue;
       }
       if ('paper' in it) {

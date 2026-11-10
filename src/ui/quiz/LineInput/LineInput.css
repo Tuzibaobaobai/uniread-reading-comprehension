@@ -1,6 +1,27 @@
-/* RC/Quiz/LineInput (proposed). Tokens only. The underline, focus and result colours are the shared .blank-input
-   (app.css, rc/Quiz/BlankInput); a standalone line gets a fixed width per language. */
-.vq-line { margin: 0; }
-.vq-line input { width: calc(var(--ur-space-80) * 2 + var(--ur-space-40)); min-width: 0; padding: var(--ur-space-2) 0; text-align: left; }
-.vq-line.is-zh input { width: calc(var(--ur-space-80) * 3 + var(--ur-space-40)); font-weight: var(--ur-text-font-system-m-medium-weight); }
+/* RC/Quiz/LineInput (proposed) — Figma 19446:589: a 200 wide, 40 high line (220 when it stands alone at the right of a
+   row), 1.5 border-bottom in border/default, the text 18 medium. Tokens only. The focus and result colours are the shared
+   .blank-input (BlankInput.css); this one keeps the default line grey instead of the dark KET / PET underline. */
+.blank-input.vq-line {
+  margin: 0; box-sizing: border-box; height: var(--ur-height-height-5); padding: var(--ur-space-4); align-items: center;
+  border-bottom-color: var(--ur-color-border-default);
+}
+.blank-input.vq-line:focus-within { border-bottom-color: var(--ur-color-action-primary); }
+.blank-input.vq-line.is-correct { border-bottom-color: var(--ur-color-feedback-success); }
+.blank-input.vq-line.is-wrong { border-bottom-color: var(--ur-color-feedback-error); }
+.blank-input.vq-line.is-correct, .blank-input.vq-line.is-wrong { border-bottom-width: var(--ur-stroke-strong); }
+.vq-line input {
+  width: calc(var(--ur-space-80) * 2 + var(--ur-space-40) - var(--ur-space-8)); min-width: 0; padding: 0; text-align: left;
+  font-size: var(--ur-text-font-system-l-medium-size); line-height: var(--ur-text-font-system-l-medium-line-height);
+  font-weight: var(--ur-text-font-system-l-medium-weight); color: var(--ur-color-text-primary);
+}
+.vq-line.is-correct input { color: var(--ur-color-feedback-success); }
+.vq-line.is-wrong input { color: var(--ur-color-feedback-error); text-decoration: none; }
+.vq-line.is-zh input { width: calc(var(--ur-space-80) * 3 + var(--ur-space-40) - var(--ur-space-8)); } /* the Chinese meanings run longer than the design's 200 */
 .vq-line input::placeholder { text-align: left; font-weight: var(--ur-text-font-system-m-regular-weight); }
+
+/* a labelled line: "英文单词：" + the line (WordProfileRow, WordFamilyRow) */
+.vq-field { display: inline-flex; align-items: center; gap: var(--ur-space-4); }
+.vq-field-label {
+  display: inline-flex; align-items: center; min-width: calc(var(--ur-space-64) + var(--ur-space-4) + var(--ur-space-2)); height: var(--ur-height-height-4); white-space: nowrap;
+  color: var(--ur-color-text-secondary); font-size: var(--ur-text-font-system-s-regular-size); line-height: var(--ur-text-font-system-s-regular-line-height);
+}

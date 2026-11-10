@@ -1,6 +1,10 @@
-/* RC/Vocab/MarkTag (proposed). Tokens only. */
+/* RC/Vocab/MarkTag (proposed). Tokens only. Tag: 26 high, subtle fill, 1px black/5 inside stroke, radius xxs, XS regular
+   secondary (Figma 19445:475); Star: the 20 × 20 gold star icon. */
 .entry-tag {
-  padding: var(--ur-space-2) var(--ur-space-8); border-radius: var(--ur-radius-xs);
-  background: var(--ur-color-background-subtle); color: var(--ur-color-text-secondary); font: var(--ur-text-font-system-s-regular);
+  display: inline-flex; align-items: center; flex: none; box-sizing: border-box;
+  height: calc(var(--ur-space-24) + var(--ur-space-2)); padding: 0 calc(var(--ur-space-8) - var(--ur-stroke-default));
+  border: var(--ur-stroke-default) solid var(--ur-color-black-5); border-radius: var(--ur-space-8);
+  background: var(--ur-color-background-subtle); color: var(--ur-color-text-secondary); font: var(--ur-text-font-system-xs-regular); white-space: nowrap;
 }
-.entry-star { color: var(--ur-color-action-primary-strong); margin-right: var(--ur-space-2); }
+.entry-star { display: inline-flex; align-items: center; flex: none; }
+.entry-star img { display: block; width: var(--ur-size-icon-s); height: var(--ur-size-icon-s); }

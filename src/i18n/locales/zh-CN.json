@@ -253,6 +253,7 @@
   "judge": {
     "marking": "正在批改…",
     "scoreLabel": "AI 评分",
+    "scoreLine": "得分 {{score}} / {{max}}",
     "markLabel": "AI 批改",
     "cambridgeTag": "Cambridge 标准 · AI 评分",
     "needsReview": "待老师确认",
@@ -368,13 +369,21 @@
       "less": "收起",
       "playExample": "朗读例句 {{n}}",
       "compare": "辨析",
+      "supplement": "补充词",
+      "compareTitle": "辨析：{{words}}",
+      "lessList": "收起：{{list}}",
       "expand": "展开",
       "collapse": "收起",
       "expandWord": "展开 {{word}}",
       "collapseWord": "收起 {{word}}"
     },
     "quiz": {
-      "sectionProgress": "已完成 {{done}}/{{total}}",
+      "qRange": "Q{{first}}–Q{{last}}",
+      "qSingle": "Q{{n}}",
+      "goQuestion": "第 {{n}} 题",
+      "markAnswered": "，已作答",
+      "markRight": "，答对",
+      "markWrong": "，答错",
       "sectionDot": "{{part}}，第 {{range}} 题，已完成 {{done}}/{{total}}",
       "bank": "可选词组（点一下标记已用）",
       "kept": "上次已答对",
@@ -386,15 +395,15 @@
       "translate": "第 {{n}} 题：英文译文",
       "unanswered_one": "还有 {{count}} 题没有答完",
       "unanswered_other": "还有 {{count}} 题没有答完",
-      "phWord": "英文单词",
-      "phZh": "中文释义",
+      "wordLabel": "英文单词：",
+      "zhLabel": "中文释义：",
       "phTranslate": "写出英文译文",
       "posLabel": "词性：",
       "part": "Part {{n}}"
     },
     "result": {
       "passed": "恭喜，通过了！",
-      "failed": "这次没有通过，再练一次吧",
+      "failed": "这次没有通过，再练一次吧！",
       "score": "得分 {{score}} / {{total}}（{{pass}} 分及格）",
       "pending": "中译英评分中…",
       "view": "查看答案",
@@ -408,7 +417,12 @@
       "openEntry": "查看词条",
       "hintHalf": "用了提示，得一半分",
       "judgeUnavailable": "AI 批改暂时不可用，请对照参考译文自查。",
-      "partly": "部分正确"
+      "partly": "部分正确",
+      "partKicker": "P{{n}}",
+      "partRange": "Q{{from}}–Q{{to}}",
+      "partRangeOne": "Q{{n}}",
+      "partCard": "{{part}}，第 {{range}} 题，答对 {{score}}",
+      "reference": "参考译文：{{text}}"
     }
   }
 }

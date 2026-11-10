@@ -253,6 +253,7 @@
   "judge": {
     "marking": "Marking…",
     "scoreLabel": "AI score",
+    "scoreLine": "Score {{score}} / {{max}}",
     "markLabel": "AI marking",
     "cambridgeTag": "Cambridge scales · AI score",
     "needsReview": "Awaiting teacher review",
@@ -368,13 +369,21 @@
       "less": "Less",
       "playExample": "Play example {{n}}",
       "compare": "Compare",
+      "supplement": "Supplement",
+      "compareTitle": "Compare: {{words}}",
+      "lessList": "Collapse: {{list}}",
       "expand": "Expand",
       "collapse": "Collapse",
       "expandWord": "Expand {{word}}",
       "collapseWord": "Collapse {{word}}"
     },
     "quiz": {
-      "sectionProgress": "{{done}}/{{total}} done",
+      "qRange": "Q{{first}}–Q{{last}}",
+      "qSingle": "Q{{n}}",
+      "goQuestion": "Question {{n}}",
+      "markAnswered": ", answered",
+      "markRight": ", correct",
+      "markWrong": ", wrong",
       "sectionDot": "{{part}}, questions {{range}}, {{done}}/{{total}} done",
       "bank": "Phrases (tap to mark as used)",
       "kept": "Correct last time",
@@ -386,8 +395,8 @@
       "translate": "Question {{n}}: English translation",
       "unanswered_one": "{{count}} question is not finished",
       "unanswered_other": "{{count}} questions are not finished",
-      "phWord": "English word",
-      "phZh": "Chinese meaning",
+      "wordLabel": "English word:",
+      "zhLabel": "Chinese meaning:",
       "phTranslate": "Write the English translation",
       "posLabel": "Part of speech:",
       "part": "Part {{n}}"
@@ -408,7 +417,12 @@
       "openEntry": "Open entry",
       "hintHalf": "hint used, half marks",
       "judgeUnavailable": "AI marking is unavailable right now — compare your answer with the reference translation.",
-      "partly": "Partly correct"
+      "partly": "Partly correct",
+      "partKicker": "P{{n}}",
+      "partRange": "Q{{from}}–Q{{to}}",
+      "partRangeOne": "Q{{n}}",
+      "partCard": "{{part}}, questions {{range}}, {{score}} right",
+      "reference": "Reference translation: {{text}}"
     }
   }
 }

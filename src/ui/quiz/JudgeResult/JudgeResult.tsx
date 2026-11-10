@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react';
 import { Check, Cross } from '@/components/Icons';
 import { Tag } from '../../common/Tag/Tag';
+import thumbsUp from '@/assets/icons/answer-thumbs-up.svg';
+import bulb from '@/assets/icons/answer-bulb.svg';
 import './JudgeResult.css';
 
 export type JudgeMet = 'yes' | 'partial' | 'no';
@@ -17,6 +19,8 @@ export interface JudgeCriterion {
  * or Cambridge criteria, feedback, language fixes. Shared by 词汇天天练, 时文阅读 and KET/PET writing / speaking.
  * Variants: Score full / partial / zero (from score / max); Pending no / yes (JudgePending); Rubric points (key points
  * met yes / partial / no) / cambridge (criteria bars + the standard note); NeedsReview no / yes (the 待复核 Tag).
+ * Layout card (default) / line (词汇天天练 中译英, the designer's frame 3.28): one grey box — "得分 3 / 4" (green when full,
+ * red otherwise), a pill per point met (thumbs-up) or to work on (bulb), the feedback and the reference translation.
  * Keeps the classes `judge`, `judge-score`, `judge-point`, `judge-tag` the tests select.
  */
 export function JudgeResult({
@@ -31,13 +35,17 @@ export function JudgeResult({
   points,
   feedback,
   issues,
+  layout = 'card',
+  scoreText,
+  chips,
+  reference,
 }: {
   /** aria-label of the card */
   label: string;
   score: number;
   max: number;
-  /** the tag after the score (模型评分 / 剑桥标准) */
-  tag: string;
+  /** the tag after the score (模型评分 / 剑桥标准); not shown in Layout line */
+  tag?: string;
   /** NeedsReview yes: the 待复核 tag text */
   reviewTag?: string;
   /** Rubric cambridge: the note on the standard used */
@@ -51,8 +59,40 @@ export function JudgeResult({
   feedback?: string;
   /** language fixes: wrong text → fix, with an optional note (already formatted) */
   issues?: { text: string; fix: string; note?: ReactNode }[];
+  layout?: 'card' | 'line';
+  /** Layout line: the score line ("得分 3 / 4") */
+  scoreText?: string;
+  /** Layout line: a pill each — good (a point met, thumbs-up) / tip (to work on, bulb) */
+  chips?: { id: string; text: string; kind: 'good' | 'tip' }[];
+  /** Layout line: the reference translation line (already formatted) */
+  reference?: string;
 }) {
   const level = score >= max ? 'is-full' : score > 0 ? 'is-partial' : 'is-zero';
+  if (layout === 'line')
+    return (
+      <section className={`judge is-line ${level}`} aria-label={label}>
+        <div className="judge-head">
+          <span className="judge-score">{scoreText ?? `${score} / ${max}`}</span>
+          {chips && chips.length > 0 && (
+            <ul className="judge-chips">
+              {chips.map((c) => (
+                <li key={c.id} className={`judge-chip is-${c.kind}`}>
+                  <img src={c.kind === 'good' ? thumbsUp : bulb} alt="" />
+                  {c.text}
+                </li>
+              ))}
+            </ul>
+          )}
+          {reviewTag && (
+            <Tag tone="outline" className="judge-tag is-review">
+              {reviewTag}
+            </Tag>
+          )}
+        </div>
+        {feedback && <p className="judge-feedback">{feedback}</p>}
+        {reference && <p className="judge-reference">{reference}</p>}
+      </section>
+    );
   return (
     <section className={`judge ${level}`} aria-label={label}>
       <div className="judge-head">
@@ -60,9 +100,11 @@ export function JudgeResult({
           {score}
           <span className="judge-max"> / {max}</span>
         </span>
-        <Tag tone="accent" className="judge-tag">
-          {tag}
-        </Tag>
+        {tag && (
+          <Tag tone="accent" className="judge-tag">
+            {tag}
+          </Tag>
+        )}
         {reviewTag && (
           <Tag tone="outline" className="judge-tag is-review">
             {reviewTag}

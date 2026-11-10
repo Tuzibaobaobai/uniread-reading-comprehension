@@ -2,15 +2,15 @@ import type { ReactNode } from 'react';
 import './SectionHeader.css';
 
 /**
- * RC/Quiz/SectionHeader (proposed, Figma RC · Proposed 19446:576): the Part title line — "Part N." + the section
- * instruction + the progress "已完成 x/y" (left out in review). Wraps the shared reader `.section-instruction`.
+ * RC/Quiz/SectionHeader (proposed, Figma RC · Proposed 19446:576; the designer's 词汇 › 测验 frames): the Part title line
+ * — "Part N." (bold) + the section instruction (secondary) on one line. How far the learner is shows in the pager
+ * (ui/vocab/PartNav), not here. Wraps the shared reader `.section-instruction`.
  */
-export function SectionHeader({ part, instruction, progress }: { part: string; instruction: ReactNode; progress?: string }) {
+export function SectionHeader({ part, instruction }: { part: string; instruction: ReactNode }) {
   return (
-    <p className="section-instruction">
-      <b>{part}. </b>
+    <p className="section-instruction vq-part-head">
+      <b>{part}.</b>{' '}
       {instruction}
-      {progress && <span className="vq-progress">{progress}</span>}
     </p>
   );
 }

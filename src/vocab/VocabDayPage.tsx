@@ -245,7 +245,7 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
         </div>
       )}
       {open && (
-        <EntryDialog label={open.headword} closeLabel={t('common.close')} onClose={() => setEntryOpen(null)}>
+        <EntryDialog label={open.headword} title={t('vocab.result.openEntry')} closeLabel={t('common.close')} onClose={() => setEntryOpen(null)}>
           <EntryCard entry={open} marks={marks} as="div" />
         </EntryDialog>
       )}
@@ -281,27 +281,37 @@ function ResultView({
       score={t('vocab.result.score', { score: Math.round(result.score), total, pass: Math.round((item.meta.passPercent * total) / 100) })}
       pending={pending ? t('vocab.result.pending') : undefined}
       parts={item.sections.map((s, i) => {
-        const rows = result.byQuestion.filter((b) => s.questions.some((q) => q.id === b.q));
-        const ok = rows.every((r) => r.correct === true);
+        const rows = s.questions.map((q) => result.byQuestion.find((b) => b.q === q.id));
+        const right = rows.filter((r) => r?.correct === true).length;
+        const from = s.questions[0]?.number;
+        const to = s.questions[s.questions.length - 1]?.number;
+        const range = from === to ? `${from}` : `${from}–${to}`;
         return {
           key: s.id,
-          label: partLabel(t, i),
+          kicker: t('vocab.result.partKicker', { n: i + 1 }),
+          range: from === to ? t('vocab.result.partRangeOne', { n: from }) : t('vocab.result.partRange', { from, to }),
           // #140: each 大题 as questions right / questions, not points
-          points: `${rows.filter((r) => r.correct === true).length}/${s.questions.length}`,
-          ok,
-          iconLabel: ok ? t('reader.dotCorrect') : t('reader.dotWrong'),
+          points: `${right}/${s.questions.length}`,
+          marks: rows.map((r) => r?.correct === true),
+          label: t('vocab.result.partCard', { part: partLabel(t, i), range, score: `${right}/${s.questions.length}` }),
         };
       })}
-      actions={[
-        { key: 'view', title: t('vocab.result.view'), hint: t('vocab.result.viewHint'), onClick: onReview, disabled: !reviewReady },
-        {
-          key: 'retry',
-          title: wrong > 0 ? t('vocab.result.retryWrong') : t('vocab.result.retryAll'),
-          hint: wrong > 0 ? t('vocab.result.retryWrongHint', { count: wrong }) : t('vocab.result.retryAllHint'),
-          onClick: () => onRetry(wrong > 0),
-        },
-      ]}
-      secondary={wrong > 0 ? { label: t('vocab.result.retryAll'), onClick: () => onRetry(false) } : undefined}
+      // Figma 3.24: nothing wrong → only the outline 查看答案; 3.25: 查看答案 + 只练错题 (steered to when not passed) + 全部重做
+      {...(wrong > 0
+        ? {
+            actions: [
+              { key: 'view', title: t('vocab.result.view'), hint: t('vocab.result.viewHint'), onClick: onReview, disabled: !reviewReady },
+              {
+                key: 'retry',
+                title: t('vocab.result.retryWrong'),
+                hint: t('vocab.result.retryWrongHint', { count: wrong }),
+                onClick: () => onRetry(true),
+                recommended: !passed,
+              },
+            ],
+            secondary: { label: t('vocab.result.retryAll'), onClick: () => onRetry(false) },
+          }
+        : { primary: { label: t('vocab.result.view'), onClick: onReview, disabled: !reviewReady } })}
     />
   );
 }

@@ -1,7 +1,16 @@
 /* RC/Quiz/TableFill (proposed). Tokens only; .stimulus / .rt-table / .blank-input are the shared reader styles. */
-.vq-table { margin: var(--ur-space-8) 0 var(--ur-space-16); overflow-x: auto; }
-.vq-table .rt-table th { white-space: nowrap; }
-.vq-table .rt-table th, .vq-table .rt-table td { padding: var(--ur-space-8); vertical-align: middle; }
+/* the designer's tables (Figma 3.18–3.20, 19462:537…): each table is a bordered card (radius s) of cells with no lines between
+   them — header cells subtle with 14 bold, text cells 16 regular, answer cells a 40 high line — 16 / 8 padding; several tables
+   (第70天 four verb tables) sit two to a row */
+.vq-table { margin: 0 0 var(--ur-space-16); display: grid; gap: var(--ur-space-24) var(--ur-space-16); }
+.vq-table:has(> .rt-table-wrap + .rt-table-wrap) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.vq-table .rt-table-wrap { overflow: hidden; border: var(--ur-stroke-default) solid var(--ur-color-border-divider); border-radius: var(--ur-radius-s); }
+.vq-table .rt-table { table-layout: fixed; font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height); }
+.vq-table .rt-table th, .vq-table .rt-table td { padding: var(--ur-space-8) var(--ur-space-16); border: none; vertical-align: middle; color: var(--ur-color-text-primary); }
+.vq-table .rt-table th {
+  white-space: nowrap; font-size: var(--ur-text-font-system-s-bold-size); line-height: var(--ur-text-font-system-s-bold-line-height);
+  font-weight: var(--ur-text-font-system-s-bold-weight);
+}
 .vq-table .blank-input { display: flex; margin: 0; }
 .vq-table .blank-input input { width: 100%; min-width: var(--ur-height-height-7); }
 /* Cell=score (ScoreTable): the exam score report and the conversion table */

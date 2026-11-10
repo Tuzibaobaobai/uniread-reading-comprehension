@@ -24,3 +24,7 @@
   color: var(--ur-color-feedback-success-text); font-weight: var(--ur-text-font-system-m-bold-weight);
   font-size: var(--ur-text-font-system-m-regular-size);
 }
+
+/* Base outside: the underline and the base word in brackets are siblings (词汇测验) */
+.blank-input-wrap { display: inline-flex; align-items: center; gap: var(--ur-space-8); vertical-align: middle; }
+.blank-input-wrap > .blank-input { margin: 0; }

@@ -1,12 +1,17 @@
 /* ui/PlayButton — UniRead btn-play (reuse). Tokens only (docs/14 §15). */
+/* Size=entry: the headword's chip — 28 × 28, white, radius xxs, drop-shadow btn-xs, icon-play 16 (Figma btn-play 19614:125147);
+   `is-small` = the example's speaker, 24 × 24 without a fill, volume-high (19614:128103). */
 .entry-play {
-  width: var(--ur-size-touch-target); height: var(--ur-size-touch-target);
-  display: grid; place-items: center; flex-shrink: 0;
-  border: none; border-radius: var(--ur-radius-full); background: var(--ur-color-background-subtle);
+  --chip: calc(var(--ur-space-24) + var(--ur-space-4));
+  width: var(--chip); height: var(--chip);
+  display: grid; place-items: center; flex-shrink: 0; position: relative; padding: 0;
+  border: none; border-radius: var(--ur-space-8); background: var(--ur-color-background-card); box-shadow: var(--ur-effect-drop-shadow-btn-xs);
 }
-.entry-play img { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); }
-/* inline in a sentence: the same button and icon as the headword's (#131) */
-.entry-play.is-small { display: inline-grid; vertical-align: middle; margin-left: var(--ur-space-4); }
+.entry-play img { width: var(--ur-height-height-2); height: var(--ur-height-height-2); }
+/* the tap target stays 44 × 44 (the visible chip is the designer's 28) */
+.entry-play::after { content: ''; position: absolute; inset: calc((var(--chip) - var(--ur-size-touch-target)) / 2); }
+.entry-play.is-small { --chip: var(--ur-space-24); display: inline-grid; vertical-align: middle; background: none; box-shadow: none; }
+.entry-play.is-small img { height: auto; }
 /* Size=player: the 真题 recording player's buttons (UIkit-Read player 11728:110946); ui/AudioPlayer's back / forward
    buttons share this box */
 .player-btn {

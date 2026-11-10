@@ -5,10 +5,12 @@ import './StudyToolbar.css';
 export function StudyToolbar({ count, tally, legend }: { count: string; tally: string; legend?: ReactNode }) {
   return (
     <div className="vocab-toolbar">
-      <span className="vocab-count">{count}</span>
-      <span className="vocab-tally" role="status">
-        {tally}
-      </span>
+      <div className="vocab-counts">
+        <span className="vocab-count">{count}</span>
+        <span className="vocab-tally" role="status">
+          {tally}
+        </span>
+      </div>
       {legend}
     </div>
   );

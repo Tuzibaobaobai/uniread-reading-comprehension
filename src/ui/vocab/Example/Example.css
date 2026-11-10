@@ -1,4 +1,10 @@
-/* RC/Vocab/Example (proposed). Tokens only. */
+/* RC/Vocab/Example (proposed). Tokens only. English L regular, the headword on a brand/2 fill instead of an underline,
+   Chinese M regular black/40 (Figma 19445:484). */
+.entry-example { display: grid; gap: var(--ur-space-8); padding-bottom: var(--ur-space-8); }
+/* the speaker follows the last word, also when the sentence wraps */
+.entry-en-row { display: block; }
+.entry-en-row .entry-play { margin-left: var(--ur-space-8); }
 .entry-en, .entry-zh { margin: 0; }
-.entry-en { font: var(--ur-text-font-system-l-regular); color: var(--ur-color-text-primary); }
-.entry-zh { font: var(--ur-text-font-system-m-regular); color: var(--ur-color-text-secondary); white-space: pre-line; }
+.entry-en { display: inline; font: var(--ur-text-font-system-l-regular); color: var(--ur-color-text-primary); }
+.entry-en .rt-underline { text-decoration: none; background: var(--ur-color-brand-2); }
+.entry-zh { font: var(--ur-text-font-system-m-regular); color: var(--ur-color-black-40); white-space: pre-line; }

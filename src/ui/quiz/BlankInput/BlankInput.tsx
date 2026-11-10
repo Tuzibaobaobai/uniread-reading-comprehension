@@ -18,6 +18,7 @@ export function BlankInput({
   correctText,
   locked,
   autoFocus,
+  baseOutside = false,
   inputAttrs,
 }: {
   n: BlankNode;
@@ -27,12 +28,14 @@ export function BlankInput({
   correctText?: string;
   locked: boolean;
   autoFocus?: boolean;
+  /** Base outside (词汇测验, Figma 3.14): the base word in brackets stands after the underline, not under it */
+  baseOutside?: boolean;
   /** extra attributes for the input (词汇天天练: Enter moves to the next blank, #121 #122) */
   inputAttrs?: InputHTMLAttributes<HTMLInputElement> & Record<`data-${string}`, string>;
 }) {
   const { t } = useTranslation();
-  return (
-    <span className={`blank-input ${ok === true ? 'is-correct' : ok === false ? 'is-wrong' : ''}`}>
+  const input = (
+    <>
       {n.hint?.firstLetter && <span className="blank-input-prefix">{n.hint.firstLetter}</span>}
       <input
         value={value}
@@ -49,6 +52,20 @@ export function BlankInput({
         size={Math.max(6, value.length + 1)}
         {...inputAttrs}
       />
+    </>
+  );
+  const result = ok === true ? 'is-correct' : ok === false ? 'is-wrong' : '';
+  if (baseOutside)
+    return (
+      <span className="blank-input-wrap">
+        <span className={`blank-input ${result}`}>{input}</span>
+        {n.hint?.baseWord && <span className="blank-input-base">({n.hint.baseWord})</span>}
+        {ok === false && correctText && <span className="blank-input-answer">{correctText}</span>}
+      </span>
+    );
+  return (
+    <span className={`blank-input ${result}`}>
+      {input}
       {n.hint?.baseWord && <span className="blank-input-base">({n.hint.baseWord})</span>}
       {ok === false && correctText && <span className="blank-input-answer">{correctText}</span>}
     </span>

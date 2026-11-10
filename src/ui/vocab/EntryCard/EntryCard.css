@@ -1,33 +1,50 @@
-/* RC/Vocab/EntryCard (proposed). Tokens only. The body indent lines up with the headword: number column + gap. */
-.entry { --entry-indent: calc(var(--ur-space-32) + var(--ur-space-12)); padding: var(--ur-space-24) 0; border-bottom: var(--ur-stroke-default) solid var(--ur-color-border-divider); }
-.entry:last-child { border-bottom: none; }
+/* RC/Vocab/EntryCard (proposed; the designer's Ready-for-dev 3.07–3.10, Figma 19445:654). Tokens only.
+   Row: number column (32) + 12 + the entry; a divider under every entry, 24 around it. */
+.entry {
+  display: flex; align-items: flex-start; gap: var(--ur-space-12);
+  padding: var(--ur-space-24) 0; border-bottom: var(--ur-stroke-default) solid var(--ur-color-border-divider);
+}
 .entry.is-known .entry-word { color: var(--ur-color-feedback-success); }
 .entry.is-unknown .entry-word { color: var(--ur-color-feedback-error); }
-.entry-head { display: flex; align-items: center; flex-wrap: wrap; gap: var(--ur-space-8) var(--ur-space-12); }
-.entry-num { min-width: var(--ur-space-32); font: var(--ur-text-font-system-s-regular); color: var(--ur-color-text-tertiary); font-variant-numeric: tabular-nums; }
-.entry-word { margin: 0; font: var(--ur-text-font-system-3xl-bold); color: var(--ur-color-text-primary); }
-.entry-ipa { color: var(--ur-color-text-secondary); font: var(--ur-text-font-system-l-regular); }
-/* Study (#133): 认识 entries fold to the head line; the toggle sits at its end */
-.entry-fold {
-  margin-left: auto; display: inline-flex; align-items: center; gap: var(--ur-space-4); min-height: var(--ur-size-touch-target);
-  padding: 0 var(--ur-space-4) 0 var(--ur-space-12); border: none; background: none;
-  color: var(--ur-color-action-primary-strong); font: var(--ur-text-font-system-m-bold);
+.entry-num {
+  flex: none; width: var(--ur-space-32); height: var(--ur-space-40); display: flex; align-items: center;
+  font: var(--ur-text-font-system-m-regular); color: var(--ur-color-text-tertiary); font-variant-numeric: tabular-nums;
 }
-.entry-fold svg { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); transition: transform .2s; }
+.entry-main { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: var(--ur-space-12); }
+/* head: [word · IPA][play] | tags | stars ........ 展开 / 收起 */
+.entry-head { display: flex; align-items: center; gap: var(--ur-space-12); }
+.entry-title { display: flex; align-items: center; flex-wrap: wrap; row-gap: var(--ur-space-8); min-width: 0; }
+.entry-wordgroup { display: flex; align-items: center; gap: var(--ur-space-12); padding-right: var(--ur-space-16); }
+.entry-wordline { display: flex; align-items: center; gap: var(--ur-space-8); min-height: var(--ur-space-40); }
+.entry-word { margin: 0; font: var(--ur-text-font-system-4xl-bold); color: var(--ur-color-text-primary); }
+.entry-ipa { color: var(--ur-color-text-secondary); font: var(--ur-text-font-system-m-regular); }
+.entry-tags { display: flex; align-items: center; gap: var(--ur-space-8); padding: 0 var(--ur-space-16); border-left: var(--ur-stroke-default) solid var(--ur-color-border-divider); }
+.entry-tags.is-stars { padding-right: 0; }
+/* Study (#133): 认识 entries fold to the head line; the toggle sits at its end, S medium black/50 + chevron */
+.entry-fold {
+  margin-left: auto; flex: none; display: inline-flex; align-items: center; gap: var(--ur-space-4); box-sizing: border-box;
+  min-height: var(--ur-size-touch-target); margin-block: calc((var(--ur-height-height-4) - var(--ur-size-touch-target)) / 2);
+  padding: 0 calc(var(--ur-space-8) + var(--ur-space-2)); border: none; background: none;
+  color: var(--ur-color-black-50); font: var(--ur-text-font-system-s-medium);
+}
+.entry-fold svg { width: var(--ur-height-height-2); height: var(--ur-height-height-2); transition: transform .2s; }
 .entry-fold[aria-expanded='true'] svg { transform: rotate(180deg); }
 @media (prefers-reduced-motion: reduce) { .entry-fold svg { transition: none; } }
+.entry-body { display: flex; flex-direction: column; gap: var(--ur-space-12); }
+/* the sense line(s): M medium text/primary, 8 below */
 .entry-senses {
-  margin: var(--ur-space-12) 0 0 var(--entry-indent); font: var(--ur-text-font-system-l-regular); color: var(--ur-color-text-primary);
+  margin: 0; padding-bottom: var(--ur-space-8); font: var(--ur-text-font-system-m-medium); color: var(--ur-color-text-primary);
   display: flex; flex-wrap: wrap; gap: var(--ur-space-4) var(--ur-space-16);
 }
-.entry-pos { margin-right: var(--ur-space-8); color: var(--ur-color-text-secondary); font-style: italic; }
-.entry-infl { color: var(--ur-color-text-secondary); }
-.entry-examples { list-style: none; margin: var(--ur-space-12) 0 0 var(--entry-indent); padding: 0; display: grid; gap: var(--ur-space-12); }
-.entry-more {
-  margin: var(--ur-space-12) 0 0 var(--entry-indent); min-height: var(--ur-size-touch-target); border: none; background: none; padding: 0;
-  color: var(--ur-color-action-primary-strong); font: var(--ur-text-font-system-m-bold);
+.entry-pos { margin-right: var(--ur-space-4); }
+.entry-examples { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--ur-space-4); }
+/* the grey area under the examples: 名师点拨 / 辨析 / 常用词组 · 词形拓展 (Figma 19614:125626) */
+.entry-fold-area {
+  display: flex; flex-direction: column; gap: var(--ur-space-12); padding: var(--ur-space-16) var(--ur-space-20);
+  border-radius: var(--ur-radius-s); background: var(--ur-paint-customization-grey-1);
 }
-.entry-extra { margin: var(--ur-space-8) 0 0 var(--entry-indent); display: grid; gap: var(--ur-space-4); }
-.entry-extra dt { font: var(--ur-text-font-system-s-bold); color: var(--ur-color-text-secondary); }
+.entry-extra { margin: 0; display: grid; gap: var(--ur-space-4); }
+.entry-extra + .entry-extra { margin-top: var(--ur-space-8); }
+.entry-extra dt { font: var(--ur-text-font-system-s-medium); color: var(--ur-color-text-tertiary); }
 .entry-extra dd { margin: 0; display: flex; flex-wrap: wrap; gap: var(--ur-space-4) var(--ur-space-12); font: var(--ur-text-font-system-m-regular); }
 .entry-extra-zh { color: var(--ur-color-text-secondary); }

@@ -7,10 +7,12 @@
 
 .vocab-day { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 0 var(--gutter) var(--gutter); }
 .vocab-pane { flex: 1; min-height: 0; width: 100%; max-width: var(--solo-max-w); margin: 0 auto; display: flex; flex-direction: column; }
-.vocab-pane.app-scroll { display: block; height: auto; border-radius: var(--radius-xl); }
+.vocab-pane.app-scroll { display: block; height: auto; padding-bottom: var(--ur-space-40); }
+.vocab-day.tab-study { padding-bottom: 0; }
 
 /* Vocabulary tab */
-.vocab-list { background: var(--bg-card); border-radius: var(--radius-xl); padding: 8px var(--quiz-pad) var(--quiz-pad); }
+/* Study, the designer's 3.07–3.10: a 960-wide white card, 24 above / 32 sides and below; the page (not the card) scrolls, 40 under it */
+.vocab-list { background: var(--ur-color-background-card); border-radius: var(--ur-radius-xl); padding: var(--ur-space-24) var(--ur-space-32) var(--ur-space-32); }
 .switch-row {
   margin-left: auto; display: inline-flex; align-items: center; gap: 10px; min-height: var(--tap);
   border: none; background: none; padding: 0; font-size: var(--fs-m); font-weight: var(--fw-bold); color: var(--text-strong);
@@ -32,31 +34,60 @@
   background: var(--ur-color-background-card); border-radius: var(--ur-radius-xl); padding: var(--ur-space-48) var(--ur-space-40);
 }
 
-/* Quiz tab */
+/* Quiz tab — the designer's 词汇 › 测验 (Figma RC · Screens · DS-2026-11-03, 19518:124597): a 960 wide card, content padding 32,
+   rows 16 apart; the rows are ui/vocab/*, the footer is ui/vocab/PartNav */
 .quiz-pane .question-card { flex: 1; }
-.vq-rows { list-style: none; margin: 0; padding: 0; display: grid; }
-.vq-row { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--divider); }
-.vq-row:last-child { border-bottom: none; }
-.vq-num { padding-top: 10px; font-weight: var(--fw-bold); color: var(--text-secondary); font-variant-numeric: tabular-nums; }
-.vq-body { min-width: 0; display: grid; gap: 10px; }
-/* sentences with blanks (TextEntryRow; the blanks are the shared .blank-input) */
-.vq-sentence { margin: 0; font-size: var(--fs-question); line-height: 2.2; color: var(--text-primary); }
-/* 二 / 词组日一 (#118): the Chinese prompt on the left, its answer line on the right, as in the book */
-.vq-sentence.is-answer-right { display: flex; align-items: baseline; gap: 16px; }
-.vq-sentence.is-answer-right .vq-prompt { flex: 1; min-width: 0; }
+.question-card.vocab-quiz { --pane-pad: var(--ur-space-32); --pane-inset: var(--ur-space-32); }
+.vocab-quiz .question-scroll { padding-bottom: var(--ur-space-24); }
+.vocab-quiz .section-instruction { margin: 0 0 var(--ur-space-16); font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height); }
+.vq-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--ur-space-16); }
+.vq-row { display: block; }
+.vq-body { min-width: 0; display: grid; gap: var(--ur-space-16); }
+/* the card rows (一, 三, a sentence with its blank at the right): white, padding 16, radius s; after submitting a divider border */
+.vq-row.is-card { padding: var(--ur-space-16); border-radius: var(--ur-radius-s); background: var(--ur-color-background-card); }
+.vq-row.is-card.is-reviewed { box-shadow: inset 0 0 0 var(--ur-stroke-default) var(--ur-color-border-divider); }
+.vq-num {
+  color: var(--ur-color-text-strong); font-variant-numeric: tabular-nums;
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height); font-weight: var(--ur-text-font-system-l-regular-weight);
+}
+/* sentences with blanks (TextEntryRow): number 36 + text, blanks 130 × 40 with the base word after them */
+.vq-sentence {
+  margin: 0; display: grid; grid-template-columns: calc(var(--ur-space-32) + var(--ur-space-4)) minmax(0, 1fr); column-gap: var(--ur-space-8); align-items: center;
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height); color: var(--ur-color-text-primary);
+}
+.vq-sentence:not(.is-answer-right) { padding: var(--ur-space-8) 0; }
+.vq-sentence .vq-num { color: var(--ur-color-text-primary); }
+.vq-text { min-width: 0; display: flex; flex-wrap: wrap; align-items: center; column-gap: var(--ur-space-8); }
+/* 二 / 词组日一 (#118): the Chinese prompt on the left, its 220 wide answer line on the right, as in the book */
+.vq-sentence.is-answer-right { grid-template-columns: calc(var(--ur-space-32) + var(--ur-space-4)) minmax(0, 1fr) auto; }
+.vq-sentence.is-answer-right .vq-prompt { min-width: 0; }
 .vq-answer-cell { flex: none; }
+.vocab-quiz .blank-input { box-sizing: border-box; height: var(--ur-height-height-5); margin: 0 var(--ur-space-4); padding: var(--ur-space-4); align-items: center; vertical-align: middle; border-bottom-color: var(--ur-color-border-default); }
+.vocab-quiz .blank-input:focus-within { border-bottom-color: var(--ur-color-action-primary); }
+.vocab-quiz .blank-input.is-correct { border-bottom-color: var(--ur-color-feedback-success); }
+.vocab-quiz .blank-input.is-wrong { border-bottom-color: var(--ur-color-feedback-error); }
+.vocab-quiz .blank-input :where(input) {
+  width: calc(var(--ur-space-80) + var(--ur-space-40) + var(--ur-space-2)); min-width: 0; padding: 0; text-align: left;
+  font-size: var(--ur-text-font-system-l-medium-size); line-height: var(--ur-text-font-system-l-medium-line-height);
+  font-weight: var(--ur-text-font-system-l-medium-weight); color: var(--ur-color-text-primary);
+}
+/* the labelled lines (ui/quiz/LineInput) keep their own 200 / 280 wide field, not the 130 of a blank inside a sentence */
+.vocab-quiz .blank-input.vq-line input { width: calc(var(--ur-space-80) * 2 + var(--ur-space-40) - var(--ur-space-8)); }
+.vocab-quiz .blank-input.vq-line.is-zh input { width: calc(var(--ur-space-80) * 3 + var(--ur-space-40) - var(--ur-space-8)); }
+.vocab-quiz .blank-input :where(input)::placeholder { color: transparent; }
+.vocab-quiz .blank-input-prefix { margin-right: var(--ur-space-4); font-weight: var(--ur-text-font-system-l-medium-weight); color: var(--ur-color-text-primary); }
+.vocab-quiz .blank-input-base { color: var(--ur-color-text-secondary); font-size: var(--ur-text-font-system-l-regular-size); }
 .vq-answer-cell .blank-input { margin: 0; }
-.vq-answer-cell .blank-input input { width: 220px; }
+.vq-answer-cell .blank-input input { width: calc(var(--ur-space-80) * 2 + var(--ur-space-40) + var(--ur-space-12)); }
 .vq-row.is-kept { opacity: .7; }
-.vq-kept { justify-self: start; font-size: var(--fs-s); color: var(--success-text); }
+.vq-kept { justify-self: start; font-size: var(--ur-text-font-system-s-regular-size); color: var(--ur-color-feedback-success-text); }
 /* on-screen keyboard open (useVisualViewport): keep the field above it, footer out of the way */
-.kb-open .vocab-quiz .question-nav { display: none; }
+.kb-open .vocab-quiz .part-nav { display: none; }
 .kb-open .vocab-quiz .question-scroll { padding-bottom: calc(var(--kb-h, 0px) + 24px); }
 
 @media (max-width: 1023px) {
   .reader-head:has(.mode-tabs) { flex-wrap: wrap; }
-  .vq-row { grid-template-columns: 28px minmax(0, 1fr); }
-  .entry-senses, .entry-examples, .entry-tip, .entry-more, .entry-extra, .entry-cover, .entry-check { margin-left: 0; }
+  .entry-cover, .entry-check { margin-left: 0; }
 }
 @media (max-width: 640px) {
   .reader-head:has(.mode-tabs) .reader-head-title { display: none; }
@@ -69,18 +100,19 @@
 .reader-head:has(.mode-tabs) .reader-head-title { max-width: calc(50% - 220px); }
 .reader-head .mode-tabs { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
 
-/* #124: one Part per page reads like the KET / PET one-page Parts (.part-grid): body text at --fs-l, compact rows with a
-   thin divider, regular-weight numbers "6." in line with the text */
-.vocab-quiz .vq-row { grid-template-columns: 36px minmax(0, 1fr); gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--border); }
-.vocab-quiz .vq-row:last-child { border-bottom: none; }
-.vocab-quiz .vq-num { padding-top: 0; font-size: var(--fs-l); line-height: var(--lh-l); font-weight: var(--fw-regular); color: var(--text-primary); }
-.vocab-quiz .vq-sentence { font-size: var(--fs-l); line-height: var(--lh-l); }
-.vocab-quiz .vq-sentence .blank-input input { padding: 2px 0; }
-.vocab-quiz .vq-body { gap: 8px; }
 
-/* #123: the pager has the KET / PET size — the compact one their half-width question card gets (app.css @container
-   ≤ 900px); this card is wider, so the same values are set here. Narrower cards still get the ≤ 560px rules. */
-@container (min-width: 561px) {
-  .vocab-quiz .question-nav { padding: 20px 24px; gap: 8px; }
-  .vocab-quiz .question-nav .pill-button { width: auto; height: 56px; padding: 0 20px; font-size: var(--fs-l); }
-}
+/* Result and review — the designer's 3.24–3.31 (Figma RC · Screens · DS-2026-11-03, 19518:124597) */
+/* the result card is wider than the question card (1360 at 1440, at most 1500 × 1000), 16 under the header */
+.vocab-pane:has(> .vq-result) { max-width: calc(var(--ur-space-80) * 18 + var(--ur-space-48) + var(--ur-space-12)); padding-top: var(--ur-space-16); }
+.vq-result { max-height: calc(var(--ur-space-80) * 12 + var(--ur-space-40)); }
+/* the fields coloured by the verdict: green / red text on a 2 px line (LineInput Result, frame 3.26), no strike-through */
+.vocab-quiz .blank-input.is-correct :where(input) { color: var(--ur-color-feedback-success); }
+.vocab-quiz .blank-input.is-wrong :where(input) { color: var(--ur-color-feedback-error); text-decoration: none; }
+.vocab-quiz .blank-input.is-correct, .vocab-quiz .blank-input.is-wrong { border-bottom-width: var(--ur-stroke-strong); }
+/* 只练错题 (frame 3.30): what was right last time stays — LineInput Locked + Result correct: green, not dimmed */
+.vq-row.is-kept { opacity: 1; }
+.vq-row.is-kept .blank-input { border-bottom: var(--ur-stroke-strong) solid var(--ur-color-feedback-success); }
+.vq-row.is-kept .blank-input :where(input) { color: var(--ur-color-feedback-success); }
+.vq-row.is-kept .vq-pos-chip.is-on { border-color: var(--ur-color-feedback-success); background: var(--ur-color-feedback-success-bg); color: var(--ur-color-feedback-success); }
+/* the table's right answers (frame 3.31): one fold 16 under the table */
+.vq-table + .vq-review { margin-top: var(--ur-space-16); }

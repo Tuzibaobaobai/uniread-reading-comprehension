@@ -1,10 +1,16 @@
-/* RC/Vocab/WordProfileRow (proposed). Tokens only. */
+/* RC/Vocab/WordProfileRow (proposed) — Figma 19459:535. Tokens only.
+   Columns: number 32 | IPA 144 (the design's 120 would wrap the longest IPAs, 17 characters) | fields; the row's white card (padding 16, radius s) is the question row (.vq-row.is-card). */
 .vq-profile {
-  --vq-lead: calc(var(--ur-space-80) + var(--ur-space-40) + var(--ur-space-20));
-  display: grid; grid-template-columns: var(--vq-lead) minmax(0, 1fr); gap: var(--ur-space-8) var(--ur-space-16); align-items: start;
+  display: grid; grid-template-columns: var(--ur-space-32) calc(var(--ur-space-80) + var(--ur-space-64)) minmax(0, 1fr);
+  column-gap: 0; align-items: start;
 }
-.vq-ipa { font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height); color: var(--ur-color-text-primary); }
-.vq-profile-fields { display: grid; gap: var(--ur-space-8); justify-items: start; }
-.vq-line-row { display: flex; flex-wrap: wrap; gap: var(--ur-space-8) var(--ur-space-24); }
-.vq-pos-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ur-space-8); }
-.vq-pos-label { color: var(--ur-color-text-secondary); font-size: var(--ur-text-font-system-m-regular-size); }
+.vq-profile .vq-num, .vq-profile .vq-ipa { padding-top: var(--ur-space-8); }
+.vq-ipa { grid-column: 2; white-space: nowrap; font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height); color: var(--ur-color-text-strong); }
+.vq-profile-fields { display: grid; gap: 0; justify-items: start; min-width: 0; }
+.vq-line-row { display: flex; flex-wrap: wrap; gap: var(--ur-space-8) var(--ur-space-16); padding-bottom: var(--ur-space-16); }
+/* the labels are the 词性 / field labels: 14, secondary, a 32 high line at least 70 wide */
+.vq-pos-label {
+  display: inline-flex; align-items: center; min-width: calc(var(--ur-space-64) + var(--ur-space-4) + var(--ur-space-2)); height: var(--ur-height-height-4); white-space: nowrap;
+  color: var(--ur-color-text-secondary); font-size: var(--ur-text-font-system-s-regular-size); line-height: var(--ur-text-font-system-s-regular-line-height);
+}
+.vq-pos-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--ur-space-4); padding-bottom: var(--ur-space-8); }

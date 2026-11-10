@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { Check, Cross } from '@/components/Icons';
+import chevronUp from '@/assets/icons/answer-chevron-up.svg';
 import './AnswerFeedback.css';
 
 export type FeedbackResult = 'none' | 'correct' | 'wrong' | 'partial';
@@ -17,7 +18,9 @@ const ResultIcon = ({ result }: { result: FeedbackResult }) => (result === 'corr
  * 正确 / 错误 / 得 x/y 分, `head` text); Action (BOOLEAN — the 定位原文 chip, `action`); `variant` row (词汇天天练,
  * classes .vq-review / .vq-answer) or block (时文阅读 / 真题, classes .explain / .explain-head / .explain-answer that the
  * e2e tests select); Size default / compact (new — block only: "6. ✓ F" + explanation + action on one tinted line, as an
- * `li` inside AnswerFeedbackList, the 真题 per-Part explanations).
+ * `li` inside AnswerFeedbackList, the 真题 per-Part explanations). The row variant follows the designer's frames 3.26–3.31
+ * (Ready for dev): a neutral fold "正确答案" holding a white box — the answer, its note (children) and the action chip
+ * (查看词条) at the right; the verdict is only spoken (sr-only), the colour is on the fields.
  */
 export function AnswerFeedback({
   result,
@@ -61,16 +64,41 @@ export function AnswerFeedback({
         {action}
       </Tag>
     );
+  if (!block)
+    // Figma 3.26: a fold ("正确答案", open) with a white box — the answer, its note and the 查看词条 chip at the right
+    return (
+      <Tag className={['vq-review', state, className].filter(Boolean).join(' ')}>
+        <details className="vq-fold" open>
+          <summary className="vq-fold-head">
+            <span className="vq-fold-btn" aria-hidden>
+              <img src={chevronUp} alt="" />
+            </span>
+            {label}
+          </summary>
+          <div className="vq-fold-box">
+            <div className="vq-fold-text">
+              <p className="vq-answer">
+                <span lang="en">{answer}</span>
+                {/* the verdict is the colour of the fields and the Part's mark; spoken here */}
+                {score && <span className="vq-points sr-only">{score.text}</span>}
+              </p>
+              {children}
+            </div>
+            {action}
+          </div>
+        </details>
+      </Tag>
+    );
   return (
-    <Tag className={[block ? 'explain' : 'vq-review', state, className].filter(Boolean).join(' ')}>
+    <Tag className={['explain', state, className].filter(Boolean).join(' ')}>
       {head && (
         <div className="explain-head">
           <ResultIcon result={result} /> {head}
         </div>
       )}
-      <p className={block ? 'explain-answer' : 'vq-answer'}>
+      <p className="explain-answer">
         <span className="explain-label">{label}</span>
-        {block ? answer : <span lang="en">{answer}</span>}
+        {answer}
         {score && (
           <span className="vq-points">
             {score.correct ? <Check /> : <Cross />} {score.text}

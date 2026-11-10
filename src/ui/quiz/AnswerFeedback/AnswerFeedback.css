@@ -1,24 +1,51 @@
-/* RC/Quiz/AnswerFeedback (proposed). Tokens only; .judge and .chip inside are the shared reader styles. Variant row first, block below. */
-.vq-review {
-  display: grid; gap: var(--ur-space-8); justify-items: start; padding: var(--ur-space-12) var(--ur-space-16);
-  border-radius: var(--ur-radius-s); background: var(--ur-color-background-subtle);
+/* RC/Quiz/AnswerFeedback (proposed). Tokens only; .judge and .chip inside are the shared reader styles. Variant row first (the
+   designer's frames 3.26–3.31), block below. */
+.vq-review { background: var(--ur-paint-customization-grey-1); border-radius: var(--ur-radius-xs); padding: var(--ur-space-16); }
+.vq-fold { display: grid; gap: var(--ur-space-8); }
+.vq-fold-head {
+  display: flex; align-items: center; gap: calc(var(--ur-space-8) + var(--ur-space-2)); cursor: pointer; list-style: none;
+  font-size: var(--ur-text-font-system-s-medium-size); line-height: var(--ur-text-font-system-s-medium-line-height);
+  font-weight: var(--ur-text-font-system-s-medium-weight); color: var(--ur-paint-neutral-black-80);
 }
-.vq-review.is-wrong, .vq-review.is-partial { background: var(--ur-color-feedback-error-bg); }
-.vq-review.is-correct { background: var(--ur-color-feedback-success-bg); }
+.vq-fold-head::-webkit-details-marker { display: none; }
+/* the fold button (RC/Common/Disclosure toggle): a 20 white square, the chevron points down when closed */
+.vq-fold-btn {
+  flex: none; width: var(--ur-size-icon-s); height: var(--ur-size-icon-s); display: grid; place-items: center;
+  border-radius: calc(var(--ur-radius-xs) / 2); background: var(--ur-color-white-100); box-shadow: var(--ur-effect-drop-shadow-btn-xs);
+}
+.vq-fold-btn img { width: var(--ur-space-16); height: var(--ur-space-16); transition: transform .2s; }
+.vq-fold:not([open]) .vq-fold-btn img { transform: rotate(180deg); }
+.vq-fold-box {
+  display: flex; align-items: center; justify-content: space-between; gap: calc(var(--ur-space-4) + var(--ur-space-2));
+  padding: var(--ur-space-16); border: var(--ur-stroke-default) solid var(--ur-color-black-5); border-radius: var(--ur-radius-xs);
+  background: var(--ur-color-background-card);
+}
+.vq-fold-text { flex: 1; min-width: 0; display: grid; gap: var(--ur-space-8); justify-items: start; }
 .vq-answer {
-  margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--ur-space-4) var(--ur-space-8);
-  font-size: var(--ur-text-font-system-m-regular-size);
+  margin: 0; font-size: var(--ur-text-font-system-m-medium-size); line-height: var(--ur-text-font-system-m-medium-line-height);
+  font-weight: var(--ur-text-font-system-m-medium-weight); color: var(--ur-color-text-primary); white-space: pre-wrap;
 }
 .vq-points {
   display: inline-flex; align-items: center; gap: var(--ur-space-4);
   font-size: var(--ur-text-font-system-s-regular-size); color: var(--ur-color-text-secondary);
 }
 .vq-points svg { width: 1em; height: 1em; }
+/* the note under the answer */
 .vq-explain {
-  margin: 0; font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height);
+  margin: 0; font-size: var(--ur-text-font-system-s-regular-size); line-height: var(--ur-text-font-system-s-regular-line-height);
   color: var(--ur-color-text-primary);
 }
-.vq-review .judge { width: 100%; }
+/* RC/Common/word — the 查看词条 chip: grey pill, bookmark icon + label */
+.vq-word {
+  flex: none; min-height: var(--ur-size-touch-target); padding: 0 var(--ur-space-16); display: inline-flex; align-items: center; gap: var(--ur-space-4);
+  border: none; border-radius: var(--ur-radius-full); background: var(--ur-color-background-subtle);
+  font-size: var(--ur-text-font-system-s-medium-size); line-height: var(--ur-text-font-system-s-medium-line-height);
+  font-weight: var(--ur-text-font-system-s-medium-weight); color: var(--ur-color-text-strong); white-space: nowrap;
+}
+.vq-word img { width: var(--ur-space-16); height: var(--ur-space-16); }
+@media (hover: hover) and (pointer: fine) { .vq-word:hover { background: var(--ur-paint-customization-grey-3); } }
+@media (max-width: 640px) { .vq-fold-box { flex-direction: column; align-items: flex-start; } }
+@media (prefers-reduced-motion: reduce) { .vq-fold-btn img { transition: none; } }
 
 /* variant block — the 时文 / 真题 review box (same palette as Option-text-item correct-expanded); .explain-label is
    shared with the row variant */

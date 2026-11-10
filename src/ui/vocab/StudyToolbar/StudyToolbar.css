@@ -1,16 +1,13 @@
-/* RC/Vocab/StudyToolbar (proposed). Tokens only. */
-.vocab-toolbar {
-  position: sticky; top: 0; z-index: 1;
-  display: flex; align-items: center; gap: var(--ur-space-16); flex-wrap: wrap;
-  padding: var(--ur-space-16) 0; background: var(--ur-color-background-card);
-  border-bottom: var(--ur-stroke-default) solid var(--ur-color-border-divider);
-}
-.vocab-count { font: var(--ur-text-font-system-m-bold); color: var(--ur-color-text-secondary); }
-.vocab-tally { font: var(--ur-text-font-system-m-regular); color: var(--ur-color-text-secondary); }
+/* RC/Vocab/StudyToolbar (proposed; Figma 19445:655). Tokens only. Part of the card (it scrolls with the list): the
+   counts line, then the legend — items 26 high, 40 apart sideways. */
+.vocab-toolbar { display: flex; flex-direction: column; gap: var(--ur-space-8); padding: var(--ur-space-16) 0; }
+.vocab-counts { display: flex; align-items: flex-start; flex-wrap: wrap; gap: var(--ur-space-16); font: var(--ur-text-font-system-m-regular); }
+.vocab-count { font: var(--ur-text-font-system-m-bold); color: var(--ur-color-text-primary); }
+.vocab-tally { color: var(--ur-color-text-secondary); }
 .vocab-legend {
-  flex-basis: 100%; margin: 0; display: flex; flex-wrap: wrap; gap: var(--ur-space-4) var(--ur-space-20);
+  margin: 0; padding: var(--ur-space-8) 0; display: flex; flex-wrap: wrap; gap: var(--ur-space-4) var(--ur-space-40);
   font: var(--ur-text-font-system-s-regular); color: var(--ur-color-text-secondary);
 }
-.vocab-legend-item { display: inline-flex; align-items: center; gap: var(--ur-space-8); }
-.vocab-legend .entry-tag { padding: 0 var(--ur-space-8); }
-.vocab-legend .entry-star { font-weight: var(--ur-text-font-system-s-bold-weight); }
+.vocab-legend-item { display: inline-flex; align-items: center; gap: var(--ur-space-8); min-height: calc(var(--ur-space-24) + var(--ur-space-2)); }
+/* the legend's stars are the small ones (Figma 19618:9223: 14) */
+.vocab-legend .entry-star img { width: calc(var(--ur-space-16) - var(--ur-space-2)); height: calc(var(--ur-space-16) - var(--ur-space-2)); }
