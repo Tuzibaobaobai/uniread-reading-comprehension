@@ -1,7 +1,7 @@
 // Deploy the develop branch to its own Vercel project (uniread-reading-comprehension-dev) for reviewing the next
 // milestone; production (`npm run deploy`, project uniread-reading-comprehension) is not touched. The production link
 // in .vercel/project.json stays as it is: the dev project is chosen with VERCEL_PROJECT_ID for these commands only.
-// Env vars (SILICONFLOW_API_KEY, JUDGE_*) are set once in the dev project, as Sensitive.
+// Env vars (ARK_API_KEY / ARK_MODEL for the judge, SILICONFLOW_API_KEY for speech-to-text) are set once in the dev project, as Sensitive.
 //   npm run deploy:dev
 import { execFileSync } from 'node:child_process';
 

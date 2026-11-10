@@ -1,9 +1,11 @@
 /**
  * 词汇天天练 (#110): a second look at Chinese meanings the rule match (zhMatches) did not accept — a learner may give a
  * correct meaning in other words (e.g. 能耐 for 能力). One small model call per submission, all meanings at once.
- * Same provider settings as the judge (SILICONFLOW_API_KEY, JUDGE_MODEL, JUDGE_BASE_URL). Any failure → the rule result stands.
+ * Same provider settings as the judge (ARK_API_KEY / ARK_MODEL first, else SILICONFLOW_API_KEY, JUDGE_MODEL, JUDGE_BASE_URL).
+ * Any failure → the rule result stands.
  */
 import { createHash } from 'node:crypto';
+import { arkFromEnv, arkText, type ArkOpts } from './ark';
 import type { ItemKeyT, VocabDayItemT } from '@schema';
 import { allQuestions, normalizeText, type ResponseValue, type Result } from '../src/lib/grading';
 
@@ -86,7 +88,32 @@ export function openAiMeaningCheck(opts: { baseUrl: string; apiKey: string; mode
   };
 }
 
+/** the same check on Volcano Ark (server/ark.ts) */
+export function arkMeaningCheck(opts: ArkOpts & { timeoutMs?: number }): MeaningCheck {
+  const cache = new Map<string, boolean>();
+  const sig = (a: MeaningAsk) => createHash('sha256').update(JSON.stringify([a.word, a.pos, a.given])).digest('hex');
+  return {
+    model: opts.model,
+    async check(asks) {
+      const todo = asks.filter((a) => !cache.has(sig(a)));
+      if (todo.length) {
+        const user = JSON.stringify(todo.map((a) => ({ id: a.id, word: a.word, pos: a.pos, accepted: a.accept.join('；'), student: a.given.slice(0, 40) })));
+        const r = await arkText(opts, { system: SYSTEM, user, json: true, noThinking: true, maxTokens: 400, timeoutMs: opts.timeoutMs ?? 7000 });
+        if (!r.ok) throw new Error(`meaning check ${r.status}`);
+        const text = r.text;
+        const parsed = JSON.parse(text.slice(text.indexOf('{'), text.lastIndexOf('}') + 1)) as { accepted?: unknown };
+        const ok = new Set(Array.isArray(parsed.accepted) ? parsed.accepted.filter((x): x is string => typeof x === 'string') : []);
+        if (cache.size > 2000) cache.clear();
+        todo.forEach((a) => cache.set(sig(a), ok.has(a.id)));
+      }
+      return asks.filter((a) => cache.get(sig(a))).map((a) => a.id);
+    },
+  };
+}
+
 export function meaningFromEnv(env: Record<string, string | undefined> = process.env): MeaningCheck | null {
+  const ark = arkFromEnv(env);
+  if (ark) return arkMeaningCheck(ark);
   if (!env.SILICONFLOW_API_KEY) return null;
   return openAiMeaningCheck({
     baseUrl: env.JUDGE_BASE_URL ?? 'https://api.siliconflow.cn/v1',

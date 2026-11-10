@@ -3,6 +3,7 @@ import pauseIcon from '@/assets/icons/audio-pause.svg';
 import cardIcon from '@/assets/icons/scan-play.svg';
 import cardHoverIcon from '@/assets/icons/scan-play-hover.svg';
 import chipIcon from '@/assets/icons/entry-play.svg';
+import chipHoverIcon from '@/assets/icons/entry-play-hover.svg';
 import speakerIcon from '@/assets/icons/entry-speaker.svg';
 import './PlayButton.css';
 
@@ -42,6 +43,8 @@ export function PlayButton({
   return (
     <button type="button" className={`entry-play${inline ? ' is-small' : ''}`} onClick={onPlay} aria-label={label}>
       <img src={playing ? pauseIcon : inline ? speakerIcon : chipIcon} alt="" />
+      {/* #144: btn-play State=Hover (19614:125149) — icon Grey/10, effect btn/btn-s */}
+      {!playing && !inline && <img className="entry-play-hover" src={chipHoverIcon} alt="" />}
     </button>
   );
 }

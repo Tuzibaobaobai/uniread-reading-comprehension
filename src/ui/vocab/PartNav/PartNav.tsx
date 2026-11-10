@@ -53,8 +53,8 @@ export function PartNav({
   /** after submitting (the answers shown with their marks) */
   review?: boolean;
   prev: { label: string; onClick: () => void };
-  /** the right-hand button: next page, submit, or back to the result */
-  action: { kind: 'next' | 'submit' | 'back'; label: string; dim?: boolean; disabled?: boolean; onClick: () => void };
+  /** the right-hand button: next page or submit (in review the way back to the result is the breadcrumb, #146) */
+  action: { kind: 'next' | 'submit'; label: string; dim?: boolean; disabled?: boolean; onClick: () => void };
   onPage: (i: number) => void;
   onPickQuestion: (partIndex: number, questionId: string) => void;
 }) {
@@ -139,7 +139,7 @@ function PartCard({ part, review, onClick }: { part: PartNavPart; review: boolea
   );
 }
 
-function ActionButton({ kind, label, dim, disabled, onClick }: { kind: 'next' | 'submit' | 'back'; label: string; dim?: boolean; disabled?: boolean; onClick: () => void }): ReactNode {
+function ActionButton({ kind, label, dim, disabled, onClick }: { kind: 'next' | 'submit'; label: string; dim?: boolean; disabled?: boolean; onClick: () => void }): ReactNode {
   if (kind === 'next')
     return (
       <button type="button" className="part-arrow" aria-label={label} disabled={disabled} onClick={onClick}>
@@ -147,7 +147,7 @@ function ActionButton({ kind, label, dim, disabled, onClick }: { kind: 'next' | 
       </button>
     );
   return (
-    <button type="button" className={`part-arrow is-primary ${kind === 'back' ? 'is-back' : ''} ${dim ? 'is-dim' : ''}`} disabled={disabled} onClick={onClick}>
+    <button type="button" className={`part-arrow is-primary ${dim ? 'is-dim' : ''}`} disabled={disabled} onClick={onClick}>
       <Check />
       <span>{label}</span>
     </button>

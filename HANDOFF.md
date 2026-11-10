@@ -123,7 +123,7 @@
 
 ```bash
 npm ci
-npm run dev        # http://localhost:5173（判分与评分接口由 Vite 中间件提供；开放题评分需要环境变量 SILICONFLOW_API_KEY）
+npm run dev        # http://localhost:5173（判分与评分接口由 Vite 中间件提供；开放题评分需要环境变量 ARK_API_KEY（火山方舟；或 SILICONFLOW_API_KEY），见 docs/09 §5）
 npm run validate   # 内容校验：540 篇，0 error
 npm test           # 单元测试：判分、评分、答案语义、私有材料扫描
 npm run e2e        # Playwright：桌面 / iPad 横屏 / iPad 竖屏

@@ -7,6 +7,7 @@ import { isAnswered, type Result } from '@/lib/grading';
 import { BlankInput } from '@/reader/interactions';
 import { Block } from '@/reader/ArticlePane';
 import { SectionHeader } from '@/ui/quiz/SectionHeader/SectionHeader';
+import { Breadcrumb } from '@/ui/common/Breadcrumb/Breadcrumb';
 import { JudgeResult } from '@/ui/quiz/JudgeResult/JudgeResult';
 import bookmarkIcon from '@/assets/icons/answer-bookmark.svg';
 import { LineInput, type LineResult } from '@/ui/quiz/LineInput/LineInput';
@@ -150,6 +151,16 @@ export function VocabQuiz({
   const next = { kind: 'next' as const, label: t('reader.next'), onClick: () => setPage(page + 1) };
   return (
     <div className="question-card vocab-quiz">
+      {/* #146: in review the way back to the result is the breadcrumb at the top of the card (Figma 3.26), not a button */}
+      {review && (
+        <Breadcrumb
+          label={t('vocab.result.breadcrumb')}
+          items={[
+            { key: 'result', label: t('vocab.result.crumbResult'), onClick: onShowResult },
+            { key: 'answers', label: t('vocab.result.view') },
+          ]}
+        />
+      )}
       <div className="question-scroll thin-scroll" ref={scroller}>
         <SectionHeader part={partLabel(t, page)} instruction={section.instruction} />
         {section.promptBank && <PromptBank items={section.promptBank} />}
@@ -172,7 +183,7 @@ export function VocabQuiz({
         action={
           review
             ? isLast
-              ? { kind: 'back', label: t('vocab.result.back'), onClick: onShowResult }
+              ? { ...next, disabled: true }
               : next
             : isLast
               ? { kind: 'submit', label: t('reader.submit'), dim: !allAnswered, disabled: submitting, onClick: onSubmit }
@@ -253,12 +264,16 @@ function PromptBank({ items }: { items: string[] }) {
   );
 }
 
-/** a sentence whose Chinese prompt ends in its blank (二, 词组日一): the blank sits at the right (#118) */
-const answerRight = (q: QuestionT) => {
-  if (q.interaction.kind !== 'textEntry') return false;
-  const prompt = q.interaction.prompt ?? [];
-  return prompt.length > 1 && prompt[prompt.length - 1]?.t === 'blank';
+/** where the run of blanks that ends a prompt starts (blanks with only spaces between them); 0 = no answer cell */
+const trailingBlanks = (prompt: readonly InlineT[]): number => {
+  let i = prompt.length;
+  while (i > 0 && (prompt[i - 1].t === 'blank' || (prompt[i - 1].t === 'text' && !(prompt[i - 1] as { v: string }).v.trim()))) i--;
+  while (i < prompt.length && prompt[i].t !== 'blank') i++; // spaces before the first blank stay with the prompt
+  return i > 0 && i < prompt.length && prompt[prompt.length - 1]?.t === 'blank' ? i : 0;
 };
+
+/** a sentence whose Chinese prompt ends in its blank(s) (二, 词组日一): the blanks sit at the right (#118, #143) */
+const answerRight = (q: QuestionT) => q.interaction.kind === 'textEntry' && trailingBlanks(q.interaction.prompt ?? []) > 0;
 
 function Row({ q, state }: { q: QuestionT; state: QuizState }) {
   const { t } = useTranslation();
@@ -360,16 +375,18 @@ function TextEntryRow({ q, state, locked }: { q: QuestionT; state: QuizState; lo
       inputAttrs={fieldAttrs}
     />
   );
-  const last = prompt[prompt.length - 1];
   const num = <span className="vq-num">{q.number}.</span>;
-  if (last?.t === 'blank' && prompt.length > 1) {
+  const from = trailingBlanks(prompt);
+  if (from > 0) {
+    // #143: every blank at the end (原形 过去式 过去分词) goes to the answer cell, not only the last one
+    const blanks = prompt.slice(from).filter((n): n is BlankNode & InlineT => n.t === 'blank');
     return (
       <p className="vq-sentence is-answer-right">
         {num}
         <span className="vq-prompt">
-          <Rich nodes={prompt.slice(0, -1)} />
+          <Rich nodes={prompt.slice(0, from)} />
         </span>
-        <span className="vq-answer-cell">{blank(last)}</span>
+        <span className={`vq-answer-cell ${blanks.length > 1 ? 'is-multi' : ''}`}>{blanks.map(blank)}</span>
       </p>
     );
   }
@@ -433,7 +450,8 @@ function Review({ q, k, result, state }: { q: QuestionT; k: AnswerKeyT; result?:
         max={j.maxPoints}
         scoreText={t('judge.scoreLine', { score: j.score, max: j.maxPoints })}
         reviewTag={j.needsReview ? t('judge.needsReview') : undefined}
-        chips={[
+        // #147: an empty / non-English answer met nothing — no key-point pills (they read as praise), only the message
+        chips={j.flags.includes('empty') || j.flags.includes('not_english') ? [] : [
           ...points.map((p) => ({ id: p.id, text: p.descZh, kind: (j.keyPoints.find((x) => x.id === p.id)?.met === 'yes' ? 'good' : 'tip') as 'good' | 'tip' })),
           ...j.languageIssues.map((l, i) => ({ id: `language-${i}`, text: l.noteZh ?? `${l.text} → ${l.fix}`, kind: 'tip' as const })),
         ]}

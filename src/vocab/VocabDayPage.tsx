@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import type { AttemptT, ItemKeyT, LexiconEntryT, LexiconT, VocabDayItemT } from '@schema';
 import { staticContent } from '@/lib/content';
 import { localAttempts, newAttempt } from '@/lib/storage';
-import { allQuestions, isAnswered, type Result } from '@/lib/grading';
+import { allQuestions, isAnswered, totals, type Result } from '@/lib/grading';
 import { applyJudgement, fallbackToSelf } from '@/lib/judge';
 import Loading from '@/components/Loading';
 import { VocabList } from './VocabList';
@@ -103,7 +103,15 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
     );
   };
   useEffect(() => {
-    if (submitted && attempt.result?.byQuestion.some((b) => b.scoredBy === 'pending')) void runJudge(attempt);
+    if (!submitted || !attempt.result) return;
+    // #147: 中译英 left to self-check because the judge was down are tried again when the attempt is opened again
+    const r = attempt.result as Result;
+    if (staticContent.judge && r.byQuestion.some((b) => b.scoredBy === 'self')) {
+      const byQuestion = r.byQuestion.map((b) => (b.scoredBy === 'self' ? { ...b, scoredBy: 'pending' as const } : b));
+      const again = { ...attempt, result: { ...r, ...totals(byQuestion), byQuestion } };
+      persist(again);
+      void runJudge(again);
+    } else if (r.byQuestion.some((b) => b.scoredBy === 'pending')) void runJudge(attempt);
   }, [attempt.attemptId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const questions = useMemo(() => allQuestions(item), [item]);
@@ -292,7 +300,8 @@ function ResultView({
           range: from === to ? t('vocab.result.partRangeOne', { n: from }) : t('vocab.result.partRange', { from, to }),
           // #140: each 大题 as questions right / questions, not points
           points: `${right}/${s.questions.length}`,
-          marks: rows.map((r) => r?.correct === true),
+          // #147: a 中译英 not marked (judge down → self-check, or still marking) is neither right nor wrong
+          marks: rows.map((r) => (r?.correct === true ? true : r?.scoredBy === 'self' || r?.scoredBy === 'pending' ? null : false)),
           label: t('vocab.result.partCard', { part: partLabel(t, i), range, score: `${right}/${s.questions.length}` }),
         };
       })}

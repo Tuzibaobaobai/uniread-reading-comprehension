@@ -583,6 +583,24 @@
           "use": "UniRead file effect style \"btn-hover\" (key 32a9567ef1f7af1cf326d06889b76453bfa087b7), as above; hover of previous / next"
         }
       }
+    },
+    "btn-btn-xs": {
+      "$type": "shadow",
+      "$value": "box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);",
+      "$extensions": {
+        "rc": {
+          "use": "UniRead file effect style \"btn/btn-xs\", added by the designer after DS-2026-11-03; btn-play Default (Figma 19614:125147, #144). Moves to uniread.tokens.json at the next ds-sync"
+        }
+      }
+    },
+    "btn-btn-s": {
+      "$type": "shadow",
+      "$value": "box-shadow: 0px 2px 8px 0px rgba(29, 39, 81, 0.1);",
+      "$extensions": {
+        "rc": {
+          "use": "UniRead file effect style \"btn/btn-s\", as above; btn-play Hover (Figma 19614:125149, #144)"
+        }
+      }
     }
   }
 }

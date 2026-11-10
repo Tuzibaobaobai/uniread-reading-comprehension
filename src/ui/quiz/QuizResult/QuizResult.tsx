@@ -9,8 +9,8 @@ export interface ResultPart {
   range: string;
   /** questions right / questions: "3/5" */
   points: string;
-  /** one mark per question, in order: right (green) / wrong (red) — the correctness bar */
-  marks: boolean[];
+  /** one mark per question, in order: right (green) / wrong (red) / not marked yet (null, neutral) — the correctness bar */
+  marks: (boolean | null)[];
   /** the spoken label of the whole card */
   label: string;
 }
@@ -66,7 +66,7 @@ export function QuizResult({
               <span className="vq-result-range">{p.range}</span>
               <span className={`vq-result-bar${p.marks.length > 10 ? ' is-dense' : ''}`} aria-hidden>
                 {p.marks.map((ok, i) => (
-                  <i key={i} className={ok ? 'is-right' : 'is-wrong'} />
+                  <i key={i} className={ok === null ? 'is-none' : ok ? 'is-right' : 'is-wrong'} />
                 ))}
               </span>
               <span className="vq-result-points">{p.points}</span>

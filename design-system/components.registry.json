@@ -2225,6 +2225,26 @@
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19594-1349"
    },
    "note": "题号为纯数字；select 为点开点选的下拉（黑白字体表情 Noto Emoji，非原生 select），已判对错的格不显示箭头，wrong 旁显示正确答案；text 为三行书写格，提交后由 AI 按参考答案判对错"
+  },
+  {
+   "code": "ui/common/Breadcrumb",
+   "status": "reuse",
+   "product": "词汇天天练",
+   "description": "复盘时卡片顶部的面包屑：测试结果 › 查看答案（替代「返回成绩」按钮，始终置顶）",
+   "screens": [
+    "3.26"
+   ],
+   "note": "设计师在 3.26 词汇 · 复盘中新建的 Breadcrumb（#146），代码按该节点实现（2026-11-10）（尚未进入锁定的组件清单 components.inventory.json：下次 ds-sync 后补 figma.nodeId）",
+   "source": "src/ui/common/Breadcrumb/Breadcrumb.tsx",
+   "variants": {
+    "Area · Selected": "no（Grey/9，可点击返回上一级）/ yes（Text primary，当前页）"
+   },
+   "figmaDesigner": {
+    "nodeId": "19752:11618",
+    "name": "Breadcrumb（19752:11618）",
+    "group": "RC · Screens · DS-2026-11-03 › 词汇 · 测验 › 3.26",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19752-11618"
+   }
   }
  ],
  "proposalPage": {

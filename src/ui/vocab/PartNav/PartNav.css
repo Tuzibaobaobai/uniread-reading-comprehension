@@ -26,7 +26,6 @@
   font-size: var(--ur-text-font-system-s-medium-size); line-height: var(--ur-text-font-system-s-medium-line-height);
   font-weight: var(--ur-text-font-system-s-medium-weight); white-space: nowrap;
 }
-.part-arrow.is-back span { font-size: var(--ur-text-font-system-xs-medium-size); line-height: var(--ur-text-font-system-xs-medium-line-height); }
 @media (hover: hover) and (pointer: fine) {
   .part-arrow:hover:not(:disabled) { box-shadow: var(--ur-effect-btn-hover); }
   .part-arrow.is-primary:hover:not(:disabled):not(.is-dim) { background: var(--ur-color-action-primary-strong); }

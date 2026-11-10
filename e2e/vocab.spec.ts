@@ -275,7 +275,9 @@ test('Quiz: Part pages, typed answers only, Enter, result, review, entry, retry 
 
   await page.getByRole('button', { name: /^Part 6/ }).click();
   await expect(page.locator('.judge-score').first()).toContainText('4');
-  await page.getByRole('button', { name: '返回成绩' }).click();
+  // #146: back to the result by the breadcrumb pinned at the top of the card, not a button in the footer
+  await expect(page.getByRole('navigation', { name: '导航路径' })).toContainText('查看答案');
+  await page.getByRole('navigation', { name: '导航路径' }).getByRole('button', { name: '测试结果' }).click();
   await page.getByRole('button', { name: /只练错题/ }).click();
   await expect(page.locator('.vq-row.is-kept')).toHaveCount(4);
   await expect(page.getByRole('textbox', { name: '第 2 题：单词' })).toBeEditable();

@@ -36,9 +36,9 @@
 | 模块 | 位置 | 说明 |
 |---|---|---|
 | 请求、提示、校验、合并 | `src/lib/judge.ts` | 纯函数，与模型无关。UniRead 服务端直接复用 |
-| 服务端核心 | `server/judge-core.ts` | 读取 item 和 key，调用模型，校验输出。适配器：OpenAI 兼容接口（SiliconFlow 等，JSON 模式），或 Anthropic（强制工具调用） |
-| Vercel 函数 | `server/judge.ts` → `POST /api/rc/judge`（`npm run deploy` 时由 `scripts/vercel-functions.mjs` 打包，连同 `content/playlists`） | 当前部署使用 SiliconFlow 的 `deepseek-ai/DeepSeek-V4.1-Flash` |
-| 本地 | `npm run dev` / `vite preview` 通过 `vite.config.ts` 的 `rc-api` 插件提供同一个 handler | 本地需在环境变量中设置 `SILICONFLOW_API_KEY`，否则返回 503，前端退回自评 |
+| 服务端核心 | `server/judge-core.ts` | 读取 item 和 key，调用模型，校验输出。适配器：火山方舟 Responses API（`server/ark.ts`，JSON 模式），OpenAI 兼容接口（SiliconFlow 等，JSON 模式），或 Anthropic（强制工具调用） |
+| Vercel 函数 | `server/judge.ts` → `POST /api/rc/judge`（`npm run deploy` 时由 `scripts/vercel-functions.mjs` 打包，连同 `content/playlists`） | 当前部署使用火山方舟的 `deepseek-v4-1-flash-261017`（2026-11-10 起；SiliconFlow 账户余额不足返回 402，#147） |
+| 本地 | `npm run dev` / `vite preview` 通过 `vite.config.ts` 的 `rc-api` 插件提供同一个 handler | 本地需在 `.env.local` 中设置 `ARK_API_KEY`（或 `SILICONFLOW_API_KEY`），否则返回 503，前端退回自评 |
 | 前端 | `ReaderPage.tsx` 的 `runJudge`、`interactions.tsx` 的 `JudgeVerdict` | 显示分数、要点 ✓ / ½ / ✗、反馈和语言纠错，并标出“待老师确认” |
 
 ### 2.1 数据（schema）
@@ -115,7 +115,7 @@
 - 服务端从 keys 读取细则；浏览器不发送、也不接收参考答案和要点（参考答案在提交后随 key 返回，用于展示）。
 - 也可以在 `POST /api/rc/items/:itemId/attempts` 内同步或异步完成评分，把 `judgement` 写进 attempt；前端只要拿到 `byQuestion[].judgement` 即可展示。
 - 模型由 UniRead 选择（需要支持结构化输出或 JSON 模式）。用量参考：每题输入约 1–1.5k tokens，输出约 200 tokens。
-- **当前部署（Vercel）**：Vercel 项目环境变量 `SILICONFLOW_API_KEY`（必填）；可选 `JUDGE_MODEL`（默认 `deepseek-ai/DeepSeek-V4.1-Flash`）、`JUDGE_BASE_URL`（默认 `https://api.siliconflow.cn/v1`）。未设置 key 时接口返回 503，前端退回学生自评。改用 Claude 时设置 `ANTHROPIC_API_KEY`（仅在没有 `SILICONFLOW_API_KEY` 时生效）。
+- **当前部署（Vercel）**：Vercel 项目环境变量 `ARK_API_KEY`（火山方舟，优先）；可选 `ARK_MODEL`（默认 `deepseek-v4-1-flash-261017`；可选 `deepseek-v4-pro-ga-260813`、`deepseek-v4-flash-ga-260731`、`glm-5.3`、`kimi-k3-260716`）、`ARK_BASE_URL`（默认 `https://ark.cn-beijing.volces.com/api/v3`，调用 `/responses`，`store: false` 不在方舟留存学生作答）。没有 `ARK_API_KEY` 时依次退回 `SILICONFLOW_API_KEY`（可选 `JUDGE_MODEL`、`JUDGE_BASE_URL`）、`ANTHROPIC_API_KEY`。都未设置时接口返回 503，前端退回学生自评；词汇中译英在自评后再次打开时会自动重新批改（#147）。中文释义复核（`server/meaning.ts`）使用同一组设置。语音识别（`/api/rc/speak`、`/api/rc/transcribe`）仍用 SiliconFlow 的 ASR 模型。
 - **教师复核**：`needsReview = true` 的题进入队列；教师改分后写 `scoredBy: "judge"`，并在 `judgement` 中记录 `model: "teacher:<id>"`。
 - **记录**：保存 `promptVersion`、`model`、原始输出，用于申诉、审计和回归测试。
 

@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { join } from 'node:path';
-import { extractJson, judgeCall, llmFromEnv, openAiCompatibleLlm } from './judge-core';
+import { arkLlm, extractJson, judgeCall, llmFromEnv, openAiCompatibleLlm } from './judge-core';
 
 const contentRoot = join(process.cwd(), 'content');
 const modelReply = {
@@ -19,6 +19,26 @@ describe('judge-core', () => {
   it('picks SiliconFlow DeepSeek by default when its key is set', () => {
     expect(llmFromEnv({ SILICONFLOW_API_KEY: 'x' })?.model).toBe('deepseek-ai/DeepSeek-V4.1-Flash');
     expect(llmFromEnv({})).toBeNull();
+  });
+
+  it('prefers Volcano Ark when ARK_API_KEY is set', () => {
+    expect(llmFromEnv({ ARK_API_KEY: 'a', SILICONFLOW_API_KEY: 'x' })?.model).toBe('deepseek-v4-1-flash-261017');
+    expect(llmFromEnv({ ARK_API_KEY: 'a', ARK_MODEL: 'glm-5.3' })?.model).toBe('glm-5.3');
+  });
+
+  it('calls the Ark Responses API in JSON mode, without storing the answer', async () => {
+    const reply = { output: [{ type: 'reasoning', summary: [] }, { type: 'message', role: 'assistant', content: [{ type: 'output_text', text: JSON.stringify(modelReply) }] }] };
+    const fetchMock = vi.fn(async () => new Response(JSON.stringify(reply), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+    const llm = arkLlm({ apiKey: 'ark-test', model: 'deepseek-v4-1-flash-261017' });
+    const v = await judgeCall({ itemId: 'ci-g7-w01-fri', itemVersion: '1', questionId: 'q3', response: 'They lose water and absorb fat.' }, { contentRoot, llm });
+    expect(v).toMatchObject({ score: 2, maxPoints: 2, model: 'deepseek-v4-1-flash-261017' });
+    const [url, init] = fetchMock.mock.calls[0] as unknown as [string, RequestInit];
+    expect(url).toBe('https://ark.cn-beijing.volces.com/api/v3/responses');
+    const body = JSON.parse(String(init.body));
+    expect(body).toMatchObject({ model: 'deepseek-v4-1-flash-261017', temperature: 0, store: false, text: { format: { type: 'json_object' } } });
+    expect(body.input[1].content).toContain('<student_answer>');
+    expect((init.headers as Record<string, string>).authorization).toBe('Bearer ark-test');
   });
 
   it('calls the OpenAI-compatible endpoint in JSON mode and validates the verdict', async () => {

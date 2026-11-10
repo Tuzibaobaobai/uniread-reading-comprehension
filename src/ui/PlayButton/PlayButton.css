@@ -1,11 +1,19 @@
 /* ui/PlayButton — UniRead btn-play (reuse). Tokens only (docs/14 §15). */
-/* Size=entry: the headword's chip — 28 × 28, white, radius xxs, drop-shadow btn-xs, icon-play 16 (Figma btn-play 19614:125147);
+/* Size=entry: the headword's chip — 28 × 28, white, radius xxs, effect btn/btn-xs, icon-play 16; Hover: effect btn/btn-s and
+   the Grey/10 icon (Figma btn-play 19614:125146, #144 — exactly the component's effect styles);
    `is-small` = the example's speaker, 24 × 24 without a fill, volume-high (19614:128103). */
 .entry-play {
   --chip: calc(var(--ur-space-24) + var(--ur-space-4));
   width: var(--chip); height: var(--chip);
   display: grid; place-items: center; flex-shrink: 0; position: relative; padding: 0;
-  border: none; border-radius: var(--ur-space-8); background: var(--ur-color-background-card); box-shadow: var(--ur-effect-drop-shadow-btn-xs);
+  border: none; border-radius: var(--ur-space-8); background: var(--ur-color-background-card); box-shadow: var(--ur-effect-btn-btn-xs);
+}
+.entry-play img { grid-area: 1 / 1; }
+.entry-play .entry-play-hover { visibility: hidden; }
+@media (hover: hover) and (pointer: fine) {
+  .entry-play:not(.is-small):hover { box-shadow: var(--ur-effect-btn-btn-s); }
+  .entry-play:not(.is-small):hover img { visibility: hidden; }
+  .entry-play:not(.is-small):hover .entry-play-hover { visibility: visible; }
 }
 .entry-play img { width: var(--ur-height-height-2); height: var(--ur-height-height-2); }
 /* the tap target stays 44 × 44 (the visible chip is the designer's 28) */

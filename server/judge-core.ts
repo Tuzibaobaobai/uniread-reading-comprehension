@@ -2,8 +2,10 @@
  * Server side of the LLM judge (docs/09 §5): load item + key, build the request, call a model, validate.
  * Used by server/judge.ts (Vercel function, and Vite dev/preview middleware).
  *
- * Model providers (env):
- *   SiliconFlow (default when SILICONFLOW_API_KEY is set) — OpenAI-compatible chat completions, JSON mode
+ * Model providers (env), first configured wins:
+ *   Volcano Ark (server/ark.ts) — Responses API, JSON mode
+ *     ARK_API_KEY, ARK_MODEL (default deepseek-v4-1-flash-261017), ARK_BASE_URL (default https://ark.cn-beijing.volces.com/api/v3)
+ *   SiliconFlow (when SILICONFLOW_API_KEY is set) — OpenAI-compatible chat completions, JSON mode
  *     SILICONFLOW_API_KEY, JUDGE_MODEL (default deepseek-ai/DeepSeek-V4.1-Flash), JUDGE_BASE_URL (default https://api.siliconflow.cn/v1)
  *   Anthropic — forced tool call
  *     ANTHROPIC_API_KEY, JUDGE_MODEL (default claude-sonnet-5-5)
@@ -11,6 +13,7 @@
 import { createHash } from 'node:crypto';
 import type { JudgementT } from '@schema';
 import { HttpError, loadItem } from './http';
+import { arkFromEnv, arkText, type ArkOpts } from './ark';
 import { allQuestions } from '../src/lib/grading';
 import {
   JUDGE_OUTPUT_SCHEMA,
@@ -61,7 +64,7 @@ export function openAiCompatibleLlm(opts: { baseUrl: string; apiKey: string; mod
         // Cambridge marking (KET writing/speaking): no reasoning trace — 4–5 s instead of 10–35 s, same bands in tests
         // (SiliconFlow hybrid models); a provider that rejects the flag gets the plain request below
         // 中译英 (#125): one short sentence against reference translations — the same, without the long reasoning wait
-        ...(jsonMode && (req.promptVersion.startsWith('cambridge-') || req.rubric.type === 'translation') ? { enable_thinking: false } : {}),
+        ...(jsonMode && quickTask(req) ? { enable_thinking: false } : {}),
         messages: [
           { role: 'system', content: system },
           { role: 'user', content: user },
@@ -80,6 +83,30 @@ export function openAiCompatibleLlm(opts: { baseUrl: string; apiKey: string; mod
       const body = (await res.json()) as { choices?: { message?: { content?: string } }[] };
       const text = body.choices?.[0]?.message?.content ?? '';
       return extractJson(text);
+    },
+  };
+}
+
+/** Cambridge marking (KET writing/speaking) and 中译英 (#125): short tasks, no reasoning trace needed */
+const quickTask = (req: JudgeRequest) => req.promptVersion.startsWith('cambridge-') || req.rubric.type === 'translation';
+
+export function arkLlm(opts: ArkOpts & { timeoutMs?: number }): Llm {
+  return {
+    model: opts.model,
+    async complete(req) {
+      const { system, user } = buildJudgePrompt(req, 'json');
+      const noThinking = quickTask(req);
+      const r = await arkText(opts, {
+        system,
+        user,
+        json: true,
+        noThinking,
+        // a reasoning trace counts against the output budget
+        maxTokens: noThinking ? 1024 : 4096,
+        timeoutMs: opts.timeoutMs ?? MODEL_TIMEOUT_MS,
+      });
+      if (!r.ok) throw new HttpError(502, `model ${r.status}: ${r.error}`);
+      return extractJson(r.text);
     },
   };
 }
@@ -114,6 +141,8 @@ export function anthropicLlm(opts: { apiKey: string; model: string }): Llm {
 
 /** pick the provider from environment variables; null when no key is configured */
 export function llmFromEnv(env: Record<string, string | undefined> = process.env): Llm | null {
+  const ark = arkFromEnv(env);
+  if (ark) return arkLlm(ark);
   if (env.SILICONFLOW_API_KEY) {
     return openAiCompatibleLlm({
       baseUrl: env.JUDGE_BASE_URL ?? 'https://api.siliconflow.cn/v1',
