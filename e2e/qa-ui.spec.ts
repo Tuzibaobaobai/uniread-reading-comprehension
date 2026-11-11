@@ -150,3 +150,40 @@ test('vocab table day: each wrong table answer links to its entry (docs/16 §3.3
   await links.first().click();
   await expect(page.locator('.entry-dialog')).toBeVisible();
 });
+
+test('#149 home filter row: 全部 / 最近在读 / 已完成 with counts; a started playlist moves into 最近在读, newest first', async ({ page }) => {
+  const attempt = (itemId: string, at: string, submitted: boolean) => ({
+    attemptId: itemId, itemId, itemVersion: '1', learnerId: null, startedAt: at, submittedAt: submitted ? at : null, durationSec: 0,
+    status: submitted ? 'submitted' : 'in_progress', responses: {}, result: submitted ? { score: 1, maxScore: 1, byQuestion: [] } : null,
+  });
+  await page.addInitScript((rows) => {
+    for (const r of rows) localStorage.setItem(`uniread.rc.attempt.${r.itemId}`, JSON.stringify(r));
+  }, [attempt('ci-g3-w01-mon', '2026-11-10T08:00:00Z', true), attempt('ket1-t1-rw', '2026-11-11T08:00:00Z', false)]);
+  await page.goto('/');
+  const all = page.getByRole('radio', { name: /全部/ });
+  await expect(all).toHaveAttribute('aria-checked', 'true');
+  await expect(all).toContainText('15');
+  await expect(page.locator('.playlist-card')).toHaveCount(15);
+  await page.getByRole('radio', { name: /最近在读/ }).click();
+  await expect(page.locator('.playlist-card')).toHaveCount(2);
+  await expect(page.locator('.playlist-card-title').first()).toContainText('KET'); // latest activity first
+  await page.getByRole('radio', { name: /已完成/ }).click();
+  await expect(page.locator('.playlist-card')).toHaveCount(0);
+  await expect(page.locator('.playlist-empty')).toBeVisible();
+});
+
+test('a number tapped while the answers are being graded is kept: the review does not jump back to question 1 (dev regression 2026-11-12)', async ({ page }) => {
+  await page.route('**/api/rc/grade', async (route) => {
+    await new Promise((r) => setTimeout(r, 1500)); // a slow network
+    await route.continue();
+  });
+  await page.goto('/#/p/ci-g5/ci-g5-w12-thu');
+  if ((page.viewportSize()?.width ?? 1440) < 1024) await page.getByRole('tab', { name: /题目/ }).click();
+  await page.getByRole('radio', { name: /Growth Mindset/ }).click();
+  await page.locator('.question-dot').last().click();
+  await page.getByRole('button', { name: '提交' }).click();
+  await page.getByRole('button', { name: '仍然提交' }).click();
+  await page.getByRole('button', { name: /^第 2 题/ }).click(); // while the grading is still on its way
+  await expect(page.locator('.option.is-correct, .option.is-wrong').first()).toBeVisible({ timeout: 10_000 });
+  await expect(page.locator('.q-prompt').first()).toContainText('Tell me I’m clever');
+});

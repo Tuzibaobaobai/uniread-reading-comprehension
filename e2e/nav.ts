@@ -9,6 +9,8 @@ export const numbers = (page: Page) => page.locator('.question-nav .question-dot
 /** tap the footer number whose accessible name matches (e.g. /第 25 题/), opening its Part first on exam papers */
 export async function goQuestion(page: Page, name: RegExp) {
   const button = () => page.locator('.question-nav, .part-nav').getByRole('button', { name }).first();
+  // the footer renders once the item has loaded (slower on a deployed site than on the local preview)
+  await page.locator('.question-nav, .part-nav').first().waitFor();
   if (await button().count()) return button().click();
   const kickers = await page.locator('.part-nav button.part-card').evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.part));
   for (const k of kickers) {

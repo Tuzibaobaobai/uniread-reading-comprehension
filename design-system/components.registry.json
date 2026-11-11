@@ -1085,6 +1085,7 @@
    "description": "首页合集卡片（封面、标题、信息、题型图标）",
    "screens": [
     "0.01",
+    "0.01 资源列表",
     "0.02"
    ],
    "figma": {
@@ -1097,7 +1098,7 @@
     "Locale": "zh-CN / en-US",
     "Icons": "INSTANCE_SWAP（ui/StepIcon）"
    },
-   "issue": "#138",
+   "issue": "#138 #149",
    "source": "src/ui/playlist/PlaylistCard/PlaylistCard.tsx",
    "designer": {
     "nodeId": "19834:233509",
@@ -1106,6 +1107,26 @@
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19834-233509"
    },
    "note": "2026-11-11：按设计师「合集类型」（✅ Ready，0.01 / 0.02）：方形封面、左上「≔ 已完成/总数」深色角标、封面下 4px 总进度条、单行标题、信息行、灰色模式图标（Scan / Study / Quiz，19447:751）"
+  },
+  {
+   "code": "ui/FilterChips",
+   "status": "reuse",
+   "product": "时文阅读 · 真题 KET/PET · 词汇天天练",
+   "description": "首页筛选：全部 / 最近在读 / 已完成（带数量，单选）",
+   "screens": [
+    "0.01 资源列表"
+   ],
+   "note": "#149：按设计师 0.01 资源列表（19917:187733）里的 item 实现（2026-11-12）；设计稿的「有更新」需要内容更新信号，目录里没有，暂不显示（尚未进入锁定的组件清单 components.inventory.json：下次 ds-sync 后补 figma.nodeId）",
+   "source": "src/ui/common/FilterChips/FilterChips.tsx",
+   "variants": {
+    "Selected": "no / yes"
+   },
+   "figmaDesigner": {
+    "nodeId": "18227:44282",
+    "name": "item（18227:44282）",
+    "group": "UIKit-学生-首页 · 0.01 资源列表",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=18227-44282"
+   }
   },
   {
    "code": "ui/PlaylistItem",

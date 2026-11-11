@@ -106,6 +106,9 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
 
   const [attempt, setAttempt] = useState<AttemptT>(() => localAttempts.get(item.id) ?? newAttempt(item.id, item.status.version));
   const [index, setIndex] = useState(() => Math.max(0, flat.findIndex((f) => pageKey(f) === localAttempts.getPosition(item.id))));
+  // the page shown right now, readable after an await (submit: the learner may tap a number while it is being graded)
+  const indexNow = useRef(index);
+  indexNow.current = index;
   const [key, setKey] = useState<ItemKeyT | null>(null);
   const [confirmOpen, setConfirmOpen] = useState(false);
   // narrow screens: open on the questions tab when coming back to review a submitted attempt
@@ -175,6 +178,7 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
     if (attempt.status === 'submitted') return;
     setConfirmOpen(false);
     setSubmitError(null);
+    const pageAtSubmit = indexNow.current;
     let graded: Awaited<ReturnType<typeof staticContent.grade>>;
     try {
       graded = await staticContent.grade(item, responses);
@@ -192,7 +196,9 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
       result: graded.result,
     };
     persist(submitted);
-    setIndex(0);
+    // the review starts at the first page — unless the learner already tapped another number while it was being graded
+    // (on a real network the grading takes a moment; jumping back would undo their tap)
+    if (indexNow.current === pageAtSubmit) setIndex(0);
     setTab('questions');
     if (exam) setReportOpen(true);
     void runJudge(submitted);
