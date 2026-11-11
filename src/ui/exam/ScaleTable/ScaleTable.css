@@ -1,3 +1,21 @@
-/* RC/Exam/ScaleTable (proposed). Tokens only. */
-.dialog.scale-dialog { max-height: 100%; overflow-y: auto; }
+/* RC/Exam/ScaleTable (proposed; the designer's frame 2.12, scale-tables 19504:6380). Tokens only. Each table: a bold caption,
+   a grey header row (bold 14) and plain 48-high rows (16), both columns left-aligned, no rules. */
 .scale-tables { display: grid; grid-template-columns: repeat(auto-fit, minmax(calc(var(--ur-space-64) * 2 + var(--ur-space-12)), 1fr)); gap: var(--ur-space-16); }
+.scale-dialog .report-table { margin: 0; }
+.scale-dialog .report-table caption {
+  padding-bottom: var(--ur-space-4);
+  font-size: var(--ur-text-font-system-m-bold-size); line-height: var(--ur-text-font-system-m-bold-line-height);
+}
+.scale-dialog .report-table th,
+.scale-dialog .report-table td {
+  height: var(--ur-height-height-6); padding: var(--ur-space-8) var(--ur-space-16); border-bottom: none; text-align: left;
+  color: var(--ur-color-text-primary);
+}
+.scale-dialog .report-table th {
+  background: var(--ur-color-background-subtle);
+  font-size: var(--ur-text-font-system-s-bold-size); line-height: var(--ur-text-font-system-s-bold-line-height);
+  font-weight: var(--ur-text-font-system-s-bold-weight);
+}
+.scale-dialog .report-table td { font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height); }
+.scale-dialog .report-table td:last-child, .scale-dialog .report-table th:last-child { text-align: left; }
+.scale-dialog .scale-grades { margin-top: var(--ur-space-12); }

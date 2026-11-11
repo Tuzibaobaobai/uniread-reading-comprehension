@@ -6,8 +6,9 @@ import './AudioPlayer.css';
 export const fmtTime = (s: number) => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
 
 /**
- * ui/AudioPlayer — extends UniRead UIkit-Read · player (11728:110946) (`ui/AudioPlayer`, issue #138): the listening
- * recording player. Variant Mode practice (progress row, then back 5 s / play·pause (ui/PlayButton Size=player) /
+ * ui/AudioPlayer — extends UniRead UIkit-Read · player (11728:110946) (`ui/AudioPlayer`, issue #138; restyled to the
+ * designer's Player box in RC/Exam/ListeningPart 19496:1147 — a grey box with 40-high buttons): the listening recording
+ * player. Variant Mode practice (progress row, then back 5 s / play·pause (ui/PlayButton Size=player) /
  * forward 5 s; the track seeks) / exam (progress only, locked — `.player.is-locked`). Presentational: the caller owns
  * the <audio> element (pass it as `children`) and its state. Keeps .player / .player-progress / .player-actions.
  */

@@ -53,14 +53,14 @@ export function ModeDialog({
         {t('exam.mode.summary', { exam: item.meta.exam, paper: paperLabel(item.paper, t), minutes: item.meta.durationMinutes, marks: item.meta.totalMarks })}
       </p>
       <ChoiceCardGroup layout="list" className="mode-options">
-        <ChoiceCard size="l" className="mode-option" title={t('exam.mode.practice')} onClick={() => onChoose('practice')}>
+        <ChoiceCard size="l" className="mode-option is-filled" title={t('exam.mode.practice')} onClick={() => onChoose('practice')}>
           {t('exam.mode.practiceDesc', {
             audio: listening ? t('exam.mode.practiceAudio') : '',
             speaking: speaking ? t('exam.mode.practiceSpeaking') : '',
             transcript: listening ? t('exam.mode.practiceTranscript') : '',
           })}
         </ChoiceCard>
-        <ChoiceCard size="l" className="mode-option" title={t('exam.mode.exam')} onClick={() => onChoose('exam')}>
+        <ChoiceCard size="l" className="mode-option is-filled" title={t('exam.mode.exam')} onClick={() => onChoose('exam')}>
           {t('exam.mode.examDesc', { minutes: item.meta.durationMinutes, audio: listening ? t('exam.mode.examAudio') : '' })}
         </ChoiceCard>
       </ChoiceCardGroup>
@@ -78,6 +78,7 @@ export function ModeSelect({ mode, timer, onSwitch }: { mode: 'practice' | 'exam
   return (
     <ModeSelectView
       mode={mode}
+      current={t('exam.mode.current')}
       label={t(`exam.mode.${mode}`)}
       ariaLabel={t('exam.mode.selectLabel', { mode: t(`exam.mode.${mode}`) })}
       timer={timer}
@@ -106,6 +107,7 @@ export function SwitchModeDialog({
     <Dialog
       title={toExam ? t('exam.switch.toExamTitle') : t('exam.switch.toPracticeTitle')}
       onClose={onCancel}
+      closeLabel={t('exam.switch.close')}
       actions={
         <>
           <QuizButton onClick={onCancel}>{t('common.cancel')}</QuizButton>
@@ -156,6 +158,7 @@ export function ScaleTableDialog({ exam, onClose }: { exam: ExamKey; onClose: ()
         }))}
         grades={{
           caption: t('exam.scale.gradesCaption'),
+          head: [t('exam.scale.bandScore'), t('exam.scale.band')],
           rows: [
             ...s.grades.map((band, i) => ({ key: band[0], range: `${band[0]}–${i === 0 ? s.top : s.grades[i - 1][0] - 1}`, label: gradeLabel(band, t) })),
             { key: 'below', range: `${s.floor}–${s.grades[s.grades.length - 1][0] - 1}`, label: t('exam.scale.belowRow', { below: belowLabel(exam, t), floor: s.floor }) },
@@ -216,6 +219,7 @@ export function ExamReport({ item, result, onClose }: { item: ExamItemT; result:
         size="m"
         className="report-dialog"
         onClose={onClose}
+        closeLabel={t('exam.report.close')}
         actions={
           <QuizButton variant="primary" autoFocus onClick={onClose}>
             {t('exam.report.viewAnswers')}

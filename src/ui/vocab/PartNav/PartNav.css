@@ -9,27 +9,7 @@
 .part-nav .question-strip { flex: 1; min-width: 0; }
 .part-nav .question-dots { gap: var(--ur-space-8); padding: 0; --strip-fade: var(--ur-space-32); }
 
-/* previous / next / submit: 56 × 80 round buttons, effect style btn; a disabled one stays visible at 20% */
-.part-arrow {
-  flex: none; width: var(--ur-height-height-7); height: var(--ur-height-height-10);
-  display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0;
-  border: none; border-radius: var(--ur-radius-full);
-  background: var(--ur-color-background-card); box-shadow: var(--ur-effect-btn);
-  color: var(--ur-color-text-on-action);
-}
-.part-arrow img { display: block; height: calc(var(--ur-space-16) + var(--ur-space-2)); width: auto; }
-.part-arrow:disabled { opacity: var(--ur-opacity-disabled); }
-.part-arrow.is-primary { background: var(--ur-color-action-primary); }
-.part-arrow.is-primary.is-dim { opacity: var(--ur-opacity-disabled); }
-.part-arrow.is-primary svg { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); flex: none; }
-.part-arrow.is-primary span {
-  font-size: var(--ur-text-font-system-s-medium-size); line-height: var(--ur-text-font-system-s-medium-line-height);
-  font-weight: var(--ur-text-font-system-s-medium-weight); white-space: nowrap;
-}
-@media (hover: hover) and (pointer: fine) {
-  .part-arrow:hover:not(:disabled) { box-shadow: var(--ur-effect-btn-hover); }
-  .part-arrow.is-primary:hover:not(:disabled):not(.is-dim) { background: var(--ur-color-action-primary-strong); }
-}
+/* previous / next / submit: ui/quiz/QuestionNav NavButton (.part-arrow) */
 
 /* a Part: 88 high, radius s */
 .part-card {
@@ -74,8 +54,8 @@
 /* the current Part: its title and a round number per question (brand fill = answered) */
 /* it shrinks first (its numbers scroll inside it), so every other Part stays in view as drawn — a 15- or 32-question Part
    must not push P3… behind the strip's "+N" button */
-.part-card.is-current { flex: 0 1 auto; min-width: min(100%, calc(var(--ur-height-height-5) * 5 + var(--ur-space-4) * 4 + var(--ur-space-32))); max-width: 100%; padding-inline: var(--ur-space-16); border-color: var(--ur-color-action-primary); gap: var(--ur-space-8); }
-.part-qs { display: flex; gap: var(--ur-space-4); max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.part-card.is-current { flex: 0 1 auto; min-width: min(100%, calc(var(--ur-height-height-5) * 5 + var(--ur-space-4) * 4 + var(--ur-space-32) + var(--ur-stroke-default) * 2)); max-width: 100%; padding-inline: var(--ur-space-16); border-color: var(--ur-color-action-primary); gap: var(--ur-space-8); }
+.part-qs { position: relative; display: flex; gap: var(--ur-space-4); max-width: 100%; overflow-x: auto; scrollbar-width: none; }
 .part-qs::-webkit-scrollbar { display: none; }
 /* the side that hides numbers fades out (the strip's own fade, --strip-fade) */
 .part-qs.has-more-end { mask-image: linear-gradient(to right, black calc(100% - var(--ur-space-32)), transparent); }
@@ -97,4 +77,16 @@
   .part-nav button.part-card:hover { background: var(--ur-color-background-subtle); }
   .part-q:not(.is-answered):not(.is-correct):not(.is-wrong):hover { background: var(--ur-color-background-subtle); }
 }
-.part-nav :is(.part-card, .part-q, .part-arrow):focus-visible { outline: var(--ur-stroke-strong) solid var(--ur-color-action-primary); outline-offset: var(--ur-space-2); }
+.part-nav :is(.part-card, .part-q):focus-visible { outline: var(--ur-stroke-strong) solid var(--ur-color-action-primary); outline-offset: var(--ur-space-2); }
+
+/* one question a page (真题 / PET, question-nav-part 19706:145652): the question on screen, and 标记本题 */
+/* the numbers scroll inside the card (overflow clips anything outside the circle), so the ring and the pin are inside */
+.part-q.is-current { box-shadow: inset 0 0 0 var(--ur-stroke-strong) var(--ur-color-action-primary); }
+.part-q.is-flagged::after {
+  content: ''; position: absolute; top: 0; right: 0;
+  width: var(--ur-space-12); height: var(--ur-space-12); background: url('../../../assets/icons/flag-pin.svg') center / contain no-repeat;
+}
+.part-q-score {
+  font-size: var(--ur-text-font-system-xs-bold-size); line-height: 1; font-weight: var(--ur-text-font-system-xs-bold-weight);
+  letter-spacing: calc(-1 * var(--ur-stroke-default) / 2); white-space: nowrap;
+}

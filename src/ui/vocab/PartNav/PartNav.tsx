@@ -1,8 +1,6 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { QuestionStrip } from '@/ui/quiz/QuestionNav/QuestionNav';
-import leftIcon from '@/assets/icons/scan-arrow-left.svg';
-import rightIcon from '@/assets/icons/scan-arrow-right.svg';
-import { Check } from '@/components/Icons';
+import { NavActionButton, NavArrow, type NavAction } from '@/ui/quiz/QuestionNav/NavButton';
 import './PartNav.css';
 
 /** What one question's number shows: not answered / answered (brand fill) / after submitting: right / wrong */
@@ -16,7 +14,18 @@ export interface PartNavPart {
   kicker: string;
   /** the question range under the kicker: "Q6–Q20" */
   range: string;
-  questions: { id: string; number: number; state: PartQuestionState; ariaLabel: string }[];
+  /** one entry per number in the current Part's card. One-question-a-page papers (真题 / PET) mark the question on
+   *  screen (`current`) and 标记本题 (`flagged`); `number` may be a page label (a speaking turn) */
+  questions: {
+    id: string;
+    number: number | string;
+    state: PartQuestionState;
+    ariaLabel: string;
+    current?: boolean;
+    flagged?: boolean;
+    /** after submitting, a judged answer (writing, speaking): score / full marks in place of the number (#128) */
+    score?: string;
+  }[];
   /** answering: questions answered / questions ("3/5"); after submitting: questions right / questions, undefined while a mark is still coming */
   count?: string;
   /** every question of the Part answered (the completion pill turns brand) */
@@ -34,7 +43,9 @@ export interface PartNavPart {
  * question, green right / red wrong / grey not marked, with "right/total" below). Question number: State none /
  * answered / correct / wrong. Action: next (arrow) / submit (brand circle, `dim` while questions are left, still
  * tappable → the confirmation) / back (review's last page).
- * Layout is for the vocab quiz only; KET / PET keep ui/quiz/QuestionNav + ui/PartPager.
+ * Also the footer of 真题 / PET (designer component `question-nav-part` 19706:145652, frames 2.02–2.30): one question a
+ * page, so the arrows go to the previous / next question, the number on screen is `current`, and previous is left out
+ * on the first question (variant 对齐方式=left). Review's last page offers 重新作答 (`retry`).
  */
 export function PartNav({
   label,
@@ -52,17 +63,16 @@ export function PartNav({
   page: number;
   /** after submitting (the answers shown with their marks) */
   review?: boolean;
-  prev: { label: string; onClick: () => void };
+  /** previous: disabled on the first page (词汇), or `hidden` (真题 / PET) */
+  prev: { label: string; onClick: () => void; disabled?: boolean; hidden?: boolean };
   /** the right-hand button: next page or submit (in review the way back to the result is the breadcrumb, #146) */
-  action: { kind: 'next' | 'submit'; label: string; dim?: boolean; disabled?: boolean; onClick: () => void };
+  action: NavAction;
   onPage: (i: number) => void;
   onPickQuestion: (partIndex: number, questionId: string) => void;
 }) {
   return (
     <nav className="part-nav" aria-label={label}>
-      <button type="button" className="part-arrow" disabled={page <= 0} aria-label={prev.label} onClick={prev.onClick}>
-        <img src={leftIcon} alt="" />
-      </button>
+      {!prev.hidden && <NavArrow dir="prev" label={prev.label} disabled={prev.disabled ?? page <= 0} onClick={prev.onClick} />}
       <QuestionStrip current={page} count={parts.length}>
         {parts.map((p, i) =>
           i === page ? (
@@ -72,7 +82,7 @@ export function PartNav({
           ),
         )}
       </QuestionStrip>
-      <ActionButton {...action} />
+      <NavActionButton {...action} />
     </nav>
   );
 }
@@ -103,13 +113,27 @@ function CurrentPart({ part, review, onPick }: { part: PartNavPart; review: bool
       el.removeEventListener('wheel', onWheel);
     };
   }, []);
+  // one question a page: keep the number on screen inside the card
+  const currentId = part.questions.find((q) => q.current)?.id;
+  useLayoutEffect(() => {
+    const el = ref.current;
+    const q = el?.querySelector<HTMLElement>('.part-q.is-current');
+    if (el && q) el.scrollLeft = q.offsetLeft - (el.clientWidth - q.offsetWidth) / 2;
+  }, [currentId]);
   return (
     <div className="part-card is-current" role="group" aria-label={part.ariaLabel} aria-current="true" data-part={part.kicker}>
       <span className="part-card-title">{part.title}</span>
       <span ref={ref} className={`part-qs${more.start ? ' has-more-start' : ''}${more.end ? ' has-more-end' : ''}`}>
         {part.questions.map((q) => (
-          <button key={q.id} type="button" className={`part-q is-${q.state} ${review ? 'is-review' : ''}`} aria-label={q.ariaLabel} onClick={() => onPick(q.id)}>
-            {q.number}
+          <button
+            key={q.id}
+            type="button"
+            className={`part-q is-${q.state} ${review ? 'is-review' : ''} ${q.current ? 'is-current' : ''} ${q.flagged ? 'is-flagged' : ''}`}
+            aria-label={q.ariaLabel}
+            aria-current={q.current || undefined}
+            onClick={() => onPick(q.id)}
+          >
+            {q.score ? <span className="part-q-score">{q.score}</span> : q.number}
           </button>
         ))}
       </span>
@@ -135,21 +159,6 @@ function PartCard({ part, review, onClick }: { part: PartNavPart; review: boolea
       ) : (
         <span className={`part-pill ${part.complete ? 'is-full' : ''}`}>{part.count}</span>
       )}
-    </button>
-  );
-}
-
-function ActionButton({ kind, label, dim, disabled, onClick }: { kind: 'next' | 'submit'; label: string; dim?: boolean; disabled?: boolean; onClick: () => void }): ReactNode {
-  if (kind === 'next')
-    return (
-      <button type="button" className="part-arrow" aria-label={label} disabled={disabled} onClick={onClick}>
-        <img src={rightIcon} alt="" />
-      </button>
-    );
-  return (
-    <button type="button" className={`part-arrow is-primary ${dim ? 'is-dim' : ''}`} disabled={disabled} onClick={onClick}>
-      <Check />
-      <span>{label}</span>
     </button>
   );
 }

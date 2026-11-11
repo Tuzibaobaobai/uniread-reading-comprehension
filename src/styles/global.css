@@ -103,7 +103,7 @@ img { display: block; max-width: 100%; }
    build); the Chinese UI chrome keeps standard full-width punctuation.
    Descendants are listed too, with !important: the src/ui components set type with the `font` shorthand, which resets
    font-feature-settings on their own element, so plain inheritance would lose "halt" inside them. */
-:is(.article, .question-card, .entry, .scan-word, .vq-rows, .vq-table, .speak-card, .part-stack, .rt-note, .playlist-items, .reader-head-title, .item-row-title),
-:is(.article, .question-card, .entry, .scan-word, .vq-rows, .vq-table, .speak-card, .part-stack, .rt-note, .playlist-items, .reader-head-title, .item-row-title) * {
+:is(.article, .question-card, .entry, .scan-word, .vq-rows, .vq-table, .speak-card, .part-stack, .rt-note, .reader-head-title, .item-row-title, .text-thumb-title),
+:is(.article, .question-card, .entry, .scan-word, .vq-rows, .vq-table, .speak-card, .part-stack, .rt-note, .reader-head-title, .item-row-title, .text-thumb-title) * {
   font-feature-settings: 'halt' !important;
 }

@@ -4,13 +4,15 @@ import { ModeMenu, type ModeMenuItem } from '@/ui/exam/ModeMenu/ModeMenu';
 import './ModeSelect.css';
 
 /**
- * RC/Exam/ModeSelect (proposed, issue #138; Figma 模式切换 19215-125693 → select 19215-125964): the reader header's
- * mode select — the current mode, the exam countdown (rc/Exam/ExamTimer, `timer`) and the chevron; tapping opens
- * ui/exam/ModeMenu. Variants: Mode practice / exam; Open no / yes (`defaultOpen` for screens; outside tap and
- * Escape close it). Choosing an item closes the menu and calls onSelect. Keeps .mode-select / .mode-select-button.
+ * RC/Exam/ModeSelect (proposed, issue #138; the designer's Ready-for-dev frames 2.02–2.07, Figma 19496:1129): the reader
+ * header's mode select — 「当前」 (`current`), the current mode in bold, the exam countdown (rc/Exam/ExamTimer, `timer`)
+ * and the chevron; tapping opens ui/exam/ModeMenu. Variants: Mode practice / exam; Open no / yes (brand border, the
+ * chevron turned up; `defaultOpen` for screens; outside tap and Escape close it). Choosing an item closes the menu and
+ * calls onSelect. Keeps .mode-select / .mode-select-button.
  */
 export function ModeSelect<K extends string>({
   mode,
+  current,
   label,
   ariaLabel,
   timer,
@@ -20,6 +22,8 @@ export function ModeSelect<K extends string>({
   defaultOpen = false,
 }: {
   mode: K;
+  /** the prefix before the mode's name (「当前」) */
+  current?: string;
   /** the current mode's name */
   label: string;
   ariaLabel: string;
@@ -45,6 +49,7 @@ export function ModeSelect<K extends string>({
   return (
     <div className={`mode-select is-${mode}`} ref={root}>
       <button type="button" className="mode-select-button" aria-haspopup="menu" aria-expanded={open} aria-label={ariaLabel} onClick={() => setOpen((o) => !o)}>
+        {current && <span className="mode-select-current">{current}</span>}
         <b>{label}</b>
         {timer}
         <ChevronDown />

@@ -1,0 +1,22 @@
+/* ui/quiz/FlagToggle — designer flag-toggle (19834:178047). Tokens only (flag colours: proposed needs-designer tokens
+   color/flag/*, effect/flag — the Ready component draws them as unbound literals). Floats right before the question so
+   the title (a flex row, its own formatting context) narrows beside it, as in frame 2.03. */
+.flag-toggle {
+  float: right; position: relative; margin: 0 0 var(--ur-space-8) var(--ur-space-16);
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--ur-space-4);
+  min-width: var(--ur-space-40); height: var(--ur-space-32); padding: 0 var(--ur-space-12);
+  border: none; border-radius: var(--ur-radius-full);
+  background: linear-gradient(to bottom, var(--ur-color-flag-surface), var(--ur-color-background-card));
+  box-shadow: var(--ur-effect-flag);
+  color: var(--ur-color-flag-text);
+  font-size: var(--ur-text-font-system-xs-medium-size); line-height: var(--ur-text-font-system-xs-medium-line-height);
+  font-weight: var(--ur-text-font-system-xs-medium-weight); white-space: nowrap;
+}
+.flag-toggle.is-flagged { padding: 0 var(--ur-space-12) 0 var(--ur-space-8); }
+.flag-toggle img { width: calc(var(--ur-space-16) + var(--ur-space-2)); height: calc(var(--ur-space-16) + var(--ur-space-2)); flex: none; }
+/* 32 drawn, 44 to tap */
+.flag-toggle::before { content: ''; position: absolute; inset: calc((var(--ur-space-32) - var(--ur-size-touch-target)) / 2) 0; }
+.flag-toggle:focus-visible { outline: var(--ur-stroke-strong) solid var(--ur-color-action-primary); outline-offset: var(--ur-space-2); }
+@media (hover: hover) and (pointer: fine) {
+  .flag-toggle:hover { box-shadow: var(--ur-effect-flag), var(--ur-effect-btn); }
+}

@@ -138,24 +138,25 @@ test('picture options: images render and can be chosen', async ({ page }) => {
   await expect(page.getByRole('radio', { name: /straw/ })).toHaveAttribute('aria-checked', 'true');
 });
 
-test('question strip: many questions show "more" buttons with counts and page sideways', async ({ page }) => {
+test('question strip: many questions show "+N" under the arrows and keep the current one in view', async ({ page }) => {
   await page.goto('/#/p/ci-zk/ci-zk-w03-fri'); // 18 questions (ci-g8-w18-thu's 24 became one table page, #127)
   await showQuestions(page);
-  const right = page.locator('.strip-more-right');
-  await expect(right).toBeVisible();
-  await expect(right).toContainText(/\+\d+/);
-  await expect(page.locator('.strip-more-left')).toHaveCount(0);
-  await right.click();
-  await expect(page.locator('.strip-more-left')).toBeVisible();
-  // the last question can always be reached and is scrolled into view
+  // Figma question-nav 个数超出=yes: the arrows count the numbers hidden on their side; no previous on question 1
+  await expect(page.locator('.question-nav .nav-arrow-next .part-arrow-more')).toHaveText(/^\+\d+$/);
+  await expect(page.locator('.question-nav .nav-arrow-prev')).toHaveCount(0);
+  for (let i = 0; i < 9; i++) await page.getByRole('button', { name: '下一题' }).click();
+  await expect(page.locator('.question-dot.is-current')).toBeInViewport();
+  await expect(page.locator('.question-nav .nav-arrow-prev .part-arrow-more')).toHaveText(/^\+\d+$/);
+  // the last question can always be reached and is scrolled into view; its right button is 提交 (no count)
   await page.locator('.question-dot').last().click();
   await expect(page.locator('.question-dot').last()).toBeInViewport();
-  await expect(page.locator('.strip-more-right')).toHaveCount(0);
+  await expect(page.locator('.question-nav .part-arrow.is-primary')).toHaveText('提交');
+  await expect(page.locator('.question-nav .part-arrow-more')).toHaveCount(1);
 });
 
 test('question strip: few questions show no "more" buttons', async ({ page }) => {
   await page.goto('/#/p/ci-g3/ci-g3-w01-mon');
   await showQuestions(page);
   await expect(page.locator('.question-dot')).toHaveCount(3);
-  await expect(page.locator('.strip-more')).toHaveCount(0);
+  await expect(page.locator('.question-nav .part-arrow-more')).toHaveCount(0);
 });

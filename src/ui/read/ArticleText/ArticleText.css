@@ -27,6 +27,22 @@
 }
 .rt-gloss { color: var(--ur-color-text-secondary); font-size: .72em; }
 
+/* Size reading — the 时文 article (designer's `正文`, Figma 19834:169249): Font system/L at a double line height,
+   paragraphs 24 apart, glosses "( 人工胚胎 )" at body size in text/secondary, key words bold text/primary on a 24-high
+   brand/2 band (Highlight layer, mix-blend darken) */
+.article.is-reading {
+  --article-size: var(--ur-text-font-system-l-regular-size);
+  --article-lh: 2;
+}
+.article.is-reading .article-body > * { margin: 0 0 var(--ur-space-24); }
+.article.is-reading .article-body > :last-child { margin-bottom: 0; }
+.article.is-reading .rt-gloss { font-size: 1em; }
+.article.is-reading .rt-vocab {
+  color: var(--ur-color-text-primary); font-weight: var(--ur-text-font-system-l-bold-weight);
+  background: linear-gradient(var(--ur-color-brand-2), var(--ur-color-brand-2)) center / 100% var(--ur-space-24) no-repeat;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+
 /* printed tables */
 .rt-table-wrap { overflow-x: auto; }
 .rt-table { width: 100%; border-collapse: collapse; font-size: .82em; line-height: 1.5; }

@@ -14,8 +14,8 @@ test('en-US: playlists and playlist pages', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('html')).toHaveAttribute('lang', 'en-US');
   await expect(page.locator('.page-title')).toHaveText('Topical Reading');
-  await expect(page.locator('.playlist-card-meta').first()).toHaveText(/^\d+ articles · L\d/);
-  await expect(page.locator('.playlist-card-meta', { hasText: /papers ·/ }).first()).toBeVisible();
+  await expect(page.locator('.playlist-card-meta').first()).toHaveText(/^\d+ articles\s*L\d/);
+  await expect(page.locator('.playlist-card-meta', { hasText: /\d+ papers/ }).first()).toBeVisible();
 
   await page.goto('/#/p/ci-g3');
   await expect(page.locator('.playlist-items-head')).toHaveText(/^Items \(\d+\)$/);
@@ -61,7 +61,7 @@ test('en-US: 时文阅读 question navigation, then back to zh-CN', async ({ pag
   await expect(page.locator('.info-box')).toContainText('Suggested time');
   if (narrow(page)) await page.getByRole('tab', { name: /^Questions 0\/3$/ }).click();
   const nav = page.getByRole('navigation', { name: 'Question navigation' });
-  await expect(nav.getByRole('button', { name: 'Previous' })).toBeDisabled();
+  await expect(nav.getByRole('button', { name: 'Previous' })).toHaveCount(0); // none on the first question
   await expect(nav.getByRole('button', { name: 'Question 1', exact: true })).toBeVisible();
   await nav.getByRole('button', { name: 'Next' }).click();
   await nav.getByRole('button', { name: 'Next' }).click();

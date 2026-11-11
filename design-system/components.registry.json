@@ -364,14 +364,20 @@
     "Tone": "default / pending（新增）",
     "Score": "Result=score（Figma 19593:1282 / 19593:1286，2026-11-05）：提交后有分数的页显示「得分/总分」（18/20），一页一个 Part 的客观题与词汇测验 Part 显示「答对题数/总题数」（3/5、1/34），取代对错图标（#128 #140）"
    },
-   "note": "对错图标复用 UniRead quiz result：错 7870:51523（State=Default），对 12409:123905（State=Default）；时文 / 真题题号复用：Kicker 可省（逐题时不加 part-start），新增 Label number / range、Flagged、Tone pending（提交确认里的未答题号）",
+   "note": "对错图标复用 UniRead quiz result：错 7870:51523（State=Default），对 12409:123905（State=Default）；时文 / 真题题号复用：Kicker 可省（逐题时不加 part-start），新增 Label number / range、Flagged、Tone pending（提交确认里的未答题号）；2026-11-11：时文题号 56 圆形、L 粗体 18、16×6 完成条（question-nav）",
    "figmaProposal": {
     "nodeId": "19448:750",
     "page": "RC · Proposed",
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19448-750"
    },
    "issue": "#138",
-   "source": "src/ui/quiz/PartPager/PartPager.tsx"
+   "source": "src/ui/quiz/PartPager/PartPager.tsx",
+   "designer": {
+    "nodeId": "19802:13269",
+    "name": "question-nav",
+    "page": "RC · Screens · DS-2026-11-03",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19802-13269"
+   }
   },
   {
    "code": "ui/QuizButton",
@@ -621,9 +627,17 @@
   {
    "code": "rc/Vocab/PartNav",
    "status": "proposed",
-   "product": "词汇天天练",
+   "product": "词汇天天练 · 真题 KET/PET",
    "description": "测验页脚：Part 卡片分页——当前 Part 展开（Part N + 圆形题号 1–5），其余 Part 为 72×88 小卡（P2 / Q6–Q20 / 0/5 完成胶囊），上一页 / 下一页 56×80 圆形箭头，末页提交 / 返回成绩",
    "screens": [
+    "2.02",
+    "2.03",
+    "2.09",
+    "2.11",
+    "2.14",
+    "2.18",
+    "2.25",
+    "2.30",
     "3.11",
     "3.12",
     "3.13",
@@ -637,13 +651,19 @@
     "3.26",
     "3.27"
    ],
-   "note": "UniRead 设计师在 RC · Screens · DS-2026-11-03「词汇 › 测验」（✅ Ready for dev, 19518:124597）中修改，代码已对齐（2026-11-10）。复盘状态：题号绿 / 红，其它 Part 每题一小段绿 / 红 / 灰 + 答对数。只用于词汇测验，不改 ui/PartPager / ui/quiz/QuestionNav（KET / PET 共用，保持原样）",
+   "note": "UniRead 设计师在 RC · Screens · DS-2026-11-03「词汇 › 测验」（✅ Ready for dev, 19518:124597）中修改，代码已对齐（2026-11-10）。复盘状态：题号绿 / 红，其它 Part 每题一小段绿 / 红 / 灰 + 答对数。只用于词汇测验，不改 ui/PartPager / ui/quiz/QuestionNav（KET / PET 共用，保持原样）；2026-11-11：设计师的 question-nav-part（✅ Ready，真题 / PET 2.02–2.30）与本组件一致，KET / PET 页脚改用 PartNav（翻页按钮 = 上一题 / 下一题，首页隐藏上一题；当前题号加品牌色内圈，标记题加小图钉）",
    "figmaProposal": {
     "nodeId": "19706:143453",
     "page": "RC · Screens · DS-2026-11-03",
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19706-143453"
    },
-   "source": "src/ui/vocab/PartNav/PartNav.tsx"
+   "source": "src/ui/vocab/PartNav/PartNav.tsx",
+   "designer": {
+    "nodeId": "19706:145652",
+    "name": "question-nav-part",
+    "page": "RC · Screens · DS-2026-11-03",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19706-145652"
+   }
   },
   {
    "code": "rc/Quiz/TableFill",
@@ -862,7 +882,8 @@
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=7870-43771"
    },
    "issue": "#138",
-   "source": "src/ui/CloseButton/CloseButton.tsx"
+   "source": "src/ui/CloseButton/CloseButton.tsx",
+   "note": "2026-11-11：对话框里用 UIKit dialog close（11777:76962）"
   },
   {
    "code": "ui/LinkButton",
@@ -1028,6 +1049,7 @@
    "product": "时文阅读",
    "description": "题目页底部导航：上一题、题号条、下一题 / 提交",
    "screens": [
+    "1.02",
     "1.04",
     "1.05",
     "1.06",
@@ -1042,12 +1064,18 @@
    "variants": {
     "Overflow": "none / start / end / both（新增：‹ +N / +N › 更多按钮）"
    },
-   "note": "「更多」按钮在 Figma 里是 pagination 的新变体，不单独成组件",
+   "note": "「更多」按钮在 Figma 里是 pagination 的新变体，不单独成组件；2026-11-11：时文页脚按设计师 question-nav（✅ Ready，1.02–1.20）改为两端 56×80 圆角按钮（上一题 / 下一题，下方「+N」= 该侧隐藏题号数；第 1 题无上一题；末题为品牌色「提交」圆钮，复盘末题为「重新作答」）；共享按钮 src/ui/quiz/QuestionNav/NavButton.tsx",
    "issue": "#138",
    "source": "src/ui/quiz/QuestionNav/QuestionNav.tsx",
    "figmaProposal": {
     "nodeId": "19478:984",
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19478-984"
+   },
+   "designer": {
+    "nodeId": "19802:13269",
+    "name": "question-nav",
+    "page": "RC · Screens · DS-2026-11-03",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19802-13269"
    }
   },
   {
@@ -1070,7 +1098,14 @@
     "Icons": "INSTANCE_SWAP（ui/StepIcon）"
    },
    "issue": "#138",
-   "source": "src/ui/playlist/PlaylistCard/PlaylistCard.tsx"
+   "source": "src/ui/playlist/PlaylistCard/PlaylistCard.tsx",
+   "designer": {
+    "nodeId": "19834:233509",
+    "name": "合集类型",
+    "page": "RC · Screens · DS-2026-11-03",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19834-233509"
+   },
+   "note": "2026-11-11：按设计师「合集类型」（✅ Ready，0.01 / 0.02）：方形封面、左上「≔ 已完成/总数」深色角标、封面下 4px 总进度条、单行标题、信息行、灰色模式图标（Scan / Study / Quiz，19447:751）"
   },
   {
    "code": "ui/PlaylistItem",
@@ -1167,7 +1202,7 @@
    "variants": {
     "Checked": "no / yes（新增，当前模式打勾）"
    },
-   "note": "UIKit-LearnNav dropdown 6759:5518 是字幕设置面板，不能直接当菜单用；画面里用 LearnNav item 13054:56538（Selected=yes = 当前模式）+ token 卡片组合。建议设计师给 dropdown 加一个通用列表变体",
+   "note": "UIKit-LearnNav dropdown 6759:5518 是字幕设置面板，不能直接当菜单用；画面里用 LearnNav item 13054:56538（Selected=yes = 当前模式）+ token 卡片组合。建议设计师给 dropdown 加一个通用列表变体；2026-11-11：选项居中，当前项灰底（不再打勾），高度保持 44",
    "issue": "#138",
    "source": "src/ui/exam/ModeMenu/ModeMenu.tsx"
   },
@@ -1192,7 +1227,7 @@
     "Disabled": "no / yes",
     "Size": "l（模式选择）/ m（PET 写作任务卡）——代码已有，待设计师定是否作为 variant"
    },
-   "note": "合并 .mode-option、.task-card、QuizResult .vq-result-card",
+   "note": "合并 .mode-option、.task-card、QuizResult .vq-result-card；2026-11-11：新增 is-filled（灰底无边框，2.02 模式卡片）",
    "issue": "#138",
    "source": "src/ui/ChoiceCard/ChoiceCard.tsx",
    "figmaProposal": {
@@ -1326,7 +1361,7 @@
     "Answer": "none / transcript（新增）",
     "Role": "examiner / partner（新增）"
    },
-   "note": "扩展副本 19497:1265：只保留句子区（UniRead 的 without video 状态去掉自带按钮组和卡片底），题号 + 角色（RC/Common/Tag）与 btn-listen / btn-speak / btn-playback 在外层卡片里组合。代码注释里的 8872:81973 已改为 9017:40624",
+   "note": "扩展副本 19497:1265：只保留句子区（UniRead 的 without video 状态去掉自带按钮组和卡片底），题号 + 角色（RC/Common/Tag）与 btn-listen / btn-speak / btn-playback 在外层卡片里组合。代码注释里的 8872:81973 已改为 9017:40624；2026-11-11：描边无阴影，底部三等分 btn-listen / btn-speak / btn-playback（9017:35320 / 9017:38080），录音中为设计师的录音条（取消 / 重录 / 波形 / ✓）",
    "issue": "#138",
    "source": "src/ui/SpeakCard/SpeakCard.tsx",
    "figmaProposal": {
@@ -1381,7 +1416,7 @@
     "Close": "no / yes（ui/CloseButton）",
     "Actions": "none / one / two（ui/QuizButton）"
    },
-   "note": "vocab 的 rc/Vocab/EntryDialog 以后改为此外壳；内容复杂的对话框（模式选择、成绩报告、换算表）在 Figma 画面里按本组件样式用 token 搭建、内容放实例——Figma 没有自由插槽",
+   "note": "vocab 的 rc/Vocab/EntryDialog 以后改为此外壳；内容复杂的对话框（模式选择、成绩报告、换算表）在 Figma 画面里按本组件样式用 token 搭建、内容放实例——Figma 没有自由插槽；2026-11-11：关闭按钮改为 UIKit dialog close（11777:76962，卡片右上角外侧圆形灰钮）；大对话框 900 宽，按钮 ≥ 200×56",
    "issue": "#138",
    "source": "src/ui/common/Dialog/Dialog.tsx",
    "figmaProposal": {
@@ -1841,6 +1876,7 @@
    "product": "时文阅读 · 真题 KET/PET",
    "description": "文章正文排版（段落、小标题、列表、行内标记）——文字样式，不是组件",
    "screens": [
+    "1.02",
     "1.04",
     "1.05",
     "1.06",
@@ -1851,9 +1887,15 @@
    "variants": {
     "styles": "Article/Body · Heading · List · Vocab · Underline · Note"
    },
-   "note": "以 Figma 文字样式提案「Article Text/*」",
+   "note": "以 Figma 文字样式提案「Article Text/*」；2026-11-11：时文正文按设计师「正文」（✅ Ready）：size=reading 18/36，注释同字号次要色，重点词粗体 + 品牌浅色底；Default 19828:169196 / 定位原文 19834:169250（代码保留按句高亮，#1）",
    "issue": "#138",
-   "source": "src/ui/read/ArticleText/ArticleText.tsx"
+   "source": "src/ui/read/ArticleText/ArticleText.tsx",
+   "designer": {
+    "nodeId": "19834:169249",
+    "name": "正文",
+    "page": "RC · Screens · DS-2026-11-03",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19834-169249"
+   }
   },
   {
    "code": "rc/Read/Figure",
@@ -1892,7 +1934,8 @@
    "figmaProposal": {
     "nodeId": "19477:1009",
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19477-1009"
-   }
+   },
+   "note": "2026-11-11：1.02 文末 Words & Expressions，标题 M/medium tertiary，词条 L、间距 8"
   },
   {
    "code": "rc/Read/Dialogue",
@@ -1986,7 +2029,7 @@
     "Mode": "practice / exam",
     "Open": "no / yes"
    },
-   "note": "菜单是 ui/exam/ModeMenu",
+   "note": "菜单是 ui/exam/ModeMenu；2026-11-11：「当前 + 模式（粗体）+ 倒计时」，警告态倒计时红色；展开时品牌描边",
    "issue": "#138",
    "source": "src/ui/exam/ModeSelect/ModeSelect.tsx",
    "figmaProposal": {
@@ -2032,7 +2075,8 @@
    "figmaProposal": {
     "nodeId": "19496:1147",
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19496-1147"
-   }
+   },
+   "note": "2026-11-11：设计师修改（✅ Ready）：白卡、播放中品牌描边 + 「正在播放」标签、灰色播放器盒、听力原文折叠；考试模式保留「开始播放听力」（浏览器需点击才能播放）"
   },
   {
    "code": "rc/Exam/ScoreReport",
@@ -2066,7 +2110,8 @@
    "figmaProposal": {
     "nodeId": "19499:1502",
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19499-1502"
-   }
+   },
+   "note": "2026-11-11：各项表格灰色表头、无分隔线；等级表加「分数 / 等级」表头；保留全部等级行与来源说明"
   },
   {
    "code": "rc/Exam/ChoiceGrid",
@@ -2245,6 +2290,34 @@
     "group": "RC · Screens · DS-2026-11-03 › 词汇 · 测验 › 3.26",
     "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19752-11618"
    }
+  },
+  {
+   "code": "rc/Quiz/FlagToggle",
+   "status": "proposed",
+   "product": "真题 KET/PET",
+   "description": "标记本题：白色胶囊 + 橙色图钉；已标记 = 图钉 + 「已标记」，题干右侧",
+   "screens": [
+    "2.03"
+   ],
+   "note": "设计师在 RC · Screens 绘制（✅ Ready）；颜色 / 阴影是未绑定字面量，代码用 needs-designer token color/flag/surface、color/flag/text、effect/flag",
+   "figmaProposal": {
+    "nodeId": "19834:178047",
+    "page": "RC · Screens · DS-2026-11-03",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=19834-178047"
+   },
+   "source": "src/ui/quiz/FlagToggle/FlagToggle.tsx"
+  },
+  {
+   "code": "ui/Message",
+   "status": "reuse",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "页面顶部警告提示（判分不可用、语音识别失败），错误解除前不自动消失",
+   "screens": [
+    "1.19",
+    "2.27"
+   ],
+   "note": "UniRead 库组件 Message Type=warning（远程组件 19515:130767，尚未进入锁定的组件清单，下次 ds-sync 后补 figma）",
+   "source": "src/ui/Message/Message.tsx"
   }
  ],
  "proposalPage": {

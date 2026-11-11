@@ -1,0 +1,32 @@
+/* the quiz footer's end buttons (question-nav 19802:13269 / question-nav-part 19706:145652): 56 × 80 round, effect
+   style btn; a disabled one stays visible at 20%. Tokens only. */
+.part-arrow {
+  flex: none; width: var(--ur-height-height-7); height: var(--ur-height-height-10);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--ur-space-2); padding: 0;
+  border: none; border-radius: var(--ur-radius-full);
+  background: var(--ur-color-background-card); box-shadow: var(--ur-effect-btn);
+  color: var(--ur-color-text-on-action);
+}
+.part-arrow img { display: block; height: calc(var(--ur-space-16) + var(--ur-space-2)); width: auto; }
+.part-arrow:disabled { opacity: var(--ur-opacity-disabled); }
+/* "+N": numbers the strip hides on this side */
+.part-arrow-more {
+  color: var(--ur-color-text-secondary); opacity: .6; font-variant-numeric: tabular-nums;
+  font-size: var(--ur-text-font-system-s-medium-size); line-height: var(--ur-text-font-system-xs-medium-line-height);
+  font-weight: var(--ur-text-font-system-s-medium-weight);
+}
+.part-arrow.is-primary { background: var(--ur-color-action-primary); }
+.part-arrow.is-dim { opacity: var(--ur-opacity-disabled); }
+.part-arrow.is-retry { color: var(--ur-color-text-strong); }
+.part-arrow:is(.is-primary, .is-retry) svg { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); flex: none; }
+.part-arrow:is(.is-primary, .is-retry) span {
+  font-size: var(--ur-text-font-system-s-medium-size); line-height: var(--ur-text-font-system-s-medium-line-height);
+  font-weight: var(--ur-text-font-system-s-medium-weight); white-space: nowrap;
+}
+/* 重新作答 is four characters: one size down so it stays inside the 56 wide circle */
+.part-arrow.is-retry span { font-size: var(--ur-text-font-system-xs-medium-size); line-height: var(--ur-text-font-system-xs-medium-line-height); }
+@media (hover: hover) and (pointer: fine) {
+  .part-arrow:hover:not(:disabled) { box-shadow: var(--ur-effect-btn-hover); }
+  .part-arrow.is-primary:hover:not(:disabled):not(.is-dim) { background: var(--ur-color-action-primary-strong); }
+}
+.part-arrow:focus-visible { outline: var(--ur-stroke-strong) solid var(--ur-color-action-primary); outline-offset: var(--ur-space-2); }

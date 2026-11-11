@@ -1,30 +1,73 @@
-/* ui/PlaylistCard (extends UIKit-学生-首页 Web-card). Tokens only. */
+/* ui/PlaylistCard (designer's 合集类型 19834:233509, extends UIKit-学生-首页 Web-card). Tokens only. */
 .playlist-card {
   display: flex; flex-direction: column;
-  background: var(--ur-color-background-card);
-  border-radius: var(--ur-radius-l);
-  box-shadow: var(--ur-effect-card);
+  background: var(--ur-color-white-100);
+  border-radius: var(--ur-radius-s);
+  box-shadow: var(--ur-effect-ia-block);
   overflow: hidden;
   transition: transform .15s ease, box-shadow .15s ease;
 }
 @media (hover: hover) and (pointer: fine) {
   .playlist-card:hover { transform: translateY(calc(var(--ur-space-2) * -1)); box-shadow: var(--ur-effect-card-hover); }
 }
-.playlist-card-cover { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: top; }
+.playlist-card-cover-box { position: relative; display: block; aspect-ratio: 1 / 1; overflow: hidden; }
+.playlist-card-cover { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+
+/* "≔ 16/32": items done / items */
+.playlist-card-badge {
+  position: absolute; left: 0; top: calc(var(--ur-space-8) + var(--ur-space-2) + var(--ur-space-2) / 2);
+  display: flex; align-items: center; gap: var(--ur-space-2);
+  padding: var(--ur-space-4) var(--ur-space-8);
+  border-radius: 0 var(--ur-space-8) var(--ur-space-8) 0;
+  background: var(--ur-color-black-60);
+  backdrop-filter: blur(calc(var(--ur-space-4) + var(--ur-space-2) / 2));
+  box-shadow: 0 var(--ur-space-4) var(--ur-space-4) 0 var(--ur-paint-neutral-black-30);
+  color: var(--ur-color-white-100);
+  font-weight: var(--ur-text-font-system-xs-medium-weight);
+  font-size: calc(var(--ur-text-font-system-xs-medium-size) + var(--ur-space-2) / 2);
+  line-height: normal;
+  white-space: nowrap;
+}
+.playlist-card-badge-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: var(--ur-space-12); height: var(--ur-space-12);
+}
+
+/* total progress, under the cover */
+.playlist-card-progress { display: block; height: var(--ur-space-4); background: var(--ur-paint-neutral-black-8); overflow: hidden; }
+.playlist-card-progress > span { display: block; height: 100%; background: var(--ur-color-feedback-success); }
+
 .playlist-card-body {
-  display: grid; gap: calc(var(--ur-space-8) + var(--ur-space-2));
-  padding: calc(var(--ur-space-16) + var(--ur-space-2)) calc(var(--ur-space-20) + var(--ur-space-2)) var(--ur-space-20);
+  display: flex; flex-direction: column;
+  height: calc(var(--ur-space-64) * 2 - var(--ur-space-8));
+  padding: 0 var(--ur-space-12);
 }
 .playlist-card-title {
-  font: var(--ur-text-font-system-2xl-bold); color: var(--ur-color-text-strong);
+  display: block;
+  padding: var(--ur-space-8) 0;
+  font: var(--ur-text-font-system-s-medium); color: var(--ur-color-text-strong);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .playlist-card-meta {
-  color: var(--ur-color-text-secondary);
-  font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height);
+  flex: 1 0 0; min-height: 0;
+  display: flex; flex-wrap: wrap; align-content: flex-start; align-items: center;
+  gap: calc(var(--ur-space-4) + var(--ur-space-2));
+  padding-bottom: var(--ur-space-12);
+  font: var(--ur-text-font-system-xs-regular); color: var(--ur-color-text-secondary);
+  white-space: nowrap;
 }
-.playlist-card-icons { display: flex; gap: calc(var(--ur-space-8) + var(--ur-space-2)); color: var(--ur-color-text-tertiary); }
-.playlist-card-icons svg { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); }
+.playlist-card-dot {
+  width: var(--ur-space-2); height: var(--ur-space-2); border-radius: var(--ur-radius-full);
+  background: currentColor;
+}
+.playlist-card-icons {
+  display: flex; align-items: center; gap: calc(var(--ur-space-4) + var(--ur-space-2));
+  padding: 0 var(--ur-space-2) var(--ur-space-16);
+}
+.playlist-card-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: var(--ur-space-16); height: var(--ur-space-16);
+}
 @media (prefers-reduced-motion: reduce) {
   .playlist-card { transition: none; }
   @media (hover: hover) and (pointer: fine) { .playlist-card:hover { transform: none; } }

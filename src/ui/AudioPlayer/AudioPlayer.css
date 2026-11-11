@@ -1,17 +1,23 @@
-/* ui/AudioPlayer — extends UIkit-Read player. Tokens only; the play / back / forward box is ui/PlayButton Size=player. */
+/* ui/AudioPlayer — extends UIkit-Read player (the designer's Player box in RC/Exam/ListeningPart 19496:1147, frames 2.07–2.13).
+   Tokens only. A grey box (color/black/2, radius s, padding 16 × 12): the progress row (time M regular secondary, 8 track),
+   16 below it the back / play·pause / forward buttons — white, radius xs, effect btn/btn-xs, 40 high (back / forward
+   40 × 40, play 72 × 40), 6 apart; each keeps a 44 tap area. The play / pause box is ui/PlayButton Size=player. */
 .player {
-  margin: 0 0 var(--ur-space-24); padding: var(--ur-space-24); display: grid; gap: var(--ur-space-16);
-  border-radius: var(--ur-radius-m); background: var(--ur-color-background-card); box-shadow: var(--ur-effect-drop-shadow-card-lg);
+  margin: 0; padding: var(--ur-space-16) var(--ur-space-12); display: grid; gap: var(--ur-space-16);
+  border-radius: var(--ur-radius-s); background: var(--ur-color-black-2);
 }
+.player.is-locked { gap: 0; }
 .player-progress { display: flex; align-items: center; gap: var(--ur-space-16); }
 .player-time {
-  flex: none; min-width: calc(var(--ur-space-48) + var(--ur-space-4));
-  font-size: var(--ur-text-font-system-m-bold-size); line-height: var(--ur-text-font-system-m-bold-line-height);
-  font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-text-tertiary); font-variant-numeric: tabular-nums;
+  flex: none;
+  font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height);
+  color: var(--ur-color-text-secondary); font-variant-numeric: tabular-nums;
 }
 .player-track {
   --progress: 0%;
-  flex: 1; min-width: 0; height: var(--ur-size-touch-target); margin: 0;
+  /* a 44 tap area that takes only the text line's height in the row */
+  flex: 1; min-width: 0; height: var(--ur-size-touch-target);
+  margin: calc((var(--ur-text-font-system-m-regular-line-height) - var(--ur-size-touch-target)) / 2) 0;
   background: transparent; appearance: none; -webkit-appearance: none; cursor: pointer;
 }
 .player-track::-webkit-slider-runnable-track {
@@ -23,10 +29,18 @@
 .player-track::-webkit-slider-thumb { -webkit-appearance: none; width: 0; height: 0; }
 .player-track::-moz-range-thumb { width: 0; height: 0; border: 0; }
 .player-track:disabled { cursor: default; }
-.player-actions { display: flex; justify-content: center; gap: var(--ur-space-12); }
-.player-btn.is-square { width: var(--ur-height-height-9); }
+.player-actions { display: flex; justify-content: center; gap: calc(var(--ur-space-4) + var(--ur-space-2)); }
+.player .player-btn {
+  position: relative; width: var(--ur-height-height-9); height: var(--ur-height-height-5);
+  border-radius: var(--ur-radius-xs); box-shadow: var(--ur-effect-btn-btn-xs);
+}
+.player .player-btn img { width: var(--ur-height-height-3); height: var(--ur-height-height-3); }
+.player .player-btn.is-square { width: var(--ur-height-height-5); }
+.player .player-btn.is-square img { width: calc(var(--ur-height-height-2) + var(--ur-space-2)); height: calc(var(--ur-height-height-2) + var(--ur-space-2)); }
 .player-btn.is-forward img { transform: scaleX(-1); }
-/* the mode's rule line above the player (rc/Exam/ListeningPart places it) */
+/* 40-high buttons, 44 tap area */
+.player .player-btn::after { content: ''; position: absolute; inset: calc((var(--ur-height-height-5) - var(--ur-size-touch-target)) / 2); }
+/* the mode's rule line (rc/Exam/ListeningPart places it) */
 .player-note {
   margin: 0; text-align: center; color: var(--ur-color-text-secondary);
   font-size: var(--ur-text-font-system-s-regular-size); line-height: var(--ur-text-font-system-s-regular-line-height);

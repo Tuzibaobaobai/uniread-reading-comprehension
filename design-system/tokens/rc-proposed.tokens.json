@@ -355,6 +355,28 @@
             }
           }
         }
+      },
+      "flag": {
+        "surface": {
+          "$type": "color",
+          "$value": "rgba(255, 245, 234, 1)",
+          "$extensions": {
+            "rc": {
+              "status": "needs-designer",
+              "use": "标记本题 pill: top of its gradient (to white); designer flag-toggle (Figma 19834:178047), unbound literal in the Ready frame — value as drawn"
+            }
+          }
+        },
+        "text": {
+          "$type": "color",
+          "$value": "rgba(255, 132, 56, 1)",
+          "$extensions": {
+            "rc": {
+              "status": "needs-designer",
+              "use": "标记本题 pill: 已标记 label; designer flag-toggle (Figma 19834:178047), unbound literal in the Ready frame — value as drawn"
+            }
+          }
+        }
       }
     },
     "space": {
@@ -599,6 +621,15 @@
       "$extensions": {
         "rc": {
           "use": "UniRead file effect style \"btn/btn-s\", as above; btn-play Hover (Figma 19614:125149, #144)"
+        }
+      }
+    },
+    "flag": {
+      "$type": "shadow",
+      "$value": "box-shadow: 0px 2px 0px 0px rgba(185, 147, 106, 0.2);",
+      "$extensions": {
+        "rc": {
+          "use": "标记本题 pill drop shadow; designer flag-toggle (Figma 19834:178047), unbound literal in the Ready frame — value as drawn"
         }
       }
     }

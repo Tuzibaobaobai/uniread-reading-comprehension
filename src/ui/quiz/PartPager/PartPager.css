@@ -2,23 +2,24 @@
    (@container on .question-card: ≤ 900px compact, ≤ 560px phone). */
 .question-dot {
   flex: none;
-  width: var(--ur-height-height-9); height: var(--ur-height-height-9);
+  width: var(--ur-height-height-7); height: var(--ur-height-height-7);
   border: none; border-radius: var(--ur-radius-full); background: transparent;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--ur-space-2);
   color: var(--ur-color-text-strong);
 }
+/* question-nav 19802:13269 page number: 56 round, bold number over a 16 × 6 bar */
 .question-dot-num {
-  font-size: var(--ur-text-font-system-3xl-bold-size); line-height: var(--ur-text-font-system-3xl-bold-line-height);
-  font-weight: var(--ur-text-font-system-3xl-bold-weight);
+  font-size: var(--ur-text-font-system-l-bold-size); line-height: var(--ur-text-font-system-l-bold-line-height);
+  font-weight: var(--ur-text-font-system-l-bold-weight);
 }
 .question-dot-mark {
-  width: var(--ur-space-20); height: var(--ur-height-height); border-radius: var(--ur-radius-full);
+  width: var(--ur-space-16); height: calc(var(--ur-space-4) + var(--ur-space-2)); border-radius: var(--ur-radius-full);
   background: var(--ur-paint-customization-grey-7); opacity: .8;
 }
 .question-dot.is-answered .question-dot-mark { background: var(--ur-color-action-primary); }
 .question-dot.is-current { background: var(--ur-color-background-subtle); }
 .question-dot.is-neutral { color: var(--ur-color-text-secondary); }
-.question-dot-icon { width: var(--ur-size-icon-xl); height: var(--ur-size-icon-xl); object-fit: contain; }
+.question-dot-icon { width: var(--ur-size-icon-l); height: var(--ur-size-icon-l); object-fit: contain; }
 .question-dot.is-wrong .question-dot-icon { padding: calc(var(--ur-space-4) + var(--ur-space-2)); }
 
 /* Tone pending: the unanswered numbers listed in the submit confirmation */
@@ -55,12 +56,6 @@
   font-weight: var(--ur-text-font-system-m-bold-weight); white-space: nowrap; color: var(--ur-color-text-strong);
 }
 
-@container (max-width: 900px) {
-  .question-dot { width: var(--ur-height-height-7); height: var(--ur-height-height-7); }
-  .question-dot-num { font-size: var(--ur-text-font-system-2xl-regular-size); line-height: var(--ur-text-font-system-2xl-regular-line-height); }
-  .question-dot-mark { width: var(--ur-space-16); height: calc(var(--ur-space-4) + var(--ur-space-2)); }
-  .question-dot-icon { width: var(--ur-size-icon-l); height: var(--ur-size-icon-l); }
-}
 @container (max-width: 560px) {
   .question-dot { width: var(--ur-size-touch-target); height: var(--ur-size-touch-target); }
   .question-dot-num { font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height); }

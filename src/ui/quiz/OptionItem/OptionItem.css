@@ -1,19 +1,19 @@
-/* ui/quiz/OptionItem — extends UIKit-Quiz / option-text-item (7301:61934). Tokens only.
-   --option-pad-y is Figma's 19px (20 − the 1px stroke); prompt / option text is 3xl (2xl below 1024px). */
+/* ui/quiz/OptionItem — extends UIKit-Quiz / option-text-item (7301:61934; RC extension 19476:942). Tokens only.
+   Ready frames 1.02 / 2.03: padding 16, option text L regular 18 / 28. */
 .options { display: grid; gap: var(--ur-space-12); }
 .option {
-  --option-pad-y: calc(var(--ur-space-20) - var(--ur-stroke-default));
-  --option-pad-x: var(--ur-space-20);
+  --option-pad-y: var(--ur-space-16);
+  --option-pad-x: var(--ur-space-16);
   display: flex; flex-direction: column; width: 100%;
   border: none; border-radius: var(--ur-radius-s); background: transparent;
   text-align: left; color: var(--ur-color-text-primary);
   overflow: hidden;
 }
 .option-row { display: flex; align-items: flex-start; gap: var(--ur-space-16); padding: var(--option-pad-y) var(--option-pad-x); }
-.option-radio-box { flex: none; height: var(--ur-text-font-system-3xl-regular-line-height); display: flex; align-items: center; }
+.option-radio-box { flex: none; height: var(--ur-text-font-system-l-regular-line-height); display: flex; align-items: center; }
 .option-text {
   flex: 1; min-width: 0;
-  font-size: var(--ur-text-font-system-3xl-regular-size); line-height: var(--ur-text-font-system-3xl-regular-line-height);
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
 }
 .option-letter { color: inherit; }
 @media (hover: hover) and (pointer: fine) { button.option:hover { background: var(--ur-color-background-subtle); } }
@@ -44,12 +44,8 @@
   color: var(--ur-color-feedback-success-text);
 }
 
-@media (max-width: 1023px) {
-  .option-text { font-size: var(--ur-text-font-system-2xl-regular-size); }
-}
-
 /* Size compact (rc/Exam/QuestionStack — five questions on one page): tighter rows, body text at l at every width;
-   (0,2,0) so it also wins over the < 1024px rule above. 6 = 4 + 2, 10 = 8 + 2. */
+   6 = 4 + 2, 10 = 8 + 2. */
 .options.is-compact { gap: calc(var(--ur-space-4) + var(--ur-space-2)); }
 .option.is-compact .option-row { padding: var(--ur-space-8) var(--ur-space-12); gap: calc(var(--ur-space-8) + var(--ur-space-2)); }
 .option.is-compact .option-text { font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height); }

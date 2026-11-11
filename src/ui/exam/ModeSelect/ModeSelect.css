@@ -1,11 +1,19 @@
-/* RC/Exam/ModeSelect (proposed). Tokens only. */
+/* RC/Exam/ModeSelect (proposed; the designer's frames 2.02–2.07, 19496:1129). Tokens only. 48 high, radius s,
+   drop-shadow btn-xs: 「当前」 secondary, the mode bold strong, the countdown secondary, the 24 chevron; open = brand border. */
 .mode-select { position: relative; }
 .mode-select-button {
   display: inline-flex; align-items: center; gap: var(--ur-space-8);
-  height: var(--ur-height-height-6); padding: 0 var(--ur-space-12) 0 var(--ur-space-16);
-  border: none; border-radius: var(--ur-radius-s); background: var(--ur-color-background-card); box-shadow: var(--ur-effect-drop-shadow-btn-xs);
+  height: var(--ur-height-height-6); padding: 0 var(--ur-space-16);
+  border: var(--ur-stroke-default) solid transparent; border-radius: var(--ur-radius-s);
+  background: var(--ur-color-background-card); box-shadow: var(--ur-effect-drop-shadow-btn-xs);
   font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height);
-  color: var(--ur-color-text-primary); white-space: nowrap;
+  color: var(--ur-color-text-secondary); white-space: nowrap;
 }
+.mode-select-button[aria-expanded='true'] { border-color: var(--ur-color-action-primary); }
 .mode-select-button b { font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-text-strong); }
+.mode-select-button .exam-timer { color: var(--ur-color-text-secondary); }
+.mode-select-button .exam-timer.is-warn,
+.mode-select-button .exam-timer.is-alert { color: var(--ur-color-feedback-error); }
+.mode-select-button .exam-timer.is-warn { font-weight: var(--ur-text-font-system-m-medium-weight); }
 .mode-select-button .chevron-down { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); color: var(--ur-color-icon-strong); }
+.mode-select-button[aria-expanded='true'] .chevron-down { transform: rotate(180deg); }

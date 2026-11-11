@@ -5,12 +5,14 @@ import './ListeningPart.css';
 export type ListeningMode = 'practice' | 'exam';
 
 /**
- * RC/Exam/ListeningPart (proposed, issue #138; Figma: RC · Proposed): one Part of a listening paper — title with the
- * 正在播放 / 播放中 badge (rc/Common/Tag, Tone solid), instruction, the mode note, then the controls (ui/AudioPlayer in
- * practice, the exam progress / start button / state line in exam mode) and, for the current question's Part, its
+ * RC/Exam/ListeningPart (proposed, issue #138; the designer's Ready-for-dev frames 2.03–2.13, Figma 19496:1147): one Part
+ * of a listening paper — a white card with the title and the 正在播放 badge (rc/Common/Tag, Tone solid), the
+ * instruction, an optional rule note (exam mode, next to the start button), then the controls (ui/AudioPlayer Size=compact in
+ * practice; in exam mode the progress, the start button or a state line) and, for the current question's Part, its
  * material and transcript (`children`).
- * Variants: Playing no / yes; Mode practice / exam (decides the note and the badge text the caller passes);
- * Current (the current question's Part, accent border). The ref is the <section> (scrolled into view).
+ * Variants: Playing no / yes (brand border); Mode practice / exam. `current` (the current question's Part) only adds
+ * the class: the designer's frames mark the playing Part, not the current one. The ref is the <section> (scrolled
+ * into view).
  * Keeps the legacy classes (.part-audio, .is-current, .is-playing, .part-audio-title, .part-audio-badge) and the
  * section's aria-label that e2e/ket.spec.ts and e2e/pet.spec.ts use. The Parts stack in the pane's
  * `.listening-stack` (rc/Read/ArticleText with that class, GitHub #72).
@@ -20,11 +22,11 @@ export const ListeningPart = forwardRef<
   {
     title: string;
     instruction: ReactNode;
-    /** the mode's rule line (exam: plays once; practice: pause / seek freely) */
-    note: ReactNode;
+    /** the mode's rule line (exam: plays once), shown under the instruction */
+    note?: ReactNode;
     mode?: ListeningMode;
     playing?: boolean;
-    /** badge text while playing (正在播放 in exam mode, 播放中 in practice) */
+    /** badge text while playing (正在播放) */
     playingLabel?: ReactNode;
     current?: boolean;
     children?: ReactNode;
@@ -45,7 +47,7 @@ export const ListeningPart = forwardRef<
         )}
       </h2>
       <p className="exam-instruction">{instruction}</p>
-      <p className="player-note">{note}</p>
+      {note && <p className="player-note">{note}</p>}
       {children}
     </section>
   );
@@ -56,12 +58,14 @@ export function ListeningPartState({ children }: { children: ReactNode }) {
   return <p className="part-audio-state">{children}</p>;
 }
 
-/** exam mode: the button that starts (or continues) the one-time recording */
+/** exam mode: the button that starts (or continues) the one-time recording, in the player's grey box */
 export function ListeningPartStart({ icon, children, ...rest }: { icon: string; children: ReactNode } & ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
-    <button type="button" className="part-audio-start" {...rest}>
-      <img src={icon} alt="" className="part-audio-start-icon" />
-      {children}
-    </button>
+    <div className="part-audio-start-box">
+      <button type="button" className="part-audio-start" {...rest}>
+        <img src={icon} alt="" className="part-audio-start-icon" />
+        {children}
+      </button>
+    </div>
   );
 }

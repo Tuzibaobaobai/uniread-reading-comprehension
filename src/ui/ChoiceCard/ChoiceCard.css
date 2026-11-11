@@ -21,6 +21,18 @@
 .choice-card.is-m .choice-card-title { font-size: var(--ur-text-font-system-l-regular-size); color: var(--ur-color-text-strong); }
 .choice-card.is-selected { border-color: var(--ur-color-action-primary); background: var(--ur-color-action-primary-soft); color: var(--ur-color-text-primary); }
 .choice-card.is-unchosen { opacity: var(--ur-opacity-disabled); }
+/* Fill = filled (the designer's mode choice, frame 2.02 items 19502:5689): Grey/1, no visible border, radius m; title 2XL
+   bold and text L regular, both strong, 16 apart */
+.choice-card.is-filled {
+  gap: var(--ur-space-16); border-color: transparent; border-radius: var(--ur-radius-m); background: var(--ur-paint-customization-grey-1);
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+  color: var(--ur-color-text-strong);
+}
+.choice-card.is-filled .choice-card-title {
+  font-size: var(--ur-text-font-system-2xl-bold-size); line-height: var(--ur-text-font-system-2xl-bold-line-height);
+  font-weight: var(--ur-text-font-system-2xl-bold-weight); color: var(--ur-color-text-strong);
+}
+.choice-card-group.is-list:has(> .is-filled) { margin-top: 0; }
 @media (hover: hover) and (pointer: fine) {
   .choice-card:hover:not(:disabled) { border-color: var(--ur-color-action-primary); }
 }

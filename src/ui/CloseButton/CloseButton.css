@@ -1,7 +1,17 @@
-/* ui/CloseButton — UniRead btn-close (reuse). Tokens only. */
+/* ui/CloseButton — UniRead `dialog close` (11777:76962, reuse; the same circle as rc/Vocab/EntryDialog): a dimmed 48 circle
+   with a blurred backdrop, 16 outside the dialog's top right corner; inside the corner on a narrow screen. Tokens only. */
 .dialog-close {
-  position: absolute; top: var(--ur-space-12); right: var(--ur-space-12);
-  width: var(--ur-size-touch-target); height: var(--ur-size-touch-target);
-  border: none; border-radius: var(--ur-radius-full); background: transparent;
-  font: var(--ur-text-font-system-4xl-regular); line-height: 1; color: var(--ur-color-text-secondary);
+  position: absolute; top: 0; left: calc(100% + var(--ur-space-16));
+  width: var(--ur-height-height-6); height: var(--ur-height-height-6);
+  padding: 0; display: grid; place-items: center; border: none; border-radius: var(--ur-radius-full);
+  background: var(--ur-paint-neutral-black-30); color: var(--ur-paint-customization-grey-3);
+  backdrop-filter: var(--ur-effect-blur-glass-backdrop-filter);
+}
+.dialog-close svg { width: 100%; height: 100%; }
+@media (hover: hover) and (pointer: fine) { .dialog-close:hover { background: var(--ur-paint-neutral-black-40); } }
+@media (max-width: 1023px) {
+  .dialog-close {
+    top: var(--ur-space-12); left: auto; right: var(--ur-space-12);
+    width: var(--ur-size-touch-target); height: var(--ur-size-touch-target);
+  }
 }

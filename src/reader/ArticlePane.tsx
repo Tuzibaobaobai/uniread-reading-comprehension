@@ -53,7 +53,7 @@ export function mergeRefs<T>(local: { current: T | null }, ref: ((el: T | null) 
   };
 }
 
-/** left pane (rc/Common/Panel): title → info box → images → body → Words & Expressions (static content) */
+/** left pane (rc/Common/Panel): title → info box → images → body (正文) → Words & Expressions (static content) */
 export const ArticlePane = forwardRef<HTMLDivElement, Props>(function ArticlePane({ item, renderBlank, evidence }, ref) {
   const m = item.meta;
   const { t } = useTranslation();
@@ -74,7 +74,7 @@ export const ArticlePane = forwardRef<HTMLDivElement, Props>(function ArticlePan
     .map(([label, value]) => ({ label, value }));
   return (
     <Panel kind="article" ref={setRef}>
-      <ArticleText>
+      <ArticleText size="reading">
         <ArticleHeader title={item.title} info={[...info, { label: t('reader.info.intro'), value: m.intro, wide: true }]} />
 
         {/* images without an explicit position go between the info box and the body */}

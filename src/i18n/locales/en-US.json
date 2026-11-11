@@ -12,13 +12,16 @@
   },
   "playlists": {
     "title": "Topical Reading",
-    "examMeta_one": "{{count}} paper · {{band}}",
-    "examMeta_other": "{{count}} papers · {{band}}",
-    "articleMeta_one": "{{count}} article · L{{range}}",
-    "articleMeta_other": "{{count}} articles · L{{range}}",
-    "questionTypes": "Question types",
-    "vocabMeta_one": "{{count}} day · {{band}}",
-    "vocabMeta_other": "{{count}} days · {{band}}"
+    "examCount_one": "{{count}} paper",
+    "examCount_other": "{{count}} papers",
+    "articleCount_one": "{{count}} article",
+    "articleCount_other": "{{count}} articles",
+    "vocabCount_one": "{{count}} day",
+    "vocabCount_other": "{{count}} days",
+    "level": "L{{range}}",
+    "progress": "{{done}} of {{total}} done",
+    "modesVocab": "Scan, study, quiz",
+    "modesReading": "Read, answer questions"
   },
   "playlist": {
     "notFound": "Playlist not found",
@@ -56,6 +59,11 @@
     "submit": "Submit",
     "retry": "Try again",
     "partPrefix": "Part {{part}} ",
+    "partTitle": "Part {{part}}",
+    "partKicker": "P{{part}}",
+    "partRange": "Q{{first}}–Q{{last}}",
+    "partRangeOne": "Q{{n}}",
+    "partCard": "{{part}}, questions {{range}}, {{done}}/{{total}} done",
     "dotLabel": "{{part}}Question {{n}}{{state}}",
     "dotCorrect": ", correct",
     "dotScore": ", score {{score}}",
@@ -118,7 +126,8 @@
       "examDesc": "{{minutes}}-minute time limit, submitted automatically when time is up{{audio}}; flag questions, then get your score and a Cambridge Scale estimate.",
       "examAudio": "; each recording plays once (both hearings included) with no pausing or seeking",
       "selectLabel": "Current: {{mode}}. Switch mode",
-      "menuLabel": "Answer mode"
+      "menuLabel": "Answer mode",
+      "current": "Current"
     },
     "switch": {
       "toExamTitle": "Switch to exam mode?",
@@ -128,7 +137,8 @@
       "cleared_other": ", and your {{count}} answers will be cleared",
       "toPracticeBody": "The timer stops and your answers are kept. Keep practising; recordings can be paused and replayed.",
       "startExam": "Start exam",
-      "toPractice": "Switch to practice"
+      "toPractice": "Switch to practice",
+      "close": "Close and keep the current mode"
     },
     "scale": {
       "close": "Close and return to the score report",
@@ -136,6 +146,8 @@
       "intro": "Official practice-test conversion table for {{name}} (exams from 2020). The table lists the official anchor points; raw scores in between are converted proportionally, and full marks map to {{top}}.",
       "skillCaption": "{{skill}} (out of {{max}})",
       "gradesCaption": "Result bands (overall = average of the four scale scores)",
+      "bandScore": "Score",
+      "band": "Result",
       "belowRow": "{{below}} ({{floor}} is the lowest reported score)",
       "source": "Source: Cambridge English, “{{name}} — Converting practice test scores to Cambridge English Scale scores” (UCLES 2019). For practice only; the live exam’s conversion varies from paper to paper."
     },
@@ -157,7 +169,8 @@
       "scoringEllipsis": "Scoring…",
       "note": "Cambridge English Scale scores are estimated with Cambridge’s official practice-test <btn>conversion table</btn> ({{name}}, exams from 2020) and are for reference only; writing and speaking are scored by AI against Cambridge’s official assessment scales{{speaking}}.",
       "noteSpeaking": "; pronunciation is not yet assessed, so the other criteria are scaled up",
-      "viewAnswers": "See answers and explanations"
+      "viewAnswers": "See answers and explanations",
+      "close": "Close the score report"
     },
     "grade": {
       "band": "Grade {{grade}} ({{cefr}})",
@@ -177,6 +190,8 @@
     "listenPartner": "Listen",
     "listen": "Listen",
     "stop": "Stop recording",
+    "cancel": "Cancel recording",
+    "restart": "Start recording again",
     "recording": "Recording {{s}}s",
     "transcribing": "Transcribing…",
     "rerecord": "Re-record",
@@ -193,15 +208,12 @@
     "play": "Play",
     "pause": "Pause",
     "progress": "Playback position",
-    "playing": "Playing",
     "nowPlaying": "Now playing",
     "examNote": "Exam mode: the recording plays once (both hearings included) and can’t be paused or sought once started.",
-    "practiceNote": "Practice mode: play, pause and seek freely; start the next part yourself when one ends.",
     "missing": "The recording for this part is coming soon; you can read the questions now.",
     "finished": "The recording for this part has finished.",
     "start": "Start the listening test",
-    "continueFrom": "Continue from {{part}}",
-    "waiting": "Waiting to play (in exam order)"
+    "continueFrom": "Continue from {{part}}"
   },
   "paper": {
     "reading_writing": "Reading & Writing",

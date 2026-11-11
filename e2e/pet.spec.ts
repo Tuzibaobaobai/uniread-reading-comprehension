@@ -1,5 +1,6 @@
 // PET 真题 (B1 Preliminary): separate Reading / Writing papers, annotated email, choose-one writing task, AI partner.
 import { expect, test, type Page } from '@playwright/test';
+import { goQuestion, lastPage, numbers, openPart } from './nav';
 
 const narrow = (page: Page) => (page.viewportSize()?.width ?? 1440) < 1024;
 const tab = async (page: Page, name: RegExp) => {
@@ -40,7 +41,7 @@ test('writing Part 2: choose one task; switching after writing asks and clears; 
   await page.getByRole('button', { name: '切换并清空' }).click();
   await expect(page.locator('textarea')).toHaveValue('');
   await page.locator('textarea').fill('Lois smiled as she put the tickets in her pocket and walked out of her house.');
-  await expect(page.locator('.question-dot').last().locator('.question-dot-mark')).toBeVisible();
+  await expect(numbers(page).last()).toHaveClass(/is-answered/);
   // the server scores only the chosen task
   const graded = await page.request.post('/api/rc/grade', {
     data: { itemId: 'pet1-t1-w', responses: { q1: 'Dear Mrs Hallam', q3: 'Lois smiled…' } },
@@ -56,7 +57,7 @@ test('writing Part 2: choose one task; switching after writing asks and clears; 
 test('speaking Part 3: the AI partner speaks with its own voice and the learner replies', async ({ page }) => {
   await practice(page, 'pet1-t1-s');
   await tab(page, /题目/);
-  await page.getByRole('button', { name: /Part 3 第/ }).first().click();
+  await openPart(page, 3);
   await page.getByRole('button', { name: '下一题' }).click();
   await expect(page.locator('.speak-role.is-partner')).toHaveText('搭档 Alex');
   const audio = page.waitForRequest((r) => /pet1-t1-s-q3-t2\.mp3$/.test(r.url()));
@@ -68,7 +69,7 @@ test('speaking Part 3: the AI partner speaks with its own voice and the learner 
 test('#82 reading Part 2: all five people on one page, letters A–H, each letter used once', async ({ page }) => {
   await practice(page, 'pet1-t1-r');
   await tab(page, /题目/);
-  await page.getByRole('button', { name: /第 6–10 题/ }).click();
+  await goQuestion(page, /第 6 题/);
   await expect(page.locator('.match-row')).toHaveCount(5);
   const row = (n: number) => page.locator('.match-row').nth(n);
   await row(0).getByRole('radio', { name: /^F / }).click();
@@ -83,17 +84,17 @@ test('#82 reading Part 2: all five people on one page, letters A–H, each lette
 test('#90 #91 #92 reading Part 2: lead-in above the questions, photos, every question\'s evidence after submitting', async ({ page }) => {
   await practice(page, 'pet1-t1-r');
   await tab(page, /题目/);
-  await page.getByRole('button', { name: /第 6–10 题/ }).click();
+  await goQuestion(page, /第 6 题/);
   await expect(page.locator('.section-intro')).toContainText('The young people below');
   await expect(page.locator('.match-row-photo')).toHaveCount(5);
   await tab(page, /材料/);
   await expect(page.locator('.exam-pane')).not.toContainText('The young people below');
   await tab(page, /题目/);
-  await page.locator('.question-dot').last().click();
+  await lastPage(page);
   await page.getByRole('button', { name: '提交' }).click();
   await page.getByRole('button', { name: '仍然提交' }).click();
   await page.getByRole('button', { name: '查看答案与解析' }).click();
-  await page.getByRole('button', { name: /第 6–10 题/ }).click();
+  await goQuestion(page, /第 6 题/);
   await expect(page.locator('.part-explain-locate')).toHaveCount(5);
   // #100: nothing is highlighted until one question's 定位原文 is tapped, then only that question's evidence
   const ranges = () => page.evaluate(() => (CSS as unknown as { highlights?: Map<string, { size: number }> }).highlights?.get('evidence')?.size ?? -1);
@@ -158,10 +159,11 @@ test('#128 writing is marked with a score only: the pager shows 18/20, no ✗', 
   const confirm = page.getByRole('button', { name: '仍然提交' });
   if (await confirm.isVisible().catch(() => false)) await confirm.click();
   await expect(page.locator('.judge-score').first()).toContainText('18');
-  await expect(page.locator('.question-dot.is-wrong')).toHaveCount(0);
-  await expect(page.locator('.question-dot.is-correct')).toHaveCount(0);
+  await expect(page.locator('.part-nav').locator('.is-wrong')).toHaveCount(0);
+  await expect(page.locator('.part-nav').locator('.is-correct')).toHaveCount(0);
   // #128 comment: a judged Part shows score / full marks in the pager
-  await expect(page.locator('.question-dot .is-score')).toHaveText(['18/20', '18/20']);
+  // the other Part's card and the current Part's number
+  await expect(page.locator('.part-nav').locator('.part-result-count, .part-q-score')).toHaveText(['18/20', '18/20']);
   await expect(page.locator('.explain .explain-head').first()).toHaveText('得分 18 / 20');
 });
 
@@ -185,8 +187,8 @@ test('#128 (2026-11-05) a 0/20 writing answer: the pager shows 0/20, never ✗, 
   await page.getByRole('button', { name: '提交' }).click();
   const confirm = page.getByRole('button', { name: '仍然提交' });
   if (await confirm.isVisible().catch(() => false)) await confirm.click();
-  await expect(page.locator('.question-dot .is-score')).toHaveText(['0/20', '0/20']);
-  await expect(page.locator('.question-dot-icon')).toHaveCount(0);
+  await expect(page.locator('.part-nav').locator('.part-result-count, .part-q-score')).toHaveText(['0/20', '0/20']);
+  await expect(page.locator('.part-nav').locator('.is-wrong')).toHaveCount(0);
   await expect(page.locator('.explain .explain-head').first()).toHaveText('得分 0 / 20');
   await expect(page.getByText('回答错误')).toHaveCount(0);
 });

@@ -5,9 +5,9 @@ import { useTranslation } from 'react-i18next';
 import { isExam, isVocabDay, type AnyItemT, type AttemptT, type ItemKeyT, type ItemT } from '@schema';
 import { staticContent } from '@/lib/content';
 import { localAttempts, newAttempt } from '@/lib/storage';
-import { isScored, type Result } from '@/lib/grading';
+import { isAnswered, isScored, type Result } from '@/lib/grading';
 import { applyJudgement, fallbackToSelf } from '@/lib/judge';
-import { BackArrow, Flag, Locate } from '@/components/Icons';
+import { BackArrow, Locate } from '@/components/Icons';
 import Loading from '@/components/Loading';
 import { Rich, plainText, type BlankNode } from '@/components/Rich';
 import { ArticlePane } from './ArticlePane';
@@ -37,11 +37,14 @@ import { VocabDayPage } from '@/vocab/VocabDayPage';
 import { Panel } from '@/ui/common/Panel/Panel';
 import { Chip } from '@/ui/common/Chip/Chip';
 import { Dialog } from '@/ui/common/Dialog/Dialog';
-import { InlineNotice } from '@/ui/common/InlineNotice/InlineNotice';
+import { Message } from '@/ui/Message/Message';
 import { SegmentedTabs } from '@/ui/SegmentedTabs/SegmentedTabs';
 import { Highlight } from '@/ui/Highlight/Highlight';
 import { QuizButton } from '@/ui/QuizButton/QuizButton';
 import { QuestionNav } from '@/ui/quiz/QuestionNav/QuestionNav';
+import type { NavAction } from '@/ui/quiz/QuestionNav/NavButton';
+import { PartNav, type PartNavPart, type PartQuestionState } from '@/ui/vocab/PartNav/PartNav';
+import { FlagToggle } from '@/ui/quiz/FlagToggle/FlagToggle';
 import { PartPager } from '@/ui/quiz/PartPager/PartPager';
 import { AnswerExplain, AnswerFeedback } from '@/ui/quiz/AnswerFeedback/AnswerFeedback';
 
@@ -387,6 +390,159 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
     [review?.key, current?.q.id, picked], // eslint-disable-line react-hooks/exhaustive-deps
   );
 
+  /** the pager number of one page (時文 footer; also the submit confirmation's list uses PartPager) */
+  const pager = (i: number) => {
+    const f = flat[i];
+    // after submitting (#128): a page with judged answers (writing, speaking, a table with written cells)
+    // shows score / full marks, e.g. 15/20; a Part of objective questions on one page shows right / total,
+    // e.g. 3/5; a single objective question keeps the ✓ / ✗ icon. Any future scored type: score, never an icon.
+    const pageQs = f.group || f.choose ? f.section.questions : [f.q];
+    const all = pageQs.map((q) => review?.result.byQuestion.find((b) => b.q === q.id)).filter((b) => b !== undefined);
+    const rows = f.choose ? all.filter((b) => b.scoredBy !== 'none') : all;
+    const judged = pageQs.some((q) => !isScored(q));
+    const lastTurn = f.turn === undefined || f.q.interaction.kind !== 'speaking' || f.turn === f.q.interaction.turns.length - 1;
+    const sum = (ns: number[]) => Math.round(ns.reduce((a, b) => a + b, 0) * 100) / 100;
+    const table = tablePage(f);
+    const score =
+      !review || !rows.length
+        ? undefined
+        : table
+          ? // a table is marked cell by cell, ticks and written cells alike (#127): right / total once all are marked
+            rows.every((b) => b.scoredBy !== 'pending' && b.correct !== null)
+            ? `${rows.filter((b) => b.correct === true).length}/${rows.length}`
+            : undefined
+          : judged
+            ? lastTurn && rows.every((b) => b.scoredBy === 'judge' || b.scoredBy === 'auto' || b.scoredBy === undefined)
+              ? `${sum(rows.map((b) => b.points))}/${sum(rows.map((b) => b.maxPoints))}`
+              : undefined
+            : rows.length > 1
+              ? `${rows.filter((b) => b.correct === true).length}/${rows.length}`
+              : undefined;
+    const single = rows.length === 1 && !judged ? rows[0] : undefined;
+    const res = !review || score ? 'none' : single?.correct === true ? 'correct' : single?.correct === false ? 'wrong' : 'none';
+    const answered = !review && pageAnswered(f, responses);
+    const range = table ?? `${f.display}${f.displayTo && f.displayTo !== f.display ? `–${f.displayTo}` : ''}`;
+    return (
+      <PartPager
+        key={i}
+        layout="question"
+        // exam papers: the first number of each Part carries the Part's label (GitHub #72)
+        kicker={exam && f.firstInSection ? `P${f.section.part ?? ''}` : undefined}
+        label={range}
+        labelKind={f.displayTo && !table ? 'range' : 'number'}
+        selected={i === index}
+        completed={answered}
+        result={res}
+        score={score}
+        reviewing={!!review}
+        flagged={examMode && !!attempt.flagged?.includes(f.q.id)}
+        onClick={() => go(i)}
+        ariaLabel={t('reader.dotLabel', {
+          part: exam && f.section.part ? t('reader.partPrefix', { part: f.section.part }) : '',
+          n: range,
+          state: score
+            ? t(judged && !table ? 'reader.dotScore' : 'reader.dotRight', { score })
+            : res === 'correct'
+              ? t('reader.dotCorrect') : res === 'wrong' ? t('reader.dotWrong') : answered ? t('reader.dotAnswered') : '',
+        })}
+      />
+    );
+  };
+
+  // the right-hand footer button: next question; on the last one 提交 (dim while questions are left, still tappable →
+  // the confirmation) or, after submitting, 重新作答
+  const navAction: NavAction = submitted
+    ? isLast
+      ? { kind: 'retry', label: t('reader.retry'), onClick: retry }
+      : { kind: 'next', label: t('reader.next'), onClick: () => go(visible[pos + 1]) }
+    : isLast
+      ? { kind: 'submit', label: t('reader.submit'), dim: unanswered.length > 0, onClick: () => (unanswered.length ? setConfirmOpen(true) : submit()) }
+      : { kind: 'next', label: t('reader.next'), onClick: () => go(visible[pos + 1]) };
+
+  // 真题 / PET footer (question-nav-part 19706:145652): the Parts as cards. A Part's numbers are its questions — every
+  // question of a Part answered on one page, each examiner question of a speaking Part — each opening its page.
+  const examSections = exam ? [...new Set(flat.map((f) => f.section))] : [];
+  const examPartPages = examSections.map((s) => flat.filter((f) => f.section === s).map((f) => f.index));
+  const examUnits = examSections.map((s) =>
+    flat
+      .filter((f) => f.section === s)
+      .flatMap((f) => {
+        const flaggedQ = (id: string) => examMode && !!attempt.flagged?.includes(id);
+        if (f.group)
+          return f.section.questions.map((q) => {
+            const row = review?.result.byQuestion.find((b) => b.q === q.id);
+            return { id: q.id, number: q.number as number | string, page: f.index, answered: isAnswered(q, responses[q.id]), correct: row?.correct, flagged: flaggedQ(q.id), score: undefined as string | undefined };
+          });
+        const qs = f.choose ? f.section.questions : [f.q];
+        const rows = qs.map((q) => review?.result.byQuestion.find((b) => b.q === q.id)).filter((b) => b !== undefined);
+        const scored = f.choose ? rows.filter((b) => b.scoredBy !== 'none') : rows;
+        const objective = qs.every((q) => isScored(q)) && f.turn === undefined && scored.length === 1;
+        // a judged page (writing, speaking — the last examiner question) shows score / full marks (#128)
+        const lastTurn = f.turn === undefined || f.q.interaction.kind !== 'speaking' || f.turn === f.q.interaction.turns.length - 1;
+        const done = (ns: number[]) => Math.round(ns.reduce((a, b) => a + b, 0) * 100) / 100;
+        const score =
+          review && !objective && lastTurn && scored.length && scored.every((b) => b.scoredBy === 'judge' || b.scoredBy === 'auto' || b.scoredBy === undefined)
+            ? `${done(scored.map((b) => b.points))}/${done(scored.map((b) => b.maxPoints))}`
+            : undefined;
+        return [{
+          id: f.turn !== undefined ? `${f.q.id}#${f.turn}` : f.q.id,
+          number: f.display as number | string,
+          page: f.index,
+          answered: pageAnswered(f, responses),
+          correct: objective ? scored[0].correct : undefined,
+          flagged: flaggedQ(f.q.id),
+          score,
+        }];
+      }),
+  );
+  const examParts: PartNavPart[] = examSections.map((s, pi) => {
+    const units = examUnits[pi];
+    const part = s.part ?? pi + 1;
+    const done = units.filter((u) => u.answered).length;
+    const first = units[0]?.number;
+    const last = units[units.length - 1]?.number;
+    const range = first === last ? t('reader.partRangeOne', { n: first }) : t('reader.partRange', { first, last });
+    // after submitting: right / total for objective questions, score / full marks for judged ones (#128); nothing
+    // while a mark is still coming
+    const rows = s.questions.map((q) => review?.result.byQuestion.find((b) => b.q === q.id)).filter((b) => b !== undefined);
+    const marked = s.choose ? rows.filter((b) => b.scoredBy !== 'none') : rows;
+    const judged = s.questions.some((q) => !isScored(q));
+    const sum = (ns: number[]) => Math.round(ns.reduce((a, b) => a + b, 0) * 100) / 100;
+    const score = !review || !marked.length || marked.some((b) => b.scoredBy === 'pending' || (!judged && b.correct === null))
+      ? undefined
+      : judged
+        ? `${sum(marked.map((b) => b.points))}/${sum(marked.map((b) => b.maxPoints))}`
+        : `${marked.filter((b) => b.correct === true).length}/${marked.length}`;
+    const title = t('reader.partTitle', { part });
+    return {
+      id: s.id,
+      title,
+      kicker: t('reader.partKicker', { part }),
+      range,
+      questions: units.map((u) => {
+        const state: PartQuestionState = review ? (u.correct === true ? 'correct' : u.correct === false ? 'wrong' : 'none') : u.answered ? 'answered' : 'none';
+        return {
+          id: u.id,
+          number: u.number,
+          state,
+          current: u.page === index,
+          flagged: u.flagged,
+          score: u.score,
+          ariaLabel: t('reader.dotLabel', {
+            part: t('reader.partPrefix', { part }),
+            n: u.number,
+            state: u.score
+              ? t('reader.dotScore', { score: u.score })
+              : state === 'correct' ? t('reader.dotCorrect') : state === 'wrong' ? t('reader.dotWrong') : state === 'answered' ? t('reader.dotAnswered') : '',
+          }),
+        };
+      }),
+      count: review ? score : `${done}/${units.length}`,
+      complete: done === units.length,
+      ariaLabel: t('reader.partCard', { part: title, range: first === last ? `${first}` : `${first}–${last}`, done, total: units.length }) + (score ? t('reader.dotRight', { score }) : ''),
+    };
+  });
+
   return (
     <div className={`reader-body tab-${tab} ${soloQuestions ? 'no-left' : ''}`}>
       <SegmentedTabs<Tab>
@@ -444,22 +600,9 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
                   />,
                   headSlot,
                 )}
-              {exam && ((examMode && current) || (submitted && result)) && !modeDialog && (
+              {exam && submitted && result && !modeDialog && (
                 <div className="exam-bar">
-                  {examMode && current && (
-                    <Chip
-                      tone={attempt.flagged?.includes(current.q.id) ? 'flag' : 'neutral'}
-                      className="flag-toggle"
-                      icon={<Flag />}
-                      aria-pressed={!!attempt.flagged?.includes(current.q.id)}
-                      onClick={() => toggleFlag(current.q.id)}
-                    >
-                      {attempt.flagged?.includes(current.q.id) ? t('reader.flagged') : t('reader.flag')}
-                    </Chip>
-                  )}
-                  {submitted && result && (
-                    <Chip onClick={() => setReportOpen(true)}>{t('exam.report.title')}</Chip>
-                  )}
+                  <Chip onClick={() => setReportOpen(true)}>{t('exam.report.title')}</Chip>
                 </div>
               )}
             </>
@@ -467,93 +610,31 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
           footer={
             <>
               {submitError && (
-                <InlineNotice tone="danger" role="alert">
-                  {submitError.status ? t('reader.gradeUnavailable', { status: submitError.status }) : t('reader.networkError')}
-                </InlineNotice>
+                // UniRead Message (designer's frame 1.19): a toast at the top of the page
+                <Message>{submitError.status ? t('reader.gradeUnavailable', { status: submitError.status }) : t('reader.networkError')}</Message>
               )}
-              <QuestionNav
-                label={t('reader.nav')}
-                current={index}
-                count={visible.length}
-                prev={
-                  <QuizButton disabled={pos <= 0} onClick={() => go(visible[pos - 1])}>
-                    {t('reader.prev')}
-                  </QuizButton>
-                }
-                action={
-                  submitted ? (
-                    isLast ? (
-                      <QuizButton onClick={retry}>{t('reader.retry')}</QuizButton>
-                    ) : (
-                      <QuizButton onClick={() => go(visible[pos + 1])}>{t('reader.next')}</QuizButton>
-                    )
-                  ) : isLast ? (
-                    <QuizButton variant="primary" dim={unanswered.length > 0} onClick={() => (unanswered.length ? setConfirmOpen(true) : submit())}>
-                      {t('reader.submit')}
-                    </QuizButton>
-                  ) : (
-                    <QuizButton onClick={() => go(visible[pos + 1])}>{t('reader.next')}</QuizButton>
-                  )
-                }
-              >
-                {visible.map((i) => {
-                  const f = flat[i];
-                  // after submitting (#128): a page with judged answers (writing, speaking, a table with written cells)
-                  // shows score / full marks, e.g. 15/20; a Part of objective questions on one page shows right / total,
-                  // e.g. 3/5; a single objective question keeps the ✓ / ✗ icon. Any future scored type: score, never an icon.
-                  const pageQs = f.group || f.choose ? f.section.questions : [f.q];
-                  const all = pageQs.map((q) => review?.result.byQuestion.find((b) => b.q === q.id)).filter((b) => b !== undefined);
-                  const rows = f.choose ? all.filter((b) => b.scoredBy !== 'none') : all;
-                  const judged = pageQs.some((q) => !isScored(q));
-                  const lastTurn = f.turn === undefined || f.q.interaction.kind !== 'speaking' || f.turn === f.q.interaction.turns.length - 1;
-                  const sum = (ns: number[]) => Math.round(ns.reduce((a, b) => a + b, 0) * 100) / 100;
-                  const table = tablePage(f);
-                  const score =
-                    !review || !rows.length
-                      ? undefined
-                      : table
-                        ? // a table is marked cell by cell, ticks and written cells alike (#127): right / total once all are marked
-                          rows.every((b) => b.scoredBy !== 'pending' && b.correct !== null)
-                          ? `${rows.filter((b) => b.correct === true).length}/${rows.length}`
-                          : undefined
-                        : judged
-                          ? lastTurn && rows.every((b) => b.scoredBy === 'judge' || b.scoredBy === 'auto' || b.scoredBy === undefined)
-                            ? `${sum(rows.map((b) => b.points))}/${sum(rows.map((b) => b.maxPoints))}`
-                            : undefined
-                          : rows.length > 1
-                            ? `${rows.filter((b) => b.correct === true).length}/${rows.length}`
-                            : undefined;
-                  const single = rows.length === 1 && !judged ? rows[0] : undefined;
-                  const res = !review || score ? 'none' : single?.correct === true ? 'correct' : single?.correct === false ? 'wrong' : 'none';
-                  const answered = !review && pageAnswered(f, responses);
-                  const range = table ?? `${f.display}${f.displayTo && f.displayTo !== f.display ? `–${f.displayTo}` : ''}`;
-                  return (
-                    <PartPager
-                      key={i}
-                      layout="question"
-                      // exam papers: the first number of each Part carries the Part's label (GitHub #72)
-                      kicker={exam && f.firstInSection ? `P${f.section.part ?? ''}` : undefined}
-                      label={range}
-                      labelKind={f.displayTo && !table ? 'range' : 'number'}
-                      selected={i === index}
-                      completed={answered}
-                      result={res}
-                      score={score}
-                      reviewing={!!review}
-                      flagged={examMode && !!attempt.flagged?.includes(f.q.id)}
-                      onClick={() => go(i)}
-                      ariaLabel={t('reader.dotLabel', {
-                        part: exam && f.section.part ? t('reader.partPrefix', { part: f.section.part }) : '',
-                        n: range,
-                        state: score
-                          ? t(judged && !table ? 'reader.dotScore' : 'reader.dotRight', { score })
-                          : res === 'correct'
-                            ? t('reader.dotCorrect') : res === 'wrong' ? t('reader.dotWrong') : answered ? t('reader.dotAnswered') : '',
-                      })}
-                    />
-                  );
-                })}
-              </QuestionNav>
+              {exam ? (
+                <PartNav
+                  label={t('reader.nav')}
+                  parts={examParts}
+                  page={Math.max(0, examParts.findIndex((p) => p.questions.some((q) => q.current)))}
+                  review={!!review}
+                  prev={{ label: t('reader.prev'), hidden: pos <= 0, onClick: () => go(visible[pos - 1]) }}
+                  action={navAction}
+                  onPage={(pi) => go(examPartPages[pi][0])}
+                  onPickQuestion={(pi, uid) => go(examUnits[pi].find((u) => u.id === uid)?.page ?? examPartPages[pi][0])}
+                />
+              ) : (
+                <QuestionNav
+                  label={t('reader.nav')}
+                  current={index}
+                  count={visible.length}
+                  prev={{ label: t('reader.prev'), hidden: pos <= 0, onClick: () => go(visible[pos - 1]) }}
+                  action={navAction}
+                >
+                  {visible.map((i) => pager(i))}
+                </QuestionNav>
+              )}
             </>
           }
         >
@@ -570,6 +651,15 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
                 <p className="section-intro">
                   <Rich nodes={current.section.intro} />
                 </p>
+              )}
+              {examMode && (
+                // 标记本题 (flag-toggle 19834:178047) floats at the right of the question's title
+                <FlagToggle
+                  flagged={!!attempt.flagged?.includes(current.q.id)}
+                  label={t('reader.flag')}
+                  flaggedLabel={t('reader.flagged')}
+                  onToggle={() => toggleFlag(current.q.id)}
+                />
               )}
               <QuestionBody
                 // a new attempt (重新作答, practice ↔ exam) starts every interaction fresh — e.g. no recordings kept (#77)

@@ -1,12 +1,9 @@
 /* ui/Highlight (extends UIkit-Read highlight). Tokens only. Evidence = highlight colour; the locate flash fades from
-   the stronger one. A whole-block fallback (.is-evidence / .flash) spreads the colour a little past the text. */
+   the stronger one. The whole-block fallback (.is-evidence) is the designer's `正文` Variant2 (Figma 19834:169250): the
+   paragraph's own box filled, square, no spread; the block flash keeps a small spread so the fade reads. */
 ::highlight(evidence) { background-color: var(--ur-color-background-highlight); }
 ::highlight(flash) { background-color: var(--ur-color-background-highlight-strong); }
-.is-evidence {
-  --highlight-spread: calc(var(--ur-space-4) + var(--ur-space-2));
-  background: var(--ur-color-background-highlight); border-radius: var(--ur-radius-xs);
-  box-shadow: 0 0 0 var(--highlight-spread) var(--ur-color-background-highlight);
-}
+.is-evidence { background: var(--ur-color-background-highlight); }
 .flash { --highlight-spread: calc(var(--ur-space-4) + var(--ur-space-2)); animation: flash 1.4s ease; }
 @keyframes flash {
   0%, 60% { background: var(--ur-color-background-highlight); box-shadow: 0 0 0 var(--highlight-spread) var(--ur-color-background-highlight); }

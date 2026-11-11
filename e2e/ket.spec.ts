@@ -1,5 +1,6 @@
 // KET 真题 (exam papers): mode choice, tap-only answering, exam-mode audio, transcript after submitting, report.
 import { expect, test, type Page } from '@playwright/test';
+import { goQuestion, lastPage, numbers, openPart } from './nav';
 import { readFileSync } from 'node:fs';
 
 const narrow = (page: Page) => (page.viewportSize()?.width ?? 1440) < 1024;
@@ -35,13 +36,13 @@ test('listening, exam mode: picture options by tap, locked recording, report and
   await expect(page.locator('.options.has-images .option-image')).toHaveCount(3);
   await page.locator('.option').nth(2).click(); // Q1 = C
   await page.getByRole('button', { name: '标记本题' }).click();
-  await expect(page.locator('.question-dot.is-flagged')).toHaveCount(1);
-  await page.locator('.question-dot').last().click();
+  await expect(page.locator('.part-q.is-flagged')).toHaveCount(1);
+  await lastPage(page);
   await page.getByRole('button', { name: '提交' }).click();
   await page.getByRole('button', { name: '仍然提交' }).click();
   await expect(page.getByRole('dialog', { name: '成绩报告' })).toContainText('原始分 1 / 25');
   await page.getByRole('button', { name: '查看答案与解析' }).click();
-  await expect(page.locator('.question-dot.is-correct')).toHaveCount(1);
+  await expect(page.locator('.part-q.is-correct')).toHaveCount(1);
   await tab(page, /材料/);
   await expect(page.locator('.transcript')).toContainText('How did Stan and his dad get home from the concert?');
 });
@@ -52,9 +53,9 @@ test('reading & writing: notice in the left pane, open cloze by typing, word cou
   await tab(page, /材料/);
   await expect(page.locator('.exam-q-material img')).toHaveCount(1);
   await tab(page, /题目/);
-  await page.locator('.question-dot', { hasText: '25' }).click();
+  await goQuestion(page, /第 25 题/);
   await page.locator('.blank-input input').first().fill('the');
-  await page.locator('.question-dot', { hasText: '31' }).click();
+  await goQuestion(page, /第 31 题/);
   await page.locator('textarea').fill('Dear Lee, we are going camping. Come with us!');
   await expect(page.locator('.word-count')).toHaveText('已写 9 词 · 至少 25 词');
 });
@@ -75,14 +76,14 @@ test('#65 closing the mode dialog: a new paper goes back to the playlist, 重新
   await page.getByRole('button', { name: /练习模式/ }).click();
   await tab(page, /题目/);
   await page.locator('.option').first().click();
-  await page.locator('.question-dot').last().click();
+  await lastPage(page);
   await page.getByRole('button', { name: '提交' }).click();
   await page.getByRole('button', { name: '仍然提交' }).click();
   await page.getByRole('button', { name: '查看答案与解析' }).click();
-  await page.locator('.question-dot').last().click();
+  await lastPage(page);
   await page.getByRole('button', { name: '重新作答' }).click();
   await page.getByRole('button', { name: '关闭，返回作答结果' }).click();
-  await expect(page.locator('.question-dot.is-wrong, .question-dot.is-correct').first()).toBeVisible();
+  await expect(page.locator('.part-nav').locator('.is-wrong, .is-correct').first()).toBeVisible();
   await expect(page.getByRole('button', { name: '成绩报告' })).toBeVisible();
 });
 
@@ -101,7 +102,7 @@ test('#66 switch from practice to exam mode and back', async ({ page }) => {
   await switchMode(page, '练习模式');
   await page.getByRole('button', { name: '切换到练习', exact: true }).click();
   await expect(page.locator('.exam-timer')).toHaveCount(0);
-  await expect(page.locator('.mode-select-button')).toHaveText('练习模式');
+  await expect(page.locator('.mode-select-button')).toHaveText('当前练习模式');
   await expect(page.locator('.question-card .exam-bar')).toHaveCount(0); // no mode bar in the card any more
   await expect(page.locator('.option.is-selected')).toHaveCount(1); // answers kept
 });
@@ -110,7 +111,7 @@ test('#67 the report links to the conversion table', async ({ page }) => {
   await page.goto('/#/p/ket1/ket1-t2-l');
   await page.getByRole('button', { name: /练习模式/ }).click();
   await tab(page, /题目/);
-  await page.locator('.question-dot').last().click();
+  await lastPage(page);
   await page.getByRole('button', { name: '提交' }).click();
   await page.getByRole('button', { name: '仍然提交' }).click();
   await page.getByRole('button', { name: '换算表' }).click();
@@ -135,7 +136,7 @@ test('#69 #70 playlist labels: 考试中, 考试超时 → practice keeps the an
   await page.getByRole('button', { name: /练习模式/ }).click();
   await tab(page, /题目/);
   await expect(page.locator('.option.is-selected')).toHaveCount(1);
-  await page.locator('.question-dot').last().click();
+  await lastPage(page);
   await page.getByRole('button', { name: '提交' }).click();
   await page.getByRole('button', { name: '仍然提交' }).click();
   await expect(page.getByRole('dialog', { name: '成绩报告' })).toBeVisible();
@@ -150,11 +151,11 @@ test('#72 listening: every Part stacked; the exam recording keeps playing while 
   await page.getByRole('button', { name: '开始播放听力' }).click();
   await expect(page.locator('.part-audio.is-playing .part-audio-title')).toContainText('Part 1');
   await tab(page, /题目/);
-  await page.getByRole('button', { name: /Part 2 第 6 题/ }).click();
+  await goQuestion(page, /第 6 题/);
   await tab(page, /材料/);
   await expect(page.locator('.part-audio.is-current .part-audio-title')).toContainText('Part 2');
   await expect(page.locator('.part-audio.is-playing .part-audio-title')).toContainText('Part 1'); // audio did not follow
-  await expect(page.locator('.question-dot.part-start')).toHaveCount(5);
+  await expect(page.locator('.part-nav .part-card')).toHaveCount(5); // one card per Part
 });
 
 test('#72 listening practice: each Part has its own controls, one plays at a time', async ({ page }) => {
@@ -178,8 +179,11 @@ test('#74 speaking: one examiner question per page, numbered on across Parts', a
   await page.goto('/#/p/ket1/ket1-t1-s');
   await page.getByRole('button', { name: /练习模式/ }).click();
   await tab(page, /题目/);
-  await expect(page.locator('.question-dot')).toHaveCount(turns.length);
-  await expect(page.locator('.question-dot.part-start')).toHaveCount(2);
+  // the footer shows the Parts as cards; the current Part numbers its examiner questions
+  const part1 = item.sections[0].questions.flatMap((q) => q.interaction.turns).length;
+  expect(part1).toBeLessThan(turns.length);
+  await expect(page.locator('.part-nav .part-card')).toHaveCount(2);
+  await expect(numbers(page)).toHaveCount(part1);
   await expect(page.locator('.speak-card')).toHaveCount(1);
   await expect(page.locator('.speak-line')).toHaveText(turns[0].text);
   await page.getByRole('button', { name: '下一题' }).click();
@@ -207,7 +211,7 @@ test('#77 #78 speaking: full-width Part 1, and a switch to exam mode starts with
   await expect(page.getByRole('button', { name: '回答' })).toBeVisible();
   await expect(page.getByRole('button', { name: '重录' })).toHaveCount(0);
   // Part 2 has the picture sheet: two columns again (narrow screens: tabs)
-  await page.getByRole('button', { name: /Part 2 第/ }).first().click();
+  await openPart(page, 2);
   await expect(page.locator('.reader-body.no-left')).toHaveCount(0);
 });
 
@@ -216,16 +220,16 @@ test('#81 #83 #84 #85 exam prompts: number only, no repeated sentence, no Chines
   await page.getByRole('button', { name: /练习模式/ }).click();
   await tab(page, /题目/);
   await expect(page.locator('.q-prompt').first()).toHaveText('1.'); // #81
-  await page.getByRole('button', { name: /第 19 题/ }).click();
+  await goQuestion(page, /第 19 题/);
   await expect(page.locator('.q-prompt')).toHaveText('19.'); // #83
   if (!narrow(page)) await expect(page.locator('.context-line')).toBeHidden();
-  await page.getByRole('button', { name: /第 25 题/ }).click();
+  await goQuestion(page, /第 25 题/);
   await expect(page.locator('.hint-line')).toHaveCount(0); // #84
   await expect(page.locator('.section-instruction b', { hasText: 'ONE' })).toBeVisible();
   await page.goto('/#/p/ket1/ket1-t1-l');
   await page.getByRole('button', { name: /练习模式/ }).click();
   await tab(page, /题目/);
-  await page.getByRole('button', { name: /第 6 题/ }).click();
+  await goQuestion(page, /第 6 题/);
   await expect(page.locator('.section-instruction b')).toHaveText(['Part 2. ', 'one word', 'number', 'date', 'time']); // #85 (the Part label is bold too)
 });
 
@@ -233,23 +237,26 @@ test('#86 listening Part 3: all five questions on one page', async ({ page }) =>
   await page.goto('/#/p/ket1/ket1-t1-l');
   await page.getByRole('button', { name: /练习模式/ }).click();
   await tab(page, /题目/);
-  await page.getByRole('button', { name: /第 11–15 题/ }).click();
+  await goQuestion(page, /第 11 题/);
   await expect(page.locator('.part-stack-q')).toHaveCount(5);
   // options stacked vertically as printed; Part 4 (separate short recordings) stays one question per page
   const [a, b2] = await page.locator('.part-stack-q').first().locator('.option').evaluateAll((els) => els.map((e) => e.getBoundingClientRect().top));
   expect(b2).toBeGreaterThan(a);
-  await expect(page.getByRole('button', { name: /第 16 题/ })).toHaveCount(1);
+  await openPart(page, 4);
+  await expect(numbers(page)).toHaveCount(5);
+  await goQuestion(page, /第 16 题/);
+  await expect(page.locator('.part-stack-q')).toHaveCount(0);
 });
 
 test('#91 #96 reading Part 2 portraits beside the texts; Part 6 email keeps its header band', async ({ page }) => {
   await page.goto('/#/p/ket1/ket1-t3-rw');
   await page.getByRole('button', { name: /练习模式/ }).click();
   await tab(page, /题目/);
-  await page.getByRole('button', { name: /第 7–13 题/ }).click();
+  await goQuestion(page, /第 7 题/);
   await tab(page, /材料/);
   await expect(page.locator('.rt-portrait')).toHaveCount(3);
   await tab(page, /题目/);
-  await page.getByRole('button', { name: /第 31 题/ }).click();
+  await goQuestion(page, /第 31 题/);
   await tab(page, /材料/);
   await expect(page.locator('.rt-note.is-email .rt-note-field-label')).toHaveText(['From:', 'To:']);
 });
@@ -258,7 +265,7 @@ test('#87 listening Part 5: two-column board, example option out, each option on
   await page.goto('/#/p/ket1/ket1-t1-l');
   await page.getByRole('button', { name: /练习模式/ }).click();
   await tab(page, /题目/);
-  await page.getByRole('button', { name: /第 21–25 题/ }).click();
+  await goQuestion(page, /第 21 题/);
   await expect(page.locator('.match-board-person.is-example')).toContainText('Jack');
   await expect(page.locator('.match-board-option')).toHaveCount(8);
   await expect(page.getByRole('button', { name: /^B .*例题已用/ })).toBeDisabled();
@@ -275,7 +282,7 @@ test('#88 #89 speaking: exam mode hides the text; Part 2 is a discussion with th
   await page.getByRole('button', { name: /考试模式/ }).click();
   await tab(page, /题目/);
   await expect(page.locator('.speak-line')).toHaveText('（考试模式：请听考官提问）');
-  await page.getByRole('button', { name: /Part 2 第/ }).first().click();
+  await openPart(page, 2);
   await page.getByRole('button', { name: '下一题' }).click();
   await expect(page.locator('.speak-role.is-partner')).toHaveText('搭档 Alex');
   await switchMode(page, '练习模式');
@@ -292,7 +299,7 @@ test('KET 校园版真题 2 and 3: four tests each, all papers open; emails keep
   await page.goto('/#/p/ket1/ket1-t1-rw');
   await page.getByRole('button', { name: /练习模式/ }).click();
   await tab(page, /题目/);
-  await page.getByRole('button', { name: /第 25 题/ }).click();
+  await goQuestion(page, /第 25 题/);
   await tab(page, /材料/);
   await expect(page.locator('.rt-note.is-email .rt-note-field-label').first()).toHaveText('From:');
 });
@@ -308,7 +315,7 @@ test('#82 every KET Reading Part 2 is one grid; the selected radio uses the acce
   await page.goto('/#/p/ket3/ket3-t2-rw');
   await page.getByRole('button', { name: /练习模式/ }).click();
   await tab(page, /题目/);
-  await page.getByRole('button', { name: /第 7–13 题/ }).click();
+  await goQuestion(page, /第 7 题/);
   await expect(page.locator('.part-grid tbody tr')).toHaveCount(7);
   await page.locator('.part-grid-cell').first().click();
   const accent = await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--accent').trim());
@@ -321,12 +328,13 @@ test('#128 after submitting, a Part on one page shows right / total in the pager
   await page.goto('/#/p/ket1/ket1-t1-l');
   await page.getByRole('button', { name: /练习模式/ }).click();
   await tab(page, /题目/);
-  await page.getByRole('button', { name: /第 11–15 题/ }).click();
+  await goQuestion(page, /第 11 题/);
   await page.locator('.part-stack-q').first().locator('.option').first().click();
-  await page.locator('.question-dot').last().click();
+  await lastPage(page);
   await page.getByRole('button', { name: '提交' }).click();
   const confirm = page.getByRole('button', { name: '仍然提交' });
   if (await confirm.isVisible().catch(() => false)) await confirm.click();
-  await expect(page.getByRole('button', { name: /第 11–15 题/ }).locator('.is-score')).toHaveText(/^[0-5]\/5$/);
-  await expect(page.getByRole('button', { name: /第 16 题/ }).locator('.question-dot-icon')).toHaveCount(1);
+  await expect(page.locator('.part-nav .part-card[data-part="P3"] .part-result-count')).toHaveText(/^[0-5]\/5$/);
+  // single questions: right / wrong per question (one dash each on the Part card)
+  await expect(page.locator('.part-nav .part-card[data-part="P4"] .part-seg').first()).toHaveClass(/is-(correct|wrong)/);
 });

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Rich } from '@/components/Rich';
 import { staticContent } from '@/lib/content';
 import { HintText } from '@/ui/common/HintText/HintText';
-import { InlineNotice } from '@/ui/common/InlineNotice/InlineNotice';
+import { Message } from '@/ui/Message/Message';
 import { SpeakCard, SpeakTurns } from '@/ui/SpeakCard/SpeakCard';
 import { SpeakButton } from '@/ui/SpeakButton/SpeakButton';
 import { ListenButton } from '@/ui/ListenButton/ListenButton';
@@ -65,6 +65,8 @@ export function SpeakingView(props: InteractionProps) {
   const [error, setError] = useState<string | null>(null);
   const rec = useRef<MediaRecorder | null>(null);
   const timer = useRef<number>();
+  /** recordings stopped to be thrown away (× cancel, ↻ restart) */
+  const discarded = useRef(new WeakSet<MediaRecorder>());
   const supported = !!recorderMime() && !!navigator.mediaDevices?.getUserMedia && !!staticContent.speak;
 
   // stop recording / speech when leaving the question
@@ -103,6 +105,14 @@ export function SpeakingView(props: InteractionProps) {
     r.onstop = async () => {
       window.clearInterval(timer.current);
       stream.getTracks().forEach((t) => t.stop());
+      if (discarded.current.has(r)) {
+        // cancelled or restarted: keep the earlier take (if any), nothing is sent for recognition
+        if (rec.current === r) {
+          setState('idle');
+          setActive(null);
+        }
+        return;
+      }
       const blob = new Blob(chunks, { type: r.mimeType || mime });
       setClips((c) => ({ ...c, [turnId]: URL.createObjectURL(blob) }));
       setState('transcribing');
@@ -134,6 +144,17 @@ export function SpeakingView(props: InteractionProps) {
     }, 250);
   };
   const stop = () => rec.current?.state === 'recording' && rec.current.stop();
+  /** × — throw the recording away */
+  const cancel = () => {
+    if (rec.current?.state !== 'recording') return;
+    discarded.current.add(rec.current);
+    rec.current.stop();
+  };
+  /** ↻ — throw it away and record again */
+  const restart = (turnId: string) => {
+    cancel();
+    void start(turnId);
+  };
   const busy = state === 'recording' || state === 'transcribing';
 
   return (
@@ -170,13 +191,22 @@ export function SpeakingView(props: InteractionProps) {
               answer={said}
               answerLabel={t('speaking.yourAnswer')}
               active={isActive}
-              notice={isActive && state === 'error' && error && <InlineNotice className="speak-error">{t(error)}</InlineNotice>}
+              notice={isActive && state === 'error' && error && <Message>{t(error)}</Message>}
               actions={
                 <>
                   <ListenButton label={partner ? t('speaking.listenPartner') : t('speaking.listen')} onListen={() => speak(turn)} disabled={busy} />
                   {!review &&
                     (isActive && state === 'recording' ? (
-                      <SpeakButton state="recording" label={t('speaking.recording', { s: left })} stopLabel={t('speaking.stop')} onStart={() => void start(turn.id)} onStop={stop} />
+                      <SpeakButton
+                        state="recording"
+                        label={t('speaking.recording', { s: left })}
+                        stopLabel={t('speaking.stop')}
+                        elapsed={1 - left / it.maxSeconds}
+                        cancel={{ label: t('speaking.cancel'), onClick: cancel }}
+                        restart={{ label: t('speaking.restart'), onClick: () => restart(turn.id) }}
+                        onStart={() => void start(turn.id)}
+                        onStop={stop}
+                      />
                     ) : isActive && state === 'transcribing' ? (
                       <SpeakButton state="recognising" label={t('speaking.transcribing')} stopLabel={t('speaking.stop')} onStart={() => void start(turn.id)} onStop={stop} />
                     ) : (
@@ -196,7 +226,7 @@ export function SpeakingView(props: InteractionProps) {
           );
         })}
       </SpeakTurns>
-      {error && state !== 'error' && <InlineNotice className="speak-error">{t(error)}</InlineNotice>}
+      {error && state !== 'error' && <Message>{t(error)}</Message>}
       {review && (fq.turn === undefined || fq.turn === it.turns.length - 1) && <JudgeVerdict {...props} />}
       {review && fq.turn !== undefined && fq.turn < it.turns.length - 1 && <HintText>{t('speaking.scoreOnLast', { page: fq.display + it.turns.length - 1 - fq.turn })}</HintText>}
     </>

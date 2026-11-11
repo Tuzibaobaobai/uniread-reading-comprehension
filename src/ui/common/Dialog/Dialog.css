@@ -1,16 +1,29 @@
-/* RC/Common/Dialog (proposed). Tokens only; widths are the size scale (s / m / l). */
+/* RC/Common/Dialog (proposed). Tokens only; widths are the size scale (s 480 / m 560 / l 900). */
 .dialog-backdrop {
-  position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: var(--ur-space-16);
+  position: fixed; inset: 0; z-index: 50; padding: var(--ur-space-16);
+  /* one cell the size of the screen, so the card's max-height: 100% resolves against it */
+  display: grid; grid-template: minmax(0, 1fr) / minmax(0, 1fr); place-items: center;
   background: var(--ur-color-overlay-backdrop);
 }
 .dialog {
   --dialog-w: calc(var(--ur-space-80) * 6);
-  position: relative; width: min(var(--dialog-w), 100%); padding: var(--ur-space-32);
+  position: relative; width: min(var(--dialog-w), 100%); max-height: 100%; padding: var(--ur-space-32);
+  display: flex; flex-direction: column; gap: var(--ur-space-12);
   border-radius: var(--ur-radius-xl); background: var(--ur-color-background-card); box-shadow: var(--ur-effect-drop-shadow-dropdown);
 }
 .dialog.is-m { --dialog-w: calc(var(--ur-space-80) * 7); }
-.dialog.is-l { --dialog-w: calc(var(--ur-space-80) * 9); }
-.dialog h2 { margin: 0 0 var(--ur-space-8); font: var(--ur-text-font-system-3xl-bold); }
-.dialog p { margin: 0 0 var(--ur-space-12); color: var(--ur-color-text-secondary); }
+.dialog.is-l { --dialog-w: calc(var(--ur-space-80) * 11 + var(--ur-space-20)); }
+/* the close button sits 16 outside the card: leave room for it on both sides so the card stays centred */
+.dialog.has-close { width: min(var(--dialog-w), calc(100% - (var(--ur-height-height-6) + var(--ur-space-16)) * 2)); }
+/* title + content scroll together when the dialog is taller than the screen; the actions stay */
+.dialog-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: var(--ur-space-12); }
+.dialog-body > * { flex: none; }
+.dialog h2 { margin: 0; font: var(--ur-text-font-system-3xl-bold); color: var(--ur-color-text-primary); }
+.dialog p { margin: 0; color: var(--ur-color-text-secondary); }
 /* × → ui/CloseButton (src/ui/CloseButton) */
-.dialog-actions { display: flex; justify-content: flex-end; gap: var(--ur-space-12); }
+.dialog-actions { flex: none; display: flex; justify-content: flex-end; gap: var(--ur-space-12); }
+/* UIKit-Quiz button in a dialog: 200 wide (or more), 56 high */
+.dialog-actions .pill-button { min-width: calc(var(--ur-space-80) * 2 + var(--ur-space-40)); min-height: var(--ur-height-height-7); }
+@media (max-width: 1023px) {
+  .dialog.has-close { width: min(var(--dialog-w), 100%); }
+}

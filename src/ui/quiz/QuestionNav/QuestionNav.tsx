@@ -1,13 +1,17 @@
-import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ChevronLeft, ChevronRight } from '@/components/Icons';
+import { NavActionButton, NavArrow, type NavAction } from './NavButton';
 import './QuestionNav.css';
 
 /**
- * ui/quiz/QuestionNav — extends UniRead UIKit-Quiz `pagination` (7870:51500, issue #138): the quiz footer — previous
- * button, the strip of question numbers (ui/PartPager), next / submit / 重新作答. Variant Overflow none / start / end /
- * both: when the numbers do not fit, a "‹ +N" / "+N ›" more button appears on the side that hides numbers (measured,
- * not a prop). Keeps the legacy classes (.question-nav, .question-strip, .question-dots, .strip-more …).
+ * ui/quiz/QuestionNav — designer component `question-nav` (Figma 19802:13269, every 时文阅读 frame 1.02–1.20; extends
+ * UniRead UIKit-Quiz `pagination` 7870:51500): the quiz footer of one question a page — a 56 × 80 round previous
+ * button, the strip of question numbers (ui/PartPager), a round next button; on the last question the brand 提交
+ * circle (dim while questions are left), after submitting 重新作答. When the numbers do not fit, each arrow shows
+ * "+N" — the numbers hidden on its side (variant 个数超出=yes; measured, not a prop) — and that edge of the strip fades.
+ * No previous button on the first question (variant 对齐方式=left). Keeps the legacy classes (.question-nav,
+ * .question-strip, .question-dots).
  */
 export function QuestionNav({
   label,
@@ -19,38 +23,38 @@ export function QuestionNav({
 }: {
   /** aria-label of the nav landmark */
   label: string;
-  /** the previous button (ui/QuizButton) */
-  prev: ReactNode;
-  /** next / submit / retry (ui/QuizButton) */
-  action: ReactNode;
+  /** the previous question; `hidden` on the first */
+  prev: { label: string; hidden?: boolean; onClick: () => void };
+  /** next / submit / retry */
+  action: NavAction;
   /** index of the current page and the number of pages (keeps the current number centred) */
   current: number;
   count: number;
   /** the numbers (ui/PartPager) */
   children: ReactNode;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const hidden = useStripOverflow(ref, current, count);
   return (
-    <nav className="question-nav" aria-label={label}>
-      {prev}
-      <QuestionStrip current={current} count={count}>
-        {children}
-      </QuestionStrip>
-      {action}
+    <nav className={`question-nav ${prev.hidden ? 'no-prev' : ''}`} aria-label={label}>
+      {!prev.hidden && <NavArrow dir="prev" label={prev.label} more={hidden.left} onClick={prev.onClick} />}
+      <div className={`question-strip ${hidden.left ? 'has-left' : ''} ${hidden.right ? 'has-right' : ''}`}>
+        <div className="question-dots" ref={ref}>
+          {children}
+        </div>
+      </div>
+      <NavActionButton {...action} more={action.kind === 'next' ? hidden.right : undefined} />
     </nav>
   );
 }
 
 /**
- * The row of question numbers in the quiz footer. When there are more questions than fit, it shows a
- * "more" button on each side that still hides numbers (with how many), fades only that edge, lets a
- * vertical mouse wheel scroll it sideways, and keeps the current question centred.
+ * How many children of a scrolling strip are hidden on each side; a vertical mouse wheel scrolls it sideways and the
+ * current child (.is-current) is kept centred. A child counts as hidden when its centre is outside the strip or inside
+ * the outer half of a faded edge (--strip-fade).
  */
-export function QuestionStrip({ current, count, children }: { current: number; count: number; children: ReactNode }) {
-  const { t } = useTranslation();
-  const ref = useRef<HTMLDivElement>(null);
+function useStripOverflow(ref: RefObject<HTMLDivElement>, current: number, count: number) {
   const [hidden, setHidden] = useState({ left: 0, right: 0 });
-
-  // a number counts as hidden when its centre is outside the strip or inside the outer half of a faded edge
   const measure = useCallback(() => {
     const el = ref.current;
     if (!el) return;
@@ -66,7 +70,7 @@ export function QuestionStrip({ current, count, children }: { current: number; c
       else if (mid > box.right - (overflow && el.scrollLeft + el.clientWidth < el.scrollWidth - 1 ? fade : 0)) right++;
     }
     setHidden((h) => (h.left === left && h.right === right ? h : { left, right }));
-  }, []);
+  }, [ref]);
 
   useEffect(() => {
     const el = ref.current;
@@ -86,15 +90,26 @@ export function QuestionStrip({ current, count, children }: { current: number; c
       el.removeEventListener('scroll', measure);
       el.removeEventListener('wheel', onWheel);
     };
-  }, [measure]);
+  }, [measure, ref]);
 
-  // keep the current question in view (centred) whenever it changes
+  // keep the current child in view (centred) whenever it changes
   useLayoutEffect(() => {
     const el = ref.current;
-    const dot = el?.querySelector<HTMLElement>('.is-current');
+    const dot = el?.querySelector<HTMLElement>(':scope > .is-current');
     if (el && dot) el.scrollTo({ left: dot.offsetLeft - (el.clientWidth - dot.offsetWidth) / 2, behavior: 'smooth' });
     measure();
-  }, [current, count, measure]);
+  }, [current, count, measure, ref]);
+  return hidden;
+}
+
+/**
+ * A scrolling row with "more" buttons: when the children do not fit, a "‹ +N" / "+N ›" button on each side that still
+ * hides some (scrolls a page), that edge faded, the current child centred. Used for the Part cards of rc/Vocab/PartNav.
+ */
+export function QuestionStrip({ current, count, children }: { current: number; count: number; children: ReactNode }) {
+  const { t } = useTranslation();
+  const ref = useRef<HTMLDivElement>(null);
+  const hidden = useStripOverflow(ref, current, count);
 
   const page = (dir: -1 | 1) => ref.current?.scrollBy({ left: dir * ref.current.clientWidth * 0.8, behavior: 'smooth' });
 

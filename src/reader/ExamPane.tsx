@@ -94,7 +94,8 @@ export const ExamPane = forwardRef<HTMLDivElement, Props>(function ExamPane(prop
 /**
  * Listening: one module per Part (rc/Exam/ListeningPart). Practice — each module has its own controls, one Part plays at a time, nothing
  * advances by itself. Exam — one shared recording plays the Parts in exam order (the first play needs a tap, later
- * Parts follow automatically), the playing Part is highlighted, and nothing can be paused, sought or replayed.
+ * Parts follow automatically), the playing Part is highlighted, and nothing can be paused, sought or replayed. Parts
+ * still waiting for their turn show only their title and instruction (designer's frame 2.03).
  */
 function ListeningStack({
   item,
@@ -135,9 +136,11 @@ function ListeningStack({
             mode={locked ? 'exam' : 'practice'}
             current={isCurrent}
             playing={isPlaying}
-            playingLabel={locked ? t('audio.nowPlaying') : t('audio.playing')}
+            playingLabel={t('audio.nowPlaying')}
             instruction={<Emph text={s.instruction} />}
-            note={locked ? t('audio.examNote') : t('audio.practiceNote')}
+            // the designer's cards (2.03, 2.07) carry no rule line; exam mode keeps it next to the start button, where the
+            // learner reads it before the one-time recording begins
+            note={locked && seq.startable(s) ? t('audio.examNote') : undefined}
           >
             {!s.audio && <ListeningPartState>{t('audio.missing')}</ListeningPartState>}
             {s.audio &&
@@ -195,17 +198,19 @@ function useExamSequence(parts: SectionT[], locked: boolean, played: Set<string>
     />
   ) : null;
 
+  /** the next Part to play, waiting for a tap (the first one, or one the browser would not continue by itself) */
+  const startable = (s: SectionT) => !playing && next?.id === s.id;
   const controls = (s: SectionT) => {
     // exam mode: the locked recording, progress only (ui/AudioPlayer Mode=exam)
     if (playing === s.id) return <AudioPlayerView mode="exam" time={time} duration={s.audio!.seconds} labels={{ progress: t('audio.progress') }} />;
     if (played.has(s.id)) return <ListeningPartState>{t('audio.finished')}</ListeningPartState>;
-    if (!playing && next?.id === s.id)
+    if (startable(s))
       return (
         <ListeningPartStart icon={playIcon} onClick={() => play(s)}>
           {s.id === parts[0]?.id ? t('audio.start') : t('audio.continueFrom', { part: s.label ?? `Part ${s.part}` })}
         </ListeningPartStart>
       );
-    return <ListeningPartState>{t('audio.waiting')}</ListeningPartState>;
+    return null;
   };
-  return { audio: element, playing, controls };
+  return { audio: element, playing, controls, startable };
 }

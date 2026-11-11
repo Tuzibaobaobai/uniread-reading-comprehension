@@ -32,7 +32,7 @@ test('every item renders', async ({ page }, info) => {
       } else await expect(page.locator('.article-title'), it.id).toHaveText(it.title);
       // a table answered on one page (#127) has cells instead of a numbered prompt
       await expect(page.locator('.q-prompt, .section-table').first(), it.id).toBeVisible();
-      await expect(page.locator('.question-dot').first(), it.id).toBeVisible();
+      await expect(page.locator('.question-dot, .part-q').first(), it.id).toBeVisible(); // 时文 numbers / 真题 Part card
     }
   }
   expect(errors).toEqual([]);

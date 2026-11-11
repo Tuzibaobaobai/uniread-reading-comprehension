@@ -15,7 +15,8 @@ export function SpeakTurns({ children }: { children: ReactNode }) {
  * and the action row (ui/ListenButton, ui/SpeakButton, ui/PlaybackButton).
  * Variants: Prompt shown / hidden (`promptHidden`: exam mode, `prompt` is then the 「请听…」 note); Answer none /
  * transcript (`answer`); Role examiner / partner (rc/Common/Tag neutral / accent, class `.speak-role` [.is-partner]).
- * `active` = recording or recognising on this card (accent border), `done` = has a transcript.
+ * `active` = recording or recognising on this card (class only — the designer's 2.26 keeps the default border),
+ * `done` = has a transcript. Restyled to the designer's speak-card 19508:8388 (frames 2.25–2.30).
  */
 export function SpeakCard({
   index,
