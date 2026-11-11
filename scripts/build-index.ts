@@ -10,8 +10,25 @@ import { passageText } from '../src/lib/judge.ts';
 
 const ROOT = join(import.meta.dirname, '..', 'content');
 const readJson = (p: string) => JSON.parse(readFileSync(p, 'utf8'));
-/** exam papers have no printed word count: count the words of every text the learner reads */
-const examWords = (i: ExamItemT) => (passageText(i).match(/[A-Za-z]+(?:['’-][A-Za-z]+)*/g) ?? []).length;
+/**
+ * exam papers have no printed word count: count the words of every text the learner reads. Only reading papers
+ * have one — a listening, speaking or writing paper shows no word count (its texts are rubrics and prompts).
+ */
+const examWords = (i: ExamItemT) =>
+  i.paper === 'reading' || i.paper === 'reading_writing' ? (passageText(i).match(/[A-Za-z]+(?:['’-][A-Za-z]+)*/g) ?? []).length : 0;
+/**
+ * the numbered questions a learner sees in an exam paper: a speaking paper is numbered by examiner question (one page
+ * per turn, GitHub #74), and a Part where one of several tasks is chosen (PET Writing Part 2) counts once
+ */
+const examQuestions = (i: ExamItemT) =>
+  i.sections.reduce(
+    (n, s) =>
+      n +
+      (s.choose === 1
+        ? 1
+        : s.questions.reduce((m, q) => m + (q.interaction.kind === 'speaking' ? q.interaction.turns.length : 1), 0)),
+    0,
+  );
 
 const catalog: CatalogT = { schemaVersion: SCHEMA_VERSION, generatedAt: new Date().toISOString(), playlists: [] };
 
@@ -67,7 +84,7 @@ for (const pl of readdirSync(join(ROOT, 'playlists')).sort()) {
             taskType: i.taskType,
             wordCount: examWords(i),
             suggestedMinutes: i.meta.durationMinutes,
-            questionCount: allQuestions(i).length,
+            questionCount: examQuestions(i),
             thumbnail: i.thumbnail,
           }
         : {

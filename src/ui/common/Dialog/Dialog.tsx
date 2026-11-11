@@ -1,5 +1,6 @@
-import { useId, type ReactNode } from 'react';
+import { useId, useRef, type ReactNode } from 'react';
 import { CloseButton } from '@/ui/CloseButton/CloseButton';
+import { useModal } from './useModal';
 import './Dialog.css';
 
 export type DialogSize = 's' | 'm' | 'l';
@@ -10,7 +11,7 @@ export type DialogSize = 's' | 'm' | 'l';
  * m 560 / l 900; Close no / yes (UniRead `dialog close` 11777:76962 — ui/CloseButton, a dimmed 48 circle just outside
  * the top right corner); Actions none / one / two (ui/QuizButton, 200 × 56). A dialog taller than the screen scrolls
  * its title and content (`.dialog-body`) and keeps the actions in view. Clicking the backdrop or the close button calls
- * onClose. Keeps the legacy classes (.dialog-backdrop, .dialog, .dialog-close, .dialog-actions).
+ * onClose, and so does Esc; the dialog is modal for keyboard and screen-reader users (useModal). Keeps the legacy classes (.dialog-backdrop, .dialog, .dialog-close, .dialog-actions).
  */
 export function Dialog({
   title,
@@ -36,9 +37,12 @@ export function Dialog({
   children?: ReactNode;
 }) {
   const id = useId();
+  const ref = useRef<HTMLDivElement>(null);
+  useModal(ref, onClose);
   return (
     <div className="dialog-backdrop" role="presentation" onClick={onClose}>
       <div
+        ref={ref}
         className={['dialog', `is-${size}`, closeLabel ? 'has-close' : '', className].filter(Boolean).join(' ')}
         role={role}
         aria-modal

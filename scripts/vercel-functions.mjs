@@ -3,9 +3,9 @@
 // stay server-side; the static site (dist) has keys stripped by the Vite plugin in vite.config.ts.
 //   POST /api/rc/grade  server/grade.ts   — objective grading + key after submit
 //   POST /api/rc/judge  server/judge.ts   — LLM judge (ARK_API_KEY; else SILICONFLOW_API_KEY)
-//   POST /api/rc/speak  server/speak.ts   — speech-to-text for speaking answers (SILICONFLOW_API_KEY)
+//   POST /api/rc/speak  server/speak.ts   — speech-to-text for speaking answers (AZURE_SPEECH_KEY; else SILICONFLOW_API_KEY)
 //   POST /api/rc/hint   server/hint.ts    — 词汇天天练 hint tiles from the key
-//   POST /api/rc/transcribe server/transcribe.ts — 词汇天天练 voice input (SILICONFLOW_API_KEY)
+//   POST /api/rc/transcribe server/transcribe.ts — 词汇天天练 voice input (same ASR as speak)
 import { build } from 'esbuild';
 import { cp, glob, mkdir, rm, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';

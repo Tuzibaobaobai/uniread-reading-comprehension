@@ -24,31 +24,65 @@
       "correct": [
         "C"
       ],
-      "explanationZh": "男孩说他改到了下周六，也就是 23 号（that’s the 23rd）。A 错：他本想这周六（16 号）办，但爸爸出差了；B 错：20 号是他的生日，派对不在那天。"
+      "explanationZh": "男孩说他改到了下周六，也就是 23 号（that’s the 23rd）。A 错：他本想这周六（16 号）办，但爸爸出差了；B 错：20 号是他的生日，派对不在那天。",
+      "evidence": [
+        {
+          "block": "x4",
+          "quote": "So I chose next Saturday instead – that’s the 23rd."
+        }
+      ]
     },
     "q2": {
       "correct": [
         "C"
       ],
-      "explanationZh": "女孩说今天的比赛 3 点半才开始（we aren’t playing till half past three）。A 错：2 点半是他们说话的时间；B 错：3 点 15 分是老师到的时间。"
+      "explanationZh": "女孩说今天的比赛 3 点半才开始（we aren’t playing till half past three）。A 错：2 点半是他们说话的时间；B 错：3 点 15 分是老师到的时间。",
+      "evidence": [
+        {
+          "block": "x6",
+          "quote": "I know, but we aren’t playing till half past three today – our teacher can’t get there till quarter past."
+        }
+      ]
     },
     "q3": {
       "correct": [
         "B"
       ],
-      "explanationZh": "妈妈问是不是正面有狮子的那件，男孩说他指的是另一件，有滑板图案的。A 错：月亮图案的 T 恤只是在它旁边；C 错：狮子图案的不是他想要的。"
+      "explanationZh": "妈妈问是不是正面有狮子的那件，男孩说他指的是另一件，有滑板图案的。A 错：月亮图案的 T 恤只是在它旁边；C 错：狮子图案的不是他想要的。",
+      "evidence": [
+        {
+          "block": "x8",
+          "quote": "I mean the other one, with the skateboard on it."
+        }
+      ]
     },
     "q4": {
       "correct": [
         "B"
       ],
-      "explanationZh": "男孩问是不是 6.50 英镑（six pounds fifty, right?），女孩说对。C 错：8.75 英镑是演出当天买票的价格；A 错：2.25 英镑是当天买要多付的钱。"
+      "explanationZh": "男孩问是不是 6.50 英镑（six pounds fifty, right?），女孩说对。C 错：8.75 英镑是演出当天买票的价格；A 错：2.25 英镑是当天买要多付的钱。",
+      "evidence": [
+        {
+          "block": "x10",
+          "quote": "Great – I’ll give you the money tomorrow – six pounds fifty, right?"
+        },
+        {
+          "block": "x10",
+          "quote": "That’s right."
+        }
+      ]
     },
     "q5": {
       "correct": [
         "C"
       ],
-      "explanationZh": "男孩说很高兴和同学 Ben 一起度过时光，所以昨晚一起吃饭的是同龄的男孩 Ben。B 错：饭后来接 Ben 的是他爷爷，爷爷没有一起吃饭；A 错：妈妈只是问来接的是不是 Ben 的爸爸。"
+      "explanationZh": "男孩说很高兴和同学 Ben 一起度过时光，所以昨晚一起吃饭的是同龄的男孩 Ben。B 错：饭后来接 Ben 的是他爷爷，爷爷没有一起吃饭；A 错：妈妈只是问来接的是不是 Ben 的爸爸。",
+      "evidence": [
+        {
+          "block": "x12",
+          "quote": "Yeah – it was nice to spend time with my classmate Ben!"
+        }
+      ]
     },
     "q6": {
       "slots": {
@@ -58,7 +92,17 @@
           ]
         }
       },
-      "explanationZh": "老师说有几个人想去河边，但森林更受欢迎，而且以前没去过，所以去森林（the forest）。river 是干扰项。"
+      "explanationZh": "老师说有几个人想去河边，但森林更受欢迎，而且以前没去过，所以去森林（the forest）。river 是干扰项。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "But actually, the forest was even more popular."
+        },
+        {
+          "block": "x15",
+          "quote": "And we haven’t been before, so that’s where we’re going."
+        }
+      ]
     },
     "q7": {
       "slots": {
@@ -67,11 +111,23 @@
             "8:35",
             "8.35",
             "eight thirty-five",
-            "eight thirty five"
+            "eight thirty five",
+            "twenty-five to nine",
+            "twenty five to nine",
+            "8.35 am",
+            "8.35 a.m.",
+            "8:35 am",
+            "8:35 a.m."
           ]
         }
       },
-      "explanationZh": "老师说大巴 8:45 出发，请大家最晚 8:35 到校（no later than 8:35）。8:45 是发车时间，不是到校时间。"
+      "explanationZh": "老师说大巴 8:45 出发，请大家最晚 8:35 到校（no later than 8:35）。8:45 是发车时间，不是到校时间。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "Our coach will leave school at 8:45, so please get here no later than 8:35."
+        }
+      ]
     },
     "q8": {
       "slots": {
@@ -81,7 +137,13 @@
           ]
         }
       },
-      "explanationZh": "老师说你们需要一件外套保暖（You’ll need a coat to keep warm）。穿短裤（shorts）会太冷，是干扰项。"
+      "explanationZh": "老师说你们需要一件外套保暖（You’ll need a coat to keep warm）。穿短裤（shorts）会太冷，是干扰项。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "You’ll need a coat to keep warm."
+        }
+      ]
     },
     "q9": {
       "slots": {
@@ -91,7 +153,13 @@
           ]
         }
       },
-      "explanationZh": "向导叫 Dan Pilsey，老师逐个字母拼出了 P-I-L-S-E-Y，要注意拼写正确。"
+      "explanationZh": "向导叫 Dan Pilsey，老师逐个字母拼出了 P-I-L-S-E-Y，要注意拼写正确。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "His name’s Dan Pilsey, and I’ll spell that: P-I-L-S-E-Y, because I’d like you to read about him online before we go."
+        }
+      ]
     },
     "q10": {
       "slots": {
@@ -102,97 +170,205 @@
           ]
         }
       },
-      "explanationZh": "老师让大家试着找生活在那里的马（try to find some of the horses）。向导拍过关于猴子的电影，但那里看不到猴子，所以不填 monkeys。"
+      "explanationZh": "老师让大家试着找生活在那里的马（try to find some of the horses）。向导拍过关于猴子的电影，但那里看不到猴子，所以不填 monkeys。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "You won’t see any of those but try to find some of the horses which live in the area."
+        }
+      ]
     },
     "q11": {
       "correct": [
         "A"
       ],
-      "explanationZh": "男孩说他爸爸在杂志上看到了广告，告诉他应该参加，所以是爸爸告诉他的。B 错：看到广告的是爸爸，不是男孩；C 错：是女孩从老师那里知道的。"
+      "explanationZh": "男孩说他爸爸在杂志上看到了广告，告诉他应该参加，所以是爸爸告诉他的。B 错：看到广告的是爸爸，不是男孩；C 错：是女孩从老师那里知道的。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "My dad saw an ad in a magazine for it and said I should join."
+        }
+      ]
     },
     "q12": {
       "correct": [
         "C"
       ],
-      "explanationZh": "男孩说和其他棋手在一起是最好的事，女孩回答 True（对），两人都同意。A 错：男孩说只有赢了比赛才有趣，而他从没赢过；B 错：只有男孩夸了教练。"
+      "explanationZh": "男孩说和其他棋手在一起是最好的事，女孩回答 True（对），两人都同意。A 错：男孩说只有赢了比赛才有趣，而他从没赢过；B 错：只有男孩夸了教练。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "Spending time with the other players is the best thing."
+        },
+        {
+          "block": "x18",
+          "quote": "True."
+        }
+      ]
     },
     "q13": {
       "correct": [
         "B"
       ],
-      "explanationZh": "女孩说上周她去医院看奶奶了，即她要去看望别人。A 错：奶奶今晚帮她写历史作业，不是上周没去的原因；C 错：头疼的是奶奶，不是女孩。"
+      "explanationZh": "女孩说上周她去医院看奶奶了，即她要去看望别人。A 错：奶奶今晚帮她写历史作业，不是上周没去的原因；C 错：头疼的是奶奶，不是女孩。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I went to see grandma in hospital."
+        }
+      ]
     },
     "q14": {
       "correct": [
         "A"
       ],
-      "explanationZh": "男孩想拍团队合影，但很遗憾把手机落在家里了（unfortunately I left my mobile at home），所以没能拍照很遗憾。B 错：他输了，但说比赛很好，并不生气；C 错：他是错过公交车走回家的，不是走去俱乐部。"
+      "explanationZh": "男孩想拍团队合影，但很遗憾把手机落在家里了（unfortunately I left my mobile at home），所以没能拍照很遗憾。B 错：他输了，但说比赛很好，并不生气；C 错：他是错过公交车走回家的，不是走去俱乐部。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I wanted to take some team photos, but unfortunately I left my mobile at home."
+        }
+      ]
     },
     "q15": {
       "correct": [
         "B"
       ],
-      "explanationZh": "男孩提议踢球前一起去购物中心的咖啡馆吃三明治（let’s have a sandwich），女孩同意，即一起吃点东西。A 错：男孩要踢足球，不能去看电影；C 错：咖啡馆在购物中心，但他们不去购物。"
+      "explanationZh": "男孩提议踢球前一起去购物中心的咖啡馆吃三明治（let’s have a sandwich），女孩同意，即一起吃点东西。A 错：男孩要踢足球，不能去看电影；C 错：咖啡馆在购物中心，但他们不去购物。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I have football then, but let’s have a sandwich at the café in the shopping centre before that."
+        }
+      ]
     },
     "q16": {
       "correct": [
         "B"
       ],
-      "explanationZh": "女孩说如果男孩不忙，她想喝点果汁（I’d love some juice），即想让他拿点喝的。A 错：她只是让男孩把手机递给她，用来检查拼写，不是打电话；C 错：她说作业不难，不用帮忙。"
+      "explanationZh": "女孩说如果男孩不忙，她想喝点果汁（I’d love some juice），即想让他拿点喝的。A 错：她只是让男孩把手机递给她，用来检查拼写，不是打电话；C 错：她说作业不难，不用帮忙。",
+      "evidence": [
+        {
+          "block": "x22",
+          "quote": "I’d love some juice if you’re not doing anything..."
+        }
+      ]
     },
     "q17": {
       "correct": [
         "B"
       ],
-      "explanationZh": "老师说她有时做练习花的时间太长（it takes you a bit too long to finish an exercise），所以以后要做得快一些。A 错：她的作业总是按时完成；C 错：老师夸她讨论时总能说出有趣的观点。"
+      "explanationZh": "老师说她有时做练习花的时间太长（it takes you a bit too long to finish an exercise），所以以后要做得快一些。A 错：她的作业总是按时完成；C 错：老师夸她讨论时总能说出有趣的观点。",
+      "evidence": [
+        {
+          "block": "x24",
+          "quote": "But... sometimes it takes you a bit too long to finish an exercise."
+        }
+      ]
     },
     "q18": {
       "correct": [
         "C"
       ],
-      "explanationZh": "女孩说那是最后一个，而且折扣很大（the discount was great），她是因为价格买的。A 错：她本来不太确定要不要绿色的；B 错：包有点小，装不下她的书。"
+      "explanationZh": "女孩说那是最后一个，而且折扣很大（the discount was great），她是因为价格买的。A 错：她本来不太确定要不要绿色的；B 错：包有点小，装不下她的书。",
+      "evidence": [
+        {
+          "block": "x26",
+          "quote": "It was the only one left and the discount was great."
+        }
+      ]
     },
     "q19": {
       "correct": [
         "A"
       ],
-      "explanationZh": "女孩说她买了夹克以后长高了，很快穿起来就像借了妹妹的衣服，即夹克不够大了。B 错：妈妈提到口袋很小，但女孩没说这是原因；C 错：她喜欢这个颜色，还想买同样颜色的新夹克。"
+      "explanationZh": "女孩说她买了夹克以后长高了，很快穿起来就像借了妹妹的衣服，即夹克不够大了。B 错：妈妈提到口袋很小，但女孩没说这是原因；C 错：她喜欢这个颜色，还想买同样颜色的新夹克。",
+      "evidence": [
+        {
+          "block": "x28",
+          "quote": "That’s right, I’ve grown since I got it."
+        }
+      ]
     },
     "q20": {
       "correct": [
         "B"
       ],
-      "explanationZh": "男孩说他画了地图，很有趣，而且画得很好让他很自豪，所以他最喜欢画地图。A 错：他说看视频还可以（That was OK）；C 错：上网查资料的是其他同学。"
+      "explanationZh": "男孩说他画了地图，很有趣，而且画得很好让他很自豪，所以他最喜欢画地图。A 错：他说看视频还可以（That was OK）；C 错：上网查资料的是其他同学。",
+      "evidence": [
+        {
+          "block": "x30",
+          "quote": "I drew a map and the others looked online for information."
+        },
+        {
+          "block": "x30",
+          "quote": "It was fun and I felt really proud because what I did looked great."
+        }
+      ]
     },
     "q21": {
       "correct": [
         "E"
       ],
-      "explanationZh": "男孩说 Angela 是乐队成员，整个周末都在排练（she practised all weekend），即演奏音乐。F 错：他们只是在一家商店楼上的房间排练，并没有购物。"
+      "explanationZh": "男孩说 Angela 是乐队成员，整个周末都在排练（she practised all weekend），即演奏音乐。F 错：他们只是在一家商店楼上的房间排练，并没有购物。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "She’s in a band, so she practised all weekend."
+        }
+      ]
     },
     "q22": {
       "correct": [
         "H"
       ],
-      "explanationZh": "Marvin 这周末去爷爷奶奶家住了（went away to stay with his granny and grandad）。G 错：他平时周末去游泳，但这周末没去成。"
+      "explanationZh": "Marvin 这周末去爷爷奶奶家住了（went away to stay with his granny and grandad）。G 错：他平时周末去游泳，但这周末没去成。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "Yes, but this weekend he went away to stay with his granny and grandad, so he couldn’t."
+        }
+      ]
     },
     "q23": {
       "correct": [
         "F"
       ],
-      "explanationZh": "Diane 要给爸爸挑生日礼物，所以去了百货商店，即去购物。A 错：她想买些烹饪用品给爸爸，自己并没有做饭。"
+      "explanationZh": "Diane 要给爸爸挑生日礼物，所以去了百货商店，即去购物。A 错：她想买些烹饪用品给爸爸，自己并没有做饭。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "She had to go and choose a present for her dad’s birthday, so she went to a department store."
+        }
+      ]
     },
     "q24": {
       "correct": [
         "C"
       ],
-      "explanationZh": "Gavin 参观了一座 14 世纪建造的城堡，即去看了一座古老的建筑。E 错：那里正好有免费的爵士音乐会，但他只是听，没有演奏。"
+      "explanationZh": "Gavin 参观了一座 14 世纪建造的城堡，即去看了一座古老的建筑。E 错：那里正好有免费的爵士音乐会，但他只是听，没有演奏。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "Gavin visited a castle."
+        }
+      ]
     },
     "q25": {
       "correct": [
         "D"
       ],
-      "explanationZh": "Lucy 的奶奶想下国际象棋，于是她们下了整个周末。国际象棋（chess）是一种棋类游戏（board game）。G 错：Lucy 想去游泳，但没去成。"
+      "explanationZh": "Lucy 的奶奶想下国际象棋，于是她们下了整个周末。国际象棋（chess）是一种棋类游戏（board game）。G 错：Lucy 想去游泳，但没去成。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "She wanted to go to the swimming pool, but her grandmother wanted to play chess."
+        },
+        {
+          "block": "x33",
+          "quote": "So that’s what they did – the whole weekend!"
+        }
+      ]
     }
   },
   "transcripts": {

@@ -22,6 +22,7 @@
     "intro": "病好之后仍咳嗽不断是什么原因？",
     "hasVideo": false
   },
+  "thumbnail": "assets/ci-g7/ci-g7-w10-mon-1.jpg",
   "source": {
     "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
     "pdfPages": [
@@ -38,7 +39,15 @@
     "version": "1.0.0"
   },
   "article": {
-    "images": [],
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g7/ci-g7-w10-mon-1.jpg",
+        "alt": "A black-and-white close-up of a person coughing into a fist, with the other hand on the throat.",
+        "w": 1200,
+        "h": 651
+      }
+    ],
     "vocabulary": [
       {
         "id": "v-cough",
@@ -79,8 +88,8 @@
         "id": "v-signal",
         "headword": "signal",
         "ipa": "ˈsɪɡnəl",
-        "pos": "v.",
-        "meaningZh": "发出信号"
+        "pos": "v./n.",
+        "meaningZh": "发出信号；信号"
       },
       {
         "id": "v-infection",
@@ -258,6 +267,11 @@
             "v": "In short, a lasting cough doesn’t always mean you’re still sick. It may just be your body’s nerves taking time to calm down."
           }
         ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
       }
     ]
   },

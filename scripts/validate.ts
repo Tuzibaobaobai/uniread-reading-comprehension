@@ -220,6 +220,34 @@ function checkItem(item: ItemT, key: ItemKeyT, playlistDir: string) {
 
   for (const qid of Object.keys(key.answers)) if (!qs.find((q) => q.id === qid)) err(`key has unknown question ${qid}`);
 
+  // 定位原文: an evidence quote must be in its block's visible text (blanks and Chinese glosses are not part of it,
+  // see src/reader/evidence.ts), otherwise the whole block is shaded instead of the sentence
+  const canon = (s: string) =>
+    s.replace(/[’‘]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim().toLowerCase();
+  const blockText = new Map<string, string>();
+  walkInline(item, (n, where) => {
+    if (!where.includes('/')) return;
+    const b = where.split('/').pop()!;
+    const v = n.t === 'blank' ? '' : n.t === 'br' ? ' ' : 'v' in n ? n.v : '';
+    blockText.set(b, (blockText.get(b) ?? '') + v);
+  });
+  for (const [qid, k] of Object.entries(key.answers))
+    (('evidence' in k && k.evidence) || []).forEach((e, i) => {
+      const t = blockText.get(e.block);
+      if (t !== undefined && !canon(t).includes(canon(e.quote)))
+        warn(`${qid} evidence ${i + 1} quote is not in ${e.block} as shown (blanks and glosses excluded): "${e.quote}"`);
+    });
+
+  // a bracketed base word goes only into hint.baseWord (docs/04 §2.2), never also into the prompt text
+  for (const q of qs) {
+    const p = 'prompt' in q.interaction ? q.interaction.prompt : undefined;
+    for (const n of p ?? [])
+      if (n.t === 'blank' && n.hint?.baseWord) {
+        const re = new RegExp(`[(（]\\s*${n.hint.baseWord.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*[)）]`);
+        if (p!.some((x) => x.t === 'text' && re.test(x.v))) err(`${q.id}: "(${n.hint.baseWord})" is both hint.baseWord and prompt text (shown twice)`);
+      }
+  }
+
   // vocabulary
   const vocabIds = new Set(item.article.vocabulary.map((v) => v.id));
   vocabRefs.forEach((r) => vocabIds.has(r) || err(`vocab ref ${r} not in vocabulary`));

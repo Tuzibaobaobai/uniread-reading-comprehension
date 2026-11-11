@@ -38,8 +38,8 @@
 | 请求、提示、校验、合并 | `src/lib/judge.ts` | 纯函数，与模型无关。UniRead 服务端直接复用 |
 | 服务端核心 | `server/judge-core.ts` | 读取 item 和 key，调用模型，校验输出。适配器：火山方舟 Responses API（`server/ark.ts`，JSON 模式），OpenAI 兼容接口（SiliconFlow 等，JSON 模式），或 Anthropic（强制工具调用） |
 | Vercel 函数 | `server/judge.ts` → `POST /api/rc/judge`（`npm run deploy` 时由 `scripts/vercel-functions.mjs` 打包，连同 `content/playlists`） | 当前部署使用火山方舟的 `deepseek-v4-1-flash-261017`（2026-11-10 起；SiliconFlow 账户余额不足返回 402，#147） |
-| 本地 | `npm run dev` / `vite preview` 通过 `vite.config.ts` 的 `rc-api` 插件提供同一个 handler | 本地需在 `.env.local` 中设置 `ARK_API_KEY`（或 `SILICONFLOW_API_KEY`），否则返回 503，前端退回自评 |
-| 前端 | `ReaderPage.tsx` 的 `runJudge`、`interactions.tsx` 的 `JudgeVerdict` | 显示分数、要点 ✓ / ½ / ✗、反馈和语言纠错，并标出“待老师确认” |
+| 本地 | `npm run dev` / `vite preview` 通过 `vite.config.ts` 的 `rc-api` 插件提供同一个 handler | 本地在 `.env.local` 中设置 `ARK_API_KEY`（或 `SILICONFLOW_API_KEY`）即可，`vite.config.ts` 会把它载入给 API handler（单元测试和 e2e 服务器 `RC_NO_DOTENV=1` 不载入）；未设置时返回 503，前端显示「AI 批改暂时不可用」，再次打开时自动重新批改 |
+| 前端 | `ReaderPage.tsx` 的 `runJudge`、`interactions.tsx` 的 `JudgeVerdict` | 显示分数、要点 ✓ / ½ / ✗、反馈和语言纠错（没有教师复核环节，judge 的分数即最终分数） |
 
 ### 2.1 数据（schema）
 - **题目**：`extendedText.scoring` 取值：
@@ -76,12 +76,15 @@
 
 **代码兜底**（`parseJudgement`），不完全信任模型：
 - 用 zod 校验输出格式。
-- 分数限制在 0–满分之间，并取整到 0.5。
+- 分数限制在 0–满分之间，并取整到 0.5；所有要点都答到时正好是满分，满分不是 0.5 的倍数时也一样（gkv-d092 中译英 20 分 9 题，每题 2.22）。显示最多两位小数。
+- 中译英：程序先检查译文是否用了指定词（含规则变化形式；短语、句型按顺序找各部分），用了就在题目里告诉模型“已用指定词，不要因此扣分”（QA 2026-11-12：模型说 “as soon as possible” 没用 soon）。意思要点未答到（翻译了别的句子）时，语言要点也不给分。
+- 时文回答问题：程序检测大段照抄原文（≥ 25 词、≥ 参考答案 3 倍、七成以上逐字来自文章）时加 `copied_text`，记 0 分（2026-11-12 决定），反馈提醒只写回答问题的句子。
+- 模型偶尔把可选字段写成 null（如阅读题的 `band: null`），按缺省处理，不算无效回复。
 - 模型给的分数与要点判定不一致时，以要点为准，并把置信度降到 ≤ 0.5。
 - 空白、中文作答强制 0 分。
-- `confidence < 0.7`、出现 `off_topic` 或 `instruction_injection`、或返回了未知要点 id 时，标 `needsReview`（待老师确认）。
+- 没有教师复核环节（2026-11-12 决定）：`needsReview` 恒为 `false`，字段保留只为兼容已存的作答记录；`confidence` 仍记录，用于抽查。
 
-## 3. 提示（`PROMPT_VERSION = rc-judge-v3`）
+## 3. 提示（`PROMPT_VERSION = rc-judge-v5`）
 - **System**：角色（中国初中英语教师，学生水平 CEFR A1–B1）+ §2.2 的规则 + “只通过 `record_judgement` 工具返回结果”。
 - **User**：
   - `<learner grade_band>`
@@ -92,7 +95,7 @@
   - `<student_answer>`
 - **输出**：JSON Schema `JUDGE_OUTPUT_SCHEMA`，内容包括要点判定、分数、语言问题（最多 3 条）、`feedbackZh`（1–2 句、鼓励性）、`confidence`、`flags`。
 - **反馈语言**：`feedbackZh` 和 `languageIssues[].noteZh` 一律用简体中文；只有引用文章、题目或学生答案中的英文单词或句子时用英文（如：补充 “absorb fat” 这一点），`languageIssues[].fix` 写改正后的英文。
-- 版本记录：v1 初版；v2 规定反馈语言；v3 禁止自拟英文词并要求自查（2026-10-15）
+- 版本记录：v1 初版；v2 规定反馈语言；v3 禁止自拟英文词并要求自查（2026-10-15）；v4 中译英指定词由程序确认、与原句无关的译文不给语言分、大段照抄原文的程序提示（2026-11-12）
 - **参数**：temperature 0。按 `item.version + 请求 + model` 缓存，重复提交不重复计费。
 - 修改提示必须升级 `PROMPT_VERSION`，并重新跑 §6 的校准。
 
@@ -104,7 +107,7 @@
   - 一两句中文反馈
   - 语言纠错，如 `they has → they have`
   - 参考答案与解析
-- `needsReview` 的题加“待老师确认”标签，分数暂定；教师在 UniRead 后台复核后覆盖。
+- 分数即最终分数，界面不显示“待老师确认”。
 - judge 不可用（如独立静态站、服务故障）时自动退回“对照参考答案自评”，不计分，也不阻塞提交。
 
 ## 5. UniRead 接入契约
@@ -115,8 +118,10 @@
 - 服务端从 keys 读取细则；浏览器不发送、也不接收参考答案和要点（参考答案在提交后随 key 返回，用于展示）。
 - 也可以在 `POST /api/rc/items/:itemId/attempts` 内同步或异步完成评分，把 `judgement` 写进 attempt；前端只要拿到 `byQuestion[].judgement` 即可展示。
 - 模型由 UniRead 选择（需要支持结构化输出或 JSON 模式）。用量参考：每题输入约 1–1.5k tokens，输出约 200 tokens。
-- **当前部署（Vercel）**：Vercel 项目环境变量 `ARK_API_KEY`（火山方舟，优先）；可选 `ARK_MODEL`（默认 `deepseek-v4-1-flash-261017`；可选 `deepseek-v4-pro-ga-260813`、`deepseek-v4-flash-ga-260731`、`glm-5.3`、`kimi-k3-260716`）、`ARK_BASE_URL`（默认 `https://ark.cn-beijing.volces.com/api/v3`，调用 `/responses`，`store: false` 不在方舟留存学生作答）。没有 `ARK_API_KEY` 时依次退回 `SILICONFLOW_API_KEY`（可选 `JUDGE_MODEL`、`JUDGE_BASE_URL`）、`ANTHROPIC_API_KEY`。都未设置时接口返回 503，前端退回学生自评；词汇中译英在自评后再次打开时会自动重新批改（#147）。中文释义复核（`server/meaning.ts`）使用同一组设置。语音识别（`/api/rc/speak`、`/api/rc/transcribe`）仍用 SiliconFlow 的 ASR 模型。
-- **教师复核**：`needsReview = true` 的题进入队列；教师改分后写 `scoredBy: "judge"`，并在 `judgement` 中记录 `model: "teacher:<id>"`。
+- **当前部署（Vercel）**：Vercel 项目环境变量 `ARK_API_KEY`（火山方舟，优先）；可选 `ARK_MODEL`（默认 `deepseek-v4-1-flash-261017`；可选 `deepseek-v4-pro-ga-260813`、`deepseek-v4-flash-ga-260731`、`glm-5.3`、`kimi-k3-260716`）、`ARK_BASE_URL`（默认 `https://ark.cn-beijing.volces.com/api/v3`，调用 `/responses`，`store: false` 不在方舟留存学生作答）。没有 `ARK_API_KEY` 时依次退回 `SILICONFLOW_API_KEY`（可选 `JUDGE_MODEL`、`JUDGE_BASE_URL`）、`ANTHROPIC_API_KEY`。都未设置时接口返回 503，前端退回学生自评；词汇中译英在自评后再次打开时会自动重新批改（#147）。中文释义复核（`server/meaning.ts`）使用同一组设置；失败时重试一次，仍不可用时 `result.meaningUnchecked` 列出没复核的释义，前端稍后在后台重新判分，再次打开时也会重判，不把它们当作学生的错误。模型请求走 HTTP/1.1 连接池（`server/h1fetch.ts`）：Node 24+ 的 fetch 把同一主机的请求都放在一条 HTTP/2 连接上，方舟对一条连接上的请求逐个处理，并发评分会排队（6 个约 6 s；改后约 1.2 s）。语音识别（`/api/rc/speak`、`/api/rc/transcribe`）：设置了 `AZURE_SPEECH_KEY` 时用 Azure AI Speech 快速转写（`AZURE_SPEECH_REGION`，默认 `eastus`，或 `AZURE_SPEECH_URL` 指定资源地址；口语和中译英固定 en-US，中文释义固定 zh-CN，避免带口音的英语被识别成中文），否则用 SiliconFlow 的 ASR 模型（`SILICONFLOW_API_KEY`，`ASR_MODEL`）；`ASR_PROVIDER=azure|siliconflow` 可强制指定。录音会发送到所选服务商所在地区（Azure eastus 在美国）。
+- **空白 / 非英文 / 口语完全没尝试**（规则判定，不调用模型）的反馈文字走 i18n（`judge.emptyAnswer` / `notEnglish` / `noAttempt`），en-US 不显示中文；模型给出的 `feedbackZh` 属于内容，不翻译。
+- **离开页面后才返回的评分**直接写入保存的作答，再次打开不会重复评分、重复计费。
+- **教师复核**：不设（2026-11-12 决定）。
 - **记录**：保存 `promptVersion`、`model`、原始输出，用于申诉、审计和回归测试。
 
 ## 6. 校准与上线标准
@@ -126,7 +131,7 @@
    - QWK ≥ 0.70，且不低于人—人 QWK 0.10 以上
    - 送审率 ≤ 15%
 3. **调整**：不达标时补 `anchors`、细化 `keyPoints.examples`、改提示（升级版本号），然后重跑。
-4. **上线后**：每周抽查 5% 已判答案以及全部 `needsReview`；分歧超过阈值的题回到第 3 步。
+4. **上线后**：每周抽查 5% 已判答案（优先看低 `confidence` 的）；分歧超过阈值的题回到第 3 步。
 5. **用途边界**：LLM 分数用于练习和形成性反馈。任何高利害用途（成绩单、排名）必须经教师确认。
 
 ## 7. 内容生产要求（见 docs/04）
@@ -135,13 +140,14 @@
 - 可选：为易错题补 2–3 个 `anchors`（满分、部分分、0 分各一）。
 
 ## 8. Cambridge 评分标准模式（KET / PET 写作与口语）
-- Key 的 `rubricType` 为 `cambridge_a2_writing` / `cambridge_a2_speaking` 时，提示改用 `cambridge-a2-v1`：Cambridge A2 Key 官方评分量表（写作：Content / Organisation / Language；口语：Grammar & Vocabulary / Interactive Communication / Global Achievement，各 0–5，5/3/1 档描述）。答案册中带分数的官方范文作为 anchors。
+- Key 的 `rubricType` 为 `cambridge_a2_writing` / `cambridge_a2_speaking` 时，提示改用 `cambridge-a2-v3`：Cambridge A2 Key 官方评分量表（写作：Content / Organisation / Language；口语：Grammar & Vocabulary / Interactive Communication / Global Achievement，各 0–5，5/3/1 档描述）。答案册中带分数的官方范文作为 anchors。写作 Content 为 0（内容完全与任务无关、读者没有得到任何信息）时视为没有完成任务，各项都记 0 分并标 `off_topic`；只要回应了任务的一部分，Content 至少 1，其余各项照常评分（v2，服务器在 `parseJudgement` 中强制）。
+- v3（2026-11-12）：口语答案与所有问题都无关、或完全没有尝试（每题都只说 “I don't know”）时同样各项 0 分并标 `off_topic`（后者由规则判定，不调用模型）；口语转写的拼写是识别器的（美式），反馈不纠正拼写、标点、大小写或英美拼写差异，代码也会去掉只改拼写的 `languageIssues`；写作只评一次（2026-11-12 决定，原来的 3 遍取中位数已去掉），模型仍是 `deepseek-v4-1-flash-261017`、不开推理：2026-11-12 在 6 道 KET/PET 写作上对比（每份答案评 3 次），它最稳定（同一答案最多差 2 分）、最快（约 3 s）、零失败；v4-pro 最多差 4–5 分，开推理后更不稳定且会超时，kimi-k3 最多差 3 分且慢一倍，glm-5.3 在当前方舟账号未开通。
 - 模型对每个维度返回 `band`；得分 = 各维度 band 之和，代码校验并以 band 为准（模型自报总分不一致时降低置信度）。
-- 口语：录音由 `/api/rc/speak`（SiliconFlow 语音识别，`ASR_MODEL` 默认 `Qwen/Qwen3-ASR-1.7B`）转写，整段问答一起评分；只凭转写无法评估发音，界面显示“发音：未评估”，Cambridge 分数估算按其余三项折算。
+- 口语：录音由 `/api/rc/speak`（Azure AI Speech，未配置时 SiliconFlow `ASR_MODEL` 默认 `Qwen/Qwen3-ASR-1.7B`）转写，整段问答一起评分；只凭转写无法评估发音，界面显示“发音：未评估”，Cambridge 分数估算按其余三项折算。
 - 评分结果界面固定显示“评分遵照 Cambridge English A2 Key 官方评分标准……由 AI 评估，仅供参考”（文案见 `CAMBRIDGE_NOTE_ZH`）。
 
 ## 9. B1 Preliminary（PET）
-- 提示 `cambridge-b1-v1`，量表取 B1 Preliminary Assessment Scale：写作 Content / Communicative Achievement / Organisation / Language（各 0–5，每题 20），口语 Grammar & Vocabulary / Discourse Management / Interactive Communication / Global（发音不评）。口语 Part 3 的对话记录里包含 AI 搭档的台词（Partner）。
+- 提示 `cambridge-b1-v3`，量表取 B1 Preliminary Assessment Scale：写作 Content / Communicative Achievement / Organisation / Language（各 0–5，每题 20），口语 Grammar & Vocabulary / Discourse Management / Interactive Communication / Global（发音不评）。口语 Part 3 的对话记录里包含 AI 搭档的台词（Partner）。
 - 换算：Cambridge《B1 Preliminary — Converting practice test scores》（2020 起）：阅读 29/23/13/5 → 160/140/120/102（满分 32）、写作 34/24/16/10（40）、听力 23/18/11/5（25）、口语 27/18/12/7（30），满分对应 170。口语四项按官方权重（Global ×2）折算到 30 分（发音缺，按比例）。
 
 ## 参考

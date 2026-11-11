@@ -24,31 +24,69 @@
       "correct": [
         "C"
       ],
-      "explanationZh": "男孩说妹妹也是黑头发，但比那个长发女孩短得多，所以是短黑发的女孩。B 错：长黑发的女孩不是他妹妹；A 错：金发女孩是妹妹的好朋友 Elsie。"
+      "explanationZh": "男孩说妹妹也是黑头发，但比那个长发女孩短得多，所以是短黑发的女孩。B 错：长黑发的女孩不是他妹妹；A 错：金发女孩是妹妹的好朋友 Elsie。",
+      "evidence": [
+        {
+          "block": "x4",
+          "quote": "No – my sister’s got black hair too, but it’s a lot shorter than that."
+        }
+      ]
     },
     "q2": {
       "correct": [
         "B"
       ],
-      "explanationZh": "女孩说妈妈开车送她时发动机突然熄火，再也发动不了，所以是车坏了。A 错：她说脑子装满知识快疼了，只是说学得很辛苦；C 错：她用功学习正是为了能去舞会。"
+      "explanationZh": "女孩说妈妈开车送她时发动机突然熄火，再也发动不了，所以是车坏了。A 错：她说脑子装满知识快疼了，只是说学得很辛苦；C 错：她用功学习正是为了能去舞会。",
+      "evidence": [
+        {
+          "block": "x6",
+          "quote": "Well, my mum was giving me a lift to school when the engine suddenly stopped."
+        },
+        {
+          "block": "x6",
+          "quote": "And it didn’t start again!"
+        }
+      ]
     },
     "q3": {
       "correct": [
         "B"
       ],
-      "explanationZh": "女孩说 Suzy 的妈妈先带她们去城里吃汉堡，再送她们去电影院，所以先去汉堡店。A 错：电影院是之后才去；C 错：坐公交车是回家的时候。"
+      "explanationZh": "女孩说 Suzy 的妈妈先带她们去城里吃汉堡，再送她们去电影院，所以先去汉堡店。A 错：电影院是之后才去；C 错：坐公交车是回家的时候。",
+      "evidence": [
+        {
+          "block": "x8",
+          "quote": "I know, but Suzy’s mum’s taking us for a burger in town and then she’s giving us a lift to the cinema."
+        }
+      ]
     },
     "q4": {
       "correct": [
         "A"
       ],
-      "explanationZh": "男孩提议看大家烤蛋糕的新节目，女孩说这比看音乐频道还好，所以一起看烹饪节目。B 错：女孩更想看烘焙节目；C 错：关于熊的节目她已经看过了。"
+      "explanationZh": "男孩提议看大家烤蛋糕的新节目，女孩说这比看音乐频道还好，所以一起看烹饪节目。B 错：女孩更想看烘焙节目；C 错：关于熊的节目她已经看过了。",
+      "evidence": [
+        {
+          "block": "x10",
+          "quote": "Then how about that new one, where people have to bake cakes and stuff?"
+        },
+        {
+          "block": "x10",
+          "quote": "Oh, that’s an even better idea than watching the music channel."
+        }
+      ]
     },
     "q5": {
       "correct": [
         "A"
       ],
-      "explanationZh": "女孩说明天是为生物作业采集各种树叶的最后一天，能采树叶的地方是公园。B 错：爸爸不让她去看电影；C 错：图书馆的书她已经借过了。"
+      "explanationZh": "女孩说明天是为生物作业采集各种树叶的最后一天，能采树叶的地方是公园。B 错：爸爸不让她去看电影；C 错：图书馆的书她已经借过了。",
+      "evidence": [
+        {
+          "block": "x12",
+          "quote": "Yeah, tomorrow’s the last day I’ll be able to collect the different types of leaves for my biology homework."
+        }
+      ]
     },
     "q6": {
       "slots": {
@@ -58,7 +96,13 @@
           ]
         }
       },
-      "explanationZh": "Sophia 说酒店叫 the Stafford，并拼出 S-T-A-double F-O-R-D，double F 表示两个 f。"
+      "explanationZh": "Sophia 说酒店叫 the Stafford，并拼出 S-T-A-double F-O-R-D，double F 表示两个 f。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "It’s called the Stafford – I’ll spell that for you: S-T-A-double F-O-R-D."
+        }
+      ]
     },
     "q7": {
       "slots": {
@@ -68,7 +112,13 @@
           ]
         }
       },
-      "explanationZh": "Sophia 说酒店有游泳池，但 there aren't any bikes to borrow（没有自行车可借），所以酒店没有的是自行车。"
+      "explanationZh": "Sophia 说酒店有游泳池，但 there aren't any bikes to borrow（没有自行车可借），所以酒店没有的是自行车。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "It’s got a swimming pool which looks great, but there aren’t any bikes to borrow."
+        }
+      ]
     },
     "q8": {
       "slots": {
@@ -78,7 +128,13 @@
           ]
         }
       },
-      "explanationZh": "Sophia 说妈妈会准备零食，她自己会带游戏，并建议 why don't you bring a book?，所以要带的是书。"
+      "explanationZh": "Sophia 说妈妈会准备零食，她自己会带游戏，并建议 why don't you bring a book?，所以要带的是书。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "But why don’t you bring a book?"
+        }
+      ]
     },
     "q9": {
       "slots": {
@@ -90,7 +146,13 @@
           ]
         }
       },
-      "explanationZh": "Sophia 说现在在下雨，但电视上说他们在那里时会是 cloudy（多云）。题目问的是到时候的天气，不能填 raining。"
+      "explanationZh": "Sophia 说现在在下雨，但电视上说他们在那里时会是 cloudy（多云）。题目问的是到时候的天气，不能填 raining。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "I know it’s raining at the moment, but I saw on TV that it’s going to be cloudy while we’re there."
+        }
+      ]
     },
     "q10": {
       "slots": {
@@ -101,97 +163,201 @@
           ]
         }
       },
-      "explanationZh": "姐姐的电话是 0-double 7-6, 3-2-1-4，double 7 表示两个 7，所以是 0776 3214。"
+      "explanationZh": "姐姐的电话是 0-double 7-6, 3-2-1-4，double 7 表示两个 7，所以是 0776 3214。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "The battery is very low on my phone, so if you want to call me back now, ring my sister’s phone: it’s 0-double 7-6, 3-2-1-4."
+        }
+      ]
     },
     "q11": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Maria 说今天才星期二，她昨天去了科学博物馆，Alex 也说不知道星期一开门，所以是星期一。A 错：星期天是 Tom 的聚会；C 错：星期二是今天。"
+      "explanationZh": "Maria 说今天才星期二，她昨天去了科学博物馆，Alex 也说不知道星期一开门，所以是星期一。A 错：星期天是 Tom 的聚会；C 错：星期二是今天。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I went on a school trip to the Science Museum yesterday."
+        }
+      ]
     },
     "q12": {
       "correct": [
         "C"
       ],
-      "explanationZh": "Alex 说他已经和 aunt and uncle（姑姑姑父）去过好几次，也就是和家人去的。A、B 错：和同学或朋友一起去只是他想做的事。"
+      "explanationZh": "Alex 说他已经和 aunt and uncle（姑姑姑父）去过好几次，也就是和家人去的。A、B 错：和同学或朋友一起去只是他想做的事。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I’ve already been there a few times with my aunt and uncle, it’s not far from my house."
+        }
+      ]
     },
     "q13": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Alex 说 We usually cycle there（我们通常骑车去）。B 错：坐大巴去的是 Maria；C 错：Alex 说从学校走过去有点远。"
+      "explanationZh": "Alex 说 We usually cycle there（我们通常骑车去）。B 错：坐大巴去的是 Maria；C 错：Alex 说从学校走过去有点远。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "We usually cycle there – it’s good exercise."
+        }
+      ]
     },
     "q14": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Maria 说导游给他们看的月球模型不如那部太空旅行的影片好，说明她更喜欢看影片。A 错：导游只是展示了模型；C 错：她没有自己做模型。"
+      "explanationZh": "Maria 说导游给他们看的月球模型不如那部太空旅行的影片好，说明她更喜欢看影片。A 错：导游只是展示了模型；C 错：她没有自己做模型。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "The museum guide showed us a model of the moon, but it wasn’t as good as the film that we saw about space travel."
+        }
+      ]
     },
     "q15": {
       "correct": [
         "C"
       ],
-      "explanationZh": "Maria 说蛋糕和冰激凌看起来很好，但他们得赶时间，所以她只喝了一杯果汁。A、B 错：她没时间吃蛋糕或冰激凌。"
+      "explanationZh": "Maria 说蛋糕和冰激凌看起来很好，但他们得赶时间，所以她只喝了一杯果汁。A、B 错：她没时间吃蛋糕或冰激凌。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I know, I thought their cakes and ice creams looked great, but we had to hurry, so I just had a glass of juice."
+        }
+      ]
     },
     "q16": {
       "correct": [
         "C"
       ],
-      "explanationZh": "老师说数学考试照常进行，但会给学生 longer to prepare（更长时间准备），也就是有更多时间学习。A 错：空闲时间少不代表作业少；B 错：学生们已经在为运动会练习了。"
+      "explanationZh": "老师说数学考试照常进行，但会给学生 longer to prepare（更长时间准备），也就是有更多时间学习。A 错：空闲时间少不代表作业少；B 错：学生们已经在为运动会练习了。",
+      "evidence": [
+        {
+          "block": "x22",
+          "quote": "So, we’ll have a maths test this term as usual, but I’ll give you longer to prepare for it."
+        }
+      ]
     },
     "q17": {
       "correct": [
         "C"
       ],
-      "explanationZh": "妈妈不想去商店，看看橱柜里有什么，然后决定做番茄酱意大利面，就是在决定吃什么。A 错：她列出的是家里已有的东西，不是购物清单；B 错：她没讲具体做法。"
+      "explanationZh": "妈妈不想去商店，看看橱柜里有什么，然后决定做番茄酱意大利面，就是在决定吃什么。A 错：她列出的是家里已有的东西，不是购物清单；B 错：她没讲具体做法。",
+      "evidence": [
+        {
+          "block": "x24",
+          "quote": "I’ll make pasta with tomato sauce."
+        }
+      ]
     },
     "q18": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Dan 说妈妈以前在礼品店工作，现在 shows people round the museum（带人参观博物馆），所以她是导游。B 错：她只是站在接待处旁边等旅游团；C 错：在礼品店是以前的工作。"
+      "explanationZh": "Dan 说妈妈以前在礼品店工作，现在 shows people round the museum（带人参观博物馆），所以她是导游。B 错：她只是站在接待处旁边等旅游团；C 错：在礼品店是以前的工作。",
+      "evidence": [
+        {
+          "block": "x26",
+          "quote": "Yeah... she started working in the gift shop a couple of months ago, but now she shows people round the museum."
+        }
+      ]
     },
     "q19": {
       "correct": [
         "C"
       ],
-      "explanationZh": "女孩想给奶奶寄卡片，问有没有邮票，妈妈说没有，Let's get some now（现在就去买），所以今天去买邮票。A 错：以后才去看奶奶；B 错：火车票会在网上订。"
+      "explanationZh": "女孩想给奶奶寄卡片，问有没有邮票，妈妈说没有，Let's get some now（现在就去买），所以今天去买邮票。A 错：以后才去看奶奶；B 错：火车票会在网上订。",
+      "evidence": [
+        {
+          "block": "x28",
+          "quote": "Let’s get some now."
+        }
+      ]
     },
     "q20": {
       "correct": [
         "B"
       ],
-      "explanationZh": "女孩说很高兴比赛前能一起练习，又说坐小船，男孩说平时在湖上划，可见他们一起参加了划船比赛这项运动。A 错：这次是在高楼之间的水上；C 错：他们忘带野餐了。"
+      "explanationZh": "女孩说很高兴比赛前能一起练习，又说坐小船，男孩说平时在湖上划，可见他们一起参加了划船比赛这项运动。A 错：这次是在高楼之间的水上；C 错：他们忘带野餐了。",
+      "evidence": [
+        {
+          "block": "x30",
+          "quote": "I’m glad we could practise together before we took part in the race."
+        }
+      ]
     },
     "q21": {
       "correct": [
         "H"
       ],
-      "explanationZh": "妈妈这次没送书，送的东西够两个人睡在里面，他们夏天要去露营，所以是帐篷。C 错：书是妈妈平时送的。"
+      "explanationZh": "妈妈这次没送书，送的东西够两个人睡在里面，他们夏天要去露营，所以是帐篷。C 错：书是妈妈平时送的。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "We’re going to go camping in the summer and it’s big enough for two people to sleep in."
+        }
+      ]
     },
     "q22": {
       "correct": [
         "E"
       ],
-      "explanationZh": "哥哥送的东西可以挂在卧室墙上，上面有她最喜欢的篮球运动员，所以是海报。B 错：不是篮球本身。"
+      "explanationZh": "哥哥送的东西可以挂在卧室墙上，上面有她最喜欢的篮球运动员，所以是海报。B 错：不是篮球本身。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "He got me something to put on my bedroom wall."
+        },
+        {
+          "block": "x33",
+          "quote": "It’s got my favourite basketball player on it."
+        }
+      ]
     },
     "q23": {
       "correct": [
         "A"
       ],
-      "explanationZh": "奶奶今年送的东西可以装课本，而且很好背，所以是背包。D 错：手链是奶奶去年送的；C 错：是装书的东西，不是书。"
+      "explanationZh": "奶奶今年送的东西可以装课本，而且很好背，所以是背包。D 错：手链是奶奶去年送的；C 错：是装书的东西，不是书。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "I can put my school books in it; it’s really easy to carry!"
+        }
+      ]
     },
     "q24": {
       "correct": [
         "F"
       ],
-      "explanationZh": "姐姐送的东西冬天能保暖，是黑紫色的，所以是围巾。B 错：黑紫色只是她喜欢的篮球队的颜色。"
+      "explanationZh": "姐姐送的东西冬天能保暖，是黑紫色的，所以是围巾。B 错：黑紫色只是她喜欢的篮球队的颜色。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "It’ll keep me warm in winter."
+        },
+        {
+          "block": "x33",
+          "quote": "It’s black and purple – the colours of my favourite basketball team."
+        }
+      ]
     },
     "q25": {
       "correct": [
         "D"
       ],
-      "explanationZh": "叔叔从美国带回的东西大小正好适合她的手臂，所以是手链。"
+      "explanationZh": "叔叔从美国带回的东西大小正好适合她的手臂，所以是手链。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "It’s exactly the right size for my arm."
+        }
+      ]
     }
   },
   "transcripts": {

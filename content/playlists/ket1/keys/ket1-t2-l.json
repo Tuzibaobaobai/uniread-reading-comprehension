@@ -23,31 +23,61 @@
       "correct": [
         "B"
       ],
-      "explanationZh": "男孩问妈妈“树上覆盖着雪是不是很美”，妈妈说确实很美，所以照片拍的是雪中的树。A 错：兔子没来得及拍就跑了；C 错：两人都没提到照片里有男人。"
+      "explanationZh": "男孩问妈妈“树上覆盖着雪是不是很美”，妈妈说确实很美，所以照片拍的是雪中的树。A 错：兔子没来得及拍就跑了；C 错：两人都没提到照片里有男人。",
+      "evidence": [
+        {
+          "block": "x4",
+          "quote": "Aren’t the trees beautiful with snow on them?"
+        }
+      ]
     },
     "q2": {
       "correct": [
         "B"
       ],
-      "explanationZh": "女孩说妈妈换了工作，现在是一家新开的大酒店的接待员（receptionist in a big new hotel）。C 错：火车站是她以前的工作；A 错：在博物馆工作的是男孩的爸爸。"
+      "explanationZh": "女孩说妈妈换了工作，现在是一家新开的大酒店的接待员（receptionist in a big new hotel）。C 错：火车站是她以前的工作；A 错：在博物馆工作的是男孩的爸爸。",
+      "evidence": [
+        {
+          "block": "x6",
+          "quote": "She’s a receptionist in a big new hotel now."
+        }
+      ]
     },
     "q3": {
       "correct": [
         "C"
       ],
-      "explanationZh": "女孩说历史课上全班看了一部关于城堡生活的电影（watched a film about life in a castle）。A 错：写故事是英语课；B 错：画城堡是美术课。"
+      "explanationZh": "女孩说历史课上全班看了一部关于城堡生活的电影（watched a film about life in a castle）。A 错：写故事是英语课；B 错：画城堡是美术课。",
+      "evidence": [
+        {
+          "block": "x8",
+          "quote": "We watched a film about life in a castle."
+        }
+      ]
     },
     "q4": {
       "correct": [
         "A"
       ],
-      "explanationZh": "男孩说“至少摔在雪上会软一些”，说明女孩今天第一次去滑雪板。B 错：滑板她已经会了，不是新运动；C 错：哥哥不让她用冲浪板。"
+      "explanationZh": "男孩说“至少摔在雪上会软一些”，说明女孩今天第一次去滑雪板。B 错：滑板她已经会了，不是新运动；C 错：哥哥不让她用冲浪板。",
+      "evidence": [
+        {
+          "block": "x10",
+          "quote": "Well, at least it’s softer when you fall on snow."
+        }
+      ]
     },
     "q5": {
       "correct": [
         "C"
       ],
-      "explanationZh": "妈妈说“最后一块你早餐时吃了”，指的是男孩想要的甜瓜（melon）。A、B 错：葡萄和梨是妈妈让他午餐带的水果。"
+      "explanationZh": "妈妈说“最后一块你早餐时吃了”，指的是男孩想要的甜瓜（melon）。A、B 错：葡萄和梨是妈妈让他午餐带的水果。",
+      "evidence": [
+        {
+          "block": "x12",
+          "quote": "Sorry, but you had the last piece for breakfast."
+        }
+      ]
     },
     "q6": {
       "slots": {
@@ -57,17 +87,31 @@
           ]
         }
       },
-      "explanationZh": "老师说这次要大家搜集关于蜜蜂的信息（information you can about bees）。birds 是上次作业的内容。"
+      "explanationZh": "老师说这次要大家搜集关于蜜蜂的信息（information you can about bees）。birds 是上次作业的内容。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "For your last homework, you found out about birds, but now I’d like you to get all the information you can about bees."
+        }
+      ]
     },
     "q7": {
       "slots": {
         "b7": {
           "accept": [
-            "67"
+            "67",
+            "sixty-seven",
+            "sixty seven"
           ]
         }
       },
-      "explanationZh": "老师说教材内容在第 67 页（It’s on page 67）。第 68、69 页不要读，要在课上一起读。"
+      "explanationZh": "老师说教材内容在第 67 页（It’s on page 67）。第 68、69 页不要读，要在课上一起读。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "It’s on page 67."
+        }
+      ]
     },
     "q8": {
       "slots": {
@@ -77,17 +121,34 @@
           ]
         }
       },
-      "explanationZh": "老师推荐的网站是 www.nature.com。www.world.com 用处不大，老师说别用它。"
+      "explanationZh": "老师推荐的网站是 www.nature.com。www.world.com 用处不大，老师说别用它。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "There’s a good website called www.nature.com."
+        }
+      ]
     },
     "q9": {
       "slots": {
         "b9": {
           "accept": [
-            "275"
+            "275",
+            "275 words",
+            "two hundred and seventy-five",
+            "two hundred and seventy five",
+            "two hundred seventy-five",
+            "two hundred seventy five"
           ]
         }
       },
-      "explanationZh": "老师说上次写了 150 词，这次要写 275 词（now I’d like 275）。"
+      "explanationZh": "老师说上次写了 150 词，这次要写 275 词（now I’d like 275）。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "Last time, you wrote 150 words, but now I’d like 275, please."
+        }
+      ]
     },
     "q10": {
       "slots": {
@@ -97,97 +158,217 @@
           ]
         }
       },
-      "explanationZh": "老师说不需要放照片，但要画一幅画（do a drawing）。"
+      "explanationZh": "老师说不需要放照片，但要画一幅画（do a drawing）。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "One more thing – you don’t need to include any photos, but I’d like you to do a drawing."
+        }
+      ]
     },
     "q11": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Connie 说至少要 11 岁，超过 13 岁可能就没那么有趣了，所以最适合 11 到 13 岁。C 错：她说 9 岁虽然能去，但不太适合。"
+      "explanationZh": "Connie 说至少要 11 岁，超过 13 岁可能就没那么有趣了，所以最适合 11 到 13 岁。C 错：她说 9 岁虽然能去，但不太适合。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "You can go to the club at 9, but I don’t think it’s so good for children that age."
+        },
+        {
+          "block": "x18",
+          "quote": "You really need to be at least 11."
+        },
+        {
+          "block": "x18",
+          "quote": "And maybe it’s less fun for people over 13."
+        }
+      ]
     },
     "q12": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Connie 说每天都做新的、有难度的活动（something difficult），hard 就是 difficult。A 错：没说教练是否友好；C 错：她才刚开始交朋友。"
+      "explanationZh": "Connie 说每天都做新的、有难度的活动（something difficult），hard 就是 difficult。A 错：没说教练是否友好；C 错：她才刚开始交朋友。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "Each day I do something new... something difficult that the coaches think I can do, even if I’m not sure."
+        }
+      ]
     },
     "q13": {
       "correct": [
         "C"
       ],
-      "explanationZh": "Tom 说想乘船出行，从来没做过（go out on a boat. I’ve never done that），即帆船。A 错：他本来就很会游泳；B 错：踢足球他已经玩腻了。"
+      "explanationZh": "Tom 说想乘船出行，从来没做过（go out on a boat. I’ve never done that），即帆船。A 错：他本来就很会游泳；B 错：踢足球他已经玩腻了。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I want to go out on a boat."
+        }
+      ]
     },
     "q14": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Connie 说只需要带能擦干身体的东西（something to dry yourself with），也就是毛巾。A、C 错：午餐已包含，不用带钱。"
+      "explanationZh": "Connie 说只需要带能擦干身体的东西（something to dry yourself with），也就是毛巾。A、C 错：午餐已包含，不用带钱。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "Just something to dry yourself with."
+        }
+      ]
     },
     "q15": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Connie 说 Bank 街的 Star 电影院对面（across the road）有家商店卖运动服，所以商店在电影院对面。B 错：商店只是在去医院的路上；C 错：Bank 是街名，不是银行。"
+      "explanationZh": "Connie 说 Bank 街的 Star 电影院对面（across the road）有家商店卖运动服，所以商店在电影院对面。B 错：商店只是在去医院的路上；C 错：Bank 是街名，不是银行。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "Do you know the Star cinema on Bank Street?"
+        },
+        {
+          "block": "x18",
+          "quote": "There’s a store across the road that sells all those things."
+        }
+      ]
     },
     "q16": {
       "correct": [
         "B"
       ],
-      "explanationZh": "女孩说不想让头痛更厉害，而且自己要感冒了，所以她是身体不舒服。A 错：她同意作业可以之后再做；C 错：她说自己钱够多。"
+      "explanationZh": "女孩说不想让头痛更厉害，而且自己要感冒了，所以她是身体不舒服。A 错：她同意作业可以之后再做；C 错：她说自己钱够多。",
+      "evidence": [
+        {
+          "block": "x22",
+          "quote": "I’ve got plenty, thanks, but I don’t want to make this headache worse."
+        },
+        {
+          "block": "x22",
+          "quote": "I can, but I’m getting a cold, so I really don’t want to go."
+        }
+      ]
     },
     "q17": {
       "correct": [
         "A"
       ],
-      "explanationZh": "女孩说这次能在户外新鲜空气里看动物，还可能在田野里踢球，所以是去农场。B 错：看恐龙骨头的博物馆是上次的旅行；C 错：踢足球是在农场的田里，不是体育场。"
+      "explanationZh": "女孩说这次能在户外新鲜空气里看动物，还可能在田野里踢球，所以是去农场。B 错：看恐龙骨头的博物馆是上次的旅行；C 错：踢足球是在农场的田里，不是体育场。",
+      "evidence": [
+        {
+          "block": "x24",
+          "quote": "Yes, it’s going to be nice seeing the animals outside in the fresh air – not like the last trip we went on."
+        }
+      ]
     },
     "q18": {
       "correct": [
         "A"
       ],
-      "explanationZh": "老师说地理课改到周四 10:30，而不是 9:30，是课程表的变化。B 错：代课的 Kennedy 老师去年就教过他们，不是新老师；C 错：教室不变。"
+      "explanationZh": "老师说地理课改到周四 10:30，而不是 9:30，是课程表的变化。B 错：代课的 Kennedy 老师去年就教过他们，不是新老师；C 错：教室不变。",
+      "evidence": [
+        {
+          "block": "x26",
+          "quote": "You’ll now have geography on Thursdays at 10.30 instead of 9.30, in the same room as on your timetable, D11."
+        }
+      ]
     },
     "q19": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Oscar 每天 5 点起床训练，说真想睡一觉而不是来上学，说明他很累。B 错：觉得无聊的是女孩；C 错：担心的是教练，不是 Oscar。"
+      "explanationZh": "Oscar 每天 5 点起床训练，说真想睡一觉而不是来上学，说明他很累。B 错：觉得无聊的是女孩；C 错：担心的是教练，不是 Oscar。",
+      "evidence": [
+        {
+          "block": "x28",
+          "quote": "It’s just I’d really love to get some sleep instead of coming to school."
+        }
+      ]
     },
     "q20": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Alex 说那件蓝白条纹的 T 恤很好看，但他买不起（couldn’t afford it），即太贵了。A 错：尺码不对的是红色那件。"
+      "explanationZh": "Alex 说那件蓝白条纹的 T 恤很好看，但他买不起（couldn’t afford it），即太贵了。A 错：尺码不对的是红色那件。",
+      "evidence": [
+        {
+          "block": "x30",
+          "quote": "I found a really nice blue and white striped one, but I couldn’t afford it."
+        }
+      ]
     },
     "q21": {
       "correct": [
         "F"
       ],
-      "explanationZh": "Claire 说购物前要去邮局，会问问能不能在那里贴海报（post office）。"
+      "explanationZh": "Claire 说购物前要去邮局，会问问能不能在那里贴海报（post office）。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "I’m going to the post office before I go shopping, so I’ll ask if I can put one there."
+        }
+      ]
     },
     "q22": {
       "correct": [
         "G"
       ],
-      "explanationZh": "Paul 还是体育中心的会员，Claire 说他可以把海报带到那里。B 错：咖啡馆只是 Claire 和他见面的地方。"
+      "explanationZh": "Paul 还是体育中心的会员，Claire 说他可以把海报带到那里。B 错：咖啡馆只是 Claire 和他见面的地方。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "Paul’s still a member of the sports centre."
+        },
+        {
+          "block": "x33",
+          "quote": "So he can take a poster there."
+        }
+      ]
     },
     "q23": {
       "correct": [
         "C"
       ],
-      "explanationZh": "James 住的公寓楼旁边有家大商店，他可以请店员贴海报，big shop 即 large store。A 错：there 指商店，不是公寓楼。"
+      "explanationZh": "James 住的公寓楼旁边有家大商店，他可以请店员贴海报，big shop 即 large store。A 错：there 指商店，不是公寓楼。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "His apartment building’s next to a big shop."
+        },
+        {
+          "block": "x33",
+          "quote": "He can ask the staff to put one there."
+        }
+      ]
     },
     "q24": {
       "correct": [
         "D"
       ],
-      "explanationZh": "Joe 要借学习用书，下次去借书时可以在那里问，借书的地方就是图书馆（library）。"
+      "explanationZh": "Joe 要借学习用书，下次去借书时可以在那里问，借书的地方就是图书馆（library）。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "He needs to borrow books for his studies, so next time he goes to get some, he can ask there."
+        }
+      ]
     },
     "q25": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Karen 住在体育中心附近的公寓里，大家让她在自己住的地方贴海报，让邻居们都看到，即公寓楼。G 错：体育中心只是说明她住在哪里。"
+      "explanationZh": "Karen 住在体育中心附近的公寓里，大家让她在自己住的地方贴海报，让邻居们都看到，即公寓楼。G 错：体育中心只是说明她住在哪里。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "Let’s ask her to put one where she lives so all her neighbours see it."
+        }
+      ]
     }
   },
   "transcripts": {

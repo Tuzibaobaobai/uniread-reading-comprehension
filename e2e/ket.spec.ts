@@ -281,7 +281,7 @@ test('#88 #89 speaking: exam mode hides the text; Part 2 is a discussion with th
   await page.goto('/#/p/ket1/ket1-t1-s');
   await page.getByRole('button', { name: /考试模式/ }).click();
   await tab(page, /题目/);
-  await expect(page.locator('.speak-line')).toHaveText('（考试模式：请听考官提问）');
+  await expect(page.locator('.speak-line')).toHaveText('请听考官提问');
   await openPart(page, 2);
   await page.getByRole('button', { name: '下一题' }).click();
   await expect(page.locator('.speak-role.is-partner')).toHaveText('搭档 Alex');
@@ -337,4 +337,132 @@ test('#128 after submitting, a Part on one page shows right / total in the pager
   await expect(page.locator('.part-nav .part-card[data-part="P3"] .part-result-count')).toHaveText(/^[0-5]\/5$/);
   // single questions: right / wrong per question (one dash each on the Part card)
   await expect(page.locator('.part-nav .part-card[data-part="P4"] .part-seg').first()).toHaveClass(/is-(correct|wrong)/);
+});
+
+test('footer: previous works inside Part 1 (hidden only on the first question)', async ({ page }) => {
+  await page.goto('/#/p/ket1/ket1-t1-rw');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await tab(page, /题目/);
+  const prev = page.locator('.part-nav').getByRole('button', { name: '上一题' });
+  await expect(prev).toHaveCount(0);
+  await goQuestion(page, /第 3 题/);
+  await expect(prev).toBeEnabled();
+  await prev.click();
+  await expect(page.locator('.part-nav .part-q[aria-current], .part-nav .part-q.is-current').first()).toContainText('2');
+});
+
+test('writing while the AI judge is down: not a 0 — 待 AI 批改 everywhere, then marked when the paper is opened again', async ({ page }) => {
+  await page.route('**/api/rc/judge', (route) => route.fulfill({ status: 503, json: { error: 'judge model not configured' } }));
+  await page.goto('/#/p/ket1/ket1-t1-rw');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await tab(page, /题目/);
+  await goQuestion(page, /第 31 题/);
+  await page.locator('textarea').fill('Dear Lee, we are going camping next weekend. Do you want to come with us? We love the forest. Please bring a warm jacket.');
+  await lastPage(page);
+  await page.getByRole('button', { name: '提交' }).click();
+  const confirm = page.getByRole('button', { name: '仍然提交' });
+  if (await confirm.isVisible().catch(() => false)) await confirm.click();
+  // the score report: the writing Parts and the writing skill wait for the judge, no "<82"
+  const report = page.locator('.report-dialog');
+  await expect(report).toBeVisible();
+  await expect(report).toContainText(/Part 6\s*待 AI 批改/); // written while the judge was down
+  await expect(report).toContainText(/Part 7\s*0 \/ 15/); // left empty: 0 without the model
+  await expect(report).toContainText(/写作\s*…\s*待 AI 批改/); // no "<82" for writing
+  await page.getByRole('button', { name: '查看答案与解析' }).click();
+  await goQuestion(page, /第 31 题/);
+  await expect(page.locator('.judge.is-pending')).toHaveText('AI 批改暂时不可用。你的作答已保存，再次打开本页时会自动批改，不会按 0 分计算。');
+  await expect(page.locator('.self-assess')).toHaveCount(0); // Cambridge writing can't be self-marked
+  await page.goto('/#/p/ket1');
+  await expect(page.getByText(/阅读原始分 \d+(\.5)?\/30 · 写作待 AI 批改/).first()).toBeVisible(); // no raw 0 for writing
+  // the judge is back: opening the paper again marks it
+  await page.unroute('**/api/rc/judge');
+  await page.route('**/api/rc/judge', (route) =>
+    route.fulfill({
+      json: {
+        score: 12, maxPoints: 15,
+        keyPoints: [{ id: 'content', met: 'partial', band: 4 }, { id: 'organisation', met: 'partial', band: 4 }, { id: 'language', met: 'partial', band: 4 }],
+        languageIssues: [], feedbackZh: '邀请和要带的东西都写到了。', confidence: 0.9, flags: [], needsReview: false,
+        model: 'mock', promptVersion: 'mock', judgedAt: new Date().toISOString(),
+      },
+    }),
+  );
+  await page.goto('/#/p/ket1/ket1-t1-rw');
+  await tab(page, /题目/);
+  await goQuestion(page, /第 31 题/);
+  await expect(page.locator('.judge-score').first()).toContainText('12');
+  await expect(page.locator('.judge.is-pending')).toHaveCount(0);
+});
+
+test('exam listening: a reload continues the playing Part from where it was, never from the start', async ({ page }) => {
+  await page.goto('/#/p/ket1/ket1-t1-l');
+  await page.getByRole('button', { name: /考试模式/ }).click();
+  await tab(page, /材料/);
+  await page.getByRole('button', { name: '开始播放听力' }).click();
+  const at = () => page.evaluate(() => document.querySelector<HTMLAudioElement>('.exam-pane audio, audio')?.currentTime ?? 0);
+  await expect.poll(at, { timeout: 15000 }).toBeGreaterThan(4);
+  await page.reload();
+  await tab(page, /材料/);
+  // no fresh start: the same Part continues, from the saved position
+  await expect(page.getByRole('button', { name: '开始播放听力' })).toHaveCount(0);
+  await page.getByRole('button', { name: '从 Part 1 继续播放' }).click();
+  await expect.poll(at, { timeout: 15000 }).toBeGreaterThan(3);
+});
+
+test('speaking: the full mark is A2 Key’s own 45 in the mode dialog, the report and the playlist', async ({ page }) => {
+  await page.goto('/#/p/ket1/ket1-t1-s');
+  await expect(page.locator('.mode-dialog')).toContainText('满分 45 分');
+});
+
+test('listening: after submitting, 定位原文 finds the answer in the transcript (#92 #100)', async ({ page }) => {
+  await page.goto('/#/p/ket1/ket1-t1-l');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await tab(page, /题目/);
+  // the 题目 tab counts questions, not pages (Part 3 is one page of five)
+  if (narrow(page)) await expect(page.getByRole('tab', { name: /题目/ })).toHaveText(/0\/25/);
+  await lastPage(page);
+  await page.getByRole('button', { name: '提交' }).click();
+  await page.getByRole('button', { name: '仍然提交' }).click();
+  await page.getByRole('button', { name: '查看答案与解析' }).click();
+  await goQuestion(page, /第 11 题/);
+  const locate = page.getByRole('button', { name: '定位原文' });
+  await expect(locate).toHaveCount(5);
+  await locate.first().click();
+  const ranges = () => page.evaluate(() => (CSS as unknown as { highlights?: Map<string, { size: number }> }).highlights?.get('evidence')?.size ?? -1);
+  if ((await ranges()) < 0) return; // no CSS Custom Highlight API
+  await expect.poll(ranges).toBe(1);
+  // Q11: the college, in Edward's own words
+  await expect.poll(() => page.evaluate(() => [...(CSS as unknown as { highlights: Map<string, Set<Range>> }).highlights.get('evidence')!][0].toString())).toContain('moved to the college');
+});
+
+test('playlist rows: listening and speaking papers show no word count; speaking counts its examiner questions', async ({ page }) => {
+  await page.goto('/#/p/ket1');
+  await expect(page.locator('.item-row', { hasText: '第1套-听力' })).not.toContainText('单词');
+  await expect(page.locator('.item-row', { hasText: '第1套-口语' })).toContainText('21 题');
+});
+
+test('Ready frame 2.08: the listening notes form sits under the number in the question pane, the left pane keeps the recordings', async ({ page }) => {
+  await page.goto('/#/p/ket1/ket1-t1-l');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await tab(page, /题目/);
+  await goQuestion(page, /第 6 题/);
+  const form = page.locator('.reader-right .context-form');
+  await expect(form).toContainText('Radio camp for teenagers');
+  await expect(form.locator('.blank-input input')).toHaveCount(1); // this question's gap; 7–10 show as lines
+  await form.locator('.blank-input input').fill('Friday');
+  await goQuestion(page, /第 7 题/);
+  await expect(page.locator('.reader-right .context-form')).toContainText('Friday');
+  await tab(page, /材料/);
+  await expect(page.locator('.listening-stack .rt-table')).toHaveCount(0);
+});
+
+test('Ready frame 2.18: the writing task under the title — bold lead-in, the points as a list, the word count in bold', async ({ page }) => {
+  await page.goto('/#/p/ket1/ket1-t1-rw');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await tab(page, /题目/);
+  await goQuestion(page, /第 31 题/);
+  await expect(page.locator('.q-prompt')).toContainText('You are going camping next weekend with your family. Write an email to your English friend, Lee.');
+  await expect(page.locator('.task-body .task-lead')).toHaveText('In your email:');
+  await expect(page.locator('.task-body .task-points li')).toHaveCount(3);
+  await expect(page.locator('.task-body .task-points li').first()).toHaveText('ask Lee to come camping with you and your family');
+  await expect(page.locator('.task-body .task-count')).toHaveText('Write 25 words or more.');
 });

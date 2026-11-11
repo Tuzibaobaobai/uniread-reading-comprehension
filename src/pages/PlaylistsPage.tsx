@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { PageHeader } from '@/ui/common/PageHeader/PageHeader';
 import { PlaylistCard } from '@/ui/playlist/PlaylistCard/PlaylistCard';
 import { InlineNotice } from '@/ui/common/InlineNotice/InlineNotice';
+import { Chip } from '@/ui/common/Chip/Chip';
 import scanIcon from '@/assets/icons/card-scan.svg';
 import studyIcon from '@/assets/icons/card-study.svg';
 import quizIcon from '@/assets/icons/card-quiz.svg';
@@ -22,7 +23,11 @@ export function PlaylistsPage() {
         title={t('playlists.title')}
         status={
           <>
-            {error && <InlineNotice role="alert">{t('common.loadFailed', { message: error.message })}</InlineNotice>}
+            {error && (
+              <InlineNotice role="alert" actions={<Chip onClick={() => window.location.reload()}>{t('common.retry')}</Chip>}>
+                {t('common.loadFailedFriendly')}
+              </InlineNotice>
+            )}
             {!data && !error && <Loading />}
           </>
         }

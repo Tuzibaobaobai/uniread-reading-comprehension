@@ -1,5 +1,5 @@
 /// <reference types="vitest" />
-import { defineConfig, type Connect, type Plugin } from 'vite';
+import { defineConfig, loadEnv, type Connect, type Plugin, type UserConfig } from 'vite';
 import { rm } from 'node:fs/promises';
 import { glob } from 'node:fs/promises';
 import grade from './server/grade';
@@ -37,7 +37,16 @@ function api(): Plugin {
 import react from '@vitejs/plugin-react';
 import { fileURLToPath } from 'node:url';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => {
+  // the /api/rc/* handlers read process.env (as on Vercel): give them .env / .env.local in dev and preview too
+  // (docs/09 §2); variables already set in the shell win. Not for unit tests (mode "test") or the e2e server
+  // (RC_NO_DOTENV=1, playwright.config.ts): they must not call the real model / speech services
+  if (mode !== 'test' && !process.env.RC_NO_DOTENV)
+    for (const [k, v] of Object.entries(loadEnv(mode, process.cwd(), ''))) if (process.env[k] === undefined) process.env[k] = v;
+  return config;
+});
+
+const config = {
   plugins: [react(), api()],
   // content/ is served as static files at the site root (/catalog.json, /playlists/…, /assets/…)
   publicDir: 'content',
@@ -50,4 +59,4 @@ export default defineConfig({
     },
   },
   test: { include: ['src/**/*.test.ts', 'scripts/**/*.test.ts', 'server/**/*.test.ts'] },
-});
+} satisfies UserConfig;

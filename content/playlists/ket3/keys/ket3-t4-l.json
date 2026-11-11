@@ -20,31 +20,61 @@
       "correct": [
         "C"
       ],
-      "explanationZh": "女孩说今天跟妈妈去买衣服，没看到喜欢的鞋子，但买了一条很酷的连衣裙（dress）。A 错：她本来需要鞋子，但没买到；B 错：毛衣是旧的。"
+      "explanationZh": "女孩说今天跟妈妈去买衣服，没看到喜欢的鞋子，但买了一条很酷的连衣裙（dress）。A 错：她本来需要鞋子，但没买到；B 错：毛衣是旧的。",
+      "evidence": [
+        {
+          "block": "x4",
+          "quote": "I didn’t see any I liked, but I got this cool dress."
+        }
+      ]
     },
     "q2": {
       "correct": [
         "B"
       ],
-      "explanationZh": "女孩以为要下雨，男孩说会一直不下雨，但下午风会很大（really windy），所以可能踢不了足球。A 错：男孩说不会下雨；C 错：晴天是明天。"
+      "explanationZh": "女孩以为要下雨，男孩说会一直不下雨，但下午风会很大（really windy），所以可能踢不了足球。A 错：男孩说不会下雨；C 错：晴天是明天。",
+      "evidence": [
+        {
+          "block": "x6",
+          "quote": "Well, it’s going to be really windy, so maybe not."
+        }
+      ]
     },
     "q3": {
       "correct": [
         "A"
       ],
-      "explanationZh": "妈妈想住大酒店，爸爸不太高兴，所以他们订了一家带漂亮花园的家庭旅馆（guest house）。B 错：爸爸喜欢露营，但这次没有露营；C 错：大酒店只是妈妈的想法。"
+      "explanationZh": "妈妈想住大酒店，爸爸不太高兴，所以他们订了一家带漂亮花园的家庭旅馆（guest house）。B 错：爸爸喜欢露营，但这次没有露营；C 错：大酒店只是妈妈的想法。",
+      "evidence": [
+        {
+          "block": "x8",
+          "quote": "Dad wasn’t very happy about that, so we booked a guest house with a nice garden instead."
+        }
+      ]
     },
     "q4": {
       "correct": [
         "C"
       ],
-      "explanationZh": "男孩说他做地理做烦了，就把历史练习全部做完了，数学也快做完了——做完的是历史。A 错：数学还差一点没做完；B 错：地理他只是开了个头。"
+      "explanationZh": "男孩说他做地理做烦了，就把历史练习全部做完了，数学也快做完了——做完的是历史。A 错：数学还差一点没做完；B 错：地理他只是开了个头。",
+      "evidence": [
+        {
+          "block": "x10",
+          "quote": "I started geography, but got bored, so did all the history exercise and I’ve almost finished the maths."
+        }
+      ]
     },
     "q5": {
       "correct": [
         "A"
       ],
-      "explanationZh": "女孩想去游泳，但游泳池整个周末都有比赛进不去，后来她和姐妹打了一场羽毛球，还赢了。B 错：去航海的是男孩；C 错：她没能去游泳。"
+      "explanationZh": "女孩想去游泳，但游泳池整个周末都有比赛进不去，后来她和姐妹打了一场羽毛球，还赢了。B 错：去航海的是男孩；C 错：她没能去游泳。",
+      "evidence": [
+        {
+          "block": "x12",
+          "quote": "I won a game of badminton that I played with my sister!"
+        }
+      ]
     },
     "q6": {
       "slots": {
@@ -54,7 +84,13 @@
           ]
         }
       },
-      "explanationZh": "老师说玻璃厂常做玻璃动物之类的东西，但这家工厂以碗（bowls）出名。玻璃动物是干扰项。"
+      "explanationZh": "老师说玻璃厂常做玻璃动物之类的东西，但这家工厂以碗（bowls）出名。玻璃动物是干扰项。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "Glass factories often make things like glass animals but this one is well-known for its bowls."
+        }
+      ]
     },
     "q7": {
       "slots": {
@@ -64,7 +100,13 @@
           ]
         }
       },
-      "explanationZh": "工厂广告上用的图画是一只海豚（dolphin），老师只是觉得它有点像一朵云。cloud 是干扰项。"
+      "explanationZh": "工厂广告上用的图画是一只海豚（dolphin），老师只是觉得它有点像一朵云。cloud 是干扰项。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "It’s a dolphin."
+        }
+      ]
     },
     "q8": {
       "slots": {
@@ -73,11 +115,23 @@
             "8.45",
             "8:45",
             "eight forty-five",
-            "eight forty five"
+            "eight forty five",
+            "quarter to nine",
+            "a quarter to nine",
+            "8.45 am",
+            "8.45 a.m.",
+            "8:45 am",
+            "8:45 a.m."
           ]
         }
       },
-      "explanationZh": "大家要 8:30 到学校，因为大巴 8:45（eight forty-five）出发，所以离校时间是 8:45。8:30 是到校时间，9:45 是到达工厂的时间。"
+      "explanationZh": "大家要 8:30 到学校，因为大巴 8:45（eight forty-five）出发，所以离校时间是 8:45。8:30 是到校时间，9:45 是到达工厂的时间。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "You’ll need to be at school by eight thirty as the coach goes at eight forty-five."
+        }
+      ]
     },
     "q9": {
       "slots": {
@@ -92,7 +146,13 @@
           ]
         }
       },
-      "explanationZh": "老师说不用带午饭，但请带上笔记本（notebooks），手机要留在家里。午饭和手机都是干扰项。"
+      "explanationZh": "老师说不用带午饭，但请带上笔记本（notebooks），手机要留在家里。午饭和手机都是干扰项。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "There’s no need to take lunch – we’ll have it there in the cafeteria, but please bring your notebooks and remember to leave your phones at home for the day."
+        }
+      ]
     },
     "q10": {
       "slots": {
@@ -102,97 +162,217 @@
           ]
         }
       },
-      "explanationZh": "要联系的是新来的美术老师 Mr Stapely，老师把姓拼了出来：S-T-A-P-E-L-Y。"
+      "explanationZh": "要联系的是新来的美术老师 Mr Stapely，老师把姓拼了出来：S-T-A-P-E-L-Y。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "For more information contact the new art teacher, Mr Stapely, who’s planning everything."
+        },
+        {
+          "block": "x15",
+          "quote": "That’s spelled S-T-A-P-E-L-Y, if you want to find him on the school website."
+        }
+      ]
     },
     "q11": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Mark 说很高兴妈妈能开车送他们去，所以是坐汽车去的。A 错：Jessica 说公交车很慢；C 错：音乐节离火车站很远。"
+      "explanationZh": "Mark 说很高兴妈妈能开车送他们去，所以是坐汽车去的。A 错：Jessica 说公交车很慢；C 错：音乐节离火车站很远。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I’m glad Mum could drive us there."
+        }
+      ]
     },
     "q12": {
       "correct": [
         "C"
       ],
-      "explanationZh": "Mark 说下次想带帐篷露营，Jessica 说她喜欢住在 Jim 叔叔的公寓，Mark 也说那里比酒店好——他们住在亲戚家。A 错：露营是下次的打算；B 错：他们没有住酒店。"
+      "explanationZh": "Mark 说下次想带帐篷露营，Jessica 说她喜欢住在 Jim 叔叔的公寓，Mark 也说那里比酒店好——他们住在亲戚家。A 错：露营是下次的打算；B 错：他们没有住酒店。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I liked it at Uncle Jim’s flat."
+        }
+      ]
     },
     "q13": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Mark 说音乐节比大多数音乐节便宜，天气也好，只是人太多了。B 错：他说比较便宜；C 错：他们说运气好，天气不错。"
+      "explanationZh": "Mark 说音乐节比大多数音乐节便宜，天气也好，只是人太多了。B 错：他说比较便宜；C 错：他们说运气好，天气不错。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "It was just too crowded for me."
+        }
+      ]
     },
     "q14": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Mark 说 Amelia 很漂亮（so pretty），Jessica 也说她很美（beautiful），两人都认为她看起来很棒。A 错：没人说她的歌很特别；C 错：Jessica 最喜欢她，但 Mark 最喜欢最后那支乐队。"
+      "explanationZh": "Mark 说 Amelia 很漂亮（so pretty），Jessica 也说她很美（beautiful），两人都认为她看起来很棒。A 错：没人说她的歌很特别；C 错：Jessica 最喜欢她，但 Mark 最喜欢最后那支乐队。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "She was so pretty and I loved her songs."
+        },
+        {
+          "block": "x18",
+          "quote": "Yes, she was beautiful and sang well."
+        }
+      ]
     },
     "q15": {
       "correct": [
         "C"
       ],
-      "explanationZh": "Mark 说他给妈妈买了巧克力、给自己买了一条围巾，Jessica 说“我也买了一条”——她买的是围巾，是穿戴的东西。A 错：巧克力是 Mark 给妈妈买的；B 错：两人都没买那本书。"
+      "explanationZh": "Mark 说他给妈妈买了巧克力、给自己买了一条围巾，Jessica 说“我也买了一条”——她买的是围巾，是穿戴的东西。A 错：巧克力是 Mark 给妈妈买的；B 错：两人都没买那本书。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I got one of those too."
+        }
+      ]
     },
     "q16": {
       "correct": [
         "A"
       ],
-      "explanationZh": "女孩说这位来访者能经常旅行，会认识很多不同的人，还带他们参观有趣的地方——这是导游的工作。B 错：拉小提琴的是上一位演讲者；C 错：摄影师只是男孩举的例子。"
+      "explanationZh": "女孩说这位来访者能经常旅行，会认识很多不同的人，还带他们参观有趣的地方——这是导游的工作。B 错：拉小提琴的是上一位演讲者；C 错：摄影师只是男孩举的例子。",
+      "evidence": [
+        {
+          "block": "x22",
+          "quote": "But he meets so many different people and shows them round really interesting places."
+        }
+      ]
     },
     "q17": {
       "correct": [
         "C"
       ],
-      "explanationZh": "女孩说故事讲的是一个少女骑摩托车穿越非洲的经历，是一次激动人心的旅程。A 错：封面上有狮子，书里也有很多动物，但不是讲一种特别的动物；B 错：她以后可能成为歌手，但现在还不是著名音乐家。"
+      "explanationZh": "女孩说故事讲的是一个少女骑摩托车穿越非洲的经历，是一次激动人心的旅程。A 错：封面上有狮子，书里也有很多动物，但不是讲一种特别的动物；B 错：她以后可能成为歌手，但现在还不是著名音乐家。",
+      "evidence": [
+        {
+          "block": "x24",
+          "quote": "The story’s about a teenage girl who travelled across Africa on a motorbike."
+        }
+      ]
     },
     "q18": {
       "correct": [
         "A"
       ],
-      "explanationZh": "老师让 Frank 把书放回架子上，Milo 把笔放到讲台上，其他人把地上的纸屑扔进垃圾桶——她要学生整理教室。B 错：她说不许抄袭；C 错：收拾好后要坐下写作文，不是准备回家。"
+      "explanationZh": "老师让 Frank 把书放回架子上，Milo 把笔放到讲台上，其他人把地上的纸屑扔进垃圾桶——她要学生整理教室。B 错：她说不许抄袭；C 错：收拾好后要坐下写作文，不是准备回家。",
+      "evidence": [
+        {
+          "block": "x26",
+          "quote": "Frank, could you collect the books and put them on the shelf near the coats."
+        },
+        {
+          "block": "x26",
+          "quote": "And Milo, those pens should be on my desk."
+        },
+        {
+          "block": "x26",
+          "quote": "Everyone else, if you notice any bits of paper on the floor, put them in the bin."
+        }
+      ]
     },
     "q19": {
       "correct": [
         "A"
       ],
-      "explanationZh": "女孩说她看了网上的视频，用了里面的一些观点，还发现了一些她希望老师会喜欢的内容——她对找到的信息很满意。B 错：她写了半页，比男孩写得多，并不担心；C 错：她只是希望老师会喜欢，并不确定。"
+      "explanationZh": "女孩说她看了网上的视频，用了里面的一些观点，还发现了一些她希望老师会喜欢的内容——她对找到的信息很满意。B 错：她写了半页，比男孩写得多，并不担心；C 错：她只是希望老师会喜欢，并不确定。",
+      "evidence": [
+        {
+          "block": "x28",
+          "quote": "Yeah, I found out some things that I’m hoping Mrs Williams will enjoy."
+        }
+      ]
     },
     "q20": {
       "correct": [
         "C"
       ],
-      "explanationZh": "老师说这本书的作者是以前在这里教书的 Lam 老师，问大家觉得名字熟不熟——作者可能是学生认识的人。A 错：老师说书不属于任何学生；B 错：想读的话要让家长去买，不是全班一起读。"
+      "explanationZh": "老师说这本书的作者是以前在这里教书的 Lam 老师，问大家觉得名字熟不熟——作者可能是学生认识的人。A 错：老师说书不属于任何学生；B 错：想读的话要让家长去买，不是全班一起读。",
+      "evidence": [
+        {
+          "block": "x30",
+          "quote": "Mrs Lam was a teacher here, remember?"
+        },
+        {
+          "block": "x30",
+          "quote": "Well, now she’s an author."
+        }
+      ]
     },
     "q21": {
       "correct": [
         "G"
       ],
-      "explanationZh": "Anna 说 Sophie 和她不一样，会把书放在书架上、衣服放进柜子里——Sophie 的卧室很整洁（tidy）。"
+      "explanationZh": "Anna 说 Sophie 和她不一样，会把书放在书架上、衣服放进柜子里——Sophie 的卧室很整洁（tidy）。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "Well, Sophie’s different from me – she puts all her books on the shelves and her clothes in the cupboard."
+        }
+      ]
     },
     "q22": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Anna 说 Leo 的房间空间很大（lots of space），但她觉得不太舒服——所以是大（big）。D 错：她说的是不舒服。"
+      "explanationZh": "Anna 说 Leo 的房间空间很大（lots of space），但她觉得不太舒服——所以是大（big）。D 错：她说的是不舒服。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "He’s got lots of space, but I didn’t think his room was very comfortable."
+        }
+      ]
     },
     "q23": {
       "correct": [
         "C"
       ],
-      "explanationZh": "Anna 说她们没在厨房待多久，因为里面不太暖和——厨房很冷（cold）。F 错：modern 是 Sophie 的妈妈想把厨房改得更现代。"
+      "explanationZh": "Anna 说她们没在厨房待多久，因为里面不太暖和——厨房很冷（cold）。F 错：modern 是 Sophie 的妈妈想把厨房改得更现代。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "We didn’t stay in there long, because it wasn’t very warm."
+        }
+      ]
     },
     "q24": {
       "correct": [
         "D"
       ],
-      "explanationZh": "Anna 觉得客厅的椅子坐着很舒服，地毯也很软——客厅很舒适（comfortable）。E 错：暗的是她们旧房子的客厅，这个客厅不暗。"
+      "explanationZh": "Anna 觉得客厅的椅子坐着很舒服，地毯也很软——客厅很舒适（comfortable）。E 错：暗的是她们旧房子的客厅，这个客厅不暗。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "I thought the chairs were really nice to sit in, and the carpet’s soft."
+        }
+      ]
     },
     "q25": {
       "correct": [
         "H"
       ],
-      "explanationZh": "Anna 说她从没见过那样的浴室，颜色很奇怪——浴室很特别（unusual）。A 错：beautiful 是例题中描述花园的词。"
+      "explanationZh": "Anna 说她从没见过那样的浴室，颜色很奇怪——浴室很特别（unusual）。A 错：beautiful 是例题中描述花园的词。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "I’ve never seen one like that before."
+        },
+        {
+          "block": "x33",
+          "quote": "The colours are so strange."
+        }
+      ]
     }
   },
   "transcripts": {

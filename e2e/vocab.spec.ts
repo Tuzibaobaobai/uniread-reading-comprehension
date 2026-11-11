@@ -256,7 +256,9 @@ test('Quiz: Part pages, typed answers only, Enter, result, review, entry, retry 
   await expect(page.locator('.vq-result-label').first()).toHaveText('P1');
   await expect(page.locator('.vq-result-range').first()).toHaveText('Q1–Q5');
   await expect(page.locator('.vq-result-bar').first().locator('i.is-right')).toHaveCount(4);
-  await expect(page.locator('.vq-result-bar').first().locator('i.is-wrong')).toHaveCount(1);
+  // q2 earned part of its points (word wrong, 词性 and meaning right): partly right (amber), not wrong (docs/16 §3.3)
+  await expect(page.locator('.vq-result-bar').first().locator('i.is-partial')).toHaveCount(1);
+  await expect(page.locator('.vq-result-bar').first().locator('i.is-wrong')).toHaveCount(0);
   await expect(page.locator('.vq-result-points').first()).toHaveText('4/5');
   await expect(page.locator('.vq-result-points').nth(1)).toHaveText('15/15');
   await page.screenshot({ path: `.work/screens/${info.project.name}/zkv-result.png` });
@@ -358,4 +360,109 @@ test('Quiz table days (第69–70天): the printed table with a blank in each an
   await expect(page.locator('.vq-table .rt-table')).toHaveCount(4);
   // can / may / shall / will: past tense only, as printed
   await expect(page.locator('.vq-table input')).toHaveCount(91 * 2 - 4);
+});
+
+test('a prompt with two blanks (牙齿 n. ___ ［复］ ___) has an input for each blank', async ({ page }) => {
+  await page.goto('/#/p/gkv/gkv-d115');
+  await page.getByRole('tab', { name: /测验/ }).click();
+  const row = page.locator('.vq-sentence', { hasText: '牙齿' });
+  await expect(row.getByRole('textbox')).toHaveCount(2);
+});
+
+test('#147 judge down: an unanswered 中译英 reads 还没有作答, an answered one says the AI marking is unavailable', async ({ page }) => {
+  await page.route('**/api/rc/judge', (route) => route.fulfill({ status: 503, json: { error: 'judge model not configured' } }));
+  await seed(page, rightAnswers(['q36']));
+  await page.goto(`/#/p/zkv/${ITEM}`);
+  await page.getByRole('button', { name: /^Part 6/ }).click();
+  await page.getByRole('button', { name: '提交' }).click();
+  const confirm = page.getByRole('dialog').getByRole('button', { name: /提交/ });
+  if (await confirm.count()) await confirm.click();
+  await page.getByRole('button', { name: /查看答案/ }).click();
+  await page.getByRole('button', { name: /^Part 6/ }).click();
+  const rows = page.locator('.vq-row');
+  await expect(rows.first()).toContainText('还没有作答');
+  await expect(rows.first()).not.toContainText('AI 批改暂时不可用');
+  await expect(rows.nth(1)).toContainText('AI 批改暂时不可用');
+});
+
+test('QA 2026-11-11: 查看词条 opens an entry from another day of the book (zkv-d06 q29 → believe)', async ({ page }) => {
+  await page.goto('/#/p/zkv/zkv-d06');
+  await page.getByRole('tab', { name: /测验/ }).click();
+  await expect(page.getByRole('button', { name: '上一题' })).toHaveCount(0); // Figma 3.11: no ‹ on the first Part
+  await page.getByRole('button', { name: /^Part 6/ }).click();
+  await page.getByRole('button', { name: '提交' }).click();
+  await page.getByRole('dialog').getByRole('button', { name: /提交/ }).click();
+  await page.getByRole('button', { name: /查看答案/ }).click();
+  await page.getByRole('button', { name: /^Part 4/ }).click();
+  await page.locator('[data-q="q29"]').getByRole('button', { name: '查看词条' }).click();
+  await expect(page.getByRole('dialog', { name: 'believe' })).toBeVisible();
+});
+
+test('QA 2026-11-11: a partly right 中译英 is amber, not red, and links to its entry; phrase notation is not graded', async ({ page }) => {
+  await page.route('**/api/rc/judge', (route) =>
+    route.fulfill({
+      json: {
+        score: 2, maxPoints: 4, keyPoints: [{ id: 'meaning', met: 'yes' }, { id: 'language', met: 'no' }], languageIssues: [],
+        feedbackZh: '意思对了，注意语法。', confidence: 0.9, flags: [], needsReview: false, model: 'mock', promptVersion: 'x', judgedAt: new Date().toISOString(),
+      },
+    }),
+  );
+  await seed(page, rightAnswers([]));
+  await page.goto(`/#/p/zkv/${ITEM}`);
+  await page.getByRole('button', { name: /^Part 6/ }).click();
+  await page.getByRole('button', { name: '提交' }).click();
+  await expect(page.locator('.vq-result-bar').last().locator('i.is-partial')).toHaveCount(5);
+  await page.getByRole('button', { name: /查看答案/ }).click();
+  await page.getByRole('button', { name: /^Part 6/ }).click();
+  await expect(page.locator('.part-card.is-current .part-q.is-partial')).toHaveCount(5);
+  const judged = page.locator('.vq-row').first().locator('.judge.is-line');
+  await expect(judged).toHaveClass(/is-partial/);
+  await judged.getByRole('button', { name: '查看词条' }).click();
+  await expect(page.getByRole('dialog')).toBeVisible();
+});
+
+test('QA 2026-11-11: 词组 answers are graded on the words, not the notation (sb / sb., ... spacing)', async ({ page }) => {
+  await page.goto('/#/p/gkv/gkv-d001');
+  await page.getByRole('tab', { name: /测验/ }).click();
+  const part = () => page.getByRole('button', { name: /^Part 2/ });
+  await part().click();
+  await page.locator('[data-q="q48"]').getByRole('textbox').fill('accuse sb of');
+  await page.getByRole('button', { name: /^Part 4/ }).click();
+  await page.getByRole('button', { name: '提交' }).click();
+  await page.getByRole('dialog').getByRole('button', { name: /提交/ }).click();
+  await page.getByRole('button', { name: /查看答案/ }).click();
+  await part().click();
+  await expect(page.locator('[data-q="q48"]')).toHaveClass(/is-correct/);
+});
+
+test('QA 2026-11-11: table-day blanks are announced with their question number; a two-line prompt keeps its number on line 1', async ({ page }) => {
+  await page.goto('/#/p/zkv/zkv-d70');
+  await page.getByRole('tab', { name: /测验/ }).click();
+  await expect(page.getByRole('textbox', { name: '空格 1-1' })).toHaveCount(1);
+  await expect(page.getByRole('textbox', { name: '空格 1-2' })).toHaveCount(1);
+  await page.goto('/#/p/zkv/zkv-d11');
+  await page.getByRole('tab', { name: /测验/ }).click();
+  await page.getByRole('button', { name: /^Part 4/ }).click();
+  const row = page.locator('[data-q="q34"]');
+  const num = (await row.locator('.vq-num').boundingBox())!;
+  const text = (await row.locator('.vq-text').boundingBox())!;
+  if (text.height > num.height * 1.5) expect(num.y - text.y).toBeLessThan(num.height); // on the first line, not centred
+});
+
+test('final test 2026-11-12: while 中译英 wait for the AI, the result is not called final and they are not counted wrong', async ({ page }) => {
+  await page.route('**/api/rc/judge', (route) => route.fulfill({ status: 503, json: { error: 'judge model not configured' } }));
+  // Parts 3–4 left empty (30 points): 50 right + 20 points of translations not marked → could still pass, or not
+  await seed(page, rightAnswers(item.sections.slice(2, 4).flatMap((s) => s.questions.map((q) => q.id))));
+  await page.goto(`/#/p/zkv/${ITEM}`);
+  await page.getByRole('button', { name: /^Part 6/ }).click();
+  await page.getByRole('button', { name: '提交' }).click();
+  const confirm = page.getByRole('dialog').getByRole('button', { name: /提交/ });
+  if (await confirm.count()) await confirm.click();
+  await expect(page.locator('.vq-result-title')).toHaveText('成绩待定：中译英还没有批改完');
+  await expect(page.locator('.vq-result-pending')).toContainText('再次打开时会自动批改');
+  await expect(page.locator('.vq-result-part').last().locator('.vq-result-points')).toHaveText('待批改');
+  // 只练错题: the 10 empty questions, not the translations waiting for the AI
+  await expect(page.getByRole('button', { name: /只练错题/ })).toContainText('重做 10 道');
+  await page.goto('/#/p/zkv');
+  await expect(page.getByText('得分 50/100 · 待 AI 批改')).toBeVisible();
 });

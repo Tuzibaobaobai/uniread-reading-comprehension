@@ -66,6 +66,25 @@ export function pageAnswered(f: FlatQuestion, responses: Responses): boolean {
   return isAnswered(f.q, responses[f.q.id]);
 }
 
+/**
+ * answered / total by the numbers the learner sees: a one-page Part counts each of its questions, a speaking page
+ * its examiner question, any other page its question (so a 25-question paper reads n/25, not n/pages)
+ */
+export function numberedProgress(flat: FlatQuestion[], responses: Responses): { done: number; total: number } {
+  let done = 0;
+  let total = 0;
+  for (const f of flat) {
+    if (f.group) {
+      total += f.section.questions.length;
+      done += f.section.questions.filter((q) => isAnswered(q, responses[q.id])).length;
+    } else {
+      total += 1;
+      if (pageAnswered(f, responses)) done += 1;
+    }
+  }
+  return { done, total };
+}
+
 /** blankId → index of the question that answers it */
 export function blankOwners(flat: FlatQuestion[]): Map<string, number> {
   const m = new Map<string, number>();
@@ -198,4 +217,18 @@ export function evidenceOf(key: ItemKeyT | null, qid: string | undefined): { blo
 export function showFirstLetter(firstLetter: string | undefined, text: string | undefined): boolean {
   if (!firstLetter) return false;
   return !text || !text.toLowerCase().startsWith(firstLetter.toLowerCase());
+}
+
+/**
+ * Listening notes form (Ready frame 2.08): the section's printed table / note that holds this blank. It is drawn in the
+ * question pane under the number, so the exam left pane shows only the recordings (ExamPane leaves it out there).
+ */
+export function listeningForm(item: ItemT, section: SectionT, blankId: string | undefined): BlockT | undefined {
+  if (!blankId || !('paper' in item) || item.paper !== 'listening') return undefined;
+  return section.material?.find((b) => isFormBlock(b) && JSON.stringify(b).includes(`"id":"${blankId}"`));
+}
+
+/** a table or note with gaps in it (a listening notes form) */
+export function isFormBlock(b: BlockT): boolean {
+  return (b.type === 'table' || b.type === 'note') && JSON.stringify(b).includes('"t":"blank"');
 }

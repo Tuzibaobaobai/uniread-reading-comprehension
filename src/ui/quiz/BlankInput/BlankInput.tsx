@@ -1,3 +1,4 @@
+import type React from 'react';
 import type { InputHTMLAttributes } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { BlankNode } from '@/components/Rich';
@@ -50,6 +51,8 @@ export function BlankInput({
         aria-label={`${t('interaction.slot', { n: n.number ?? '' })}${n.hint?.firstLetter ? t('interaction.firstLetter', { letter: n.hint.firstLetter }) : ''}`}
         placeholder={n.number !== undefined ? String(n.number) : undefined}
         size={Math.max(6, value.length + 1)}
+        // pages that draw a fixed-width line read this to widen it for a long answer (词汇: CSS --chars)
+        style={{ '--chars': value.length } as React.CSSProperties}
         {...inputAttrs}
       />
     </>

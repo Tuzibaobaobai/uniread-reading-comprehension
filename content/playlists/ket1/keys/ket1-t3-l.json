@@ -23,31 +23,65 @@
       "correct": [
         "A"
       ],
-      "explanationZh": "男孩说“my shoes are too small”（鞋太小了），所以妈妈要买鞋。B 错：他觉得裤子够了；C 错：他说外套很舒服。"
+      "explanationZh": "男孩说“my shoes are too small”（鞋太小了），所以妈妈要买鞋。B 错：他觉得裤子够了；C 错：他说外套很舒服。",
+      "evidence": [
+        {
+          "block": "x4",
+          "quote": "I think I’ve probably got enough trousers, Mum, but my shoes are too small."
+        }
+      ]
     },
     "q2": {
       "correct": [
         "A"
       ],
-      "explanationZh": "女孩说模型脖子太长，看起来更像骆驼而不是绵羊，说明她想做的是绵羊。B 错：马是她上次做的；C 错：骆驼只是做出来像而已。"
+      "explanationZh": "女孩说模型脖子太长，看起来更像骆驼而不是绵羊，说明她想做的是绵羊。B 错：马是她上次做的；C 错：骆驼只是做出来像而已。",
+      "evidence": [
+        {
+          "block": "x6",
+          "quote": "The neck’s too long – it looks more like a camel than a sheep."
+        }
+      ]
     },
     "q3": {
       "correct": [
         "B"
       ],
-      "explanationZh": "女孩说“It was really windy!”（风很大）。A 错：太阳没出来；C 错：并没有像天气预报说的那样下雨。"
+      "explanationZh": "女孩说“It was really windy!”（风很大）。A 错：太阳没出来；C 错：并没有像天气预报说的那样下雨。",
+      "evidence": [
+        {
+          "block": "x8",
+          "quote": "It was really windy!"
+        }
+      ]
     },
     "q4": {
       "correct": [
         "A"
       ],
-      "explanationZh": "妈妈提议做煎蛋卷（omelette），男孩说 OK。B 错：他说比起三明治更想吃煎蛋卷；C 错：香肠要留着晚饭吃。"
+      "explanationZh": "妈妈提议做煎蛋卷（omelette），男孩说 OK。B 错：他说比起三明治更想吃煎蛋卷；C 错：香肠要留着晚饭吃。",
+      "evidence": [
+        {
+          "block": "x10",
+          "quote": "I could make you an omelette?"
+        },
+        {
+          "block": "x10",
+          "quote": "OK, I’d prefer that to sandwiches."
+        }
+      ]
     },
     "q5": {
       "correct": [
         "C"
       ],
-      "explanationZh": "女孩说明年不用再学地理了（don’t have to do geography again next year）。A 错：数学每年都要学；B 错：男孩希望明年的生物课好，说明明年要学生物。"
+      "explanationZh": "女孩说明年不用再学地理了（don’t have to do geography again next year）。A 错：数学每年都要学；B 错：男孩希望明年的生物课好，说明明年要学生物。",
+      "evidence": [
+        {
+          "block": "x12",
+          "quote": "It’s great we don’t have to do geography again next year."
+        }
+      ]
     },
     "q6": {
       "slots": {
@@ -57,7 +91,13 @@
           ]
         }
       },
-      "explanationZh": "女孩说去年题目是地理，今年是历史（This year they’re on history）。"
+      "explanationZh": "女孩说去年题目是地理，今年是历史（This year they’re on history）。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "This year they’re on history, so you need to start reading about that!"
+        }
+      ]
     },
     "q7": {
       "slots": {
@@ -68,7 +108,13 @@
           ]
         }
       },
-      "explanationZh": "每队必须有五名成员（Each one must have five members）。4 人不能参赛，12 是队伍的数量。"
+      "explanationZh": "每队必须有五名成员（Each one must have five members）。4 人不能参赛，12 是队伍的数量。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "Each one must have five members."
+        }
+      ]
     },
     "q8": {
       "slots": {
@@ -78,7 +124,13 @@
           ]
         }
       },
-      "explanationZh": "获胜者得到一个奖杯（The winners get a cup）。书只是大家常在那家店买的东西，不是奖品。"
+      "explanationZh": "获胜者得到一个奖杯（The winners get a cup）。书只是大家常在那家店买的东西，不是奖品。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "The winners get a cup, like the one footballers get!"
+        }
+      ]
     },
     "q9": {
       "slots": {
@@ -88,7 +140,13 @@
           ]
         }
       },
-      "explanationZh": "把名字交给新老师 Hartley 先生，录音里逐个字母拼出了 H-A-R-T-L-E-Y，要拼写正确。"
+      "explanationZh": "把名字交给新老师 Hartley 先生，录音里逐个字母拼出了 H-A-R-T-L-E-Y，要拼写正确。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "If you’d like to enter, please give your names to our new teacher Mr Hartley, that’s spelt H-A-R-T-L-E-Y."
+        }
+      ]
     },
     "q10": {
       "slots": {
@@ -96,101 +154,217 @@
           "accept": [
             "6.10",
             "6:10",
-            "ten past six"
+            "ten past six",
+            "18.10",
+            "18:10",
+            "six-ten",
+            "six ten",
+            "6.10 pm",
+            "6.10 p.m.",
+            "6:10 pm",
+            "6:10 p.m."
           ]
         }
       },
-      "explanationZh": "要在六点十分（ten past six）到学校。6:30 是比赛开始的时间，题目问的是到达时间。"
+      "explanationZh": "要在六点十分（ten past six）到学校。6:30 是比赛开始的时间，题目问的是到达时间。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "The quiz will start at six thirty, but you need to get to the school at ten past six, so you’ll have enough time to get ready."
+        }
+      ]
     },
     "q11": {
       "correct": [
         "C"
       ],
-      "explanationZh": "Teresa 在写祖母的生活和写度假的小岛之间犹豫，最后选了第一个，即写她认识的人。A 错：她没选写地方；B 错：写电影的是 Daniel。"
+      "explanationZh": "Teresa 在写祖母的生活和写度假的小岛之间犹豫，最后选了第一个，即写她认识的人。A 错：她没选写地方；B 错：写电影的是 Daniel。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I’ve chosen the first one – there’s so much to say!"
+        }
+      ]
     },
     "q12": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Daniel 纠正说最多 500 词（five hundred at the most），也就是 500 词或更少。B 是 Teresa 原来的误解；C 错：不能想写多少就写多少。"
+      "explanationZh": "Daniel 纠正说最多 500 词（five hundred at the most），也就是 500 词或更少。B 是 Teresa 原来的误解；C 错：不能想写多少就写多少。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "It’s five hundred at the most, actually."
+        }
+      ]
     },
     "q13": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Daniel 说他不累，只是担心别人说他写得很糟（just worried）。B 错：他说自己写得不够精彩，不是说自己兴奋；C 错：他说 I wasn’t tired。"
+      "explanationZh": "Daniel 说他不累，只是担心别人说他写得很糟（just worried）。B 错：他说自己写得不够精彩，不是说自己兴奋；C 错：他说 I wasn’t tired。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I wasn’t tired, just worried people might say it’s really bad, because I don’t think what I’ve written is very exciting!"
+        }
+      ]
     },
     "q14": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Daniel 问“如果你赢了，用平板电脑（tablet）做什么”，说明奖品是平板电脑。A、C 错：笔记本电脑和书只是 Teresa 说平板能做的事。"
+      "explanationZh": "Daniel 问“如果你赢了，用平板电脑（tablet）做什么”，说明奖品是平板电脑。A、C 错：笔记本电脑和书只是 Teresa 说平板能做的事。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "If you win, what will you use the tablet for?"
+        }
+      ]
     },
     "q15": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Daniel 说 Teresa 很会写故事，她回答比起只描写地方，她更擅长写故事。A 错：她不确定自己拼写够好；C 错：她说描写地方不如写故事。"
+      "explanationZh": "Daniel 说 Teresa 很会写故事，她回答比起只描写地方，她更擅长写故事。A 错：她不确定自己拼写够好；C 错：她说描写地方不如写故事。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "You have a good chance of winning, you’re great at writing stories."
+        },
+        {
+          "block": "x18",
+          "quote": "Well, I’m better at that than just describing places."
+        }
+      ]
     },
     "q16": {
       "correct": [
         "C"
       ],
-      "explanationZh": "男孩说 Danny 是他叔叔的儿子，女孩接着说“那为什么不直接说是你堂兄”，所以他要见的是堂兄（cousin）。A 错：哥哥只是一起去过聚会；B 错：叔叔是 Danny 的爸爸。"
+      "explanationZh": "男孩说 Danny 是他叔叔的儿子，女孩接着说“那为什么不直接说是你堂兄”，所以他要见的是堂兄（cousin）。A 错：哥哥只是一起去过聚会；B 错：叔叔是 Danny 的爸爸。",
+      "evidence": [
+        {
+          "block": "x22",
+          "quote": "I’m sure you did, he’s my uncle’s son!"
+        },
+        {
+          "block": "x22",
+          "quote": "Oh, why didn’t you just say he’s your cousin?!"
+        }
+      ]
     },
     "q17": {
       "correct": [
         "A"
       ],
-      "explanationZh": "女孩惊讶地说现在都 11 月了，气温还有 20 度左右，即天气很暖和。B 错：她没对男孩的穿着感到惊讶；C 错：老师让脱外套是常有的事（they usually do）。"
+      "explanationZh": "女孩惊讶地说现在都 11 月了，气温还有 20 度左右，即天气很暖和。B 错：她没对男孩的穿着感到惊讶；C 错：老师让脱外套是常有的事（they usually do）。",
+      "evidence": [
+        {
+          "block": "x24",
+          "quote": "It’s November, and it’s still about twenty degrees."
+        }
+      ]
     },
     "q18": {
       "correct": [
         "B"
       ],
-      "explanationZh": "女孩没听懂老师布置的数学作业，请 Adam 告诉她要做什么，即给她解释。A 错：她说不需要借东西；C 错：“希望你收到留言”不是让 Adam 去传话。"
+      "explanationZh": "女孩没听懂老师布置的数学作业，请 Adam 告诉她要做什么，即给她解释。A 错：她说不需要借东西；C 错：“希望你收到留言”不是让 Adam 去传话。",
+      "evidence": [
+        {
+          "block": "x26",
+          "quote": "Could you tell me what we have to do?"
+        }
+      ]
     },
     "q19": {
       "correct": [
         "C"
       ],
-      "explanationZh": "老师让学生待在自行车道上，从行人身后慢慢骑过去（Ride past them），所以他们要骑车。A 错：走路的是其他人；B 错：钓鱼的也是河边的其他人。"
+      "explanationZh": "老师让学生待在自行车道上，从行人身后慢慢骑过去（Ride past them），所以他们要骑车。A 错：走路的是其他人；B 错：钓鱼的也是河边的其他人。",
+      "evidence": [
+        {
+          "block": "x28",
+          "quote": "Please stay on the cycle path."
+        },
+        {
+          "block": "x28",
+          "quote": "Ride past them slowly and carefully please."
+        }
+      ]
     },
     "q20": {
       "correct": [
         "A"
       ],
-      "explanationZh": "女孩说城堡那场戏音乐比演员对话还清楚，真该小声一点，即音乐太响。B 错：她明白剧情，还猜到了结局；C 错：问题在音乐，不在演员。"
+      "explanationZh": "女孩说城堡那场戏音乐比演员对话还清楚，真该小声一点，即音乐太响。B 错：她明白剧情，还猜到了结局；C 错：问题在音乐，不在演员。",
+      "evidence": [
+        {
+          "block": "x30",
+          "quote": "Yes, but in the scene in the castle, you could hear the music more easily than the actors’ conversations!"
+        }
+      ]
     },
     "q21": {
       "correct": [
         "F"
       ],
-      "explanationZh": "Adam 说 Vicky 现在把所有时间都花在游泳池（at the pool），即游泳。D 错：她以前打曲棍球，但现在不打了（Not any more）。"
+      "explanationZh": "Adam 说 Vicky 现在把所有时间都花在游泳池（at the pool），即游泳。D 错：她以前打曲棍球，但现在不打了（Not any more）。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "She spends all her time at the pool now – she’s entering a competition soon."
+        }
+      ]
     },
     "q22": {
       "correct": [
         "C"
       ],
-      "explanationZh": "Oliver 在运动俱乐部旅行时打高尔夫（played golf）。G 错：打网球的是他妈妈。"
+      "explanationZh": "Oliver 在运动俱乐部旅行时打高尔夫（played golf）。G 错：打网球的是他妈妈。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "And Oliver’s been on a trip with his sports club – all his family loves sports, his mum’s in the national tennis team, but he played golf on the sports club trip."
+        }
+      ]
     },
     "q23": {
       "correct": [
         "H"
       ],
-      "explanationZh": "Karen 把所有时间都用来练排球（practising volleyball）。F 错：她想学游泳，但没时间。"
+      "explanationZh": "Karen 把所有时间都用来练排球（practising volleyball）。F 错：她想学游泳，但没时间。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "She wants to learn how to swim, but she spends all her time practising volleyball, so she doesn’t have time."
+        }
+      ]
     },
     "q24": {
       "correct": [
         "G"
       ],
-      "explanationZh": "Mike 总是待在网球场上（always on the tennis court）。D 错：老师只是希望他考虑加入曲棍球队。"
+      "explanationZh": "Mike 总是待在网球场上（always on the tennis court）。D 错：老师只是希望他考虑加入曲棍球队。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "I never see him now, he’s always on the tennis court!"
+        }
+      ]
     },
     "q25": {
       "correct": [
         "E"
       ],
-      "explanationZh": "Ellie 开始玩滑雪板了（started snowboarding）。A 错：她已经把篮球忘了，现在不打了。"
+      "explanationZh": "Ellie 开始玩滑雪板了（started snowboarding）。A 错：她已经把篮球忘了，现在不打了。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "She’s started snowboarding at that centre and she’s already forgotten about basketball!"
+        }
+      ]
     }
   },
   "transcripts": {

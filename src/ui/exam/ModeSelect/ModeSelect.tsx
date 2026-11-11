@@ -38,12 +38,20 @@ export function ModeSelect<K extends string>({
   useEffect(() => {
     if (!open) return;
     const outside = (e: PointerEvent) => root.current?.contains(e.target as Node) || setOpen(false);
-    const esc = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    const esc = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      setOpen(false);
+      root.current?.querySelector<HTMLElement>('.mode-select-button')?.focus();
+    };
+    // keyboard: tabbing out of the menu closes it
+    const focusOut = (e: FocusEvent) => root.current?.contains(e.target as Node) || setOpen(false);
     document.addEventListener('pointerdown', outside);
     document.addEventListener('keydown', esc);
+    document.addEventListener('focusin', focusOut);
     return () => {
       document.removeEventListener('pointerdown', outside);
       document.removeEventListener('keydown', esc);
+      document.removeEventListener('focusin', focusOut);
     };
   }, [open]);
   return (

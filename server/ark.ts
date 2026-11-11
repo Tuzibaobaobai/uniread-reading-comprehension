@@ -7,6 +7,8 @@
  *   ARK_BASE_URL  (optional) — default https://ark.cn-beijing.volces.com/api/v3
  */
 
+import { h1fetch } from './h1fetch';
+
 export const ARK_BASE_URL = 'https://ark.cn-beijing.volces.com/api/v3';
 export const ARK_DEFAULT_MODEL = 'deepseek-v4-1-flash-261017';
 
@@ -29,7 +31,8 @@ export interface ArkAsk {
 
 /** one POST /responses; the student's text is not stored on Ark (store: false) */
 export function arkRequest(opts: ArkOpts, ask: ArkAsk, plain = false): Promise<Response> {
-  return fetch(`${(opts.baseUrl ?? ARK_BASE_URL).replace(/\/$/, '')}/responses`, {
+  // HTTP/1.1 pool: Ark serialises the streams of one HTTP/2 connection (server/h1fetch.ts)
+  return h1fetch(`${(opts.baseUrl ?? ARK_BASE_URL).replace(/\/$/, '')}/responses`, {
     method: 'POST',
     headers: { 'content-type': 'application/json', authorization: `Bearer ${opts.apiKey}` },
     signal: AbortSignal.timeout(ask.timeoutMs),

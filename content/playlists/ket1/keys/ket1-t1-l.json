@@ -24,31 +24,61 @@
       "correct": [
         "C"
       ],
-      "explanationZh": "男孩说出租车都很忙，所以“we got a bus”（我们坐了公交车）。A 错：“下次我会等出租车”说的是以后；B 错：10 点以后就没有火车了。"
+      "explanationZh": "男孩说出租车都很忙，所以“we got a bus”（我们坐了公交车）。A 错：“下次我会等出租车”说的是以后；B 错：10 点以后就没有火车了。",
+      "evidence": [
+        {
+          "block": "x4",
+          "quote": "And the taxis were all busy, so we got a bus."
+        }
+      ]
     },
     "q2": {
       "correct": [
         "C"
       ],
-      "explanationZh": "女孩说在包里找泳衣，却只带了毛巾，说明她忘带泳衣了。A 错：毛巾带了；B 错：爸爸问要不要钱时她说钱够了。"
+      "explanationZh": "女孩说在包里找泳衣，却只带了毛巾，说明她忘带泳衣了。A 错：毛巾带了；B 错：爸爸问要不要钱时她说钱够了。",
+      "evidence": [
+        {
+          "block": "x6",
+          "quote": "When I got to the pool, I looked for my swimming costume in my bag, but I only had my towel!"
+        }
+      ]
     },
     "q3": {
       "correct": [
         "C"
       ],
-      "explanationZh": "男孩说放学一到家就得帮忙做路上吃的三明治，这是第一件事。A 错：取火车票的是爸爸；B 错：收拾行李可以今晚晚些再做。"
+      "explanationZh": "男孩说放学一到家就得帮忙做路上吃的三明治，这是第一件事。A 错：取火车票的是爸爸；B 错：收拾行李可以今晚晚些再做。",
+      "evidence": [
+        {
+          "block": "x8",
+          "quote": "Dad has to pick up the train tickets, and as soon as I get in after lessons I have to help make sandwiches for the journey."
+        }
+      ]
     },
     "q4": {
       "correct": [
         "A"
       ],
-      "explanationZh": "女孩说手机其实在爸爸汽车的后座上。B 错：男孩猜可能是从包里掉出来的，但她不是在包里找到的；C 错：她只是在课桌里找过。"
+      "explanationZh": "女孩说手机其实在爸爸汽车的后座上。B 错：男孩猜可能是从包里掉出来的，但她不是在包里找到的；C 错：她只是在课桌里找过。",
+      "evidence": [
+        {
+          "block": "x10",
+          "quote": "It was actually in the back of my dad’s car."
+        }
+      ]
     },
     "q5": {
       "correct": [
         "C"
       ],
-      "explanationZh": "女士提议去博物馆之前先去城堡，男士同意；看完博物馆再去剧院用掉戏票。所以先去城堡。"
+      "explanationZh": "女士提议去博物馆之前先去城堡，男士同意；看完博物馆再去剧院用掉戏票。所以先去城堡。",
+      "evidence": [
+        {
+          "block": "x12",
+          "quote": "Maybe we could go to the castle before we go there?"
+        }
+      ]
     },
     "q6": {
       "slots": {
@@ -57,11 +87,30 @@
             "25 June",
             "25th June",
             "June 25",
-            "June 25th"
+            "June 25th",
+            "25th of June",
+            "the 25th of June",
+            "June the 25th",
+            "twenty-fifth June",
+            "twenty-fifth of June",
+            "the twenty-fifth of June",
+            "June twenty-fifth",
+            "June the twenty-fifth",
+            "twenty fifth June",
+            "twenty fifth of June",
+            "the twenty fifth of June",
+            "June twenty fifth",
+            "June the twenty fifth"
           ]
         }
       },
-      "explanationZh": "男士说 We start on June 25th（6 月 25 日开始）。后面提到的 7 月 16 日和 8 月 6 日是之后的营期，题目问的是第一期。"
+      "explanationZh": "男士说 We start on June 25th（6 月 25 日开始）。后面提到的 7 月 16 日和 8 月 6 日是之后的营期，题目问的是第一期。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "We start on June 25th, but if you can’t come then, there’s another camp starting on July 16th, and the last one’s on August 6th."
+        }
+      ]
     },
     "q7": {
       "slots": {
@@ -72,7 +121,13 @@
           ]
         }
       },
-      "explanationZh": "男士说会教你 write a play for young actors（给年轻演员写剧本）。按要求只填一个词 play（或 plays），不能写 a play。"
+      "explanationZh": "男士说会教你 write a play for young actors（给年轻演员写剧本）。按要求只填一个词 play（或 plays），不能写 a play。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "At camp, we’ll teach you how to use radio equipment and to write a play for young actors."
+        }
+      ]
     },
     "q8": {
       "slots": {
@@ -82,7 +137,13 @@
           ]
         }
       },
-      "explanationZh": "男士说会见到一支刚结束世界巡演的非常有名的乐队（band），与 world famous 对应；记者 journalist 并没有说很有名。"
+      "explanationZh": "男士说会见到一支刚结束世界巡演的非常有名的乐队（band），与 world famous 对应；记者 journalist 并没有说很有名。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "You’ll meet the local journalist, Luke Berry, and a very well-known band who’ve just finished a world tour!"
+        }
+      ]
     },
     "q9": {
       "slots": {
@@ -94,107 +155,227 @@
           ]
         }
       },
-      "explanationZh": "Everyone gets a T-shirt to wear at camp（每人都会得到一件 T 恤衫）。零食、运动鞋和短裤是自己带或穿的，不是“收到”的。"
+      "explanationZh": "Everyone gets a T-shirt to wear at camp（每人都会得到一件 T 恤衫）。零食、运动鞋和短裤是自己带或穿的，不是“收到”的。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "Everyone gets a T-shirt to wear at camp."
+        }
+      ]
     },
     "q10": {
       "slots": {
         "b10": {
           "accept": [
-            "238"
+            "238",
+            "$238",
+            "238 dollars",
+            "two hundred and thirty-eight",
+            "two hundred and thirty eight",
+            "two hundred thirty-eight",
+            "two hundred thirty eight"
           ]
         }
       },
-      "explanationZh": "日常价 476 美元，现在半价 238 美元。题目问折扣价，所以填 238，不是全价 476。"
+      "explanationZh": "日常价 476 美元，现在半价 238 美元。题目问折扣价，所以填 238，不是全价 476。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "If you book before midnight, you’ll get a discount! $476 is the usual price, but now it’s half-price – $238."
+        }
+      ]
     },
     "q11": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Edward 说他的课去年在体育中心，后来搬到了学院（moved to the college），所以现在去学院。B 错：他嫌舞蹈学校太贵，不在那里上课。"
+      "explanationZh": "Edward 说他的课去年在体育中心，后来搬到了学院（moved to the college），所以现在去学院。B 错：他嫌舞蹈学校太贵，不在那里上课。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "My classes were at the sports centre last year, but they moved to the college."
+        }
+      ]
     },
     "q12": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Michaela 一周上一次课，Edward 问她“你已经上了四次课了吧？”她说是，所以是四周前开始的。"
+      "explanationZh": "Michaela 一周上一次课，Edward 问她“你已经上了四次课了吧？”她说是，所以是四周前开始的。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "Once a week, and it’s an eight-week course."
+        },
+        {
+          "block": "x18",
+          "quote": "You’ve been to four classes already, haven’t you?"
+        },
+        {
+          "block": "x18",
+          "quote": "That’s right."
+        }
+      ]
     },
     "q13": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Edward 说做得好就能得到一小包糖果，说明老师会给学生礼物。A 错：老师在大家犯错时笑并不是说她很有趣；C 错：老师是直接示范而不是解释。"
+      "explanationZh": "Edward 说做得好就能得到一小包糖果，说明老师会给学生礼物。A 错：老师在大家犯错时笑并不是说她很有趣；C 错：老师是直接示范而不是解释。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "And, what’s really nice, if you do something well, you get a little packet of sweets."
+        }
+      ]
     },
     "q14": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Michaela 说她就穿舒服的裤子和衬衫。B 错：短裤和 T 恤不够暖和；C 错：运动鞋和毛衣不便于跳舞。"
+      "explanationZh": "Michaela 说她就穿舒服的裤子和衬衫。B 错：短裤和 T 恤不够暖和；C 错：运动鞋和毛衣不便于跳舞。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "When I wore shorts and a T-shirt, they weren’t warm enough, and trainers and a sweater aren’t good for dancing in, so I just wear comfortable trousers and a shirt."
+        }
+      ]
     },
     "q15": {
       "correct": [
         "C"
       ],
-      "explanationZh": "Edward 说他总是和同学们玩得很开心（always have fun with my classmates）。A 错：记住各种舞步并不容易；B 错：他觉得课上的音乐不太好。"
+      "explanationZh": "Edward 说他总是和同学们玩得很开心（always have fun with my classmates）。A 错：记住各种舞步并不容易；B 错：他觉得课上的音乐不太好。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "Remembering the different dances isn’t easy, but I always have fun with my classmates."
+        }
+      ]
     },
     "q16": {
       "correct": [
         "C"
       ],
-      "explanationZh": "女孩说 Ben 没有东西装运动用品，所以包很实用。A 错：她没说包贵不贵；B 错：她没提包的大小。"
+      "explanationZh": "女孩说 Ben 没有东西装运动用品，所以包很实用。A 错：她没说包贵不贵；B 错：她没提包的大小。",
+      "evidence": [
+        {
+          "block": "x22",
+          "quote": "He hasn’t got anything to put his sports kit in."
+        }
+      ]
     },
     "q17": {
       "correct": [
         "B"
       ],
-      "explanationZh": "游戏要 45 英镑，男孩说 that’s too much（太贵了），要攒钱再买。A 错：他玩过，但这不是不买的原因；C 错：他没说能向朋友借。"
+      "explanationZh": "游戏要 45 英镑，男孩说 that’s too much（太贵了），要攒钱再买。A 错：他玩过，但这不是不买的原因；C 错：他没说能向朋友借。",
+      "evidence": [
+        {
+          "block": "x24",
+          "quote": "But that’s too much."
+        }
+      ]
     },
     "q18": {
       "correct": [
         "C"
       ],
-      "explanationZh": "男孩说 from up here（从上面看）羊群像白色的花，说明他们在高处，即山上。A 错：经过农场是过去的事；B 错：他们已经从树林里出来了。"
+      "explanationZh": "男孩说 from up here（从上面看）羊群像白色的花，说明他们在高处，即山上。A 错：经过农场是过去的事；B 错：他们已经从树林里出来了。",
+      "evidence": [
+        {
+          "block": "x26",
+          "quote": "They look like white flowers from up here."
+        }
+      ]
     },
     "q19": {
       "correct": [
         "B"
       ],
-      "explanationZh": "广告说一位幸运读者和家人可以赢得加拿大之旅，爸爸说要在表格上填名字，即参加比赛。A 错：他想赢旅行而不是自己预订；C 错：他几乎不看杂志，也没说要买。"
+      "explanationZh": "广告说一位幸运读者和家人可以赢得加拿大之旅，爸爸说要在表格上填名字，即参加比赛。A 错：他想赢旅行而不是自己预订；C 错：他几乎不看杂志，也没说要买。",
+      "evidence": [
+        {
+          "block": "x28",
+          "quote": "Then I’ll put my name on the form."
+        }
+      ]
     },
     "q20": {
       "correct": [
         "B"
       ],
-      "explanationZh": "男孩说 Jack 来找他借笔记，之后太晚了没法出门，说明他待在家里。A 错：他本打算去买书但没去；C 错：是同学来看他，不是他去看同学。"
+      "explanationZh": "男孩说 Jack 来找他借笔记，之后太晚了没法出门，说明他待在家里。A 错：他本打算去买书但没去；C 错：是同学来看他，不是他去看同学。",
+      "evidence": [
+        {
+          "block": "x30",
+          "quote": "I was going to, but Jack came to see me on Saturday."
+        },
+        {
+          "block": "x30",
+          "quote": "It was too late to go out afterwards."
+        }
+      ]
     },
     "q21": {
       "correct": [
         "F"
       ],
-      "explanationZh": "Beth 说 Edward 要带个东西装所有吃的（something to carry all the stuff to eat），即野餐包。"
+      "explanationZh": "Beth 说 Edward 要带个东西装所有吃的（something to carry all the stuff to eat），即野餐包。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "And I know Edward’s bringing something to carry all the stuff to eat, which’ll be really helpful."
+        }
+      ]
     },
     "q22": {
       "correct": [
         "C"
       ],
-      "explanationZh": "Beth 说她决定带一个小鼓，因为吉他太重了，所以不是 guitar。"
+      "explanationZh": "Beth 说她决定带一个小鼓，因为吉他太重了，所以不是 guitar。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "I’ve decided to pack a small drum because my guitar’s too heavy."
+        }
+      ]
     },
     "q23": {
       "correct": [
         "H"
       ],
-      "explanationZh": "Jack 说 Dan 要带些玩游戏的东西，一些球拍和球（some bats and balls），也就是运动器材。"
+      "explanationZh": "Jack 说 Dan 要带些玩游戏的东西，一些球拍和球（some bats and balls），也就是运动器材。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "And Dan’s offered to bring some things for playing games, some bats and balls, I think."
+        }
+      ]
     },
     "q24": {
       "correct": [
         "E"
       ],
-      "explanationZh": "Jack 说 Yolanda 有很多美术用具（art equipment），选项中的铅笔和颜料就是美术用具。"
+      "explanationZh": "Jack 说 Yolanda 有很多美术用具（art equipment），选项中的铅笔和颜料就是美术用具。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "She has lots of art equipment, which we can all share."
+        }
+      ]
     },
     "q25": {
       "correct": [
         "G"
       ],
-      "explanationZh": "Jack 说他和 Gordon 商量后决定准备大家都能参与、分组回答问题的活动，即智力竞赛（quiz）。A 错：Beth 提到过棋类游戏，但后来改了主意。"
+      "explanationZh": "Jack 说他和 Gordon 商量后决定准备大家都能参与、分组回答问题的活动，即智力竞赛（quiz）。A 错：Beth 提到过棋类游戏，但后来改了主意。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "Actually, I discussed that with him and we thought we should have something where everyone takes part, answering questions in teams."
+        }
+      ]
     }
   },
   "transcripts": {

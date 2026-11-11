@@ -58,7 +58,7 @@ test('回答问题: LLM judge verdict is shown and counted (mocked judge)', asyn
         keyPoints: [{ id: 'k1', met: 'yes' }, { id: 'k2', met: 'partial' }],
         languageIssues: [{ text: 'they has', fix: 'they have', noteZh: '主谓一致' }],
         feedbackZh: '答出了热量高这一点，再补充“对健康有害”就完整了。',
-        confidence: 0.62, flags: [], needsReview: true,
+        confidence: 0.62, flags: [], needsReview: false,
         model: 'mock', promptVersion: 'rc-judge-v3', judgedAt: new Date().toISOString(),
       },
     });
@@ -69,10 +69,10 @@ test('回答问题: LLM judge verdict is shown and counted (mocked judge)', asyn
   await page.getByRole('button', { name: '提交' }).click();
   await page.getByRole('button', { name: '仍然提交' }).click();
   await expect(page.locator('.judge-score')).toContainText('1.5');
-  await expect(page.locator('.judge')).toContainText('待老师确认');
+  await expect(page.locator('.judge')).not.toContainText('待老师确认'); // no teacher review step (2026-11-12)
   await expect(page.locator('.judge-point')).toHaveCount(2);
   await expect(page.locator('.self-assess')).toHaveCount(0);
-  expect(calls).toBe(6); // every 回答问题 is judged once
+  expect(calls).toBe(1); // the one answered 回答问题 is judged once; the 5 unanswered are 0 without a model call
   await page.screenshot({ path: `.work/screens/${info.project.name}/5-g7-judge.png` });
 });
 
@@ -84,7 +84,9 @@ test('回答问题: no judge service → falls back to self-assessment', async (
   await page.getByRole('button', { name: '提交' }).click();
   await page.getByRole('button', { name: '仍然提交' }).click();
   await expect(page.locator('.self-assess')).toBeVisible();
-  await expect(page.locator('.judge')).toHaveCount(0);
+  // and says so (QA 2026-11-11 F6): not marked yet, re-marked when the page is opened again — no score
+  await expect(page.locator('.judge.is-pending')).toHaveText('AI 批改暂时不可用，可以先对照参考答案自查；再次打开本页时会自动批改。');
+  await expect(page.locator('.judge-score')).toHaveCount(0);
 });
 
 
@@ -110,4 +112,33 @@ test('一对多连线：每句一题、分页、单独反馈，定位原文精�
   });
   expect(hl).toEqual(['Tell me I’m smart.']); // one line, not the whole Fixed Mindset paragraph
   await page.screenshot({ path: `.work/screens/${info.project.name}/5-g5-per-statement.png` });
+});
+
+test('verdicts that arrive after the learner left are kept: no second round of judging on the next visit (QA 2026-11-12)', async ({ page, request }) => {
+  const itemId = 'ci-g7-w01-fri';
+  const item = (await (await request.get(`/playlists/ci-g7/items/${itemId}.json`)).json()) as { status: { version: string }; sections: { questions: { id: string; interaction: { kind: string } }[] }[] };
+  const judged = item.sections.flatMap((s) => s.questions).filter((q) => q.interaction.kind === 'extendedText').map((q) => q.id);
+  const responses = Object.fromEntries(judged.map((q) => [q, 'They lose water and absorb fat.']));
+  const { result } = await (await request.post('/api/rc/grade', { data: { itemId, responses } })).json();
+  const attempt = { attemptId: 'a-left', itemId, itemVersion: item.status.version, learnerId: null, startedAt: '2026-11-12T00:00:00Z', submittedAt: '2026-11-12T00:01:00Z', durationSec: 60, status: 'submitted', responses, result };
+  await page.addInitScript((a) => {
+    if (!sessionStorage.getItem('seeded')) localStorage.setItem(`uniread.rc.attempt.${a.itemId}`, JSON.stringify(a));
+    sessionStorage.setItem('seeded', '1');
+  }, attempt);
+  let calls = 0;
+  await page.route('**/api/rc/judge', async (route) => {
+    calls++;
+    await new Promise((ok) => setTimeout(ok, 1500));
+    await route.fulfill({ json: { score: 1, maxPoints: 2, keyPoints: [{ id: 'k1', met: 'yes' }], languageIssues: [], feedbackZh: '答到了一个要点。', confidence: 0.9, flags: [], needsReview: false, model: 'mock', promptVersion: 'rc-judge-v4', judgedAt: new Date().toISOString() } });
+  });
+  await page.goto(`/#/p/ci-g7/${itemId}`);
+  await expect.poll(() => calls).toBeGreaterThan(0);
+  await page.goto('/#/p/ci-g7'); // leave while it is still marking
+  await expect
+    .poll(async () => page.evaluate((id) => JSON.parse(localStorage.getItem(`uniread.rc.attempt.${id}`) ?? 'null')?.result.byQuestion.filter((b: { scoredBy?: string }) => b.scoredBy === 'judge').length, itemId), { timeout: 10_000 })
+    .toBe(judged.length);
+  const before = calls;
+  await page.goto(`/#/p/ci-g7/${itemId}`);
+  await page.waitForTimeout(1000);
+  expect(calls).toBe(before);
 });

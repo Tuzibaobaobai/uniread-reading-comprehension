@@ -1,7 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import type { ExamItemT } from '@schema';
 import { Trans, useTranslation } from 'react-i18next';
-import { SCALES, belowLabel, examKey, examReport, grade, gradeLabel, type ExamKey, type Skill } from '@/lib/cambridge';
+import { SCALES, belowLabel, examKey, examReport, grade, paperMaxMarks, gradeLabel, type ExamKey, type Skill } from '@/lib/cambridge';
 import type { Result } from '@/lib/grading';
 import { paperLabel } from '@/lib/labels';
 import { Dialog } from '@/ui/common/Dialog/Dialog';
@@ -50,7 +50,7 @@ export function ModeDialog({
         </InlineNotice>
       )}
       <p>
-        {t('exam.mode.summary', { exam: item.meta.exam, paper: paperLabel(item.paper, t), minutes: item.meta.durationMinutes, marks: item.meta.totalMarks })}
+        {t('exam.mode.summary', { exam: item.meta.exam, paper: paperLabel(item.paper, t), minutes: item.meta.durationMinutes, marks: paperMaxMarks(item.paper, examKey(item.meta.exam)) })}
       </p>
       <ChoiceCardGroup layout="list" className="mode-options">
         <ChoiceCard size="l" className="mode-option is-filled" title={t('exam.mode.practice')} onClick={() => onChoose('practice')}>
@@ -196,13 +196,41 @@ export function ExamTimer({ endsAt, onTimeUp, waitingForAudio = false }: { endsA
     );
   return (
     <ExamTimerView level={left <= 60 ? 'alert' : left <= 300 ? 'warning' : 'normal'} live={left <= 300} ariaLabel={t('exam.timer.label', { time: clock(left) })}>
-      {t('exam.timer.left', { time: left > 300 ? t('exam.timer.minutes', { count: Math.ceil(left / 60) }) : clock(left) })}
+      {/* Ready frame 2.06: the warning still counts whole minutes (剩余 4 分钟); seconds only in the last minute */}
+      {t('exam.timer.left', { time: left > 60 ? t('exam.timer.minutes', { count: Math.ceil(left / 60) }) : clock(left) })}
     </ExamTimerView>
   );
 }
 
+/** a speaking Part's examiner questions (one recording each) and how many have an answer */
+function turnsAnswered(questions: ExamItemT['sections'][number]['questions'], responses: Record<string, unknown>) {
+  let answered = 0;
+  let count = 0;
+  for (const q of questions) {
+    if (q.interaction.kind !== 'speaking') continue;
+    const r = responses[q.id];
+    for (const turn of q.interaction.turns) {
+      count++;
+      const v = r && typeof r === 'object' && !Array.isArray(r) ? (r as Record<string, unknown>)[turn.id] : undefined;
+      if (typeof v === 'string' && v.trim() !== '') answered++;
+    }
+  }
+  return { answered, count };
+}
+
 /** per-skill raw scores and the Cambridge English Scale estimate */
-export function ExamReport({ item, result, onClose }: { item: ExamItemT; result: Result; onClose: () => void }) {
+export function ExamReport({
+  item,
+  result,
+  responses = {},
+  onClose,
+}: {
+  item: ExamItemT;
+  result: Result;
+  /** the answers: a speaking Part counts the examiner questions (turns) answered */
+  responses?: Record<string, unknown>;
+  onClose: () => void;
+}) {
   const rows = examReport(item, result);
   const exam = examKey(item.meta.exam);
   const { t } = useTranslation();
@@ -210,7 +238,16 @@ export function ExamReport({ item, result, onClose }: { item: ExamItemT; result:
   const parts = item.sections.map((s) => {
     // an unchosen writing task (PET Part 2: one of two) does not count
     const rs = s.questions.map((q) => result.byQuestion.find((r) => r.q === q.id)).filter((r): r is Result['byQuestion'][number] => !!r && r.scoredBy !== 'none');
-    return { s, got: rs.reduce((n, r) => n + r.points, 0), max: rs.reduce((n, r) => n + r.maxPoints, 0), pending: rs.some((r) => r.scoredBy === 'pending') };
+    return {
+      s,
+      // speaking: the examiner questions (turns) answered, as the playlist row counts them
+      ...turnsAnswered(s.questions, responses),
+      got: rs.reduce((n, r) => n + r.points, 0),
+      max: rs.reduce((n, r) => n + r.maxPoints, 0),
+      pending: rs.some((r) => r.scoredBy === 'pending'),
+      // the judge was down: not a 0, marked when the paper is opened again
+      unjudged: rs.some((r) => r.scoredBy === 'self'),
+    };
   });
   return (
     <>
@@ -229,25 +266,35 @@ export function ExamReport({ item, result, onClose }: { item: ExamItemT; result:
         <ScoreReport
           head={[t('exam.report.part'), t('exam.report.score')]}
           pending={parts.some((p) => p.pending)}
-          parts={parts.map(({ s, got, max, pending }) => ({
+          parts={parts.map(({ s, answered, count, got, max, pending, unjudged }) => ({
             key: s.id,
             label: s.label ?? `Part ${s.part}`,
-            score: pending ? t('exam.report.scoringEllipsis') : `${Math.round(got * 2) / 2} / ${max}`,
+            // speaking is marked on the whole test (Cambridge criteria → the skill's 45 / 30), not Part by Part: a Part shows
+            // how many examiner questions were answered, so no Part mark sits next to a total on a different scale
+            score: pending
+              ? t('exam.report.scoringEllipsis')
+              : unjudged
+                ? t('exam.report.unjudged')
+                : item.paper === 'speaking'
+                  ? t('exam.report.partAnswered', { n: answered, total: count })
+                  : `${Math.round(got * 2) / 2} / ${max}`,
           }))}
           skills={rows.map((r) => ({
             key: r.skill,
             name: t(`skill.${r.skill}`),
-            scale: r.pending ? '…' : (r.scale ?? `<${SCALES[exam].floor}`),
-            grade: r.pending ? t('exam.report.scoring') : grade(r.scale, exam, t),
-            raw: t('exam.report.rawOf', { raw: r.raw, max: r.scaleMax }),
+            scale: r.pending || r.unjudged ? '…' : (r.scale ?? `<${SCALES[exam].floor}`),
+            grade: r.pending ? t('exam.report.scoring') : r.unjudged ? t('exam.report.unjudged') : grade(r.scale, exam, t),
+            // an unmarked answer is not a 0: no raw score until it is marked
+            raw: r.pending ? t('exam.report.scoringEllipsis') : r.unjudged ? t('exam.report.unjudged') : t('exam.report.rawOf', { raw: r.raw, max: r.scaleMax }),
             pending: r.pending,
           }))}
           note={
-            <Trans
-              i18nKey="exam.report.note"
-              values={{ name: SCALES[exam].name, speaking: item.paper === 'speaking' ? t('exam.report.noteSpeaking') : '' }}
-              components={{ btn: <LinkButton onClick={() => setTableOpen(true)} /> }}
-            />
+            // Ready frame 2.11: one short line pointing to the table; papers with writing / speaking add how those are marked
+            <>
+              <Trans i18nKey="exam.report.note" components={{ btn: <LinkButton onClick={() => setTableOpen(true)} /> }} />
+              {item.paper !== 'listening' && item.paper !== 'reading' &&
+                t('exam.report.noteAi', { speaking: item.paper === 'speaking' ? t('exam.report.noteSpeaking') : '' })}
+            </>
           }
         />
       </Dialog>

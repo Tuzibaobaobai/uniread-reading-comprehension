@@ -28,6 +28,16 @@ test('writing Part 1: the email shows the handwritten notes as callouts', async 
 });
 
 test('writing Part 2: choose one task; switching after writing asks and clears; only that task is scored', async ({ page }) => {
+  await page.route('**/api/rc/judge', (route) =>
+    route.fulfill({
+      json: {
+        score: 0, maxPoints: 20,
+        keyPoints: ['content', 'communicative_achievement', 'organisation', 'language'].map((id) => ({ id, met: 'no', band: 0 })),
+        languageIssues: [], feedbackZh: '这次的回答看起来不是英文句子。', confidence: 0.9, flags: [], needsReview: false,
+        model: 'mock', promptVersion: 'mock', judgedAt: new Date().toISOString(),
+      },
+    }),
+  );
   await practice(page, 'pet1-t1-w');
   await tab(page, /题目/);
   await page.getByRole('button', { name: '下一题' }).click();
@@ -191,4 +201,34 @@ test('#128 (2026-11-05) a 0/20 writing answer: the pager shows 0/20, never ✗, 
   await expect(page.locator('.part-nav').locator('.is-wrong')).toHaveCount(0);
   await expect(page.locator('.explain .explain-head').first()).toHaveText('得分 0 / 20');
   await expect(page.getByText('回答错误')).toHaveCount(0);
+});
+
+test('speaking: the full mark is B1 Preliminary’s own 30 in the mode dialog', async ({ page }) => {
+  await page.goto('/#/p/pet1/pet1-t1-s');
+  await expect(page.locator('.mode-dialog')).toContainText('满分 30 分');
+});
+
+test('writing: the sample answer is a real candidate’s script — shown with the examiner’s mark and comment', async ({ page }) => {
+  await page.route('**/api/rc/judge', (route) => route.fulfill({ status: 503, body: 'judge not configured' }));
+  await practice(page, 'pet1-t1-w');
+  await tab(page, /题目/);
+  await page.locator('textarea').fill('Dear Mrs Hallam, I think the talent show is a good idea.');
+  await page.getByRole('button', { name: '下一题' }).click();
+  await page.getByRole('button', { name: '提交' }).click();
+  const confirm = page.getByRole('button', { name: '仍然提交' });
+  if (await confirm.isVisible().catch(() => false)) await confirm.click();
+  await page.getByRole('button', { name: '查看答案与解析' }).click();
+  await goQuestion(page, /第 1 题/);
+  await expect(page.locator('.explain').first()).toContainText('官方考生范文（考官评分 18/20');
+  await expect(page.locator('.explain').first()).toContainText('考官点评：');
+});
+
+test('Ready frame 2.23: the handwritten notes are a row of chips under the email; the "Write your email…" line joins the title', async ({ page }) => {
+  await page.goto('/#/p/pet1/pet1-t1-w');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  await tab(page, /材料/);
+  await expect(page.locator('.rt-note.is-email .rt-callout')).toHaveCount(0);
+  await expect(page.locator('.rt-callouts .rt-callout')).toHaveText(['Good idea!', 'Explain which is better', 'Tell Mrs Hallam', /^Suggest/]);
+  await tab(page, /题目/);
+  await expect(page.locator('.q-prompt')).toContainText('the notes you have made. Write your email to Mrs Hallam using all the notes.');
 });

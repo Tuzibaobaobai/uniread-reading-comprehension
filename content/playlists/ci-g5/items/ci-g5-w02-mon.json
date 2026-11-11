@@ -10,7 +10,7 @@
   "displayName": "Week 2 Monday Wu Yize Wins World Snooker Championship",
   "taskType": {
     "code": "reading_choice",
-    "labelZh": "阅读单选"
+    "labelZh": "阅读理解"
   },
   "meta": {
     "genre": "新闻报道",
@@ -22,6 +22,7 @@
     "intro": "22岁的中国选手吴宜泽在斯诺克世锦赛首次夺冠，震惊世界台球界。",
     "hasVideo": false
   },
+  "thumbnail": "assets/ci-g5/ci-g5-w02-mon-1.jpg",
   "source": {
     "pdf": "小学英语时文阅读提分训练3+X5年级.pdf",
     "pdfPages": [
@@ -38,7 +39,15 @@
     "version": "1.0.0"
   },
   "article": {
-    "images": [],
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g5/ci-g5-w02-mon-1.jpg",
+        "alt": "Snooker balls and a cue on a snooker table.",
+        "w": 1200,
+        "h": 775
+      }
+    ],
     "vocabulary": [
       {
         "id": "v-happen",
@@ -266,6 +275,11 @@
             "v": " the win. Now, Wu is a new star in the world of snooker, and many people believe more success will come in the future."
           }
         ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
       }
     ]
   },

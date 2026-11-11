@@ -585,6 +585,18 @@
           }
         }
       }
+    },
+    "font": {
+      "ipa": {
+        "$type": "string",
+        "$value": "system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif",
+        "$extensions": {
+          "rc": {
+            "status": "needs-designer",
+            "use": "音标行（/əˈbɪləti/）：Noto Sans SC 不含 IPA 字形，一行音标会逐字回退到三种字体（ɪ 显示成 ı）；改用一款覆盖 IPA 的系统字体（iPad / Mac SF、Segoe UI、Roboto、Noto Sans），待设计师确定音标字体"
+          }
+        }
+      }
     }
   },
   "effect": {

@@ -18,3 +18,45 @@
 .report-table caption { text-align: left; font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-text-primary); padding-bottom: var(--ur-space-4); }
 .report-table th, .report-table td { text-align: left; padding: var(--ur-space-8) 0; border-bottom: var(--ur-stroke-default) solid var(--ur-color-border-default); }
 .report-table td:last-child, .report-table th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* 时文 表格填空 in the question pane (Ready frame 1.11, 19489:4797): a bordered card (radius s), the header row subtle with
+   14 bold, rows divided by a line, a line after the label column, cells 16 / 26 padded 8 / 16 and centred vertically,
+   each blank a 130 × 40 line with 18 medium text. */
+.stimulus:not(.vq-table) > .rt-table-wrap:not(.section-table *) {
+  border: var(--ur-stroke-default) solid var(--ur-color-border-default); border-radius: var(--ur-radius-s); overflow: hidden;
+}
+.stimulus:not(.vq-table) > .rt-table-wrap:not(.section-table *) .rt-table {
+  font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height);
+}
+.stimulus:not(.vq-table) > .rt-table-wrap:not(.section-table *) .rt-table :is(th, td) {
+  border: none; border-top: var(--ur-stroke-default) solid var(--ur-color-border-default);
+  padding: var(--ur-space-8) var(--ur-space-16); vertical-align: middle; color: var(--ur-color-text-primary);
+}
+.stimulus:not(.vq-table) > .rt-table-wrap:not(.section-table *) .rt-table tr:first-child > :is(th, td) { border-top: none; }
+.stimulus:not(.vq-table) > .rt-table-wrap:not(.section-table *) .rt-table :is(th, td) + :is(th, td) { border-left: var(--ur-stroke-default) solid var(--ur-color-border-default); }
+.stimulus:not(.vq-table) > .rt-table-wrap:not(.section-table *) .rt-table th {
+  height: var(--ur-height-height-6); background: var(--ur-color-background-subtle);
+  font-size: var(--ur-text-font-system-s-bold-size); line-height: var(--ur-text-font-system-s-bold-line-height);
+  font-weight: var(--ur-text-font-system-s-bold-weight);
+}
+.stimulus:not(.vq-table) > .rt-table-wrap:not(.section-table *) .rt-table th + th { border-left: none; }
+.stimulus:not(.vq-table) > .rt-table-wrap:not(.section-table *) .blank-input {
+  min-width: calc(var(--ur-space-80) + var(--ur-space-48) + var(--ur-space-2)); min-height: var(--ur-height-height-5);
+  align-items: center; border-bottom-color: var(--ur-color-border-default);
+  font-size: var(--ur-text-font-system-l-medium-size); line-height: var(--ur-text-font-system-l-medium-line-height);
+}
+.stimulus:not(.vq-table) > .rt-table-wrap:not(.section-table *) .blank-input :where(input) { flex: 1; font-weight: var(--ur-text-font-system-l-medium-weight); }
+/* the label column hugs short labels but long printed labels wrap (ci-zk-w06-thu), so the table never overflows the pane */
+.stimulus:not(.vq-table) > .rt-table-wrap:not(.section-table *) .rt-table td:first-child:not(:only-child) { width: 1%; min-width: min(calc(var(--ur-space-80) * 2), max-content); }
+/* Ready frame 3.19 (基数词 / 序数词): label | answer | label | answer — the printed labels in 80-wide columns, the answers'
+   lines 331 wide with 56 between the pairs, each header over its answer column, left-aligned */
+.vq-table .rt-table:has(> tbody > tr:first-child > th:first-child:empty) :is(th, td):nth-child(odd) { width: var(--ur-space-80); }
+.vq-table .rt-table:has(> tbody > tr:first-child > th:first-child:empty) :is(th, td):nth-child(2) {
+  width: calc(var(--ur-space-80) * 5 - var(--ur-space-12)); padding-right: calc(var(--ur-space-48) + var(--ur-space-8));
+}
+.vq-table .rt-table:has(> tbody > tr:first-child > th:first-child:empty) :is(th, td):nth-child(even) { padding-left: 0; }
+.vq-table .rt-table:has(> tbody > tr:first-child > th:first-child:empty) th { text-align: left; }
+/* wide printed tables (4+ columns, e.g. ci-zk-w06-thu's five): 8 padding and 80-wide blanks, so the table fits the pane */
+.stimulus:not(.vq-table) > .rt-table-wrap:not(.section-table *) .rt-table:has(tr > :nth-child(4)) :is(th, td) { padding: var(--ur-space-8); }
+.stimulus:not(.vq-table) > .rt-table-wrap:not(.section-table *) .rt-table:has(tr > :nth-child(4)) .blank-input { min-width: var(--ur-space-80); }
+.stimulus:not(.vq-table) > .rt-table-wrap:not(.section-table *) .rt-table:has(tr > :nth-child(4)) td:first-child:not(:only-child) { min-width: 0; }

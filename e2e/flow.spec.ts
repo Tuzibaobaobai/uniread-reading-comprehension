@@ -50,7 +50,7 @@ test('cloze: left blank chips sync with right-side answers', async ({ page }) =>
   await expect(page.locator('.blank-chip').first()).toContainText('family');
   // tapping another blank jumps to its question
   await page.locator('.blank-chip').nth(2).click();
-  await expect(page.locator('.q-prompt')).toContainText('第 3 空');
+  await expect(page.locator('.q-prompt')).toHaveText(/^3\.\s*$/); // Ready frame 1.08: the number only
 });
 
 test('word bank: entries are used once', async ({ page }) => {

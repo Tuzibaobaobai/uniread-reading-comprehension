@@ -6,7 +6,7 @@ import { isExam, isVocabDay, type AnyItemT, type AttemptT, type ItemKeyT, type I
 import { staticContent } from '@/lib/content';
 import { localAttempts, newAttempt } from '@/lib/storage';
 import { isAnswered, isScored, type Result } from '@/lib/grading';
-import { applyJudgement, fallbackToSelf } from '@/lib/judge';
+import { applyJudgement, emptyJudgement, fallbackToSelf, isBlankResponse, isCambridge, retryUnjudged } from '@/lib/judge';
 import { BackArrow, Locate } from '@/components/Icons';
 import Loading from '@/components/Loading';
 import { Rich, plainText, type BlankNode } from '@/components/Rich';
@@ -31,12 +31,15 @@ import {
   hasImageOptions,
   type InteractionProps,
 } from './interactions';
-import { blankCorrect, blankOwners, blankText, correctBlankText, evidenceOf, flatten, pageAnswered, scoreOnly, showFirstLetter, type Responses } from './model';
+import { blankCorrect, blankOwners, blankText, correctBlankText, evidenceOf, flatten, numberedProgress, pageAnswered, scoreOnly, showFirstLetter, type Responses } from './model';
 import OverflowTip from '@/components/OverflowTip';
 import { VocabDayPage } from '@/vocab/VocabDayPage';
 import { Panel } from '@/ui/common/Panel/Panel';
 import { Chip } from '@/ui/common/Chip/Chip';
+import { scrollBehavior, scrollRangeIntoView } from '@/lib/scroll';
 import { Dialog } from '@/ui/common/Dialog/Dialog';
+import { LoadError } from '@/components/LoadError';
+import FittyText from '@/components/FittyText';
 import { Message } from '@/ui/Message/Message';
 import { SegmentedTabs } from '@/ui/SegmentedTabs/SegmentedTabs';
 import { Highlight } from '@/ui/Highlight/Highlight';
@@ -53,14 +56,16 @@ export function ReaderPage() {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [item, setItem] = useState<AnyItemT | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<Error | null>(null);
+  const [loadTry, setLoadTry] = useState(0);
   // header slot for the reader's own controls (exam mode select, #102)
   const [headSlot, setHeadSlot] = useState<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setItem(null);
-    staticContent.getItem(itemId).then(setItem, (e: Error) => setError(e.message));
-  }, [itemId]);
+    setError(null);
+    staticContent.getItem(itemId).then(setItem, (e: Error) => setError(e));
+  }, [itemId, loadTry]);
 
   return (
     <div className="reader">
@@ -73,7 +78,13 @@ export function ReaderPage() {
         </OverflowTip>
         <div className="reader-head-actions" ref={setHeadSlot} />
       </header>
-      {error && <p className="error">{t('common.loadFailed', { message: error })}</p>}
+      {error && (
+        <LoadError
+          error={error}
+          back={{ label: t('reader.backToPlaylist'), onClick: () => navigate(`/p/${playlistId}`) }}
+          onRetry={() => setLoadTry((n) => n + 1)}
+        />
+      )}
       {!item && !error && <Loading />}
       {item &&
         (isVocabDay(item) ? (
@@ -112,13 +123,17 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
   const [modeDialog, setModeDialog] = useState<ModeReason | null>(() => {
     if (!exam || attempt.status === 'submitted') return null;
     if (!attempt.mode) return 'new';
-    if (attempt.mode === 'exam' && Date.now() >= endsAt) return 'timeout';
+    // a listening exam whose time ran out while its recording was playing (then reloaded): the recording is the
+    // clock (#109) — continue it and hand in when it ends, rather than discarding the attempt as timed out
+    if (attempt.mode === 'exam' && Date.now() >= endsAt && !(exam.paper === 'listening' && attempt.listening)) return 'timeout';
     return null;
   });
   const [switchOpen, setSwitchOpen] = useState(false);
   // listening exam: the recording is the clock — when time is up while it still plays, hand in when it ends (#109)
   const [examAudioPlaying, setExamAudioPlaying] = useState(false);
-  const [submitAfterAudio, setSubmitAfterAudio] = useState(false);
+  const [submitAfterAudio, setSubmitAfterAudio] = useState(
+    () => !!exam && exam.paper === 'listening' && attempt.mode === 'exam' && attempt.status !== 'submitted' && !!attempt.listening && Date.now() >= endsAt,
+  );
 
   const submitted = attempt.status === 'submitted' && !!attempt.result;
   const result = attempt.result as Result | null;
@@ -183,8 +198,9 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
     void runJudge(submitted);
   };
   useEffect(() => {
-    if (submitAfterAudio && !examAudioPlaying && attempt.mode === 'exam' && attempt.status !== 'submitted') void submit();
-  }, [submitAfterAudio, examAudioPlaying]); // eslint-disable-line react-hooks/exhaustive-deps
+    // a recording still waiting to be continued after a reload (attempt.listening) is not over yet
+    if (submitAfterAudio && !examAudioPlaying && !attempt.listening && attempt.mode === 'exam' && attempt.status !== 'submitted') void submit();
+  }, [submitAfterAudio, examAudioPlaying, !!attempt.listening]); // eslint-disable-line react-hooks/exhaustive-deps
 
 
   /**
@@ -204,7 +220,14 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
       setIndex(0);
       setReportOpen(false);
     }
-    persist({ ...base, mode, startedAt: new Date().toISOString(), durationSec: fresh ? 0 : base.durationSec, played: fresh ? [] : base.played });
+    persist({
+      ...base,
+      mode,
+      startedAt: new Date().toISOString(),
+      durationSec: fresh ? 0 : base.durationSec,
+      played: fresh ? [] : base.played,
+      listening: fresh ? undefined : base.listening,
+    });
   };
   /** closing the mode dialog: back to the review of a finished attempt, else back to the playlist (#65) */
   const cancelMode = () => {
@@ -219,7 +242,15 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
   const played = useMemo(() => new Set(attempt.played ?? []), [attempt.played]);
   const markPlayed = (sectionId: string) =>
     setAttempt((prev) => {
-      const next = { ...prev, played: [...new Set([...(prev.played ?? []), sectionId])] };
+      const next = { ...prev, played: [...new Set([...(prev.played ?? []), sectionId])], listening: undefined };
+      localAttempts.save(next);
+      return next;
+    });
+  /** exam mode: how far the playing recording has got, so a reload continues it instead of replaying it */
+  const markListening = (section: string, at: number) =>
+    setAttempt((prev) => {
+      if (prev.played?.includes(section)) return prev;
+      const next = { ...prev, listening: { section, at } };
       localAttempts.save(next);
       return next;
     });
@@ -228,29 +259,46 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
   const runJudge = async (a: AttemptT) => {
     const pending = (a.result?.byQuestion ?? []).filter((b) => b.scoredBy === 'pending').map((b) => b.q);
     if (!pending.length) return;
+    const max = (qid: string) => a.result?.byQuestion.find((b) => b.q === qid)?.maxPoints ?? 0;
     const verdicts = await Promise.all(
       pending.map((qid) =>
-        staticContent.judge
+        // unanswered: 0 and 还没有作答 without asking the model (also when it is down)
+        isBlankResponse(a.responses[qid])
+          ? Promise.resolve({ qid, j: emptyJudgement(max(qid)) })
+          : staticContent.judge
           ? staticContent.judge
               .judge({ itemId: item.id, itemVersion: item.status.version, questionId: qid, response: responseText(a.responses[qid]) })
               .then((j) => ({ qid, j }), () => ({ qid, j: null }))
           : Promise.resolve({ qid, j: null }),
       ),
     );
-    setAttempt((prev) => {
+    const withVerdicts = (prev: AttemptT): AttemptT => {
       if (prev.attemptId !== a.attemptId || !prev.result) return prev;
       let r = prev.result as Result;
       verdicts.forEach(({ qid, j }) => (r = j ? applyJudgement(r, qid, j) : r));
       r = fallbackToSelf(r, verdicts.filter((v) => !v.j).map((v) => v.qid));
-      const next = { ...prev, result: r };
-      localAttempts.save(next);
+      return { ...prev, result: r };
+    };
+    // saved even when the learner has left the page meanwhile (no re-judging, no second bill, on the next visit)
+    const stored = localAttempts.get(item.id);
+    if (stored) localAttempts.save(withVerdicts(stored));
+    setAttempt((prev) => {
+      const next = withVerdicts(prev);
+      if (next !== prev) localAttempts.save(next);
       return next;
     });
   };
 
-  // an attempt reloaded while the judge was still running: judge again
+  // an attempt reloaded while the judge was still running, or submitted while it was down: judge again
+  // (answers it could not mark are never final zeros)
   useEffect(() => {
-    if (submitted && attempt.result?.byQuestion.some((b) => b.scoredBy === 'pending')) void runJudge(attempt);
+    if (!submitted || !attempt.result) return;
+    const again = staticContent.judge ? retryUnjudged(attempt.result as Result) : null;
+    if (again) {
+      const next = { ...attempt, result: again };
+      persist(next);
+      void runJudge(next);
+    } else if (attempt.result.byQuestion.some((b) => b.scoredBy === 'pending')) void runJudge(attempt);
   }, [attempt.attemptId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const retry = () => {
@@ -275,6 +323,7 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
   );
 
   const unanswered = flat.filter((f) => !pageAnswered(f, responses));
+  const tabProgress = numberedProgress(flat, responses);
   const current = flat[index];
   // exam pages with nothing for the left pane (speaking Part 1, writing Part 6): the questions take the full width (#78)
   const soloQuestions =
@@ -296,7 +345,7 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
       const blank = root.querySelector<HTMLElement>(`[data-blank-q="${f.q.id}"]`);
       const ev = review?.key.answers[f.q.id]?.evidence?.[0]?.block;
       const target = blank ?? (ev ? root.querySelector<HTMLElement>(`[data-block="${ev}"]`) : null);
-      target?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      target?.scrollIntoView({ behavior: scrollBehavior(), block: 'center' });
     });
   };
 
@@ -306,13 +355,13 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
   /** scroll to the evidence sentence and flash it (falls back to the whole block) */
   const locate = (blockId: string, quote?: string) => {
     setTab('article');
-    if (flat[index]?.group) setPicked({ block: blockId, quote: quote ?? '' });
+    setPicked({ block: blockId, quote: quote ?? '' });
     requestAnimationFrame(() => {
       const el = articleRef.current?.querySelector<HTMLElement>(`[data-block="${blockId}"]`);
       if (!el) return;
       const range = quote ? sentenceRange(el, quote) : null;
-      const anchor = range?.startContainer.parentElement ?? el;
-      anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (range) scrollRangeIntoView(range, el);
+      else el.scrollIntoView({ behavior: scrollBehavior(), block: 'center' });
       if (range && 'highlights' in CSS) {
         paint('flash', [range]);
         window.clearTimeout(flashTimer.current);
@@ -382,11 +431,11 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
 
   const pos = visible.indexOf(index);
   const isLast = pos === visible.length - 1;
-  // a Part answered on one page highlights nothing until one question's 定位原文 is tapped, then only that
-  // question's evidence (#92 #100); a single question highlights its own evidence
+  // nothing is highlighted until 定位原文 is tapped (Ready frames 1.05 → 1.06); then a Part answered on one page shows
+  // only that question's evidence (#92 #100) and a single question all of its own evidence
   useEffect(() => setPicked(null), [current?.q.id]);
   const evidence = useMemo(
-    () => (!review || !current ? [] : current.group ? (picked ? [picked] : []) : evidenceOf(review.key, current.q.id)),
+    () => (!review || !current || !picked ? [] : current.group ? [picked] : evidenceOf(review.key, current.q.id)),
     [review?.key, current?.q.id, picked], // eslint-disable-line react-hooks/exhaustive-deps
   );
 
@@ -508,7 +557,7 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
     const marked = s.choose ? rows.filter((b) => b.scoredBy !== 'none') : rows;
     const judged = s.questions.some((q) => !isScored(q));
     const sum = (ns: number[]) => Math.round(ns.reduce((a, b) => a + b, 0) * 100) / 100;
-    const score = !review || !marked.length || marked.some((b) => b.scoredBy === 'pending' || (!judged && b.correct === null))
+    const score = !review || !marked.length || marked.some((b) => b.scoredBy === 'pending' || b.scoredBy === 'self' || (!judged && b.correct === null))
       ? undefined
       : judged
         ? `${sum(marked.map((b) => b.points))}/${sum(marked.map((b) => b.maxPoints))}`
@@ -551,7 +600,7 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
         onChange={setTab}
         tabs={[
           { id: 'article', label: exam ? t('reader.tabMaterial') : t('reader.tabArticle') },
-          { id: 'questions', label: t('reader.tabQuestions', { progress: submitted ? '' : `${flat.length - unanswered.length}/${flat.length}` }) },
+          { id: 'questions', label: t('reader.tabQuestions', { progress: submitted ? '' : `${tabProgress.done}/${tabProgress.total}` }) },
         ]}
       />
 
@@ -567,6 +616,8 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
             locked={examMode}
             played={played}
             onPlayed={markPlayed}
+            listening={attempt.listening}
+            onListening={markListening}
             onPlayingChange={setExamAudioPlaying}
           />
         ) : (
@@ -592,7 +643,7 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
                         <ExamTimer
                           endsAt={endsAt}
                           waitingForAudio={submitAfterAudio}
-                          onTimeUp={() => (examAudioPlaying ? setSubmitAfterAudio(true) : void submit())}
+                          onTimeUp={() => (examAudioPlaying || (exam.paper === 'listening' && attempt.listening) ? setSubmitAfterAudio(true) : void submit())}
                         />
                       ) : undefined
                     }
@@ -619,7 +670,7 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
                   parts={examParts}
                   page={Math.max(0, examParts.findIndex((p) => p.questions.some((q) => q.current)))}
                   review={!!review}
-                  prev={{ label: t('reader.prev'), hidden: pos <= 0, onClick: () => go(visible[pos - 1]) }}
+                  prev={{ label: t('reader.prev'), hidden: pos <= 0, disabled: false, onClick: () => go(visible[pos - 1]) }}
                   action={navAction}
                   onPage={(pi) => go(examPartPages[pi][0])}
                   onPickQuestion={(pi, uid) => go(examUnits[pi].find((u) => u.id === uid)?.page ?? examPartPages[pi][0])}
@@ -687,16 +738,21 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
       {exam && switchOpen && attempt.mode && (
         <SwitchModeDialog from={attempt.mode} answered={Object.keys(attempt.responses).length} onConfirm={() => startMode(attempt.mode === 'exam' ? 'practice' : 'exam')} onCancel={() => setSwitchOpen(false)} />
       )}
-      {exam && reportOpen && result && <ExamReport item={exam} result={result} onClose={() => setReportOpen(false)} />}
+      {exam && reportOpen && result && <ExamReport item={exam} result={result} responses={responses} onClose={() => setReportOpen(false)} />}
       {confirmOpen && (
         <Dialog
+          className="submit-confirm"
           title={t('reader.unansweredTitle', { count: unanswered.length })}
+          closeLabel={t('common.close')}
           onClose={() => setConfirmOpen(false)}
           actions={
             <>
-              <QuizButton onClick={submit}>{t('reader.submitAnyway')}</QuizButton>
+              {/* one line in every language: a longer label shrinks to fit the pill instead of wrapping and being cut off */}
+              <QuizButton onClick={submit}>
+                <FittyText>{t('reader.submitAnyway')}</FittyText>
+              </QuizButton>
               <QuizButton variant="primary" autoFocus onClick={() => setConfirmOpen(false)}>
-                {t('reader.keepAnswering')}
+                <FittyText>{t('reader.keepAnswering')}</FittyText>
               </QuizButton>
             </>
           }
@@ -771,6 +827,7 @@ const pageKey = (f: { q: { id: string }; turn?: number }) => (f.turn === undefin
 const responseText = (r: unknown) => (typeof r === 'string' ? r : r && typeof r === 'object' ? JSON.stringify(r) : '');
 
 function Explanation({
+  item,
   fq,
   keyData,
   onLocate,
@@ -807,8 +864,10 @@ function Explanation({
         .join(t('reader.answerSep'));
     }
   } else if ('slots' in k) {
+    // KET / PET: the answer as printed in the answer book (accept[0]); the other forms are only what the marker also
+    // takes (7.45 / seven forty-five / quarter to eight …), not more answers to learn
     answerText = Object.values(k.slots)
-      .map((s) => s.accept.join(' / '))
+      .map((s) => (isExam(item) ? s.accept[0] : s.accept.join(' / ')))
       .join(t('reader.answerSep'));
   } else if ('pairs' in k) {
     answerText = Object.entries(k.pairs)
@@ -821,6 +880,11 @@ function Explanation({
     answerText = seqs.map((seq) => orderSentence(it.items, seq, it.ending)).join(' / ');
   }
   const isSample = 'sampleAnswer' in k;
+  // Cambridge writing: the sample is a real candidate's script from the answer book, printed with its own mistakes —
+  // say so, with the examiner's mark and comment, so it is not read as a model to copy word for word
+  const candidate = 'sampleAnswer' in k && isCambridge(k.rubricType) ? k.sampleMark : undefined;
+  const candidateMax = 'keyPoints' in k ? (k.keyPoints ?? []).reduce((n, p) => n + p.weight, 0) : 0;
+  const sampleLabel = candidate && candidateMax ? t('reader.candidateSample', { score: candidate.score, max: candidateMax }) : t('reader.sampleAnswer');
   const ev = k.evidence?.[0];
   return (
     <AnswerFeedback
@@ -836,10 +900,10 @@ function Explanation({
             : r?.correct === null
               ? scored
                 ? t('reader.scored', { points: r.points, max: r.maxPoints })
-                : t('reader.sampleAnswer')
+                : sampleLabel
               : undefined
       }
-      label={isSample ? t('reader.sampleAnswer') : t('reader.correctAnswer')}
+      label={isSample ? sampleLabel : t('reader.correctAnswer')}
       answer={answerText}
       action={
         ev && (
@@ -853,6 +917,7 @@ function Explanation({
       {'rubricZh' in k && k.rubricZh && (
         <AnswerExplain variant="block">{/^要点/.test(k.rubricZh) ? k.rubricZh : t('reader.keyPoints', { text: k.rubricZh })}</AnswerExplain>
       )}
+      {candidate?.noteZh && <AnswerExplain variant="block">{t('reader.examinerNote', { text: candidate.noteZh })}</AnswerExplain>}
       {k.explanationZh && <AnswerExplain variant="block">{k.explanationZh}</AnswerExplain>}
       {k.tipsZh && (
         <AnswerExplain variant="block" tip>

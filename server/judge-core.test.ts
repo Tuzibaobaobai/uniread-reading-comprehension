@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { join } from 'node:path';
-import { arkLlm, extractJson, judgeCall, llmFromEnv, openAiCompatibleLlm } from './judge-core';
+import { arkLlm, extractJson, judgeCall, llmFromEnv, openAiCompatibleLlm, type Llm } from './judge-core';
 
 const contentRoot = join(process.cwd(), 'content');
 const modelReply = {
@@ -70,5 +70,30 @@ describe('judge-core', () => {
   it('rejects unknown items and non-judged questions', async () => {
     await expect(judgeCall({ itemId: '../etc', itemVersion: '1', questionId: 'q1', response: 'x' }, { contentRoot, llm: null })).rejects.toMatchObject({ status: 400 });
     await expect(judgeCall({ itemId: 'ci-g7-w01-fri', itemVersion: '1', questionId: 'q7', response: 'x' }, { contentRoot, llm: null })).rejects.toMatchObject({ status: 400 });
+  });
+
+  it('does not retry a model call that timed out or failed (no double billing), and retries malformed output once', async () => {
+    const call = { itemId: 'ci-g7-w01-fri', itemVersion: '1', questionId: 'q3', response: 'They lose water and absorb fat, timeout test.' };
+    const timeouts: (number | undefined)[] = [];
+    const hang: Llm = {
+      model: 'hang',
+      complete: vi.fn(async (_r, t) => {
+        timeouts.push(t);
+        throw Object.assign(new Error('The operation was aborted due to timeout'), { name: 'TimeoutError' });
+      }),
+    };
+    await expect(judgeCall(call, { contentRoot, llm: hang })).rejects.toMatchObject({ status: 504 });
+    expect(hang.complete).toHaveBeenCalledTimes(1);
+    expect(timeouts[0]).toBeLessThanOrEqual(45000);
+    const down: Llm = { model: 'down', complete: vi.fn(async () => { throw new TypeError('fetch failed'); }) };
+    await expect(judgeCall({ ...call, response: 'down test' }, { contentRoot, llm: down })).rejects.toMatchObject({ status: 502 });
+    expect(down.complete).toHaveBeenCalledTimes(1);
+    let n = 0;
+    const flaky: Llm = { model: 'flaky', complete: vi.fn(async () => (n++ === 0 ? { nonsense: true } : modelReply)) };
+    await expect(judgeCall({ ...call, response: 'They lose water and absorb fat.' }, { contentRoot, llm: flaky })).resolves.toMatchObject({ score: 2 });
+    expect(flaky.complete).toHaveBeenCalledTimes(2);
+    const broken: Llm = { model: 'broken', complete: vi.fn(async () => ({ nonsense: true })) };
+    await expect(judgeCall({ ...call, response: 'broken test' }, { contentRoot, llm: broken })).rejects.toMatchObject({ status: 502 });
+    expect(broken.complete).toHaveBeenCalledTimes(2);
   });
 });

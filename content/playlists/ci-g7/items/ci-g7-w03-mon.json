@@ -97,6 +97,20 @@
         "ipa": "rɪˈstɔː(r)",
         "pos": "v.",
         "meaningZh": "恢复"
+      },
+      {
+        "id": "v-regulation",
+        "headword": "regulation",
+        "ipa": "ˌreɡjuˈleɪʃn",
+        "pos": "n.",
+        "meaningZh": "法规，规定"
+      },
+      {
+        "id": "v-issue",
+        "headword": "issue",
+        "ipa": "ˈɪʃuː",
+        "pos": "n.",
+        "meaningZh": "问题"
       }
     ],
     "blocks": [
@@ -250,7 +264,25 @@
         "content": [
           {
             "t": "text",
-            "v": "In addition, some musicians are open to “AI cloning”. Canadian singer Grimes is one of them. She says people are welcome to use AI to clone her voice for creative purposes. And some other singers are interested in how they may be able to work with AI. In short, an “AI singer” can be used for good or bad. It depends on the choice of the user. For this reason, regulations on related issues should be improved as soon as possible."
+            "v": "In addition, some musicians are open to “AI cloning”. Canadian singer Grimes is one of them. She says people are welcome to use AI to clone her voice for creative purposes. And some other singers are interested in how they may be able to work with AI. In short, an “AI singer” can be used for good or bad. It depends on the choice of the user. For this reason, "
+          },
+          {
+            "t": "vocab",
+            "v": "regulations",
+            "ref": "v-regulation"
+          },
+          {
+            "t": "text",
+            "v": " on related "
+          },
+          {
+            "t": "vocab",
+            "v": "issues",
+            "ref": "v-issue"
+          },
+          {
+            "t": "text",
+            "v": " should be improved as soon as possible."
           }
         ]
       }

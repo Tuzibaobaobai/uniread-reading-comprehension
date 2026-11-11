@@ -22,6 +22,7 @@
     "intro": "在印度孟买的大街小巷，有许多流浪狗。",
     "hasVideo": false
   },
+  "thumbnail": "assets/ci-g4/ci-g4-w03-mon-1.jpg",
   "source": {
     "pdf": "小学英语时文阅读提分训练3+X4年级.pdf",
     "pdfPages": [
@@ -38,7 +39,15 @@
     "version": "1.0.0"
   },
   "article": {
-    "images": [],
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g4/ci-g4-w03-mon-1.jpg",
+        "alt": "A black-and-white photo of a dog wearing goggles and a scarf.",
+        "w": 1200,
+        "h": 781
+      }
+    ],
     "vocabulary": [
       {
         "id": "v-traffic",
@@ -244,6 +253,11 @@
             "v": " by Abodh Aras."
           }
         ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
       }
     ]
   },

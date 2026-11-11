@@ -20,6 +20,16 @@
                 "type": "string",
                 "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
               },
+              "format": {
+                "type": "string",
+                "enum": [
+                  "exam",
+                  "vocab"
+                ]
+              },
+              "exam": {
+                "type": "string"
+              },
               "title": {
                 "type": "string"
               },
@@ -27,6 +37,9 @@
                 "type": "string"
               },
               "cover": {
+                "type": "string"
+              },
+              "banner": {
                 "type": "string"
               },
               "accent": {
@@ -73,7 +86,13 @@
                     "passage_fill",
                     "table_fill",
                     "dialogue_completion",
-                    "weekly_intensive"
+                    "weekly_intensive",
+                    "exam_reading_writing",
+                    "exam_reading",
+                    "exam_writing",
+                    "exam_listening",
+                    "exam_speaking",
+                    "vocab_day"
                   ]
                 }
               },
@@ -83,8 +102,20 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "string",
-                      "pattern": "^[a-z0-9-]+-w\\d{2}-(mon|tue|wed|thu|fri)$"
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "pattern": "^[a-z0-9-]+-w\\d{2}-(mon|tue|wed|thu|fri)$"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^[a-z0-9]+-t\\d+-(rw|r|w|l|s)$"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^[a-z0-9]+-d\\d{2,3}$"
+                        }
+                      ]
                     },
                     "order": {
                       "type": "integer"
@@ -101,6 +132,25 @@
                         "thu",
                         "fri"
                       ]
+                    },
+                    "test": {
+                      "type": "integer"
+                    },
+                    "paper": {
+                      "type": "string",
+                      "enum": [
+                        "reading_writing",
+                        "reading",
+                        "writing",
+                        "listening",
+                        "speaking"
+                      ]
+                    },
+                    "dayNumber": {
+                      "type": "integer"
+                    },
+                    "entryCount": {
+                      "type": "integer"
                     },
                     "title": {
                       "type": "string"
@@ -143,13 +193,10 @@
                   "required": [
                     "id",
                     "order",
-                    "week",
-                    "day",
                     "title",
                     "displayName",
                     "taskType",
                     "wordCount",
-                    "difficulty",
                     "suggestedMinutes",
                     "questionCount"
                   ],

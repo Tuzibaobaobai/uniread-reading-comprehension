@@ -22,6 +22,7 @@
     "intro": "上海一家餐饮店允许你吃“霸王餐”？",
     "hasVideo": false
   },
+  "thumbnail": "assets/ci-g7/ci-g7-w07-tue-1.jpg",
   "source": {
     "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
     "pdfPages": [
@@ -38,7 +39,15 @@
     "version": "1.0.0"
   },
   "article": {
-    "images": [],
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g7/ci-g7-w07-tue-1.jpg",
+        "alt": "A black-and-white photo of two open hands holding a heart.",
+        "w": 1200,
+        "h": 563
+      }
+    ],
     "vocabulary": [
       {
         "id": "v-promise",
@@ -181,6 +190,11 @@
             "v": "Small acts of warmth like this happen all over Shanghai, making the city a kinder place."
           }
         ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
       }
     ]
   },

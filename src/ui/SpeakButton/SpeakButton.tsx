@@ -28,11 +28,11 @@ export type SpeakButtonState = 'idle' | 'recording' | 'recognising';
  * `ui/SpeakButton`). Variants: state (disabled via `disabled`); Recording yes (the designer's recording pill, 19508:7558:
  * cancel ×, restart ↻, the waveform whose green share is the elapsed time — `label` carries the countdown as its
  * accessible name — and the green ✓ that finishes the answer, `stopLabel` its aria-label); Recognising yes (spinning
- * icon, a role="status" span, not a button). Idle shows 回答, or 重录 with the respeak icon when `again`.
+ * icon, a role="status" span, not a button). Idle shows 回答, or 重录 when `again` (the caller's label); both keep the mic icon (Ready frame 2.27).
  */
 export function SpeakButton({
   state = 'idle',
-  again = false,
+  again: _again = false,
   label,
   stopLabel,
   disabled,
@@ -88,8 +88,9 @@ export function SpeakButton({
         {label}
       </span>
     );
+  // Ready frame 2.27: 重录 keeps the mic icon (the ↻ icon is the recording bar's 重新录音)
   return (
-    <SpeakAction icon={again ? respeakIcon : micIcon} onClick={onStart} disabled={disabled}>
+    <SpeakAction icon={micIcon} onClick={onStart} disabled={disabled}>
       {label}
     </SpeakAction>
   );

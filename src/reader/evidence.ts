@@ -4,8 +4,10 @@
  * and paints it with the CSS Custom Highlight API (no DOM mutation, so React stays in control).
  */
 
-/** text that is not part of the English sentence: Chinese glosses, blank chips */
-const SKIP = '.rt-gloss, .blank-chip';
+/** text that is not part of the English sentence: Chinese glosses, blank chips, a dialogue turn's speaker label */
+const SKIP = '.rt-gloss, .blank-chip, .rt-speaker';
+/** elements that start a new line of text — a dialogue turn, a list item, a table cell — like a line break */
+const LINE = new Set(['BR', 'P', 'LI', 'TD', 'TH']);
 
 interface Char {
   node: Text;
@@ -27,7 +29,7 @@ function flatten(root: HTMLElement) {
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT, {
     acceptNode: (n) =>
       n.nodeType === Node.ELEMENT_NODE
-        ? (n as Element).tagName === 'BR'
+        ? LINE.has((n as Element).tagName)
           ? NodeFilter.FILTER_ACCEPT
           : NodeFilter.FILTER_SKIP
         : n.parentElement?.closest(SKIP)
@@ -36,7 +38,7 @@ function flatten(root: HTMLElement) {
   });
   for (let n = walker.nextNode(); n; n = walker.nextNode()) {
     if (n.nodeType === Node.ELEMENT_NODE) {
-      // a line break separates sentences in line-by-line text (never a range endpoint)
+      // a line break (or a new turn / item / cell) separates sentences in line-by-line text (never a range endpoint)
       if (text && !text.endsWith(' ')) {
         text += ' ';
         chars.push(chars[chars.length - 1]);

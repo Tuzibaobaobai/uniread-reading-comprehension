@@ -20,31 +20,61 @@
       "correct": [
         "A"
       ],
-      "explanationZh": "男孩问是不是像平时一样吃三明治，妈妈提议这次烧烤；男孩又想去咖啡馆吃炸鱼薯条，妈妈说八个人吃太贵，最后男孩说“你的主意不错”，也就是烧烤。B 错：炸鱼薯条太贵了；C 错：三明治是他们平时吃的。"
+      "explanationZh": "男孩问是不是像平时一样吃三明治，妈妈提议这次烧烤；男孩又想去咖啡馆吃炸鱼薯条，妈妈说八个人吃太贵，最后男孩说“你的主意不错”，也就是烧烤。B 错：炸鱼薯条太贵了；C 错：三明治是他们平时吃的。",
+      "evidence": [
+        {
+          "block": "x4",
+          "quote": "Your idea sounds good."
+        }
+      ]
     },
     "q2": {
       "correct": [
         "B"
       ],
-      "explanationZh": "女孩说老师把她的名字报在了曲棍球（hockey）名单上，所以这学期她要打曲棍球。A 错：这学期打排球的是男孩；C 错：篮球是男孩的建议，女孩说可以下学期再打。"
+      "explanationZh": "女孩说老师把她的名字报在了曲棍球（hockey）名单上，所以这学期她要打曲棍球。A 错：这学期打排球的是男孩；C 错：篮球是男孩的建议，女孩说可以下学期再打。",
+      "evidence": [
+        {
+          "block": "x6",
+          "quote": "But my teacher’s put my name on the list for hockey, and I’m not sure I’ll like it."
+        }
+      ]
     },
     "q3": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Bella 说去图书馆之前，她要先去店里取新眼镜，所以先去眼镜店。B 错：咖啡馆在眼镜店隔壁，取完眼镜才去；C 错：图书馆是最后才去的。"
+      "explanationZh": "Bella 说去图书馆之前，她要先去店里取新眼镜，所以先去眼镜店。B 错：咖啡馆在眼镜店隔壁，取完眼镜才去；C 错：图书馆是最后才去的。",
+      "evidence": [
+        {
+          "block": "x8",
+          "quote": "OK, Matt, but before that I’ve got to collect my new glasses from the shop."
+        }
+      ]
     },
     "q4": {
       "correct": [
         "C"
       ],
-      "explanationZh": "Amy 说冬天骑车太辛苦，所以现在早点出门走路去上学。A 错：她只坐过一次公交车，而且太吵了；B 错：骑车是她以前的方式。"
+      "explanationZh": "Amy 说冬天骑车太辛苦，所以现在早点出门走路去上学。A 错：她只坐过一次公交车，而且太吵了；B 错：骑车是她以前的方式。",
+      "evidence": [
+        {
+          "block": "x10",
+          "quote": "So I’ve started leaving home early and walking there."
+        }
+      ]
     },
     "q5": {
       "correct": [
         "B"
       ],
-      "explanationZh": "女孩提议买集市上的银耳环，男孩又说可以买手镯，女孩说妈妈不常戴手镯，于是男孩说“就买你建议的吧”，也就是耳环。A 错：项链是去年送的；C 错：妈妈不常戴手镯。"
+      "explanationZh": "女孩提议买集市上的银耳环，男孩又说可以买手镯，女孩说妈妈不常戴手镯，于是男孩说“就买你建议的吧”，也就是耳环。A 错：项链是去年送的；C 错：妈妈不常戴手镯。",
+      "evidence": [
+        {
+          "block": "x12",
+          "quote": "Let’s get what you suggested."
+        }
+      ]
     },
     "q6": {
       "slots": {
@@ -54,7 +84,13 @@
           ]
         }
       },
-      "explanationZh": "Mandy 说妈妈不让她带吉他，所以请朋友带上风筝（bring your kite）。吉他是干扰项。"
+      "explanationZh": "Mandy 说妈妈不让她带吉他，所以请朋友带上风筝（bring your kite）。吉他是干扰项。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "I wanted to take my guitar but Mum says no – so bring your kite instead please."
+        }
+      ]
     },
     "q7": {
       "slots": {
@@ -64,7 +100,13 @@
           ]
         }
       },
-      "explanationZh": "Mandy 的妈妈不喜欢在沙滩上吃饭，但那里有一个公园（park），他们会在那里吃午饭。购物中心是午饭后才可能去的地方。"
+      "explanationZh": "Mandy 的妈妈不喜欢在沙滩上吃饭，但那里有一个公园（park），他们会在那里吃午饭。购物中心是午饭后才可能去的地方。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "My mum doesn’t like eating on the beach but there’s a park."
+        }
+      ]
     },
     "q8": {
       "slots": {
@@ -74,7 +116,13 @@
           ]
         }
       },
-      "explanationZh": "上次去海滩时他们踢了足球，这次 Mandy 订的是排球（volleyball）。football 是上次的运动。"
+      "explanationZh": "上次去海滩时他们踢了足球，这次 Mandy 订的是排球（volleyball）。football 是上次的运动。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "This time I’ve booked for us to play volleyball!"
+        }
+      ]
     },
     "q9": {
       "slots": {
@@ -84,11 +132,19 @@
             "£3.75",
             "three pounds seventy-five",
             "three pounds seventy five",
-            "three pounds seventyfive"
+            "3.75 pounds",
+            "three pounds seventy-five pence",
+            "three pounds seventy five pence"
           ]
         }
       },
-      "explanationZh": "坐船平时要 4.50 英镑，但周日打折，只要 3.75 英镑（three seventy-five）。4.50 是平时的价格。"
+      "explanationZh": "坐船平时要 4.50 英镑，但周日打折，只要 3.75 英镑（three seventy-five）。4.50 是平时的价格。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "A ticket is usually four pounds fifty, but there’s a discount on Sunday and it’s only three seventy-five."
+        }
+      ]
     },
     "q10": {
       "slots": {
@@ -98,101 +154,226 @@
             "18:30",
             "6:30",
             "6.30",
-            "18.30"
+            "18.30",
+            "half past six",
+            "6.30 pm",
+            "6.30 p.m.",
+            "6:30 pm",
+            "6:30 p.m."
           ]
         }
       },
-      "explanationZh": "他们 5:15 离开海滩，6:30（six thirty）回到 Mandy 家；6:45 是她家平时吃晚饭的时间。"
+      "explanationZh": "他们 5:15 离开海滩，6:30（six thirty）回到 Mandy 家；6:45 是她家平时吃晚饭的时间。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "Then we’ll be back at my place at six thirty which is great because my family usually eat at quarter to seven."
+        }
+      ]
     },
     "q11": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Ned 说很高兴他们第一节课就坐在一起，虽然两人住在同一条街上，以前却从没见过，所以是在课上第一次见面。A 错：住在同一条街却没在路上遇见过；C 错：午饭时间只是很开心。"
+      "explanationZh": "Ned 说很高兴他们第一节课就坐在一起，虽然两人住在同一条街上，以前却从没见过，所以是在课上第一次见面。A 错：住在同一条街却没在路上遇见过；C 错：午饭时间只是很开心。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I’m so happy we sat next to each other in our first class, Aisha."
+        }
+      ]
     },
     "q12": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Ned 问 Aisha 开学前担不担心，Aisha 说其实很兴奋，Ned 说“我也是，一点都不害怕”。A 错：他说 not scared at all；C 错：lucky 是他哥哥说他们能上这所学校很幸运。"
+      "explanationZh": "Ned 问 Aisha 开学前担不担心，Aisha 说其实很兴奋，Ned 说“我也是，一点都不害怕”。A 错：他说 not scared at all；C 错：lucky 是他哥哥说他们能上这所学校很幸运。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I felt excited actually."
+        },
+        {
+          "block": "x18",
+          "quote": "Me too."
+        }
+      ]
     },
     "q13": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Aisha 说她喜欢所有的老师，老师们做了很多事帮助他们，Ned 说 That's true，两人都同意老师很好。B 错：Aisha 说不是每个同学都好；C 错：Aisha 说教学楼看起来不怎么样。"
+      "explanationZh": "Aisha 说她喜欢所有的老师，老师们做了很多事帮助他们，Ned 说 That's true，两人都同意老师很好。B 错：Aisha 说不是每个同学都好；C 错：Aisha 说教学楼看起来不怎么样。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "But I like all our teachers."
+        },
+        {
+          "block": "x18",
+          "quote": "That’s true."
+        }
+      ]
     },
     "q14": {
       "correct": [
         "C"
       ],
-      "explanationZh": "Aisha 说历史是她唯一不太喜欢的科目。A 错：地理现在是她最喜欢的；B 错：数学是她在以前学校最喜欢的科目。"
+      "explanationZh": "Aisha 说历史是她唯一不太喜欢的科目。A 错：地理现在是她最喜欢的；B 错：数学是她在以前学校最喜欢的科目。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "History’s the only subject I don’t enjoy much."
+        }
+      ]
     },
     "q15": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Ned 说他以前的学校作业没那么多，Aisha 说她以前的学校作业也很少，两人都认为以前作业更少。B 错：只有 Ned 说要写两小时，Aisha 只花一小时；C 错：只有 Aisha 说作业不难。"
+      "explanationZh": "Ned 说他以前的学校作业没那么多，Aisha 说她以前的学校作业也很少，两人都认为以前作业更少。B 错：只有 Ned 说要写两小时，Aisha 只花一小时；C 错：只有 Aisha 说作业不难。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "Well, we didn’t get so much in my old school."
+        },
+        {
+          "block": "x18",
+          "quote": "We got very little at mine as well."
+        }
+      ]
     },
     "q16": {
       "correct": [
         "B"
       ],
-      "explanationZh": "男孩说这本书是昨天作为奖品得到的，因为他在跑步比赛中得了第一。A 错：他看完后要把书借给 cousin（表亲），书不是从家人那里借来的；C 错：他在书店看过，但钱不够没买。"
+      "explanationZh": "男孩说这本书是昨天作为奖品得到的，因为他在跑步比赛中得了第一。A 错：他看完后要把书借给 cousin（表亲），书不是从家人那里借来的；C 错：他在书店看过，但钱不够没买。",
+      "evidence": [
+        {
+          "block": "x22",
+          "quote": "So I was really pleased when it was given to me as a prize yesterday."
+        }
+      ]
     },
     "q17": {
       "correct": [
         "A"
       ],
-      "explanationZh": "女孩说老师讲了很久手要放在哪里，手指放的位置不同就能弹出不同的声音，弹完手指很疼，爸爸也说到 instrument（乐器），所以是吉他课。B、C 错：网球和舞蹈都不是乐器。"
+      "explanationZh": "女孩说老师讲了很久手要放在哪里，手指放的位置不同就能弹出不同的声音，弹完手指很疼，爸爸也说到 instrument（乐器），所以是吉他课。B、C 错：网球和舞蹈都不是乐器。",
+      "evidence": [
+        {
+          "block": "x24",
+          "quote": "It was OK, Dad, but the teacher spent ages talking about our hands, and where we have to put them."
+        },
+        {
+          "block": "x24",
+          "quote": "Well, the way you hold an instrument is important, isn’t it?"
+        }
+      ]
     },
     "q18": {
       "correct": [
         "C"
       ],
-      "explanationZh": "这个夏天去奶奶家的人太多，男孩只能在奶奶的花园里露营（camp），也就是住帐篷。A 错：奶奶的房子住不下；B 错：把房子改成酒店只是一句玩笑。"
+      "explanationZh": "这个夏天去奶奶家的人太多，男孩只能在奶奶的花园里露营（camp），也就是住帐篷。A 错：奶奶的房子住不下；B 错：把房子改成酒店只是一句玩笑。",
+      "evidence": [
+        {
+          "block": "x26",
+          "quote": "Yeah, but there are so many of us visiting her this summer that I’ll have to camp in her garden."
+        }
+      ]
     },
     "q19": {
       "correct": [
         "C"
       ],
-      "explanationZh": "老师让每个人和同伴比较自己写的答案，一起检查谁对，也就是两人一组检查练习。A 错：数学题大家已经做完了；B 错：讲图形的下一部分是之后才开始的。"
+      "explanationZh": "老师让每个人和同伴比较自己写的答案，一起检查谁对，也就是两人一组检查练习。A 错：数学题大家已经做完了；B 错：讲图形的下一部分是之后才开始的。",
+      "evidence": [
+        {
+          "block": "x28",
+          "quote": "I’d like you to work with a partner and compare what you wrote."
+        },
+        {
+          "block": "x28",
+          "quote": "If you haven’t got the same answers, look at your work carefully together and decide who’s right."
+        }
+      ]
     },
     "q20": {
       "correct": [
         "C"
       ],
-      "explanationZh": "男孩邀请女孩周六和他们一起去森林散步，女孩说 Brilliant，同意了。A 错：骑车只是女孩去男孩家的方式；B 错：他们说的是采蘑菇和留下吃晚饭，没有说一起做特别的食物。"
+      "explanationZh": "男孩邀请女孩周六和他们一起去森林散步，女孩说 Brilliant，同意了。A 错：骑车只是女孩去男孩家的方式；B 错：他们说的是采蘑菇和留下吃晚饭，没有说一起做特别的食物。",
+      "evidence": [
+        {
+          "block": "x30",
+          "quote": "We’re going to have a walk in the forest with my mum."
+        },
+        {
+          "block": "x30",
+          "quote": "Would you like to join us for that on Saturday?"
+        }
+      ]
     },
     "q21": {
       "correct": [
         "H"
       ],
-      "explanationZh": "Sally 喜欢历史，打算带人参观小镇并给他们讲解，所以想当导游（tour guide）。G 错：teacher 是说 Alex 的爸爸。"
+      "explanationZh": "Sally 喜欢历史，打算带人参观小镇并给他们讲解，所以想当导游（tour guide）。G 错：teacher 是说 Alex 的爸爸。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "Well, she loves history – she’s going to show people our town and tell them about it."
+        }
+      ]
     },
     "q22": {
       "correct": [
         "E"
       ],
-      "explanationZh": "妈妈问 Peter 是不是要帮爸爸照看他们的动物，男孩说对，所以 Peter 想当农民（farmer）。B 错：Peter 只是喜欢做饭，想当厨师的是 Tom。"
+      "explanationZh": "妈妈问 Peter 是不是要帮爸爸照看他们的动物，男孩说对，所以 Peter 想当农民（farmer）。B 错：Peter 只是喜欢做饭，想当厨师的是 Tom。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "Is he going to help his dad look after all their animals?"
+        }
+      ]
     },
     "q23": {
       "correct": [
         "G"
       ],
-      "explanationZh": "Amy 吉他弹得很好，但她真正想做的是教孩子们跳舞，所以是老师（teacher）。F 错：她会弹吉他，但不想当音乐家。"
+      "explanationZh": "Amy 吉他弹得很好，但她真正想做的是教孩子们跳舞，所以是老师（teacher）。F 错：她会弹吉他，但不想当音乐家。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "I know, but she really wants to help children learn how to dance."
+        }
+      ]
     },
     "q24": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Tom 钢琴弹得很好，但他喜欢待在厨房，希望将来在酒店做饭，所以想当厨师（chef）。F 错：弹钢琴只是他的特长。"
+      "explanationZh": "Tom 钢琴弹得很好，但他喜欢待在厨房，希望将来在酒店做饭，所以想当厨师（chef）。F 错：弹钢琴只是他的特长。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "He hopes to make the meals in a hotel."
+        }
+      ]
     },
     "q25": {
       "correct": [
         "C"
       ],
-      "explanationZh": "妈妈猜喜欢帮助别人的 Jane 想当医生，男孩说“其实”她想整天看别人的牙齿，也就是当牙医（dentist）。D 错：医生只是妈妈的猜测。"
+      "explanationZh": "妈妈猜喜欢帮助别人的 Jane 想当医生，男孩说“其实”她想整天看别人的牙齿，也就是当牙医（dentist）。D 错：医生只是妈妈的猜测。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "Actually, she’d like to spend all day looking at people’s teeth!"
+        }
+      ]
     }
   },
   "transcripts": {

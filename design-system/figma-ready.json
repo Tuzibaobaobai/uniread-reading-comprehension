@@ -119,6 +119,24 @@
         "screens": []
       },
       "note": "2026-11-11: the screens (2.20 19506:7390, 1.20 19598:7781, 2.03/2.09/2.14/2.18 frames) sit in the Ready sections 真题 / 时文阅读 and are now the target; the proposed components on the RC · Proposed page stay pending"
+    },
+    {
+      "added": "2026-11-12",
+      "code": [
+        "pre-delivery QA 2026-11-12 (uncommitted on develop)"
+      ],
+      "nodes": {
+        "section": "19945:18271",
+        "screens": [
+          "19945:17691",
+          "19945:17918",
+          "19945:18062",
+          "19945:18223"
+        ],
+        "reviewQueueGroup": "19946:16521",
+        "components": []
+      },
+      "note": "v2 copies (originals untouched): 3.28 partial score in color/feedback/warning; 3.24 result pending while 中译英 is marked; 2.20 judge unavailable notice (no 0); 2.03 「从 Part N 继续播放」. The queue group also lists open questions (3.07 vs docs/16, 3.21 vs 3.12 row pitch, sub-44 drawn controls, 1.06 sentence vs paragraph highlight, article 18 vs 22, highlight colour, 1.01 cover crop, 2.03 current number, 2.08 note-form placement, 2.23 callout chips), new UI without frames (candidate sample label, Email title, 1.20 emoticon picker), the font/ipa token proposal and the retired JudgeResult review tag."
     }
   ]
 }

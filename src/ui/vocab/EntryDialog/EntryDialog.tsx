@@ -1,4 +1,5 @@
-import type { ReactNode } from 'react';
+import { useRef, type ReactNode } from 'react';
+import { useModal } from '@/ui/common/Dialog/useModal';
 import './EntryDialog.css';
 
 /**
@@ -7,9 +8,11 @@ import './EntryDialog.css';
  * on a narrow screen). Clicking the backdrop or the close button calls onClose.
  */
 export function EntryDialog({ label, title, closeLabel, onClose, children }: { label: string; title: string; closeLabel: string; onClose: () => void; children: ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useModal(ref, onClose);
   return (
     <div className="dialog-backdrop" role="presentation" onClick={onClose}>
-      <div className="dialog entry-dialog" role="dialog" aria-modal aria-label={label} onClick={(e) => e.stopPropagation()}>
+      <div ref={ref} className="dialog entry-dialog" role="dialog" aria-modal aria-label={label} onClick={(e) => e.stopPropagation()}>
         <h2 className="entry-dialog-title">{title}</h2>
         <button type="button" className="entry-dialog-close" onClick={onClose} aria-label={closeLabel}>
           <svg viewBox="0 0 48 48" aria-hidden fill="none" stroke="currentColor" strokeWidth={4} strokeLinecap="round" strokeLinejoin="round">

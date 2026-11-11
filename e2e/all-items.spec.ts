@@ -28,7 +28,9 @@ test('every item renders', async ({ page }, info) => {
       if ('paper' in it) {
         // exam papers ask for practice / exam mode first; the pane shows the paper title above the Part
         await page.getByRole('button', { name: /练习模式/ }).click();
-        await expect(page.locator('.exam-part-kicker'), it.id).toHaveText(it.title);
+        // Ready frames 2.14–2.23: 「KET真题1-第1套-阅读与写作」 reads 「KET 真题 1 · 第 1 套 · 阅读与写作」
+        const kicker = it.title.split('-').map((p) => p.replace(/([A-Za-z0-9])(?=[\u4e00-\u9fff])|([\u4e00-\u9fff])(?=[A-Za-z0-9])/g, '$1$2 ').trim()).join(' · ');
+        await expect(page.locator('.exam-part-kicker'), it.id).toHaveText(kicker);
       } else await expect(page.locator('.article-title'), it.id).toHaveText(it.title);
       // a table answered on one page (#127) has cells instead of a numbered prompt
       await expect(page.locator('.q-prompt, .section-table').first(), it.id).toBeVisible();

@@ -18,6 +18,8 @@
 .entry-dialog-close svg { width: 100%; height: 100%; }
 @media (hover: hover) and (pointer: fine) { .entry-dialog-close:hover { background: var(--ur-paint-neutral-black-40); } }
 .entry-dialog-body { flex: 1; min-height: 0; overflow-y: auto; }
+/* room inside the scroller for the headword play button's 44 tap ring, which its top edge would clip (layout unchanged) */
+.entry-dialog-body { padding-top: var(--ur-space-4); margin-top: calc(-1 * var(--ur-space-4)); }
 .entry-dialog .entry { padding: 0; border: none; }
 /* the dialog's own paragraph margins / colour must not reach the entry */
 .entry-dialog .entry p { color: inherit; margin-bottom: 0; }

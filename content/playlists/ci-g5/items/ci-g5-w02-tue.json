@@ -10,7 +10,7 @@
   "displayName": "Week 2 Tuesday Self-Driving Car",
   "taskType": {
     "code": "reading_choice",
-    "labelZh": "阅读单选"
+    "labelZh": "阅读理解"
   },
   "meta": {
     "genre": "说明文",
@@ -22,6 +22,7 @@
     "intro": "人类对安全、便捷出行的终极向往——自动驾驶汽车。",
     "hasVideo": false
   },
+  "thumbnail": "assets/ci-g5/ci-g5-w02-tue-1.jpg",
   "source": {
     "pdf": "小学英语时文阅读提分训练3+X5年级.pdf",
     "pdfPages": [
@@ -38,7 +39,15 @@
     "version": "1.0.0"
   },
   "article": {
-    "images": [],
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g5/ci-g5-w02-tue-1.jpg",
+        "alt": "A man reading a magazine in the driver’s seat of a self-driving car with a large screen dashboard.",
+        "w": 1200,
+        "h": 501
+      }
+    ],
     "vocabulary": [
       {
         "id": "v-fasten",
@@ -260,6 +269,11 @@
             }
           ]
         ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
       }
     ]
   },

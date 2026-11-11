@@ -14,6 +14,7 @@ import { QuestionStack, QuestionStackItem } from '@/ui/exam/QuestionStack/Questi
 import { TableCellSelect, TableCellText } from '@/ui/exam/TableCell/TableCell';
 import { Block } from './ArticlePane';
 import { OptionList, QuestionPrompt, type InteractionProps } from './interactions';
+import { judgeFeedback } from '@/lib/judge';
 
 /*
  * Exam Parts answered on one page (section.view, GitHub #82 #86 #87). Every question keeps its own id, response
@@ -412,7 +413,8 @@ function TableExplanations({ props }: { props: InteractionProps }) {
             }
           >
             {pending && t('judge.marking')}
-            {row?.judgement?.feedbackZh && <> {row.judgement.feedbackZh}</>}
+            {row?.scoredBy === 'self' && t('judge.unavailableSelf')}
+            {row?.judgement?.feedbackZh && <> {judgeFeedback(row.judgement, t)}</>}
             {k?.explanationZh && <> {k.explanationZh}</>}
           </AnswerFeedback>
         );

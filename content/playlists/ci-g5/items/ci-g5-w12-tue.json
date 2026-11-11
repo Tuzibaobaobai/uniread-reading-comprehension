@@ -10,7 +10,7 @@
   "displayName": "Week 12 Tuesday Music Makes Us Happy",
   "taskType": {
     "code": "reading_choice",
-    "labelZh": "阅读单选"
+    "labelZh": "阅读理解"
   },
   "meta": {
     "genre": "说明文",
@@ -22,6 +22,7 @@
     "intro": "音乐对人的心情有怎样的影响?",
     "hasVideo": false
   },
+  "thumbnail": "assets/ci-g5/ci-g5-w12-tue-1.jpg",
   "source": {
     "pdf": "小学英语时文阅读提分训练3+X5年级.pdf",
     "pdfPages": [
@@ -38,7 +39,15 @@
     "version": "1.0.0"
   },
   "article": {
-    "images": [],
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g5/ci-g5-w12-tue-1.jpg",
+        "alt": "A close-up of a page of sheet music.",
+        "w": 1200,
+        "h": 775
+      }
+    ],
     "vocabulary": [
       {
         "id": "v-excite",
@@ -317,6 +326,11 @@
             "v": ", music is a good choice!"
           }
         ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
       }
     ]
   },

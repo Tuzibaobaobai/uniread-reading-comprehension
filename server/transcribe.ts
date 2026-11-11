@@ -27,7 +27,8 @@ export async function transcribeCall(body: unknown, opts: { contentRoot?: string
   if (audio.length > MAX_AUDIO_BYTES) throw new HttpError(413, 'recording too long');
   if (!opts.asr) throw new HttpError(503, 'speech recognition not configured');
   const mime = typeof c.mime === 'string' && /^audio\/[\w.+-]+(;.*)?$/.test(c.mime) ? c.mime.split(';')[0] : 'audio/webm';
-  return { text: await opts.asr.transcribe(audio, mime) };
+  // Chinese meanings (zh, f<n>.zh) vs the English 中译英 answer (text)
+  return { text: await opts.asr.transcribe(audio, mime, c.part === 'text' ? 'en' : 'zh') };
 }
 
 export default jsonPost((body) => transcribeCall(body, { asr: asrFromEnv() }), Math.ceil((MAX_AUDIO_BYTES * 4) / 3) + 1000);

@@ -22,6 +22,7 @@
     "intro": "Boxing Day是“拳击日”吗?不是的，是“节礼日”啦!",
     "hasVideo": true
   },
+  "thumbnail": "assets/ci-g5/ci-g5-w11-fri-1.jpg",
   "source": {
     "pdf": "小学英语时文阅读提分训练3+X5年级.pdf",
     "pdfPages": [
@@ -38,7 +39,15 @@
     "version": "1.0.0"
   },
   "article": {
-    "images": [],
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g5/ci-g5-w11-fri-1.jpg",
+        "alt": "Hands opening a gift box on a table covered with wrapped presents and Christmas decorations.",
+        "w": 1200,
+        "h": 779
+      }
+    ],
     "vocabulary": [
       {
         "id": "v-national",
@@ -85,7 +94,6 @@
       {
         "id": "v-stop-by",
         "headword": "stop by",
-        "pos": "phr.",
         "meaningZh": "顺路探访"
       }
     ],
@@ -269,6 +277,11 @@
             "v": "”!"
           }
         ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
       }
     ]
   },

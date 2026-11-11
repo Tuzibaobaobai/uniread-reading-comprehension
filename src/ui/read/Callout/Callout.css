@@ -6,3 +6,6 @@
   color: var(--ur-color-action-primary-strong); font-weight: var(--ur-text-font-system-m-bold-weight); font-size: .85em; line-height: 1.6;
 }
 .rt-callout.is-right { transform: rotate(2deg); }
+/* Ready frame 2.23: the notes as a row of chips under the email — upright, 8 apart, wrapping, 16 under the card */
+.rt-callouts { display: flex; flex-wrap: wrap; gap: var(--ur-space-8); margin: var(--ur-space-16) 0 0; }
+.rt-callouts .rt-callout { margin: 0; transform: none; padding: var(--ur-space-2) var(--ur-space-8); font-size: var(--ur-text-font-system-m-bold-size); line-height: var(--ur-text-font-system-m-bold-line-height); }

@@ -117,7 +117,9 @@ export function SpeakingView(props: InteractionProps) {
       setClips((c) => ({ ...c, [turnId]: URL.createObjectURL(blob) }));
       setState('transcribing');
       try {
-        const text = await staticContent.speak!({ itemId: item.id, questionId: fq.q.id, turnId, audio: blob });
+        const send = () => staticContent.speak!({ itemId: item.id, questionId: fq.q.id, turnId, audio: blob });
+        // one automatic second try with the same recording (a busy or briefly unreachable service), then the message
+        const text = await send().catch(() => new Promise<string>((ok, no) => window.setTimeout(() => send().then(ok, no), 1500)));
         if (!text.trim()) {
           setState('error');
           setError('speaking.errorSilent');

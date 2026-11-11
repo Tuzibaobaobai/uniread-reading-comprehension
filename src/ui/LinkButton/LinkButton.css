@@ -3,4 +3,7 @@
   min-height: 0; padding: 0 var(--ur-space-2); border: none; background: none;
   font: inherit; color: var(--ur-color-action-primary-strong);
   text-decoration: underline; text-underline-offset: calc(var(--ur-space-2) + var(--ur-stroke-default));
+  position: relative;
 }
+/* an inline text link: the tap target grows to 44 high around the words without moving the text */
+.link-button::before { content: ''; position: absolute; inset: min(0px, calc((100% - var(--ur-size-touch-target)) / 2)) 0; }

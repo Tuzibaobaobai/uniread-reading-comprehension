@@ -23,31 +23,65 @@
       "correct": [
         "B"
       ],
-      "explanationZh": "女孩说上学穿的鞋已经买了，只需要一件外套（I just need a coat），就在这家店买。A 错：鞋已经买过了；C 错：数学书在网上买更便宜，爸爸也同意了。"
+      "explanationZh": "女孩说上学穿的鞋已经买了，只需要一件外套（I just need a coat），就在这家店买。A 错：鞋已经买过了；C 错：数学书在网上买更便宜，爸爸也同意了。",
+      "evidence": [
+        {
+          "block": "x4",
+          "quote": "We’ve already bought some school shoes so I just need a coat."
+        }
+      ]
     },
     "q2": {
       "correct": [
         "B"
       ],
-      "explanationZh": "男孩平时周六上午在公园踢足球，但这周朋友们有别的事，他就改去了游泳池（go to the pool instead）。A 错：电影院是他下午要去的地方；C 错：这周他没去踢足球。"
+      "explanationZh": "男孩平时周六上午在公园踢足球，但这周朋友们有别的事，他就改去了游泳池（go to the pool instead）。A 错：电影院是他下午要去的地方；C 错：这周他没去踢足球。",
+      "evidence": [
+        {
+          "block": "x6",
+          "quote": "I usually play football in the park on Saturday mornings, but my friends were doing other things this week so I decided to go to the pool instead."
+        }
+      ]
     },
     "q3": {
       "correct": [
         "A"
       ],
-      "explanationZh": "男孩以为 Amelia 戴眼镜、留金色长发，女孩说头发长度说对了，但颜色其实很深，而且从没见她戴过眼镜。所以她是长黑发、不戴眼镜。B、C 错：她不戴眼镜，C 的头发颜色也不对。"
+      "explanationZh": "男孩以为 Amelia 戴眼镜、留金色长发，女孩说头发长度说对了，但颜色其实很深，而且从没见她戴过眼镜。所以她是长黑发、不戴眼镜。B、C 错：她不戴眼镜，C 的头发颜色也不对。",
+      "evidence": [
+        {
+          "block": "x8",
+          "quote": "You got the length right but it’s actually quite dark."
+        },
+        {
+          "block": "x8",
+          "quote": "I’ve never seen her wearing glasses."
+        }
+      ]
     },
     "q4": {
       "correct": [
         "C"
       ],
-      "explanationZh": "妈妈说蔬菜她已经切好了，请男孩把刀叉等餐具摆到桌上（putting all the knives and forks and things on the table），男孩答应了。A 错：蔬菜妈妈已经切好了；B 错：去超市的是妈妈。"
+      "explanationZh": "妈妈说蔬菜她已经切好了，请男孩把刀叉等餐具摆到桌上（putting all the knives and forks and things on the table），男孩答应了。A 错：蔬菜妈妈已经切好了；B 错：去超市的是妈妈。",
+      "evidence": [
+        {
+          "block": "x10",
+          "quote": "How about putting all the knives and forks and things on the table?"
+        }
+      ]
     },
     "q5": {
       "correct": [
         "B"
       ],
-      "explanationZh": "女孩说她们常去海边的小村子，但这次大家想换换，于是去了山里（went up into the mountains instead）。A 错：她们是离开城市出去玩；C 错：海边小村是她们平时常去的地方。"
+      "explanationZh": "女孩说她们常去海边的小村子，但这次大家想换换，于是去了山里（went up into the mountains instead）。A 错：她们是离开城市出去玩；C 错：海边小村是她们平时常去的地方。",
+      "evidence": [
+        {
+          "block": "x12",
+          "quote": "We often go to this little village by the sea where there’s a nice beach, but we all wanted a change, so we went up into the mountains instead."
+        }
+      ]
     },
     "q6": {
       "slots": {
@@ -57,18 +91,40 @@
           ]
         }
       },
-      "explanationZh": "老师说新的借书证在前台（front desk）领取。information 不对：前台在咨询台（information desk）的对面。"
+      "explanationZh": "老师说新的借书证在前台（front desk）领取。information 不对：前台在咨询台（information desk）的对面。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "You will need a new library card, which is available at the front desk, which you’ll see when you enter the library."
+        }
+      ]
     },
     "q7": {
       "slots": {
         "b7": {
           "accept": [
             "7:45",
-            "seven forty-five"
+            "seven forty-five",
+            "7.45",
+            "19.45",
+            "19:45",
+            "seven forty five",
+            "quarter to eight",
+            "a quarter to eight",
+            "7.45 pm",
+            "7.45 p.m.",
+            "7:45 pm",
+            "7:45 p.m."
           ]
         }
       },
-      "explanationZh": "图书馆每天早 8 点到晚 6 点开放，周二和周四开到 7:45，所以周二 7:45 关门。8 a.m. 和 6 p.m. 是其他日子的开放时间。"
+      "explanationZh": "图书馆每天早 8 点到晚 6 点开放，周二和周四开到 7:45，所以周二 7:45 关门。8 a.m. 和 6 p.m. 是其他日子的开放时间。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "The library will be open from 8 a.m. to 6 p.m. every day and until 7:45 on Tuesdays and Thursdays."
+        }
+      ]
     },
     "q8": {
       "slots": {
@@ -78,7 +134,13 @@
           ]
         }
       },
-      "explanationZh": "新的图书馆经理是 Mrs Carter，老师还把名字拼了出来：C-A-R-T-E-R，一定要拼写正确。"
+      "explanationZh": "新的图书馆经理是 Mrs Carter，老师还把名字拼了出来：C-A-R-T-E-R，一定要拼写正确。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "We have a new manager working in the library, Mrs Carter."
+        }
+      ]
     },
     "q9": {
       "slots": {
@@ -89,7 +151,13 @@
           ]
         }
       },
-      "explanationZh": "老师说学校里任何地方都不能用手机，但可以带自己的平板电脑（tablet）到图书馆做项目作业。phones 不对。"
+      "explanationZh": "老师说学校里任何地方都不能用手机，但可以带自己的平板电脑（tablet）到图书馆做项目作业。phones 不对。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "Please remember you can’t use phones anywhere in the school, but you can bring your tablet to do project work in the library."
+        }
+      ]
     },
     "q10": {
       "slots": {
@@ -99,97 +167,213 @@
           ]
         }
       },
-      "explanationZh": "图书馆每月都有不同主题的展览，第一个是关于时尚（fashion）的。history 只是举例，不是第一个展览的主题。"
+      "explanationZh": "图书馆每月都有不同主题的展览，第一个是关于时尚（fashion）的。history 只是举例，不是第一个展览的主题。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "And we’ll start with a really interesting one about fashion."
+        }
+      ]
     },
     "q11": {
       "correct": [
         "C"
       ],
-      "explanationZh": "Lily 说她起晚了没吃早饭，一直在想吃的（couldn’t stop thinking about food），说明她很饿。A 错：她没说累；B 错：她觉得博物馆还可以（it was OK），并不无聊。"
+      "explanationZh": "Lily 说她起晚了没吃早饭，一直在想吃的（couldn’t stop thinking about food），说明她很饿。A 错：她没说累；B 错：她觉得博物馆还可以（it was OK），并不无聊。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "Except I woke up late and didn’t have time for breakfast – I couldn’t stop thinking about food!"
+        }
+      ]
     },
     "q12": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Johnny 很高兴老师为这次出行订了大巴（book a bus），所以他们是坐大巴去的。B、C 错：从火车站一路走过去的是他妹妹的班级。"
+      "explanationZh": "Johnny 很高兴老师为这次出行订了大巴（book a bus），所以他们是坐大巴去的。B、C 错：从火车站一路走过去的是他妹妹的班级。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I’m glad our teacher decided to book a bus for the trip."
+        }
+      ]
     },
     "q13": {
       "correct": [
         "C"
       ],
-      "explanationZh": "Lily 说她最喜欢了解人为什么会生病、医生怎样帮助病人，也就是健康方面的知识。A 错：月亮和星星的内容只是“有意思”；B 错：关于电的知识她早就知道了。"
+      "explanationZh": "Lily 说她最喜欢了解人为什么会生病、医生怎样帮助病人，也就是健康方面的知识。A 错：月亮和星星的内容只是“有意思”；B 错：关于电的知识她早就知道了。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "The information about the moon and stars was interesting, but my favourite was finding out why people get ill and how doctors help them."
+        }
+      ]
     },
     "q14": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Johnny 说他决定买一个游戏（get a game），因为他更喜欢游戏。A 错：他没买那本书；C 错：图画很好，但他钱不够。"
+      "explanationZh": "Johnny 说他决定买一个游戏（get a game），因为他更喜欢游戏。A 错：他没买那本书；C 错：图画很好，但他钱不够。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I decided to get a game because I enjoy those more."
+        }
+      ]
     },
     "q15": {
       "correct": [
         "C"
       ],
-      "explanationZh": "Lily 希望下次去乡下，了解粮食怎样种植、动物怎样饲养，也就是去农场。A 错：她说 Art’s not for me（艺术不适合我）；B 错：她觉得去农场比参观古堡更有趣。"
+      "explanationZh": "Lily 希望下次去乡下，了解粮食怎样种植、动物怎样饲养，也就是去农场。A 错：她说 Art’s not for me（艺术不适合我）；B 错：她觉得去农场比参观古堡更有趣。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I hope we go to the countryside to find out how our food’s grown and how the animals are looked after."
+        }
+      ]
     },
     "q16": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Gemma 说下车时曲棍球棒从运动包里掉出来砸到了脚，很疼，没法跑，所以她受伤了。B 错：她已经看完牙医回来了；C 错：她带着运动包，没有忘带装备。"
+      "explanationZh": "Gemma 说下车时曲棍球棒从运动包里掉出来砸到了脚，很疼，没法跑，所以她受伤了。B 错：她已经看完牙医回来了；C 错：她带着运动包，没有忘带装备。",
+      "evidence": [
+        {
+          "block": "x22",
+          "quote": "After seeing the dentist, when I was getting out of my mum’s car my hockey stick fell out of my sports bag and hit my foot."
+        },
+        {
+          "block": "x22",
+          "quote": "It’s really painful and I can’t run."
+        }
+      ]
     },
     "q17": {
       "correct": [
         "B"
       ],
-      "explanationZh": "男孩说上周他用英语写了一篇 500 词的故事，还得了奖。A 错：赛跑第一只是故事内容，并不是真的；C 错：参演学校戏剧是姑姑的建议。"
+      "explanationZh": "男孩说上周他用英语写了一篇 500 词的故事，还得了奖。A 错：赛跑第一只是故事内容，并不是真的；C 错：参演学校戏剧是姑姑的建议。",
+      "evidence": [
+        {
+          "block": "x24",
+          "quote": "I won a prize last week, for a 500-word story I did in English."
+        }
+      ]
     },
     "q18": {
       "correct": [
         "C"
       ],
-      "explanationZh": "女孩说那里的曲奇最好吃，男孩同意，还说蛋糕也好吃，所以他们喜欢那里好吃的东西。A 错：男孩说学校里没多少人去那儿；B 错：女孩说那里有点贵。"
+      "explanationZh": "女孩说那里的曲奇最好吃，男孩同意，还说蛋糕也好吃，所以他们喜欢那里好吃的东西。A 错：男孩说学校里没多少人去那儿；B 错：女孩说那里有点贵。",
+      "evidence": [
+        {
+          "block": "x26",
+          "quote": "And the cookies are the best."
+        },
+        {
+          "block": "x26",
+          "quote": "And the cakes."
+        }
+      ]
     },
     "q19": {
       "correct": [
         "C"
       ],
-      "explanationZh": "女孩去滑雪，说整周阳光都很强，出门都得戴太阳镜；最后两晚还下了将近一米的雪，所以天气又冷又晴。A 错：只有最后两晚下了雪；B 错：天天阴天的是她家这里。"
+      "explanationZh": "女孩去滑雪，说整周阳光都很强，出门都得戴太阳镜；最后两晚还下了将近一米的雪，所以天气又冷又晴。A 错：只有最后两晚下了雪；B 错：天天阴天的是她家这里。",
+      "evidence": [
+        {
+          "block": "x28",
+          "quote": "It was so bright all week that I had to wear sunglasses whenever I went outside."
+        },
+        {
+          "block": "x28",
+          "quote": "Then the last two nights, nearly a metre fell."
+        }
+      ]
     },
     "q20": {
       "correct": [
         "A"
       ],
-      "explanationZh": "她们约好在电影院外见面：一个中午搭妈妈的车，另一个的公交车中午前到，于是约在十二点一刻（quarter past）见，所以是在商量见面时间。B 错：只有一人提到想去的服装店；C 错：她们说的是怎么去，不是之后怎么回家。"
+      "explanationZh": "她们约好在电影院外见面：一个中午搭妈妈的车，另一个的公交车中午前到，于是约在十二点一刻（quarter past）见，所以是在商量见面时间。B 错：只有一人提到想去的服装店；C 错：她们说的是怎么去，不是之后怎么回家。",
+      "evidence": [
+        {
+          "block": "x30",
+          "quote": "So see you at quarter past."
+        }
+      ]
     },
     "q21": {
       "correct": [
         "B"
       ],
-      "explanationZh": "女孩说 Alex 去年在橄榄球队，但今天足球队需要人，所以他踢足球（football）。D 错：rugby 是去年的事。"
+      "explanationZh": "女孩说 Alex 去年在橄榄球队，但今天足球队需要人，所以他踢足球（football）。D 错：rugby 是去年的事。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "Last year he was in a rugby team, but today they needed someone for the football team, so he’ll do that because he’s a good runner."
+        }
+      ]
     },
     "q22": {
       "correct": [
         "C"
       ],
-      "explanationZh": "John 本来想打网球，但人太多，所以改打曲棍球（playing hockey instead）。G 错：网球他没打成。"
+      "explanationZh": "John 本来想打网球，但人太多，所以改打曲棍球（playing hockey instead）。G 错：网球他没打成。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "He wanted to do tennis, but there were too many people, so he’s playing hockey instead."
+        }
+      ]
     },
     "q23": {
       "correct": [
         "F"
       ],
-      "explanationZh": "女孩说会在游泳池看到 Sally（We will see her in the pool!），所以她参加游泳。B 错：football 只是说明游泳比赛在足球之后。"
+      "explanationZh": "女孩说会在游泳池看到 Sally（We will see her in the pool!），所以她参加游泳。B 错：football 只是说明游泳比赛在足球之后。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "We will see her in the pool!"
+        }
+      ]
     },
     "q24": {
       "correct": [
         "E"
       ],
-      "explanationZh": "Ben 去年棒球打得很好，但今年年初开始练跑步，要参加 100 米比赛，所以是 running。A 错：棒球是过去的事。"
+      "explanationZh": "Ben 去年棒球打得很好，但今年年初开始练跑步，要参加 100 米比赛，所以是 running。A 错：棒球是过去的事。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "He was, but he started running at the beginning of the year."
+        },
+        {
+          "block": "x33",
+          "quote": "He’s doing the 100 metres."
+        }
+      ]
     },
     "q25": {
       "correct": [
         "G"
       ],
-      "explanationZh": "Mary 说她刚买了新球拍，很想第一次用它，而且不想再打曲棍球了，所以她打网球（tennis）。C 错：hockey 是她不想再参加的项目。"
+      "explanationZh": "Mary 说她刚买了新球拍，很想第一次用它，而且不想再打曲棍球了，所以她打网球（tennis）。C 错：hockey 是她不想再参加的项目。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "I’ve just got a new racket, so I’m excited to use it for the first time."
+        },
+        {
+          "block": "x33",
+          "quote": "I’m glad about that because I didn’t want to do hockey again!"
+        }
+      ]
     }
   },
   "transcripts": {

@@ -97,7 +97,8 @@ export function AnswerFeedback({
         </div>
       )}
       <p className="explain-answer">
-        <span className="explain-label">{label}</span>
+        {/* the head already names it (e.g. 参考答案 when the answer awaits a self-check): don't say it twice */}
+        {label !== head && <span className="explain-label">{label}</span>}
         {answer}
         {score && (
           <span className="vq-points">

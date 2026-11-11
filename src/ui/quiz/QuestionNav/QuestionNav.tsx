@@ -1,3 +1,4 @@
+import { scrollBehavior } from '@/lib/scroll';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ChevronLeft, ChevronRight } from '@/components/Icons';
@@ -96,7 +97,7 @@ function useStripOverflow(ref: RefObject<HTMLDivElement>, current: number, count
   useLayoutEffect(() => {
     const el = ref.current;
     const dot = el?.querySelector<HTMLElement>(':scope > .is-current');
-    if (el && dot) el.scrollTo({ left: dot.offsetLeft - (el.clientWidth - dot.offsetWidth) / 2, behavior: 'smooth' });
+    if (el && dot) el.scrollTo({ left: dot.offsetLeft - (el.clientWidth - dot.offsetWidth) / 2, behavior: scrollBehavior() });
     measure();
   }, [current, count, measure, ref]);
   return hidden;
@@ -111,7 +112,7 @@ export function QuestionStrip({ current, count, children }: { current: number; c
   const ref = useRef<HTMLDivElement>(null);
   const hidden = useStripOverflow(ref, current, count);
 
-  const page = (dir: -1 | 1) => ref.current?.scrollBy({ left: dir * ref.current.clientWidth * 0.8, behavior: 'smooth' });
+  const page = (dir: -1 | 1) => ref.current?.scrollBy({ left: dir * ref.current.clientWidth * 0.8, behavior: scrollBehavior() });
 
   return (
     <div className={`question-strip ${hidden.left ? 'has-left' : ''} ${hidden.right ? 'has-right' : ''}`}>

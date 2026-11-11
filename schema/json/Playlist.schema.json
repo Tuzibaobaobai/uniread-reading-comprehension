@@ -36,6 +36,9 @@
         "cover": {
           "type": "string"
         },
+        "banner": {
+          "type": "string"
+        },
         "accent": {
           "type": "string",
           "pattern": "^#[0-9a-fA-F]{6}$"
@@ -43,8 +46,20 @@
         "itemIds": {
           "type": "array",
           "items": {
-            "type": "string",
-            "pattern": "^[a-z0-9-]+-w\\d{2}-(mon|tue|wed|thu|fri)$"
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9-]+-w\\d{2}-(mon|tue|wed|thu|fri)$"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]+-t\\d+-(rw|r|w|l|s)$"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-z0-9]+-d\\d{2,3}$"
+              }
+            ]
           }
         },
         "version": {

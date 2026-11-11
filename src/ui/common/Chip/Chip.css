@@ -12,3 +12,13 @@
 .chip.is-wrong { border-color: var(--ur-color-feedback-error); background: var(--ur-color-feedback-error-bg); color: var(--ur-color-feedback-error); }
 .chip.is-flag { border-color: var(--ur-color-feedback-warning); color: var(--ur-color-text-strong); }
 .chip.is-flag svg { color: var(--ur-color-feedback-warning); }
+/* 定位原文 (Ready frames 1.05 / 1.06, Figma RC chip 19834:180322): a white 32-high pill without a border, pin 16 + S
+   medium 14 / 24 text; the tap area stays 44 high around it. */
+.chip:has(> .locate-icon) {
+  position: relative; min-height: var(--ur-height-height-4); padding: 0 var(--ur-space-16); border-color: transparent;
+  background: var(--ur-color-background-card);
+  font-size: var(--ur-text-font-system-s-medium-size); line-height: var(--ur-text-font-system-s-medium-line-height);
+  font-weight: var(--ur-text-font-system-s-medium-weight);
+}
+.chip:has(> .locate-icon)::after { content: ''; position: absolute; inset: calc((var(--ur-height-height-4) - var(--ur-size-touch-target)) / 2) 0; }
+.chip > .locate-icon { width: var(--ur-height-height-2); height: var(--ur-height-height-2); }

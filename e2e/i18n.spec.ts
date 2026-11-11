@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }) => {
 test('en-US: playlists and playlist pages', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('html')).toHaveAttribute('lang', 'en-US');
-  await expect(page.locator('.page-title')).toHaveText('Topical Reading');
+  await expect(page.locator('.page-title')).toHaveText('Collections');
   await expect(page.locator('.playlist-card-meta').first()).toHaveText(/^\d+ articles\s*L\d/);
   await expect(page.locator('.playlist-card-meta', { hasText: /\d+ papers/ }).first()).toBeVisible();
 
@@ -77,7 +77,7 @@ test('en-US: 时文阅读 question navigation, then back to zh-CN', async ({ pag
   await expect(zhNav.getByRole('button', { name: '上一题' })).toBeVisible();
   await expect(zhNav.getByRole('button', { name: '第 1 题', exact: true })).toBeVisible();
   await page.goto('/');
-  await expect(page.locator('.page-title')).toHaveText('时文阅读');
+  await expect(page.locator('.page-title')).toHaveText('合集');
 });
 
 test('en-US: task types are named in English; zh-CN keeps the book label', async ({ page }) => {
@@ -128,4 +128,19 @@ test('en-US: 词汇天天练 result and review — English chrome (#106; the des
   await expect(page.getByRole('dialog')).toContainText('Open entry');
   const chrome = await page.locator('.vq-fold-head, .vq-word, .entry-dialog-title').allInnerTexts();
   expect(chrome.join(' ')).not.toMatch(/[一-鿿]/);
+});
+
+test('en-US: an unanswered 中译英 reads in English (the rule verdict is UI text, QA 2026-11-12)', async ({ page }) => {
+  await page.route('**/api/rc/judge', (route) => route.fulfill({ status: 503, json: { error: 'judge model not configured' } }));
+  await page.goto('/#/p/zkv/zkv-d01');
+  await page.getByRole('tab').nth(2).click();
+  await page.getByRole('button', { name: /^Part 6/ }).click();
+  await page.getByRole('button', { name: /^Submit$/ }).click();
+  const confirm = page.getByRole('dialog').getByRole('button', { name: /Submit/ });
+  if (await confirm.count()) await confirm.first().click();
+  await page.locator('.vq-result').getByRole('button').filter({ hasText: /answer/i }).first().click();
+  await page.getByRole('button', { name: /^Part 6/ }).click();
+  const row = page.locator('.vq-row').first();
+  await expect(row).toContainText("You haven't answered this one yet");
+  await expect(row).not.toContainText('还没有作答');
 });

@@ -14,3 +14,5 @@
   color: var(--ur-color-text-secondary); font-size: var(--ur-text-font-system-s-regular-size); line-height: var(--ur-text-font-system-s-regular-line-height);
 }
 .vq-pos-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--ur-space-4); padding-bottom: var(--ur-space-8); }
+/* one face for the whole phonetic line (proposed token font/ipa) */
+.vq-ipa { font-family: var(--ur-font-ipa); }

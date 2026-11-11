@@ -5,7 +5,7 @@ import type { AttemptT, ItemKeyT, LexiconEntryT, LexiconT, VocabDayItemT } from 
 import { staticContent } from '@/lib/content';
 import { localAttempts, newAttempt } from '@/lib/storage';
 import { allQuestions, isAnswered, totals, type Result } from '@/lib/grading';
-import { applyJudgement, fallbackToSelf } from '@/lib/judge';
+import { applyJudgement, emptyJudgement, fallbackToSelf, isBlankResponse } from '@/lib/judge';
 import Loading from '@/components/Loading';
 import { VocabList } from './VocabList';
 import { EntryCard } from '@/ui/vocab/EntryCard/EntryCard';
@@ -16,6 +16,8 @@ import { QuizResult } from '@/ui/quiz/QuizResult/QuizResult';
 import { VocabScan } from './VocabScan';
 import { VocabQuiz, partLabel, type QuizState, type VocabResponses } from './VocabQuiz';
 import { useVisualViewport } from './useVisualViewport';
+import { useModal } from '@/ui/common/Dialog/useModal';
+import FittyText from '@/components/FittyText';
 
 type Tab = 'scan' | 'study' | 'quiz';
 
@@ -51,6 +53,8 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
   const [submitError, setSubmitError] = useState<{ status?: number } | null>(null);
   const [confirm, setConfirm] = useState(0);
   const [entryOpen, setEntryOpen] = useState<string | null>(null);
+  // a review row can point to an entry from another day of the same book (entryRef outside entryIds): fetched on demand
+  const [extraEntries, setExtraEntries] = useState<Map<string, LexiconEntryT>>(new Map());
   const sessionStart = useRef(Date.now());
 
   const [marks, setMarks] = useState<LexiconT['marks']>([]);
@@ -59,6 +63,17 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
     // the legend is optional: without lexicon.json the entries still show
     staticContent.getLexicon(item.lexicon).then((l) => setMarks(l.marks), () => setMarks([]));
   }, [item]);
+  useEffect(() => {
+    if (!entryOpen || !entries || entries.some((e) => e.id === entryOpen) || extraEntries.has(entryOpen)) return;
+    let live = true;
+    staticContent.getEntry(item.lexicon, entryOpen).then(
+      (e) => live && setExtraEntries((m) => new Map(m).set(e.id, e)),
+      () => live && setEntryOpen(null),
+    );
+    return () => {
+      live = false;
+    };
+  }, [entryOpen, entries, extraEntries, item.lexicon]);
 
   const persist = useCallback((a: AttemptT) => {
     setAttempt(a);
@@ -86,15 +101,23 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
   /** 中译英 by the LLM judge against the reference translations; each verdict shows as soon as it arrives (#125) */
   const runJudge = async (a: AttemptT) => {
     const pending = (a.result?.byQuestion ?? []).filter((b) => b.scoredBy === 'pending').map((b) => b.q);
-    const apply = (qid: string, j: Parameters<typeof applyJudgement>[2] | null) =>
-      update((prev) => {
+    const apply = (qid: string, j: Parameters<typeof applyJudgement>[2] | null) => {
+      const change = (prev: AttemptT): AttemptT => {
         if (prev.attemptId !== a.attemptId || !prev.result) return prev;
         const r = prev.result as Result;
         return { ...prev, result: j ? applyJudgement(r, qid, j) : fallbackToSelf(r, [qid]) };
-      });
+      };
+      // saved even when the learner has left the day meanwhile (no re-judging on the next visit)
+      const stored = localAttempts.get(item.id);
+      if (stored) localAttempts.save(change(stored));
+      update(change);
+    };
     await Promise.all(
       pending.map((qid) =>
-        staticContent.judge
+        // #147: unanswered reads 还没有作答 even when the judge is down — no model needed
+        isBlankResponse(a.responses[qid])
+          ? apply(qid, emptyJudgement((a.result as Result).byQuestion.find((b) => b.q === qid)?.maxPoints ?? 0))
+          : staticContent.judge
           ? staticContent.judge
               .judge({ itemId: item.id, itemVersion: item.status.version, questionId: qid, response: String(a.responses[qid] ?? '') })
               .then((j) => apply(qid, j), () => apply(qid, null))
@@ -102,8 +125,39 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
       ),
     );
   };
+  /**
+   * Chinese meanings the model meaning check could not look at (service down / timed out) are not the learner's
+   * mistakes: grade the day again a few times in the background — and again whenever it is opened — and take the new
+   * rule + meaning verdicts for the auto-scored rows (judged 中译英 rows stay as they are)
+   */
+  const recheckMeanings = async (a: AttemptT, tries = 3) => {
+    for (let i = 0; i < tries; i++) {
+      if (i) await new Promise((ok) => window.setTimeout(ok, 4000 * i));
+      let fresh: Result;
+      try {
+        fresh = (await staticContent.grade(item, a.responses, { hinted: a.hinted })).result as Result;
+      } catch {
+        continue;
+      }
+      if (fresh.meaningUnchecked?.length) continue;
+      const change = (prev: AttemptT): AttemptT => {
+        if (prev.attemptId !== a.attemptId || !prev.result) return prev;
+        const r = prev.result as Result;
+        const byQuestion = r.byQuestion.map((b) => (b.scoredBy && b.scoredBy !== 'auto' ? b : (fresh.byQuestion.find((f) => f.q === b.q) ?? b)));
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { meaningUnchecked, ...rest } = r;
+        return { ...prev, result: { ...rest, ...totals(byQuestion), byQuestion } };
+      };
+      const stored = localAttempts.get(item.id);
+      if (stored) localAttempts.save(change(stored));
+      update(change);
+      return;
+    }
+  };
+
   useEffect(() => {
     if (!submitted || !attempt.result) return;
+    if ((attempt.result as Result).meaningUnchecked?.length) void recheckMeanings(attempt);
     // #147: 中译英 left to self-check because the judge was down are tried again when the attempt is opened again
     const r = attempt.result as Result;
     if (staticContent.judge && r.byQuestion.some((b) => b.scoredBy === 'self')) {
@@ -134,6 +188,7 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
       persist(done);
       setView('result');
       void runJudge(done);
+      if (graded.result.meaningUnchecked?.length) void recheckMeanings(done);
     } catch (e) {
       setSubmitError({ status: (e as { status?: number }).status });
     } finally {
@@ -143,7 +198,8 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
 
   /** a new attempt; `wrongOnly` keeps the questions answered right (read-only) so only the rest are practised */
   const retry = (wrongOnly: boolean) => {
-    const right = wrongOnly && result ? result.byQuestion.filter((b) => b.correct === true).map((b) => b.q) : [];
+    // 只练错题: answers right — and translations not marked yet, which keep their answer and are marked again — stay
+    const right = wrongOnly && result ? result.byQuestion.filter((b) => b.correct === true || isAwaiting(b)).map((b) => b.q) : [];
     const fresh = newAttempt(item.id, item.status.version);
     const keepResp = Object.fromEntries(right.map((q) => [q, attempt.responses[q]]).filter(([, v]) => v !== undefined));
     sessionStart.current = Date.now();
@@ -173,6 +229,15 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
     item,
     responses,
     setResponse: (qid, value) => update((a) => (a.status === 'submitted' ? a : { ...a, responses: { ...a.responses, [qid]: value } })),
+    // one field of a multi-part answer, merged into the latest saved answer (not a copy from the last render, which
+    // could drop a field typed just before when two updates land in one frame)
+    setField: (qid, field, v) =>
+      update((a) => {
+        if (a.status === 'submitted') return a;
+        const prev = a.responses[qid];
+        const rec = prev && typeof prev === 'object' && !Array.isArray(prev) ? (prev as Record<string, string>) : {};
+        return { ...a, responses: { ...a.responses, [qid]: { ...rec, [field]: v } } };
+      }),
     hinted,
     kept,
     review: view === 'review' ? review : null,
@@ -193,7 +258,7 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
   );
 
   const entryById = new Map(entries?.map((e) => [e.id, e]));
-  const open = entryOpen ? entryById.get(entryOpen) : undefined;
+  const open = entryOpen ? (entryById.get(entryOpen) ?? extraEntries.get(entryOpen)) : undefined;
 
   return (
     <div className={`vocab-day tab-${tab}`}>
@@ -239,18 +304,20 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
         </section>
       )}
       {confirm > 0 && (
-        <div className="dialog-backdrop" role="presentation" onClick={() => setConfirm(0)}>
+        <ModalShell onClose={() => setConfirm(0)}>
           <div className="dialog" role="dialog" aria-modal aria-labelledby="vq-confirm" onClick={(e) => e.stopPropagation()}>
             <h2 id="vq-confirm">{t('vocab.quiz.unanswered', { count: confirm })}</h2>
             <p>{t('reader.unansweredHint')}</p>
             <div className="dialog-actions">
-              <QuizButton onClick={() => void submit()}>{t('reader.submitAnyway')}</QuizButton>
+              <QuizButton onClick={() => void submit()}>
+                <FittyText>{t('reader.submitAnyway')}</FittyText>
+              </QuizButton>
               <QuizButton variant="primary" autoFocus onClick={() => setConfirm(0)}>
-                {t('reader.keepAnswering')}
+                <FittyText>{t('reader.keepAnswering')}</FittyText>
               </QuizButton>
             </div>
           </div>
-        </div>
+        </ModalShell>
       )}
       {open && (
         <EntryDialog label={open.headword} title={t('vocab.result.openEntry')} closeLabel={t('common.close')} onClose={() => setEntryOpen(null)}>
@@ -260,6 +327,9 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
     </div>
   );
 }
+
+/** a judged answer with no mark yet: still being marked, or left for re-judging while the judge was down (#147) */
+const isAwaiting = (b: Result['byQuestion'][number]) => b.scoredBy === 'pending' || b.scoredBy === 'self';
 
 /** Figma Quiz 完成结果 (15643-204521): passed / not passed, pass rate, each 大题, View Answers / Try Again */
 function ResultView({
@@ -278,19 +348,26 @@ function ResultView({
   const { t } = useTranslation();
   const total = item.meta.totalPoints;
   const pending = result.byQuestion.some((b) => b.scoredBy === 'pending');
-  const percent = Math.round((result.score / total) * 100);
-  const passed = percent >= item.meta.passPercent;
-  const wrong = result.byQuestion.filter((b) => b.correct !== true).length;
+  // 中译英 still being marked, or left unmarked while the judge was down: neither right nor wrong yet
+  const awaiting = result.byQuestion.filter(isAwaiting);
+  const open = awaiting.reduce((n, b) => n + b.maxPoints, 0);
+  const passMark = (item.meta.passPercent * total) / 100;
+  // the result is only final when the unmarked answers cannot change it: passed even if they all score 0, or not passed
+  // even if they all score full marks
+  const passed = result.score >= passMark - 1e-6;
+  const decided = passed || result.score + open < passMark - 1e-6;
+  const wrong = result.byQuestion.filter((b) => b.correct !== true && !isAwaiting(b)).length;
   return (
     <QuizResult
       pass={passed}
-      title={passed ? t('vocab.result.passed') : t('vocab.result.failed')}
+      title={!decided ? t('vocab.result.awaitingTitle') : passed ? t('vocab.result.passed') : t('vocab.result.failed')}
       // #140: a whole-number score (some 高考 blanks are worth 0.88 of a point) and the pass mark in points
-      score={t('vocab.result.score', { score: Math.round(result.score), total, pass: Math.round((item.meta.passPercent * total) / 100) })}
-      pending={pending ? t('vocab.result.pending') : undefined}
+      score={t('vocab.result.score', { score: Math.round(result.score), total, pass: Math.round(passMark) })}
+      pending={pending ? t('vocab.result.pending') : awaiting.length ? t('vocab.result.unjudged') : undefined}
       parts={item.sections.map((s, i) => {
         const rows = s.questions.map((q) => result.byQuestion.find((b) => b.q === q.id));
         const right = rows.filter((r) => r?.correct === true).length;
+        const marking = rows.some((r) => r && isAwaiting(r));
         const from = s.questions[0]?.number;
         const to = s.questions[s.questions.length - 1]?.number;
         const range = from === to ? `${from}` : `${from}–${to}`;
@@ -299,9 +376,11 @@ function ResultView({
           kicker: t('vocab.result.partKicker', { n: i + 1 }),
           range: from === to ? t('vocab.result.partRangeOne', { n: from }) : t('vocab.result.partRange', { from, to }),
           // #140: each 大题 as questions right / questions, not points
-          points: `${right}/${s.questions.length}`,
+          points: marking ? t('vocab.result.partAwaiting') : `${right}/${s.questions.length}`,
           // #147: a 中译英 not marked (judge down → self-check, or still marking) is neither right nor wrong
-          marks: rows.map((r) => (r?.correct === true ? true : r?.scoredBy === 'self' || r?.scoredBy === 'pending' ? null : false)),
+          marks: rows.map((r) =>
+            r?.correct === true ? true : r?.scoredBy === 'self' || r?.scoredBy === 'pending' ? null : r && r.points > 0 ? ('partial' as const) : false,
+          ),
           label: t('vocab.result.partCard', { part: partLabel(t, i), range, score: `${right}/${s.questions.length}` }),
         };
       })}
@@ -322,5 +401,16 @@ function ResultView({
           }
         : { primary: { label: t('vocab.result.view'), onClick: onReview, disabled: !reviewReady } })}
     />
+  );
+}
+
+/** backdrop of the submit confirm: modal for keyboard / screen readers (focus trap, Esc, inert page) */
+function ModalShell({ onClose, children }: { onClose: () => void; children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useModal(ref, onClose);
+  return (
+    <div ref={ref} className="dialog-backdrop" role="presentation" onClick={onClose}>
+      {children}
+    </div>
   );
 }

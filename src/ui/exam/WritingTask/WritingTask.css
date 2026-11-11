@@ -13,3 +13,19 @@
   border: var(--ur-stroke-default) solid var(--ur-color-border-default); border-radius: var(--ur-radius-xs);
 }
 .stimulus.is-box p { margin: 0; word-spacing: .5em; }
+/* Ready frames 2.18 / 2.19 / 2.23: the printed task under the title — L 18 / 28 regular, its lead-in and word count
+   in bold (the content's own bold), 16 under the title */
+.task-body {
+  margin: 0 0 var(--ur-space-16);
+  font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
+  color: var(--ur-color-text-primary);
+}
+/* line by line (TaskLines): bold lead-in, the points as a list 16 apart with a small dot, a bold word-count line */
+.task-body p { margin: 0 0 var(--ur-space-16); }
+.task-body p:last-child { margin-bottom: 0; }
+.task-body :is(.task-lead, .task-count) { font-weight: var(--ur-text-font-system-l-bold-weight); }
+.task-body .task-points { margin: 0 0 var(--ur-space-16); padding: 0; list-style: none; display: grid; gap: var(--ur-space-16); }
+.task-body .task-points li { position: relative; padding-left: calc(var(--ur-space-20) + var(--ur-space-2)); }
+.task-body .task-points li::before { content: '•'; position: absolute; left: var(--ur-space-8); }
+/* Ready frames 2.18 / 2.24: a paper with no material pane is an 880-wide card (11 × 80) */
+.reader > .reader-body.no-left { grid-template-columns: minmax(0, calc(var(--ur-space-80) * 11)); }

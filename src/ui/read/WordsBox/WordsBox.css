@@ -20,3 +20,5 @@
 .words-ipa { color: var(--ur-color-text-secondary); }
 .words-pos { color: var(--ur-color-text-secondary); }
 .words-zh { color: var(--ur-color-text-primary); }
+/* one face for the whole phonetic line (proposed token font/ipa) */
+.words-ipa { font-family: var(--ur-font-ipa); }

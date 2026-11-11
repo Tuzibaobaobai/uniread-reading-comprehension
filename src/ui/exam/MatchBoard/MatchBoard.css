@@ -16,19 +16,19 @@
 .match-board-people { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--ur-space-8); }
 .match-board-options { display: grid; gap: var(--ur-space-8); }
 .match-board-person, .match-board-option {
-  width: 100%; min-height: var(--ur-size-touch-target);
-  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: calc(var(--ur-space-8) + var(--ur-space-2));
-  padding: calc(var(--ur-space-8) + var(--ur-space-2)) calc(var(--ur-space-12) + var(--ur-space-2));
-  border: var(--ur-stroke-default) solid var(--ur-color-border-default); border-radius: var(--ur-radius-s);
+  width: 100%;
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--ur-space-8);
+  min-height: var(--ur-height-height-7); padding: var(--ur-space-12);
+  border: var(--ur-stroke-default) solid var(--ur-color-border-divider); border-radius: var(--ur-radius-s);
   background: var(--ur-color-background-card);
   text-align: left; font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height);
   color: var(--ur-color-text-primary);
 }
-.match-board-person.is-active {
-  border-color: var(--ur-color-action-primary);
-  box-shadow: 0 0 0 calc(var(--ur-space-2) + var(--ur-stroke-default)) var(--ur-color-action-primary-soft);
-}
-.match-board-person.is-example { background: var(--ur-color-background-subtle); color: var(--ur-color-text-secondary); }
+/* Ready frame 2.10 (RC/Quiz/MatchItem): the active person brand-soft with a brand border; the printed example paired
+   in color/pair/1 on both sides */
+.match-board-person.is-active { border-color: var(--ur-color-action-primary); background: var(--ur-color-action-primary-soft); }
+.match-board-person.is-example { border-color: var(--ur-color-pair-1); }
+.match-board-person.is-example .letter-badge.match-board-badge { border-color: var(--ur-color-pair-1); background: var(--ur-color-pair-1); }
 .match-board-person.is-correct { border-color: var(--ur-color-feedback-success); background: var(--ur-color-feedback-success-bg); }
 .match-board-person.is-wrong { border-color: var(--ur-color-feedback-error); background: var(--ur-color-feedback-error-bg); }
 /* the answer badge: ui/LetterBadge kept round at 2em with a dashed ring while empty */
@@ -41,7 +41,7 @@
 .match-board-answer { grid-column: 2 / -1; color: var(--ur-color-feedback-error); font-weight: var(--ur-text-font-system-m-bold-weight); }
 .match-board-option.is-used { background: var(--ur-color-background-subtle); color: var(--ur-color-text-secondary); }
 .match-board-option.is-here { border-color: var(--ur-color-action-primary); }
-.match-board-option.is-example { text-decoration: line-through; opacity: var(--ur-opacity-disabled); }
+.match-board-option.is-example { border-color: var(--ur-color-pair-1); }
 .match-board-option:disabled:not(.is-example) { cursor: default; }
 .match-board-used {
   font-size: var(--ur-text-font-system-s-bold-size); font-weight: var(--ur-text-font-system-s-bold-weight);
@@ -51,3 +51,8 @@
   .match-board-option:hover:not(:disabled), .match-board-person:hover:not(:disabled) { border-color: var(--ur-color-action-primary); }
 }
 .match-board-letter.is-bare { min-width: 1.2em; }
+.match-board-option.is-example .match-board-used {
+  min-width: calc(var(--ur-size-icon-m) + var(--ur-space-4)); height: calc(var(--ur-size-icon-m) + var(--ur-space-4));
+  display: grid; place-items: center; border-radius: var(--ur-radius-xs);
+  background: var(--ur-color-pair-1); color: var(--ur-color-text-on-action);
+}

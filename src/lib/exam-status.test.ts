@@ -37,6 +37,24 @@ describe('exam paper status (#70)', () => {
   });
 });
 
+describe('final test 2026-11-12', () => {
+  it('below the reported range shows the exam\'s own floor: A2 Key <82, B1 Preliminary <102', () => {
+    const byQuestion = Array.from({ length: 32 }, (_, i) => ({ q: `q${i + 1}`, correct: false, points: 0, maxPoints: 1 }));
+    const done = { ...base, itemId: 'pet1-t1-r', status: 'submitted' as const, result: { score: 0, maxScore: 32, byQuestion } };
+    expect(examStatusLabel(examStatus(done, 'reading', 45, Date.now(), 'b1'))).toBe('原始分 0/32 · 换算分 <102');
+    const ket = { ...done, result: { score: 0, maxScore: 25, byQuestion: byQuestion.slice(0, 25) } };
+    expect(examStatusLabel(examStatus(ket, 'listening', 35, Date.now(), 'a2'))).toBe('原始分 0/25 · 换算分 <82');
+  });
+  it('a skill waiting for the AI shows no raw mark (not "0"); the other skill keeps its mark', () => {
+    const reading = Array.from({ length: 30 }, (_, i) => ({ q: `q${i + 1}`, correct: i < 20, points: i < 20 ? 1 : 0, maxPoints: 1 }));
+    const writing = ['q31', 'q32'].map((q) => ({ q, correct: null, points: 0, maxPoints: 15, scoredBy: 'self' as const }));
+    const done = { ...base, itemId: 'ket1-t1-rw', status: 'submitted' as const, result: { score: 20, maxScore: 30, byQuestion: [...reading, ...writing] } };
+    expect(examStatusLabel(examStatus(done, 'reading_writing', 60))).toBe('阅读原始分 20/30 · 写作待 AI 批改');
+    const pending = { ...done, result: { ...done.result, byQuestion: [...reading, ...writing.map((w) => ({ ...w, scoredBy: 'pending' as const }))] } };
+    expect(examStatusLabel(examStatus(pending, 'reading_writing', 60))).toBe('阅读原始分 20/30 · 写作评分中');
+  });
+});
+
 describe('KET overall score (#68)', () => {
   const r = (skill: SkillReport['skill'], scale: number | null): SkillReport => ({ skill, raw: 0, max: 0, scaleMax: 0, scale, pending: false });
   it('is the average of the four skills, only when all four are scored', () => {

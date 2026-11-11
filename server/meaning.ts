@@ -6,6 +6,7 @@
  */
 import { createHash } from 'node:crypto';
 import { arkFromEnv, arkText, type ArkOpts } from './ark';
+import { h1fetch } from './h1fetch';
 import type { ItemKeyT, VocabDayItemT } from '@schema';
 import { allQuestions, normalizeText, type ResponseValue, type Result } from '../src/lib/grading';
 
@@ -58,7 +59,7 @@ export function openAiMeaningCheck(opts: { baseUrl: string; apiKey: string; mode
       const todo = asks.filter((a) => !cache.has(sig(a)));
       if (todo.length) {
         const user = JSON.stringify(todo.map((a) => ({ id: a.id, word: a.word, pos: a.pos, accepted: a.accept.join('；'), student: a.given.slice(0, 40) })));
-        const res = await fetch(`${opts.baseUrl.replace(/\/$/, '')}/chat/completions`, {
+        const res = await h1fetch(`${opts.baseUrl.replace(/\/$/, '')}/chat/completions`, {
           method: 'POST',
           headers: { 'content-type': 'application/json', authorization: `Bearer ${opts.apiKey}` },
           signal: AbortSignal.timeout(opts.timeoutMs ?? 7000),

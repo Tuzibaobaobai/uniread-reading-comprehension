@@ -22,3 +22,9 @@
   .part-grid-cell:hover:not(:disabled) { background: var(--ur-color-background-subtle); }
 }
 .part-grid-letter.is-bare { min-width: 1.5em; font-weight: inherit; }
+/* Ready frame 2.15: the answer columns are 72 wide each and the question column takes the rest; a person's name under
+   the letter wraps inside its column (S 14 / 24) */
+.part-grid { table-layout: fixed; }
+.part-grid thead th:not(:first-child), .part-grid td { width: var(--ur-height-height-9); }
+.part-grid thead th:not(:first-child) { overflow-wrap: anywhere; font-size: var(--ur-text-font-system-s-bold-size); line-height: var(--ur-text-font-system-s-bold-line-height); }
+.part-grid thead th:not(:first-child) .part-grid-letter { font-size: var(--ur-text-font-system-l-bold-size); }

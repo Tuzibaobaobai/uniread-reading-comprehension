@@ -8,6 +8,9 @@
   font-weight: var(--ur-text-font-system-s-medium-weight); color: var(--ur-paint-neutral-black-80);
 }
 .vq-fold-head::-webkit-details-marker { display: none; }
+/* 24 drawn, 44 to tap: the hit area grows above and below the label, the layout is unchanged */
+.vq-fold-head { position: relative; }
+.vq-fold-head::before { content: ''; position: absolute; inset: calc((100% - var(--ur-size-touch-target)) / 2) 0; }
 /* the fold button (RC/Common/Disclosure toggle): a 20 white square, the chevron points down when closed */
 .vq-fold-btn {
   flex: none; width: var(--ur-size-icon-s); height: var(--ur-size-icon-s); display: grid; place-items: center;

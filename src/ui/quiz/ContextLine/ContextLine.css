@@ -9,3 +9,23 @@
 
 /* Mode exam: the blank's sentence is already in the left pane — repeated only on narrow screens (#83) */
 @media (min-width: 1024px) { .exam-context { display: none; } }
+
+/* Form (Ready frame 2.08): the notes table as label / answer rows in the grey box — 16 padding, L bold title,
+   secondary labels, primary answers, gaps as 130-wide lines, no cell borders */
+.context-form { padding: var(--ur-space-16); }
+.context-form.is-note { padding: 0; margin: 0 0 var(--ur-space-24); }
+.context-form .rt-table-wrap { margin: 0; overflow: visible; }
+.context-form .rt-table { width: 100%; border-collapse: collapse; font-size: inherit; line-height: inherit; }
+.context-form .rt-table caption {
+  caption-side: top; text-align: left; padding: 0 0 var(--ur-space-8); color: var(--ur-color-text-primary);
+  font-weight: var(--ur-text-font-system-l-bold-weight);
+}
+.context-form .rt-table :is(th, td) {
+  border: none; background: none; padding: var(--ur-space-4) 0; vertical-align: bottom; color: var(--ur-color-text-primary);
+  font-weight: var(--ur-text-font-system-l-regular-weight);
+}
+.context-form .rt-table td:first-child:not(:only-child) { width: 40%; padding-right: var(--ur-space-16); color: var(--ur-color-text-secondary); }
+.context-form .blank-input { min-width: calc(var(--ur-space-80) + var(--ur-space-48) + var(--ur-space-2)); }
+/* every gap of the form is the same 130-wide, 40-high line (the other questions' gaps keep their number / answer) */
+.context-form .rt-table td:last-child { height: var(--ur-height-height-5); }
+.context-form .context-blank { display: inline-flex; justify-content: center; min-width: calc(var(--ur-space-80) + var(--ur-space-48) + var(--ur-space-2)); }

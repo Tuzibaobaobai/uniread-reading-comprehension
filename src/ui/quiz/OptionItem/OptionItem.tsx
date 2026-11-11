@@ -97,9 +97,9 @@ export function OptionItem({
 }
 
 /** the radiogroup around the option rows; Media image lays the picture options side by side */
-export function OptionGroup({ images, locked, size, children }: { images?: boolean; locked: boolean; size?: OptionSize; children: ReactNode }) {
+export function OptionGroup({ images, imageList, locked, size, children }: { images?: boolean; imageList?: boolean; locked: boolean; size?: OptionSize; children: ReactNode }) {
   const contextSize = useContext(OptionSizeContext);
-  const cls = ['options', images ? 'has-images' : '', (size ?? contextSize) === 'compact' ? 'is-compact' : ''].filter(Boolean).join(' ');
+  const cls = ['options', images ? 'has-images' : '', images && imageList ? 'is-image-list' : '', (size ?? contextSize) === 'compact' ? 'is-compact' : ''].filter(Boolean).join(' ');
   return (
     <div className={cls} role="radiogroup" aria-readonly={locked || undefined}>
       {children}

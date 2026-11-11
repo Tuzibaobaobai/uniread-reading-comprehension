@@ -4,6 +4,7 @@ import { Tag } from '../../common/Tag/Tag';
 import thumbsUp from '@/assets/icons/answer-thumbs-up.svg';
 import bulb from '@/assets/icons/answer-bulb.svg';
 import './JudgeResult.css';
+import { fmtPoints } from '@/lib/judge';
 
 export type JudgeMet = 'yes' | 'partial' | 'no';
 
@@ -39,6 +40,7 @@ export function JudgeResult({
   scoreText,
   chips,
   reference,
+  action,
 }: {
   /** aria-label of the card */
   label: string;
@@ -66,13 +68,15 @@ export function JudgeResult({
   chips?: { id: string; text: string; kind: 'good' | 'tip' }[];
   /** Layout line: the reference translation line (already formatted) */
   reference?: string;
+  /** Layout line: a link after the reference (词汇天天练: 「查看词条」 when not full marks, docs/16 §3.3) */
+  action?: ReactNode;
 }) {
   const level = score >= max ? 'is-full' : score > 0 ? 'is-partial' : 'is-zero';
   if (layout === 'line')
     return (
       <section className={`judge is-line ${level}`} aria-label={label}>
         <div className="judge-head">
-          <span className="judge-score">{scoreText ?? `${score} / ${max}`}</span>
+          <span className="judge-score">{scoreText ?? `${fmtPoints(score)} / ${fmtPoints(max)}`}</span>
           {chips && chips.length > 0 && (
             <ul className="judge-chips">
               {chips.map((c) => (
@@ -91,14 +95,15 @@ export function JudgeResult({
         </div>
         {feedback && <p className="judge-feedback">{feedback}</p>}
         {reference && <p className="judge-reference">{reference}</p>}
+        {action}
       </section>
     );
   return (
     <section className={`judge ${level}`} aria-label={label}>
       <div className="judge-head">
         <span className="judge-score">
-          {score}
-          <span className="judge-max"> / {max}</span>
+          {fmtPoints(score)}
+          <span className="judge-max"> / {fmtPoints(max)}</span>
         </span>
         {tag && (
           <Tag tone="accent" className="judge-tag">
@@ -162,9 +167,9 @@ export function JudgeResult({
 }
 
 /** Pending yes: the judge is still marking */
-export function JudgePending({ children }: { children: ReactNode }) {
+export function JudgePending({ children, notice = false }: { children: ReactNode; /** a standing notice (AI marking unavailable): no pulse, stronger text */ notice?: boolean }) {
   return (
-    <div className="judge is-pending" role="status">
+    <div className={`judge is-pending${notice ? ' is-notice' : ''}`} role="status">
       {children}
     </div>
   );

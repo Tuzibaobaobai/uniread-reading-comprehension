@@ -9,10 +9,29 @@
           "const": "1.0"
         },
         "itemId": {
-          "type": "string",
-          "pattern": "^[a-z0-9-]+-w\\d{2}-(mon|tue|wed|thu|fri)$"
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9-]+-w\\d{2}-(mon|tue|wed|thu|fri)$"
+            },
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9]+-t\\d+-(rw|r|w|l|s)$"
+            },
+            {
+              "type": "string",
+              "pattern": "^[a-z0-9]+-d\\d{2,3}$"
+            }
+          ]
         },
         "answerSource": {
+          "type": "string",
+          "enum": [
+            "official",
+            "generated"
+          ]
+        },
+        "explanationSource": {
           "type": "string",
           "enum": [
             "official",
@@ -219,6 +238,92 @@
                   "evidence": {
                     "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/evidence"
                   },
+                  "word": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "minItems": 1
+                  },
+                  "pos": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "minItems": 1
+                  },
+                  "zh": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "word",
+                  "pos",
+                  "zh"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "explanationZh": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/explanationZh"
+                  },
+                  "tipsZh": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/tipsZh"
+                  },
+                  "evidence": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/evidence"
+                  },
+                  "forms": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "object",
+                      "properties": {
+                        "word": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "minItems": 1
+                        },
+                        "zh": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "minItems": 1
+                        }
+                      },
+                      "required": [
+                        "word",
+                        "zh"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "forms"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "explanationZh": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/explanationZh"
+                  },
+                  "tipsZh": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/tipsZh"
+                  },
+                  "evidence": {
+                    "$ref": "#/definitions/ItemKey/properties/answers/additionalProperties/anyOf/0/properties/evidence"
+                  },
                   "sampleAnswer": {
                     "type": "string"
                   },
@@ -229,8 +334,19 @@
                     "type": "string",
                     "enum": [
                       "content",
-                      "opinion"
+                      "opinion",
+                      "cambridge_a2_writing",
+                      "cambridge_a2_speaking",
+                      "cambridge_b1_writing",
+                      "cambridge_b1_speaking",
+                      "translation"
                     ]
+                  },
+                  "references": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
                   },
                   "keyPoints": {
                     "type": "array",
@@ -291,6 +407,22 @@
                       ],
                       "additionalProperties": false
                     }
+                  },
+                  "sampleMark": {
+                    "type": "object",
+                    "properties": {
+                      "score": {
+                        "type": "number",
+                        "minimum": 0
+                      },
+                      "noteZh": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "score"
+                    ],
+                    "additionalProperties": false
                   }
                 },
                 "required": [
@@ -299,6 +431,437 @@
                 "additionalProperties": false
               }
             ]
+          }
+        },
+        "transcripts": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[a-z]+\\d+$"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "paragraph"
+                    },
+                    "content": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "t": {
+                                "type": "string",
+                                "const": "text"
+                              },
+                              "v": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "t",
+                              "v"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "t": {
+                                "type": "string",
+                                "const": "em"
+                              },
+                              "v": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "t",
+                              "v"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "t": {
+                                "type": "string",
+                                "const": "strong"
+                              },
+                              "v": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "t",
+                              "v"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "t": {
+                                "type": "string",
+                                "const": "vocab"
+                              },
+                              "v": {
+                                "type": "string"
+                              },
+                              "ref": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "t",
+                              "v"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "t": {
+                                "type": "string",
+                                "const": "underline"
+                              },
+                              "v": {
+                                "type": "string"
+                              },
+                              "vocab": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "t",
+                              "v"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "t": {
+                                "type": "string",
+                                "const": "gloss"
+                              },
+                              "v": {
+                                "type": "string"
+                              },
+                              "zh": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "t",
+                              "v",
+                              "zh"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "t": {
+                                "type": "string",
+                                "const": "blank"
+                              },
+                              "id": {
+                                "type": "string",
+                                "pattern": "^b\\d+[a-z]?$"
+                              },
+                              "number": {
+                                "type": "integer",
+                                "exclusiveMinimum": 0
+                              },
+                              "hint": {
+                                "type": "object",
+                                "properties": {
+                                  "firstLetter": {
+                                    "type": "string"
+                                  },
+                                  "baseWord": {
+                                    "type": "string"
+                                  }
+                                },
+                                "additionalProperties": false
+                              }
+                            },
+                            "required": [
+                              "t",
+                              "id"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "t": {
+                                "type": "string",
+                                "const": "br"
+                              }
+                            },
+                            "required": [
+                              "t"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "t": {
+                                "type": "string",
+                                "const": "callout"
+                              },
+                              "v": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "t",
+                              "v"
+                            ],
+                            "additionalProperties": false
+                          }
+                        ]
+                      }
+                    },
+                    "indent": {
+                      "type": "boolean"
+                    },
+                    "image": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "content"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "$ref": "#/definitions/ItemKey/properties/transcripts/additionalProperties/items/anyOf/0/properties/id"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "heading"
+                    },
+                    "content": {
+                      "$ref": "#/definitions/ItemKey/properties/transcripts/additionalProperties/items/anyOf/0/properties/content"
+                    },
+                    "level": {
+                      "type": "integer",
+                      "minimum": 2,
+                      "maximum": 4
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "content"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "$ref": "#/definitions/ItemKey/properties/transcripts/additionalProperties/items/anyOf/0/properties/id"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "list"
+                    },
+                    "ordered": {
+                      "type": "boolean"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/definitions/ItemKey/properties/transcripts/additionalProperties/items/anyOf/0/properties/content"
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "items"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "$ref": "#/definitions/ItemKey/properties/transcripts/additionalProperties/items/anyOf/0/properties/id"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "dialogue"
+                    },
+                    "legend": {
+                      "type": "string"
+                    },
+                    "turns": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "speaker": {
+                            "type": "string"
+                          },
+                          "content": {
+                            "$ref": "#/definitions/ItemKey/properties/transcripts/additionalProperties/items/anyOf/0/properties/content"
+                          }
+                        },
+                        "required": [
+                          "speaker",
+                          "content"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "turns"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "$ref": "#/definitions/ItemKey/properties/transcripts/additionalProperties/items/anyOf/0/properties/id"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "note"
+                    },
+                    "title": {
+                      "$ref": "#/definitions/ItemKey/properties/transcripts/additionalProperties/items/anyOf/0/properties/content"
+                    },
+                    "content": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/definitions/ItemKey/properties/transcripts/additionalProperties/items/anyOf/0/properties/content"
+                      }
+                    },
+                    "signature": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/definitions/ItemKey/properties/transcripts/additionalProperties/items/anyOf/0/properties/content"
+                      }
+                    },
+                    "style": {
+                      "type": "string",
+                      "enum": [
+                        "email",
+                        "notice"
+                      ]
+                    },
+                    "header": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/definitions/ItemKey/properties/transcripts/additionalProperties/items/anyOf/0/properties/content"
+                      }
+                    },
+                    "heading": {
+                      "$ref": "#/definitions/ItemKey/properties/transcripts/additionalProperties/items/anyOf/0/properties/content"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "content"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "$ref": "#/definitions/ItemKey/properties/transcripts/additionalProperties/items/anyOf/0/properties/id"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "table"
+                    },
+                    "caption": {
+                      "$ref": "#/definitions/ItemKey/properties/transcripts/additionalProperties/items/anyOf/0/properties/content"
+                    },
+                    "rows": {
+                      "type": "array",
+                      "items": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "content": {
+                              "$ref": "#/definitions/ItemKey/properties/transcripts/additionalProperties/items/anyOf/0/properties/content"
+                            },
+                            "header": {
+                              "type": "boolean"
+                            },
+                            "colSpan": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            },
+                            "rowSpan": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0
+                            }
+                          },
+                          "required": [
+                            "content"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "rows"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "$ref": "#/definitions/ItemKey/properties/transcripts/additionalProperties/items/anyOf/0/properties/id"
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "imageRef"
+                    },
+                    "image": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "image"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
           }
         }
       },

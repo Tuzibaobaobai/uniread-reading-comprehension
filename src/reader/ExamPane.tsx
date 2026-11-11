@@ -1,3 +1,4 @@
+import { scrollBehavior } from '@/lib/scroll';
 import { forwardRef, useEffect, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { BlockT, ExamItemT, SectionT } from '@schema';
@@ -13,7 +14,7 @@ import { ListeningPart, ListeningPartStart, ListeningPartState } from '@/ui/exam
 import { AudioPlayer as AudioPlayerView } from '@/ui/AudioPlayer/AudioPlayer';
 import { AudioPlayer } from './AudioPlayer';
 import { Block, Figure, mergeRefs, useEvidencePaint } from './ArticlePane';
-import type { FlatQuestion } from './model';
+import { isFormBlock, type FlatQuestion } from './model';
 import { Emph } from './interactions';
 
 interface Props {
@@ -28,6 +29,9 @@ interface Props {
   locked: boolean;
   played: Set<string>;
   onPlayed: (sectionId: string) => void;
+  /** exam mode: the recording in progress when the page was left (it continues from `at`, never from the start) */
+  listening?: { section: string; at: number };
+  onListening?: (sectionId: string, at: number) => void;
   /** exam mode: whether the exam recording is playing (time-up waits for it to end, #109) */
   onPlayingChange?: (playing: boolean) => void;
 }
@@ -65,7 +69,10 @@ export const ExamPane = forwardRef<HTMLDivElement, Props>(function ExamPane(prop
           {blocks(qMaterial, 'full')}
         </FigureGrid>
       )}
-      {s.material && s.material.length > 0 && <ArticleBody>{blocks(s.material)}</ArticleBody>}
+      {/* listening: the notes form is drawn in the question pane (Ready frame 2.08) */}
+      {s.material && s.material.length > 0 && (
+        <ArticleBody>{blocks(item.paper === 'listening' ? s.material.filter((b) => !isFormBlock(b)) : s.material)}</ArticleBody>
+      )}
       {props.transcripts?.[s.id] && props.transcripts[s.id].length > 0 && (
         // after submitting: the Part's transcript (rc/Common/Disclosure, open)
         <Disclosure className="transcript" summary={t('reader.transcript')} defaultOpen>
@@ -81,7 +88,7 @@ export const ExamPane = forwardRef<HTMLDivElement, Props>(function ExamPane(prop
       ) : (
         section && (
           <ArticleText>
-            <ArticleHeader kicker={item.title} title={section.label ?? `Part ${section.part}`} instruction={<Emph text={section.instruction} />} />
+            <ArticleHeader kicker={kickerText(item.title)} title={section.label ?? `Part ${section.part}`} instruction={<Emph text={section.instruction} />} />
             {materialOf(section, true)}
             {!qMaterial?.length && !section.material?.length && <p className="exam-empty">{t('reader.noMaterial')}</p>}
           </ArticleText>
@@ -103,13 +110,15 @@ function ListeningStack({
   locked,
   played,
   onPlayed,
+  listening,
+  onListening,
   onPlayingChange,
   materialOf,
 }: Props & { current?: string; materialOf: (s: SectionT, withQuestion: boolean) => ReactNode }) {
   const { t } = useTranslation();
   const parts = item.sections.filter((s) => s.audio);
   const [active, setActive] = useState<string | null>(null);
-  const seq = useExamSequence(parts, locked, played, onPlayed);
+  const seq = useExamSequence(parts, locked, played, onPlayed, listening, onListening);
   // the exam recording counts as running while a Part plays or, once started, while later Parts still wait to be
   // played (e.g. the browser blocked the automatic continue and the Part's start button is shown)
   const recordingPending = locked && (!!seq.playing || (played.size > 0 && parts.some((p) => !played.has(p.id))));
@@ -118,12 +127,12 @@ function ListeningStack({
 
   // bring the current question's Part into view when the learner moves to another Part
   useEffect(() => {
-    if (current) moduleRefs.current.get(current)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (current) moduleRefs.current.get(current)?.scrollIntoView({ behavior: scrollBehavior(), block: 'start' });
   }, [current]);
 
   return (
     <ArticleText className="listening-stack">
-      <ArticleHeader kicker={item.title} />
+      <ArticleHeader kicker={kickerText(item.title)} />
       {seq.audio}
       {item.sections.map((s) => {
         const isCurrent = s.id === current;
@@ -158,19 +167,32 @@ function ListeningStack({
 }
 
 /** exam mode: one audio element plays the Parts in order (a tap starts it; later Parts follow automatically) */
-function useExamSequence(parts: SectionT[], locked: boolean, played: Set<string>, onPlayed: (id: string) => void) {
+function useExamSequence(
+  parts: SectionT[],
+  locked: boolean,
+  played: Set<string>,
+  onPlayed: (id: string) => void,
+  resume?: { section: string; at: number },
+  onPosition?: (id: string, at: number) => void,
+) {
   const { t } = useTranslation();
   const audio = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState<string | null>(null);
   const [time, setTime] = useState(0);
   const next = parts.find((p) => !played.has(p.id) && p.id !== playing);
+  // a Part interrupted by a reload continues where it was (a recording is heard once, as in the exam room)
+  const resumeAt = (s: SectionT) => (resume && resume.section === s.id && !played.has(s.id) ? resume.at : 0);
+  const saved = useRef(0);
 
   const play = (s: SectionT) => {
     const a = audio.current;
     if (!a || !s.audio) return;
-    a.src = staticContent.assetUrl(s.audio.src);
+    const from = resumeAt(s);
+    a.src = staticContent.assetUrl(s.audio.src) + (from > 0 ? `#t=${from.toFixed(1)}` : '');
+    saved.current = from;
     setPlaying(s.id);
-    setTime(0);
+    setTime(from);
+    onPosition?.(s.id, from);
     void a.play().catch(() => setPlaying(null)); // blocked without a tap: the Part's start button stays
   };
   // switching to practice mode stops the exam recording
@@ -185,7 +207,15 @@ function useExamSequence(parts: SectionT[], locked: boolean, played: Set<string>
     <audio
       ref={audio}
       preload="none"
-      onTimeUpdate={(e) => setTime(e.currentTarget.currentTime)}
+      onTimeUpdate={(e) => {
+        const now = e.currentTarget.currentTime;
+        setTime(now);
+        // remember the position every few seconds (a reload continues from here)
+        if (playing && Math.abs(now - saved.current) >= 3) {
+          saved.current = now;
+          onPosition?.(playing, now);
+        }
+      }}
       onEnded={() => {
         const done = playing;
         if (!done) return;
@@ -207,10 +237,18 @@ function useExamSequence(parts: SectionT[], locked: boolean, played: Set<string>
     if (startable(s))
       return (
         <ListeningPartStart icon={playIcon} onClick={() => play(s)}>
-          {s.id === parts[0]?.id ? t('audio.start') : t('audio.continueFrom', { part: s.label ?? `Part ${s.part}` })}
+          {s.id === parts[0]?.id && resumeAt(s) === 0 ? t('audio.start') : t('audio.continueFrom', { part: s.label ?? `Part ${s.part}` })}
         </ListeningPartStart>
       );
     return null;
   };
   return { audio: element, playing, controls, startable };
+}
+
+/** Ready frames 2.14–2.23: the paper kicker reads 「KET 真题 1 · 第 1 套 · 阅读与写作」 (the data title is 「KET真题1-第1套-阅读与写作」) */
+export function kickerText(title: string): string {
+  return title
+    .split('-')
+    .map((part) => part.replace(/([A-Za-z0-9])(?=[\u4e00-\u9fff])|([\u4e00-\u9fff])(?=[A-Za-z0-9])/g, '$1$2 ').trim())
+    .join(' · ');
 }

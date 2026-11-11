@@ -55,10 +55,13 @@ export const Link = () => (
     <path d="M8 8h3M8 12h3M8 16h3M13 8l3 4M13 16l3-4" style={{ stroke: 'var(--white)' }} strokeWidth="1.8" strokeLinecap="round" />
   </svg>
 );
+/** 定位原文: the designer's location-01 pin (Ready frame 1.05 / 1.06, Figma 19834:180034) */
 export const Locate = () => (
-  <svg viewBox="0 0 24 24" aria-hidden {...s} strokeWidth={2}>
-    <circle cx="12" cy="12" r="7" />
-    <path d="M12 2v3M12 19v3M2 12h3M19 12h3" />
+  <svg className="locate-icon" viewBox="0 0 16 16" aria-hidden fill="none" stroke="currentColor" strokeWidth={1}>
+    <g transform="translate(1.5 0.83)">
+      <path d="M7.57878 13.4113C7.28965 13.682 6.90321 13.8333 6.50103 13.8333C6.09885 13.8333 5.7124 13.682 5.42327 13.4113C2.77563 10.9173 -0.772544 8.13128 0.957793 4.08644C1.89337 1.89944 4.13918 0.5 6.50103 0.5C8.86287 0.5 11.1087 1.89944 12.0443 4.08644C13.7724 8.12618 10.233 10.9259 7.57878 13.4113Z" />
+      <path d="M8.83361 6.5C8.83361 7.78866 7.78895 8.83333 6.50028 8.83333C5.21162 8.83333 4.16695 7.78866 4.16695 6.5C4.16695 5.21134 5.21162 4.16667 6.50028 4.16667C7.78895 4.16667 8.83361 5.21134 8.83361 6.5Z" />
+    </g>
   </svg>
 );
 /** rc/Common/Chip Icon=Flag: 标记本题 (exam mode) */

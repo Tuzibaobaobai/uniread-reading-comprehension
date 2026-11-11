@@ -22,6 +22,7 @@
     "intro": "“治愈系”熊爪咖啡海外第一家店落户新加坡。",
     "hasVideo": false
   },
+  "thumbnail": "assets/ci-g7/ci-g7-w02-wed-1.jpg",
   "source": {
     "pdf": "初一第3辑初中时文阅读提分训练3+X第3辑7年级.pdf",
     "pdfPages": [
@@ -38,7 +39,15 @@
     "version": "1.0.0"
   },
   "article": {
-    "images": [],
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g7/ci-g7-w02-wed-1.jpg",
+        "alt": "A black-and-white close-up of a hand pressing coffee into the handle of a coffee machine.",
+        "w": 1200,
+        "h": 594
+      }
+    ],
     "vocabulary": [
       {
         "id": "v-disability",
@@ -304,6 +313,11 @@
             "v": " the idea of doing good and promote social inclusion,” Lee added."
           }
         ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
       }
     ]
   },

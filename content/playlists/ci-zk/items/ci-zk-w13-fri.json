@@ -35,7 +35,7 @@
   },
   "status": {
     "content": "transcribed",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "article": {
     "images": [],
@@ -376,24 +376,7 @@
               },
               {
                 "t": "text",
-                "v": " to a book of "
-              },
-              {
-                "t": "vocab",
-                "v": "synonyms",
-                "ref": "v-synonym"
-              },
-              {
-                "t": "text",
-                "v": " because "
-              },
-              {
-                "t": "text",
-                "v": "____________________"
-              },
-              {
-                "t": "text",
-                "v": "."
+                "v": " to a book of synonyms because ____________________."
               }
             ],
             "options": [
@@ -721,6 +704,10 @@
               {
                 "t": "blank",
                 "id": "b7"
+              },
+              {
+                "t": "text",
+                "v": "."
               }
             ],
             "scoring": "all"
@@ -808,6 +795,10 @@
               {
                 "t": "blank",
                 "id": "b10"
+              },
+              {
+                "t": "text",
+                "v": "."
               }
             ],
             "scoring": "all"

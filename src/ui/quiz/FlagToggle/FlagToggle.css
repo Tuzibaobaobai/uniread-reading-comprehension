@@ -15,7 +15,10 @@
 .flag-toggle.is-flagged { padding: 0 var(--ur-space-12) 0 var(--ur-space-8); }
 .flag-toggle img { width: calc(var(--ur-space-16) + var(--ur-space-2)); height: calc(var(--ur-space-16) + var(--ur-space-2)); flex: none; }
 /* 32 drawn, 44 to tap */
-.flag-toggle::before { content: ''; position: absolute; inset: calc((var(--ur-space-32) - var(--ur-size-touch-target)) / 2) 0; }
+.flag-toggle::before {
+  content: ''; position: absolute; top: calc((var(--ur-space-32) - var(--ur-size-touch-target)) / 2); bottom: calc((var(--ur-space-32) - var(--ur-size-touch-target)) / 2);
+  left: min(0px, calc((100% - var(--ur-size-touch-target)) / 2)); right: min(0px, calc((100% - var(--ur-size-touch-target)) / 2));
+}
 .flag-toggle:focus-visible { outline: var(--ur-stroke-strong) solid var(--ur-color-action-primary); outline-offset: var(--ur-space-2); }
 @media (hover: hover) and (pointer: fine) {
   .flag-toggle:hover { box-shadow: var(--ur-effect-flag), var(--ur-effect-btn); }

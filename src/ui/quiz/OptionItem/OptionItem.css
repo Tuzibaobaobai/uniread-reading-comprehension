@@ -17,7 +17,8 @@
 }
 .option-letter { color: inherit; }
 @media (hover: hover) and (pointer: fine) { button.option:hover { background: var(--ur-color-background-subtle); } }
-.option.is-selected { background: var(--ur-color-background-subtle); }
+/* 1.03 (option-text-item 19476:953): checked = grey-1 fill + a 1px brand border */
+.option.is-selected { background: var(--ur-paint-customization-grey-1); box-shadow: inset 0 0 0 var(--ur-stroke-default) var(--ur-color-action-primary); }
 .option.is-wrong { background: var(--ur-color-feedback-error-bg); }
 .option.is-correct { background: var(--ur-color-feedback-success-bg); }
 .option.is-correct .option-text { font-weight: var(--ur-text-font-system-3xl-bold-weight); }
@@ -49,3 +50,7 @@
 .options.is-compact { gap: calc(var(--ur-space-4) + var(--ur-space-2)); }
 .option.is-compact .option-row { padding: var(--ur-space-8) var(--ur-space-12); gap: calc(var(--ur-space-8) + var(--ur-space-2)); }
 .option.is-compact .option-text { font-size: var(--ur-text-font-system-l-regular-size); line-height: var(--ur-text-font-system-l-regular-line-height); }
+/* Ready frame 1.17 (时文 picture options): one option a row like the text options — radio, letter, the picture under it */
+.options.has-images.is-image-list { grid-template-columns: 1fr; }
+.options.has-images.is-image-list .option-text { justify-items: start; }
+.options.has-images.is-image-list .option-image { width: auto; max-width: 100%; max-height: calc(var(--ur-space-80) + var(--ur-space-32)); }

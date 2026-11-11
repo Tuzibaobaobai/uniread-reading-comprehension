@@ -8,7 +8,7 @@
   font-size: var(--ur-text-font-system-s-medium-size); font-weight: var(--ur-text-font-system-s-medium-weight); line-height: 1;
   color: var(--ur-color-text-secondary);
 }
-.vq-pos-chip::before { content: ''; position: absolute; inset: calc(-1 * (var(--ur-space-4) + var(--ur-space-2))); }
+.vq-pos-chip::before { content: ''; position: absolute; inset: calc(-1 * (var(--ur-space-4) + var(--ur-space-2) + var(--ur-stroke-default))); } /* from inside the 1 border: 44 */
 .vq-pos-chip.is-on {
   border-color: var(--ur-color-action-primary); background: var(--ur-color-action-primary-soft);
   color: var(--ur-color-action-primary-strong);

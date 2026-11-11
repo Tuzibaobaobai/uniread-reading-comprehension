@@ -4,7 +4,8 @@ import { NavActionButton, NavArrow, type NavAction } from '@/ui/quiz/QuestionNav
 import './PartNav.css';
 
 /** What one question's number shows: not answered / answered (brand fill) / after submitting: right / wrong */
-export type PartQuestionState = 'none' | 'answered' | 'correct' | 'wrong';
+/** partial: some of the points (a 中译英 the judge gave 3 of 4) — practised again, but not shown as wrong */
+export type PartQuestionState = 'none' | 'answered' | 'correct' | 'partial' | 'wrong';
 
 export interface PartNavPart {
   id: string;

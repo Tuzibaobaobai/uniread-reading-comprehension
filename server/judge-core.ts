@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import type { JudgementT } from '@schema';
 import { HttpError, loadItem } from './http';
 import { arkFromEnv, arkText, type ArkOpts } from './ark';
+import { h1fetch } from './h1fetch';
 import { allQuestions } from '../src/lib/grading';
 import {
   JUDGE_OUTPUT_SCHEMA,
@@ -29,11 +30,26 @@ export { HttpError };
 
 /** model call limit — KET writing/speaking judgements usually take ~10 s but sometimes 25 s+ (function maxDuration is 60 s) */
 export const MODEL_TIMEOUT_MS = 45000;
+/**
+ * the whole judgement, retry included, must end inside the function's 60 s and before the browser gives up
+ * (src/lib/judge.ts httpJudge, 55 s); a malformed reply is retried only while at least MIN_RETRY_MS of it is left
+ */
+export const JUDGE_BUDGET_MS = 50000;
+const MIN_RETRY_MS = 8000;
 
 export interface Llm {
   model: string;
-  /** returns the raw structured output (parsed JSON) */
-  complete(req: JudgeRequest): Promise<unknown>;
+  /** returns the raw structured output (parsed JSON); `timeoutMs` = time left for this call */
+  complete(req: JudgeRequest, timeoutMs?: number): Promise<unknown>;
+}
+
+/** a model call that timed out or never reached the provider: not retried (it would bill twice and outlast the request) */
+export function transportError(e: unknown): HttpError | null {
+  if (e instanceof HttpError) return e;
+  const name = (e as Error)?.name;
+  if (name === 'TimeoutError' || name === 'AbortError') return new HttpError(504, 'judge model timed out');
+  if (e instanceof TypeError) return new HttpError(502, 'judge model unreachable');
+  return null;
 }
 
 /* ------------------------------------------------------------- providers */
@@ -49,12 +65,12 @@ export function extractJson(text: string): unknown {
 }
 
 export function openAiCompatibleLlm(opts: { baseUrl: string; apiKey: string; model: string; timeoutMs?: number }): Llm {
-  const call = async (req: JudgeRequest, jsonMode: boolean) => {
+  const call = async (req: JudgeRequest, jsonMode: boolean, timeoutMs = opts.timeoutMs ?? MODEL_TIMEOUT_MS) => {
     const { system, user } = buildJudgePrompt(req, 'json');
-    const res = await fetch(`${opts.baseUrl.replace(/\/$/, '')}/chat/completions`, {
+    const res = await h1fetch(`${opts.baseUrl.replace(/\/$/, '')}/chat/completions`, {
       method: 'POST',
       headers: { 'content-type': 'application/json', authorization: `Bearer ${opts.apiKey}` },
-      signal: AbortSignal.timeout(opts.timeoutMs ?? MODEL_TIMEOUT_MS),
+      signal: AbortSignal.timeout(timeoutMs),
       body: JSON.stringify({
         model: opts.model,
         temperature: 0,
@@ -75,10 +91,11 @@ export function openAiCompatibleLlm(opts: { baseUrl: string; apiKey: string; mod
   };
   return {
     model: opts.model,
-    async complete(req) {
-      let res = await call(req, true);
+    async complete(req, timeoutMs) {
+      const t0 = Date.now();
+      let res = await call(req, true, timeoutMs);
       // some models don't accept response_format (or enable_thinking): retry with the prompt-only JSON instruction
-      if (res.status === 400) res = await call(req, false);
+      if (res.status === 400) res = await call(req, false, timeoutMs === undefined ? undefined : Math.max(1000, timeoutMs - (Date.now() - t0)));
       if (!res.ok) throw new HttpError(502, `model ${res.status}: ${(await res.text()).slice(0, 300)}`);
       const body = (await res.json()) as { choices?: { message?: { content?: string } }[] };
       const text = body.choices?.[0]?.message?.content ?? '';
@@ -93,7 +110,7 @@ const quickTask = (req: JudgeRequest) => req.promptVersion.startsWith('cambridge
 export function arkLlm(opts: ArkOpts & { timeoutMs?: number }): Llm {
   return {
     model: opts.model,
-    async complete(req) {
+    async complete(req, timeoutMs) {
       const { system, user } = buildJudgePrompt(req, 'json');
       const noThinking = quickTask(req);
       const r = await arkText(opts, {
@@ -103,7 +120,7 @@ export function arkLlm(opts: ArkOpts & { timeoutMs?: number }): Llm {
         noThinking,
         // a reasoning trace counts against the output budget
         maxTokens: noThinking ? 1024 : 4096,
-        timeoutMs: opts.timeoutMs ?? MODEL_TIMEOUT_MS,
+        timeoutMs: timeoutMs ?? opts.timeoutMs ?? MODEL_TIMEOUT_MS,
       });
       if (!r.ok) throw new HttpError(502, `model ${r.status}: ${r.error}`);
       return extractJson(r.text);
@@ -114,12 +131,12 @@ export function arkLlm(opts: ArkOpts & { timeoutMs?: number }): Llm {
 export function anthropicLlm(opts: { apiKey: string; model: string }): Llm {
   return {
     model: opts.model,
-    async complete(req) {
+    async complete(req, timeoutMs) {
       const { system, user } = buildJudgePrompt(req, 'tool');
       const res = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
         headers: { 'content-type': 'application/json', 'x-api-key': opts.apiKey, 'anthropic-version': '2023-06-01' },
-        signal: AbortSignal.timeout(MODEL_TIMEOUT_MS),
+        signal: AbortSignal.timeout(timeoutMs ?? MODEL_TIMEOUT_MS),
         body: JSON.stringify({
           model: opts.model,
           max_tokens: 1024,
@@ -174,14 +191,31 @@ export async function judgeCall(call: JudgeCall, opts: { contentRoot?: string; l
   const id = createHash('sha256').update(JSON.stringify([item.status.version, req, opts.llm.model])).digest('hex');
   const hit = cache.get(id);
   if (hit) return hit;
-  let verdict: JudgementT;
-  try {
-    verdict = parseJudgement(await opts.llm.complete(req), req, opts.llm.model);
-  } catch (e) {
-    if (e instanceof HttpError) throw e;
-    // malformed output: one retry
-    verdict = parseJudgement(await opts.llm.complete(req), req, opts.llm.model);
-  }
+  const llm = opts.llm;
+  const started = Date.now();
+  const left = () => JUDGE_BUDGET_MS - (Date.now() - started);
+  const attempt = async () => {
+    try {
+      return parseJudgement(await llm.complete(req, Math.min(MODEL_TIMEOUT_MS, left())), req, llm.model);
+    } catch (e) {
+      throw transportError(e) ?? e;
+    }
+  };
+  const once = async (): Promise<JudgementT> => {
+    try {
+      return await attempt();
+    } catch (e) {
+      // provider error, timeout or unreachable: no retry. Malformed output: one retry while there is time for it
+      if (e instanceof HttpError || left() < MIN_RETRY_MS) throw e instanceof HttpError ? e : new HttpError(502, 'judge model reply unusable');
+      try {
+        return await attempt();
+      } catch (e2) {
+        throw e2 instanceof HttpError ? e2 : new HttpError(502, 'judge model reply unusable');
+      }
+    }
+  };
+  // every answer is marked once (decision 2026-11-12); Cambridge writing uses the writing model (llmFromEnv)
+  const verdict = await once();
   if (cache.size > 500) cache.clear();
   cache.set(id, verdict);
   return verdict;

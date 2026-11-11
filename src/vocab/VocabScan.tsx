@@ -7,6 +7,7 @@ import { MarkButton } from '@/ui/vocab/MarkButton/MarkButton';
 import { ScanCard } from '@/ui/vocab/ScanCard/ScanCard';
 import { ScanSummary } from '@/ui/vocab/ScanSummary/ScanSummary';
 import { say } from '@/lib/say';
+import FittyText from '@/components/FittyText';
 
 /**
  * 词汇天天练 step 1 · Scan (#133): one word a page — headword and IPA only — marked 认识 / 不认识, then on to the next.
@@ -55,10 +56,10 @@ export function VocabScan({
           actions={
             <>
               <QuizButton onClick={() => setIndex(Math.max(0, entries.findIndex((x) => known[x.id] === undefined)))}>
-                {unmarked ? t('vocab.scan.resume') : t('vocab.scan.restart')}
+                <FittyText>{unmarked ? t('vocab.scan.resume') : t('vocab.scan.restart')}</FittyText>
               </QuizButton>
               <QuizButton variant="primary" onClick={onStudy}>
-                {t('vocab.scan.study')}
+                <FittyText>{t('vocab.scan.study')}</FittyText>
               </QuizButton>
             </>
           }

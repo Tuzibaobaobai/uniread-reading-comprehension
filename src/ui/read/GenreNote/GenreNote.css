@@ -32,3 +32,24 @@
   font-size: 1.4em; line-height: 1.3; font-weight: var(--ur-text-font-system-m-bold-weight); color: var(--ur-color-text-strong);
 }
 .rt-note.is-notice .rt-note-title { text-align: left; }
+
+/* Ready frames 2.17 / 2.22 / 2.23 (RC/Read/GenreNote 19499:1201): in the exam material pane the printed cards are white
+   with a soft shadow and no border; the email header is white with 16 / 26 fields (labels 96 wide, grey-3 boxes). */
+.exam-pane .rt-note { border: none; box-shadow: var(--ur-effect-card); }
+.exam-pane .rt-note.is-email .rt-note-header {
+  margin: 0; padding: var(--ur-space-16) var(--ur-space-20); background: var(--ur-color-background-card);
+}
+.exam-pane .rt-note.is-email .rt-note-title + .rt-note-header { margin-top: calc(var(--ur-space-12) * -1); }
+.exam-pane .rt-note-field { grid-template-columns: calc(var(--ur-space-80) + var(--ur-space-16)) 1fr; }
+.exam-pane .rt-note-field :is(.rt-note-field-label, .rt-note-field-value) {
+  padding: var(--ur-space-2) var(--ur-space-8);
+  font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height);
+}
+.exam-pane .rt-note-field-label { font-weight: var(--ur-text-font-system-m-bold-weight); }
+.exam-pane .rt-note.is-email .rt-note-header + p { padding-top: var(--ur-space-16); }
+
+/* exam passages are Font system/L 18 / 28 (Ready frames 2.14–2.17, 2.21–2.23) */
+.exam-pane .article {
+  --article-size: var(--ur-text-font-system-l-regular-size);
+  --article-lh: var(--ur-text-font-system-l-regular-line-height);
+}

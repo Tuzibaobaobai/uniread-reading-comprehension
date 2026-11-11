@@ -745,6 +745,11 @@ export const AnswerKey = z.union([
       match: z.enum(['all', 'any']).optional(),
       /** teacher-scored sample answers used as few-shot anchors and for calibration */
       anchors: z.array(JudgeAnchor).optional(),
+      /**
+       * set by the server in the review key (never in content): when sampleAnswer is one of the anchors — a real
+       * candidate's script from the answer book — its examiner mark and comment, shown with it
+       */
+      sampleMark: z.object({ score: z.number().nonnegative(), noteZh: z.string().optional() }).strict().optional(),
     })
     .strict(),
 ]);
@@ -901,6 +906,11 @@ export const Attempt = z
     flagged: z.array(z.string()).optional(),
     /** exam mode: sections whose recording has been played (it can be played once) */
     played: z.array(z.string()).optional(),
+    /**
+     * exam mode: the recording that was playing when the page was left and how far it had got (seconds) — after a
+     * reload it continues from there, never from the start (a recording is heard once)
+     */
+    listening: z.object({ section: z.string(), at: z.number().nonnegative() }).strict().optional(),
     /** 词汇天天练 (#110): answer parts solved with the letter-tile hint ("q3:word", "q7:b7") — they score half */
     hinted: z.array(z.string()).optional(),
     /** 词汇天天练: parts answered by voice input ("q21:text") — shown as such in the review */
@@ -931,6 +941,11 @@ export const Attempt = z
             .strict(),
         ),
         selfAssessed: z.record(z.boolean()).optional(),
+        /**
+         * 词汇天天练: Chinese meanings ("q3:zh", "q21:f1.zh") the rules rejected and the model meaning check could not
+         * look at (provider down / timed out) — not final: the day is graded again when it is shown again
+         */
+        meaningUnchecked: z.array(z.string()).optional(),
       })
       .strict()
       .nullable(),

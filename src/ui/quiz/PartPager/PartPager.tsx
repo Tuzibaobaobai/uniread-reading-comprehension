@@ -12,7 +12,7 @@ export type PagerTone = 'default' | 'pending';
  * and, after the first Part, a divider — left out on one-question-a-page strips except at a Part start), Label
  * number / range (text "6" or "1–5"), Selected no / yes, Completed no / yes (the bar under the number), Result none /
  * correct / wrong (after submitting, the quiz result icon 7870:51523 replaces the number), Flagged no / yes (真题
- * 标记本题), Tone default / pending (the unanswered numbers in the submit confirmation: brand-soft, no bar).
+ * 标记本题), Tone default / pending (the unanswered numbers in the submit confirmation, 1.04 19483:3986: 22 bold over a grey bar).
  * `reviewing` with Result none = submitted but not scored (greyed, no bar).
  * Score (text, #128): after submitting, a page marked with points or several questions shows the mark instead of an
  * icon — score / full marks for judged answers ("18/20": writing, speaking, written cells), right / total for an
@@ -71,7 +71,7 @@ export function PartPager({
       ) : (
         <>
           <span className={`question-dot-num${labelKind === 'range' ? ' is-range' : ''}`}>{label}</span>
-          {!reviewing && !pending && <span className="question-dot-mark" aria-hidden />}
+          {!reviewing && <span className="question-dot-mark" aria-hidden />}
         </>
       )}
     </button>

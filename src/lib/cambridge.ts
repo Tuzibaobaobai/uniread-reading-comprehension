@@ -114,6 +114,8 @@ export interface SkillReport {
   scale: number | null;
   /** some answers are still being scored (judge pending) */
   pending: boolean;
+  /** some answers could not be marked because the judge was unavailable: no scale score until they are re-judged */
+  unjudged?: boolean;
 }
 
 /**
@@ -150,6 +152,16 @@ export const PAPER_SKILL: Partial<Record<ExamItemT['paper'], Skill>> = {
 
 type Row = Result['byQuestion'][number];
 
+/** the skills a paper reports (A2 Key's Reading & Writing paper reports two) */
+export const paperSkills = (paper: ExamItemT['paper']): Skill[] => (PAPER_SKILL[paper] ? [PAPER_SKILL[paper]!] : ['reading', 'writing']);
+
+/**
+ * a paper's full mark as Cambridge states it (A2 Key speaking 45, B1 Preliminary speaking 30) — the figure every
+ * label shows, whatever the paper's own question points add up to
+ */
+export const paperMaxMarks = (paper: ExamItemT['paper'], exam: ExamKey = 'a2'): number =>
+  paperSkills(paper).reduce((n, k) => n + SCALES[exam].skills[k].max, 0);
+
 function report(skill: Skill, all: Row[], exam: ExamKey): SkillReport {
   // a writing task the learner did not choose (PET Part 2: one of two) does not count
   const rs = all.filter((r) => r.scoredBy !== 'none');
@@ -157,15 +169,19 @@ function report(skill: Skill, all: Row[], exam: ExamKey): SkillReport {
     raw: rs.reduce((n, r) => n + r.points, 0),
     max: rs.reduce((n, r) => n + r.maxPoints, 0),
     pending: rs.some((r) => r.scoredBy === 'pending'),
+    // judged answers left unmarked while the judge was down (scoredBy "self") are not zeros: no scale score yet
+    unjudged: rs.some((r) => r.scoredBy === 'self'),
   };
+  const open = s.pending || s.unjudged;
+  const flags = { pending: s.pending, ...(s.unjudged ? { unjudged: true } : {}) };
   const scaleMax = SCALES[exam].skills[skill].max;
   if (skill === 'speaking') {
     const raw = speakingRaw(rs.flatMap((r) => (r.judgement ? [r.judgement] : [])), exam);
-    if (raw !== null) return { skill, raw, max: s.max, scaleMax, scale: s.pending ? null : toScale(skill, raw, exam), pending: s.pending };
+    if (raw !== null) return { skill, raw, max: s.max, scaleMax, scale: open ? null : toScale(skill, raw, exam), ...flags };
   }
   // raw scaled to the skill's full mark when the paper's own maximum differs (e.g. A2 speaking 30 → 45)
   const r = s.max && s.max !== scaleMax ? (s.raw * scaleMax) / s.max : s.raw;
-  return { skill, raw: Math.round(r * 2) / 2, max: s.max, scaleMax, scale: s.pending ? null : toScale(skill, r, exam), pending: s.pending };
+  return { skill, raw: Math.round(r * 2) / 2, max: s.max, scaleMax, scale: open ? null : toScale(skill, r, exam), ...flags };
 }
 
 /**

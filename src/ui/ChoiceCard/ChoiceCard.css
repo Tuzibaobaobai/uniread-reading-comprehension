@@ -36,3 +36,4 @@
 @media (hover: hover) and (pointer: fine) {
   .choice-card:hover:not(:disabled) { border-color: var(--ur-color-action-primary); }
 }
+.choice-card.is-filled.is-selected { border-color: var(--ur-color-action-primary); background: var(--ur-color-action-primary-soft); }

@@ -35,3 +35,13 @@
   border-top: var(--ur-stroke-default) solid var(--ur-color-border-divider); padding-top: var(--ur-space-16);
 }
 .speak-actions:has(.speak-rec) { grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr) minmax(0, 1fr); }
+/* Ready frames 2.26 / 2.27: a shown prompt keeps room for the learner's transcript, so the card does not jump when it
+   arrives — the card is 320 high at least and the action row sits at its foot */
+.speak-card:has(> .speak-line:not(.is-hidden)) { min-height: calc(var(--ur-space-80) * 4); }
+.speak-card > .speak-actions { margin-top: auto; }
+/* Ready frames 2.26–2.28: the three actions are a centred group (64 apart), not stretched across the card */
+.speak-card > .speak-actions,
+.speak-card > .speak-actions:has(.speak-rec) { grid-template-columns: repeat(3, auto); justify-content: center; column-gap: var(--ur-space-64); }
+/* 2.26: while recording, the pill in the middle keeps its drawn width (≈ 412) */
+.speak-card > .speak-actions > .speak-rec { min-width: calc(var(--ur-space-80) * 5 + var(--ur-space-12)); }
+.speak-card > .speak-actions:has(.speak-rec) { column-gap: var(--ur-space-40); }

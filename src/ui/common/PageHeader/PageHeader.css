@@ -1,10 +1,17 @@
-/* RC/Common/PageHeader (proposed). Tokens only. Cards are at least 240px wide (3 × space/80). */
+/* RC/Common/PageHeader (proposed). Tokens only. Ready frame 0.01: pad (1000) four 226 cards a row, gaps 16 / 32;
+   web (≥ 1280) cards from 266, gaps 20 / 40. 226 = 2 × 80 + 64 + 2, 266 = 3 × 80 + 24 + 2. */
 .page-title {
   margin: var(--ur-space-8) 0 var(--ur-space-24);
   font-size: var(--ur-text-size-5xl); line-height: var(--ur-text-size-5xl-line-height); font-weight: var(--ur-text-font-system-m-bold-weight);
 }
 .playlist-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(calc(var(--ur-space-80) * 3), 1fr));
-  gap: var(--ur-space-24);
+  grid-template-columns: repeat(auto-fill, minmax(calc(var(--ur-space-80) * 2 + var(--ur-space-64) + var(--ur-space-2)), 1fr));
+  gap: var(--ur-space-32) var(--ur-space-16);
+}
+@media (min-width: 1280px) {
+  .playlist-grid {
+    grid-template-columns: repeat(auto-fill, minmax(calc(var(--ur-space-80) * 3 + var(--ur-space-24) + var(--ur-space-2)), 1fr));
+    gap: var(--ur-space-40) var(--ur-space-20);
+  }
 }

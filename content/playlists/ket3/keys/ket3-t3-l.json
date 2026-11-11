@@ -20,31 +20,65 @@
       "correct": [
         "B"
       ],
-      "explanationZh": "爸爸问 Daisy 是不是又丢了钥匙，她说钥匙在口袋里；她找不到的是围巾（It’s my scarf, I can’t find it）。A 错：钥匙在她口袋里；C 错：钱包是妈妈的，只是她放围巾的位置。"
+      "explanationZh": "爸爸问 Daisy 是不是又丢了钥匙，她说钥匙在口袋里；她找不到的是围巾（It’s my scarf, I can’t find it）。A 错：钥匙在她口袋里；C 错：钱包是妈妈的，只是她放围巾的位置。",
+      "evidence": [
+        {
+          "block": "x4",
+          "quote": "It’s my scarf, I can’t find it and I’ll need it today."
+        }
+      ]
     },
     "q2": {
       "correct": [
         "B"
       ],
-      "explanationZh": "男孩家住顶楼，能看到整座城市，但他说卧室窗外只能看到一个大停车场（a big car park）。A 错：城市风景是从家里其他地方看到的，不是从卧室；C 错：对话里没提公园。"
+      "explanationZh": "男孩家住顶楼，能看到整座城市，但他说卧室窗外只能看到一个大停车场（a big car park）。A 错：城市风景是从家里其他地方看到的，不是从卧室；C 错：对话里没提公园。",
+      "evidence": [
+        {
+          "block": "x6",
+          "quote": "Oh, well, I can’t see it from my bedroom – that just has a view of a big car park."
+        }
+      ]
     },
     "q3": {
       "correct": [
         "A"
       ],
-      "explanationZh": "男孩说那家咖啡馆的奶酪三明治很好吃，女孩提议今天一起吃披萨，男孩说“好主意”。B 错：三明治只是男孩提到的；C 错：女孩喜欢沙拉，但男孩说他今晚可能会吃沙拉。"
+      "explanationZh": "男孩说那家咖啡馆的奶酪三明治很好吃，女孩提议今天一起吃披萨，男孩说“好主意”。B 错：三明治只是男孩提到的；C 错：女孩喜欢沙拉，但男孩说他今晚可能会吃沙拉。",
+      "evidence": [
+        {
+          "block": "x8",
+          "quote": "Well, I really like the salads, but why don’t we share a pizza today?"
+        },
+        {
+          "block": "x8",
+          "quote": "OK, great idea!"
+        }
+      ]
     },
     "q4": {
       "correct": [
         "A"
       ],
-      "explanationZh": "男孩以为 Calum 要在体育中心办泳池派对，女孩说他想在自家花园里办烧烤（a barbecue in his garden），男孩也同意。C 错：泳池派对是以前的想法；B 错：咖啡馆只是他们平时吃汉堡的地方。"
+      "explanationZh": "男孩以为 Calum 要在体育中心办泳池派对，女孩说他想在自家花园里办烧烤（a barbecue in his garden），男孩也同意。C 错：泳池派对是以前的想法；B 错：咖啡馆只是他们平时吃汉堡的地方。",
+      "evidence": [
+        {
+          "block": "x10",
+          "quote": "Last time I spoke to him, he wanted to have a barbecue in his garden."
+        }
+      ]
     },
     "q5": {
       "correct": [
         "C"
       ],
-      "explanationZh": "男孩提议在电影院外面见，女孩说电影院总是很挤，不如在他下电车的电车站见面，男孩同意了。B 错：电影院外面人太多；A 错：图书馆只是说明车站就在附近的拐角处。"
+      "explanationZh": "男孩提议在电影院外面见，女孩说电影院总是很挤，不如在他下电车的电车站见面，男孩同意了。B 错：电影院外面人太多；A 错：图书馆只是说明车站就在附近的拐角处。",
+      "evidence": [
+        {
+          "block": "x12",
+          "quote": "Why don’t I meet you at your tram stop when you get off, instead?"
+        }
+      ]
     },
     "q6": {
       "slots": {
@@ -54,7 +88,13 @@
           ]
         }
       },
-      "explanationZh": "老师说每个人的画的题目必须是“Buildings（建筑）”，可以画镇上的房子，也可以画城堡、宫殿。houses、castles、palaces 都只是例子。"
+      "explanationZh": "老师说每个人的画的题目必须是“Buildings（建筑）”，可以画镇上的房子，也可以画城堡、宫殿。houses、castles、palaces 都只是例子。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "Now, the title for everyone’s painting must be Buildings."
+        }
+      ]
     },
     "q7": {
       "slots": {
@@ -65,11 +105,23 @@
             "18 May",
             "18th of May",
             "May 18",
-            "May 18th"
+            "May 18th",
+            "the 18th of May",
+            "May the 18th",
+            "eighteenth May",
+            "the eighteenth of May",
+            "May eighteenth",
+            "May the eighteenth"
           ]
         }
       },
-      "explanationZh": "5 月 9 日起可以交画，但最晚要在 18 号（by the eighteenth）之前交，所以截止日期是 5 月 18 日。9 日是开始交画的日子，20 日是公布获奖者的日子。"
+      "explanationZh": "5 月 9 日起可以交画，但最晚要在 18 号（by the eighteenth）之前交，所以截止日期是 5 月 18 日。9 日是开始交画的日子，20 日是公布获奖者的日子。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "You can give your painting to the art teacher from the ninth of May, but you must give it to her by the eighteenth."
+        }
+      ]
     },
     "q8": {
       "slots": {
@@ -79,7 +131,17 @@
           ]
         }
       },
-      "explanationZh": "评委叫 Jacob Fossley，老师把姓拼了出来：F-O-double S-L-E-Y，double S 表示两个 s。"
+      "explanationZh": "评委叫 Jacob Fossley，老师把姓拼了出来：F-O-double S-L-E-Y，double S 表示两个 s。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "His name’s Jacob Fossley."
+        },
+        {
+          "block": "x15",
+          "quote": "His surname’s spelled F-O-double S-L-E-Y if you want to read about him online."
+        }
+      ]
     },
     "q9": {
       "slots": {
@@ -89,7 +151,13 @@
           ]
         }
       },
-      "explanationZh": "老师说 Jacob 住在本镇，是一位有名的摄影师（a famous photographer）。"
+      "explanationZh": "老师说 Jacob 住在本镇，是一位有名的摄影师（a famous photographer）。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "He lives in our town and he’s a famous photographer."
+        }
+      ]
     },
     "q10": {
       "slots": {
@@ -99,97 +167,209 @@
           ]
         }
       },
-      "explanationZh": "奖品不是上次比赛的笔记本电脑，而是一块滑板（a skateboard），因为滑板是学校里最受欢迎的爱好。laptop 是干扰项。"
+      "explanationZh": "奖品不是上次比赛的笔记本电脑，而是一块滑板（a skateboard），因为滑板是学校里最受欢迎的爱好。laptop 是干扰项。",
+      "evidence": [
+        {
+          "block": "x15",
+          "quote": "Not a laptop like the prize for the last competition, but a skateboard!"
+        }
+      ]
     },
     "q11": {
       "correct": [
         "C"
       ],
-      "explanationZh": "Dan 说今年去湖边（the lake）的学校旅行比去年去海边好多了。B 错：海边是去年去的；A 错：去河边的是另一个班。"
+      "explanationZh": "Dan 说今年去湖边（the lake）的学校旅行比去年去海边好多了。B 错：海边是去年去的；A 错：去河边的是另一个班。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I think this year’s school trip to the lake was much better than last year’s to the sea, Martha."
+        }
+      ]
     },
     "q12": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Dan 最爱骑马，而 Martha 说她特别喜欢在小路上骑自行车（riding our bikes），所以她最喜欢的是骑车。B 错：喜欢骑马的是 Dan；C 错：帆板是她以后想学的。"
+      "explanationZh": "Dan 最爱骑马，而 Martha 说她特别喜欢在小路上骑自行车（riding our bikes），所以她最喜欢的是骑车。B 错：喜欢骑马的是 Dan；C 错：帆板是她以后想学的。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I especially liked riding our bikes on those paths."
+        }
+      ]
     },
     "q13": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Dan 说要学的东西很多，他总是忘记下一步该做什么，所以难的是记住指令。C 错：老师讲得很清楚；B 错：大家互相帮助。"
+      "explanationZh": "Dan 说要学的东西很多，他总是忘记下一步该做什么，所以难的是记住指令。C 错：老师讲得很清楚；B 错：大家互相帮助。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "There was a lot to learn and I kept forgetting what to do next."
+        }
+      ]
     },
     "q14": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Martha 说她带了游泳用品，但那天太冷了（such a cold day），所以没去游泳。C 错：她带了泳衣；A 错：她说水深对她从来不是问题。"
+      "explanationZh": "Martha 说她带了游泳用品，但那天太冷了（such a cold day），所以没去游泳。C 错：她带了泳衣；A 错：她说水深对她从来不是问题。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "I did, but it was such a cold day."
+        }
+      ]
     },
     "q15": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Dan 觉得烧烤的地方有点脏，Martha 不同意；但两人都觉得离开得太早了——Martha 说“我们不得不那么早离开”，Dan 回答“I know”。A 错：两人对地点看法不同；C 错：Dan 说大家玩得很开心，一点也不无聊。"
+      "explanationZh": "Dan 觉得烧烤的地方有点脏，Martha 不同意；但两人都觉得离开得太早了——Martha 说“我们不得不那么早离开”，Dan 回答“I know”。A 错：两人对地点看法不同；C 错：Dan 说大家玩得很开心，一点也不无聊。",
+      "evidence": [
+        {
+          "block": "x18",
+          "quote": "But we had to leave so early."
+        },
+        {
+          "block": "x18",
+          "quote": "I know."
+        }
+      ]
     },
     "q16": {
       "correct": [
         "C"
       ],
-      "explanationZh": "女孩本来也想买巧克力，但她的兄弟已经买了；她在新市场看到一副耳环，打算明天去买，耳环属于首饰（jewellery）。B 错：巧克力是兄弟买的；A 错：T 恤是她同学 Ben 买的。"
+      "explanationZh": "女孩本来也想买巧克力，但她的兄弟已经买了；她在新市场看到一副耳环，打算明天去买，耳环属于首饰（jewellery）。B 错：巧克力是兄弟买的；A 错：T 恤是她同学 Ben 买的。",
+      "evidence": [
+        {
+          "block": "x22",
+          "quote": "It’s funny, I was going to buy those too, but I saw some earrings at that new market and I’m going to get them tomorrow."
+        }
+      ]
     },
     "q17": {
       "correct": [
         "C"
       ],
-      "explanationZh": "男孩要在 5:30 前把书还回市图书馆，但训练结束太晚，请妈妈帮他去还书。A 错：杂志是他要买给妈妈的；B 错：自行车爆胎了，但他没让妈妈去修。"
+      "explanationZh": "男孩要在 5:30 前把书还回市图书馆，但训练结束太晚，请妈妈帮他去还书。A 错：杂志是他要买给妈妈的；B 错：自行车爆胎了，但他没让妈妈去修。",
+      "evidence": [
+        {
+          "block": "x24",
+          "quote": "Could you possibly do it for me?"
+        }
+      ]
     },
     "q18": {
       "correct": [
         "A"
       ],
-      "explanationZh": "男孩说午饭时的乒乓球比赛是一天中最棒的部分（the best bit of the day）。B 错：历史课上的纪录片有点无聊；C 错：他忘带吉他，没法排练音乐会。"
+      "explanationZh": "男孩说午饭时的乒乓球比赛是一天中最棒的部分（the best bit of the day）。B 错：历史课上的纪录片有点无聊；C 错：他忘带吉他，没法排练音乐会。",
+      "evidence": [
+        {
+          "block": "x26",
+          "quote": "At lunchtime we had a table-tennis competition."
+        },
+        {
+          "block": "x26",
+          "quote": "That was the best bit of the day."
+        }
+      ]
     },
     "q19": {
       "correct": [
         "A"
       ],
-      "explanationZh": "男孩周四去画画，女孩那天去打篮球；男孩说他周三也打篮球（I do that on Wednesdays），所以两人都喜欢去的是运动俱乐部。B 错：只有男孩去美术；C 错：唱诗班只有男孩去，女孩已经不去爵士乐队了。"
+      "explanationZh": "男孩周四去画画，女孩那天去打篮球；男孩说他周三也打篮球（I do that on Wednesdays），所以两人都喜欢去的是运动俱乐部。B 错：只有男孩去美术；C 错：唱诗班只有男孩去，女孩已经不去爵士乐队了。",
+      "evidence": [
+        {
+          "block": "x28",
+          "quote": "I go to basketball then."
+        },
+        {
+          "block": "x28",
+          "quote": "I do that on Wednesdays."
+        }
+      ]
     },
     "q20": {
       "correct": [
         "B"
       ],
-      "explanationZh": "男孩说主演演得不好（The main actor was no good），女孩也同意，所以他们不喜欢的是其中一位明星。A 错：他们说电影不算太长；C 错：女孩觉得结局挺有意思。"
+      "explanationZh": "男孩说主演演得不好（The main actor was no good），女孩也同意，所以他们不喜欢的是其中一位明星。A 错：他们说电影不算太长；C 错：女孩觉得结局挺有意思。",
+      "evidence": [
+        {
+          "block": "x30",
+          "quote": "The main actor was no good."
+        }
+      ]
     },
     "q21": {
       "correct": [
         "H"
       ],
-      "explanationZh": "Jake 本想帮忙卖票，但卖票的人已经很多了，所以他会在大家结束后打扫房间，也就是演出后收拾整理（tidy up afterwards）。F 错：卖票是他原本想做的。"
+      "explanationZh": "Jake 本想帮忙卖票，但卖票的人已经很多了，所以他会在大家结束后打扫房间，也就是演出后收拾整理（tidy up afterwards）。F 错：卖票是他原本想做的。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "Well, I wanted to help with selling tickets but there’re lots of people already doing that, so I’m going to clean the room after everyone’s finished."
+        }
+      ]
     },
     "q22": {
       "correct": [
         "B"
       ],
-      "explanationZh": "Alice 问 Suzy 是不是负责拍照，Jake 说她决定改为帮忙化妆（help with the make-up）。A 错：拍照的是 Dan。"
+      "explanationZh": "Alice 问 Suzy 是不是负责拍照，Jake 说她决定改为帮忙化妆（help with the make-up）。A 错：拍照的是 Dan。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "I know, but she’s decided to help with the make-up instead."
+        }
+      ]
     },
     "q23": {
       "correct": [
         "A"
       ],
-      "explanationZh": "Alice 问“那 Dan 来拍照吗？”，Jake 说是的，他很喜欢拍照，所以 Dan 当摄影师。H 错：他说拍照比收拾整理容易。"
+      "explanationZh": "Alice 问“那 Dan 来拍照吗？”，Jake 说是的，他很喜欢拍照，所以 Dan 当摄影师。H 错：他说拍照比收拾整理容易。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "So will Dan take the pictures?"
+        },
+        {
+          "block": "x33",
+          "quote": "Yeah, he loves that."
+        }
+      ]
     },
     "q24": {
       "correct": [
         "D"
       ],
-      "explanationZh": "Lauren 平时负责做服装，但这次她负责做海报，贴在学校各处。C 错：做衣服是她平时做的事。"
+      "explanationZh": "Lauren 平时负责做服装，但这次她负责做海报，贴在学校各处。C 错：做衣服是她平时做的事。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "But this time she’s doing the posters to put up round the school."
+        }
+      ]
     },
     "q25": {
       "correct": [
         "E"
       ],
-      "explanationZh": "George 会把房间布置好，为演出做准备（getting the room ready），也就是 prepare the room。F 错：他不喜欢卖票之类的事。"
+      "explanationZh": "George 会把房间布置好，为演出做准备（getting the room ready），也就是 prepare the room。F 错：他不喜欢卖票之类的事。",
+      "evidence": [
+        {
+          "block": "x33",
+          "quote": "He’s getting the room ready for the play."
+        }
+      ]
     }
   },
   "transcripts": {

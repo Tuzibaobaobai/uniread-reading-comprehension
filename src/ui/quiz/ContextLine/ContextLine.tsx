@@ -17,3 +17,12 @@ export function ContextLine({ mode = 'default', children }: { mode?: ContextMode
 export function ContextStack({ children }: { children: ReactNode }) {
   return <div className="context-stack">{children}</div>;
 }
+
+/**
+ * Form: a printed notes form in the question pane (Ready frame 2.08 — listening Part 2 「Radio camp for teenagers」): the
+ * same grey box, a bold title, label / answer rows with the gaps as lines. `table` — the box draws the rows itself; a
+ * printed note (PET) keeps its own card.
+ */
+export function ContextForm({ table = true, children }: { table?: boolean; children: ReactNode }) {
+  return <div className={table ? 'context-line context-form' : 'context-form is-note'}>{children}</div>;
+}

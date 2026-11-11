@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { InlineT, ItemKeyT, ItemT, JudgementT } from '@schema';
 import { Rich, plainText, type BlankNode } from '@/components/Rich';
 import { questionBlankIds, type Result } from '@/lib/grading';
-import { isCambridge } from '@/lib/judge';
+import { isCambridge, judgeFeedback } from '@/lib/judge';
 import { Block } from './ArticlePane';
-import { blankContext, blankCorrect, correctBlankText, showFirstLetter, type FlatQuestion, type Responses } from './model';
+import { blankContext, blankCorrect, correctBlankText, listeningForm, showFirstLetter, type FlatQuestion, type Responses } from './model';
 import { staticContent } from '@/lib/content';
 import { Chip } from '@/ui/common/Chip/Chip';
 import { HintText } from '@/ui/common/HintText/HintText';
 import { InlineNotice } from '@/ui/common/InlineNotice/InlineNotice';
 import { OptionGroup, OptionItem, type OptionState } from '@/ui/quiz/OptionItem/OptionItem';
 import { QuestionPrompt } from '@/ui/quiz/QuestionPrompt/QuestionPrompt';
-import { ContextLine, ContextStack } from '@/ui/quiz/ContextLine/ContextLine';
+import { ContextForm, ContextLine, ContextStack } from '@/ui/quiz/ContextLine/ContextLine';
 import { BlankSlot } from '@/ui/quiz/BlankSlot/BlankSlot';
 import { BlankInput } from '@/ui/quiz/BlankInput/BlankInput';
 import { WordBank, WordBankEntry } from '@/ui/quiz/WordBank/WordBank';
@@ -74,7 +74,10 @@ export function OptionList({
   showLetter = true,
   explain,
   ariaLabels,
+  imageList,
 }: {
+  /** Ready frame 1.17: 时文 picture options are a list (one per row, the picture under the letter), not tiles */
+  imageList?: boolean;
   options: { id: string; content: InlineT[]; image?: string }[];
   selected?: string;
   onSelect: (id: string) => void;
@@ -86,7 +89,7 @@ export function OptionList({
 }) {
   const { t } = useTranslation();
   return (
-    <OptionGroup images={options.length > 0 && options.every((o) => o.image)} locked={locked}>
+    <OptionGroup images={options.length > 0 && options.every((o) => o.image)} imageList={imageList} locked={locked}>
       {options.map((o) => {
         const isSel = selected === o.id;
         const isRight = !!correct?.includes(o.id);
@@ -97,7 +100,7 @@ export function OptionList({
             key={o.id}
             state={state}
             selected={isSel}
-            checked={correct ? isRight || isSel : isSel}
+            checked={isSel} /* 1.05: the right answer the learner missed keeps an empty radio (option-text-item 正确 × checked=no) */
             locked={locked}
             letter={showLetter ? o.id : undefined}
             image={
@@ -176,6 +179,7 @@ export function ChoiceView(props: InteractionProps) {
         correct={correct}
         locked={!!review}
         explain={hasImageOptions(fq.q) ? undefined : choiceExplain(props)}
+        imageList={!isExamItem(props.item)}
         onSelect={(id) => setOne(props, [id])}
       />
     </>
@@ -189,7 +193,6 @@ export const hasImageOptions = (q: InteractionProps['fq']['q']) =>
 /* ---------------------------------------------------------- inlineChoice */
 
 export function InlineChoiceView(props: InteractionProps) {
-  const { t } = useTranslation();
   const { fq, responses, review, item } = props;
   const it = fq.q.interaction;
   if (it.kind !== 'inlineChoice') return null;
@@ -202,9 +205,7 @@ export function InlineChoiceView(props: InteractionProps) {
       <QuestionPrompt number={fq.q.number}>
         {it.prompt ? (
           <Rich nodes={it.prompt} blank={(n) => <ContextBlank n={n} active={n.id === it.blankId} text={undefined} />} />
-        ) : isExamItem(item) ? null : (
-          <>{t('interaction.blankN', { n: fq.q.number })}</>
-        )}
+        ) : null /* 1.08: only the number when nothing is printed */}
       </QuestionPrompt>
       {!it.prompt && context && (
         // exam papers: the sentence is in the left pane already; repeated only on narrow screens (tabs)
@@ -319,15 +320,15 @@ export function GapMatchView(props: InteractionProps) {
 
   return (
     <>
-      <QuestionPrompt number={fq.q.number}>
-        {it.prompt ? <Rich nodes={it.prompt} blank={renderBlank} /> : isExamItem(item) ? null : <>{t('interaction.blankN', { n: fq.q.number })}</>}
+      {/* 1.09: the hint sits right under the title, above the sentence */}
+      <QuestionPrompt number={fq.q.number} hint={review ? undefined : blanks.length > 1 ? t('interaction.gapHintMulti') : t('interaction.gapHintSingle')}>
+        {it.prompt ? <Rich nodes={it.prompt} blank={renderBlank} /> : isExamItem(item) ? null : <>{t('interaction.blankN', { n: fq.q.number })}</> /* 1.09 keeps 第 N 空 */}
       </QuestionPrompt>
       {!it.prompt && context && (
         <ContextLine mode={isExamItem(item) ? 'exam' : 'default'}>
           <Rich nodes={context} blank={renderBlank} />
         </ContextLine>
       )}
-      <HintText>{review ? '' : blanks.length > 1 ? t('interaction.gapHintMulti') : t('interaction.gapHintSingle')}</HintText>
       <WordBank layout={bank.some((b) => plainText(b.content).split(' ').length > 4) ? 'sentence' : 'word'}>
         {bank.map((b) => {
           const use = usage.get(b.id);
@@ -387,6 +388,7 @@ export function TextEntryView(props: InteractionProps) {
   };
 
   const stimulus = fq.section.stimulus;
+  const notesForm = listeningForm(item, fq.section, blanks[0]);
   return (
     <>
       {it.prompt && stimulus && (
@@ -398,7 +400,7 @@ export function TextEntryView(props: InteractionProps) {
         </Stimulus>
       )}
       <QuestionPrompt number={fq.q.number}>
-        {it.prompt ? <Rich nodes={it.prompt} blank={renderBlank} /> : isExamItem(item) ? null : <>{t('interaction.blankN', { n: fq.q.number })}</>}
+        {it.prompt ? <Rich nodes={it.prompt} blank={renderBlank} /> : isExamItem(item) ? null : <>{t('interaction.blankN', { n: fq.q.number })}</> /* 1.12 keeps 第 N 空 */}
       </QuestionPrompt>
       {!it.prompt && stimulus && (
         <Stimulus>
@@ -407,13 +409,23 @@ export function TextEntryView(props: InteractionProps) {
           ))}
         </Stimulus>
       )}
-      {!it.prompt && !stimulus && (
+      {!it.prompt && !stimulus && notesForm && (
+        // Ready frame 2.08: a listening Part's notes form (table / note with the gaps) sits under the number in the
+        // question pane — the left pane keeps only the recordings
+        <ContextForm table={notesForm.type === 'table'}>
+          <Block block={notesForm} renderBlank={renderBlank} />
+        </ContextForm>
+      )}
+      {!it.prompt && !stimulus && !notesForm && (
         // typed blanks: the input lives in this sentence, so it always shows (only choice cloze hides it, #83)
         <ContextStack>
-          {blanks.map((b) => {
-            const ctx = blankContext(item, b);
-            return <ContextLine key={b}>{ctx ? <Rich nodes={ctx} blank={renderBlank} /> : null}</ContextLine>;
-          })}
+          {/* blanks that share one sentence show it once, with all their inputs in place */}
+          {blanks
+            .map((b) => ({ b, ctx: blankContext(item, b) }))
+            .filter(({ b }, i, all) => !all.slice(0, i).some((x) => x.ctx?.some((n) => n.t === 'blank' && n.id === b)))
+            .map(({ b, ctx }) => (
+              <ContextLine key={b}>{ctx ? <Rich nodes={ctx} blank={renderBlank} /> : null}</ContextLine>
+            ))}
         </ContextStack>
       )}
       {it.maxWords && !isExamItem(item) && <HintText>{t('interaction.maxWords', { count: it.maxWords })}</HintText>}
@@ -460,7 +472,7 @@ export function MatchView(props: InteractionProps) {
   return (
     <>
       <QuestionPrompt number={fq.q.number} hint={review ? '' : t('interaction.matchProgress', { done: Object.keys(pairs).length, total: it.left.length })}>
-        {it.prompt ? <Rich nodes={it.prompt} /> : <>{t('interaction.matchPrompt')}</>}
+        {it.prompt ? <Rich nodes={it.prompt} /> : null /* 1.10: only the number */}
       </QuestionPrompt>
       <MatchColumns
         left={it.left.map((l) => {
@@ -564,6 +576,66 @@ export function OrderView(props: InteractionProps) {
 
 const capitalise = (t: string) => (t ? t[0].toUpperCase() + t.slice(1) : t);
 
+/**
+ * The printed task under a writing title, line by line (Ready frame 2.18): a lead-in ending in ":" is bold, "• …" lines
+ * are the points (16 apart), the word-count line ("Write 25 words or more.") is bold, other lines are plain paragraphs.
+ */
+function TaskLines({ nodes }: { nodes: InlineT[] }) {
+  const lines: InlineT[][] = [[]];
+  for (const n of nodes) {
+    if (n.t === 'br') lines.push([]);
+    else lines[lines.length - 1].push(n);
+  }
+  const text = (l: InlineT[]) => plainText(l).trim();
+  const out: ReactNode[] = [];
+  let points: InlineT[][] = [];
+  const flush = () => {
+    if (!points.length) return;
+    out.push(
+      <ul key={`u${out.length}`} className="task-points">
+        {points.map((l, i) => (
+          <li key={i}>
+            <Rich nodes={stripBullet(l)} />
+          </li>
+        ))}
+      </ul>,
+    );
+    points = [];
+  };
+  for (const l of lines) {
+    const s = text(l);
+    const kind = taskLineKind(s);
+    if (kind === 'point') {
+      points.push(l);
+      continue;
+    }
+    flush();
+    if (kind === 'empty') continue;
+    const cls = kind === 'lead' ? 'task-lead' : kind === 'count' ? 'task-count' : undefined;
+    out.push(
+      <p key={`p${out.length}`} className={cls}>
+        <Rich nodes={l} />
+      </p>,
+    );
+  }
+  flush();
+  return <>{out}</>;
+}
+
+/** what a printed task line is: a bold lead-in ("In your email:"), a point ("• …"), the word count, or plain text */
+function taskLineKind(s: string): 'empty' | 'lead' | 'point' | 'count' | 'plain' {
+  if (!s) return 'empty';
+  if (/^[•·]/.test(s)) return 'point';
+  if (s.endsWith(':')) return 'lead';
+  return /^Write\b.*\bwords\b/i.test(s) ? 'count' : 'plain';
+}
+
+/** a point line without its printed bullet (the list draws it) */
+function stripBullet(l: InlineT[]): InlineT[] {
+  const [first, ...rest] = l;
+  return first && first.t === 'text' ? [{ ...first, v: first.v.replace(/^\s*[•·]\s*/, '') }, ...rest] : l;
+}
+
 /* ---------------------------------------------------------- extendedText */
 
 export function ExtendedTextView(props: InteractionProps & { selfAssessed?: boolean; onSelfAssess: (v: boolean) => void; kind?: WritingKind }) {
@@ -572,11 +644,34 @@ export function ExtendedTextView(props: InteractionProps & { selfAssessed?: bool
   const it = fq.q.interaction;
   const value = typeof responses[fq.q.id] === 'string' ? (responses[fq.q.id] as string) : '';
   if (it.kind !== 'extendedText') return null;
+  // Ready frames 2.18 / 2.19 / 2.23: only the task's first paragraph is the bold title; the rest of the printed task
+  // ("In your email:", the bullets, "Write 25 words or more.") is body text under it
+  const split = isExamItem(props.item) ? it.prompt.findIndex((n, i, a) => n.t === 'br' && a[i + 1]?.t === 'br') : -1;
+  // the title is one running paragraph (its printed line breaks read as spaces)
+  const head = (split > 0 ? it.prompt.slice(0, split) : it.prompt).map((n): InlineT => (n.t === 'br' && isExamItem(props.item) ? { t: 'text', v: ' ' } : n));
+  let tail = split > 0 ? it.prompt.slice(split + 2) : [];
+  // Ready frame 2.23: the "Write …" instruction right after the title joins it ("… the notes you have made. Write your
+  // email to Mrs Hallam using all the notes."); anything else (the PET story's opening sentence) stays in the body
+  if (isExamItem(props.item)) {
+    while (tail.length) {
+      const i = tail.findIndex((n) => n.t === 'br');
+      const line = i < 0 ? tail : tail.slice(0, i);
+      const text = plainText(line).trim();
+      if (taskLineKind(text) !== 'plain' || !/^Write\b/.test(text)) break;
+      head.push({ t: 'text', v: ' ' }, ...line);
+      tail = i < 0 ? [] : tail.slice(i + 1);
+    }
+  }
   return (
     <>
       <QuestionPrompt number={fq.q.number}>
-        <Rich nodes={it.prompt} />
+        <Rich nodes={head} />
       </QuestionPrompt>
+      {tail.length > 0 && (
+        <div className="task-body">
+          <TaskLines nodes={tail} />
+        </div>
+      )}
       {/* the printed text in its genre layout, then the closing instruction (#96): rc/Exam/WritingTask */}
       <WritingTask
         kind={props.kind ?? (it.stimulus ? 'email' : 'story')}
@@ -592,12 +687,12 @@ export function ExtendedTextView(props: InteractionProps & { selfAssessed?: bool
         value={value}
         locked={!!review}
         placeholder={t('interaction.answerPlaceholder')}
-        rows={it.minWords ? 'long' : 'short'}
+        rows="short" /* Ready frames 2.18 / 2.23: a 120-high box that grows with the text */
         counter={it.minWords ? { text: t('interaction.wordCount', { count: countWords(value), min: it.minWords }), enough: countWords(value) >= it.minWords } : undefined}
         onChange={(v) => setOne(props, v || undefined)}
       />
       {review && <JudgeVerdict {...props} />}
-      {review && rowOf(props)?.scoredBy === 'self' && (
+      {review && rowOf(props)?.scoredBy === 'self' && !isCambridge(rubricOf(props)) && (
         <SelfAssess
           answer={props.selfAssessed}
           question={t('interaction.selfAssessQuestion')}
@@ -611,6 +706,10 @@ export function ExtendedTextView(props: InteractionProps & { selfAssessed?: bool
 }
 
 const rowOf = (props: InteractionProps) => props.review?.result.byQuestion.find((b) => b.q === props.fq.q.id);
+const rubricOf = (props: InteractionProps) => {
+  const k = props.review?.key.answers[props.fq.q.id];
+  return k && 'sampleAnswer' in k ? k.rubricType : undefined;
+};
 
 /** writing tasks: live word count against the task's minimum (Cambridge shows a live counter too) */
 export const countWords = (text: string) => (text.match(/[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*/g) ?? []).length;
@@ -621,11 +720,13 @@ export function JudgeVerdict(props: InteractionProps) {
   const row = rowOf(props);
   if (!row) return null;
   if (row.scoredBy === 'pending') return <JudgePending>{t('judge.marking')}</JudgePending>;
+  const k = props.review?.key.answers[props.fq.q.id];
+  const rubric = k && 'sampleAnswer' in k ? k.rubricType : undefined;
+  // the judge was down: say so (not a 0); Cambridge writing / speaking can't be self-marked, reading answers can
+  if (row.scoredBy === 'self') return <JudgePending notice>{t(isCambridge(rubric) ? 'judge.unavailable' : 'judge.unavailableSelf')}</JudgePending>;
   const j = row.judgement;
   if (row.scoredBy !== 'judge' || !j) return null;
-  const k = props.review?.key.answers[props.fq.q.id];
   const points = k && 'keyPoints' in k ? (k.keyPoints ?? []) : [];
-  const rubric = k && 'sampleAnswer' in k ? k.rubricType : undefined;
   if (isCambridge(rubric)) {
     return (
       <JudgeResult
@@ -633,7 +734,6 @@ export function JudgeVerdict(props: InteractionProps) {
         score={j.score}
         max={j.maxPoints}
         tag={t('judge.cambridgeTag')}
-        reviewTag={j.needsReview ? t('judge.needsReview') : undefined}
         standard={t(`judge.note.${rubric}`)}
         criteria={points.map((p) => ({
           id: p.id,
@@ -644,7 +744,7 @@ export function JudgeVerdict(props: InteractionProps) {
         extraCriterion={
           rubric === 'cambridge_a2_speaking' || rubric === 'cambridge_b1_speaking' ? { name: t('judge.pronunciation'), note: t('judge.notAssessed') } : undefined
         }
-        feedback={j.feedbackZh}
+        feedback={judgeFeedback(j, t)}
         issues={languageIssues(j, t)}
       />
     );
@@ -664,12 +764,11 @@ export function JudgeMarks({ j, points }: { j: JudgementT; points: { id: string;
       score={j.score}
       max={j.maxPoints}
       tag={t('judge.markLabel')}
-      reviewTag={j.needsReview ? t('judge.needsReview') : undefined}
       points={points.map((p) => {
         const met = j.keyPoints.find((x) => x.id === p.id)?.met ?? 'no';
         return { id: p.id, desc: p.descZh, met, metLabel: t(`judge.met.${met}`) };
       })}
-      feedback={j.feedbackZh}
+      feedback={judgeFeedback(j, t)}
       issues={languageIssues(j, t)}
     />
   );
@@ -726,7 +825,7 @@ export function ChooseTaskView(props: InteractionProps & { selfAssessed?: boolea
               key={q.id}
               role="radio"
               aria-checked={isSel}
-              className="task-card"
+              className="task-card is-filled" /* Ready frame 2.24: the filled card of 2.02 (grey-1, no border, radius m) */
               titleClassName="task-card-head"
               textClassName="task-card-text"
               title={t('interaction.taskCard', { n: q.number })}

@@ -524,7 +524,7 @@
           ]
         }
       },
-      "explanationZh": "“强调……”可以说 emphasise sth.（emphasise 是及物动词，后面直接跟宾语，不加 on），也可以说 lay/put/place emphasis on，emphasis 是名词，后面用介词 on。答案书印作 emphasise on，经人工复核（GitHub #136）更正为 emphasise sth.。"
+      "explanationZh": "“强调……”可以说 emphasise sth.（emphasise 是及物动词，后面直接跟宾语，不加 on），也可以说 lay/put/place emphasis on，emphasis 是名词，后面用介词 on。"
     },
     "q51": {
       "slots": {
@@ -657,9 +657,10 @@
       "explanationZh": "“不遗余力”= spare no effort；“正在”用现在进行时 are sparing。"
     },
     "q63": {
-      "sampleAnswer": "I’m afraid that either of them will not agree to this arrangement.",
+      "sampleAnswer": "I don’t think either of them will agree to this arrangement, I’m afraid.",
       "references": [
-        "I’m afraid that either of them will not agree to this arrangement."
+        "I don’t think either of them will agree to this arrangement, I’m afraid.",
+        "I’m afraid it’s unlikely that either of them will agree to this arrangement."
       ],
       "rubricType": "translation",
       "keyPoints": [
@@ -674,7 +675,8 @@
           "weight": 1.0
         }
       ],
-      "explanationZh": "either of them 指两者中的任何一个，这里按书上译法用 either of them ... will not ...。"
+      "explanationZh": "“两人都不会……”是全部否定。either 用在否定句里要放在 not 后面（I don’t think either of them will ...），不能放在句首作主语再接否定——不说 Either of them will not ...，那样要用 neither（Neither of them will agree ...）。本题要求用 either。",
+      "rubricZh": "要用指定词 either，并表达“两人都不会同意”的全部否定：either 只能出现在否定词之后（I don’t think either of them will ...）。Either of them will not / won’t ... 是不规范的英语（应为 Neither of them will ...），语言一项扣分；用 neither 意思正确但未用指定词。书上参考译文原为 I’m afraid that either of them will not agree to this arrangement.，2026-11-11 交付前 QA 按语法更正。"
     },
     "q64": {
       "sampleAnswer": "He embarrassed me by mentioning the mistake again.",

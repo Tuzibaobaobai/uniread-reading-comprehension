@@ -1,3 +1,4 @@
+import { scrollBehavior } from '@/lib/scroll';
 import { useEffect } from 'react';
 
 /**
@@ -29,5 +30,5 @@ export function useVisualViewport() {
 /** after the keyboard has opened, bring the focused field to the middle of its scroller */
 export function centreOnFocus(e: { currentTarget: HTMLElement }) {
   const el = e.currentTarget;
-  window.setTimeout(() => el.scrollIntoView({ block: 'center', behavior: 'smooth' }), 300);
+  window.setTimeout(() => el.scrollIntoView({ block: 'center', behavior: scrollBehavior() }), 300);
 }

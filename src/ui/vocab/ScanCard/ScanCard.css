@@ -12,14 +12,17 @@
 }
 .scan-headword { display: flex; flex-direction: column; align-items: center; gap: var(--ur-space-16); max-width: 100%; }
 .scan-word {
-  margin: 0; font-family: var(--ur-font-primary-font-family); font-size: var(--ur-text-size-display); line-height: normal;
+  /* Figma 3.03 auto line height (58 for 48): "normal" in Noto Sans SC is 70 and pushed the card 19 lower */
+  margin: 0; font-family: var(--ur-font-primary-font-family); font-size: var(--ur-text-size-display); line-height: 1.2;
   font-weight: var(--ur-font-weight-black); color: var(--ur-color-text-primary); overflow-wrap: anywhere;
 }
 .scan-word.is-known { color: var(--ur-color-feedback-success); }
 .scan-word.is-unknown { color: var(--ur-color-feedback-error); }
 .scan-ipa {
   margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--ur-space-4) var(--ur-space-16);
-  font-family: var(--ur-font-primary-font-family); font-size: var(--ur-text-font-system-4xl-regular-size); line-height: normal;
+  font-family: var(--ur-font-primary-font-family); font-size: var(--ur-text-font-system-4xl-regular-size); line-height: 1.2; /* 29, as drawn */
   font-weight: var(--ur-text-font-system-4xl-regular-weight); color: var(--ur-color-text-tertiary);
 }
 .scan-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--ur-space-32); padding: var(--ur-space-40) 0; }
+/* one face for the whole phonetic line (proposed token font/ipa) */
+.scan-ipa { font-family: var(--ur-font-ipa); }

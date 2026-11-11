@@ -6,12 +6,20 @@
   padding: 0 var(--ur-space-2); background: transparent;
   border-bottom: var(--ur-stroke-blank) solid var(--ur-color-text-strong);
   vertical-align: baseline;
+  /* a long typed answer never pushes past the line: the input scrolls inside the underline instead */
+  max-width: 100%; box-sizing: border-box;
 }
 .blank-input:focus-within { border-bottom-color: var(--ur-color-action-primary); background: var(--ur-color-action-primary-soft); }
 .blank-input :where(input) {
-  border: none; outline: none; font: inherit; font-size: max(var(--ur-text-font-system-m-regular-size), 1em); min-width: 3em;
+  border: none; outline: none; font: inherit; font-size: max(var(--ur-text-font-system-m-regular-size), 1em); min-width: 3em; max-width: 100%;
   padding: var(--ur-space-4) 0;
   background: transparent; color: var(--ur-color-text-answer); font-weight: var(--ur-text-font-system-m-bold-weight);
+}
+/* the tap target is 44 high while the drawn line keeps its height: the input's padding grows by as much as its negative
+   margin, so the line box and the sentence's line spacing don't change (词汇 sets its own 44 high field) */
+.blank-input:not(.vocab-quiz *) :where(input) {
+  padding-block: calc(var(--ur-space-4) + var(--ur-space-4) + var(--ur-space-2));
+  margin-block: calc(-1 * (var(--ur-space-4) + var(--ur-space-2)));
 }
 .blank-input :where(input)::placeholder { color: var(--ur-color-text-tertiary); text-align: center; font-size: .8em; }
 .blank-input-prefix { font-weight: var(--ur-text-font-system-m-bold-weight); }

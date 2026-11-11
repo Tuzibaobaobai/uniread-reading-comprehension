@@ -1,3 +1,4 @@
+import type React from 'react';
 import type { InputHTMLAttributes } from 'react';
 import './LineInput.css';
 
@@ -38,6 +39,8 @@ export function LineInput({
         aria-label={label}
         placeholder={placeholder}
         lang={en ? 'en' : 'zh-CN'}
+        // a longer answer widens the line (up to the row) so the learner can read all of it, in the quiz and in review
+        style={{ '--chars': value.length } as React.CSSProperties}
         enterKeyHint="next"
         autoComplete="off"
         {...(en ? { autoCapitalize: 'none', autoCorrect: 'off', spellCheck: false } : {})}

@@ -53,7 +53,7 @@
 .cell-text.is-wrong .cell-text-input { border-color: var(--ur-color-feedback-error); background: var(--ur-color-feedback-error-bg); }
 .cell-text-input {
   display: block; width: 100%; min-height: var(--ur-size-touch-target); padding: calc(var(--ur-space-4) + var(--ur-space-2)) var(--ur-space-8);
-  resize: vertical; border: var(--ur-stroke-default) solid var(--ur-color-border-default); border-radius: var(--ur-radius-xs);
+  resize: none; field-sizing: content; border: var(--ur-stroke-default) solid var(--ur-color-border-default); border-radius: var(--ur-radius-xs);
   background: var(--ur-color-background-card); color: var(--ur-color-text-primary);
   font: inherit; font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height);
 }

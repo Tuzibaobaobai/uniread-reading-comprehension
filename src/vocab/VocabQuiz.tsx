@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import type { TFunction } from 'i18next';
 import type { AnswerKeyT, BlockT, InlineT, ItemKeyT, QuestionT, VocabDayItemT } from '@schema';
 import { Rich, type BlankNode } from '@/components/Rich';
-import { isAnswered, type Result } from '@/lib/grading';
+import { isAnswered, phraseTokens, type Result } from '@/lib/grading';
 import { BlankInput } from '@/reader/interactions';
 import { Block } from '@/reader/ArticlePane';
 import { SectionHeader } from '@/ui/quiz/SectionHeader/SectionHeader';
@@ -20,6 +20,7 @@ import { WordFamilyRow as WordFamilyLayout } from '@/ui/vocab/WordFamilyRow/Word
 import { TranslateRow } from '@/ui/vocab/TranslateRow/TranslateRow';
 import { PhraseBank } from '@/ui/vocab/PhraseBank/PhraseBank';
 import { centreOnFocus } from './useVisualViewport';
+import { fmtPoints, judgeFeedback } from '@/lib/judge';
 
 type Rec = Record<string, string>;
 export type VocabResponses = Record<string, Rec | string>;
@@ -28,6 +29,8 @@ export interface QuizState {
   item: VocabDayItemT;
   responses: VocabResponses;
   setResponse: (qid: string, value: Rec | string) => void;
+  /** one field of a multi-part answer (blank, word / meaning / part of speech), merged into the latest answer */
+  setField: (qid: string, field: string, value: string) => void;
   /** answer parts solved with a hint (none since #115; kept for attempts saved earlier) */
   hinted: Set<string>;
   /** questions carried over from the last attempt (「只练错题」): shown answered and read-only */
@@ -111,7 +114,7 @@ export function VocabQuiz({
   const questionState = (q: QuestionT): PartQuestionState => {
     if (review) {
       const r = review.result.byQuestion.find((b) => b.q === q.id);
-      return r?.correct === true ? 'correct' : r?.correct === false ? 'wrong' : 'none';
+      return r?.correct === true ? 'correct' : r?.correct === false ? (r.points > 0 ? 'partial' : 'wrong') : 'none';
     }
     return isAnswered(q, state.responses[q.id] as never) ? 'answered' : 'none';
   };
@@ -131,7 +134,7 @@ export function VocabQuiz({
           state: st,
           ariaLabel:
             t('vocab.quiz.goQuestion', { n: q.number }) +
-            (st === 'answered' ? t('vocab.quiz.markAnswered') : st === 'correct' ? t('vocab.quiz.markRight') : st === 'wrong' ? t('vocab.quiz.markWrong') : ''),
+            (st === 'answered' ? t('vocab.quiz.markAnswered') : st === 'correct' ? t('vocab.quiz.markRight') : st === 'partial' ? t('vocab.quiz.markPartly') : st === 'wrong' ? t('vocab.quiz.markWrong') : ''),
         };
       }),
       count: review ? score : `${done(s)}/${s.questions.length}`,
@@ -179,7 +182,7 @@ export function VocabQuiz({
         parts={parts}
         page={page}
         review={!!review}
-        prev={{ label: t('reader.prev'), onClick: () => setPage(page - 1) }}
+        prev={{ label: t('reader.prev'), hidden: page === 0, onClick: () => setPage(page - 1) }} // Figma 3.11: no ‹ on the first Part
         action={
           review
             ? isLast
@@ -196,6 +199,17 @@ export function VocabQuiz({
   );
 }
 
+/**
+ * a blank printed without its own number (the table days, the earlier blank of a two-blank prompt) is announced by its
+ * question's number — "空格 12" or, with several blanks, "空格 12-1", "空格 12-2" — instead of a bare "空格" (no visible change)
+ */
+function blankLabel(t: TFunction, n: BlankNode, q: QuestionT): { 'aria-label'?: string } {
+  const ids = q.interaction.kind === 'textEntry' ? (q.interaction.blankIds ?? (q.interaction.prompt ?? []).flatMap((x) => (x.t === 'blank' ? [x.id] : []))) : [];
+  // a printed number labels a single blank; with several blanks each is "12-1", "12-2" (the first one too)
+  if (n.number !== undefined && ids.length < 2) return {};
+  return { 'aria-label': t('interaction.slot', { n: ids.length > 1 ? `${q.number}-${ids.indexOf(n.id) + 1}` : q.number }) };
+}
+
 /** a textEntry whose blanks are in the section's table, not in a prompt of its own (第69–70天) */
 const inTable = (q: QuestionT) => q.interaction.kind === 'textEntry' && !q.interaction.prompt?.length && !!q.interaction.blankIds?.length;
 
@@ -204,6 +218,7 @@ const inTable = (q: QuestionT) => q.interaction.kind === 'textEntry' && !q.inter
  * each answer cell; each blank belongs to the question that lists it in blankIds (as 表格填空)
  */
 function TableStimulus({ blocks, questions, state }: { blocks: BlockT[]; questions: QuestionT[]; state: QuizState }) {
+  const { t } = useTranslation();
   const owner = (id: string) => questions.find((q) => q.interaction.kind === 'textEntry' && q.interaction.blankIds?.includes(id));
   const renderBlank = (n: BlankNode) => {
     const q = owner(n.id);
@@ -215,10 +230,10 @@ function TableStimulus({ blocks, questions, state }: { blocks: BlockT[]; questio
         key={n.id}
         n={n}
         value={r[n.id] ?? ''}
-        onChange={(v) => state.setResponse(q.id, { ...record(state.responses[q.id]), [n.id]: v })}
+        onChange={(v) => state.setField(q.id, n.id, v)}
         ok={state.review ? (result?.parts?.[n.id] ?? null) : null}
         locked={(state.kept.has(q.id) && !state.review) || !!state.review}
-        inputAttrs={{ ...fieldAttrs, 'data-vq-q': q.id }}
+        inputAttrs={{ ...fieldAttrs, ...blankLabel(t, n, q), 'data-vq-q': q.id }}
       />
     );
   };
@@ -246,7 +261,21 @@ function TableReview({ questions, state }: { questions: QuestionT[]; state: Quiz
       label={t('reader.correctAnswer')}
       answer={wrong.map((q) => `${q.number}. ${answerText(q, review.key.answers[q.id])}`).join('   ')}
       score={{ correct: false, text: t('reader.wrong') }}
-    />
+    >
+      {/* docs/16 §3.3: each wrong answer links to its word's entry */}
+      {wrong.some((q) => q.entryRef) && (
+        <div className="vq-word-list">
+          {wrong
+            .filter((q) => q.entryRef)
+            .map((q) => (
+              <button key={q.id} type="button" className="vq-word" onClick={() => state.onOpenEntry(q.entryRef!)}>
+                <img src={bookmarkIcon} alt="" />
+                {t('vocab.result.openEntryN', { n: q.number })}
+              </button>
+            ))}
+        </div>
+      )}
+    </AnswerFeedback>
   );
 }
 
@@ -313,7 +342,7 @@ function WordProfileRow({ q, state, locked }: { q: QuestionT; state: QuizState; 
   const r = record(state.responses[q.id]);
   const parts = state.review?.result.byQuestion.find((b) => b.q === q.id)?.parts;
   const ro = locked || !!state.review;
-  const set = (k: string, v: string) => state.setResponse(q.id, { ...r, [k]: v });
+  const set = (k: string, v: string) => state.setField(q.id, k, v);
   return (
     <WordProfileLayout
       num={`${q.number}.`}
@@ -336,7 +365,7 @@ function WordFamilyRow({ q, state, locked }: { q: QuestionT; state: QuizState; l
   const r = record(state.responses[q.id]);
   const parts = state.review?.result.byQuestion.find((b) => b.q === q.id)?.parts;
   const ro = locked || !!state.review;
-  const set = (k: string, v: string) => state.setResponse(q.id, { ...r, [k]: v });
+  const set = (k: string, v: string) => state.setField(q.id, k, v);
   return (
     <WordFamilyLayout
       num={`${q.number}.`}
@@ -359,6 +388,7 @@ function WordFamilyRow({ q, state, locked }: { q: QuestionT; state: QuizState; l
  * its blank (二, 词组日一) has the blank at the right, like the answer lines in the book (#118).
  */
 function TextEntryRow({ q, state, locked }: { q: QuestionT; state: QuizState; locked: boolean }) {
+  const { t } = useTranslation();
   if (q.interaction.kind !== 'textEntry') return null;
   const r = record(state.responses[q.id]);
   const prompt = (q.interaction.prompt ?? []) as InlineT[];
@@ -368,11 +398,11 @@ function TextEntryRow({ q, state, locked }: { q: QuestionT; state: QuizState; lo
       key={n.id}
       n={n}
       value={r[n.id] ?? ''}
-      onChange={(v) => state.setResponse(q.id, { ...r, [n.id]: v })}
+      onChange={(v) => state.setField(q.id, n.id, v)}
       ok={state.review ? (result?.parts?.[n.id] ?? null) : null}
       locked={locked || !!state.review}
       baseOutside
-      inputAttrs={fieldAttrs}
+      inputAttrs={{ ...fieldAttrs, ...blankLabel(t, n, q) }}
     />
   );
   const num = <span className="vq-num">{q.number}.</span>;
@@ -384,7 +414,7 @@ function TextEntryRow({ q, state, locked }: { q: QuestionT; state: QuizState; lo
       <p className="vq-sentence is-answer-right">
         {num}
         <span className="vq-prompt">
-          <Rich nodes={prompt.slice(0, from)} />
+          <Rich nodes={prompt.slice(0, from)} blank={blank} />
         </span>
         <span className={`vq-answer-cell ${blanks.length > 1 ? 'is-multi' : ''}`}>{blanks.map(blank)}</span>
       </p>
@@ -422,10 +452,26 @@ function TranslationRow({ q, state, locked }: { q: QuestionT; state: QuizState; 
 
 /* ------------------------------------------------------------------ review */
 
+/** accepted answers as the learner reads them: one of each spelling, not every punctuation variant the grader also takes */
+const distinct = (accept: string[]) => {
+  const kept: string[][] = [];
+  const words = (tokens: string[]) => tokens.filter((x) => !['sb', 'sth', 'somebody', 'someone', 'something', '…', '/', '(', ')'].includes(x));
+  return accept
+    .filter((a) => {
+      const k = words(phraseTokens(a));
+      // the same answer in other notation, or one reading of a printed form already shown (spend money/time (in) doing
+      // sth. covers spend time doing; on account of / because of covers because of)
+      if (kept.some((w) => k.every((x) => w.includes(x)))) return false;
+      kept.push(k);
+      return true;
+    })
+    .join(' / ');
+};
+
 function answerText(q: QuestionT, k: AnswerKeyT): string {
-  if ('word' in k && 'pos' in k) return `${k.word.join(' / ')}  ${k.pos.join(' / ')}  ${k.zh[0] ?? ''}`;
-  if ('forms' in k) return Object.values(k.forms).map((f) => `${f.word.join(' / ')} ${f.zh[0] ?? ''}`).join('；');
-  if ('slots' in k) return Object.values(k.slots).map((s) => s.accept.join(' / ')).join('；');
+  if ('word' in k && 'pos' in k) return `${distinct(k.word)}  ${k.pos.join(' / ')}  ${k.zh[0] ?? ''}`;
+  if ('forms' in k) return Object.values(k.forms).map((f) => `${distinct(f.word)} ${f.zh[0] ?? ''}`).join('；');
+  if ('slots' in k) return Object.values(k.slots).map((s) => distinct(s.accept)).join('；');
   if ('sampleAnswer' in k) return (k.references?.length ? k.references : [k.sampleAnswer]).join(' / ');
   return q.id;
 }
@@ -439,6 +485,13 @@ function Review({ q, k, result, state }: { q: QuestionT; k: AnswerKeyT; result?:
   const hintedHere = [...state.hinted].some((h) => h.startsWith(`${q.id}:`));
   const points = 'keyPoints' in k ? (k.keyPoints ?? []) : [];
   const scored = result && result.scoredBy !== 'pending' && result.scoredBy !== 'self' && result.scoredBy !== 'none';
+  // docs/16 §3.3: a wrong answer links to its word's entry (the 词卡 dialog)
+  const entryLink = q.entryRef && (
+    <button type="button" className="vq-word" onClick={() => state.onOpenEntry(q.entryRef!)}>
+      <img src={bookmarkIcon} alt="" />
+      {t('vocab.result.openEntry')}
+    </button>
+  );
   // Figma 3.28: a model-marked 中译英 is one grey box — the score, a pill per point met / to work on, the reference translation
   if (result?.scoredBy === 'judge' && result.judgement) {
     const j = result.judgement;
@@ -448,15 +501,15 @@ function Review({ q, k, result, state }: { q: QuestionT; k: AnswerKeyT; result?:
         label={t('judge.markLabel')}
         score={j.score}
         max={j.maxPoints}
-        scoreText={t('judge.scoreLine', { score: j.score, max: j.maxPoints })}
-        reviewTag={j.needsReview ? t('judge.needsReview') : undefined}
+        scoreText={t('judge.scoreLine', { score: fmtPoints(j.score), max: fmtPoints(j.maxPoints) })}
         // #147: an empty / non-English answer met nothing — no key-point pills (they read as praise), only the message
         chips={j.flags.includes('empty') || j.flags.includes('not_english') ? [] : [
           ...points.map((p) => ({ id: p.id, text: p.descZh, kind: (j.keyPoints.find((x) => x.id === p.id)?.met === 'yes' ? 'good' : 'tip') as 'good' | 'tip' })),
           ...j.languageIssues.map((l, i) => ({ id: `language-${i}`, text: l.noteZh ?? `${l.text} → ${l.fix}`, kind: 'tip' as const })),
         ]}
-        feedback={j.feedbackZh}
+        feedback={judgeFeedback(j, t)}
         reference={t('vocab.result.reference', { text: answerText(q, k) })}
+        action={j.score < j.maxPoints ? entryLink : undefined}
       />
     );
   }
@@ -478,14 +531,7 @@ function Review({ q, k, result, state }: { q: QuestionT; k: AnswerKeyT; result?:
             }
           : undefined
       }
-      action={
-        q.entryRef && (
-          <button type="button" className="vq-word" onClick={() => state.onOpenEntry(q.entryRef!)}>
-            <img src={bookmarkIcon} alt="" />
-            {t('vocab.result.openEntry')}
-          </button>
-        )
-      }
+      action={entryLink}
     >
       {result?.scoredBy === 'pending' && (
         <p className="judge is-pending" role="status">

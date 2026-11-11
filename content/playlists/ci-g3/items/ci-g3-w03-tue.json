@@ -22,8 +22,17 @@
     "intro": "走进美国黄石国家公园，感受自然的魅力。",
     "hasVideo": false
   },
+  "thumbnail": "assets/ci-g3/ci-g3-w03-tue-1.jpg",
   "article": {
-    "images": [],
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g3/ci-g3-w03-tue-1.jpg",
+        "alt": "A black-and-white photo of a large hot spring pool on flat ground in Yellowstone National Park.",
+        "w": 1200,
+        "h": 774
+      }
+    ],
     "blocks": [
       {
         "id": "p1",
@@ -271,6 +280,11 @@
             "v": " nature."
           }
         ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
       }
     ],
     "vocabulary": [

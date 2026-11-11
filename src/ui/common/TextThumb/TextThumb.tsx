@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react';
+import FittyText from '@/components/FittyText';
 import './TextThumb.css';
 
 export type TextThumbKind = 'reading' | 'exam';
@@ -25,7 +26,8 @@ export function TextThumb({
 }) {
   return (
     <div className={`${className ?? ''} text-thumb is-${kind}`} style={{ '--thumb-accent': accent } as CSSProperties} aria-hidden>
-      <span className="text-thumb-day">{kicker}</span>
+      {/* one line (WEEK 3 · WEDNESDAY on a narrow cover shrinks instead of wrapping and squeezing the title) */}
+      <FittyText className="text-thumb-day">{kicker}</FittyText>
       <span className="text-thumb-title">{title}</span>
     </div>
   );

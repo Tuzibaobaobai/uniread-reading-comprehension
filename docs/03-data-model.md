@@ -91,6 +91,7 @@ Attempt（运行时）── responses{ qid → value } + result
 - 首字母提示空：接受完整单词，也接受只填剩余字母
 - 多空题 / 连线题按空（对）比例得分，`correct` 仅在全部正确时为 true
 - `extendedText`：`byQuestion[].scoredBy` = `pending`（等待 LLM judge）→ `judge`（计入总分，`judgement` 记录要点、反馈、置信度、模型和提示版本）；judge 不可用时为 `self`（学生自评记录在 `result.selfAssessed`，不计分）；`none` 不计分。详见 [09](09-subjective-scoring.md)
+- 词汇天天练：`result.meaningUnchecked`（可选）列出规则没接受、模型复核又没能完成（服务不可用 / 超时）的中文释义（"q3:zh"、"q21:f1.zh"）；这些不是最终判定，前端会重新判分后去掉该字段。
 - 其它题型 `scoredBy` 省略或为 `auto`
 
 ## Attempt（作答记录）
@@ -113,7 +114,7 @@ xAPI 映射：actor = learnerId；verb = `answered`（每题）/ `completed`（�
 - 题目可带 `material`（当前题的左栏材料，如 R&W Part 1 告示）；选项可带 `image`（听力 Part 1 看图选择）。
 - `extendedText.minWords`（写作字数下限，实时计数）；新交互 `speaking {prompt, turns[{id, text}], maxSeconds, scoring}`，作答为 `{turnId: 语音转写}`。
 - Key：`rubricType` 增加 `cambridge_a2_writing` / `cambridge_a2_speaking`（keyPoints = 评分维度，weight 5，按 0–5 档给分）；`transcripts {sectionId: Block[]}` 为听力原文，与答案一样只在提交后由服务端返回。
-- Attempt：`mode`（`practice` / `exam`）、`flagged`（考试模式标记的题）、`played`（考试模式已播放的录音）。Judgement 的 keyPoint 可带 `band`。
+- Attempt：`mode`（`practice` / `exam`）、`flagged`（考试模式标记的题）、`played`（考试模式已播放的录音）、`listening`（考试模式正在播放的录音及进度秒数；刷新页面后从该处继续，不会从头重播）。Judgement 的 keyPoint 可带 `band`。
 - Catalog：真题 playlist 带 `format: "exam"`，ItemSummary 用 `test` / `paper` 代替 `week` / `day`，没有 `difficulty`；真题 playlist 排在时文阅读之后。
 - 表格填空（GitHub #127）：section `view` 增加 `table`（stimulus 里的表格整页作答）；`extendedText.blankId`（书写格的位置），与 `inlineChoice.blankId`（下拉格）一起由 validate 检查归属。均为可选字段，SCHEMA_VERSION 不变。
 - Catalog 的时文阅读 `difficulty` / `difficultyRange` 是合集目标年级（`gradeBand` G3…G9 → L3…L9，GitHub #119），由 build:index 生成；item `meta.difficulty` 仍是原书“难度 N 级”，只在信息框显示。

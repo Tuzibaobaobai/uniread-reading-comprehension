@@ -88,16 +88,110 @@ export function collectBlankHints(item: ItemT | VocabDayItemT): Map<string, stri
   return hints;
 }
 
-function slotCorrect(given: string | undefined, accept: string[], caseSensitive: boolean, firstLetter?: string) {
+/** a placeholder in a printed phrase: sb. / sth. (a person / a thing) or a generic … */
+const GENERIC = '…';
+const PLACEHOLDER = new Set(['sb', 'sth', GENERIC]);
+/** a learner's capital A / B: a placeholder (add A to B) or just the word in capitals (GIVE SB A SOUND BOX) */
+const CAP_A = '\u0001a';
+const CAP_B = '\u0001b';
+
+/**
+ * 词汇天天练 phrase notation as tokens: sb./sth. with or without the dot, ... / … with any spacing, A / B as placeholders
+ * (prefer A to B), spaces around ( ) / and commas or semicolons ignored (laid, laid,laying · the former …, the latter …),
+ * a possessive 's as its own token (sb.'s = …'s). The words themselves are compared exactly.
+ * In a key, somebody / someone / something are words (a spelling answer); in a learner's answer they may also fill a
+ * sb. / sth. placeholder of the key (see phraseMatches).
+ */
+export function phraseTokens(s: string, role: 'key' | 'given' = 'key'): string[] {
+  const t = s
+    .normalize('NFKC')
+    .replace(/[‘’ʼ`]/g, "'")
+    .replace(/[–—]/g, '-')
+    .replace(/[（]/g, '(')
+    .replace(/[）]/g, ')')
+    .replace(/[；]/g, ';')
+    .replace(/[，、]/g, ',')
+    .replace(/\.{2,}/g, ` ${GENERIC} `)
+    // capital A / B as placeholders (not a sentence-initial article "A …")
+    .replace(/(?<=\S\s+)A(?=\s|$|')|(?<![\w'])B(?![\w'])/g, (m) => (role === 'key' ? ` ${GENERIC} ` : ` ${m === 'A' ? CAP_A : CAP_B} `))
+    .toLowerCase()
+    .replace(/\b(sb|sth)\./g, '$1')
+    .replace(/(\S)'s\b/g, "$1 's")
+    .replace(/([()/])/g, ' $1 ')
+    .replace(/[,;]/g, ' ')
+    .replace(/[.!?:。！？：]+\s*$/u, '');
+  return t.split(/\s+/).filter(Boolean);
+}
+
+/** words after which a printed pattern may leave its object out (keep … from, share … with) */
+const PREPOSITION = new Set(['about', 'after', 'against', 'as', 'at', 'by', 'for', 'from', 'in', 'into', 'of', 'off', 'on', 'onto', 'over', 'to', 'towards', 'with', 'without']);
+
+/** a learner's token that can stand for a placeholder of the key */
+const fillsPerson = (x: string) => x === 'sb' || x === 'somebody' || x === 'someone' || x === GENERIC || x === CAP_A || x === CAP_B;
+const fillsThing = (x: string) => x === 'sth' || x === 'something' || x === GENERIC || x === CAP_A || x === CAP_B;
+const fillsAny = (x: string) => fillsPerson(x) || fillsThing(x);
+/** a learner's token that matches a word of the key: capital A / B may simply be the word a / b */
+const sameWord = (g: string, t: string) => g === t || (g === CAP_A && t === 'a') || (g === CAP_B && t === 'b');
+
+/**
+ * does a learner's phrase match a printed one? Notation as in phraseTokens. Every placeholder is part of the pattern
+ * being learnt and must be written (so … that ≠ so that, add A to B ≠ add to), but in any notation: a generic … in the
+ * key may be filled with sb. / sth. / A (keep sb. from = keep … from), and sb. / sth. may be written as … or written out.
+ * A pattern key that ends in a preposition may be completed with its object (keep … from doing sth., share … with sb.);
+ * nothing else may be added (agree with sb. ≠ agree with sb. sth., in sb.'s adult life ≠ … life sth.).
+ */
+export function phraseMatches(given: string, target: string): boolean {
+  const g = phraseTokens(given, 'given');
+  const t = phraseTokens(target, 'key');
+  const pattern = t.some((x) => PLACEHOLDER.has(x));
+  const tail = (rest: string[]) =>
+    rest.length === 0 ||
+    (pattern && PREPOSITION.has(t[t.length - 1]) && (rest.length === 1 ? fillsAny(rest[0]) || rest[0] === 'doing' : rest.length === 2 && rest[0] === 'doing' && fillsAny(rest[1])));
+  const memo = new Map<string, boolean>();
+  const go = (i: number, j: number): boolean => {
+    const k = `${i},${j}`;
+    const hit = memo.get(k);
+    if (hit !== undefined) return hit;
+    let ok: boolean;
+    if (i === t.length) ok = tail(g.slice(j));
+    else if (j >= g.length) ok = false;
+    else if (t[i] === GENERIC) ok = fillsAny(g[j]) && go(i + 1, j + 1);
+    else if (t[i] === 'sb') ok = fillsPerson(g[j]) && go(i + 1, j + 1);
+    else if (t[i] === 'sth') ok = fillsThing(g[j]) && go(i + 1, j + 1);
+    else ok = sameWord(g[j], t[i]) && go(i + 1, j + 1);
+    memo.set(k, ok);
+    return ok;
+  };
+  return go(0, 0);
+}
+
+/**
+ * KET / PET gap-fills: notation an examiner ignores in times and prices — 7.45pm = 7.45 pm = 7.45 p.m., £ 6.30 = £6.30,
+ * quarter to 8 = quarter to eight. Words and numbers themselves still have to be right.
+ */
+const NUMBER_WORDS = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'];
+export function examNotation(s: string): string {
+  return s
+    .replace(/\s+/g, ' ')
+    .replace(/(\d)\s*([ap])\.?\s?m\b\.?/gi, '$1 $2m')
+    .replace(/([£$€¥])\s+(?=\d)/g, '$1')
+    .replace(/\b(quarter (?:to|past)|half past) (\d{1,2})\b/gi, (m, a: string, n: string) => (Number(n) <= 12 ? `${a} ${NUMBER_WORDS[Number(n)]}` : m));
+}
+
+type MatchMode = 'plain' | 'phrase' | 'exam';
+
+function slotCorrect(given: string | undefined, accept: string[], caseSensitive: boolean, firstLetter?: string, mode: MatchMode = 'plain') {
   if (!given || !given.trim()) return false;
-  const g = normalizeText(given, caseSensitive);
+  const norm = (x: string) => normalizeText(mode === 'exam' ? examNotation(x) : x, caseSensitive);
+  const g = norm(given);
   return accept.some((a) => {
-    const target = normalizeText(a, caseSensitive);
+    const target = norm(a);
     if (g === target) return true;
+    if (mode === 'phrase' && phraseMatches(given, a)) return true;
     // student typed only the remainder after a printed first letter
     if (firstLetter) {
       const prefix = normalizeText(firstLetter, caseSensitive);
-      if (target.startsWith(prefix) && normalizeText(prefix + given, caseSensitive) === target) return true;
+      if (target.startsWith(prefix) && norm(prefix + given) === target) return true;
     }
     return false;
   });
@@ -113,13 +207,17 @@ function bracketVariants(s: string): string[] {
   const before = s.slice(0, m.index);
   const after = s.slice(m.index + m[0].length);
   const replaced = `${before.slice(0, -1)}${m[1]}${after}`;
-  return [`${before}${after}`, `${before}${m[1]}${after}`, ...(replaced.length >= 2 ? [replaced] : [])].flatMap(bracketVariants);
+  // the bracket may replace the character before it (到（在） = 在), but never swallow a negation (不（使人）舒服 ≠ 使人舒服)
+  const replaces = replaced.length >= 2 && !NEGATION.test(before.slice(-1));
+  return [`${before}${after}`, `${before}${m[1]}${after}`, ...(replaces ? [replaced] : [])].flatMap(bracketVariants);
 }
 
 /** Chinese meaning: split into senses and compare without punctuation, brackets, 的 or ellipses */
 const zhParts = (s: string) =>
   s
     .normalize('NFKC')
+    // a bracket is one note: its own 、 or 或 (信件、邮包等 · 或物) do not split the sense into pieces
+    .replace(/[（(][^）)]*[）)]/g, (m) => m.replace(/[；;，,、/｜|\s]+|或/g, ''))
     .split(/[；;，,、/｜|\s]+|或/)
     .flatMap(bracketVariants)
     .map((p) => p.replace(/[（(][^）)]*[）)]|[.。…·~～"“”'‘’]|的/g, '').trim())
@@ -132,7 +230,16 @@ const zhParts = (s: string) =>
 export function zhMatches(given: string | undefined, accept: string[]): boolean {
   if (!given?.trim()) return false;
   const want = accept.flatMap(zhParts);
-  return zhParts(given).some((g) => want.some((w) => g === w || (Math.min(g.length, w.length) >= 2 && (g.includes(w) || w.includes(g)))));
+  return zhParts(given).some((g) => want.some((w) => g === w || (Math.min(g.length, w.length) >= 2 && (contains(g, w) || contains(w, g)))));
+}
+
+/** characters that turn a meaning into its opposite: 可能 ⊂ 不可能, 诚实 ⊂ 不诚实, 生命 ⊂ 无生命 */
+const NEGATION = /[不无非未没否莫勿]/;
+/** the longer meaning contains the shorter one, and what it adds does not negate it */
+function contains(longer: string, shorter: string): boolean {
+  const at = longer.indexOf(shorter);
+  if (at < 0) return false;
+  return !NEGATION.test(longer.slice(0, at) + longer.slice(at + shorter.length));
 }
 
 /** a correct part answered with the hint earns half (#110, option A) */
@@ -147,6 +254,8 @@ export function gradeQuestion(
   hinted: Set<string> = new Set(),
   /** Chinese meanings the server's meaning check accepted although zhMatches did not, as "<questionId>:<part>" */
   zhOk: Set<string> = new Set(),
+  /** 词汇天天练: phrase notation is not graded (phraseMatches); KET / PET: time and price notation (examNotation) */
+  mode: MatchMode = 'plain',
 ): QuestionResult {
   const maxPoints = q.points ?? 1;
   const base = { q: q.id, maxPoints };
@@ -158,7 +267,7 @@ export function gradeQuestion(
   if ('word' in key && 'pos' in key) {
     // wordProfile: word, part of speech and Chinese meaning count a third each
     const parts = {
-      word: slotCorrect(record.word, key.word, false),
+      word: slotCorrect(record.word, key.word, false, undefined, mode),
       pos: !!record.pos && key.pos.includes(record.pos),
       zh: zh('zh', record.zh, key.zh),
     };
@@ -176,7 +285,7 @@ export function gradeQuestion(
       const word = record[`${slot.id}.word`];
       const meaning = record[`${slot.id}.zh`];
       const same = (it?.slots ?? []).filter((s) => s.pos === slot.pos).map((s) => s.id);
-      const match = same.find((id) => !used.has(id) && key.forms[id] && slotCorrect(word, key.forms[id].word, false));
+      const match = same.find((id) => !used.has(id) && key.forms[id] && slotCorrect(word, key.forms[id].word, false, undefined, mode));
       if (match) used.add(match);
       parts[`${slot.id}.word`] = !!match;
       parts[`${slot.id}.zh`] = !!match && zh(`${slot.id}.zh`, meaning, key.forms[match].zh);
@@ -207,7 +316,7 @@ export function gradeQuestion(
     const given = record;
     const parts: Record<string, boolean> = {};
     for (const [blankId, slot] of Object.entries(key.slots)) {
-      parts[blankId] = slotCorrect(given[blankId], slot.accept, !!slot.caseSensitive, hints.get(blankId));
+      parts[blankId] = slotCorrect(given[blankId], slot.accept, !!slot.caseSensitive, hints.get(blankId), mode);
     }
     const n = Object.keys(parts).length;
     const right = Object.values(parts).filter(Boolean).length;
@@ -255,7 +364,8 @@ const counts = (r: QuestionResult) => r.scoredBy === undefined || r.scoredBy ===
 export function totals(byQuestion: QuestionResult[]): Pick<Result, 'score' | 'maxScore'> {
   const scored = byQuestion.filter(counts);
   const score = scored.reduce((s, r) => s + r.points, 0);
-  return { score: Math.round(score * 100) / 100, maxScore: scored.reduce((s, r) => s + r.maxPoints, 0) };
+  // fractional points (e.g. 0.2 per vocab answer part) add up to 79.99999…: round both like the score
+  return { score: Math.round(score * 100) / 100, maxScore: Math.round(scored.reduce((s, r) => s + r.maxPoints, 0) * 100) / 100 };
 }
 
 /**
@@ -278,9 +388,10 @@ export function gradeItem(
   const hinted = new Set(opts.hinted ?? []);
   const zhOk = new Set(opts.zhOk ?? []);
   const counted = new Set(item.sections.flatMap((s) => chosenQuestions(s, responses)).map((q) => q.id));
+  const mode: MatchMode = 'entryIds' in item ? 'phrase' : 'format' in item && item.format === 'exam' ? 'exam' : 'plain';
   const byQuestion = allQuestions(item).map((q) =>
     counted.has(q.id)
-      ? gradeQuestion(q, key.answers[q.id], responses[q.id], hints, hinted, zhOk)
+      ? gradeQuestion(q, key.answers[q.id], responses[q.id], hints, hinted, zhOk, mode)
       : // not chosen: shown as such, never counted
         { q: q.id, correct: null, points: 0, maxPoints: q.points ?? 1, scoredBy: 'none' as const },
   );

@@ -18,7 +18,7 @@
 .playlist-intro-panel::before { background: var(--cover) center / cover; filter: blur(var(--ur-blur-panel)); transform: scale(1.4); }
 .playlist-intro-panel::after { background: var(--ur-color-background-overlay-panel); }
 .playlist-intro-cover {
-  width: 100%; aspect-ratio: 407 / 239; object-fit: cover; object-position: top; border-radius: var(--ur-radius-xs); flex: none;
+  width: 100%; aspect-ratio: 407 / 239; object-fit: cover; object-position: center; /* 1.01: the cover fills the box from its centre */ border-radius: var(--ur-radius-xs); flex: none;
 }
 .playlist-intro-title {
   margin: 0; padding: var(--ur-space-8) 0 var(--ur-space-24);

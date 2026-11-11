@@ -3,7 +3,7 @@
  * Pure: takes the saved attempt and the paper's official duration.
  */
 import type { AttemptT, ExamItemT } from '@schema';
-import { paperReports, type ExamKey, type SkillReport } from './cambridge';
+import { SCALES, paperReports, type ExamKey, type SkillReport } from './cambridge';
 import type { Result } from './grading';
 import { t as i18nT, type TFunction } from '@/i18n';
 
@@ -16,7 +16,7 @@ export type ExamStatus =
   /** exam mode, time ran out without submitting (the learner left the page) */
   | { kind: 'timedOut' }
   /** submitted: raw score and Cambridge English Scale estimate (null while the judge is still scoring) */
-  | { kind: 'done'; raw: number; max: number; reports: SkillReport[]; pending: boolean };
+  | { kind: 'done'; raw: number; max: number; reports: SkillReport[]; pending: boolean; unjudged?: boolean; exam: ExamKey };
 
 /** exam mode ends at startedAt + the paper's official time */
 export const examEndsAt = (attempt: AttemptT, durationMinutes: number) => Date.parse(attempt.startedAt) + durationMinutes * 60000;
@@ -36,9 +36,12 @@ export function examStatus(
     // raw = every question's points, including judged writing / speaking once scored
     // raw / max over the questions that count (an unchosen PET writing task is scoredBy "none")
     const counted = r.byQuestion.filter((b) => b.scoredBy !== 'none');
-    const raw = counted.reduce((n, b) => n + b.points, 0);
-    const max = counted.reduce((n, b) => n + b.maxPoints, 0);
-    return { kind: 'done', raw: Math.round(raw * 2) / 2, max, reports, pending };
+    // on Cambridge's own mark scale (A2 speaking out of 45, B1 speaking out of 30), as the score report shows it
+    const raw = reports.length ? reports.reduce((n, x) => n + x.raw, 0) : counted.reduce((n, b) => n + b.points, 0);
+    const max = reports.length ? reports.reduce((n, x) => n + x.scaleMax, 0) : counted.reduce((n, b) => n + b.maxPoints, 0);
+    // judged answers the judge could not mark (it was down): no score yet, re-judged when the paper is opened again
+    const unjudged = r.byQuestion.some((b) => b.scoredBy === 'self');
+    return { kind: 'done', raw: Math.round(raw * 2) / 2, max, reports, pending, ...(unjudged ? { unjudged } : {}), exam };
   }
   if (attempt.mode === 'exam') {
     const endsAt = examEndsAt(attempt, durationMinutes);
@@ -59,15 +62,28 @@ export function examStatusLabel(s: ExamStatus, t: TFunction = i18nT): string | n
       return t('examStatus.examining');
     case 'timedOut':
       return t('examStatus.timedOut');
-    case 'done':
-      if (s.pending) return t('examStatus.donePending', { raw: s.raw, max: s.max });
+    case 'done': {
+      // a skill still being marked (or left for the AI while it was down) shows no raw mark: it is not a 0
+      if (s.pending || s.unjudged)
+        return s.reports
+          .map((x) =>
+            x.pending
+              ? t('examStatus.skillPending', { skill: t(`skill.${x.skill}`) })
+              : x.unjudged
+                ? t('examStatus.skillUnjudged', { skill: t(`skill.${x.skill}`) })
+                : t('examStatus.skillRaw', { skill: t(`skill.${x.skill}`), raw: x.raw, max: x.scaleMax }),
+          )
+          .join(' · ');
+      // below the reported range: < the exam's own floor (A2 Key 82, B1 Preliminary 102)
+      const below = `<${SCALES[s.exam].floor}`;
       // Reading & Writing reports two skills: 换算分 阅读 125 / 写作 130
       if (s.reports.length > 1)
         return t('examStatus.done', {
           raw: s.raw,
           max: s.max,
-          scale: s.reports.map((x) => t('examStatus.skillScale', { skill: t(`skill.${x.skill}`), scale: x.scale ?? '<82' })).join(' / '),
+          scale: s.reports.map((x) => t('examStatus.skillScale', { skill: t(`skill.${x.skill}`), scale: x.scale ?? below })).join(' / '),
         });
-      return t('examStatus.done', { raw: s.raw, max: s.max, scale: s.reports[0]?.scale ?? '<82' });
+      return t('examStatus.done', { raw: s.raw, max: s.max, scale: s.reports[0]?.scale ?? below });
+    }
   }
 }

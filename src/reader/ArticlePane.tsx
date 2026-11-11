@@ -127,6 +127,7 @@ export function Block({
   /** resolves a paragraph's portrait (exam papers) */
   imageOf?: (id: string) => ImageT | undefined;
 }) {
+  const { t } = useTranslation();
   const cls = evidence ? Highlight.evidenceClass : undefined;
   const attrs = { 'data-block': b.id, className: cls };
   switch (b.type) {
@@ -171,23 +172,36 @@ export function Block({
           turns={b.turns.map((t) => ({ speaker: t.speaker, content: <Rich nodes={t.content} blank={renderBlank} /> }))}
         />
       );
-    case 'note':
-      // printed note / email / notice (rc/Read/GenreNote)
-      return (
+    case 'note': {
+      // printed note / email / notice (rc/Read/GenreNote). Ready frame 2.23: the handwritten notes (PET Writing Part 1)
+      // are not drawn on the text but as a row of chips under the email, in reading order.
+      const callouts = b.content.flat().filter((n): n is Extract<InlineT, { t: 'callout' }> => n.t === 'callout');
+      const note = (
         <GenreNote
           {...attrs}
           noteStyle={b.style ?? 'plain'}
-          title={b.title && <Rich nodes={b.title} blank={renderBlank} />}
+          // Ready frame 2.17: an email always has its dark 「Email」 title bar
+          title={b.title ? <Rich nodes={b.title} blank={renderBlank} /> : b.style === 'email' ? t('reader.emailTitle') : undefined}
           header={b.header?.map((line) => noteField(line, renderBlank))}
           heading={b.heading && <Rich nodes={b.heading} blank={renderBlank} />}
           paragraphs={b.content.map((c, i) => (
-            <Rich key={i} nodes={c} blank={renderBlank} />
+            <Rich key={i} nodes={callouts.length ? c.filter((n) => n.t !== 'callout') : c} blank={renderBlank} />
           ))}
           signature={b.signature?.map((c, i) => (
             <Rich key={i} nodes={c} blank={renderBlank} />
           ))}
         />
       );
+      if (!callouts.length) return note;
+      return (
+        <>
+          {note}
+          <div className="rt-callouts">
+            <Rich nodes={callouts} />
+          </div>
+        </>
+      );
+    }
     case 'table':
       return (
         <div {...attrs} className={['rt-table-wrap', cls].filter(Boolean).join(' ')}>

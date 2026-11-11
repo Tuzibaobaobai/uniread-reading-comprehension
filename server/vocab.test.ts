@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { join } from 'node:path';
 import { hintCall, makeTiles } from './hint';
-import { voiceAllowed } from './transcribe';
+import { transcribeCall, voiceAllowed } from './transcribe';
+import type { Asr } from './speak';
 import { meaningAsks } from './meaning';
 import { gradeCall } from './grade';
 import { loadItem } from './http';
@@ -35,6 +36,14 @@ describe('voice input', () => {
     expect(voiceAllowed(q('q6'), 'b6')).toBe(false);
     expect(voiceAllowed(q('q36'), 'text')).toBe(true);
   });
+  it('asks the recogniser for Chinese meanings in Chinese and translations in English', async () => {
+    const asr: Asr = { model: 'mock', transcribe: async (_a, _m, lang) => String(lang) };
+    const call = (questionId: string, part: string) =>
+      transcribeCall({ itemId: 'zkv-d01', questionId, part, audio: Buffer.from('x').toString('base64'), mime: 'audio/webm' }, { contentRoot: root, asr });
+    await expect(call('q1', 'zh')).resolves.toEqual({ text: 'zh' });
+    await expect(call('q21', 'f1.zh')).resolves.toEqual({ text: 'zh' });
+    await expect(call('q36', 'text')).resolves.toEqual({ text: 'en' });
+  });
 });
 
 describe('grading a vocab day', () => {
@@ -58,3 +67,22 @@ describe('grading a vocab day', () => {
     expect(meaningAsks(item as never, key, responses, result)).toEqual([]);
   });
 });
+
+describe('meaning check unavailable (QA 2026-11-12)', () => {
+  it('is tried twice; still down, the meanings are listed as unchecked instead of left as the learner\'s mistakes', async () => {
+    const { key } = await loadItem('zkv-d01', root, true);
+    const q1 = (key.answers.q1 as { word: string[]; pos: string[] });
+    const responses = { q1: { word: q1.word[0], pos: q1.pos[0], zh: '一个不在答案里的说法' } };
+    let calls = 0;
+    const down = { model: 'stub', check: async () => (calls++, Promise.reject(new Error('timeout'))) };
+    const res = await gradeCall({ itemId: 'zkv-d01', responses }, root, down);
+    expect(calls).toBe(2);
+    expect(res.result.meaningUnchecked).toEqual(['q1:zh']);
+    let tries = 0;
+    const flaky = { model: 'stub', check: async () => (tries++ ? ['q1:zh'] : Promise.reject(new Error('timeout'))) };
+    const ok = await gradeCall({ itemId: 'zkv-d01', responses }, root, flaky);
+    expect(ok.result.meaningUnchecked).toBeUndefined();
+    expect(ok.result.byQuestion.find((b) => b.q === 'q1')?.parts?.zh).toBe(true);
+  });
+});
+

@@ -7,6 +7,8 @@
   margin: 0 0 var(--ur-space-24);
 }
 .q-num { flex: none; }
+/* the prompt text may shrink to the row, so a long typed answer in a blank stays inside the pane */
+.q-prompt > :not(.q-num) { min-width: 0; }
 .q-prompt-hint { font-weight: var(--ur-text-font-system-m-regular-weight); color: var(--ur-color-text-secondary); }
 
 @media (max-width: 1023px) {

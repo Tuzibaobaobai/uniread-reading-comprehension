@@ -72,3 +72,37 @@
   .part-pager .question-dot-mark { width: var(--ur-space-16); height: calc(var(--ur-space-4) + var(--ur-space-2)); }
   .part-pager .question-dot-icon { width: var(--ur-size-icon-l); height: var(--ur-size-icon-l); }
 }
+
+/* 1.04 submit confirmation (Figma 19483:3986): a 720 card, centred title + hint, the unanswered numbers as page
+   numbers (22 bold over a 20 × 8 bar, 8 a row, 72 high) and two 72-high buttons centred under them. */
+.dialog.submit-confirm { --dialog-w: calc(var(--ur-height-height-9) * 10); padding: var(--ur-space-48) var(--ur-space-32); gap: var(--ur-space-8); }
+.submit-confirm .dialog-body { gap: var(--ur-space-8); }
+.submit-confirm h2, .submit-confirm .dialog-body > p { text-align: center; }
+.submit-confirm .dialog-body > p {
+  font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height);
+  font-weight: var(--ur-text-font-system-m-regular-weight);
+}
+.submit-confirm .dialog-dots {
+  display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: var(--ur-space-8);
+  margin: 0; padding: var(--ur-space-16) 0;
+}
+.submit-confirm .question-dot.is-pending {
+  width: auto; height: var(--ur-height-height-9); padding: 0 var(--ur-space-8);
+  background: transparent; color: var(--ur-paint-customization-grey-12);
+}
+.submit-confirm .question-dot.is-pending .question-dot-num {
+  font-size: var(--ur-text-font-system-3xl-bold-size); line-height: var(--ur-text-font-system-3xl-bold-line-height);
+  font-weight: var(--ur-text-font-system-3xl-bold-weight);
+}
+.submit-confirm .question-dot.is-pending::after { content: none; }
+.submit-confirm .question-dot.is-pending .question-dot-mark {
+  width: var(--ur-space-20); height: var(--ur-space-8); background: var(--ur-paint-customization-grey-7); opacity: .8;
+}
+@media (hover: hover) and (pointer: fine) {
+  .submit-confirm .question-dot.is-pending:hover { background: var(--ur-color-background-subtle); }
+}
+.submit-confirm .dialog-actions { justify-content: center; padding-top: var(--ur-space-16); }
+.submit-confirm .dialog-actions .pill-button { min-height: var(--ur-height-height-9); }
+@media (max-width: 1023px) {
+  .submit-confirm .dialog-dots { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}

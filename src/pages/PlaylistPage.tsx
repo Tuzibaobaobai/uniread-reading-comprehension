@@ -5,9 +5,11 @@ import { localAttempts } from '@/lib/storage';
 import { useAsync } from '@/lib/useAsync';
 import { DAY_NAME, PAPER_EN, formatMinutes, taskTypeLabel } from '@/lib/labels';
 import { examStatus, examStatusLabel, type ExamStatus } from '@/lib/exam-status';
-import { examKey, grade, overallScale, type ExamKey, type Skill, type SkillReport } from '@/lib/cambridge';
+import { SCALES, examKey, grade, overallScale, type ExamKey, type Skill, type SkillReport } from '@/lib/cambridge';
 import { useTranslation } from 'react-i18next';
-import { InlineNotice } from '@/ui/common/InlineNotice/InlineNotice';
+import type { TFunction } from '@/i18n';
+import type { Result } from '@/lib/grading';
+import { LoadError } from '@/components/LoadError';
 import { Tag } from '@/ui/common/Tag/Tag';
 import { PlaylistIntro } from '@/ui/common/PlaylistIntro/PlaylistIntro';
 import { ListHeader } from '@/ui/common/ListHeader/ListHeader';
@@ -35,9 +37,9 @@ export function PlaylistPage() {
 
   return (
     <main className="page playlist-page">
-      {error && <InlineNotice role="alert">{t('common.loadFailed', { message: error.message })}</InlineNotice>}
+      {error && <LoadError error={error} back={{ label: t('common.backHome'), onClick: () => navigate('/') }} onRetry={() => window.location.reload()} />}
       {!catalog && !error && <Loading />}
-      {catalog && !pl && <InlineNotice role="alert">{t('playlist.notFound')}</InlineNotice>}
+      {catalog && !pl && <LoadError notFound notFoundText={t('playlist.notFound')} back={{ label: t('common.backHome'), onClick: () => navigate('/') }} />}
       {pl && (
         <>
           <PlaylistIntro
@@ -67,7 +69,16 @@ export function PlaylistPage() {
                 {items.map((it) => {
                   const att = localAttempts.get(it.id);
                   const done = att?.status === 'submitted' && att.result;
-                  const progress = done ? 1 : att ? Math.min(Object.keys(att.responses).length / it.questionCount, 1) : 0;
+                  // a speaking paper counts its answered examiner questions (one recording each), like its question count;
+                  // a field typed into and cleared again is not an answer
+                  const answered = !att
+                    ? 0
+                    : it.paper === 'speaking'
+                      ? Object.values(att.responses).reduce((n, r) => n + (r && typeof r === 'object' && !Array.isArray(r) ? Object.values(r).filter(filled).length : 0), 0)
+                      : Object.values(att.responses).filter(filled).length;
+                  const progress = done ? 1 : att ? Math.min(answered / it.questionCount, 1) : 0;
+                  // started: an answer, or (词汇天天练) words already marked in 速览
+                  const started = answered > 0 || Object.keys(att?.known ?? {}).length > 0;
                   const status = it.paper ? examStatusLabel(examStatus(att, it.paper, it.suggestedMinutes, Date.now(), examKey(pl.exam)), t) : null;
                   return (
                     <PlaylistItem
@@ -98,7 +109,7 @@ export function PlaylistPage() {
                         it.difficulty !== undefined ? `L${it.difficulty}` : null,
                         t('playlist.questions', { count: it.questionCount }),
                         formatMinutes(it.suggestedMinutes, t),
-                        it.paper ? status : done ? t('playlist.score', { score: Math.round(att.result!.score), max: Math.round(att.result!.maxScore) }) : att ? t('playlist.inProgress') : null,
+                        it.paper ? status : done ? scoreLabel(att.result!, !!vocab, t) : started ? t('playlist.inProgress') : null,
                       ]
                         .filter(Boolean)
                         .join(' · ')}
@@ -114,6 +125,25 @@ export function PlaylistPage() {
       )}
     </main>
   );
+}
+
+/** an answer with something in it (a field typed into and cleared again leaves an empty string behind) */
+function filled(r: unknown): boolean {
+  if (typeof r === 'string') return r.trim() !== '';
+  if (Array.isArray(r)) return r.length > 0;
+  return !!r && typeof r === 'object' && Object.values(r).some((v) => typeof v === 'string' && v.trim() !== '');
+}
+
+/**
+ * a 时文 / 词汇 row's score: the item's full mark even while judged answers wait for the AI (they are not zeros), said so;
+ * 时文 keeps partial points to one decimal (2.5/6), 词汇天天练 shows whole numbers like its result page (#140)
+ */
+function scoreLabel(result: Result, vocab: boolean, t: TFunction): string {
+  const rows = result.byQuestion.filter((b) => b.scoredBy !== 'none');
+  const max = rows.reduce((n, b) => n + b.maxPoints, 0);
+  const awaiting = rows.some((b) => b.scoredBy === 'pending' || b.scoredBy === 'self');
+  const fmt = (n: number) => (vocab ? Math.round(n) : Math.round(n * 10) / 10);
+  return t(awaiting ? 'playlist.scoreAwaiting' : 'playlist.score', { score: fmt(result.score), max: fmt(max) });
 }
 
 /**
@@ -134,13 +164,21 @@ function TestScore({ items, exam }: { items: { id: string; paper?: string; sugge
     });
   });
   const overall = overallScale(skills);
+  // all four papers marked, but a skill is below the range Cambridge reports (A2 Key 82, B1 Preliminary 102): its scale
+  // score is not known, so the average cannot be estimated — say which one, rather than "complete all papers"
+  const all = (['reading', 'writing', 'listening', 'speaking'] as const).map((k) => skills[k]);
+  const below = all.every((r) => r && !r.pending && !r.unjudged) ? all.filter((r) => r!.scale === null).map((r) => t(`skill.${r!.skill}`)) : [];
   return (
     <Tag
       tone={overall !== null ? 'accent' : 'neutral'}
       className={`test-score${overall !== null ? ' is-final' : ''}`}
       title={t('playlist.testScoreTitle', { done })}
     >
-      {overall !== null ? t('playlist.testScore', { score: overall, grade: grade(overall, exam, t) }) : t('playlist.testScorePending')}
+      {overall !== null
+        ? t('playlist.testScore', { score: overall, grade: grade(overall, exam, t) })
+        : below.length
+          ? t('playlist.testScoreBelow', { skills: below.join(t('playlist.skillSep')), floor: SCALES[exam].floor })
+          : t('playlist.testScorePending')}
     </Tag>
   );
 }

@@ -22,6 +22,7 @@
     "intro": "你知道这些常用手势的起源吗?",
     "hasVideo": false
   },
+  "thumbnail": "assets/ci-g5/ci-g5-w11-mon-1.jpg",
   "source": {
     "pdf": "小学英语时文阅读提分训练3+X5年级.pdf",
     "pdfPages": [
@@ -38,7 +39,15 @@
     "version": "1.0.0"
   },
   "article": {
-    "images": [],
+    "images": [
+      {
+        "id": "img1",
+        "src": "assets/ci-g5/ci-g5-w11-mon-1.jpg",
+        "alt": "Four hands, each making the V sign.",
+        "w": 1200,
+        "h": 690
+      }
+    ],
     "vocabulary": [
       {
         "id": "v-origin",
@@ -314,6 +323,11 @@
             }
           ]
         ]
+      },
+      {
+        "id": "i1",
+        "type": "imageRef",
+        "image": "img1"
       }
     ]
   },
