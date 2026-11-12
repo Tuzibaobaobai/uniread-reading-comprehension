@@ -1,0 +1,31 @@
+{
+  "receiptFormat": "rc-asset-upload-receipt-1",
+  "uploaderVersion": "rc-asset-upload-1",
+  "sourceId": "uniread-rc",
+  "contentReleaseId": "zkv-full-20261112-01",
+  "releaseId": "0a26ac56-2267-4aa4-9043-c8425efd1860",
+  "selectionSHA256": "25581eba72447d362c62b31d5dc7b9f5fcc8c628638f094c4e11e93d322f5e2a",
+  "manifestSHA256": "8f09cb2ac8ed066ab4c6d54461e6c9c9ae89c00d81c23cadb609f93f7b77a164",
+  "planFile": "docs/handoff/asset-plan.zkv-full-20261112-01.json",
+  "planVerifiedAt": "2026-11-12T00:50:43.082Z",
+  "storageTargetId": "shared-resource-oss",
+  "keyPolicyVersion": "be-exam-existing-v1",
+  "profile": "production",
+  "sharedStorage": true,
+  "verifiedObjects": [
+    {
+      "objectKey": "exam-media/v1/ecbafe07a017597f3d4040b64c9fa20624de428eb0eca20ae63cd8ac0e7c60c1.jpg",
+      "sha256": "ecbafe07a017597f3d4040b64c9fa20624de428eb0eca20ae63cd8ac0e7c60c1",
+      "sizeBytes": 94489,
+      "contentType": "image/jpeg",
+      "verifiedAt": "2026-11-12T00:50:43.082Z"
+    }
+  ],
+  "reusedObjectCount": 0,
+  "newlyUploadedObjectCount": 1,
+  "deliveryVerification": "not-run",
+  "status": "UPLOADED_VERIFIED",
+  "failedObjects": [],
+  "lastConfirmedPhase": "all objects verified",
+  "receiptVisibility": "public"
+}

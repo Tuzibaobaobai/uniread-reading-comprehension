@@ -1,0 +1,5112 @@
+{
+  "format": "be-asset-upload-plan-1",
+  "sourceId": "uniread-rc",
+  "paperId": "pet1-full",
+  "contentReleaseId": "pet1-full-20261112-01",
+  "sourceCommit": "90a18ea87003d7bc8f6e8fe9991a130c08fa831e",
+  "contentSnapshotSHA256": "c39d7d3a2111afa2024f1418afad3f54b9bffc9dfbbb0dc7b8f8652636b3eae1",
+  "releaseId": "fd388099-33b3-441a-89f7-c49c7e446b75",
+  "playlistId": "pet1",
+  "selectionFile": "docs/handoff/production-selection.pet1-full.json",
+  "selectionSHA256": "ca3d44c04369a80a105db3001652e4c5659ac87839221bd57020116c1e6b1e87",
+  "snapshotFile": "docs/handoff/asset-snapshot.pet1-full-20261112-01.sha256",
+  "keyPolicyVersion": "be-exam-existing-v1",
+  "frozenAt": "2026-11-12T00:48:55.084Z",
+  "status": "PREPARED",
+  "summary": {
+    "objects": 115,
+    "bytes": 61241364,
+    "references": 115,
+    "sourceFiles": 115,
+    "localOnly": 132,
+    "errors": 0,
+    "capabilityGaps": 1
+  },
+  "files": [
+    {
+      "sourcePath": "assets/pet1/cover.jpg",
+      "sha256": "a490ca3e41a830381debd38c66d95fd732d7b161ff8950e85ceedb19bd4dd6aa",
+      "sizeBytes": 85722,
+      "contentType": "image/jpeg",
+      "roles": [
+        "playlist-cover"
+      ],
+      "objectKey": "exam-media/v1/a490ca3e41a830381debd38c66d95fd732d7b161ff8950e85ceedb19bd4dd6aa.jpg",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/playlist.json",
+          "pointer": "/cover"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q4-t5.mp3",
+      "sha256": "12ef58dfcbdf52b1d6f9ea794f70e993f9ff161867b7bdbafc202a4f752d0d19",
+      "sizeBytes": 52800,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-f6b2469df7b2804041b1402d",
+      "seconds": 6.6,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/12ef58dfcbdf52b1d6f9ea794f70e993f9ff161867b7bdbafc202a4f752d0d19.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/4/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t5"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q1-t8.mp3",
+      "sha256": "12f1e19450db44b1e472e14d8ac15e380d3e410432103efb2e9640cd797bb14a",
+      "sizeBytes": 43968,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-fde83288b95216c3e5e8661d",
+      "seconds": 5.5,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/12f1e19450db44b1e472e14d8ac15e380d3e410432103efb2e9640cd797bb14a.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/7/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t8"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q1-t10.mp3",
+      "sha256": "15186e43ec60b551f133a353ab4f441ff6144863332a5867d115fa277fb8f224",
+      "sizeBytes": 29184,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-c0c164f60178dc97281ddbdc",
+      "seconds": 3.6,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/15186e43ec60b551f133a353ab4f441ff6144863332a5867d115fa277fb8f224.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/9/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t10"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q1-t4.mp3",
+      "sha256": "2a2b07bf98d08558d14bc735149b6cd66289e0e8a53be9d558240f9984e67916",
+      "sizeBytes": 16896,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-27104e614a3a826613f4a41d",
+      "seconds": 2.1,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/2a2b07bf98d08558d14bc735149b6cd66289e0e8a53be9d558240f9984e67916.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/3/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t4"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q1-t12.mp3",
+      "sha256": "3de4523ead8b0f81b15a4dc84cf6eca8e6c208bfc0350862f37121e4d77fd0ca",
+      "sizeBytes": 32640,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-c90274667e64527d8693370a",
+      "seconds": 4.1,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/3de4523ead8b0f81b15a4dc84cf6eca8e6c208bfc0350862f37121e4d77fd0ca.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/11/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t12"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q1-t7.mp3",
+      "sha256": "474a6ae30e06c89e85df4627e78b2f9657c005251acf2ac1175867f66d09729b",
+      "sizeBytes": 34176,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-1c709dd93ceb84f8161d5f50",
+      "seconds": 4.3,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/474a6ae30e06c89e85df4627e78b2f9657c005251acf2ac1175867f66d09729b.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/6/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t7"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q1-t9.mp3",
+      "sha256": "495926bc872dc9b33ed76fe7346c80460d8047ff0680f7efca651e876fe6138d",
+      "sizeBytes": 23232,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-a3494e98c1f410695e70110c",
+      "seconds": 2.9,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/495926bc872dc9b33ed76fe7346c80460d8047ff0680f7efca651e876fe6138d.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/8/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t9"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q4-t3.mp3",
+      "sha256": "4dd1f54224bb623decd845e85233c0489ef6bfa0e40cb8a670c96883159eab1a",
+      "sizeBytes": 45888,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-64cb1bfab7a43637ec72adc5",
+      "seconds": 5.7,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/4dd1f54224bb623decd845e85233c0489ef6bfa0e40cb8a670c96883159eab1a.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/2/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t3"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q3-t4.mp3",
+      "sha256": "530c258be069700414bb5c356c1e5c6dc7c6b4db3c750dacf59abb265d076277",
+      "sizeBytes": 57024,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-9fa35189c0b2526df74be331",
+      "seconds": 7.1,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/530c258be069700414bb5c356c1e5c6dc7c6b4db3c750dacf59abb265d076277.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/3/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t4"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q1-t3.mp3",
+      "sha256": "5759bc28cbf16135eb82b270aaa1109274ac32a7315ef77855771224d32207f8",
+      "sizeBytes": 14976,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-d251d60f52bd581f73947586",
+      "seconds": 1.9,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/5759bc28cbf16135eb82b270aaa1109274ac32a7315ef77855771224d32207f8.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/2/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t3"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q3-t6.mp3",
+      "sha256": "5c77f045a2e3f34ad36aa49731c1efd13f1eeccf40096e77539c9d639142f79b",
+      "sizeBytes": 40896,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-c1a7d0496aa2580d34af6288",
+      "seconds": 5.1,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/5c77f045a2e3f34ad36aa49731c1efd13f1eeccf40096e77539c9d639142f79b.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/5/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t6"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q1-t5.mp3",
+      "sha256": "5f5b7998b8d57c42ce47d388c40c29f2efc3c924d4e60d5aae6cf961226f2243",
+      "sizeBytes": 23616,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-a0595019dfb97f3cffa5e670",
+      "seconds": 3,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/5f5b7998b8d57c42ce47d388c40c29f2efc3c924d4e60d5aae6cf961226f2243.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/4/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t5"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q1-t11.mp3",
+      "sha256": "64f84fb92256958002c5fc73ade9f9451d24acaa364ae11acda89b1d2180f8b4",
+      "sizeBytes": 28416,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-f21c569d37b75d233e760dbe",
+      "seconds": 3.6,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/64f84fb92256958002c5fc73ade9f9451d24acaa364ae11acda89b1d2180f8b4.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/10/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t11"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q4-t4.mp3",
+      "sha256": "6a41bf37aa1ab2a21bbdc75aaab95034916fe52b93496404a6fd877e2c6e5a88",
+      "sizeBytes": 39936,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-4135534999c8343925f465c0",
+      "seconds": 5,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/6a41bf37aa1ab2a21bbdc75aaab95034916fe52b93496404a6fd877e2c6e5a88.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/3/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t4"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q1-t2.mp3",
+      "sha256": "6b674e2aab9dbf3741cda8def226ab219e182911d107240f7c8ca048fb1651cf",
+      "sizeBytes": 15936,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-0383080b6d00228e35f860de",
+      "seconds": 2,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/6b674e2aab9dbf3741cda8def226ab219e182911d107240f7c8ca048fb1651cf.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/1/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t2"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q1-t1.mp3",
+      "sha256": "7914db7c9fd16cc1ac17cef4046f4b87873b12ef726df35e37e86125ba7d735a",
+      "sizeBytes": 15168,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-9700d8a322630ad870518ade",
+      "seconds": 1.9,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/7914db7c9fd16cc1ac17cef4046f4b87873b12ef726df35e37e86125ba7d735a.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/0/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q3-t2.mp3",
+      "sha256": "81e8421644b04fe0890e8e8063a46c6ae3d9ac949d68994d51ba78a3173d5154",
+      "sizeBytes": 56640,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-187dc08101ab344da61f9315",
+      "seconds": 7.1,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/81e8421644b04fe0890e8e8063a46c6ae3d9ac949d68994d51ba78a3173d5154.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/1/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t2"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q4-t2.mp3",
+      "sha256": "a34a2511999e40a087f064934262de17d946ea8ad92adb5ae422e8326c49e857",
+      "sizeBytes": 34368,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-d9c9af848eda1244d4d957ab",
+      "seconds": 4.3,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/a34a2511999e40a087f064934262de17d946ea8ad92adb5ae422e8326c49e857.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/1/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t2"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q1-t6.mp3",
+      "sha256": "a5d14aed2863488ed4e5663b82e591b2767b6c0155789ce5a0faead0a95a4e49",
+      "sizeBytes": 27072,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-a5259700fe88dbd4e8199e3a",
+      "seconds": 3.4,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/a5d14aed2863488ed4e5663b82e591b2767b6c0155789ce5a0faead0a95a4e49.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/5/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t6"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q3-t1.mp3",
+      "sha256": "b064b9c462bc445548289b71ff3ab5e2fd126d3fc9707a95f9b61a327a200b9d",
+      "sizeBytes": 225984,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-c5973091cf2eed4ebd231ddb",
+      "seconds": 28.2,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/b064b9c462bc445548289b71ff3ab5e2fd126d3fc9707a95f9b61a327a200b9d.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/0/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q4-t1.mp3",
+      "sha256": "bab47bb5e59fd2fd6f21fcdefbfd40ac89fb57b6cbc385cf9e7242cca906c7d7",
+      "sizeBytes": 43008,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-0f2739d352bc9adf0c90cafa",
+      "seconds": 5.4,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/bab47bb5e59fd2fd6f21fcdefbfd40ac89fb57b6cbc385cf9e7242cca906c7d7.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/0/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q3-t7.mp3",
+      "sha256": "c2d83b1d1550f54baa851e5b87ae835b9feac10546cd136ff1039237b882bdea",
+      "sizeBytes": 54720,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-ec8cac1e1a9928521687fd06",
+      "seconds": 6.8,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/c2d83b1d1550f54baa851e5b87ae835b9feac10546cd136ff1039237b882bdea.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/6/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t7"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q3-t5.mp3",
+      "sha256": "ce9bb18d1c149e6fd95f07baa6e86c243444b578e63ecf2bed2340f783877ff2",
+      "sizeBytes": 68160,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-bed857978e865f69f5248789",
+      "seconds": 8.5,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/ce9bb18d1c149e6fd95f07baa6e86c243444b578e63ecf2bed2340f783877ff2.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/4/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t5"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q2-t1.mp3",
+      "sha256": "d9e7ab1453e61351ed7eb6acb7af369871afd26a44c2860a6bbebabe0bf818b7",
+      "sizeBytes": 139584,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-9e7aeb592d8dbf0b5f36fc4f",
+      "seconds": 17.4,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/d9e7ab1453e61351ed7eb6acb7af369871afd26a44c2860a6bbebabe0bf818b7.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/1/questions/0/interaction/turns/0/audio/src",
+          "sectionId": "s2",
+          "questionId": "q2",
+          "turnId": "t1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-q3-t3.mp3",
+      "sha256": "f1cb0dfd15fef37636cbfc398472fc8f608b1ef8ac6a06c592cb022a3320f0c1",
+      "sizeBytes": 57792,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t1-s",
+      "resourceFingerprint": "1758ce9a-ac27-5a83-b6b3-32842537d817",
+      "assetId": "audio-de00afe6b63e12d8da5abc9b",
+      "seconds": 7.2,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/1758ce9a-ac27-5a83-b6b3-32842537d817/media/f1cb0dfd15fef37636cbfc398472fc8f608b1ef8ac6a06c592cb022a3320f0c1.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/2/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t3"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-p2.m4a",
+      "sha256": "022cf78a067b978a22f4c9e4155cc7df718c22a8afed90e0bcfc20b8980db104",
+      "sizeBytes": 3488559,
+      "contentType": "audio/mp4",
+      "resourceId": "pet1-t1-l",
+      "resourceFingerprint": "32cf4312-488e-57cb-b11c-d856f0800911",
+      "assetId": "audio-d7ba188f2ab3cd5d84416995",
+      "seconds": 564,
+      "originType": "recording",
+      "origin": "book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays",
+      "roles": [
+        "section-recording"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/32cf4312-488e-57cb-b11c-d856f0800911/media/022cf78a067b978a22f4c9e4155cc7df718c22a8afed90e0bcfc20b8980db104.m4a",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/1/audio/src",
+          "sectionId": "s2"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-p3.m4a",
+      "sha256": "70c6607d181217ea30e8c2e1d4a81c8ffb6eae86c9eceb855d4a3185ae160143",
+      "sizeBytes": 1714294,
+      "contentType": "audio/mp4",
+      "resourceId": "pet1-t1-l",
+      "resourceFingerprint": "32cf4312-488e-57cb-b11c-d856f0800911",
+      "assetId": "audio-586d74de366002171098cd94",
+      "seconds": 277,
+      "originType": "recording",
+      "origin": "book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays",
+      "roles": [
+        "section-recording"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/32cf4312-488e-57cb-b11c-d856f0800911/media/70c6607d181217ea30e8c2e1d4a81c8ffb6eae86c9eceb855d4a3185ae160143.m4a",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/2/audio/src",
+          "sectionId": "s3"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-p4.m4a",
+      "sha256": "8484968d18c1ff5b57ac4e0710ef4767ff61c492e77fd36aae266274e8448ba9",
+      "sizeBytes": 4636721,
+      "contentType": "audio/mp4",
+      "resourceId": "pet1-t1-l",
+      "resourceFingerprint": "32cf4312-488e-57cb-b11c-d856f0800911",
+      "assetId": "audio-526d3d3f051fd263e981d98d",
+      "seconds": 750,
+      "originType": "recording",
+      "origin": "book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays",
+      "roles": [
+        "section-recording"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/32cf4312-488e-57cb-b11c-d856f0800911/media/8484968d18c1ff5b57ac4e0710ef4767ff61c492e77fd36aae266274e8448ba9.m4a",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/3/audio/src",
+          "sectionId": "s4"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-p1.m4a",
+      "sha256": "ff2c1a6042939f3c047be342f25f1d94a4b71d9798a4d1795133ee6b014dc818",
+      "sizeBytes": 3794756,
+      "contentType": "audio/mp4",
+      "resourceId": "pet1-t1-l",
+      "resourceFingerprint": "32cf4312-488e-57cb-b11c-d856f0800911",
+      "assetId": "audio-72016de2452c9237d8a72ec1",
+      "seconds": 613,
+      "originType": "recording",
+      "origin": "book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays",
+      "roles": [
+        "section-recording"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/32cf4312-488e-57cb-b11c-d856f0800911/media/ff2c1a6042939f3c047be342f25f1d94a4b71d9798a4d1795133ee6b014dc818.m4a",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/audio/src",
+          "sectionId": "s1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q3-t7.mp3",
+      "sha256": "07ab7796284b9cc0dcbc5d27d3ca0834df8205c464e95fe7a7c44d88c8db78de",
+      "sizeBytes": 47424,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-b594ac5d9e1421b47ae4424e",
+      "seconds": 5.9,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/07ab7796284b9cc0dcbc5d27d3ca0834df8205c464e95fe7a7c44d88c8db78de.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/6/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t7"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q1-t1.mp3",
+      "sha256": "094474bc52f41239a4ab982c7626359a213baa394ded3b53d07370e1433e7bcd",
+      "sizeBytes": 15360,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-d7ee56f92d1a55ecc74c7772",
+      "seconds": 1.9,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/094474bc52f41239a4ab982c7626359a213baa394ded3b53d07370e1433e7bcd.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/0/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q4-t1.mp3",
+      "sha256": "0b8411804a0d5f7246ef630d0b04cc4892c4839c54ec760d02cf01873d0501eb",
+      "sizeBytes": 45696,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-c9ab3b20545c9678e8b1b030",
+      "seconds": 5.7,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/0b8411804a0d5f7246ef630d0b04cc4892c4839c54ec760d02cf01873d0501eb.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/0/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q1-t8.mp3",
+      "sha256": "0ed15a72d7b0fae7499f47fe6b4f034978bd7b0d59fcdc4e5f2d7d597e300272",
+      "sizeBytes": 44160,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-79d95b2012e32c461db3b3a9",
+      "seconds": 5.5,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/0ed15a72d7b0fae7499f47fe6b4f034978bd7b0d59fcdc4e5f2d7d597e300272.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/7/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t8"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q1-t2.mp3",
+      "sha256": "21f0ca128b9a27c86caf472d9f49fb499dbfb82761ecb775331069db1408f768",
+      "sizeBytes": 15936,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-8b885fac0883ca9b1cc3badf",
+      "seconds": 2,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/21f0ca128b9a27c86caf472d9f49fb499dbfb82761ecb775331069db1408f768.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/1/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t2"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q3-t2.mp3",
+      "sha256": "2b14dd0db781442c7cc0469b9dcef3e19836bd10b280e95a63d8e6f6339241de",
+      "sizeBytes": 68736,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-5fff4ec1ef1d216d0e04540c",
+      "seconds": 8.6,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/2b14dd0db781442c7cc0469b9dcef3e19836bd10b280e95a63d8e6f6339241de.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/1/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t2"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q3-t5.mp3",
+      "sha256": "40a184ad9769fa0d51469c323a2d35a43cadaf1f0af73b5cbc525c3612b46d83",
+      "sizeBytes": 52416,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-d7c5e985de7ec3b19e701e92",
+      "seconds": 6.6,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/40a184ad9769fa0d51469c323a2d35a43cadaf1f0af73b5cbc525c3612b46d83.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/4/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t5"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q1-t7.mp3",
+      "sha256": "4a6b06c45836b35aedb041eec812868470b85fc6321908c9d60e60dcfe5ac653",
+      "sizeBytes": 34368,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-4eefd5387418a2f3060321f0",
+      "seconds": 4.3,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/4a6b06c45836b35aedb041eec812868470b85fc6321908c9d60e60dcfe5ac653.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/6/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t7"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q1-t11.mp3",
+      "sha256": "5b5eb4f9f1d06f7e1241f73b4ff4a50f66dc75b2433d74848796b5df46f1b54e",
+      "sizeBytes": 28608,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-ffb896f01a0bcc6657dfe4f4",
+      "seconds": 3.6,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/5b5eb4f9f1d06f7e1241f73b4ff4a50f66dc75b2433d74848796b5df46f1b54e.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/10/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t11"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q4-t4.mp3",
+      "sha256": "5d4d34c23a24ab57c199456abb2276f9596b44c24cfc0d7ed64c52f8738b045a",
+      "sizeBytes": 45120,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-f24839e5732367c4c58a3d78",
+      "seconds": 5.6,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/5d4d34c23a24ab57c199456abb2276f9596b44c24cfc0d7ed64c52f8738b045a.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/3/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t4"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q1-t10.mp3",
+      "sha256": "66bea2a2a493644628963765813a497feca88c8a85de1940876a68ff397da10b",
+      "sizeBytes": 29184,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-0dc3b7fbf053b8f14318db0d",
+      "seconds": 3.6,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/66bea2a2a493644628963765813a497feca88c8a85de1940876a68ff397da10b.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/9/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t10"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q1-t4.mp3",
+      "sha256": "692a700043ac848fc17f7ce5f3e314db8944cc999c9698916062850df37e2665",
+      "sizeBytes": 16896,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-7d205fe3873d26efcfda558c",
+      "seconds": 2.1,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/692a700043ac848fc17f7ce5f3e314db8944cc999c9698916062850df37e2665.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/3/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t4"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q4-t3.mp3",
+      "sha256": "7b208d395d9f6f201d7d4b2ee12937c826da84065617946862bd4b0c7d3c8771",
+      "sizeBytes": 45504,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-456020ca317a2de57cff1bd6",
+      "seconds": 5.7,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/7b208d395d9f6f201d7d4b2ee12937c826da84065617946862bd4b0c7d3c8771.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/2/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t3"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q4-t2.mp3",
+      "sha256": "8216659bf7bb48b56b7db31d6de8f5ab939791fcdb262bdd963b4b915893f6e3",
+      "sizeBytes": 34368,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-2ad81c5509409cbe0b741530",
+      "seconds": 4.3,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/8216659bf7bb48b56b7db31d6de8f5ab939791fcdb262bdd963b4b915893f6e3.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/1/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t2"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q1-t3.mp3",
+      "sha256": "937149610b75c7ef6033db3c2a24cf76aa006829a5804685fcb96654cf025ccd",
+      "sizeBytes": 14976,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-28287446328bbadc3df71c88",
+      "seconds": 1.9,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/937149610b75c7ef6033db3c2a24cf76aa006829a5804685fcb96654cf025ccd.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/2/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t3"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q1-t9.mp3",
+      "sha256": "abd5bf35cfe6f410ffbb4dd53729331c8df142e81d2ded6f5024ce6f974ebb19",
+      "sizeBytes": 23232,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-c16d2b4e3728d3d1e425a3fa",
+      "seconds": 2.9,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/abd5bf35cfe6f410ffbb4dd53729331c8df142e81d2ded6f5024ce6f974ebb19.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/8/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t9"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q3-t4.mp3",
+      "sha256": "b9fe610baf959fe2219b9da3e86d8e8025e8fea9238f915d74bfedc663e7fbcc",
+      "sizeBytes": 51456,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-072c028cd29bdeac175d758a",
+      "seconds": 6.4,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/b9fe610baf959fe2219b9da3e86d8e8025e8fea9238f915d74bfedc663e7fbcc.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/3/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t4"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q3-t3.mp3",
+      "sha256": "cc817f516318a4d4d8c9f37917662b2ec2998a6cb38d15004a40147345cd63c1",
+      "sizeBytes": 56832,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-6fcf3d0fe4575d768e23bcef",
+      "seconds": 7.1,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/cc817f516318a4d4d8c9f37917662b2ec2998a6cb38d15004a40147345cd63c1.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/2/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t3"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q1-t6.mp3",
+      "sha256": "cca4aa5ea0c3fa769f0110cad3c0928233b4e65d3b96793dd256136b499f498e",
+      "sizeBytes": 27264,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-f63036a361da975cba4cb690",
+      "seconds": 3.4,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/cca4aa5ea0c3fa769f0110cad3c0928233b4e65d3b96793dd256136b499f498e.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/5/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t6"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q4-t5.mp3",
+      "sha256": "d2495539e88aa88d66d672fd4ad2c10afb70f374469cd86e6b7cc3256204b68b",
+      "sizeBytes": 43200,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-49c15bbfdc0127a053dea4fd",
+      "seconds": 5.4,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/d2495539e88aa88d66d672fd4ad2c10afb70f374469cd86e6b7cc3256204b68b.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/4/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t5"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q1-t5.mp3",
+      "sha256": "d4616b1e7297ff6e095e11d3f7f3222ad34033f3ba80f40fdcfc853430e504db",
+      "sizeBytes": 23616,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-33ebfc4822462888895b11d7",
+      "seconds": 3,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/d4616b1e7297ff6e095e11d3f7f3222ad34033f3ba80f40fdcfc853430e504db.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/4/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t5"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q3-t1.mp3",
+      "sha256": "d4b878eb5ca6a29a657bb7000759da7a4f1344851ed693ef60f9ee5a9d74e502",
+      "sizeBytes": 254976,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-f7bd92bbeb0af44798d8034b",
+      "seconds": 31.9,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/d4b878eb5ca6a29a657bb7000759da7a4f1344851ed693ef60f9ee5a9d74e502.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/0/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q2-t1.mp3",
+      "sha256": "d649b9f5dc401b09f177a12099d4045936f466d75dfb0d9a20cb8d73c38bf86c",
+      "sizeBytes": 137856,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-ffa3e205476fcf67e8a86783",
+      "seconds": 17.2,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/d649b9f5dc401b09f177a12099d4045936f466d75dfb0d9a20cb8d73c38bf86c.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/1/questions/0/interaction/turns/0/audio/src",
+          "sectionId": "s2",
+          "questionId": "q2",
+          "turnId": "t1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-q3-t6.mp3",
+      "sha256": "e59b4ca8a65ae4c1a269bd69dd935a7244cbfcaf2c9e407978dcaccb964fd41b",
+      "sizeBytes": 46080,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t3-s",
+      "resourceFingerprint": "6636d572-65b9-581c-a424-bef2a9d4737a",
+      "assetId": "audio-00430415ccc0580ec8da76b4",
+      "seconds": 5.8,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/6636d572-65b9-581c-a424-bef2a9d4737a/media/e59b4ca8a65ae4c1a269bd69dd935a7244cbfcaf2c9e407978dcaccb964fd41b.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/5/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t6"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q1-t9.mp3",
+      "sha256": "0b2c047814a8a02eee8213b39a3fba48a5aeec5114553f28ae04b819c9ef6f24",
+      "sizeBytes": 23232,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-a8cb42ef794356730e2e4ca6",
+      "seconds": 2.9,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/0b2c047814a8a02eee8213b39a3fba48a5aeec5114553f28ae04b819c9ef6f24.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/8/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t9"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q1-t7.mp3",
+      "sha256": "1702fac763ae16c07699fd3e0b2ff65e9349453ce009724fdfebcdf0b2f667b0",
+      "sizeBytes": 34368,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-adc792fac710c002f17f925f",
+      "seconds": 4.3,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/1702fac763ae16c07699fd3e0b2ff65e9349453ce009724fdfebcdf0b2f667b0.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/6/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t7"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q4-t2.mp3",
+      "sha256": "24576afc711d0fe9332ba17ab366c6fc1605092dfc1f4bc330f65b8753b552a0",
+      "sizeBytes": 38592,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-2e7f83bfa4126345d38b65f6",
+      "seconds": 4.8,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/24576afc711d0fe9332ba17ab366c6fc1605092dfc1f4bc330f65b8753b552a0.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/1/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t2"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q1-t6.mp3",
+      "sha256": "253190883b8c0d42d9b748d0e8b599f998b932f025767d97e98dffb149fff5a4",
+      "sizeBytes": 27264,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-cbf90c050ae497756051944f",
+      "seconds": 3.4,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/253190883b8c0d42d9b748d0e8b599f998b932f025767d97e98dffb149fff5a4.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/5/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t6"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q3-t4.mp3",
+      "sha256": "2a31d24bec53af6fec4e71b955348d0960f3c008147ecc3e73316dcae24d48e6",
+      "sizeBytes": 47232,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-0fb208d0793a77dbd2d3f309",
+      "seconds": 5.9,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/2a31d24bec53af6fec4e71b955348d0960f3c008147ecc3e73316dcae24d48e6.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/3/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t4"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q1-t4.mp3",
+      "sha256": "2b6d4fca394e54f985536da5141ceed977f55a0a0a6df4fcd137898d886319c2",
+      "sizeBytes": 16896,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-e62209c96af1e4995e997ca0",
+      "seconds": 2.1,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/2b6d4fca394e54f985536da5141ceed977f55a0a0a6df4fcd137898d886319c2.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/3/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t4"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q1-t11.mp3",
+      "sha256": "2c967bea444a61604f91bd8e4cd5c486610dba2944a579233b5a68908c74c515",
+      "sizeBytes": 28416,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-e82ff4c98321b8734c6523ee",
+      "seconds": 3.6,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/2c967bea444a61604f91bd8e4cd5c486610dba2944a579233b5a68908c74c515.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/10/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t11"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q3-t7.mp3",
+      "sha256": "2cfc8c097b33d8e5aa1a02d3f2956d75f66bf3a43beea74f76f512cfdf463b21",
+      "sizeBytes": 63744,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-c5477d3961d35d4f8211f875",
+      "seconds": 8,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/2cfc8c097b33d8e5aa1a02d3f2956d75f66bf3a43beea74f76f512cfdf463b21.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/6/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t7"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q1-t2.mp3",
+      "sha256": "4c8f7c1a5b3ed064873e4215cfc7dc1ac454ff6b2ad45e733fbfb997af00a383",
+      "sizeBytes": 15936,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-95f1a6604da748258836fef3",
+      "seconds": 2,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/4c8f7c1a5b3ed064873e4215cfc7dc1ac454ff6b2ad45e733fbfb997af00a383.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/1/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t2"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q3-t3.mp3",
+      "sha256": "4d8bd2650f5e0c8697a92e8a40fde9f0080ea2182b59fcaa13d1cf6b622fc528",
+      "sizeBytes": 54336,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-37810fe0b86422963c19cdf8",
+      "seconds": 6.8,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/4d8bd2650f5e0c8697a92e8a40fde9f0080ea2182b59fcaa13d1cf6b622fc528.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/2/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t3"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q3-t1.mp3",
+      "sha256": "59d28fc99c4f4349aff0f27b96bdcf8a87a26df46c186e37b5f189c770fc420f",
+      "sizeBytes": 296064,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-e8082122314793ec901da7f3",
+      "seconds": 37,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/59d28fc99c4f4349aff0f27b96bdcf8a87a26df46c186e37b5f189c770fc420f.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/0/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q1-t1.mp3",
+      "sha256": "6a487c9d617a90e40055af0a4dd12f7e99b4042cfb6c94c26cc1b97da3f3542b",
+      "sizeBytes": 15360,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-03406ca97ec071438326cc89",
+      "seconds": 1.9,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/6a487c9d617a90e40055af0a4dd12f7e99b4042cfb6c94c26cc1b97da3f3542b.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/0/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q4-t1.mp3",
+      "sha256": "7321d48da788b75e4ce166ad2da46a97a23278b17f27054dfbdad256d4a7d8a2",
+      "sizeBytes": 45504,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-525727c56e28d50bade9126b",
+      "seconds": 5.7,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/7321d48da788b75e4ce166ad2da46a97a23278b17f27054dfbdad256d4a7d8a2.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/0/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q1-t12.mp3",
+      "sha256": "89f3bbeb3b4e25de95ba86814e9f96994584b44f133bd27e521c9b550c194ed3",
+      "sizeBytes": 32640,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-6560536151a009b354c74253",
+      "seconds": 4.1,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/89f3bbeb3b4e25de95ba86814e9f96994584b44f133bd27e521c9b550c194ed3.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/11/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t12"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q1-t10.mp3",
+      "sha256": "9d76ef15fdc4ad1c053705d9e558b5356595808ca7a896467c07f4de5d0e800a",
+      "sizeBytes": 29184,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-ef3891cea08e16dda47e4e96",
+      "seconds": 3.6,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/9d76ef15fdc4ad1c053705d9e558b5356595808ca7a896467c07f4de5d0e800a.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/9/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t10"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q1-t3.mp3",
+      "sha256": "9ebb458abe819dba33407b4722fbfcf2030ffb96885ca172499c0c655f7f5553",
+      "sizeBytes": 15168,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-eea9c41e7c1673c7c63a8d78",
+      "seconds": 1.9,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/9ebb458abe819dba33407b4722fbfcf2030ffb96885ca172499c0c655f7f5553.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/2/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t3"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q1-t8.mp3",
+      "sha256": "b1982c19bd52e9cdfe963e70d41c986c68bd6cc8c6054c20ca8678fd2a387a05",
+      "sizeBytes": 43968,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-aad43a965c05269cf5f694b0",
+      "seconds": 5.5,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/b1982c19bd52e9cdfe963e70d41c986c68bd6cc8c6054c20ca8678fd2a387a05.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/7/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t8"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q3-t5.mp3",
+      "sha256": "bb36720214935f9a7a2ebd19fc30a41717c1f637b6d7fc0135eff1eb4053a9cf",
+      "sizeBytes": 57984,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-b2640cd6a775765ea908d861",
+      "seconds": 7.2,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/bb36720214935f9a7a2ebd19fc30a41717c1f637b6d7fc0135eff1eb4053a9cf.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/4/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t5"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q3-t6.mp3",
+      "sha256": "bdf526db33eff95449c988e3d67592fdd3675f373e2e50a7c094dcd6b88cffa4",
+      "sizeBytes": 55104,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-7e914c598e39008328828603",
+      "seconds": 6.9,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/bdf526db33eff95449c988e3d67592fdd3675f373e2e50a7c094dcd6b88cffa4.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/5/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t6"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q1-t5.mp3",
+      "sha256": "c6d22e1b35e35ee2c6099efd63e4c410df64821ec1d0f7712aa9923500b2c8e4",
+      "sizeBytes": 23616,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-2aec3917b21e1b031ec10a55",
+      "seconds": 3,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/c6d22e1b35e35ee2c6099efd63e4c410df64821ec1d0f7712aa9923500b2c8e4.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/4/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t5"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q4-t3.mp3",
+      "sha256": "c8cdff1e6597ceb673f1ca21095923f45140a4122f8d77bf05eeb03d8d5dbe4a",
+      "sizeBytes": 48000,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-3718fe9eee1bef39ac1dd89f",
+      "seconds": 6,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/c8cdff1e6597ceb673f1ca21095923f45140a4122f8d77bf05eeb03d8d5dbe4a.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/2/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t3"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q4-t5.mp3",
+      "sha256": "daf9b5bfa5c7b467f81f2273f4f30e98afe407c8d4e3d8b677241b8f09c5bb26",
+      "sizeBytes": 54144,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-6f874d655ced8999f482fe7f",
+      "seconds": 6.8,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/daf9b5bfa5c7b467f81f2273f4f30e98afe407c8d4e3d8b677241b8f09c5bb26.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/4/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t5"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q2-t1.mp3",
+      "sha256": "ee3cf6bdbfd1d43dfa1049d811090758827e6e0282f9035899ce7afc58eb631e",
+      "sizeBytes": 139776,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-e0ae98892dbf2bb693af567f",
+      "seconds": 17.5,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/ee3cf6bdbfd1d43dfa1049d811090758827e6e0282f9035899ce7afc58eb631e.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/1/questions/0/interaction/turns/0/audio/src",
+          "sectionId": "s2",
+          "questionId": "q2",
+          "turnId": "t1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q3-t2.mp3",
+      "sha256": "f12a64a0b9706d52071c050bceb3d0406c694374445303a117b100b8db4e955b",
+      "sizeBytes": 69120,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-3c70a14db2a272566d790d5c",
+      "seconds": 8.6,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/f12a64a0b9706d52071c050bceb3d0406c694374445303a117b100b8db4e955b.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/1/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t2"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-q4-t4.mp3",
+      "sha256": "fa0ad6daf3116f727a702ca0fe55cb18afd7572a2627d5a0db197a100d032fd3",
+      "sizeBytes": 54336,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t2-s",
+      "resourceFingerprint": "69099ec2-e31d-55d4-9c0a-5f9fdf091d01",
+      "assetId": "audio-4fc7b62e282eae890c17432d",
+      "seconds": 6.8,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/69099ec2-e31d-55d4-9c0a-5f9fdf091d01/media/fa0ad6daf3116f727a702ca0fe55cb18afd7572a2627d5a0db197a100d032fd3.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/3/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t4"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-p3.m4a",
+      "sha256": "1027d2230a5a689570836b0598b21cb3ecd7f13c50c19deba28cf8403090ff63",
+      "sizeBytes": 1968943,
+      "contentType": "audio/mp4",
+      "resourceId": "pet1-t3-l",
+      "resourceFingerprint": "a436b236-e086-54b7-a0ba-3af5eb760bae",
+      "assetId": "audio-5b6af572b1e801ff93cda7d8",
+      "seconds": 318,
+      "originType": "recording",
+      "origin": "book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays",
+      "roles": [
+        "section-recording"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/a436b236-e086-54b7-a0ba-3af5eb760bae/media/1027d2230a5a689570836b0598b21cb3ecd7f13c50c19deba28cf8403090ff63.m4a",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/2/audio/src",
+          "sectionId": "s3"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-p1.m4a",
+      "sha256": "331f754dc04d52823758264da82bd4a846be150afb0642256814e14d86553f15",
+      "sizeBytes": 3863440,
+      "contentType": "audio/mp4",
+      "resourceId": "pet1-t3-l",
+      "resourceFingerprint": "a436b236-e086-54b7-a0ba-3af5eb760bae",
+      "assetId": "audio-a1c691c2b0f04669beead0fe",
+      "seconds": 625,
+      "originType": "recording",
+      "origin": "book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays",
+      "roles": [
+        "section-recording"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/a436b236-e086-54b7-a0ba-3af5eb760bae/media/331f754dc04d52823758264da82bd4a846be150afb0642256814e14d86553f15.m4a",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/audio/src",
+          "sectionId": "s1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-p4.m4a",
+      "sha256": "6172a91c075c2156933843627e8a900188b1760d69eaed492aeb0adab87fd2fc",
+      "sizeBytes": 4687712,
+      "contentType": "audio/mp4",
+      "resourceId": "pet1-t3-l",
+      "resourceFingerprint": "a436b236-e086-54b7-a0ba-3af5eb760bae",
+      "assetId": "audio-2e0253ead2737574e027ef99",
+      "seconds": 758,
+      "originType": "recording",
+      "origin": "book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays",
+      "roles": [
+        "section-recording"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/a436b236-e086-54b7-a0ba-3af5eb760bae/media/6172a91c075c2156933843627e8a900188b1760d69eaed492aeb0adab87fd2fc.m4a",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/3/audio/src",
+          "sectionId": "s4"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-p2.m4a",
+      "sha256": "a1aa5a51c57e61ec62326d0bbc33532361ad6103bd16da6e3995fd88febe7d07",
+      "sizeBytes": 3505556,
+      "contentType": "audio/mp4",
+      "resourceId": "pet1-t3-l",
+      "resourceFingerprint": "a436b236-e086-54b7-a0ba-3af5eb760bae",
+      "assetId": "audio-87f4ac6e25f2a520bd9437bb",
+      "seconds": 566,
+      "originType": "recording",
+      "origin": "book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays",
+      "roles": [
+        "section-recording"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/a436b236-e086-54b7-a0ba-3af5eb760bae/media/a1aa5a51c57e61ec62326d0bbc33532361ad6103bd16da6e3995fd88febe7d07.m4a",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/1/audio/src",
+          "sectionId": "s2"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-p2.m4a",
+      "sha256": "3d6706c907c1b6fc6c7c25ae30badaaa91165606e85b58b4c013c57f38b14a00",
+      "sizeBytes": 3752542,
+      "contentType": "audio/mp4",
+      "resourceId": "pet1-t2-l",
+      "resourceFingerprint": "ab0fe30d-dbe9-5977-b976-63836fd700f8",
+      "assetId": "audio-1d401605890f8e65722697bc",
+      "seconds": 606,
+      "originType": "recording",
+      "origin": "book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays",
+      "roles": [
+        "section-recording"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ab0fe30d-dbe9-5977-b976-63836fd700f8/media/3d6706c907c1b6fc6c7c25ae30badaaa91165606e85b58b4c013c57f38b14a00.m4a",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/1/audio/src",
+          "sectionId": "s2"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-p3.m4a",
+      "sha256": "71fe6fdbd46953dedb42efd39a066e93842dd13c925a64134304bd4872417cfa",
+      "sizeBytes": 2040832,
+      "contentType": "audio/mp4",
+      "resourceId": "pet1-t2-l",
+      "resourceFingerprint": "ab0fe30d-dbe9-5977-b976-63836fd700f8",
+      "assetId": "audio-4cb13a55242a1dfa991b0541",
+      "seconds": 330,
+      "originType": "recording",
+      "origin": "book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays",
+      "roles": [
+        "section-recording"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ab0fe30d-dbe9-5977-b976-63836fd700f8/media/71fe6fdbd46953dedb42efd39a066e93842dd13c925a64134304bd4872417cfa.m4a",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/2/audio/src",
+          "sectionId": "s3"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-p1.m4a",
+      "sha256": "a8d16433fa945cdbf586ee2abf2dd3bd688400a8d12a883684024a31a732e38e",
+      "sizeBytes": 3817047,
+      "contentType": "audio/mp4",
+      "resourceId": "pet1-t2-l",
+      "resourceFingerprint": "ab0fe30d-dbe9-5977-b976-63836fd700f8",
+      "assetId": "audio-31eb71104e27e7bc2a8d8d81",
+      "seconds": 617,
+      "originType": "recording",
+      "origin": "book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays",
+      "roles": [
+        "section-recording"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ab0fe30d-dbe9-5977-b976-63836fd700f8/media/a8d16433fa945cdbf586ee2abf2dd3bd688400a8d12a883684024a31a732e38e.m4a",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/audio/src",
+          "sectionId": "s1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-p4.m4a",
+      "sha256": "e8281cb311248f2a6a41363025d2aa66d839436b3815df93c54429aba9c1060d",
+      "sizeBytes": 4837815,
+      "contentType": "audio/mp4",
+      "resourceId": "pet1-t2-l",
+      "resourceFingerprint": "ab0fe30d-dbe9-5977-b976-63836fd700f8",
+      "assetId": "audio-e430601726797bd6e365d9d4",
+      "seconds": 782,
+      "originType": "recording",
+      "origin": "book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays",
+      "roles": [
+        "section-recording"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ab0fe30d-dbe9-5977-b976-63836fd700f8/media/e8281cb311248f2a6a41363025d2aa66d839436b3815df93c54429aba9c1060d.m4a",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/3/audio/src",
+          "sectionId": "s4"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-p3.m4a",
+      "sha256": "315107ebf3e9b23c870a63ebb5b16dff01cb4ad075942aeb7040670fb55d6aff",
+      "sizeBytes": 1972983,
+      "contentType": "audio/mp4",
+      "resourceId": "pet1-t4-l",
+      "resourceFingerprint": "d2636391-fcf0-59a6-929e-26e99338dc07",
+      "assetId": "audio-e0553d82fff6e5aff43d92f0",
+      "seconds": 319,
+      "originType": "recording",
+      "origin": "book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays",
+      "roles": [
+        "section-recording"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/d2636391-fcf0-59a6-929e-26e99338dc07/media/315107ebf3e9b23c870a63ebb5b16dff01cb4ad075942aeb7040670fb55d6aff.m4a",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/2/audio/src",
+          "sectionId": "s3"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-p4.m4a",
+      "sha256": "575787c9616b630f166348838d57f196a38e3e87b1f63395fab9b2cf7adcd995",
+      "sizeBytes": 4625575,
+      "contentType": "audio/mp4",
+      "resourceId": "pet1-t4-l",
+      "resourceFingerprint": "d2636391-fcf0-59a6-929e-26e99338dc07",
+      "assetId": "audio-43922beeda6b78e31019d24d",
+      "seconds": 748,
+      "originType": "recording",
+      "origin": "book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays",
+      "roles": [
+        "section-recording"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/d2636391-fcf0-59a6-929e-26e99338dc07/media/575787c9616b630f166348838d57f196a38e3e87b1f63395fab9b2cf7adcd995.m4a",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/3/audio/src",
+          "sectionId": "s4"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-p2.m4a",
+      "sha256": "8eda83331082f4615d47ef7d7878bd2e3051aa57f33132fb2b884dbb179d92c0",
+      "sizeBytes": 3605504,
+      "contentType": "audio/mp4",
+      "resourceId": "pet1-t4-l",
+      "resourceFingerprint": "d2636391-fcf0-59a6-929e-26e99338dc07",
+      "assetId": "audio-c9d891d50498ccd250776940",
+      "seconds": 582,
+      "originType": "recording",
+      "origin": "book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays",
+      "roles": [
+        "section-recording"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/d2636391-fcf0-59a6-929e-26e99338dc07/media/8eda83331082f4615d47ef7d7878bd2e3051aa57f33132fb2b884dbb179d92c0.m4a",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/1/audio/src",
+          "sectionId": "s2"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-p1.m4a",
+      "sha256": "a5425bf46ddd5f06aa4958e6349e7a641ecb7b4b39c4fd1801c06c068234d66a",
+      "sizeBytes": 3862883,
+      "contentType": "audio/mp4",
+      "resourceId": "pet1-t4-l",
+      "resourceFingerprint": "d2636391-fcf0-59a6-929e-26e99338dc07",
+      "assetId": "audio-a33019f9e1a424feac99efa4",
+      "seconds": 625,
+      "originType": "recording",
+      "origin": "book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays",
+      "roles": [
+        "section-recording"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/d2636391-fcf0-59a6-929e-26e99338dc07/media/a5425bf46ddd5f06aa4958e6349e7a641ecb7b4b39c4fd1801c06c068234d66a.m4a",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/audio/src",
+          "sectionId": "s1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q4-t5.mp3",
+      "sha256": "04280ad5c6ab3871f94a0a152fdaa09d424117a5c2d27a56a94d3bbf3b6485c5",
+      "sizeBytes": 50304,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-4e7e878f74743b24c19dcc43",
+      "seconds": 6.3,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/04280ad5c6ab3871f94a0a152fdaa09d424117a5c2d27a56a94d3bbf3b6485c5.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/4/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t5"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q4-t4.mp3",
+      "sha256": "256be2940f2c16743e5940b425c3125995edad68bff1c3f6d9da00def11fa514",
+      "sizeBytes": 38208,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-01597f03d8f6707b651a8b09",
+      "seconds": 4.8,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/256be2940f2c16743e5940b425c3125995edad68bff1c3f6d9da00def11fa514.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/3/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t4"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q3-t7.mp3",
+      "sha256": "3169a8eb7732a671dca2f45b10a6cc5e612412aa86f76f10e4890f67ff3f30aa",
+      "sizeBytes": 54144,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-524401b110d9689cac01e65c",
+      "seconds": 6.8,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/3169a8eb7732a671dca2f45b10a6cc5e612412aa86f76f10e4890f67ff3f30aa.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/6/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t7"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q1-t8.mp3",
+      "sha256": "4b3df45944e0ac45109abba2016f5f2f63f929786b04aa61c5f7637b8b0c1502",
+      "sizeBytes": 44160,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-aeeb73febadd034dde448a6f",
+      "seconds": 5.5,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/4b3df45944e0ac45109abba2016f5f2f63f929786b04aa61c5f7637b8b0c1502.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/7/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t8"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q1-t10.mp3",
+      "sha256": "57688429107cdaf8c5c90bbfedb8e679f1fa8df062be1b7a8bb2a44299af23ff",
+      "sizeBytes": 28992,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-1372af053e97314e8bf1bbb8",
+      "seconds": 3.6,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/57688429107cdaf8c5c90bbfedb8e679f1fa8df062be1b7a8bb2a44299af23ff.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/9/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t10"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q3-t3.mp3",
+      "sha256": "90cfb7f0e0b147ea36a08ba9a21e49046346bfed04d82b34db4e29b84592a7af",
+      "sizeBytes": 68352,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-bf553d5f42dc5f2b4031172b",
+      "seconds": 8.5,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/90cfb7f0e0b147ea36a08ba9a21e49046346bfed04d82b34db4e29b84592a7af.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/2/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t3"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q3-t4.mp3",
+      "sha256": "90e83db2aa09ed13ac75b93077490ccf394e7a77f2e0b501222e1845e920125f",
+      "sizeBytes": 60480,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-f1d954442447df2a59a54fe9",
+      "seconds": 7.6,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/90e83db2aa09ed13ac75b93077490ccf394e7a77f2e0b501222e1845e920125f.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/3/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t4"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q3-t1.mp3",
+      "sha256": "95db0d1411bb0a26337246891df696ae44393382becc09d7bf80e3110e651661",
+      "sizeBytes": 244224,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-3c57f4734c2d4dd1f85f1db4",
+      "seconds": 30.5,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/95db0d1411bb0a26337246891df696ae44393382becc09d7bf80e3110e651661.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/0/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q1-t3.mp3",
+      "sha256": "9eb021a45a0d05fd6ca8ca03a92bd051f1726f8fc7e8f4295a9774fffc82492c",
+      "sizeBytes": 14976,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-daea2def559c0083b023bf32",
+      "seconds": 1.9,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/9eb021a45a0d05fd6ca8ca03a92bd051f1726f8fc7e8f4295a9774fffc82492c.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/2/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t3"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q4-t2.mp3",
+      "sha256": "afc5f818eebb7165cce70359b254241523e8ff03356a25c60cc7c7fe91bf38a4",
+      "sizeBytes": 42816,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-1d1c37a68044fb327c7bb66f",
+      "seconds": 5.4,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/afc5f818eebb7165cce70359b254241523e8ff03356a25c60cc7c7fe91bf38a4.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/1/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t2"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q1-t9.mp3",
+      "sha256": "be4d75f8990db28674ac20b4c6ffb4bca0bf3165a5a8788b7a97b6854e202440",
+      "sizeBytes": 23232,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-a28ebfd49f535419ac15757a",
+      "seconds": 2.9,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/be4d75f8990db28674ac20b4c6ffb4bca0bf3165a5a8788b7a97b6854e202440.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/8/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t9"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q4-t3.mp3",
+      "sha256": "c4f3028988f08d6892c151c1d25fd2031140dc54cae1e5d85fa5de5b54f46188",
+      "sizeBytes": 39552,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-7032262da15f2c4cfb4bda6b",
+      "seconds": 4.9,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/c4f3028988f08d6892c151c1d25fd2031140dc54cae1e5d85fa5de5b54f46188.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/2/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t3"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q3-t6.mp3",
+      "sha256": "ced78b6d892913aef03b0d9e2512e26e6961cafd5d8a1c5596da4a7d5de6e773",
+      "sizeBytes": 50880,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-4b72d30ce90572c461473272",
+      "seconds": 6.4,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/ced78b6d892913aef03b0d9e2512e26e6961cafd5d8a1c5596da4a7d5de6e773.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/5/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t6"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q1-t7.mp3",
+      "sha256": "cfac25510327f5ceb2d5e098c31c3678ed9be3a889902fc4bc34a515a6111294",
+      "sizeBytes": 34368,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-325e0851ee7f7f4e69f994fc",
+      "seconds": 4.3,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/cfac25510327f5ceb2d5e098c31c3678ed9be3a889902fc4bc34a515a6111294.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/6/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t7"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q1-t4.mp3",
+      "sha256": "d36b14f43681912ac14ce10dcc0c929dc1223c1d0a1ebfa20f0accdc22493fbc",
+      "sizeBytes": 16896,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-2326f823d9d35a505ed962c3",
+      "seconds": 2.1,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/d36b14f43681912ac14ce10dcc0c929dc1223c1d0a1ebfa20f0accdc22493fbc.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/3/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t4"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q1-t2.mp3",
+      "sha256": "d88da71145213132a8ca4451a11d72449bf8d4026a1afb541491af938f7c869a",
+      "sizeBytes": 15936,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-9616cd7e1819ccd204a57a6b",
+      "seconds": 2,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/d88da71145213132a8ca4451a11d72449bf8d4026a1afb541491af938f7c869a.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/1/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t2"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q2-t1.mp3",
+      "sha256": "dbcd9cbcb41880d527cfe1744ca7aee2bb9ef17dcf15165c43df4f3771f1e657",
+      "sizeBytes": 138048,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-941862a0d6be7c59209b3604",
+      "seconds": 17.3,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/dbcd9cbcb41880d527cfe1744ca7aee2bb9ef17dcf15165c43df4f3771f1e657.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/1/questions/0/interaction/turns/0/audio/src",
+          "sectionId": "s2",
+          "questionId": "q2",
+          "turnId": "t1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q1-t5.mp3",
+      "sha256": "e034ce1ff55ebd1133ec14005f147346afb715938b4595e1f92b3890a128de72",
+      "sizeBytes": 23616,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-19664a2c6675d4adec964e01",
+      "seconds": 3,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/e034ce1ff55ebd1133ec14005f147346afb715938b4595e1f92b3890a128de72.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/4/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t5"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q1-t1.mp3",
+      "sha256": "e224510ef18089eca389ff4dbeacc8da4f1c2caa5f728b4743596d585ed25c6a",
+      "sizeBytes": 15168,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-34fe122f496e20a042da6fe1",
+      "seconds": 1.9,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/e224510ef18089eca389ff4dbeacc8da4f1c2caa5f728b4743596d585ed25c6a.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/0/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q4-t1.mp3",
+      "sha256": "e34a01f4da78b4dff83097ec4773a005c059d63f3bfe85babaefd4afcda0140f",
+      "sizeBytes": 44736,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-954caead1c9c1ae0c77b2f44",
+      "seconds": 5.6,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/e34a01f4da78b4dff83097ec4773a005c059d63f3bfe85babaefd4afcda0140f.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/3/questions/0/interaction/turns/0/audio/src",
+          "sectionId": "s4",
+          "questionId": "q4",
+          "turnId": "t1"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q1-t11.mp3",
+      "sha256": "ec91bd246df891a9424fc6adc640f9bca41139ef76b1729a27313c3abfb260c9",
+      "sizeBytes": 28416,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-ca87903544cb95aead2d5796",
+      "seconds": 3.6,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/ec91bd246df891a9424fc6adc640f9bca41139ef76b1729a27313c3abfb260c9.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/10/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t11"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q3-t2.mp3",
+      "sha256": "f1e734d60bf3660eccc9827ba911117f9161ee88de3782c87b341b81cf04b1a0",
+      "sizeBytes": 66240,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-a027c6cedb3ac938f7d6df42",
+      "seconds": 8.3,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/f1e734d60bf3660eccc9827ba911117f9161ee88de3782c87b341b81cf04b1a0.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/1/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t2"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q3-t5.mp3",
+      "sha256": "f1fcb62448f5c493acf96c2f440bd74d7284367de54cee366603b2556e65ea5c",
+      "sizeBytes": 54336,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-63ffb1d86e9875c2ec609332",
+      "seconds": 6.8,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/f1fcb62448f5c493acf96c2f440bd74d7284367de54cee366603b2556e65ea5c.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/2/questions/0/interaction/turns/4/audio/src",
+          "sectionId": "s3",
+          "questionId": "q3",
+          "turnId": "t5"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-q1-t6.mp3",
+      "sha256": "f6baf663e1461f212adf15f6d9d5b88933ccddd032a3fee0a92c0b6842157dc8",
+      "sizeBytes": 27072,
+      "contentType": "audio/mpeg",
+      "resourceId": "pet1-t4-s",
+      "resourceFingerprint": "ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24",
+      "assetId": "audio-3dc8cfa46e90f5de34b8b23b",
+      "seconds": 3.4,
+      "originType": "tts",
+      "origin": "Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps",
+      "roles": [
+        "speaking-prompt"
+      ],
+      "objectKey": "exam-resources/v1/fd388099-33b3-441a-89f7-c49c7e446b75/ee21b7f9-f5d0-5bdf-b0be-8ed88f938d24/media/f6baf663e1461f212adf15f6d9d5b88933ccddd032a3fee0a92c0b6842157dc8.mp3",
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/sections/0/questions/0/interaction/turns/5/audio/src",
+          "sectionId": "s1",
+          "questionId": "q1",
+          "turnId": "t6"
+        }
+      ]
+    }
+  ],
+  "localOnly": [
+    {
+      "sourcePath": "assets/pet1/pet1-t1-r-1.jpg",
+      "sha256": "a3262525ed482691f8b0928d5440f8bcf47f3bb3cd9d7a517c0cf49539ba8bad",
+      "sizeBytes": 67450,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-r.json",
+          "itemId": "pet1-t1-r",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-r-2.jpg",
+      "sha256": "0bfcef4850e8e0cfe869bafa180d70a466e8264692f068fb8baac3c3ea4aaf07",
+      "sizeBytes": 44977,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-r.json",
+          "itemId": "pet1-t1-r",
+          "pointer": "/article/images/1/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-r-3.jpg",
+      "sha256": "c83e1b4a970d021b108b1f4cd3c4481fc3ed13a53ad47c08c22e1f85768ccd9b",
+      "sizeBytes": 90113,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-r.json",
+          "itemId": "pet1-t1-r",
+          "pointer": "/article/images/2/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-r-4.jpg",
+      "sha256": "65fd4f3c5cccb7dd8d8aa3fd59d74b40bfc8a048b13fa7f15ed9e316a56631a4",
+      "sizeBytes": 108517,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-r.json",
+          "itemId": "pet1-t1-r",
+          "pointer": "/article/images/3/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-r-5.jpg",
+      "sha256": "400387de0079d5fb9c846dee63788ba0fe225bc0acc8de3dc8151e2db542d73a",
+      "sizeBytes": 74530,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-r.json",
+          "itemId": "pet1-t1-r",
+          "pointer": "/article/images/4/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-r-p1.jpg",
+      "sha256": "76af5d68d8bc230acca3d0027ee34569eb16db49f9b95fb607ff226b49b6339e",
+      "sizeBytes": 13211,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-r.json",
+          "itemId": "pet1-t1-r",
+          "pointer": "/article/images/5/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-r-p2.jpg",
+      "sha256": "3a794f63a07a63bca75a6215a8cef783a7efa77567d5890d066401d28f2c0ea7",
+      "sizeBytes": 14377,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-r.json",
+          "itemId": "pet1-t1-r",
+          "pointer": "/article/images/6/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-r-p3.jpg",
+      "sha256": "19a5627ab82fb011533a2388d8b72c180ff97c5e529fc157afbc6b529a9fe2bd",
+      "sizeBytes": 9801,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-r.json",
+          "itemId": "pet1-t1-r",
+          "pointer": "/article/images/7/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-r-p4.jpg",
+      "sha256": "62f9509b864965c18df3ca46d07659b48f36a5c4829431c79eef075d3e1df03f",
+      "sizeBytes": 15396,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-r.json",
+          "itemId": "pet1-t1-r",
+          "pointer": "/article/images/8/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-r-p5.jpg",
+      "sha256": "a15b9c4fb30fe5cf61dfd2c066c30781bb24f3ece3a15d31e9439aa78bcaff72",
+      "sizeBytes": 13402,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-r.json",
+          "itemId": "pet1-t1-r",
+          "pointer": "/article/images/9/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q1-A.jpg",
+      "sha256": "da6a9c2181aee72e6d1600260e5828f6764246d00c1e96651f8a609ce42351f2",
+      "sizeBytes": 46797,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/0/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q1"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q1-B.jpg",
+      "sha256": "c2092f47cd28d8aa98a27047a12cfc57362f7a09d538e0f7aa2d20082a0cd54e",
+      "sizeBytes": 37362,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/0/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q1"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q1-C.jpg",
+      "sha256": "8031d44517bb0b6886ea61b307ad7de6823204f0990f1951c39a6be787c8caab",
+      "sizeBytes": 38463,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/0/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q1"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q2-A.jpg",
+      "sha256": "015764d71434f983e4b2d3b23587fb7f8ca3a6e9461ce62548615334524faee3",
+      "sizeBytes": 48565,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/1/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q2"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q2-B.jpg",
+      "sha256": "255b778267399afca3e598907df4ec9ba4c095a63d0c661e6e81a0a9fe26323e",
+      "sizeBytes": 46413,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/1/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q2"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q2-C.jpg",
+      "sha256": "5ce1b6136a611cb858b2f3b46979b5343491be52592df713aad162db29410c55",
+      "sizeBytes": 37126,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/1/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q2"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q3-A.jpg",
+      "sha256": "b8008c7fda5099087ee71bc433e294860623790ec9730093536eefa0c54b8ca8",
+      "sizeBytes": 52031,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/2/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q3"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q3-B.jpg",
+      "sha256": "5104c5f9d6f621f12aad6bef951525417b58711a0b65c8c14976e83ea9b09b7f",
+      "sizeBytes": 42716,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/2/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q3"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q3-C.jpg",
+      "sha256": "5228064c9c9c5d1b4766392293ec71facf87291da837cb4bb80a2bd34e48304b",
+      "sizeBytes": 47975,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/2/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q3"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q4-A.jpg",
+      "sha256": "c1ad2c7adac55cf62db965107a476bb794923ebe76c2718af6dad62c825649e3",
+      "sizeBytes": 38673,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/3/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q4"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q4-B.jpg",
+      "sha256": "05e860c7cf267b4813f332ba70c95eecff04d5cc7755d0855ef4b398e8594cb2",
+      "sizeBytes": 42117,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/3/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q4"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q4-C.jpg",
+      "sha256": "dbd1411b4c39a64431f46727134cd31f16808f54e80050bfc2a461a0358260ec",
+      "sizeBytes": 25376,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/3/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q4"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q5-A.jpg",
+      "sha256": "1fb1c137b5b0fbe9c2af1775fc02680a446e6a9d456f62b6bdba353f3b918d95",
+      "sizeBytes": 43789,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/4/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q5"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q5-B.jpg",
+      "sha256": "5d967cf8439c2c8186f1681e882db94d879a7552a5399ee61bb4f84786a86cc0",
+      "sizeBytes": 38751,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/4/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q5"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q5-C.jpg",
+      "sha256": "6ac925bc65ff59dff87fd6b544dd82ae6066527d1169c2217e021dec11b47e72",
+      "sizeBytes": 51275,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/4/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q5"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q6-A.jpg",
+      "sha256": "28d8924b58e1c616b70907c3fa6bef0eb7b51c2f3390961a42a840b1dbeac389",
+      "sizeBytes": 52617,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/5/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q6"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q6-B.jpg",
+      "sha256": "79b9cc4a66fb91c4d9c9cf649751e8da2d8344338931b379d242bde6d420b651",
+      "sizeBytes": 42559,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/5/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q6"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q6-C.jpg",
+      "sha256": "a3e1414e46a59fac3c7bf83bfd2bda53813acc7627d72cb5d4d2754f25702cfd",
+      "sizeBytes": 51062,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/5/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q6"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q7-A.jpg",
+      "sha256": "c783bb1ce996f67b0b81ce1f297906717f568efe0ff6475e2b7f92faec9fb04a",
+      "sizeBytes": 34776,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/6/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q7"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q7-B.jpg",
+      "sha256": "382c50b7d49978290a2bf984c6b475139f1e7dc5c94ec46156bfa8d8ceb8b1cb",
+      "sizeBytes": 48792,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/6/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q7"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-l-q7-C.jpg",
+      "sha256": "adc3b0b97a32848b496f965d3de62da9d9a172c38df0569e92ce1070325f371f",
+      "sizeBytes": 22094,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-l.json",
+          "itemId": "pet1-t1-l",
+          "pointer": "/sections/0/questions/6/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q7"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-1.jpg",
+      "sha256": "69b4cca31ccc6a209dde032c530e6759b3fe7dc7f97ebd49f97e0cd4be0548c9",
+      "sizeBytes": 208621,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t1-s-2.jpg",
+      "sha256": "727be94bad53fa52ab2aaa3f35d9039ce5bd272297e66c7b4257b5d8a1a50411",
+      "sizeBytes": 257571,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t1-s.json",
+          "itemId": "pet1-t1-s",
+          "pointer": "/article/images/1/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-r-1.jpg",
+      "sha256": "dc4228cf44516dfec5c059b967e8d0cc22df5d54961dfb40ed023037f32a85cf",
+      "sizeBytes": 81170,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-r.json",
+          "itemId": "pet1-t2-r",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-r-2.jpg",
+      "sha256": "17464cf73a4cfec6c7bebd510ca558b0785013e50e94652c0fa625dbb68d404f",
+      "sizeBytes": 44464,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-r.json",
+          "itemId": "pet1-t2-r",
+          "pointer": "/article/images/1/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-r-3.jpg",
+      "sha256": "4e3f49b6f516f35c73c934c4d5ad6826ca4f1d1a1755757e8e5b410be1c8f135",
+      "sizeBytes": 98056,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-r.json",
+          "itemId": "pet1-t2-r",
+          "pointer": "/article/images/2/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-r-4.jpg",
+      "sha256": "a83faa657af98f1ba2e3eb06e1a1c2a1cf06aa75aba88a7dfe6c6fef5c63c839",
+      "sizeBytes": 82107,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-r.json",
+          "itemId": "pet1-t2-r",
+          "pointer": "/article/images/3/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-r-5.jpg",
+      "sha256": "18616930bc6896d281eb0ab45cac5805d77df40e6c9895ab485974ebed8d6767",
+      "sizeBytes": 68390,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-r.json",
+          "itemId": "pet1-t2-r",
+          "pointer": "/article/images/4/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-r-p1.jpg",
+      "sha256": "47f1fa44c6af1666d045d986a018472c3e30cc278302360c5ea79a403e32d905",
+      "sizeBytes": 14484,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-r.json",
+          "itemId": "pet1-t2-r",
+          "pointer": "/article/images/5/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-r-p2.jpg",
+      "sha256": "7ffec192412558fc130285abb3f61aacfd13117d5f0ffeee7efecec2cfea129b",
+      "sizeBytes": 24951,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-r.json",
+          "itemId": "pet1-t2-r",
+          "pointer": "/article/images/6/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-r-p3.jpg",
+      "sha256": "ad345e08fe6462288fe8fc0e1de63b21eb17f0c5d6ee6c4a85746b51b593b197",
+      "sizeBytes": 15028,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-r.json",
+          "itemId": "pet1-t2-r",
+          "pointer": "/article/images/7/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-r-p4.jpg",
+      "sha256": "ee386f1967a795ac29b89967dab614e406d35e962cd5a85a87e628e2aa2cb9fc",
+      "sizeBytes": 19098,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-r.json",
+          "itemId": "pet1-t2-r",
+          "pointer": "/article/images/8/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-r-p5.jpg",
+      "sha256": "c45c9c3e45804ed781f5374e3c22691cd7d2bf9f378696880288c5ce26542499",
+      "sizeBytes": 24530,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-r.json",
+          "itemId": "pet1-t2-r",
+          "pointer": "/article/images/9/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q1-A.jpg",
+      "sha256": "e294fe71cd83c884d2ec373cbc8d15cd031ca0a9962e0bdc2b0460c0b1779919",
+      "sizeBytes": 41834,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/0/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q1"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q1-B.jpg",
+      "sha256": "b0a3dbb3579ea71f394d1f04a196a6883c0957d9daf6b06aa4ded38086d67066",
+      "sizeBytes": 45050,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/0/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q1"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q1-C.jpg",
+      "sha256": "d0686b8024725386f406c6fa90c99110447c62610a3c6d1dc2164458e889de73",
+      "sizeBytes": 36582,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/0/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q1"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q2-A.jpg",
+      "sha256": "e6eb64a44fb67808567ae59e064acffc91a0045152f920e65e7fcf09474ad77d",
+      "sizeBytes": 49879,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/1/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q2"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q2-B.jpg",
+      "sha256": "e5088e4379c23306605815b9a0a6d491af1efb6f35d79312499c1d1197f2845a",
+      "sizeBytes": 36324,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/1/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q2"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q2-C.jpg",
+      "sha256": "60e5d7780991d4f784c351702532556405aa6f698203d9fcd3a676b0add6a905",
+      "sizeBytes": 48544,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/1/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q2"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q3-A.jpg",
+      "sha256": "a5fa5d8081f8a2f5126ad6b9f06f06a988bf1f680b5583ec905b12f60f24dd93",
+      "sizeBytes": 56662,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/2/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q3"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q3-B.jpg",
+      "sha256": "8a491cabce04aa7637e069ed9ad9b33e7da5b650a4d7d577627c4cacdaf7daca",
+      "sizeBytes": 55453,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/2/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q3"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q3-C.jpg",
+      "sha256": "ac695474bee9e0ea7a6f32dbc0bb1b9fd9c565affe5ec661cf786cfda821c241",
+      "sizeBytes": 50847,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/2/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q3"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q4-A.jpg",
+      "sha256": "cd18cb9585048821bf7045fa8d4e9755330c54a6b2b759bf785a56cd11b6a53d",
+      "sizeBytes": 50150,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/3/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q4"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q4-B.jpg",
+      "sha256": "12a7c31229904707ed495dcdcf9bea893ba6e8f52d534818d11a8a5d62de2bd5",
+      "sizeBytes": 40919,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/3/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q4"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q4-C.jpg",
+      "sha256": "6ecdb8a0adf489578c0ca2898bbfd8cf5058c722dde8f2da45d344b7b3e63e3a",
+      "sizeBytes": 31669,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/3/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q4"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q5-A.jpg",
+      "sha256": "79ebb1eec274128282623a3d6db558789e729c3b41dc270f4e486777b553bcd3",
+      "sizeBytes": 33645,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/4/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q5"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q5-B.jpg",
+      "sha256": "35ffa6944a8727702c8d04993c844e73fc5bd5aef9586ec80446bb45f1c47c46",
+      "sizeBytes": 50838,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/4/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q5"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q5-C.jpg",
+      "sha256": "0d6c2f3106de990fba978bacc734570265180e9447f9ac9f6556a79890bc2e84",
+      "sizeBytes": 23046,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/4/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q5"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q6-A.jpg",
+      "sha256": "42c82b8181bffae1177bd93426f826d160f52bb967821dbfe83bf5c949645cc3",
+      "sizeBytes": 53090,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/5/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q6"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q6-B.jpg",
+      "sha256": "275dd7f5a00f7dc2a5e928c97d2e8246b8d3bcd3d14dddca03ad1e641a4a04b1",
+      "sizeBytes": 52116,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/5/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q6"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q6-C.jpg",
+      "sha256": "5bb9168b98a633400f54a0bbf52a2c56107e994326091330c85e1f27590de258",
+      "sizeBytes": 52671,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/5/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q6"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q7-A.jpg",
+      "sha256": "a3b0e66c51d650de667a84e278bc11dc1a79507b7a5bf1a28937664b9473c10b",
+      "sizeBytes": 33795,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/6/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q7"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q7-B.jpg",
+      "sha256": "9c21f55f7c3d0926b7c489045eba667960d4c483b26473a28e9067f8cf3bfb5a",
+      "sizeBytes": 44109,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/6/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q7"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-l-q7-C.jpg",
+      "sha256": "d1b81c572e127969965d83cbced822f9825363ef42faaa31ca6f8ee3b0130c50",
+      "sizeBytes": 33596,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-l.json",
+          "itemId": "pet1-t2-l",
+          "pointer": "/sections/0/questions/6/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q7"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-1.jpg",
+      "sha256": "185fce4394e1fd58db1a2362da997e7551f41a28c18e5fdcaf33e1aec2227e42",
+      "sizeBytes": 364650,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t2-s-2.jpg",
+      "sha256": "33a37abbfe04d2f8a98876abfa16927ec8d4d233f979eeaaaad03dfcc628cd32",
+      "sizeBytes": 270630,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t2-s.json",
+          "itemId": "pet1-t2-s",
+          "pointer": "/article/images/1/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-r-1.jpg",
+      "sha256": "e6cb908d5e9b04b62c4307388d3d3546fa315b9e117daaf1455e6f019ce69146",
+      "sizeBytes": 69890,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-r.json",
+          "itemId": "pet1-t3-r",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-r-2.jpg",
+      "sha256": "e277126c9c2ff29f8de8fcf3d7557760895a5daa75cdb5497e3158ad5b4485f0",
+      "sizeBytes": 56053,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-r.json",
+          "itemId": "pet1-t3-r",
+          "pointer": "/article/images/1/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-r-3.jpg",
+      "sha256": "e20fd61aa09acab8a90d950c9e00cfbd9df49111c0a186128b98750570e9f6c6",
+      "sizeBytes": 76053,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-r.json",
+          "itemId": "pet1-t3-r",
+          "pointer": "/article/images/2/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-r-4.jpg",
+      "sha256": "020de2f8eefbdb00d7b3c336a931de617b6cbefc7b82c134f6acc69261a47b9c",
+      "sizeBytes": 74216,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-r.json",
+          "itemId": "pet1-t3-r",
+          "pointer": "/article/images/3/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-r-5.jpg",
+      "sha256": "e23a06b2eca9e320ad015c8c73b4a426337bd29b9f0c2155bb4e8d02584f8917",
+      "sizeBytes": 64710,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-r.json",
+          "itemId": "pet1-t3-r",
+          "pointer": "/article/images/4/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-r-p1.jpg",
+      "sha256": "2d0e78218e026820a6304c99d076a018fdc48fd566d5db2d90d45aca52b943cb",
+      "sizeBytes": 16645,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-r.json",
+          "itemId": "pet1-t3-r",
+          "pointer": "/article/images/5/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-r-p2.jpg",
+      "sha256": "84ed86d4befcbbdd61f40c4d854f5d47b874bd862021751be408487eda4cc1c9",
+      "sizeBytes": 14023,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-r.json",
+          "itemId": "pet1-t3-r",
+          "pointer": "/article/images/6/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-r-p3.jpg",
+      "sha256": "2f24335cf26d1bbf2da256e74f7d60af77da85d145510aa4573b762bd03d6536",
+      "sizeBytes": 24465,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-r.json",
+          "itemId": "pet1-t3-r",
+          "pointer": "/article/images/7/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-r-p4.jpg",
+      "sha256": "72fc52f8ae708e191bdef923ed7150704796c85313054daf0051e16413baca21",
+      "sizeBytes": 22662,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-r.json",
+          "itemId": "pet1-t3-r",
+          "pointer": "/article/images/8/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-r-p5.jpg",
+      "sha256": "9337d43e162067e2ba20dce419b53cf94cdd05e7835a9249784bdcb1dd4d0527",
+      "sizeBytes": 22965,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-r.json",
+          "itemId": "pet1-t3-r",
+          "pointer": "/article/images/9/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q1-A.jpg",
+      "sha256": "109c8e3a69bc522eacf402be155a29720d737bdb4b90cdfcb7ba88e3f39d2906",
+      "sizeBytes": 21085,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/0/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q1"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q1-B.jpg",
+      "sha256": "1dcacf784cb60d63b653d1d0f38a996b65802ac3b2a14a7129a2b64cd5ffc4cb",
+      "sizeBytes": 19209,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/0/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q1"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q1-C.jpg",
+      "sha256": "c5674aa1654389ed0d2cfd2a35b3ba1ab8edd8c1af7efab676a3b6453a3be13e",
+      "sizeBytes": 32619,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/0/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q1"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q2-A.jpg",
+      "sha256": "07d838a340a9ac50b5dcbcc4f45cf02ef1860ddd592dc047cbcb39e211587034",
+      "sizeBytes": 54568,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/1/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q2"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q2-B.jpg",
+      "sha256": "a0425bbb9e512c5bbf22396ff93b1665452bfd37fbc94a1a8d2aa8e43b22ba75",
+      "sizeBytes": 61705,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/1/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q2"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q2-C.jpg",
+      "sha256": "03f715b82be1ba7bd88c737e2b2a514a5242df0d23375f50c83053a9082cabb0",
+      "sizeBytes": 49351,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/1/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q2"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q3-A.jpg",
+      "sha256": "db7b010c5646f674dd039130f4f037708060970ea0f4e56a4b92f1f6922c013f",
+      "sizeBytes": 46349,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/2/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q3"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q3-B.jpg",
+      "sha256": "acee83abb76a5949a95797161fc8dbbc3ba2377a805d4146ae44198f353520eb",
+      "sizeBytes": 42446,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/2/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q3"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q3-C.jpg",
+      "sha256": "606e429efc222c1747a3c22ad3867be43eab9f1952e6f53d43b2f6862c6d5872",
+      "sizeBytes": 42987,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/2/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q3"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q4-A.jpg",
+      "sha256": "bca83c37af97c7494bba80aae24c199ed6d72bb73c20b570ebe82afff44bb8c8",
+      "sizeBytes": 27560,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/3/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q4"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q4-B.jpg",
+      "sha256": "91b605f5c953f737c4f30a28c18db24868db70243cfe3772fcd1cb49e1901e68",
+      "sizeBytes": 16798,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/3/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q4"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q4-C.jpg",
+      "sha256": "4166f3a774321e591e65cf92397c4985d77b809e58d85b81d332e36297f98035",
+      "sizeBytes": 33625,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/3/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q4"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q5-A.jpg",
+      "sha256": "db91d708c56fd26ac8c391dd29e26d5c28daee7cb12a3aa197c43705f909adc7",
+      "sizeBytes": 41137,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/4/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q5"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q5-B.jpg",
+      "sha256": "f74e23d202684f8c914c74ddb7931eae46d3b4bf214d4fd5daf5f0ef2c4b219e",
+      "sizeBytes": 36139,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/4/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q5"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q5-C.jpg",
+      "sha256": "67717cd0734993d8ef2c9701200b2d76c3a77530e5ba8a9676f9386a51f0fd1c",
+      "sizeBytes": 44800,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/4/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q5"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q6-A.jpg",
+      "sha256": "c5b38a9634f36a450924c4435795f73abcb8bcce031e8fa81761dfa7701a85aa",
+      "sizeBytes": 53458,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/5/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q6"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q6-B.jpg",
+      "sha256": "08f0b93a6721f6b0e812cb2e253115f2d29ff20e5fb1e3c2977636341513e9d6",
+      "sizeBytes": 43149,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/5/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q6"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q6-C.jpg",
+      "sha256": "6776a5d89f1a62761c30e826b3b2361eacef1a392480ea25db442fa508fca837",
+      "sizeBytes": 46842,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/5/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q6"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q7-A.jpg",
+      "sha256": "dbbf919f95d2870ab80180bf225ea11613b95fb4bc735e47498acd26d93811ef",
+      "sizeBytes": 39637,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/6/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q7"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q7-B.jpg",
+      "sha256": "0314ddbbf6aafbd2982a8317dbd17a4f9f7f69d8c4b8fd4e0b7449d6efb90fdb",
+      "sizeBytes": 37066,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/6/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q7"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-l-q7-C.jpg",
+      "sha256": "03dbe9957b44d79a4befc4155b2a5a96ba7864e09f732f10fa4ee020703db0a7",
+      "sizeBytes": 60614,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-l.json",
+          "itemId": "pet1-t3-l",
+          "pointer": "/sections/0/questions/6/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q7"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-1.jpg",
+      "sha256": "4cd7ed3dfb7383e54aa572ee4b413159e3d31c939bd99747a45a361b1276c639",
+      "sizeBytes": 358387,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t3-s-2.jpg",
+      "sha256": "073706699d76fd8b57df450decb184ab083fd5c56d76d6e82eca27d356b552dc",
+      "sizeBytes": 280755,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t3-s.json",
+          "itemId": "pet1-t3-s",
+          "pointer": "/article/images/1/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-r-1.jpg",
+      "sha256": "fbbbe696e92037fda5a13630a888927428873e356d1acb4dd2278e9f15da0933",
+      "sizeBytes": 65789,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-r.json",
+          "itemId": "pet1-t4-r",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-r-2.jpg",
+      "sha256": "c3eea617ba246b3c36e62ea6ec74fe397e46ed1725241bc100197314d46ff794",
+      "sizeBytes": 60654,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-r.json",
+          "itemId": "pet1-t4-r",
+          "pointer": "/article/images/1/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-r-3.jpg",
+      "sha256": "ed4aa582987bdba64a50307cd16342cf581aed8b1c98b8ba58bc1580f7b70ff1",
+      "sizeBytes": 70855,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-r.json",
+          "itemId": "pet1-t4-r",
+          "pointer": "/article/images/2/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-r-4.jpg",
+      "sha256": "945e30329f6517386c0ef412a42258194d763f080e8d32d02793a552a0ed5c81",
+      "sizeBytes": 45958,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-r.json",
+          "itemId": "pet1-t4-r",
+          "pointer": "/article/images/3/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-r-5.jpg",
+      "sha256": "7c8bb63c4042774d416315903eab44415655ace1a17cae7e16bf0fb636094824",
+      "sizeBytes": 76740,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-r.json",
+          "itemId": "pet1-t4-r",
+          "pointer": "/article/images/4/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-r-p1.jpg",
+      "sha256": "a0ed31826264463ba2075820f2611367f7993846640decd8046bc43d9207b0da",
+      "sizeBytes": 22182,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-r.json",
+          "itemId": "pet1-t4-r",
+          "pointer": "/article/images/5/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-r-p2.jpg",
+      "sha256": "1ea50832db5111efda31d4a4e606b0c3fa4254237e6ecdee7a6d3630e6c8e593",
+      "sizeBytes": 21467,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-r.json",
+          "itemId": "pet1-t4-r",
+          "pointer": "/article/images/6/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-r-p3.jpg",
+      "sha256": "87eb83a95eb3203a479a510c8a9981508c957ee3968bca05fd2fd8bc0b9e2efa",
+      "sizeBytes": 22068,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-r.json",
+          "itemId": "pet1-t4-r",
+          "pointer": "/article/images/7/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-r-p4.jpg",
+      "sha256": "ca16cb38aaf7f08269da89ac85cf6579dc4528b0d00856c9cd74fc7f026a6b05",
+      "sizeBytes": 17596,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-r.json",
+          "itemId": "pet1-t4-r",
+          "pointer": "/article/images/8/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-r-p5.jpg",
+      "sha256": "e3021ef34916bf1bdc43cb2b99d38d834fd3528c79e0c38c8cc93bfc35ddeec9",
+      "sizeBytes": 20104,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-r.json",
+          "itemId": "pet1-t4-r",
+          "pointer": "/article/images/9/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q1-A.jpg",
+      "sha256": "72688245170433899eecf6201b22686f7de656933ad5b76777f46be7ca838769",
+      "sizeBytes": 34569,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/0/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q1"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q1-B.jpg",
+      "sha256": "e3f75f63e95ec1be1abf6ef83c8f701e96fd14c048a312eff14cfc9a53d7d782",
+      "sizeBytes": 20777,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/0/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q1"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q1-C.jpg",
+      "sha256": "1591752836dfb30c08c744a973c64467726c0471ff84138724b246f4fbc087d8",
+      "sizeBytes": 39909,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/0/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q1"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q2-A.jpg",
+      "sha256": "fe7f80d102e29002d335960272b87f86b296e9eb447b0790bd8a4284b9344746",
+      "sizeBytes": 41239,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/1/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q2"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q2-B.jpg",
+      "sha256": "65f1205b35a7ecacfeea2283fee02759e181ed08f762bbe8140b6b4428713dc0",
+      "sizeBytes": 42734,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/1/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q2"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q2-C.jpg",
+      "sha256": "89c527ce3615c750a6038cda4892775f473fc8bb10b9f3afb2c210dc46e43b2d",
+      "sizeBytes": 50445,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/1/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q2"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q3-A.jpg",
+      "sha256": "4c543675f0ee3b62fa4ca2328646a1165311997e00eb5e033e05b5a5bfa6d549",
+      "sizeBytes": 29050,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/2/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q3"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q3-B.jpg",
+      "sha256": "a2b6243ee61189f5325eae719bcd8a8f191555525fb9aacafafacf2ab06fad4c",
+      "sizeBytes": 30086,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/2/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q3"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q3-C.jpg",
+      "sha256": "d8fc8de5a2d443255b6dd1f21c1b091ece74bff7ecd6d259453433fb062dacbb",
+      "sizeBytes": 29504,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/2/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q3"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q4-A.jpg",
+      "sha256": "dced377ad8a437c78f8be3fcbaa252da65b6d868e8e0ebab9be6cc7113c59532",
+      "sizeBytes": 12340,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/3/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q4"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q4-B.jpg",
+      "sha256": "0f5110ce873280aef113d4536f7cd88f54fc0dd8b8b49211af2a1984940bc70b",
+      "sizeBytes": 12147,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/3/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q4"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q4-C.jpg",
+      "sha256": "541170e14263fcbe21fc4fb5f0e58a15e1461fb3eaff9867f87dbfe8f3b5f8e8",
+      "sizeBytes": 12393,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/3/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q4"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q5-A.jpg",
+      "sha256": "e533f0c24ce63fc7d91751948d68ef1b6369cceb219e3a7acc4019428dbae648",
+      "sizeBytes": 11327,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/4/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q5"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q5-B.jpg",
+      "sha256": "18b4cd385d1379abc136e77bb551a69be24bf4901e0073c3526e7343bc72653f",
+      "sizeBytes": 12462,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/4/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q5"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q5-C.jpg",
+      "sha256": "bc60d8542b76fe54d362935ce0bb8b1e2033f4b8b0a8f95628f5fdf52595ad8d",
+      "sizeBytes": 13400,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/4/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q5"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q6-A.jpg",
+      "sha256": "7b48248925341d4f5cec9608e7a20a8a840054d766f1e6f73aa2cbe6cc5ed806",
+      "sizeBytes": 24475,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/5/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q6"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q6-B.jpg",
+      "sha256": "74f6478b8ce9c53c5ef2e1b5fd8b50154d191ad2daaa2e581f4ba53b21f7ab02",
+      "sizeBytes": 25782,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/5/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q6"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q6-C.jpg",
+      "sha256": "fb9d4b7f929147bc276a8a03f8f911b335478a186f8495b7c8895051eada917f",
+      "sizeBytes": 25506,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/5/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q6"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q7-A.jpg",
+      "sha256": "b2dca8594b7a2b32317f595f6e4c08bc1ce6a57ba33a666423f3f504398db411",
+      "sizeBytes": 43782,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/6/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q7"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q7-B.jpg",
+      "sha256": "c820b95ee70debbee6513cffb7562c1fe5b6702f2c3497c7a0eaf9c39a812afc",
+      "sizeBytes": 37558,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/6/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q7"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-l-q7-C.jpg",
+      "sha256": "e96856d4cbfbffbab72b2b2ea22ac5999ddf371b2c28cf2282443f09ff4cef35",
+      "sizeBytes": 40623,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-l.json",
+          "itemId": "pet1-t4-l",
+          "pointer": "/sections/0/questions/6/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q7"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-1.jpg",
+      "sha256": "5dff5a32e7eac5360d1b235a15b67f07ae4acf98c78c0f380c3f9fa442674f91",
+      "sizeBytes": 240034,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/pet1/pet1-t4-s-2.jpg",
+      "sha256": "db5b58a9510f95658f863ce6266574c1d2112a2cc411698eebbadfd973157b73",
+      "sizeBytes": 293247,
+      "usedBy": [
+        {
+          "playlistId": "pet1",
+          "document": "playlists/pet1/items/pet1-t4-s.json",
+          "itemId": "pet1-t4-s",
+          "pointer": "/article/images/1/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    }
+  ],
+  "capabilityGaps": [
+    "playlists/pet1/playlist.json/banner: assets/pet1/banner.jpg — the BE declares no playlist banner object; kept local, no key"
+  ],
+  "errors": []
+}

@@ -1,0 +1,1008 @@
+{
+  "format": "be-asset-upload-plan-1",
+  "sourceId": "uniread-rc",
+  "paperId": "ci-g3-full",
+  "contentReleaseId": "ci-g3-full-20261112-01",
+  "sourceCommit": "90a18ea87003d7bc8f6e8fe9991a130c08fa831e",
+  "contentSnapshotSHA256": "156b8f3b90ad20d6426cb519e25e6d151c4e6961542b0713302a9f9de5cae0c1",
+  "releaseId": "c802e115-a244-4da7-9535-b9a5f8efb03b",
+  "playlistId": "ci-g3",
+  "selectionFile": "docs/handoff/production-selection.ci-g3-full.json",
+  "selectionSHA256": "e9a808c1bef9cd152db4ed585090f53b08b4ad86330ea10aa6af3a649d562d21",
+  "snapshotFile": "docs/handoff/asset-snapshot.ci-g3-full-20261112-01.sha256",
+  "keyPolicyVersion": "be-exam-existing-v1",
+  "frozenAt": "2026-11-12T00:48:36.220Z",
+  "status": "PREPARED",
+  "summary": {
+    "objects": 31,
+    "bytes": 10855072,
+    "references": 31,
+    "sourceFiles": 31,
+    "localOnly": 30,
+    "errors": 0,
+    "capabilityGaps": 0
+  },
+  "files": [
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w05-fri-1.jpg",
+      "sha256": "0a4b04869a9c7ccc563ab988bc5dd9a8c5fd473833dbea4a72fde238ea7f3032",
+      "sizeBytes": 319555,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/0a4b04869a9c7ccc563ab988bc5dd9a8c5fd473833dbea4a72fde238ea7f3032.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w05-fri.json",
+          "itemId": "ci-g3-w05-fri",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w10-fri-1.jpg",
+      "sha256": "132d572bffc4c28c427bf81b7b06519a4ea0599790a56d26a4105cd3cae2db18",
+      "sizeBytes": 306413,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/132d572bffc4c28c427bf81b7b06519a4ea0599790a56d26a4105cd3cae2db18.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w10-fri.json",
+          "itemId": "ci-g3-w10-fri",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w12-fri-1.jpg",
+      "sha256": "1cbd70e073d5fd21aa2a74f32995911d6e3ae4a7b0af2e33a22a0199f6195f6c",
+      "sizeBytes": 313129,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/1cbd70e073d5fd21aa2a74f32995911d6e3ae4a7b0af2e33a22a0199f6195f6c.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w12-fri.json",
+          "itemId": "ci-g3-w12-fri",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w04-tue-1.jpg",
+      "sha256": "3566fb1e61e228e0800d1545f2402d428ff3d0d9f12d76467240d9f3b5ff891d",
+      "sizeBytes": 376822,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/3566fb1e61e228e0800d1545f2402d428ff3d0d9f12d76467240d9f3b5ff891d.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w04-tue.json",
+          "itemId": "ci-g3-w04-tue",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w03-tue-1.jpg",
+      "sha256": "3a13994c419eabfcdd25244f4f155a3b1bbcfbd11aa106f7c525d91306d12a55",
+      "sizeBytes": 298193,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/3a13994c419eabfcdd25244f4f155a3b1bbcfbd11aa106f7c525d91306d12a55.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w03-tue.json",
+          "itemId": "ci-g3-w03-tue",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w10-tue-1.jpg",
+      "sha256": "3ecd6dfe0587fb6f25de5dfe4b4feaa52da17bc9fa9083864965bc8ba69305ee",
+      "sizeBytes": 336336,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/3ecd6dfe0587fb6f25de5dfe4b4feaa52da17bc9fa9083864965bc8ba69305ee.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w10-tue.json",
+          "itemId": "ci-g3-w10-tue",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w04-mon-1.jpg",
+      "sha256": "4024e68e6b50957d23deaf27d482ef05623fda0a7afe7fa638baeb66c1691ee0",
+      "sizeBytes": 505869,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/4024e68e6b50957d23deaf27d482ef05623fda0a7afe7fa638baeb66c1691ee0.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w04-mon.json",
+          "itemId": "ci-g3-w04-mon",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w06-mon-1.jpg",
+      "sha256": "4bd50bfdf3558bdeb6b95fe75c2148a0b476485c62e96fd485f106fb3fab9c03",
+      "sizeBytes": 301185,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/4bd50bfdf3558bdeb6b95fe75c2148a0b476485c62e96fd485f106fb3fab9c03.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w06-mon.json",
+          "itemId": "ci-g3-w06-mon",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w09-tue-1.jpg",
+      "sha256": "4c5a9d6304ea3c845c670a18c3972608805e401b27053dfc11459a7b101902d2",
+      "sizeBytes": 468053,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/4c5a9d6304ea3c845c670a18c3972608805e401b27053dfc11459a7b101902d2.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w09-tue.json",
+          "itemId": "ci-g3-w09-tue",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w05-tue-1.jpg",
+      "sha256": "4fc206a6ccee439eceb77a0bf92e3e9e0ee8a093d7446e0f88906f7d858c48e1",
+      "sizeBytes": 307059,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/4fc206a6ccee439eceb77a0bf92e3e9e0ee8a093d7446e0f88906f7d858c48e1.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w05-tue.json",
+          "itemId": "ci-g3-w05-tue",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w02-mon-1.jpg",
+      "sha256": "5f289bbdb2c90ab733668c74e39d5f3b1673b9f288a8e2377e89e3d1ebc30821",
+      "sizeBytes": 204044,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/5f289bbdb2c90ab733668c74e39d5f3b1673b9f288a8e2377e89e3d1ebc30821.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w02-mon.json",
+          "itemId": "ci-g3-w02-mon",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w03-mon-1.jpg",
+      "sha256": "63e8da6b93841df8336761b5b6a022173fe34cbaf0e27cd6ce6addf7732a9df8",
+      "sizeBytes": 365806,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/63e8da6b93841df8336761b5b6a022173fe34cbaf0e27cd6ce6addf7732a9df8.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w03-mon.json",
+          "itemId": "ci-g3-w03-mon",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w07-thu-1.jpg",
+      "sha256": "6541b3b352e2d7b473b2f31fa972d14fde278e50e9db4ce87a638fbfc8647846",
+      "sizeBytes": 316197,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/6541b3b352e2d7b473b2f31fa972d14fde278e50e9db4ce87a638fbfc8647846.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w07-thu.json",
+          "itemId": "ci-g3-w07-thu",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w09-mon-1.jpg",
+      "sha256": "7711c5911443947842a815e7bbdbdd835e63ea21698be7495d40d298438582b1",
+      "sizeBytes": 246362,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/7711c5911443947842a815e7bbdbdd835e63ea21698be7495d40d298438582b1.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w09-mon.json",
+          "itemId": "ci-g3-w09-mon",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w03-fri-1.jpg",
+      "sha256": "7b827f9976e4bf2ee4727232a1e9d7fb466d8cf3b448bcf6b7362b8a5c925158",
+      "sizeBytes": 335316,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/7b827f9976e4bf2ee4727232a1e9d7fb466d8cf3b448bcf6b7362b8a5c925158.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w03-fri.json",
+          "itemId": "ci-g3-w03-fri",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/cover.jpg",
+      "sha256": "7c1a05d3652b38f2a13b495a42bd174647bd194656a16c5d9c349463f9e2ee61",
+      "sizeBytes": 445053,
+      "contentType": "image/jpeg",
+      "roles": [
+        "playlist-cover"
+      ],
+      "objectKey": "exam-media/v1/7c1a05d3652b38f2a13b495a42bd174647bd194656a16c5d9c349463f9e2ee61.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/playlist.json",
+          "pointer": "/cover"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w05-mon-1.jpg",
+      "sha256": "7ed0399a80bbdcfbef1a403ba67cc6759e081919003d94b90c93765ec9d81b2d",
+      "sizeBytes": 267719,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/7ed0399a80bbdcfbef1a403ba67cc6759e081919003d94b90c93765ec9d81b2d.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w05-mon.json",
+          "itemId": "ci-g3-w05-mon",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w11-fri-1.jpg",
+      "sha256": "805952ee28442381b966f27df79db40d16a21ae24f4d7335697f56af4723c501",
+      "sizeBytes": 412826,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/805952ee28442381b966f27df79db40d16a21ae24f4d7335697f56af4723c501.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w11-fri.json",
+          "itemId": "ci-g3-w11-fri",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w07-mon-1.jpg",
+      "sha256": "8b49458752023b49287186abb1ebdd578a6385c6a5432f70cd65d6900632a371",
+      "sizeBytes": 305826,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/8b49458752023b49287186abb1ebdd578a6385c6a5432f70cd65d6900632a371.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w07-mon.json",
+          "itemId": "ci-g3-w07-mon",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w06-fri-1.jpg",
+      "sha256": "95e34ea4376ea23cc7eeb4caa3cce0b96389a8bb57895457d5730bea8dbdd15d",
+      "sizeBytes": 420680,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/95e34ea4376ea23cc7eeb4caa3cce0b96389a8bb57895457d5730bea8dbdd15d.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w06-fri.json",
+          "itemId": "ci-g3-w06-fri",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w06-thu-1.jpg",
+      "sha256": "a1cc214bc8dca24e7f12553e57b0996422e21cad41a92a8295661ef8c982fd02",
+      "sizeBytes": 371850,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/a1cc214bc8dca24e7f12553e57b0996422e21cad41a92a8295661ef8c982fd02.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w06-thu.json",
+          "itemId": "ci-g3-w06-thu",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w12-mon-1.jpg",
+      "sha256": "a34e72c5c200650041bc8c3af900d6787139ba3b10cee09112003f1612d3d33a",
+      "sizeBytes": 437528,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/a34e72c5c200650041bc8c3af900d6787139ba3b10cee09112003f1612d3d33a.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w12-mon.json",
+          "itemId": "ci-g3-w12-mon",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w07-tue-1.jpg",
+      "sha256": "a34ef60096c0ba1678fc8b6172bba8492c811025891f303dc644195f90134818",
+      "sizeBytes": 506540,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/a34ef60096c0ba1678fc8b6172bba8492c811025891f303dc644195f90134818.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w07-tue.json",
+          "itemId": "ci-g3-w07-tue",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w01-thu-1.jpg",
+      "sha256": "c09ec0892b439c0d7c0eb37ad875d72cd39370561a3dbb490206a93f8553e8e6",
+      "sizeBytes": 228259,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/c09ec0892b439c0d7c0eb37ad875d72cd39370561a3dbb490206a93f8553e8e6.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w01-thu.json",
+          "itemId": "ci-g3-w01-thu",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w04-fri-1.jpg",
+      "sha256": "c955698f004a23cfd582b6e60eab66859671f0aaad611d0f11b2200b0c3b4cba",
+      "sizeBytes": 263726,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/c955698f004a23cfd582b6e60eab66859671f0aaad611d0f11b2200b0c3b4cba.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w04-fri.json",
+          "itemId": "ci-g3-w04-fri",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w10-mon-1.jpg",
+      "sha256": "d014042e01d68fb7719869b66c1e0caf6197010bc397868a6edbd4a7993b0cfa",
+      "sizeBytes": 356953,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/d014042e01d68fb7719869b66c1e0caf6197010bc397868a6edbd4a7993b0cfa.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w10-mon.json",
+          "itemId": "ci-g3-w10-mon",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w08-fri-1.jpg",
+      "sha256": "d4c21a6f14c31b00f880ec40c2f628ba39a17893322c1357f8b981a619eff87d",
+      "sizeBytes": 322385,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/d4c21a6f14c31b00f880ec40c2f628ba39a17893322c1357f8b981a619eff87d.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w08-fri.json",
+          "itemId": "ci-g3-w08-fri",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w01-fri-1.jpg",
+      "sha256": "da123e32e550a82ec7c63c427e13a10ade57147026ae68b05ceb9367e00763bc",
+      "sizeBytes": 266569,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/da123e32e550a82ec7c63c427e13a10ade57147026ae68b05ceb9367e00763bc.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w01-fri.json",
+          "itemId": "ci-g3-w01-fri",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w09-fri-1.jpg",
+      "sha256": "ddc8023dd88c4b226bfcfde163110cac2702582311fabaca2feb6058390992ff",
+      "sizeBytes": 581403,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/ddc8023dd88c4b226bfcfde163110cac2702582311fabaca2feb6058390992ff.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w09-fri.json",
+          "itemId": "ci-g3-w09-fri",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w01-tue-1.jpg",
+      "sha256": "e18081d04688ca30a9719adbe3d37ec24d61b297e376829efb8cd98d5979bb05",
+      "sizeBytes": 361396,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/e18081d04688ca30a9719adbe3d37ec24d61b297e376829efb8cd98d5979bb05.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w01-tue.json",
+          "itemId": "ci-g3-w01-tue",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w07-fri-1.jpg",
+      "sha256": "f39e3df272aa91748de6f27400f3d1ab0fcd54925a318c1e0e23ca694dea5df2",
+      "sizeBytes": 306020,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/f39e3df272aa91748de6f27400f3d1ab0fcd54925a318c1e0e23ca694dea5df2.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w07-fri.json",
+          "itemId": "ci-g3-w07-fri",
+          "pointer": "/thumbnail"
+        }
+      ]
+    }
+  ],
+  "localOnly": [
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w01-tue-1.jpg",
+      "sha256": "e18081d04688ca30a9719adbe3d37ec24d61b297e376829efb8cd98d5979bb05",
+      "sizeBytes": 361396,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w01-tue.json",
+          "itemId": "ci-g3-w01-tue",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w01-thu-1.jpg",
+      "sha256": "c09ec0892b439c0d7c0eb37ad875d72cd39370561a3dbb490206a93f8553e8e6",
+      "sizeBytes": 228259,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w01-thu.json",
+          "itemId": "ci-g3-w01-thu",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w01-fri-1.jpg",
+      "sha256": "da123e32e550a82ec7c63c427e13a10ade57147026ae68b05ceb9367e00763bc",
+      "sizeBytes": 266569,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w01-fri.json",
+          "itemId": "ci-g3-w01-fri",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w02-mon-1.jpg",
+      "sha256": "5f289bbdb2c90ab733668c74e39d5f3b1673b9f288a8e2377e89e3d1ebc30821",
+      "sizeBytes": 204044,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w02-mon.json",
+          "itemId": "ci-g3-w02-mon",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w03-mon-1.jpg",
+      "sha256": "63e8da6b93841df8336761b5b6a022173fe34cbaf0e27cd6ce6addf7732a9df8",
+      "sizeBytes": 365806,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w03-mon.json",
+          "itemId": "ci-g3-w03-mon",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w03-tue-1.jpg",
+      "sha256": "3a13994c419eabfcdd25244f4f155a3b1bbcfbd11aa106f7c525d91306d12a55",
+      "sizeBytes": 298193,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w03-tue.json",
+          "itemId": "ci-g3-w03-tue",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w03-fri-1.jpg",
+      "sha256": "7b827f9976e4bf2ee4727232a1e9d7fb466d8cf3b448bcf6b7362b8a5c925158",
+      "sizeBytes": 335316,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w03-fri.json",
+          "itemId": "ci-g3-w03-fri",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w04-mon-1.jpg",
+      "sha256": "4024e68e6b50957d23deaf27d482ef05623fda0a7afe7fa638baeb66c1691ee0",
+      "sizeBytes": 505869,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w04-mon.json",
+          "itemId": "ci-g3-w04-mon",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w04-tue-1.jpg",
+      "sha256": "3566fb1e61e228e0800d1545f2402d428ff3d0d9f12d76467240d9f3b5ff891d",
+      "sizeBytes": 376822,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w04-tue.json",
+          "itemId": "ci-g3-w04-tue",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w04-fri-1.jpg",
+      "sha256": "c955698f004a23cfd582b6e60eab66859671f0aaad611d0f11b2200b0c3b4cba",
+      "sizeBytes": 263726,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w04-fri.json",
+          "itemId": "ci-g3-w04-fri",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w05-mon-1.jpg",
+      "sha256": "7ed0399a80bbdcfbef1a403ba67cc6759e081919003d94b90c93765ec9d81b2d",
+      "sizeBytes": 267719,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w05-mon.json",
+          "itemId": "ci-g3-w05-mon",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w05-tue-1.jpg",
+      "sha256": "4fc206a6ccee439eceb77a0bf92e3e9e0ee8a093d7446e0f88906f7d858c48e1",
+      "sizeBytes": 307059,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w05-tue.json",
+          "itemId": "ci-g3-w05-tue",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w05-fri-1.jpg",
+      "sha256": "0a4b04869a9c7ccc563ab988bc5dd9a8c5fd473833dbea4a72fde238ea7f3032",
+      "sizeBytes": 319555,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w05-fri.json",
+          "itemId": "ci-g3-w05-fri",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w06-mon-1.jpg",
+      "sha256": "4bd50bfdf3558bdeb6b95fe75c2148a0b476485c62e96fd485f106fb3fab9c03",
+      "sizeBytes": 301185,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w06-mon.json",
+          "itemId": "ci-g3-w06-mon",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w06-thu-1.jpg",
+      "sha256": "a1cc214bc8dca24e7f12553e57b0996422e21cad41a92a8295661ef8c982fd02",
+      "sizeBytes": 371850,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w06-thu.json",
+          "itemId": "ci-g3-w06-thu",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w06-fri-1.jpg",
+      "sha256": "95e34ea4376ea23cc7eeb4caa3cce0b96389a8bb57895457d5730bea8dbdd15d",
+      "sizeBytes": 420680,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w06-fri.json",
+          "itemId": "ci-g3-w06-fri",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w07-mon-1.jpg",
+      "sha256": "8b49458752023b49287186abb1ebdd578a6385c6a5432f70cd65d6900632a371",
+      "sizeBytes": 305826,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w07-mon.json",
+          "itemId": "ci-g3-w07-mon",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w07-tue-1.jpg",
+      "sha256": "a34ef60096c0ba1678fc8b6172bba8492c811025891f303dc644195f90134818",
+      "sizeBytes": 506540,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w07-tue.json",
+          "itemId": "ci-g3-w07-tue",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w07-thu-1.jpg",
+      "sha256": "6541b3b352e2d7b473b2f31fa972d14fde278e50e9db4ce87a638fbfc8647846",
+      "sizeBytes": 316197,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w07-thu.json",
+          "itemId": "ci-g3-w07-thu",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w07-fri-1.jpg",
+      "sha256": "f39e3df272aa91748de6f27400f3d1ab0fcd54925a318c1e0e23ca694dea5df2",
+      "sizeBytes": 306020,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w07-fri.json",
+          "itemId": "ci-g3-w07-fri",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w08-fri-1.jpg",
+      "sha256": "d4c21a6f14c31b00f880ec40c2f628ba39a17893322c1357f8b981a619eff87d",
+      "sizeBytes": 322385,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w08-fri.json",
+          "itemId": "ci-g3-w08-fri",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w09-mon-1.jpg",
+      "sha256": "7711c5911443947842a815e7bbdbdd835e63ea21698be7495d40d298438582b1",
+      "sizeBytes": 246362,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w09-mon.json",
+          "itemId": "ci-g3-w09-mon",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w09-tue-1.jpg",
+      "sha256": "4c5a9d6304ea3c845c670a18c3972608805e401b27053dfc11459a7b101902d2",
+      "sizeBytes": 468053,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w09-tue.json",
+          "itemId": "ci-g3-w09-tue",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w09-fri-1.jpg",
+      "sha256": "ddc8023dd88c4b226bfcfde163110cac2702582311fabaca2feb6058390992ff",
+      "sizeBytes": 581403,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w09-fri.json",
+          "itemId": "ci-g3-w09-fri",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w10-mon-1.jpg",
+      "sha256": "d014042e01d68fb7719869b66c1e0caf6197010bc397868a6edbd4a7993b0cfa",
+      "sizeBytes": 356953,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w10-mon.json",
+          "itemId": "ci-g3-w10-mon",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w10-tue-1.jpg",
+      "sha256": "3ecd6dfe0587fb6f25de5dfe4b4feaa52da17bc9fa9083864965bc8ba69305ee",
+      "sizeBytes": 336336,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w10-tue.json",
+          "itemId": "ci-g3-w10-tue",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w10-fri-1.jpg",
+      "sha256": "132d572bffc4c28c427bf81b7b06519a4ea0599790a56d26a4105cd3cae2db18",
+      "sizeBytes": 306413,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w10-fri.json",
+          "itemId": "ci-g3-w10-fri",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w11-fri-1.jpg",
+      "sha256": "805952ee28442381b966f27df79db40d16a21ae24f4d7335697f56af4723c501",
+      "sizeBytes": 412826,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w11-fri.json",
+          "itemId": "ci-g3-w11-fri",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w12-mon-1.jpg",
+      "sha256": "a34e72c5c200650041bc8c3af900d6787139ba3b10cee09112003f1612d3d33a",
+      "sizeBytes": 437528,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w12-mon.json",
+          "itemId": "ci-g3-w12-mon",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g3/ci-g3-w12-fri-1.jpg",
+      "sha256": "1cbd70e073d5fd21aa2a74f32995911d6e3ae4a7b0af2e33a22a0199f6195f6c",
+      "sizeBytes": 313129,
+      "usedBy": [
+        {
+          "playlistId": "ci-g3",
+          "document": "playlists/ci-g3/items/ci-g3-w12-fri.json",
+          "itemId": "ci-g3-w12-fri",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    }
+  ],
+  "capabilityGaps": [],
+  "errors": []
+}

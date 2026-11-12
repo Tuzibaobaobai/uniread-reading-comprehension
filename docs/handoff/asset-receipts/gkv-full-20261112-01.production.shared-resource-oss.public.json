@@ -1,0 +1,31 @@
+{
+  "receiptFormat": "rc-asset-upload-receipt-1",
+  "uploaderVersion": "rc-asset-upload-1",
+  "sourceId": "uniread-rc",
+  "contentReleaseId": "gkv-full-20261112-01",
+  "releaseId": "5c1e8bb7-2bb2-41e2-927f-b4b93fdce23f",
+  "selectionSHA256": "c3d994ce0b645c09580962c7214db713f3843071f43b609cba17b574e37b589f",
+  "manifestSHA256": "0235008537de5b9f8d402f5690663ca4d826de03087f196fc5c913e55723b39e",
+  "planFile": "docs/handoff/asset-plan.gkv-full-20261112-01.json",
+  "planVerifiedAt": "2026-11-12T00:50:43.759Z",
+  "storageTargetId": "shared-resource-oss",
+  "keyPolicyVersion": "be-exam-existing-v1",
+  "profile": "production",
+  "sharedStorage": true,
+  "verifiedObjects": [
+    {
+      "objectKey": "exam-media/v1/5aa091791aa52a038fcc829602a81d880b9851244059db2c3250ccf93b9e71f4.jpg",
+      "sha256": "5aa091791aa52a038fcc829602a81d880b9851244059db2c3250ccf93b9e71f4",
+      "sizeBytes": 93685,
+      "contentType": "image/jpeg",
+      "verifiedAt": "2026-11-12T00:50:43.759Z"
+    }
+  ],
+  "reusedObjectCount": 0,
+  "newlyUploadedObjectCount": 1,
+  "deliveryVerification": "not-run",
+  "status": "UPLOADED_VERIFIED",
+  "failedObjects": [],
+  "lastConfirmedPhase": "all objects verified",
+  "receiptVisibility": "public"
+}

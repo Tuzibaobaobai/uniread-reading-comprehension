@@ -1,0 +1,880 @@
+{
+  "format": "be-asset-upload-plan-1",
+  "sourceId": "uniread-rc",
+  "paperId": "ci-g8-full",
+  "contentReleaseId": "ci-g8-full-20261112-01",
+  "sourceCommit": "90a18ea87003d7bc8f6e8fe9991a130c08fa831e",
+  "contentSnapshotSHA256": "40710daf6b92ba2c938292d714a24840bd2d331eaa90be631f28e82d4297beb2",
+  "releaseId": "e6f9d131-502f-4d8d-8ca4-63ab62632efe",
+  "playlistId": "ci-g8",
+  "selectionFile": "docs/handoff/production-selection.ci-g8-full.json",
+  "selectionSHA256": "3d33016e677a15cea2ecb4ea58890f70d1ba61284eee218a47339c08d6dea59b",
+  "snapshotFile": "docs/handoff/asset-snapshot.ci-g8-full-20261112-01.sha256",
+  "keyPolicyVersion": "be-exam-existing-v1",
+  "frozenAt": "2026-11-12T00:48:53.081Z",
+  "status": "PREPARED",
+  "summary": {
+    "objects": 25,
+    "bytes": 6863406,
+    "references": 25,
+    "sourceFiles": 25,
+    "localOnly": 28,
+    "errors": 0,
+    "capabilityGaps": 0
+  },
+  "files": [
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w04-wed-1.jpg",
+      "sha256": "07d2292b5780c4d73a2bd06c2842284ba9902eee98aa1d57e34d80a9fbe7f469",
+      "sizeBytes": 469764,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/07d2292b5780c4d73a2bd06c2842284ba9902eee98aa1d57e34d80a9fbe7f469.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w04-wed.json",
+          "itemId": "ci-g8-w04-wed",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w18-thu-1.jpg",
+      "sha256": "11eb274e382fcb6878f17329a579217d2318b4749c274e227f43a1ab4a30d559",
+      "sizeBytes": 249645,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/11eb274e382fcb6878f17329a579217d2318b4749c274e227f43a1ab4a30d559.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w18-thu.json",
+          "itemId": "ci-g8-w18-thu",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w01-tue-1.jpg",
+      "sha256": "3be67ff56537b49755c51c96ad026d0d59c4b1a32cb7e39a13daf002e0d8487d",
+      "sizeBytes": 243691,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/3be67ff56537b49755c51c96ad026d0d59c4b1a32cb7e39a13daf002e0d8487d.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w01-tue.json",
+          "itemId": "ci-g8-w01-tue",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w13-mon-1.jpg",
+      "sha256": "4957c7a2d4b405a172a32fda4579c6cfc76e9eca0335e8857b512ccb9d1f3911",
+      "sizeBytes": 263128,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/4957c7a2d4b405a172a32fda4579c6cfc76e9eca0335e8857b512ccb9d1f3911.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w13-mon.json",
+          "itemId": "ci-g8-w13-mon",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w12-mon-1.jpg",
+      "sha256": "4d11b765f873ce9936a08b50d6c31ed6d6806fd1906ba50b3467bcfe4ca81f3c",
+      "sizeBytes": 309146,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/4d11b765f873ce9936a08b50d6c31ed6d6806fd1906ba50b3467bcfe4ca81f3c.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w12-mon.json",
+          "itemId": "ci-g8-w12-mon",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w17-thu-1.jpg",
+      "sha256": "4dfb3bdb2024526120629bd94d42971a673166087a8398ad43d72b1a8de3d245",
+      "sizeBytes": 234694,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/4dfb3bdb2024526120629bd94d42971a673166087a8398ad43d72b1a8de3d245.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w17-thu.json",
+          "itemId": "ci-g8-w17-thu",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w02-tue-1.jpg",
+      "sha256": "4f783dba280eccc22f05b41a10afecc96e39905ae775d86060f325c8118a9ab9",
+      "sizeBytes": 228705,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/4f783dba280eccc22f05b41a10afecc96e39905ae775d86060f325c8118a9ab9.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w02-tue.json",
+          "itemId": "ci-g8-w02-tue",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w06-tue-1.jpg",
+      "sha256": "548bfa5c621f5061212b901932daf9998368b7dd8173bf01b67bc63f38ea6a26",
+      "sizeBytes": 226452,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/548bfa5c621f5061212b901932daf9998368b7dd8173bf01b67bc63f38ea6a26.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w06-tue.json",
+          "itemId": "ci-g8-w06-tue",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w07-wed-1.jpg",
+      "sha256": "56c5105afa3fb52804ca1d21a6cba8e8a9ca1162ee56c46e639b5330211a6a8b",
+      "sizeBytes": 245404,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/56c5105afa3fb52804ca1d21a6cba8e8a9ca1162ee56c46e639b5330211a6a8b.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w07-wed.json",
+          "itemId": "ci-g8-w07-wed",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w14-mon-1.jpg",
+      "sha256": "646af99622ab05c3393d39b0ccd767e27e513a817cb0aeff8c420c4b797baf0d",
+      "sizeBytes": 240509,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/646af99622ab05c3393d39b0ccd767e27e513a817cb0aeff8c420c4b797baf0d.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w14-mon.json",
+          "itemId": "ci-g8-w14-mon",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w13-thu-1.jpg",
+      "sha256": "662cca0ca1df684255e0648465dda62c741e691a0f4b80f444bbf33fa572c7da",
+      "sizeBytes": 303135,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/662cca0ca1df684255e0648465dda62c741e691a0f4b80f444bbf33fa572c7da.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w13-thu.json",
+          "itemId": "ci-g8-w13-thu",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w15-tue-1.jpg",
+      "sha256": "69168278f46e8f64ca7a12cf03ed87b269df27c97fa32fe8d71db54bde286a3e",
+      "sizeBytes": 274711,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/69168278f46e8f64ca7a12cf03ed87b269df27c97fa32fe8d71db54bde286a3e.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w15-tue.json",
+          "itemId": "ci-g8-w15-tue",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w06-mon-1.jpg",
+      "sha256": "73359c613f76cc8469522c18b203e5408a44fcdbd2837bf85c95c6421742f8f5",
+      "sizeBytes": 264647,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/73359c613f76cc8469522c18b203e5408a44fcdbd2837bf85c95c6421742f8f5.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w06-mon.json",
+          "itemId": "ci-g8-w06-mon",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w03-mon-1.jpg",
+      "sha256": "7bb5737c7886fc5e56d3095fe37c25417f6f3e934aecdfc65eb0d2d954ca5044",
+      "sizeBytes": 126017,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/7bb5737c7886fc5e56d3095fe37c25417f6f3e934aecdfc65eb0d2d954ca5044.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w03-mon.json",
+          "itemId": "ci-g8-w03-mon",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w01-wed-1.jpg",
+      "sha256": "861492df7c0967fecb9fa69952acdd408d1cf5fa403ae3fe299f8fd0fc129789",
+      "sizeBytes": 195345,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/861492df7c0967fecb9fa69952acdd408d1cf5fa403ae3fe299f8fd0fc129789.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w01-wed.json",
+          "itemId": "ci-g8-w01-wed",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w01-thu-1.jpg",
+      "sha256": "8c6e45ef842d1c813edadf99751edad936c5499f370c0726fa608ffeecde52d1",
+      "sizeBytes": 459565,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/8c6e45ef842d1c813edadf99751edad936c5499f370c0726fa608ffeecde52d1.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w01-thu.json",
+          "itemId": "ci-g8-w01-thu",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w14-tue-1.jpg",
+      "sha256": "a1c68b0fa6afd067666db33c03f922f1e4ee2aa875177636c5ef6ff86130463f",
+      "sizeBytes": 267372,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/a1c68b0fa6afd067666db33c03f922f1e4ee2aa875177636c5ef6ff86130463f.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w14-tue.json",
+          "itemId": "ci-g8-w14-tue",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w07-thu-1.jpg",
+      "sha256": "d95557706ec2c8958e268b73d221266f713debd84b390e7baf93a42f693c58bc",
+      "sizeBytes": 271778,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/d95557706ec2c8958e268b73d221266f713debd84b390e7baf93a42f693c58bc.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w07-thu.json",
+          "itemId": "ci-g8-w07-thu",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w07-mon-1.jpg",
+      "sha256": "d9ee7f3ff16d996244a3bcf8843dd7d0f8de3673daf1467a06c8055ef660fae6",
+      "sizeBytes": 308852,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/d9ee7f3ff16d996244a3bcf8843dd7d0f8de3673daf1467a06c8055ef660fae6.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w07-mon.json",
+          "itemId": "ci-g8-w07-mon",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w04-thu-1.jpg",
+      "sha256": "e5ffaea9f3a6b51b861439e94b2f569fec2bf3183651ed8aaacaf01839286040",
+      "sizeBytes": 313362,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/e5ffaea9f3a6b51b861439e94b2f569fec2bf3183651ed8aaacaf01839286040.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w04-thu.json",
+          "itemId": "ci-g8-w04-thu",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w18-tue-1.jpg",
+      "sha256": "e74083c44701dc633b6ed0bdde69c53dae0c0d2b0a41a4403358433cea20e47b",
+      "sizeBytes": 242052,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/e74083c44701dc633b6ed0bdde69c53dae0c0d2b0a41a4403358433cea20e47b.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w18-tue.json",
+          "itemId": "ci-g8-w18-tue",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w10-thu-1.jpg",
+      "sha256": "e9b51f22af7e6c64bbc2d96891ecc2c5e0e76a5cf31599610e77e6b25ef37bb4",
+      "sizeBytes": 381933,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/e9b51f22af7e6c64bbc2d96891ecc2c5e0e76a5cf31599610e77e6b25ef37bb4.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w10-thu.json",
+          "itemId": "ci-g8-w10-thu",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w17-wed-1.jpg",
+      "sha256": "eed90f86c1667833cc4b668167194cf7803d9b71e261dcfb8e54e03531bbe08a",
+      "sizeBytes": 204600,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/eed90f86c1667833cc4b668167194cf7803d9b71e261dcfb8e54e03531bbe08a.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w17-wed.json",
+          "itemId": "ci-g8-w17-wed",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w17-tue-1.jpg",
+      "sha256": "f7aae2604653b6b962b3fb0beca5dfeab7952fab8748c683a70e2e238a5c3b24",
+      "sizeBytes": 246139,
+      "contentType": "image/jpeg",
+      "roles": [
+        "item-thumbnail"
+      ],
+      "objectKey": "exam-media/v1/f7aae2604653b6b962b3fb0beca5dfeab7952fab8748c683a70e2e238a5c3b24.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w17-tue.json",
+          "itemId": "ci-g8-w17-tue",
+          "pointer": "/thumbnail"
+        }
+      ]
+    },
+    {
+      "sourcePath": "assets/ci-g8/cover.jpg",
+      "sha256": "fd8dc6bf4bcc95ea6988b32c2636c71daa57efa214b55301be6c74cf1b86e457",
+      "sizeBytes": 292760,
+      "contentType": "image/jpeg",
+      "roles": [
+        "playlist-cover"
+      ],
+      "objectKey": "exam-media/v1/fd8dc6bf4bcc95ea6988b32c2636c71daa57efa214b55301be6c74cf1b86e457.jpg",
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/playlist.json",
+          "pointer": "/cover"
+        }
+      ]
+    }
+  ],
+  "localOnly": [
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w01-tue-1.jpg",
+      "sha256": "3be67ff56537b49755c51c96ad026d0d59c4b1a32cb7e39a13daf002e0d8487d",
+      "sizeBytes": 243691,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w01-tue.json",
+          "itemId": "ci-g8-w01-tue",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w01-wed-1.jpg",
+      "sha256": "861492df7c0967fecb9fa69952acdd408d1cf5fa403ae3fe299f8fd0fc129789",
+      "sizeBytes": 195345,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w01-wed.json",
+          "itemId": "ci-g8-w01-wed",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w01-thu-1.jpg",
+      "sha256": "8c6e45ef842d1c813edadf99751edad936c5499f370c0726fa608ffeecde52d1",
+      "sizeBytes": 459565,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w01-thu.json",
+          "itemId": "ci-g8-w01-thu",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w02-tue-1.jpg",
+      "sha256": "4f783dba280eccc22f05b41a10afecc96e39905ae775d86060f325c8118a9ab9",
+      "sizeBytes": 228705,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w02-tue.json",
+          "itemId": "ci-g8-w02-tue",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w03-mon-1.jpg",
+      "sha256": "7bb5737c7886fc5e56d3095fe37c25417f6f3e934aecdfc65eb0d2d954ca5044",
+      "sizeBytes": 126017,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w03-mon.json",
+          "itemId": "ci-g8-w03-mon",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w04-wed-1.jpg",
+      "sha256": "07d2292b5780c4d73a2bd06c2842284ba9902eee98aa1d57e34d80a9fbe7f469",
+      "sizeBytes": 469764,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w04-wed.json",
+          "itemId": "ci-g8-w04-wed",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w04-thu-1.jpg",
+      "sha256": "e5ffaea9f3a6b51b861439e94b2f569fec2bf3183651ed8aaacaf01839286040",
+      "sizeBytes": 313362,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w04-thu.json",
+          "itemId": "ci-g8-w04-thu",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w06-mon-1.jpg",
+      "sha256": "73359c613f76cc8469522c18b203e5408a44fcdbd2837bf85c95c6421742f8f5",
+      "sizeBytes": 264647,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w06-mon.json",
+          "itemId": "ci-g8-w06-mon",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w06-tue-1.jpg",
+      "sha256": "548bfa5c621f5061212b901932daf9998368b7dd8173bf01b67bc63f38ea6a26",
+      "sizeBytes": 226452,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w06-tue.json",
+          "itemId": "ci-g8-w06-tue",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w07-mon-1.jpg",
+      "sha256": "d9ee7f3ff16d996244a3bcf8843dd7d0f8de3673daf1467a06c8055ef660fae6",
+      "sizeBytes": 308852,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w07-mon.json",
+          "itemId": "ci-g8-w07-mon",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w07-wed-1.jpg",
+      "sha256": "56c5105afa3fb52804ca1d21a6cba8e8a9ca1162ee56c46e639b5330211a6a8b",
+      "sizeBytes": 245404,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w07-wed.json",
+          "itemId": "ci-g8-w07-wed",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w07-thu-1.jpg",
+      "sha256": "d95557706ec2c8958e268b73d221266f713debd84b390e7baf93a42f693c58bc",
+      "sizeBytes": 271778,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w07-thu.json",
+          "itemId": "ci-g8-w07-thu",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w09-tue-1.jpg",
+      "sha256": "7f7b0ab011c7413b4c6962c0950d923619b14cd189ee9e21de89c809c552f36a",
+      "sizeBytes": 23502,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w09-tue.json",
+          "itemId": "ci-g8-w09-tue",
+          "pointer": "/sections/0/questions/2/interaction/options/0/image",
+          "sectionId": "s1",
+          "questionId": "q3"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w09-tue-2.jpg",
+      "sha256": "e82714ba3039a724f19aecc676a29b643149ab8ba02fa71f34142c5bc87d5d66",
+      "sizeBytes": 25913,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w09-tue.json",
+          "itemId": "ci-g8-w09-tue",
+          "pointer": "/sections/0/questions/2/interaction/options/1/image",
+          "sectionId": "s1",
+          "questionId": "q3"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w09-tue-3.jpg",
+      "sha256": "90dc34a5747a8aaaa3f4327778b7c560d4b608df19cfe95464c466764b412bc6",
+      "sizeBytes": 24663,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w09-tue.json",
+          "itemId": "ci-g8-w09-tue",
+          "pointer": "/sections/0/questions/2/interaction/options/2/image",
+          "sectionId": "s1",
+          "questionId": "q3"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w09-tue-4.jpg",
+      "sha256": "e58448b31c8b8d06545e6684966c0d518409db0bad18ec822b04924cf5e438d8",
+      "sizeBytes": 25194,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w09-tue.json",
+          "itemId": "ci-g8-w09-tue",
+          "pointer": "/sections/0/questions/2/interaction/options/3/image",
+          "sectionId": "s1",
+          "questionId": "q3"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w10-thu-1.jpg",
+      "sha256": "e9b51f22af7e6c64bbc2d96891ecc2c5e0e76a5cf31599610e77e6b25ef37bb4",
+      "sizeBytes": 381933,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w10-thu.json",
+          "itemId": "ci-g8-w10-thu",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w12-mon-1.jpg",
+      "sha256": "4d11b765f873ce9936a08b50d6c31ed6d6806fd1906ba50b3467bcfe4ca81f3c",
+      "sizeBytes": 309146,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w12-mon.json",
+          "itemId": "ci-g8-w12-mon",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w13-mon-1.jpg",
+      "sha256": "4957c7a2d4b405a172a32fda4579c6cfc76e9eca0335e8857b512ccb9d1f3911",
+      "sizeBytes": 263128,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w13-mon.json",
+          "itemId": "ci-g8-w13-mon",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w13-thu-1.jpg",
+      "sha256": "662cca0ca1df684255e0648465dda62c741e691a0f4b80f444bbf33fa572c7da",
+      "sizeBytes": 303135,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w13-thu.json",
+          "itemId": "ci-g8-w13-thu",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w14-mon-1.jpg",
+      "sha256": "646af99622ab05c3393d39b0ccd767e27e513a817cb0aeff8c420c4b797baf0d",
+      "sizeBytes": 240509,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w14-mon.json",
+          "itemId": "ci-g8-w14-mon",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w14-tue-1.jpg",
+      "sha256": "a1c68b0fa6afd067666db33c03f922f1e4ee2aa875177636c5ef6ff86130463f",
+      "sizeBytes": 267372,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w14-tue.json",
+          "itemId": "ci-g8-w14-tue",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w15-tue-1.jpg",
+      "sha256": "69168278f46e8f64ca7a12cf03ed87b269df27c97fa32fe8d71db54bde286a3e",
+      "sizeBytes": 274711,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w15-tue.json",
+          "itemId": "ci-g8-w15-tue",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w17-tue-1.jpg",
+      "sha256": "f7aae2604653b6b962b3fb0beca5dfeab7952fab8748c683a70e2e238a5c3b24",
+      "sizeBytes": 246139,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w17-tue.json",
+          "itemId": "ci-g8-w17-tue",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w17-wed-1.jpg",
+      "sha256": "eed90f86c1667833cc4b668167194cf7803d9b71e261dcfb8e54e03531bbe08a",
+      "sizeBytes": 204600,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w17-wed.json",
+          "itemId": "ci-g8-w17-wed",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w17-thu-1.jpg",
+      "sha256": "4dfb3bdb2024526120629bd94d42971a673166087a8398ad43d72b1a8de3d245",
+      "sizeBytes": 234694,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w17-thu.json",
+          "itemId": "ci-g8-w17-thu",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w18-tue-1.jpg",
+      "sha256": "e74083c44701dc633b6ed0bdde69c53dae0c0d2b0a41a4403358433cea20e47b",
+      "sizeBytes": 242052,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w18-tue.json",
+          "itemId": "ci-g8-w18-tue",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    },
+    {
+      "sourcePath": "assets/ci-g8/ci-g8-w18-thu-1.jpg",
+      "sha256": "11eb274e382fcb6878f17329a579217d2318b4749c274e227f43a1ab4a30d559",
+      "sizeBytes": 249645,
+      "usedBy": [
+        {
+          "playlistId": "ci-g8",
+          "document": "playlists/ci-g8/items/ci-g8-w18-thu.json",
+          "itemId": "ci-g8-w18-thu",
+          "pointer": "/article/images/0/src"
+        }
+      ],
+      "reason": "inline image: the BE embeds it in HTML, no separate key"
+    }
+  ],
+  "capabilityGaps": [],
+  "errors": []
+}
