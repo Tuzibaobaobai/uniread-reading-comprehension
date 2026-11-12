@@ -187,3 +187,19 @@ test('a number tapped while the answers are being graded is kept: the review doe
   await expect(page.locator('.option.is-correct, .option.is-wrong').first()).toBeVisible({ timeout: 10_000 });
   await expect(page.locator('.q-prompt').first()).toContainText('Tell me I’m clever');
 });
+
+test('tapping the number of the page already shown while it is being graded keeps that page too', async ({ page }) => {
+  await page.route('**/api/rc/grade', async (route) => {
+    await new Promise((r) => setTimeout(r, 1500));
+    await route.continue();
+  });
+  await page.goto('/#/p/ci-g5/ci-g5-w12-thu');
+  if ((page.viewportSize()?.width ?? 1440) < 1024) await page.getByRole('tab', { name: /题目/ }).click();
+  await page.locator('.question-dot').last().click();
+  const prompt = (await page.locator('.q-prompt').first().textContent()) ?? '';
+  await page.getByRole('button', { name: '提交' }).click();
+  await page.getByRole('button', { name: '仍然提交' }).click();
+  await page.locator('.question-dot').last().click(); // the page already shown, while the grading is on its way
+  await expect(page.locator('.option.is-correct, .option.is-wrong').first()).toBeVisible({ timeout: 10_000 });
+  await expect(page.locator('.q-prompt').first()).toHaveText(prompt);
+});
