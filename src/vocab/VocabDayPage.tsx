@@ -197,9 +197,20 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
   };
 
   /** a new attempt; `wrongOnly` keeps the questions answered right (read-only) so only the rest are practised */
+  // 只练错题 (#146): the attempt being practised again, so the breadcrumb's 测试结果 can go back to its result (this
+  // visit only — the attempt store keeps one attempt per item)
+  const [retriedFrom, setRetriedFrom] = useState<AttemptT | null>(null);
+  const backToResult = () => {
+    if (!retriedFrom) return;
+    persist(retriedFrom);
+    setRetriedFrom(null);
+    setKey(null);
+    setView('result');
+  };
   const retry = (wrongOnly: boolean) => {
     // 只练错题: answers right — and translations not marked yet, which keep their answer and are marked again — stay
     const right = wrongOnly && result ? result.byQuestion.filter((b) => b.correct === true || isAwaiting(b)).map((b) => b.q) : [];
+    setRetriedFrom(wrongOnly && result ? attempt : null);
     const fresh = newAttempt(item.id, item.status.version);
     const keepResp = Object.fromEntries(right.map((q) => [q, attempt.responses[q]]).filter(([, v]) => v !== undefined));
     sessionStart.current = Date.now();
@@ -294,6 +305,7 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
               submitting={submitting}
               onSubmit={() => (unanswered ? setConfirm(unanswered) : void submit())}
               onShowResult={() => setView('result')}
+              onBackToResult={retriedFrom ? backToResult : undefined}
             />
           )}
           {submitError && (

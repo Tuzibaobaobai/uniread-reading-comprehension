@@ -15,6 +15,7 @@ import { PlaylistIntro } from '@/ui/common/PlaylistIntro/PlaylistIntro';
 import { ListHeader } from '@/ui/common/ListHeader/ListHeader';
 import { TextThumb } from '@/ui/common/TextThumb/TextThumb';
 import { FavoriteButton } from '@/ui/playlist/FavoriteButton/FavoriteButton';
+import { StatsButton } from '@/ui/playlist/StatsButton/StatsButton';
 import { GroupTitle } from '@/ui/playlist/GroupTitle/GroupTitle';
 import { PlaylistItem } from '@/ui/playlist/PlaylistItem/PlaylistItem';
 
@@ -44,7 +45,6 @@ export function PlaylistPage() {
         <>
           <PlaylistIntro
             cover={staticContent.assetUrl(pl.cover)}
-            banner={staticContent.assetUrl(pl.banner ?? pl.cover)}
             title={pl.title}
             stats={[
               vocab
@@ -57,7 +57,12 @@ export function PlaylistPage() {
             description={pl.description}
             backLabel={t('common.back')}
             onBack={() => navigate('/')}
-            action={<FavoriteButton label={t('playlist.favourite')} />}
+            actions={
+              <>
+                <StatsButton label={t('playlist.stats')} />
+                <FavoriteButton label={t('playlist.favourite')} />
+              </>
+            }
           />
           <section className="playlist-items">
             <ListHeader>{t('playlist.itemsHead', { n: pl.itemCount })}</ListHeader>

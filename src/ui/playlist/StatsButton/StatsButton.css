@@ -1,0 +1,7 @@
+/* ui/StatsButton (UIKit-Playlist btn). Tokens only. */
+.playlist-stats {
+  flex: none; width: var(--ur-height-height-7); height: var(--ur-height-height-7); padding: 0; border: none;
+  border-radius: var(--ur-radius-s); background: var(--ur-color-background-card); box-shadow: var(--ur-effect-drop-shadow-card-lg);
+  display: flex; align-items: center; justify-content: center;
+}
+.playlist-stats img { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); }

@@ -8,13 +8,17 @@
 
 /* -------------------------------------------------- playlist detail (Figma: Playlist) */
 
+/* Ready frame 合集页 (19949:220274, #150): three equal columns — the intro is the first, the list the other two —
+   gap 40, side padding 64, at most 1500 wide */
 .playlist-page {
   display: grid;
-  grid-template-columns: minmax(300px, 410px) 1fr;
-  gap: 40px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px 40px;
   align-items: start;
-  padding-top: 0; padding-bottom: 0;
+  max-width: 1500px;
+  padding: 0 64px;
 }
+.playlist-page > .playlist-items { grid-column: span 2; }
 body:has(.playlist-page) { background: var(--bg-card); }
 
 .playlist-items { min-width: 0; }
@@ -135,7 +139,8 @@ body:has(.playlist-page) { background: var(--bg-card); }
 /* iPad portrait, split view, narrow windows: article / questions as tabs */
 @media (max-width: 1023px) {
   :root { --scroll-inset: var(--radius-l); --gutter: 16px; --fs-article: var(--fs-2xl); --lh-article: var(--lh-2xl); --fs-question: var(--fs-2xl); --fs-option: var(--fs-2xl); --quiz-pad: 28px; }
-  .playlist-page { grid-template-columns: 1fr; gap: 16px; padding-top: 72px; }
+  .playlist-page { grid-template-columns: 1fr; gap: 16px; padding: 72px var(--gutter) 0; }
+  .playlist-page > .playlist-items { grid-column: auto; }
 
   .reader-head { height: auto; padding: 12px var(--gutter) 8px; }
   .reader-body { grid-template-columns: 1fr; grid-template-rows: auto 1fr; gap: 12px; }

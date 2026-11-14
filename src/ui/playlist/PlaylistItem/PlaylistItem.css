@@ -10,6 +10,8 @@
   border-radius: var(--ur-radius-xs);
   background: var(--ur-color-background-card);
 }
+/* rows in a group are 8 apart (list gap 8) */
+.item-row + .item-row { margin-top: var(--ur-space-8); }
 @media (hover: hover) and (pointer: fine) { .item-row:hover .item-row-title { color: var(--ur-color-action-primary-strong); } }
 .item-row-num { font: var(--ur-text-font-system-3xl-medium); color: var(--ur-color-text-secondary); text-align: center; }
 .item-row-thumb {

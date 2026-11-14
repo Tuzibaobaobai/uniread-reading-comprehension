@@ -83,6 +83,7 @@ export function VocabQuiz({
   onSubmit,
   submitting,
   onShowResult,
+  onBackToResult,
 }: {
   state: QuizState;
   page: number;
@@ -90,6 +91,8 @@ export function VocabQuiz({
   onSubmit: () => void;
   submitting: boolean;
   onShowResult: () => void;
+  /** 只练错题: back to the result of the attempt being practised again (undefined once that result is not at hand) */
+  onBackToResult?: () => void;
 }) {
   const { t } = useTranslation();
   const { item, review } = state;
@@ -154,7 +157,17 @@ export function VocabQuiz({
   const next = { kind: 'next' as const, label: t('reader.next'), onClick: () => setPage(page + 1) };
   return (
     <div className="question-card vocab-quiz">
-      {/* #146: in review the way back to the result is the breadcrumb at the top of the card (Figma 3.26), not a button */}
+      {/* #146: in review the way back to the result is the breadcrumb at the top of the card (Figma 3.26), not a button;
+          只练错题 shows where it came from the same way (Figma 3.30 19463:3813): 测试结果 › 只练错题 */}
+      {!review && state.kept.size > 0 && (
+        <Breadcrumb
+          label={t('vocab.result.breadcrumb')}
+          items={[
+            { key: 'result', label: t('vocab.result.crumbResult'), onClick: onBackToResult },
+            { key: 'retry', label: t('vocab.result.retryWrong') },
+          ]}
+        />
+      )}
       {review && (
         <Breadcrumb
           label={t('vocab.result.breadcrumb')}

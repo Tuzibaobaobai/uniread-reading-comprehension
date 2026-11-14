@@ -830,6 +830,24 @@
    "source": "src/ui/playlist/FavoriteButton/FavoriteButton.tsx"
   },
   {
+   "code": "ui/StatsButton",
+   "status": "reuse",
+   "product": "时文阅读 · 真题 KET/PET",
+   "description": "合集页简介的数据按钮（收藏左侧，平台动作）",
+   "screens": [
+    "1.01",
+    "2.01"
+   ],
+   "figma": {
+    "nodeId": "18647:274866",
+    "name": "btn",
+    "group": "UIKit-Playlist",
+    "url": "https://www.figma.com/design/gYPHIUtQ50mXuoE0Cfpmu0?node-id=18647-274866"
+   },
+   "issue": "#150",
+   "source": "src/ui/playlist/StatsButton/StatsButton.tsx"
+  },
+  {
    "code": "ui/GroupTitle",
    "status": "reuse",
    "product": "时文阅读 · 真题 KET/PET",
@@ -1064,7 +1082,7 @@
    "variants": {
     "Overflow": "none / start / end / both（新增：‹ +N / +N › 更多按钮）"
    },
-   "note": "「更多」按钮在 Figma 里是 pagination 的新变体，不单独成组件；2026-11-11：时文页脚按设计师 question-nav（✅ Ready，1.02–1.20）改为两端 56×80 圆角按钮（上一题 / 下一题，下方「+N」= 该侧隐藏题号数；第 1 题无上一题；末题为品牌色「提交」圆钮，复盘末题为「重新作答」）；共享按钮 src/ui/quiz/QuestionNav/NavButton.tsx",
+   "note": "「更多」按钮在 Figma 里是 pagination 的新变体，不单独成组件；2026-11-11：时文页脚按设计师 question-nav（✅ Ready，1.02–1.20）改为两端 56×80 圆角按钮（上一题 / 下一题，下方「+N」= 该侧隐藏题号数；第 1 题无上一题；末题为品牌色「提交」圆钮，复盘末题为「重做」（#151：圆钮文字最多 2 个汉字，Medium 13））；共享按钮 src/ui/quiz/QuestionNav/NavButton.tsx",
    "issue": "#138",
    "source": "src/ui/quiz/QuestionNav/QuestionNav.tsx",
    "figmaProposal": {

@@ -376,6 +376,26 @@
               "use": "标记本题 pill: 已标记 label; designer flag-toggle (Figma 19834:178047), unbound literal in the Ready frame — value as drawn"
             }
           }
+        },
+        "fill-from": {
+          "$type": "color",
+          "$value": "rgba(255, 124, 43, 1)",
+          "$extensions": {
+            "rc": {
+              "status": "needs-designer",
+              "use": "标记本题 marked: top of the button's orange gradient (white pin); Ready frame 考试模式-标记 20000:222105 (#152), unbound literal — value as drawn"
+            }
+          }
+        },
+        "fill-to": {
+          "$type": "color",
+          "$value": "rgba(255, 175, 125, 1)",
+          "$extensions": {
+            "rc": {
+              "status": "needs-designer",
+              "use": "标记本题 marked: bottom of the button's orange gradient (white pin); Ready frame 考试模式-标记 20000:222105 (#152), unbound literal — value as drawn"
+            }
+          }
         }
       }
     },
@@ -570,6 +590,15 @@
           "rc": {
             "status": "needs-designer",
             "use": "结果页大字"
+          }
+        }
+      },
+      "nav-label": {
+        "$type": "dimension",
+        "$value": "13px",
+        "$extensions": {
+          "rc": {
+            "use": "question-nav 提交 / 重做 label: Noto Sans SC Medium 13, line-height 1.2, at most two Chinese characters in the 48px inside a 56px button (submit 19706:145750, #151)"
           }
         }
       }

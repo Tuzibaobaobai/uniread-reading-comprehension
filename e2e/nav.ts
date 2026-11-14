@@ -23,7 +23,7 @@ export async function goQuestion(page: Page, name: RegExp) {
 /** open a Part of an exam paper by its card ("P2") */
 export const openPart = (page: Page, part: number) => page.locator(`.part-nav button.part-card[data-part="P${part}"]`).click();
 
-/** the last page (where 提交 / 重新作答 is) */
+/** the last page (where 提交 / 重做 is) */
 export async function lastPage(page: Page) {
   if (await page.locator('.part-nav').count()) {
     const last = page.locator('.part-nav .part-card').last();

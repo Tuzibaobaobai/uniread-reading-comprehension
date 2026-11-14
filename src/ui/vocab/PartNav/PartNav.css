@@ -55,7 +55,10 @@
 /* the current Part: its title and a round number per question (brand fill = answered) */
 /* it shrinks first (its numbers scroll inside it), so every other Part stays in view as drawn — a 15- or 32-question Part
    must not push P3… behind the strip's "+N" button */
-.part-card.is-current { flex: 0 1 auto; min-width: min(100%, calc(var(--ur-height-height-5) * 5 + var(--ur-space-4) * 4 + var(--ur-space-32) + var(--ur-stroke-default) * 2)); max-width: 100%; padding-inline: var(--ur-space-16); border-color: var(--ur-color-action-primary); gap: var(--ur-space-8); }
+.part-card.is-current { flex: 0 1 auto; min-width: min(100%, calc(var(--ur-height-height-5) * 5 + var(--ur-space-4) * 4 + var(--ur-space-32) + var(--ur-stroke-default) * 2)); max-width: 100%; padding-inline: var(--ur-space-16); border-color: var(--ur-color-brand-4); gap: var(--ur-space-8); }
+/* fewer than five questions (page number State=只有一个 20005:17130, #154): the card hugs its numbers, at least 88 wide
+   (px 16 + one 40 number + room for the title) — no empty space beside a single number */
+.part-card.is-current:not(:has(.part-q:nth-child(5))) { min-width: calc(var(--ur-space-80) + var(--ur-space-8)); }
 .part-qs { position: relative; display: flex; gap: var(--ur-space-4); max-width: 100%; overflow-x: auto; scrollbar-width: none; }
 /* room inside the scroller for the numbers' 44 tap rings (::before), which overflow-x would clip; the layout is unchanged */
 .part-qs { padding: var(--ur-space-2); margin: calc(-1 * var(--ur-space-2)); max-width: calc(100% + 2 * var(--ur-space-2)); }
@@ -86,8 +89,9 @@
 
 /* one question a page (真题 / PET, question-nav-part 19706:145652): the question on screen, and 标记本题 */
 /* the numbers scroll inside the card (overflow clips anything outside the circle), so the ring and the pin are inside */
-/* question-nav-part 19706:143452 Number Selected=yes: a brand-2 disc, no ring */
-.part-q.is-current:not(.is-correct):not(.is-wrong):not(.is-partial) { background: var(--ur-color-action-primary-soft); border-color: var(--ur-color-action-primary-soft); }
+/* Number Selected=yes (Ready frames 更多分页 20000:224679 / 考试模式-标记 20000:222105, #153): a brand-4 ring; an answered
+   number keeps its brand-2 fill inside the ring */
+.part-q.is-current:not(.is-correct):not(.is-wrong):not(.is-partial) { border-color: var(--ur-color-brand-4); }
 .part-q.is-flagged::after {
   content: ''; position: absolute; top: 0; right: 0;
   width: var(--ur-space-12); height: var(--ur-space-12); background: url('../../../assets/icons/flag-pin.svg') center / contain no-repeat;

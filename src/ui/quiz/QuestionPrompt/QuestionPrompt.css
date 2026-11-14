@@ -8,7 +8,9 @@
 }
 .q-num { flex: none; }
 /* the prompt text may shrink to the row, so a long typed answer in a blank stays inside the pane */
-.q-prompt > :not(.q-num) { min-width: 0; }
+.q-prompt > .q-stem { flex: 1; min-width: 0; }
+/* the flag (and anything else at the end of the row): centred on the first line */
+.q-prompt-aside { flex: none; align-self: flex-start; height: var(--ur-text-font-system-3xl-bold-line-height); display: flex; align-items: center; }
 .q-prompt-hint { font-weight: var(--ur-text-font-system-m-regular-weight); color: var(--ur-color-text-secondary); }
 
 @media (max-width: 1023px) {

@@ -18,7 +18,7 @@ import { ScaleTable } from '@/ui/exam/ScaleTable/ScaleTable';
    rc/Common/Dialog, ui/ChoiceCard, rc/Exam/ModeSelect + ui/exam/ModeMenu, rc/Exam/ExamTimer, rc/Exam/ScoreReport,
    rc/Exam/ScaleTable, ui/LinkButton). This file keeps the exam logic and the texts. */
 
-/** why the mode is being asked: a new attempt, 重新作答, or an exam whose time ran out while away */
+/** why the mode is being asked: a new attempt, 重做, or an exam whose time ran out while away */
 export type ModeReason = 'new' | 'retry' | 'timeout';
 
 /** practice or timed exam — asked before an attempt; closing returns to the playlist / the finished review (#65) */

@@ -35,8 +35,12 @@ test('listening, exam mode: picture options by tap, locked recording, report and
   await tab(page, /题目/);
   await expect(page.locator('.options.has-images .option-image')).toHaveCount(3);
   await page.locator('.option').nth(2).click(); // Q1 = C
+  // #152: 标记本题 sits in the question's title row (after the number when there is no stem), no text when marked
+  await expect(page.locator('.q-prompt .q-prompt-aside .flag-toggle')).toHaveCount(1);
   await page.getByRole('button', { name: '标记本题' }).click();
   await expect(page.locator('.part-q.is-flagged')).toHaveCount(1);
+  await expect(page.getByRole('button', { name: '标记本题' })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('.flag-toggle')).toHaveText('');
   await lastPage(page);
   await page.getByRole('button', { name: '提交' }).click();
   await page.getByRole('button', { name: '仍然提交' }).click();
@@ -68,7 +72,7 @@ test('exam mode ends by itself when the time is up', async ({ page }) => {
   await expect(page.getByRole('dialog', { name: '成绩报告' })).toBeVisible();
 });
 
-test('#65 closing the mode dialog: a new paper goes back to the playlist, 重新作答 back to the result', async ({ page }) => {
+test('#65 closing the mode dialog: a new paper goes back to the playlist, 重做 back to the result', async ({ page }) => {
   await page.goto('/#/p/ket1/ket1-t1-s');
   await page.getByRole('button', { name: '关闭，返回合集' }).click();
   await expect(page).toHaveURL(/#\/p\/ket1$/);
@@ -81,7 +85,7 @@ test('#65 closing the mode dialog: a new paper goes back to the playlist, 重新
   await page.getByRole('button', { name: '仍然提交' }).click();
   await page.getByRole('button', { name: '查看答案与解析' }).click();
   await lastPage(page);
-  await page.getByRole('button', { name: '重新作答' }).click();
+  await page.getByRole('button', { name: '重做' }).click();
   await page.getByRole('button', { name: '关闭，返回作答结果' }).click();
   await expect(page.locator('.part-nav').locator('.is-wrong, .is-correct').first()).toBeVisible();
   await expect(page.getByRole('button', { name: '成绩报告' })).toBeVisible();

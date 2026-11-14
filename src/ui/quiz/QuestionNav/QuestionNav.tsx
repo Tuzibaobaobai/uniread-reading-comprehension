@@ -1,7 +1,7 @@
 import { scrollBehavior } from '@/lib/scroll';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ChevronLeft, ChevronRight } from '@/components/Icons';
+import moreIcon from '@/assets/icons/more-horizontal.svg';
 import { NavActionButton, NavArrow, type NavAction } from './NavButton';
 import './QuestionNav.css';
 
@@ -9,7 +9,7 @@ import './QuestionNav.css';
  * ui/quiz/QuestionNav — designer component `question-nav` (Figma 19802:13269, every 时文阅读 frame 1.02–1.20; extends
  * UniRead UIKit-Quiz `pagination` 7870:51500): the quiz footer of one question a page — a 56 × 80 round previous
  * button, the strip of question numbers (ui/PartPager), a round next button; on the last question the brand 提交
- * circle (dim while questions are left), after submitting 重新作答. When the numbers do not fit, each arrow shows
+ * circle (dim while questions are left), after submitting 重做. When the numbers do not fit, each arrow shows
  * "+N" — the numbers hidden on its side (variant 个数超出=yes; measured, not a prop) — and that edge of the strip fades.
  * No previous button on the first question (variant 对齐方式=left). Keeps the legacy classes (.question-nav,
  * .question-strip, .question-dots).
@@ -104,8 +104,10 @@ function useStripOverflow(ref: RefObject<HTMLDivElement>, current: number, count
 }
 
 /**
- * A scrolling row with "more" buttons: when the children do not fit, a "‹ +N" / "+N ›" button on each side that still
- * hides some (scrolls a page), that edge faded, the current child centred. Used for the Part cards of rc/Vocab/PartNav.
+ * A scrolling row with "more" indicators (Ready frame 更多分页 20000:224679, #153): when the children do not fit, each side
+ * that still hides some shows the designer's `more` (20000:224030) — "···" over "+N", 56 × 88, no button frame — next to
+ * the round arrow; tapping it pages the strip that way. That edge fades, the current child stays centred. Used for the
+ * Part cards of rc/Vocab/PartNav.
  */
 export function QuestionStrip({ current, count, children }: { current: number; count: number; children: ReactNode }) {
   const { t } = useTranslation();
@@ -116,21 +118,22 @@ export function QuestionStrip({ current, count, children }: { current: number; c
 
   return (
     <div className={`question-strip ${hidden.left ? 'has-left' : ''} ${hidden.right ? 'has-right' : ''}`}>
-      {hidden.left > 0 && (
-        <button type="button" className="strip-more strip-more-left" onClick={() => page(-1)} aria-label={t('reader.stripBack', { count: hidden.left })}>
-          <ChevronLeft />
-          <span className="strip-more-count" aria-hidden>+{hidden.left}</span>
-        </button>
-      )}
+      {hidden.left > 0 && <StripMore side="left" count={hidden.left} label={t('reader.stripBack', { count: hidden.left })} onClick={() => page(-1)} />}
       <div className="question-dots" ref={ref}>
         {children}
       </div>
-      {hidden.right > 0 && (
-        <button type="button" className="strip-more strip-more-right" onClick={() => page(1)} aria-label={t('reader.stripForward', { count: hidden.right })}>
-          <span className="strip-more-count" aria-hidden>+{hidden.right}</span>
-          <ChevronRight />
-        </button>
-      )}
+      {hidden.right > 0 && <StripMore side="right" count={hidden.right} label={t('reader.stripForward', { count: hidden.right })} onClick={() => page(1)} />}
     </div>
+  );
+}
+
+function StripMore({ side, count, label, onClick }: { side: 'left' | 'right'; count: number; label: string; onClick: () => void }) {
+  return (
+    <button type="button" className={`strip-more strip-more-${side}`} onClick={onClick} aria-label={label}>
+      <img src={moreIcon} alt="" />
+      <span className="strip-more-count" aria-hidden>
+        +{count}
+      </span>
+    </button>
   );
 }

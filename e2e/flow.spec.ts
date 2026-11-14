@@ -38,7 +38,7 @@ test('multiple choice: answer, unanswered warning, submit, review, restore', asy
   await page.reload();
   await expect(page.locator('.question-dot.is-correct')).toHaveCount(3);
   await page.locator('.question-dot').last().click();
-  await page.getByRole('button', { name: '重新作答' }).click();
+  await page.getByRole('button', { name: '重做' }).click();
   await expect(page.locator('.question-dot.is-correct')).toHaveCount(0);
 });
 

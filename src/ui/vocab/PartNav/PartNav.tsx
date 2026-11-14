@@ -46,7 +46,7 @@ export interface PartNavPart {
  * tappable → the confirmation) / back (review's last page).
  * Also the footer of 真题 / PET (designer component `question-nav-part` 19706:145652, frames 2.02–2.30): one question a
  * page, so the arrows go to the previous / next question, the number on screen is `current`, and previous is left out
- * on the first question (variant 对齐方式=left). Review's last page offers 重新作答 (`retry`).
+ * on the first question (variant 对齐方式=left). Review's last page offers 重做 (`retry`).
  */
 export function PartNav({
   label,

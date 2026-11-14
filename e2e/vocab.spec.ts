@@ -284,6 +284,13 @@ test('Quiz: Part pages, typed answers only, Enter, result, review, entry, retry 
   await expect(page.locator('.vq-row.is-kept')).toHaveCount(4);
   await expect(page.getByRole('textbox', { name: '第 2 题：单词' })).toBeEditable();
   await expect(page.getByRole('textbox', { name: '第 1 题：单词' })).not.toBeEditable();
+  // #146: 只练错题 shows where it came from (Figma 3.30): 测试结果 › 只练错题; 测试结果 goes back to that result
+  const crumbs = page.getByRole('navigation', { name: '导航路径' });
+  await expect(crumbs).toContainText('测试结果');
+  await expect(crumbs.locator('[aria-current="page"]')).toHaveText('只练错题');
+  await crumbs.getByRole('button', { name: '测试结果' }).click();
+  await expect(page.getByRole('button', { name: /只练错题/ })).toBeVisible();
+  await expect(page.getByRole('button', { name: /查看答案/ })).toBeVisible();
 });
 
 test('高考 scores in whole numbers (#140): Part = right / questions, no 0.88-point blanks shown', async ({ page }, info) => {

@@ -5,7 +5,8 @@ import './NavButton.css';
 
 /** the right-hand button of a quiz footer */
 export interface NavAction {
-  /** next: arrow · submit: brand circle with ✓ · retry: white circle (review, last question: 重新作答) */
+  /** next: arrow · submit: brand circle with ✓ · retry: white circle (review, last question: 重做).
+   *  The label is at most two Chinese characters (#151) */
   kind: 'next' | 'submit' | 'retry';
   label: string;
   /** submit while questions are left: drawn at 20%, still tappable (→ the confirmation) */
@@ -19,7 +20,7 @@ export interface NavAction {
 /**
  * The 56 × 80 round buttons at both ends of the quiz footer — designer components `question-nav` (19802:13269, 时文)
  * and `question-nav-part` (19706:145652, 真题 / 词汇): previous / next (arrow, with "+N" under it when the strip hides N
- * numbers on that side), submit (brand, ✓ + 提交) and, RC only, retry (重新作答 after submitting). Effect style btn-s.
+ * numbers on that side), submit (brand, ✓ + 提交) and, RC only, retry (重做 after submitting). Label: Medium 13 / 1.2, at most two Chinese characters (#151). Effect style btn-s.
  */
 export function NavArrow({ dir, label, disabled, more, onClick }: { dir: 'prev' | 'next'; label: string; disabled?: boolean; more?: number; onClick: () => void }) {
   return (

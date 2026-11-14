@@ -2,7 +2,7 @@
 // sentence itself into view, a shared sentence shows once, the Part strip fade, an exam that ran out of time while its
 // recording played, friendly load errors, vocab table-day entries and two-blank labels.
 import { expect, test, type Page } from '@playwright/test';
-import { goQuestion } from './nav';
+import { goQuestion, lastPage } from './nav';
 
 const narrow = (page: Page) => (page.viewportSize()?.width ?? 1440) < 1024;
 const tab = async (page: Page, name: RegExp) => {
@@ -202,4 +202,42 @@ test('tapping the number of the page already shown while it is being graded keep
   await page.locator('.question-dot').last().click(); // the page already shown, while the grading is on its way
   await expect(page.locator('.option.is-correct, .option.is-wrong').first()).toBeVisible({ timeout: 10_000 });
   await expect(page.locator('.q-prompt').first()).toHaveText(prompt);
+});
+
+test('#150 playlist page: the intro is the first of three columns, a square cover from its top, chart + 收藏 buttons', async ({ page }) => {
+  test.skip(narrow(page), 'three columns from 1024px; narrow screens keep the compact intro card');
+  await page.goto('/#/p/ket1');
+  const intro = page.locator('.playlist-intro-panel');
+  const list = page.locator('.playlist-items');
+  await expect(intro).toBeVisible();
+  const [a, b] = [await intro.boundingBox(), await list.boundingBox()];
+  // two columns of the list for one of the intro (gap 40 between them)
+  expect(Math.abs(b!.width - (a!.width * 2 + 40))).toBeLessThan(4);
+  const cover = await page.locator('.playlist-intro-cover').boundingBox();
+  expect(Math.abs(cover!.width - cover!.height)).toBeLessThan(2);
+  await expect(page.getByRole('button', { name: '学习数据' })).toBeVisible();
+  await expect(page.locator('.playlist-intro-actions .playlist-fav')).toContainText('收藏');
+});
+
+test('#153 #154 #151 exam footer: "more" (··· +N) beside the arrows, a one-question Part is 88 wide, 重做 fits its circle', async ({ page }) => {
+  test.skip(narrow(page), 'desktop footer');
+  await page.goto('/#/p/ket1/ket1-t1-rw');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  const more = page.locator('.part-nav .strip-more-right');
+  await expect(more).toBeVisible();
+  await expect(more.locator('img')).toHaveCount(1);
+  await expect(more.locator('.strip-more-count')).toHaveText(/^\+\d+$/);
+  // Part 6 is one question: the current card hugs it (min 88), no empty space beside the number
+  await page.locator('.part-card[data-part="P6"]').click();
+  const card = await page.locator('.part-card.is-current').boundingBox();
+  expect(Math.round(card!.width)).toBe(88);
+  // the last page: submit, then the review's last page offers 重做 — two characters inside the 56 circle
+  await lastPage(page);
+  await page.getByRole('button', { name: /^提交/ }).last().click();
+  await page.getByRole('button', { name: '仍然提交' }).click();
+  await page.getByRole('button', { name: '查看答案与解析' }).click();
+  await lastPage(page);
+  const redo = page.locator('.part-arrow.is-retry');
+  await expect(redo).toContainText('重做');
+  expect(await redo.locator('span').evaluate((e) => e.scrollWidth <= e.clientWidth)).toBe(true);
 });

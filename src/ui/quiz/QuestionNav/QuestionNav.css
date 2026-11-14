@@ -30,18 +30,21 @@
 .question-strip.has-left.has-right .question-dots {
   mask-image: linear-gradient(to right, transparent, black var(--strip-fade), black calc(100% - var(--strip-fade)), transparent);
 }
+/* "more" (designer `more` 20000:224030, #153): "···" (more-horizontal 24) over "+N" (XS medium, grey 10 at 60%),
+   56 × 88, no frame; it pages the strip */
 .strip-more {
-  flex: none;
-  min-width: var(--ur-size-touch-target); height: var(--ur-size-touch-target); padding: 0 var(--ur-space-12);
-  display: inline-flex; align-items: center; justify-content: center; gap: var(--ur-space-2);
-  border: var(--ur-stroke-radio) solid var(--ur-color-border-default); border-radius: var(--ur-radius-full);
-  background: var(--ur-color-background-card); color: var(--ur-color-text-strong); box-shadow: var(--ur-effect-bar);
-  font-size: var(--ur-text-font-system-m-bold-size); line-height: var(--ur-text-font-system-m-bold-line-height);
-  font-weight: var(--ur-text-font-system-m-bold-weight); cursor: pointer;
+  flex: none; width: var(--ur-height-height-7); height: calc(var(--ur-space-80) + var(--ur-space-8)); padding: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  border: none; border-radius: var(--ur-radius-s); background: transparent; cursor: pointer;
 }
-.strip-more svg { width: var(--ur-size-icon-s); height: var(--ur-size-icon-s); flex: none; }
+.strip-more img { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); flex: none; }
+.strip-more-count {
+  color: var(--ur-paint-customization-grey-10); opacity: .6; font-variant-numeric: tabular-nums;
+  font-size: var(--ur-text-font-system-xs-medium-size); line-height: var(--ur-text-font-system-xs-medium-line-height);
+  font-weight: var(--ur-text-font-system-xs-medium-weight);
+}
 @media (hover: hover) and (pointer: fine) { .strip-more:hover { background: var(--ur-color-background-subtle); } }
-.strip-more-count { color: var(--ur-color-action-primary); }
+.strip-more:focus-visible { outline: var(--ur-stroke-strong) solid var(--ur-color-action-primary); outline-offset: calc(-1 * var(--ur-stroke-strong)); }
 
 /* phone-width cards: the numbers shrink (ui/PartPager), the arrows keep their 44 px tap target */
 @container (max-width: 560px) {

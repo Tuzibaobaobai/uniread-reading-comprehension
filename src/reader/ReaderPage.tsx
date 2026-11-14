@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -48,6 +48,7 @@ import { QuestionNav } from '@/ui/quiz/QuestionNav/QuestionNav';
 import type { NavAction } from '@/ui/quiz/QuestionNav/NavButton';
 import { PartNav, type PartNavPart, type PartQuestionState } from '@/ui/vocab/PartNav/PartNav';
 import { FlagToggle } from '@/ui/quiz/FlagToggle/FlagToggle';
+import { PromptAside } from '@/ui/quiz/QuestionPrompt/QuestionPrompt';
 import { PartPager } from '@/ui/quiz/PartPager/PartPager';
 import { AnswerExplain, AnswerFeedback } from '@/ui/quiz/AnswerFeedback/AnswerFeedback';
 
@@ -245,6 +246,14 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
     const flagged = attempt.flagged ?? [];
     persist({ ...attempt, flagged: flagged.includes(qid) ? flagged.filter((f) => f !== qid) : [...flagged, qid] });
   };
+  // 标记本题 sits in the question's title row (#152); a page drawn without one (no rc/Quiz/QuestionPrompt for the
+  // question) floats it at the right instead — measured after each render, before paint
+  const [flagInline, setFlagInline] = useState(true);
+  useLayoutEffect(() => {
+    if (!examMode) return;
+    const inline = !!document.querySelector('.q-prompt-aside .flag-toggle');
+    if (inline !== flagInline && (inline || !document.querySelector('.flag-toggle-float'))) setFlagInline(inline);
+  });
   const played = useMemo(() => new Set(attempt.played ?? []), [attempt.played]);
   const markPlayed = (sectionId: string) =>
     setAttempt((prev) => {
@@ -506,7 +515,7 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
   };
 
   // the right-hand footer button: next question; on the last one 提交 (dim while questions are left, still tappable →
-  // the confirmation) or, after submitting, 重新作答
+  // the confirmation) or, after submitting, 重做
   const navAction: NavAction = submitted
     ? isLast
       ? { kind: 'retry', label: t('reader.retry'), onClick: retry }
@@ -710,25 +719,44 @@ function Reader({ item, headSlot }: { item: ItemT; headSlot: HTMLDivElement | nu
                   <Rich nodes={current.section.intro} />
                 </p>
               )}
-              {examMode && (
-                // 标记本题 (flag-toggle 19834:178047) floats at the right of the question's title
-                <FlagToggle
-                  flagged={!!attempt.flagged?.includes(current.q.id)}
-                  label={t('reader.flag')}
-                  flaggedLabel={t('reader.flagged')}
-                  onToggle={() => toggleFlag(current.q.id)}
-                />
+              {examMode && !flagInline && (
+                <span className="flag-toggle-float">
+                  <FlagToggle
+                    flagged={!!attempt.flagged?.includes(current.q.id)}
+                    label={t('reader.flag')}
+                    flaggedLabel={t('reader.flagged')}
+                    onToggle={() => toggleFlag(current.q.id)}
+                  />
+                </span>
               )}
-              <QuestionBody
-                // a new attempt (重新作答, practice ↔ exam) starts every interaction fresh — e.g. no recordings kept (#77)
-                key={attempt.attemptId}
-                props={iprops}
-                selfAssessed={result?.selfAssessed?.[page!.q.id]}
-                onSelfAssess={(v) =>
-                  result &&
-                  persist({ ...attempt, result: { ...result, selfAssessed: { ...result.selfAssessed, [page!.q.id]: v } } })
+              <PromptAside.Provider
+                value={
+                  examMode
+                    ? {
+                        number: current.q.number,
+                        node: (
+                          <FlagToggle
+                            flagged={!!attempt.flagged?.includes(current.q.id)}
+                            label={t('reader.flag')}
+                            flaggedLabel={t('reader.flagged')}
+                            onToggle={() => toggleFlag(current.q.id)}
+                          />
+                        ),
+                      }
+                    : null
                 }
-              />
+              >
+                <QuestionBody
+                  // a new attempt (重做, practice ↔ exam) starts every interaction fresh — e.g. no recordings kept (#77)
+                  key={attempt.attemptId}
+                  props={iprops}
+                  selfAssessed={result?.selfAssessed?.[page!.q.id]}
+                  onSelfAssess={(v) =>
+                    result &&
+                    persist({ ...attempt, result: { ...result, selfAssessed: { ...result.selfAssessed, [page!.q.id]: v } } })
+                  }
+                />
+              </PromptAside.Provider>
               {review &&
                 !current.group &&
                 (!EMBEDDED_EXPLAIN.has(current.q.interaction.kind) || hasImageOptions(current.q)) &&

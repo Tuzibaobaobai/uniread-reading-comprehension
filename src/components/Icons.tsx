@@ -80,7 +80,7 @@ export const ChevronRight = () => (
     <path d="M9 5l7 7-7 7" />
   </svg>
 );
-/** quiz footer 重新作答 (review, last question): a circular arrow */
+/** quiz footer 重做 (review, last question): a circular arrow */
 export const Retry = () => (
   <svg viewBox="0 0 24 24" aria-hidden {...s} strokeWidth={2}>
     <path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4.5h-4.5" />

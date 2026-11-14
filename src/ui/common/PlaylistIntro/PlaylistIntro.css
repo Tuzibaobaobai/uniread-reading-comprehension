@@ -1,5 +1,6 @@
-/* RC/Common/PlaylistIntro (proposed). Tokens only. --cover is set inline (the playlist cover). */
-.playlist-intro { position: sticky; top: 0; padding: var(--ur-space-48) 0; height: 100cqh; } /* = .app-scroll height */
+/* RC/Common/PlaylistIntro (proposed). Tokens only. --cover is set inline (the playlist cover).
+   Ready frame 合集页 (19949:220274, #150): area 1 = py 48; the panel is as tall as its content, at least 800px. */
+.playlist-intro { position: relative; padding: var(--ur-space-48) 0; align-self: start; }
 .playlist-back {
   position: absolute; left: calc(var(--ur-height-height-6) / -2); top: calc(var(--ur-space-24) + var(--ur-space-4)); z-index: 2;
 }
@@ -7,7 +8,7 @@
   --cover: none;
   --panel-gap: var(--ur-space-16);
   position: relative; isolation: isolate; overflow: hidden;
-  height: 100%;
+  min-height: calc(var(--ur-space-40) * 20); /* 800 */
   display: flex; flex-direction: column; gap: var(--panel-gap);
   padding: var(--ur-space-32);
   border-radius: var(--ur-radius-m);
@@ -17,8 +18,9 @@
 .playlist-intro-panel::after { content: ''; position: absolute; inset: 0; z-index: -1; }
 .playlist-intro-panel::before { background: var(--cover) center / cover; filter: blur(var(--ur-blur-panel)); transform: scale(1.4); }
 .playlist-intro-panel::after { background: var(--ur-color-background-overlay-panel); }
+/* thumbnail area: a square, the cover filling it from its top (a portrait book cover keeps its title) */
 .playlist-intro-cover {
-  width: 100%; aspect-ratio: 407 / 239; object-fit: cover; object-position: center; /* 1.01: the cover fills the box from its centre */ border-radius: var(--ur-radius-xs); flex: none;
+  width: 100%; aspect-ratio: 1; object-fit: cover; object-position: top; border-radius: var(--ur-radius-xs); flex: none;
 }
 .playlist-intro-title {
   margin: 0; padding: var(--ur-space-8) 0 var(--ur-space-24);
@@ -33,19 +35,26 @@
   margin-bottom: calc(var(--panel-gap) * -1);
 }
 .playlist-intro-desc {
-  flex: 1; min-height: 0; margin: 0;
+  margin: 0 0 calc(var(--ur-space-48) - var(--panel-gap));
+  min-height: calc(var(--ur-text-font-system-m-regular-line-height) * 6); /* 156 = six lines */
   color: var(--ur-color-text-secondary);
   font-size: var(--ur-text-font-system-m-regular-size); line-height: var(--ur-text-font-system-m-regular-line-height);
-  overflow: hidden;
 }
-/* narrow: a compact card above the list — banner left (200px = 5 × space/40), text right */
+/* button group (10091:56404): chart button + 收藏 filling the rest, pushed to the bottom of the panel */
+.playlist-intro-actions { margin-top: auto; display: flex; gap: var(--ur-space-8); }
+.playlist-intro-actions .playlist-fav { flex: 1; min-width: 0; }
+/* narrow: a compact card above the list — cover left (200px = 5 × space/40), text right */
 @media (max-width: 1023px) {
-  .playlist-intro { position: relative; height: auto; padding: 0; }
+  .playlist-intro { padding: 0; }
   .playlist-back { position: fixed; left: var(--ur-space-16); top: var(--ur-space-16); }
   .playlist-intro-panel {
+    min-height: 0;
     display: grid; grid-template-columns: calc(var(--ur-space-40) * 5) 1fr; align-items: start;
     gap: var(--ur-space-8) var(--ur-space-20); padding: var(--ur-space-20);
   }
-  .playlist-intro-cover { grid-row: span 4; }
+  .playlist-intro-cover { grid-row: span 5; }
   .playlist-intro-title, .playlist-intro-stats { margin-bottom: 0; padding: 0 0 var(--ur-space-8); }
+  .playlist-intro-desc { min-height: 0; margin: 0; }
+  .playlist-intro-actions { margin-top: 0; }
+  .playlist-intro-actions .playlist-fav { flex: none; }
 }
