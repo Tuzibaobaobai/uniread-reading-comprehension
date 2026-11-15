@@ -17,10 +17,13 @@
  *
  * Uploaded: playlist cover and item thumbnails (exam-media/v1/<sha>.jpg|png); section recordings and speaking
  * prompts (exam-resources/v1/<releaseId>/<resourceFingerprint>/media/<sha><ext>, with the BE's assetId). A Resource is a
- * whole Item (scripts/selection-json.ts), so a Part's recording belongs to its Item's Resource. Kept local, no key:
- * article / question images (the BE inlines them in HTML). Capability gaps, listed with no key invented: banner, video,
- * vocab lexicon audio. Errors (status INCOMPLETE): missing / mislabelled files, item audio spanning several resources,
- * unknown references.
+ * whole Item (scripts/selection-json.ts), so a Part's recording belongs to its Item's Resource. 词汇天天练 lexicon audio
+ * (BE rule, #130 2026-11-13): a day's Resource holds the headword and every example recording of the union of its
+ * `entryIds` and its questions' `entryRef`s, under the same media key; an entry used by several days is listed (and
+ * stored) once per Resource with the same assetId; at most 512 media files per Resource. Kept local, no key:
+ * article / question images (the BE inlines them in HTML). Capability gaps, listed with no key invented: banner, video.
+ * Errors (status INCOMPLETE): missing / mislabelled files, item audio spanning several resources, unknown references,
+ * a Resource over the media limit.
  */
 import { existsSync, lstatSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -43,8 +46,11 @@ import {
 export const PLAN_FORMAT = 'be-asset-upload-plan-1';
 const CONTENT = 'content';
 const ID_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+const SELECTION_FORMATS = ['rc-selection-2', 'rc-selection-3'];
+/** BE limit on media descriptions per vocab Resource (#130, 2026-11-13) */
+export const MAX_MEDIA_PER_RESOURCE = 512;
 
-type Use = { playlistId: string; document: string; pointer: string; itemId?: string; sectionId?: string; questionId?: string; turnId?: string };
+type Use = { playlistId: string; document: string; pointer: string; itemId?: string; sectionId?: string; questionId?: string; turnId?: string; entryId?: string; referencedFrom?: string };
 export type PlanFile = {
   sourcePath: string;
   roles: string[];
@@ -75,7 +81,7 @@ export function buildPlan(contentReleaseId: string, selectionPath: string, opts:
   if (!ID_RE.test(contentReleaseId)) throw new Error(`contentReleaseId "${contentReleaseId}" must be lowercase letters, digits and hyphens`);
   const selBytes = readFileSync(selectionPath);
   const sel = JSON.parse(selBytes.toString('utf8')) as Selection;
-  if (sel.format !== 'rc-selection-2') throw new Error(`${selectionPath}: format ${sel.format}, expected rc-selection-2`);
+  if (!SELECTION_FORMATS.includes(sel.format)) throw new Error(`${selectionPath}: format ${sel.format}, expected ${SELECTION_FORMATS.join(' or ')}`);
   // one Playlist per selection = one registration package = one releaseId (KET A2 and PET B1 never share a package)
   const selPlaylists = [...new Set(sel.resources.map((r) => r.playlistId))];
   if (selPlaylists.length !== 1) throw new Error(`${selectionPath}: a selection must cover exactly one Playlist (has ${selPlaylists.join(', ') || 'none'})`);
@@ -139,7 +145,7 @@ export function buildPlan(contentReleaseId: string, selectionPath: string, opts:
     if (!(ext in IMAGE_TYPES)) return void errors.push(`${src} (${role}): the BE takes only JPEG / PNG as a separate image`);
     addFile(imageObjectKey(info.sha, src), { sourcePath: src, sha256: info.sha, sizeBytes: info.size, contentType: IMAGE_TYPES[ext] }, role, use);
   };
-  const audio = (src: string, seconds: number | undefined, role: string, originType: 'recording' | 'tts', resourceId: string, use: Use) => {
+  const audio = (src: string, seconds: number | undefined, role: string, originType: 'recording' | 'tts', resourceId: string, use: Use, origin?: string) => {
     const info = asset(src, use);
     if (!info) return;
     const ext = extOf(src);
@@ -158,9 +164,10 @@ export function buildPlan(contentReleaseId: string, selectionPath: string, opts:
         ...(seconds ? { seconds } : {}),
         originType,
         origin:
-          originType === 'tts'
+          origin ??
+          (originType === 'tts'
             ? 'Volcano Engine TTS (scripts/tts.mjs), mp3 64 kbps'
-            : 'book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays',
+            : 'book recording, AAC 48 kbps mono (scripts/audio.mjs); the file holds both plays'),
       },
       role,
       use,
@@ -236,13 +243,48 @@ export function buildPlan(contentReleaseId: string, selectionPath: string, opts:
         });
       });
     });
-    // 词汇天天练: the headword / example recordings live on shared lexicon entries. Agreed direction (#130, 2026-11-05):
-    // the existing audio key per Resource, a recording used by several days uploaded once per Resource (duplication
-    // accepted) — but until the BE defines how entry audio maps to a Resource it stays a gap, with no key invented
-    if (item.format === 'vocab-day')
-      capabilityGaps.push(
-        `${document}: lexicon audio of ${item.entryIds.length} entries (content/lexicons/${item.lexicon}) — will use the existing audio key of the day's Resource (exam-resources/v1/<releaseId>/<resourceFingerprint>/media/…, duplicated per Resource), but the BE has not yet defined how entry audio maps to a Resource; no key until it does`,
-      );
+    // 词汇天天练: the headword / example recordings live on shared lexicon entries; each day's Resource gets its own
+    // copy of every entry it shows or links to (BE rule, #130 2026-11-13)
+    if (item.format === 'vocab-day') {
+      const rs = [...new Set(sectionsInItem)];
+      if (rs.length !== 1) errors.push(`${document}: a vocab day spans ${rs.length} resources — its entry audio has no single resource`);
+      else {
+        const refs = new Map<string, Use>();
+        (item.entryIds as string[]).forEach((id, i) => refs.set(id, { ...base, pointer: ptr(['entryIds', i]) }));
+        (item.sections as { id: string; questions: { id: string; entryRef?: string }[] }[]).forEach((s, si) =>
+          s.questions.forEach((q, qi) => {
+            if (q.entryRef && !refs.has(q.entryRef)) refs.set(q.entryRef, { ...base, pointer: ptr(['sections', si, 'questions', qi, 'entryRef']), sectionId: s.id, questionId: q.id });
+          }),
+        );
+        for (const [entryId, via] of refs) {
+          const entryDoc = `lexicons/${item.lexicon}/entries/${entryId}.json`;
+          if (!existsSync(join(CONTENT, entryDoc))) {
+            errors.push(`${document}${via.pointer}: lexicon entry ${entryId} is missing (${entryDoc})`);
+            continue;
+          }
+          const entry = doc(entryDoc);
+          const use = (pointer: string) => ({ ...via, document: entryDoc, pointer, entryId, referencedFrom: `${document}${via.pointer}` });
+          const origin = 'TTS (scripts/tts.mjs --lexicon), mp3';
+          const known = new Set<string>();
+          if (entry.audio?.word?.src) {
+            known.add('/audio/word/src');
+            audio(entry.audio.word.src, entry.audio.word.seconds, 'entry-word', 'tts', rs[0], use('/audio/word/src'), origin);
+          } else errors.push(`${entryDoc}: no headword audio`);
+          (entry.audio?.examples ?? []).forEach((x: { src: string; seconds?: number }, xi: number) => {
+            const pointer = ptr(['audio', 'examples', xi, 'src']);
+            known.add(pointer);
+            audio(x.src, x.seconds, `entry-example[${xi + 1}]`, 'tts', rs[0], use(pointer), origin);
+          });
+          const walkEntry = (o: unknown, parts: (string | number)[]) => {
+            if (typeof o === 'string') {
+              if (/^assets\//.test(o) && !known.has(ptr(parts))) errors.push(`${entryDoc}${ptr(parts)}: unknown asset reference ${o}`);
+            } else if (Array.isArray(o)) o.forEach((v, i) => walkEntry(v, [...parts, i]));
+            else if (o && typeof o === 'object') Object.entries(o).forEach(([k, v]) => walkEntry(v, [...parts, k]));
+          };
+          walkEntry(entry, []);
+        }
+      }
+    }
     // unknown reference types are reported, never guessed
     const walk = (o: unknown, parts: (string | number)[]) => {
       if (typeof o === 'string') {
@@ -264,6 +306,9 @@ export function buildPlan(contentReleaseId: string, selectionPath: string, opts:
     .map(([p, h]) => `${h}  ${p}`)
     .join('\n') + '\n';
   const list = [...files.values()].sort((a, b) => (a.objectKey < b.objectKey ? -1 : 1));
+  const perResource = new Map<string, number>();
+  for (const f of list) if (f.resourceId) perResource.set(f.resourceId, (perResource.get(f.resourceId) ?? 0) + 1);
+  for (const [r, n] of perResource) if (n > MAX_MEDIA_PER_RESOURCE) errors.push(`resource ${r}: ${n} media files, over the BE limit of ${MAX_MEDIA_PER_RESOURCE}`);
   const plan = {
     format: PLAN_FORMAT,
     sourceId: sel.sourceId,

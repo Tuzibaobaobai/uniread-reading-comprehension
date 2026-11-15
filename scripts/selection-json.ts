@@ -1,8 +1,11 @@
 /**
  * Optional machine selection list (docs/14 §3.1, format rc-selection-2) — one file per frozen Selection of ONE Playlist.
+ * 词汇天天练 (#130, BE 2026-11-13): format rc-selection-3 = rc-selection-2 without materials (no `materials`, no
+ * resource `materialId`) — chosen automatically when every selected item is a vocab day.
  *
  *   npx tsx scripts/selection-json.ts <paperId> "<paper title>" <playlistId> [itemId …]
  *   npx tsx scripts/selection-json.ts --per-section …   legacy mapping, only to reproduce the delivered 时文 selections
+ *   npx tsx scripts/selection-json.ts --out <path> …    write elsewhere (a new delivery must not overwrite a frozen file)
  *   → docs/handoff/production-selection.<paperId>.json
  *
  * Logical ids (stable; lowercase letters/digits/hyphens, ≤128; not platform DB ids):
@@ -57,12 +60,21 @@ export function buildSelection(paperId: string, title: string, playlistId: strin
   const p = JSON.parse(readFileSync(`content/playlists/${playlistId}/playlist.json`, 'utf8')) as PlaylistT;
   const ids = itemIds?.length ? itemIds : p.itemIds;
   const items = ids.map((id) => JSON.parse(readFileSync(`content/playlists/${playlistId}/items/${id}.json`, 'utf8')) as ItemT);
-  const sel = {
-    format: 'rc-selection-2',
+  const noMaterials = items.every((it) => (it as { format?: string }).format === 'vocab-day');
+  const mat = (it: ItemT) => (noMaterials ? {} : { materialId: materialIdOf(it.id) });
+  const sel: {
+    format: string;
+    sourceId: string;
+    paperId: string;
+    title: string;
+    materials?: { materialId: string; playlistId: string; itemId: string }[];
+    resources: { resourceId: string; title: string; playlistId: string; itemId: string; sectionIds: string[]; materialId?: string }[];
+  } = {
+    format: noMaterials ? 'rc-selection-3' : 'rc-selection-2',
     sourceId: SOURCE_ID,
     paperId,
     title,
-    materials: items.map((it) => ({ materialId: materialIdOf(it.id), playlistId, itemId: it.id })),
+    ...(noMaterials ? {} : { materials: items.map((it) => ({ materialId: materialIdOf(it.id), playlistId, itemId: it.id })) }),
     resources: opts.perSection
       ? items.flatMap((it) =>
           it.sections.map((s, i) => ({
@@ -71,7 +83,7 @@ export function buildSelection(paperId: string, title: string, playlistId: strin
             playlistId,
             itemId: it.id,
             sectionIds: [s.id],
-            materialId: materialIdOf(it.id),
+            ...mat(it),
           })),
         )
       : items.map((it) => ({
@@ -80,7 +92,7 @@ export function buildSelection(paperId: string, title: string, playlistId: strin
           playlistId,
           itemId: it.id,
           sectionIds: it.sections.map((s) => s.id),
-          materialId: materialIdOf(it.id),
+          ...mat(it),
         })),
   };
   // format rules from §3.1
@@ -88,7 +100,7 @@ export function buildSelection(paperId: string, title: string, playlistId: strin
   const checkId = (v: string, what: string) => (!ID_RE.test(v) || v.length > 128) && problems.push(`${what} "${v}" is not a valid id`);
   checkId(sel.sourceId, 'sourceId');
   checkId(sel.paperId, 'paperId');
-  sel.materials.forEach((m) => checkId(m.materialId, 'materialId'));
+  (sel.materials ?? []).forEach((m) => checkId(m.materialId, 'materialId'));
   const seen = new Set<string>();
   sel.resources.forEach((r) => {
     checkId(r.resourceId, 'resourceId');
@@ -99,7 +111,7 @@ export function buildSelection(paperId: string, title: string, playlistId: strin
       seen.add(k);
     });
   });
-  sel.materials.forEach((m) => !sel.resources.some((r) => r.materialId === m.materialId) && problems.push(`material ${m.materialId} unused`));
+  (sel.materials ?? []).forEach((m) => !sel.resources.some((r) => r.materialId === m.materialId) && problems.push(`material ${m.materialId} unused`));
   if (new Set(sel.resources.map((r) => r.resourceId)).size !== sel.resources.length) problems.push('a resourceId is used twice');
   if (problems.length) throw new Error(problems.join('\n'));
   return sel;
@@ -108,13 +120,15 @@ export function buildSelection(paperId: string, title: string, playlistId: strin
 if (import.meta.url === `file://${process.argv[1]}`) {
   const args = process.argv.slice(2);
   const perSection = args.includes('--per-section');
-  const [paperId, title, playlistId, ...itemIds] = args.filter((a) => a !== '--per-section');
+  const outAt = args.indexOf('--out');
+  const outArg = outAt >= 0 ? args[outAt + 1] : undefined;
+  const [paperId, title, playlistId, ...itemIds] = args.filter((a, i) => a !== '--per-section' && i !== outAt && i !== outAt + 1);
   if (!paperId || !title || !playlistId) {
-    console.error('usage: npx tsx scripts/selection-json.ts [--per-section] <paperId> "<title>" <playlistId> [itemId …]');
+    console.error('usage: npx tsx scripts/selection-json.ts [--per-section] [--out <path>] <paperId> "<title>" <playlistId> [itemId …]');
     process.exit(1);
   }
   const sel = buildSelection(paperId, title, playlistId, itemIds, { perSection });
-  const out = `docs/handoff/production-selection.${paperId}.json`;
+  const out = outArg ?? `docs/handoff/production-selection.${paperId}.json`;
   writeFileSync(out, JSON.stringify(sel, null, 2) + '\n');
-  console.log(`${out}: ${sel.materials.length} materials, ${sel.resources.length} resources`);
+  console.log(`${out}: ${sel.format}, ${sel.materials?.length ?? 0} materials, ${sel.resources.length} resources`);
 }

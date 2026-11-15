@@ -92,6 +92,51 @@ describe('selection (item-level Resources)', () => {
     expect(sel.resources[0].sectionIds).toEqual(['s1', 's2', 's3', 's4', 's5', 's6', 's7']);
     const legacy = buildSelection('ket1-t1', 'KET 第1套', 'ket1', ['ket1-t1-rw'], { perSection: true });
     expect(legacy.resources.map((r) => r.resourceId)).toEqual(['s1', 's2', 's3', 's4', 's5', 's6', 's7'].map((s) => `ket1-t1-rw-${s}`));
+    expect(sel.format).toBe('rc-selection-2');
+    expect(sel.materials).toHaveLength(3);
+  });
+  it('词汇天天练 uses rc-selection-3: rc-selection-2 without materials (#130, 2026-11-13)', () => {
+    const sel = buildSelection('zkv-full', '中考词汇', 'zkv', ['zkv-d01', 'zkv-d04']);
+    expect(sel.format).toBe('rc-selection-3');
+    expect(sel).not.toHaveProperty('materials');
+    expect(sel.resources.map((r) => r.resourceId)).toEqual(['zkv-d01', 'zkv-d04']);
+    expect(sel.resources.every((r) => !('materialId' in r))).toBe(true);
+    const d04 = JSON.parse(readFileSync('content/playlists/zkv/items/zkv-d04.json', 'utf8'));
+    expect(sel.resources[1].sectionIds).toEqual(d04.sections.map((s: { id: string }) => s.id));
+  });
+});
+
+const zkvAudio = 'content/assets/lexicons/zkv/e-area.mp3';
+describe.skipIf(!existsSync(zkvAudio))('plan (词汇天天练 entry audio, #130 2026-11-13)', () => {
+  it("a day's Resource holds the audio of its entryIds plus its questions' entryRefs; shared entries are stored per Resource", () => {
+    const dir = mkdtempSync(join(tmpdir(), 'rc-vocab-'));
+    const selPath = join(dir, 'sel.json');
+    writeFileSync(selPath, JSON.stringify(buildSelection('zkv-full', '中考词汇', 'zkv', ['zkv-d03', 'zkv-d04'])));
+    const opts = { releaseId: '7b987e78-3746-4ffa-b5a7-8d2fd315a9fd', frozenAt: '2026-11-15T00:00:00.000Z', sourceCommit: 'test' };
+    const { plan } = buildPlan('zkv-test', selPath, opts);
+    expect(plan.status).toBe('PREPARED');
+    expect(plan.errors).toEqual([]);
+    expect(plan.capabilityGaps.some((g) => g.includes('lexicon'))).toBe(false);
+    const d04 = JSON.parse(readFileSync('content/playlists/zkv/items/zkv-d04.json', 'utf8'));
+    const entry = (id: string) => JSON.parse(readFileSync(`content/lexicons/zkv/entries/${id}.json`, 'utf8'));
+    const refs = (d04.sections as { questions: { entryRef?: string }[] }[]).flatMap((s) => s.questions.map((q) => q.entryRef)).filter(Boolean) as string[];
+    const ids = new Set<string>([...d04.entryIds, ...refs]);
+    expect(refs.some((r) => !d04.entryIds.includes(r))).toBe(true); // e-area etc. come from another day
+    const expected = [...ids].reduce((n, id) => n + 1 + (entry(id).audio.examples?.length ?? 0), 0);
+    const inD04 = plan.files.filter((f) => f.resourceId === 'zkv-d04');
+    expect(inD04).toHaveLength(expected);
+    const area = inD04.find((f) => f.sourcePath === 'assets/lexicons/zkv/e-area.mp3')!;
+    expect(area.roles).toEqual(['entry-word']);
+    expect(area.assetId).toBe(audioAssetId('assets/lexicons/zkv/e-area.mp3'));
+    expect(area.objectKey).toBe(`exam-resources/v1/${opts.releaseId}/${resourceFingerprint('uniread-rc', 'zkv-full', 'zkv-d04')}/media/${area.sha256}.mp3`);
+    expect(area.usedBy[0]).toMatchObject({ entryId: 'e-area', itemId: 'zkv-d04', document: 'lexicons/zkv/entries/e-area.json', pointer: '/audio/word/src' });
+    expect(inD04.some((f) => f.roles[0].startsWith('entry-example['))).toBe(true);
+    // the same file under two Resources: one object each, same assetId, different keys
+    const both = plan.files.filter((f) => f.sourcePath === 'assets/lexicons/zkv/e-area.mp3');
+    expect(both.map((f) => f.resourceId).sort()).toEqual(['zkv-d03', 'zkv-d04']);
+    expect(both[0].assetId).toBe(both[1].assetId);
+    expect(both[0].objectKey).not.toBe(both[1].objectKey);
+    expect(Object.keys(plan.files.find((f) => f.resourceId === 'zkv-d03')!)).toContain('assetId');
   });
 });
 
