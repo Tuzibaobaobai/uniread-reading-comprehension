@@ -14,6 +14,7 @@ import { QuestionStack, QuestionStackItem } from '@/ui/exam/QuestionStack/Questi
 import { TableCellSelect, TableCellText } from '@/ui/exam/TableCell/TableCell';
 import { Block } from './ArticlePane';
 import { OptionList, QuestionPrompt, type InteractionProps } from './interactions';
+import { PromptAsideSlot } from '@/ui/quiz/QuestionPrompt/QuestionPrompt';
 import { judgeFeedback } from '@/lib/judge';
 
 /*
@@ -107,6 +108,7 @@ export function SectionAllView(props: InteractionProps) {
               head={
                 <>
                   <span className="q-num">{q.number}.</span> <Rich nodes={promptOf(q)} />
+                  <PromptAsideSlot number={q.number} />
                 </>
               }
             >

@@ -84,6 +84,7 @@ export function VocabQuiz({
   submitting,
   onShowResult,
   onBackToResult,
+  wrongOnly = false,
 }: {
   state: QuizState;
   page: number;
@@ -93,6 +94,8 @@ export function VocabQuiz({
   onShowResult: () => void;
   /** 只练错题: back to the result of the attempt being practised again (undefined once that result is not at hand) */
   onBackToResult?: () => void;
+  /** this attempt is a 只练错题 retry — also when every answer was wrong, so nothing is kept (#146) */
+  wrongOnly?: boolean;
 }) {
   const { t } = useTranslation();
   const { item, review } = state;
@@ -159,7 +162,7 @@ export function VocabQuiz({
     <div className="question-card vocab-quiz">
       {/* #146: in review the way back to the result is the breadcrumb at the top of the card (Figma 3.26), not a button;
           只练错题 shows where it came from the same way (Figma 3.30 19463:3813): 测试结果 › 只练错题 */}
-      {!review && state.kept.size > 0 && (
+      {!review && (wrongOnly || state.kept.size > 0) && (
         <Breadcrumb
           label={t('vocab.result.breadcrumb')}
           items={[

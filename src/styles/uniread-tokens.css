@@ -409,6 +409,7 @@
   --ur-size-icon-l: 32px; /* proposed */
   --ur-size-icon-xl: 40px; /* proposed */
   --ur-opacity-disabled: 0.2; /* needs-designer (value kept from RC until UniRead decides) */
+  --ur-opacity-nav-disabled: 0.3; /* proposed */
   --ur-blur-panel: 100px; /* needs-designer (value kept from RC until UniRead decides) */
   --ur-stroke-radio: 0.75px; /* needs-designer (value kept from RC until UniRead decides) */
   --ur-stroke-blank: 1.5px; /* needs-designer (value kept from RC until UniRead decides) */
@@ -424,9 +425,10 @@
   --ur-font-ipa: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif; /* needs-designer (value kept from RC until UniRead decides) */
 
   /* ---- RC proposed (pending UniRead approval) · effect */
-  --ur-effect-btn: 0px 2px 8px 0px rgba(29, 39, 81, 0.1);
-  --ur-effect-btn-hover: 0px 2px 20px 0px rgba(29, 39, 81, 0.1);
+  --ur-effect-btn: 0px 4px 15px 0px rgba(29, 39, 81, 0.08);
+  --ur-effect-btn-hover: 0px 6px 20px 0px rgba(29, 39, 81, 0.12);
   --ur-effect-btn-btn-xs: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);
-  --ur-effect-btn-btn-s: 0px 2px 8px 0px rgba(29, 39, 81, 0.1);
+  --ur-effect-btn-btn-s: 0px 4px 15px 0px rgba(29, 39, 81, 0.08);
+  --ur-effect-btn-btn-s-hover: 0px 6px 20px 0px rgba(29, 39, 81, 0.12);
   --ur-effect-flag: 0px 2px 0px 0px rgba(185, 147, 106, 0.2);
 }

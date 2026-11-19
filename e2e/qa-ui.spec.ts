@@ -172,6 +172,16 @@ test('#149 home filter row: 全部 / 最近在读 / 已完成 with counts; a sta
   await expect(page.locator('.playlist-empty')).toBeVisible();
 });
 
+test('#150 home grid: never fewer than 4 columns from 1200 (1200–1219 used to show 3)', async ({ page }, info) => {
+  test.skip(info.project.name !== 'desktop', 'one viewport is enough');
+  await page.goto('/');
+  const cols = () => page.locator('.playlist-grid').evaluate((g) => getComputedStyle(g).gridTemplateColumns.split(' ').length);
+  for (const width of [1200, 1210, 1219, 1240, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    expect(await cols(), `${width}px`).toBeGreaterThanOrEqual(4);
+  }
+});
+
 test('a number tapped while the answers are being graded is kept: the review does not jump back to question 1 (dev regression 2026-11-12)', async ({ page }) => {
   await page.route('**/api/rc/grade', async (route) => {
     await new Promise((r) => setTimeout(r, 1500)); // a slow network
@@ -225,7 +235,7 @@ test('#153 #154 #151 exam footer: "more" (··· +N) beside the arrows, a one-qu
   await page.getByRole('button', { name: /练习模式/ }).click();
   const more = page.locator('.part-nav .strip-more-right');
   await expect(more).toBeVisible();
-  await expect(more.locator('img')).toHaveCount(1);
+  await expect(more.locator('img.is-default')).toHaveCount(1);
   await expect(more.locator('.strip-more-count')).toHaveText(/^\+\d+$/);
   // Part 6 is one question: the current card hugs it (min 88), no empty space beside the number
   await page.locator('.part-card[data-part="P6"]').click();
@@ -240,4 +250,41 @@ test('#153 #154 #151 exam footer: "more" (··· +N) beside the arrows, a one-qu
   const redo = page.locator('.part-arrow.is-retry');
   await expect(redo).toContainText('重做');
   expect(await redo.locator('span').evaluate((e) => e.scrollWidth <= e.clientWidth)).toBe(true);
+});
+
+test('#153 footer states as the main components draw them: hover of the arrows, "more", a Part card and back', async ({ page }, info) => {
+  test.skip(info.project.name !== 'desktop', 'hover styles need a mouse (hover: hover)');
+  await page.emulateMedia({ reducedMotion: 'reduce' }); // no transition: the hover state is read at once
+  await page.goto('/#/p/ket1/ket1-t1-rw');
+  await page.getByRole('button', { name: /练习模式/ }).click();
+  const css = (sel: string, prop: string) => page.locator(sel).first().evaluate((e, p) => getComputedStyle(e).getPropertyValue(p), prop);
+  const token = (name: string) => page.evaluate((n) => {
+    const probe = document.createElement('div');
+    probe.style.boxShadow = `var(${n})`;
+    document.body.append(probe);
+    const v = getComputedStyle(probe).boxShadow;
+    probe.remove();
+    return v;
+  }, name);
+  // previous / next: btn/btn-s, hover btn/btn-s-hover; the first page's previous is Disabled (30 %)
+  const next = '.part-nav .part-arrow.nav-arrow-next';
+  expect(await css(next, 'box-shadow')).toBe(await token('--ur-effect-btn-btn-s'));
+  await page.locator(next).hover();
+  expect(await css(next, 'box-shadow')).toBe(await token('--ur-effect-btn-btn-s-hover'));
+  // more: "···" → the double arrow of its side
+  const more = page.locator('.part-nav .strip-more-right');
+  await more.hover();
+  expect(await more.locator('img.is-default').evaluate((e) => getComputedStyle(e).opacity)).toBe('0');
+  expect(await more.locator('img.is-hover').evaluate((e) => getComputedStyle(e).opacity)).toBe('1');
+  expect(await more.locator('img.is-hover').getAttribute('src')).not.toBe(await more.locator('img.is-default').getAttribute('src'));
+  // a Part card: the border turns brand/4
+  const card = page.locator('.part-nav button.part-card').first();
+  const before = await card.evaluate((e) => getComputedStyle(e).borderColor);
+  await card.hover();
+  const after = await card.evaluate((e) => getComputedStyle(e).borderColor);
+  expect(after).not.toBe(before);
+  expect(after).toBe(await page.locator('.part-card.is-current').evaluate((e) => getComputedStyle(e).borderColor));
+  // back: the icon at 70 %
+  await page.locator('.back-button').first().hover();
+  expect(await css('.back-button .back-icon', 'opacity')).toBe('0.7');
 });

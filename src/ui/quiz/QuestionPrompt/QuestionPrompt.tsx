@@ -9,20 +9,34 @@ import './QuestionPrompt.css';
 export const PromptAside = createContext<{ number: number | string; node: ReactNode } | null>(null);
 
 /**
+ * The aside of question `number`, placed right after its text (#152, relative position: it follows the last word, not
+ * the row's right edge). QuestionPrompt uses it; so does any other title of a question, e.g. a ChoiceGrid row head.
+ */
+export function PromptAsideSlot({ number }: { number: number | string }) {
+  const aside = useContext(PromptAside);
+  return aside && String(aside.number) === String(number) ? <span className="q-prompt-aside">{aside.node}</span> : null;
+}
+
+/**
  * rc/Quiz/QuestionPrompt (proposed, RC · Proposed — issue #138): the question number + stem, shared by 时文阅读 and
  * KET/PET. Variants: Number (text); Stem BOOLEAN (exam notice questions print the number only — pass no children);
  * Hint BOOLEAN (rc/Common/HintText right under the prompt); aside (PromptAside: number | stem | flag, as in the Ready
- * frame 考试模式-标记 20000:222105 — after the number when there is no stem). Keeps the classes `q-prompt` / `q-num`.
+ * frame 考试模式-标记 20000:222105 — inline right after the stem's last word, after the number when there is no stem). Keeps the classes `q-prompt` / `q-num`.
  */
 export function QuestionPrompt({ number, hint, children }: { number: number | string; hint?: ReactNode; children?: ReactNode }) {
-  const aside = useContext(PromptAside);
   const stem = children !== undefined && children !== null && children !== false && children !== '';
   return (
     <>
       <h2 className="q-prompt">
         <span className="q-num">{number}.</span>
-        {stem && <span className="q-stem">{children}</span>}
-        {aside && String(aside.number) === String(number) && <span className="q-prompt-aside">{aside.node}</span>}
+        {stem ? (
+          <span className="q-stem">
+            {children}
+            <PromptAsideSlot number={number} />
+          </span>
+        ) : (
+          <PromptAsideSlot number={number} />
+        )}
       </h2>
       {hint !== undefined && <HintText>{hint}</HintText>}
     </>

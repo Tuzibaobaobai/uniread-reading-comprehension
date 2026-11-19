@@ -4,11 +4,14 @@
   flex: none; width: var(--ur-height-height-7); height: var(--ur-height-height-10);
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--ur-space-2); padding: 0;
   border: none; border-radius: var(--ur-radius-full);
-  background: var(--ur-color-background-card); box-shadow: var(--ur-effect-btn);
+  background: var(--ur-color-background-card); box-shadow: var(--ur-effect-btn-btn-s);
   color: var(--ur-color-text-on-action);
+  /* Default → Hover: smart animate, ease-out 300 ms (#153) */
+  transition: box-shadow .3s ease-out;
 }
 .part-arrow img { display: block; height: calc(var(--ur-space-16) + var(--ur-space-2)); width: auto; }
-.part-arrow:disabled { opacity: var(--ur-opacity-disabled); }
+/* Disabled=yes (19706:143568): 30 % with the box/card shadow */
+.part-arrow:disabled { opacity: var(--ur-opacity-nav-disabled); box-shadow: var(--ur-effect-card); }
 /* "+N": numbers the strip hides on this side */
 .part-arrow-more {
   color: var(--ur-color-text-secondary); opacity: .6; font-variant-numeric: tabular-nums;
@@ -27,7 +30,8 @@
   font-weight: var(--ur-text-font-system-s-medium-weight); white-space: nowrap;
 }
 @media (hover: hover) and (pointer: fine) {
-  .part-arrow:hover:not(:disabled) { box-shadow: var(--ur-effect-btn-hover); }
+  .part-arrow:hover:not(:disabled) { box-shadow: var(--ur-effect-btn-btn-s-hover); }
   .part-arrow.is-primary:hover:not(:disabled):not(.is-dim) { background: var(--ur-color-action-primary-strong); }
 }
 .part-arrow:focus-visible { outline: var(--ur-stroke-strong) solid var(--ur-color-action-primary); outline-offset: var(--ur-space-2); }
+@media (prefers-reduced-motion: reduce) { .part-arrow { transition: none; } }

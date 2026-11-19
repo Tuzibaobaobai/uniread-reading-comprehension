@@ -219,7 +219,8 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
       responses: keepResp,
       hinted: (attempt.hinted ?? []).filter((h) => right.includes(h.split(':')[0])),
       known: attempt.known,
-      kept: right.length ? right : undefined,
+      // 只练错题 is marked even when nothing was right (an empty list), so its breadcrumb always shows (#146)
+      kept: wrongOnly ? right : undefined,
     });
     setKey(null);
     setView('quiz');
@@ -306,6 +307,7 @@ export function VocabDayPage({ item, headSlot }: { item: VocabDayItemT; headSlot
               onSubmit={() => (unanswered ? setConfirm(unanswered) : void submit())}
               onShowResult={() => setView('result')}
               onBackToResult={retriedFrom ? backToResult : undefined}
+              wrongOnly={attempt.kept !== undefined}
             />
           )}
           {submitError && (

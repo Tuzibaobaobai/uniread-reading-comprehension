@@ -88,13 +88,15 @@ img { display: block; max-width: 100%; }
   width: var(--back-btn); height: var(--back-btn); flex: none;
   display: grid; place-items: center;
   border: none; border-radius: var(--radius-full);
-  background: var(--bg-card); box-shadow: var(--shadow-btn);
+  background: var(--bg-card); box-shadow: var(--ur-effect-btn-btn-s);
 }
 .back-button { color: var(--back-icon-color); }
-.back-icon { width: var(--back-icon); height: var(--back-icon); }
+/* btn-back state=Default → Hover (6270:41344, #153): the icon goes to 70 %, smart animate ease-out 300 ms */
+.back-icon { width: var(--back-icon); height: var(--back-icon); transition: opacity .3s ease-out; }
 @media (hover: hover) and (pointer: fine) {
-  .back-button:hover { color: var(--back-icon-hover); }
+  .back-button:hover .back-icon { opacity: .7; }
 }
+@media (prefers-reduced-motion: reduce) { .back-icon { transition: none; } }
 
 /* .pill-button → src/ui/QuizButton (UniRead UIKit-Quiz button) */
 

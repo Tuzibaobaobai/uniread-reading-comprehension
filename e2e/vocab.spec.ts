@@ -293,6 +293,25 @@ test('Quiz: Part pages, typed answers only, Enter, result, review, entry, retry 
   await expect(page.getByRole('button', { name: /查看答案/ })).toBeVisible();
 });
 
+test('只练错题 shows its breadcrumb also when every answer was wrong (#146)', async ({ page }) => {
+  await page.goto('/#/p/gkv/gkv-d003');
+  await page.getByRole('tab', { name: /测验/ }).click();
+  await page.getByRole('button', { name: /^Part 4/ }).click();
+  await page.getByRole('button', { name: '提交' }).click();
+  await page.getByRole('dialog').getByRole('button', { name: /提交/ }).click();
+  await page.getByRole('button', { name: /只练错题/ }).click();
+  await expect(page.locator('.vq-row.is-kept')).toHaveCount(0);
+  const crumbs = page.getByRole('navigation', { name: '导航路径' });
+  await expect(crumbs.locator('[aria-current="page"]')).toHaveText('只练错题');
+  await crumbs.getByRole('button', { name: '测试结果' }).click();
+  await expect(page.getByRole('button', { name: /只练错题/ })).toBeVisible();
+  // after a reload the retry is still a 只练错题: the breadcrumb stays (测试结果 as plain text)
+  await page.getByRole('button', { name: /只练错题/ }).click();
+  await page.reload();
+  await page.getByRole('tab', { name: /测验/ }).click();
+  await expect(page.getByRole('navigation', { name: '导航路径' }).locator('[aria-current="page"]')).toHaveText('只练错题');
+});
+
 test('高考 scores in whole numbers (#140): Part = right / questions, no 0.88-point blanks shown', async ({ page }, info) => {
   await page.goto('/#/p/gkv/gkv-d002');
   await page.getByRole('tab', { name: /测验/ }).click();

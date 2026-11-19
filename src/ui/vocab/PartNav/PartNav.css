@@ -82,7 +82,8 @@
 .part-q.is-wrong { background: var(--ur-color-feedback-error-bg); border-color: var(--ur-color-feedback-error-bg); color: var(--ur-color-feedback-error); }
 .part-q.is-partial { background: var(--ur-color-background-card); border-color: var(--ur-color-feedback-warning); color: var(--ur-color-feedback-warning); }
 @media (hover: hover) and (pointer: fine) {
-  .part-nav button.part-card:hover { background: var(--ur-color-background-subtle); }
+  /* page number Default / Filled / Completed → Hover (19716:150464 …): the border turns brand/4, instantly (#153) */
+  .part-nav button.part-card:hover { border-color: var(--ur-color-brand-4); }
   .part-q:not(.is-answered):not(.is-correct):not(.is-partial):not(.is-wrong):hover { background: var(--ur-color-background-subtle); }
 }
 .part-nav :is(.part-card, .part-q):focus-visible { outline: var(--ur-stroke-strong) solid var(--ur-color-action-primary); outline-offset: var(--ur-space-2); }

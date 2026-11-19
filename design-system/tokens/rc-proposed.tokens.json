@@ -488,6 +488,15 @@
             "use": "禁用态（UniRead 组件各自定义禁用态）"
           }
         }
+      },
+      "nav-disabled": {
+        "$type": "number",
+        "$value": "0.3",
+        "$extensions": {
+          "rc": {
+            "use": "previous / next Disabled=yes (Figma 19706:143568 / 19706:143561): opacity 30% with the box/card shadow"
+          }
+        }
       }
     },
     "blur": {
@@ -631,19 +640,19 @@
   "effect": {
     "btn": {
       "$type": "shadow",
-      "$value": "box-shadow: 0px 2px 8px 0px rgba(29, 39, 81, 0.1);",
+      "$value": "box-shadow: 0px 4px 15px 0px rgba(29, 39, 81, 0.08);",
       "$extensions": {
         "rc": {
-          "use": "UniRead file effect style \"btn\" (key eadf458afdac205dd2aac9b3fcfab3c0d4929a2d), added by the designer after DS-2026-11-03; scan previous / next. Moves to uniread.tokens.json at the next ds-sync"
+          "use": "UniRead file effect style \"btn/btn-s\" (key eadf458afdac205dd2aac9b3fcfab3c0d4929a2d — the designer renamed \"btn\" and changed its value, read 2026-11-19); previous / next Default (Figma 19706:143564). Moves to uniread.tokens.json at the next ds-sync"
         }
       }
     },
     "btn-hover": {
       "$type": "shadow",
-      "$value": "box-shadow: 0px 2px 20px 0px rgba(29, 39, 81, 0.1);",
+      "$value": "box-shadow: 0px 6px 20px 0px rgba(29, 39, 81, 0.12);",
       "$extensions": {
         "rc": {
-          "use": "UniRead file effect style \"btn-hover\" (key 32a9567ef1f7af1cf326d06889b76453bfa087b7), as above; hover of previous / next"
+          "use": "UniRead file effect style \"btn/btn-s-hover\" (key 855d28efbdf733d1778b642216ac603d70bf04a8; replaced \"btn-hover\", read 2026-11-19); previous / next Hover (Figma 19706:143566), smart animate ease-out 300 ms"
         }
       }
     },
@@ -658,10 +667,19 @@
     },
     "btn-btn-s": {
       "$type": "shadow",
-      "$value": "box-shadow: 0px 2px 8px 0px rgba(29, 39, 81, 0.1);",
+      "$value": "box-shadow: 0px 4px 15px 0px rgba(29, 39, 81, 0.08);",
       "$extensions": {
         "rc": {
           "use": "UniRead file effect style \"btn/btn-s\", as above; btn-play Hover (Figma 19614:125149, #144)"
+        }
+      }
+    },
+    "btn-btn-s-hover": {
+      "$type": "shadow",
+      "$value": "box-shadow: 0px 6px 20px 0px rgba(29, 39, 81, 0.12);",
+      "$extensions": {
+        "rc": {
+          "use": "UniRead file effect style \"btn/btn-s-hover\" (key 855d28efbdf733d1778b642216ac603d70bf04a8), as above"
         }
       }
     },

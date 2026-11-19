@@ -21,6 +21,33 @@ test('playlist groups the papers by test', async ({ page }) => {
   await expect(page.locator('.test-score').first()).toHaveText('成绩：待完成所有考试');
 });
 
+test('#152 exam mode: the flag follows the current question text — also in a table row (KET Reading Part 2)', async ({ page }, info) => {
+  await page.goto('/#/p/ket1/ket1-t4-rw');
+  await page.getByRole('button', { name: /考试模式/ }).click();
+  await tab(page, /题目/);
+  // a stacked question: the flag sits right after the stem's last word, not at the right edge of the row
+  const gapAfterText = async () =>
+    page.locator('.q-prompt-aside').evaluate((aside) => {
+      const r = document.createRange();
+      const stem = aside.parentElement!;
+      r.setStart(stem, 0);
+      r.setEndBefore(aside);
+      const rects = [...r.getClientRects()];
+      const last = rects[rects.length - 1];
+      return aside.getBoundingClientRect().left - last.right;
+    });
+  await expect(page.locator('.q-stem .q-prompt-aside .flag-toggle')).toHaveCount(1);
+  expect(await gapAfterText()).toBeLessThan(16);
+  // Part 2 is a table: the flag is in the row of the current question (the one the footer highlights), after its text
+  await page.locator('.part-card[data-part="P2"]').click();
+  await expect(page.locator('.part-grid .q-prompt-aside .flag-toggle')).toHaveCount(1);
+  await expect(page.locator('.flag-toggle-float')).toHaveCount(0);
+  const current = (await page.locator('.part-card.is-current .part-q.is-current, .part-card.is-current .part-q[aria-current]').first().innerText()).trim();
+  await expect(page.locator('.part-grid-q').filter({ has: page.locator('.flag-toggle') })).toContainText(`${current}.`);
+  expect(await gapAfterText()).toBeLessThan(16);
+  await page.screenshot({ path: `.work/screens/${info.project.name}/ket-exam-flag-grid.png` });
+});
+
 test('listening, exam mode: picture options by tap, locked recording, report and transcript after submitting', async ({ page }) => {
   await page.goto('/#/p/ket1/ket1-t1-l');
   await page.getByRole('button', { name: /考试模式/ }).click();

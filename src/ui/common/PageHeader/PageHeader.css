@@ -9,9 +9,11 @@
   grid-template-columns: repeat(auto-fill, minmax(calc(var(--ur-space-80) * 2 + var(--ur-space-64) + var(--ur-space-2)), 1fr));
   gap: var(--ur-space-32) var(--ur-space-16);
 }
+/* #150: at least 4 columns from 1200 — the content is 1104 there (1200 − 2 × 48), so a card may shrink to 260
+   (4 × 260 + 3 × 20 = 1100); the drawn 266 at 1124 and 305 at 1604 are unchanged */
 @media (min-width: 1200px) {
   .playlist-grid {
-    grid-template-columns: repeat(auto-fill, minmax(calc(var(--ur-space-80) * 3 + var(--ur-space-24) + var(--ur-space-2)), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(calc(var(--ur-space-80) * 3 + var(--ur-space-20)), 1fr));
     gap: var(--ur-space-40) var(--ur-space-20);
   }
 }

@@ -2,6 +2,8 @@ import { scrollBehavior } from '@/lib/scroll';
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
 import { useTranslation } from 'react-i18next';
 import moreIcon from '@/assets/icons/more-horizontal.svg';
+import moreLeftIcon from '@/assets/icons/arrow-left-double.svg';
+import moreRightIcon from '@/assets/icons/arrow-right-double.svg';
 import { NavActionButton, NavArrow, type NavAction } from './NavButton';
 import './QuestionNav.css';
 
@@ -130,7 +132,10 @@ export function QuestionStrip({ current, count, children }: { current: number; c
 function StripMore({ side, count, label, onClick }: { side: 'left' | 'right'; count: number; label: string; onClick: () => void }) {
   return (
     <button type="button" className={`strip-more strip-more-${side}`} onClick={onClick} aria-label={label}>
-      <img src={moreIcon} alt="" />
+      <span className="strip-more-icon" aria-hidden>
+        <img className="is-default" src={moreIcon} alt="" />
+        <img className="is-hover" src={side === 'left' ? moreLeftIcon : moreRightIcon} alt="" />
+      </span>
       <span className="strip-more-count" aria-hidden>
         +{count}
       </span>

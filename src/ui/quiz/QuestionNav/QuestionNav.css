@@ -37,13 +37,21 @@
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   border: none; border-radius: var(--ur-radius-s); background: transparent; cursor: pointer;
 }
-.strip-more img { width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); flex: none; }
+/* the icon: Default "···" (more-horizontal), Hover the double arrow of its side — the two cross-fade (smart animate
+   between different layers), ease-out 300 ms */
+.strip-more-icon { position: relative; width: var(--ur-size-icon-m); height: var(--ur-size-icon-m); flex: none; }
+.strip-more-icon img { position: absolute; inset: 0; width: 100%; height: 100%; transition: opacity .3s ease-out; }
+.strip-more-icon .is-hover { opacity: 0; }
 .strip-more-count {
   color: var(--ur-paint-customization-grey-10); opacity: .6; font-variant-numeric: tabular-nums;
   font-size: var(--ur-text-font-system-xs-medium-size); line-height: var(--ur-text-font-system-xs-medium-line-height);
   font-weight: var(--ur-text-font-system-xs-medium-weight);
 }
-@media (hover: hover) and (pointer: fine) { .strip-more:hover { background: var(--ur-color-background-subtle); } }
+@media (hover: hover) and (pointer: fine) {
+  .strip-more:hover .strip-more-icon .is-default { opacity: 0; }
+  .strip-more:hover .strip-more-icon .is-hover { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .strip-more-icon img { transition: none; } }
 .strip-more:focus-visible { outline: var(--ur-stroke-strong) solid var(--ur-color-action-primary); outline-offset: calc(-1 * var(--ur-stroke-strong)); }
 
 /* phone-width cards: the numbers shrink (ui/PartPager), the arrows keep their 44 px tap target */
